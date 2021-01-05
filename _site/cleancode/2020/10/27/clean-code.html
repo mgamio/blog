@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Clean Code | CODER SITE for developers</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Clean Code" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Clean code can be read and enhanced by a developer other than its original author. This kind of practice Robert C Martin introduced it." />
+<meta property="og:description" content="Clean code can be read and enhanced by a developer other than its original author. This kind of practice Robert C Martin introduced it." />
+<link rel="canonical" href="https://codersite.dev/cleancode/2020/10/27/clean-code.html" />
+<meta property="og:url" content="https://codersite.dev/cleancode/2020/10/27/clean-code.html" />
+<meta property="og:site_name" content="CODER SITE for developers" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-27T14:18:45+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Clean Code" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/cleancode/2020/10/27/clean-code.html"},"description":"Clean code can be read and enhanced by a developer other than its original author. This kind of practice Robert C Martin introduced it.","url":"https://codersite.dev/cleancode/2020/10/27/clean-code.html","headline":"Clean Code","dateModified":"2020-10-27T14:18:45+01:00","datePublished":"2020-10-27T14:18:45+01:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://codersite.dev/feed.xml" title="CODER SITE for developers" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CODER SITE for developers</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/book/">Book</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Clean Code</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-10-27T14:18:45+01:00" itemprop="datePublished">Oct 27, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Clean code can be read and enhanced by a developer other than its original author. This kind of practice <a href="https://amzn.to/3rAejgU" target="_blank">Robert C Martin</a> introduced it.</p>
+
+<p>If you want to be a better programmer, you must follow these recommendations..</p>
+
+<h2 id="clean-code-has-intention-revealing-names">Clean Code has Intention-Revealing names</h2>
+
+<p>Names reveal intent. Someone who reads your code must understand the purpose of your variable, function, or class.</p>
+
+<p>Real situation:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">int</span> <span class="n">sId</span><span class="p">;</span> <span class="sr">//su</span><span class="n">pplier</span> <span class="no">Id</span>
+<span class="n">int</span> <span class="n">artDelPrice</span><span class="p">;</span></code></pre></figure>
+
+<p>It must be refactored to this:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">int</span> <span class="n">supplierId</span><span class="p">;</span>
+<span class="n">int</span> <span class="n">articleDeliveredPrice</span><span class="p">;</span></code></pre></figure>
+
+<p>Even with external dependencies:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">private</span> <span class="no">Z_E2F_RS_Result</span> <span class="ss">e2fResult: </span><span class="sr">//in</span><span class="n">gredients</span> <span class="n">recordset</span></code></pre></figure>
+
+<p>It must be refactored to this:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">private</span> <span class="no">Z_E2F_RS_Result</span> <span class="n">ingredients</span><span class="p">:</span></code></pre></figure>
+
+<p>Imagine that we dont have the //ingredients comment in e2fResult variable. Then, further in any part of our code, when we try to process this variable, we have the following sentence:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">e2f</span> <span class="o">=</span> <span class="n">e2fResult</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span></code></pre></figure>
+
+<p>And we don’t know what does e2f means!. Well, someone suggests asking the person responsible for this code. But that guy is not at the office. Well, send it an email, and he is on holiday!.</p>
+
+<p>But if instead we adopt names which reveal intent from beginning, we could avoid these catastrophic scenarios.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ingredient</span> <span class="o">=</span> <span class="n">ingredients</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span></code></pre></figure>
+
+<h2 id="clean-code-tells-a-story">Clean Code tells a story</h2>
+
+<p>When we try to fix bugs, when analyzing the secuence of actions (functions, methods), we realize the code does not communicate well the logical flow of these actions. It’s a nightmare to decode the meaning of these actions.</p>
+
+<p>This will always happen because our initial design based on the initial requirements change over time. As developers, we are responsible for refactoring our code to made it a simple story that everybody can understand. For example, look at the following code:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">ACMEWebServiceClient</span><span class="p">.</span><span class="nf">login</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">process</span><span class="p">.</span><span class="nf">equals</span><span class="p">(</span><span class="s2">"core"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="no">ACMEWebServiceClient</span><span class="p">.</span><span class="nf">transfer_buyersCoreData_to_ACME</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">process</span><span class="p">.</span><span class="nf">equals</span><span class="p">(</span><span class="s2">"status"</span><span class="p">))</span> <span class="p">{</span>
+    <span class="no">ACMEWebServiceClient</span><span class="p">.</span><span class="nf">transfer_buyersStatusChanges_to_ACME</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">process</span><span class="p">.</span><span class="nf">equals</span><span class="p">(</span><span class="s2">"events"</span><span class="p">))</span> <span class="p">{</span>
+    <span class="no">ACMEWebServiceClient</span><span class="p">.</span><span class="nf">transfer_events_to_ACME</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="no">ACMEServiceClient</span><span class="p">.</span><span class="nf">logout</span><span class="p">();</span></code></pre></figure>
+
+<p>Other recommendations of clean code are:</p>
+
+<ul>
+  <li>Clean Code separates levels of detail</li>
+  <li>Clean Code needs a few comments</li>
+  <li>Clean Code has small methods</li>
+  <li>Clean Code has Command/Query separation</li>
+</ul>
+
+<p>Images/PDF examples in markdown:</p>
+
+<p>… you can <a href="/assets/files/javaCodingPDF.pdf">get the PDF</a> directly.</p>
+
+<p>… which is shown in the screenshot below:</p>
+
+<p><img src="/assets/images/basket.jpg" alt="My helpful screenshot" class="img-responsive" height="50%" width="50%" /></p>
+
+<p>You can see a lot of typical algorithms implemented with Clean Code principles in the following link:</p>
+
+<iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen="" style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;preview=inline&amp;linkCode=kpe&amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;tag=codersite20-20"></iframe>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+
+
+  </div><a class="u-url" href="/cleancode/2020/10/27/clean-code.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CODER SITE for developers</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CODER SITE for developers</li><li><a class="u-email" href="mailto:codersitedev@gmail.com">codersitedev@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mgamio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mgamio</span></a></li><li><a href="https://www.twitter.com/MoisesGamio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">MoisesGamio</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description. This is my blog site to share my knowledge and experience</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
