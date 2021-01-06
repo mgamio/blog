@@ -4,15 +4,20 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I was born in Lima, Peru, where I studied for 5 years and obtained a degree in System Engineering. I have been working 20 years as a Software Engineer for several companies from different economic sectors such as Government, Financial, Industrial, Educative, Consulting, Retail, and Research. I have been using several technological tools such as Java, C, Cobol, C#, Visual Basic, PHP, and JScript, in operating systems such as Windows, Linux, Unix, and RISC 6000, in databases such as SQL Server, Oracle, MySQL, DB2, and Lotus Notes. My tasks have been related to Software Development, Stages of Analysis, Design, Testing, and Deployment.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+During 8 years, I worked as a System Analyst for the Bank Sector. Since 2014 I am working as a Software Engineer in a B2B company in Berlin, Germany.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+This is my blog site to share my knowledge and experience. At the moment, I am passionate about the following things:
 
+- Clean Code
+- Spring Framework
+- Web Services
+- Automated testing
+- Software Design
+- Software Architecture
+- Distributed Systems
+- Data Structure and Algorithms
+- Learning new technologies
 
-[jekyll-organization]: https://github.com/jekyll
+Connect with Me: [linkedin](https://www.linkedin.com/in/moises-gamio-b4370210/){:target="_blank"}
