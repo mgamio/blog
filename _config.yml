@@ -37,7 +37,7 @@ navbar-links:
   Author's home: "https://deanattali.com"
   
 # Build settings
-theme: minima
+theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
 
