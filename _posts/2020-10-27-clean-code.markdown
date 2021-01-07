@@ -80,22 +80,7 @@ Other recommendations of clean code are:
 * Clean Code has small methods
 * Clean Code has Command/Query separation
 
-Images/PDF examples in markdown:
-
-... you can [get the PDF](/assets/files/javaCodingPDF.pdf) directly.
-
-... which is shown in the screenshot below:
-
-![My helpful screenshot](/assets/images/basket.jpg){:class="img-responsive"}{:height="50%" width="50%"}
-
-
 You can see a lot of typical algorithms implemented with Clean Code principles in the following link:
 
 <iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&preview=inline&linkCode=kpe&ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&tag=codersite20-20" ></iframe>
 
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/

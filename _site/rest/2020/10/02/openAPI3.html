@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Documenting a SpringBoot REST API with OpenAPI 3 | CODER SITE for developers</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Documenting a SpringBoot REST API with OpenAPI 3" />
+<meta name="author" content="Moises Gamio" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing." />
+<meta property="og:description" content="The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing." />
+<link rel="canonical" href="localhost:4000/rest/2020/10/02/openAPI3.html" />
+<meta property="og:url" content="localhost:4000/rest/2020/10/02/openAPI3.html" />
+<meta property="og:site_name" content="CODER SITE for developers" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-02T15:18:45+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Documenting a SpringBoot REST API with OpenAPI 3" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"localhost:4000/rest/2020/10/02/openAPI3.html","headline":"Documenting a SpringBoot REST API with OpenAPI 3","dateModified":"2020-10-02T15:18:45+02:00","datePublished":"2020-10-02T15:18:45+02:00","author":{"@type":"Person","name":"Moises Gamio"},"mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/rest/2020/10/02/openAPI3.html"},"description":"The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="localhost:4000/feed.xml" title="CODER SITE for developers" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CODER SITE for developers</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/book/">Book</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Documenting a SpringBoot REST API with OpenAPI 3</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-10-02T15:18:45+02:00" itemprop="datePublished">Oct 2, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.</p>
+
+<p>To learn more about REST see <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">Representational State Transfer</a>.</p>
+
+<p>Prerequisites:</p>
+
+<ul>
+  <li>Java 8.x</li>
+  <li>Maven 3.x</li>
+</ul>
+
+<h2 id="steps">Steps</h2>
+
+<h3 id="1-create-the-maven-project">1. Create the maven project</h3>
+
+<p>Go to <a href="https://start.spring.io/" target="_blank">spring initializr</a> and add the following dependencies:</p>
+
+<p><img src="/assets/images/start.spring.io.jpg" alt="spring initializr" class="img-responsive" height="60%" width="70%" /></p>
+
+<p>Once you generate the JAR maven project, open it in your favorite IDE.</p>
+
+<p>Below, you can see the pom.xml to use:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="p">?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"UTF-8"</span><span class="p">?</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">project</span> <span class="n">xmlns</span><span class="o">=</span><span class="s2">"http://maven.apache.org/POM/4.0.0"</span> <span class="n">xmlns</span><span class="ss">:xsi</span><span class="o">=</span><span class="s2">"http://www.w3.org/2001/XMLSchema-instance"</span>
+	<span class="n">xsi</span><span class="ss">:schemaLocation</span><span class="o">=</span><span class="s2">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">modelVersion</span><span class="o">&gt;</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">0</span><span class="o">&lt;</span><span class="sr">/modelVersion&gt;
+	&lt;parent&gt;
+		&lt;groupId&gt;org.springframework.boot&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">parent</span><span class="o">&lt;</span><span class="sr">/artifactId&gt;
+		&lt;version&gt;2.3.4.RELEASE&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="n">relativePath</span><span class="o">/&gt;</span> <span class="o">&lt;!--</span> <span class="n">lookup</span> <span class="n">parent</span> <span class="n">from</span> <span class="n">repository</span> <span class="o">--&gt;</span>
+	<span class="o">&lt;</span><span class="sr">/parent&gt;
+	&lt;groupId&gt;com&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">openapi</span><span class="o">&lt;</span><span class="sr">/artifactId&gt;
+	&lt;version&gt;0.0.1-SNAPSHOT&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="nb">name</span><span class="o">&gt;</span><span class="n">openapi</span><span class="o">&lt;</span><span class="sr">/name&gt;
+	&lt;description&gt;openapi in Spring Boot&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">properties</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="nf">version</span><span class="o">&gt;</span><span class="mf">1.8</span><span class="o">&lt;</span><span class="sr">/java.version&gt;
+	&lt;/</span><span class="n">properties</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">dependencies</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">boot</span><span class="o">&lt;</span><span class="sr">/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-web&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="sr">/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="nb">test</span><span class="o">&lt;</span><span class="sr">/artifactId&gt;
+			&lt;scope&gt;test&lt;/s</span><span class="n">cope</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="n">exclusions</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="n">exclusion</span><span class="o">&gt;</span>
+					<span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="nf">junit</span><span class="p">.</span><span class="nf">vintage</span><span class="o">&lt;</span><span class="sr">/groupId&gt;
+					&lt;artifactId&gt;junit-vintage-engine&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="sr">/exclusion&gt;
+			&lt;/ex</span><span class="n">clusions</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="sr">/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">validation</span><span class="o">&lt;</span><span class="sr">/artifactId&gt;
+		&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">boot</span><span class="o">&lt;</span><span class="sr">/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="sr">/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;com.h2database&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">h2</span><span class="o">&lt;</span><span class="sr">/artifactId&gt;
+			&lt;scope&gt;runtime&lt;/s</span><span class="n">cope</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="sr">/dependency&gt;
+	&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">build</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="n">plugins</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="n">plugin</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">boot</span><span class="o">&lt;</span><span class="sr">/groupId&gt;
+				&lt;artifactId&gt;spring-boot-maven-plugin&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="sr">/plugin&gt;
+		&lt;/</span><span class="n">plugins</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="sr">/build&gt;
+&lt;/</span><span class="n">project</span><span class="o">&gt;</span></code></pre></figure>
+
+<p>To generate automatically the API documentation, we add the <a href="https://springdoc.org/" target="_blank">springdoc-openapi-ui</a> dependency to our pom.xml:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="nf">springdoc</span><span class="o">&lt;</span><span class="sr">/groupId&gt;
+   &lt;artifactId&gt;springdoc-openapi-ui&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">9</span><span class="o">&lt;</span><span class="sr">/version&gt;
+&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span></code></pre></figure>
+
+<h3 id="2-configure-h2-database">2. Configure H2 Database</h3>
+
+<p>The H2 in-memory database is volatile, which means data will be lost when we restart the application. We add the following properties to the application.properties file.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">spring</span><span class="p">.</span><span class="nf">datasource</span><span class="p">.</span><span class="nf">url</span><span class="o">=</span><span class="n">jdbc</span><span class="ss">:h2:mem:testdb</span>
+<span class="n">spring</span><span class="p">.</span><span class="nf">datasource</span><span class="p">.</span><span class="nf">driverClassName</span><span class="o">=</span><span class="n">org</span><span class="p">.</span><span class="nf">h2</span><span class="o">.</span><span class="no">Driver</span>
+<span class="n">spring</span><span class="p">.</span><span class="nf">datasource</span><span class="p">.</span><span class="nf">username</span><span class="o">=</span><span class="n">sa</span>
+<span class="n">spring</span><span class="p">.</span><span class="nf">datasource</span><span class="p">.</span><span class="nf">password</span><span class="o">=</span><span class="n">password</span>
+<span class="n">spring</span><span class="p">.</span><span class="nf">jpa</span><span class="p">.</span><span class="nf">database</span><span class="o">-</span><span class="n">platform</span><span class="o">=</span><span class="n">org</span><span class="p">.</span><span class="nf">hibernate</span><span class="p">.</span><span class="nf">dialect</span><span class="o">.</span><span class="no">H2Dialect</span></code></pre></figure>
+
+<h3 id="3-create-jpa-entity--bookjava">3. Create JPA Entity – Book.java</h3>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">model</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">com</span><span class="p">.</span><span class="nf">fasterxml</span><span class="p">.</span><span class="nf">jackson</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">JsonProperty</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">annotations</span><span class="p">.</span><span class="nf">media</span><span class="o">.</span><span class="no">Schema</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">javax</span><span class="p">.</span><span class="nf">persistence</span><span class="p">.</span><span class="nf">*</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">javax</span><span class="p">.</span><span class="nf">validation</span><span class="p">.</span><span class="nf">constraints</span><span class="o">.</span><span class="no">NotBlank</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">javax</span><span class="p">.</span><span class="nf">validation</span><span class="p">.</span><span class="nf">constraints</span><span class="o">.</span><span class="no">Size</span><span class="p">;</span>
+<span class="vi">@Schema</span><span class="p">(</span><span class="n">description</span> <span class="o">=</span> <span class="s2">"Book object"</span><span class="p">)</span>
+<span class="vi">@Entity</span>
+<span class="vi">@Table</span><span class="p">(</span><span class="nb">name</span><span class="o">=</span><span class="s2">"books"</span><span class="p">)</span>
+<span class="kp">public</span> <span class="k">class</span> <span class="nc">Book</span> <span class="p">{</span>
+  <span class="vi">@JsonProperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">"id"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kp">true</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="vi">@Schema</span><span class="p">(</span><span class="n">description</span> <span class="o">=</span> <span class="s2">"Unique identifier of the Book."</span><span class="p">,</span>
+      <span class="n">example</span> <span class="o">=</span> <span class="s2">"1"</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span>
+  <span class="kp">private</span> <span class="n">long</span> <span class="nb">id</span><span class="p">;</span>
+  <span class="vi">@JsonProperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">"title"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kp">true</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+  <span class="vi">@Schema</span><span class="p">(</span><span class="n">description</span> <span class="o">=</span> <span class="s2">"Name of the title."</span><span class="p">,</span>
+      <span class="n">example</span> <span class="o">=</span> <span class="s2">"Java"</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span>
+  <span class="vi">@NotBlank</span>
+  <span class="vi">@Size</span><span class="p">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+  <span class="kp">private</span> <span class="no">String</span> <span class="n">title</span><span class="p">;</span>
+  <span class="vi">@JsonProperty</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">"author"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kp">true</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span>
+  <span class="vi">@Schema</span><span class="p">(</span><span class="n">description</span> <span class="o">=</span> <span class="s2">"Name of the author."</span><span class="p">,</span>
+      <span class="n">example</span> <span class="o">=</span> <span class="s2">"Max Abi"</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span>
+  <span class="vi">@NotBlank</span>
+  <span class="vi">@Size</span><span class="p">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span>
+  <span class="kp">private</span> <span class="no">String</span> <span class="n">author</span><span class="p">;</span>
+  <span class="kp">public</span>  <span class="no">Book</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="vi">@Id</span>
+  <span class="vi">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="no">GenerationType</span><span class="o">.</span><span class="no">AUTO</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="n">long</span> <span class="n">getId</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">id</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kp">public</span> <span class="n">void</span> <span class="n">setId</span><span class="p">(</span><span class="n">long</span> <span class="nb">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="p">.</span><span class="nf">id</span> <span class="o">=</span> <span class="nb">id</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="vi">@Column</span><span class="p">(</span><span class="nb">name</span> <span class="o">=</span> <span class="s2">"title"</span><span class="p">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="no">String</span> <span class="n">getTitle</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">title</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kp">public</span> <span class="n">void</span> <span class="n">setTitle</span><span class="p">(</span><span class="no">String</span> <span class="n">title</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="p">.</span><span class="nf">title</span> <span class="o">=</span> <span class="n">title</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="vi">@Column</span><span class="p">(</span><span class="nb">name</span> <span class="o">=</span> <span class="s2">"author"</span><span class="p">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="no">String</span> <span class="n">getAuthor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">author</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kp">public</span> <span class="n">void</span> <span class="n">setAuthor</span><span class="p">(</span><span class="no">String</span> <span class="n">author</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="p">.</span><span class="nf">author</span> <span class="o">=</span> <span class="n">author</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="4-create-a-string-data-repository--bookrepositoryjava">4. Create a String Data Repository – BookRepository.java</h3>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">respository</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">model</span><span class="o">.</span><span class="no">Book</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">data</span><span class="p">.</span><span class="nf">jpa</span><span class="p">.</span><span class="nf">repository</span><span class="o">.</span><span class="no">JpaRepository</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">stereotype</span><span class="o">.</span><span class="no">Repository</span><span class="p">;</span>
+<span class="vi">@Repository</span>
+<span class="kp">public</span> <span class="n">interface</span> <span class="no">BookRepository</span> <span class="n">extends</span> <span class="no">JpaRepository</span><span class="o">&lt;</span><span class="no">Book</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="p">{}</span></code></pre></figure>
+
+<h3 id="5-create-spring-rest-controller-interface--bookapi">5. Create Spring Rest Controller Interface – BookApi</h3>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">controller</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">model</span><span class="o">.</span><span class="no">Book</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">annotations</span><span class="o">.</span><span class="no">Operation</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">annotations</span><span class="o">.</span><span class="no">Parameter</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">annotations</span><span class="p">.</span><span class="nf">media</span><span class="o">.</span><span class="no">Content</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">annotations</span><span class="p">.</span><span class="nf">media</span><span class="o">.</span><span class="no">Schema</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">annotations</span><span class="p">.</span><span class="nf">responses</span><span class="o">.</span><span class="no">ApiResponse</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">annotations</span><span class="p">.</span><span class="nf">responses</span><span class="o">.</span><span class="no">ApiResponses</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">annotations</span><span class="p">.</span><span class="nf">tags</span><span class="o">.</span><span class="no">Tag</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">http</span><span class="o">.</span><span class="no">HttpStatus</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">http</span><span class="o">.</span><span class="no">ResponseEntity</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">web</span><span class="p">.</span><span class="nf">bind</span><span class="p">.</span><span class="nf">annotation</span><span class="p">.</span><span class="nf">*</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">javax</span><span class="p">.</span><span class="nf">validation</span><span class="o">.</span><span class="no">Valid</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">javax</span><span class="p">.</span><span class="nf">validation</span><span class="p">.</span><span class="nf">constraints</span><span class="o">.</span><span class="no">NotNull</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="nf">util</span><span class="o">.</span><span class="no">Collection</span><span class="p">;</span>
+<span class="vi">@Tag</span><span class="p">(</span><span class="nb">name</span> <span class="o">=</span> <span class="s2">"book"</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">"the book API"</span><span class="p">)</span>
+<span class="vi">@RequestMapping</span><span class="p">(</span><span class="s2">"/api/v1/books"</span><span class="p">)</span>
+<span class="kp">public</span> <span class="n">interface</span> <span class="no">BookApi</span> <span class="p">{</span>
+  <span class="vi">@Operation</span><span class="p">(</span><span class="n">summary</span> <span class="o">=</span> <span class="s2">"Find book by ID"</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">"Returns a single book"</span><span class="p">,</span> <span class="n">tags</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"book"</span> <span class="p">})</span>
+  <span class="vi">@ApiResponses</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="vi">@ApiResponse</span><span class="p">(</span><span class="n">responseCode</span> <span class="o">=</span> <span class="s2">"200"</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">"successful operation"</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="vi">@Content</span><span class="p">(</span><span class="n">schema</span> <span class="o">=</span> <span class="vi">@Schema</span><span class="p">(</span><span class="n">implementation</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">class</span><span class="p">))),</span>
+      <span class="vi">@ApiResponse</span><span class="p">(</span><span class="n">responseCode</span> <span class="o">=</span> <span class="s2">"400"</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">"Invalid ID supplied"</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="vi">@Content</span><span class="p">),</span>
+      <span class="vi">@ApiResponse</span><span class="p">(</span><span class="n">responseCode</span> <span class="o">=</span> <span class="s2">"404"</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">"Book not found"</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="vi">@Content</span><span class="p">)</span> <span class="p">})</span>
+  <span class="vi">@RequestMapping</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s2">"/{id}"</span><span class="p">,</span> <span class="n">produces</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"application/json"</span><span class="p">,</span>  <span class="s2">"application/vnd.api+json"</span><span class="p">},</span> <span class="nb">method</span> <span class="o">=</span> <span class="no">RequestMethod</span><span class="o">.</span><span class="no">GET</span><span class="p">)</span>
+  <span class="vi">@ResponseStatus</span><span class="p">(</span><span class="no">HttpStatus</span><span class="o">.</span><span class="no">OK</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="no">ResponseEntity</span><span class="o">&lt;</span><span class="no">Book</span><span class="o">&gt;</span> <span class="n">findById</span><span class="p">(</span>
+      <span class="vi">@Parameter</span><span class="p">(</span><span class="n">description</span> <span class="o">=</span> <span class="s2">"ID of book"</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span>
+      <span class="vi">@PathVariable</span> <span class="n">long</span> <span class="nb">id</span><span class="p">,</span>
+      <span class="vi">@NotNull</span> <span class="vi">@Parameter</span><span class="p">(</span><span class="n">description</span> <span class="o">=</span> <span class="s2">"select which kind of data to fetch"</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span>
+      <span class="vi">@Valid</span> <span class="vi">@RequestHeader</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">"bookAuthorization"</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span> <span class="no">String</span> <span class="n">bookAuthorization</span><span class="p">)</span>
+      <span class="n">throws</span> <span class="no">Exception</span><span class="p">;</span>
+  <span class="vi">@Operation</span><span class="p">(</span><span class="n">summary</span> <span class="o">=</span> <span class="s2">"Get books"</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">"Returns a books collection"</span><span class="p">,</span> <span class="n">tags</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"book"</span> <span class="p">})</span>
+  <span class="vi">@GetMapping</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+  <span class="vi">@ResponseStatus</span><span class="p">(</span><span class="no">HttpStatus</span><span class="o">.</span><span class="no">OK</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="no">Collection</span><span class="o">&lt;</span><span class="no">Book</span><span class="o">&gt;</span> <span class="n">findBooks</span><span class="p">();</span>
+  <span class="vi">@PutMapping</span><span class="p">(</span><span class="s2">"/{id}"</span><span class="p">)</span>
+  <span class="vi">@ResponseStatus</span><span class="p">(</span><span class="no">HttpStatus</span><span class="o">.</span><span class="no">OK</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="no">Book</span> <span class="n">updateBook</span><span class="p">(</span><span class="vi">@PathVariable</span><span class="p">(</span><span class="s2">"id"</span><span class="p">)</span> <span class="n">final</span> <span class="no">String</span> <span class="nb">id</span><span class="p">,</span> <span class="vi">@RequestBody</span> <span class="n">final</span> <span class="no">Book</span> <span class="n">book</span><span class="p">);</span>
+  <span class="vi">@PatchMapping</span><span class="p">(</span><span class="s2">"/{id}"</span><span class="p">)</span>
+  <span class="vi">@ResponseStatus</span><span class="p">(</span><span class="no">HttpStatus</span><span class="o">.</span><span class="no">OK</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="no">Book</span> <span class="n">patchBook</span><span class="p">(</span><span class="vi">@PathVariable</span><span class="p">(</span><span class="s2">"id"</span><span class="p">)</span> <span class="n">final</span> <span class="no">String</span> <span class="nb">id</span><span class="p">,</span> <span class="vi">@RequestBody</span> <span class="n">final</span> <span class="no">Book</span> <span class="n">book</span><span class="p">);</span>
+  <span class="vi">@Operation</span><span class="p">(</span><span class="n">summary</span> <span class="o">=</span> <span class="s2">"Create book"</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s2">"This can only be done by the logged in book."</span><span class="p">,</span> <span class="n">tags</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"book"</span> <span class="p">})</span>
+  <span class="vi">@ApiResponses</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="p">{</span> <span class="vi">@ApiResponse</span><span class="p">(</span><span class="n">description</span> <span class="o">=</span> <span class="s2">"successful operation"</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="p">{</span> <span class="vi">@Content</span><span class="p">(</span><span class="n">mediaType</span> <span class="o">=</span> <span class="s2">"application/json"</span><span class="p">,</span> <span class="n">schema</span> <span class="o">=</span> <span class="vi">@Schema</span><span class="p">(</span><span class="n">implementation</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">class</span><span class="p">)),</span> <span class="vi">@Content</span><span class="p">(</span><span class="n">mediaType</span> <span class="o">=</span> <span class="s2">"application/xml"</span><span class="p">,</span> <span class="n">schema</span> <span class="o">=</span> <span class="vi">@Schema</span><span class="p">(</span><span class="n">implementation</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">class</span><span class="p">))</span> <span class="p">})</span> <span class="p">})</span>
+  <span class="vi">@PostMapping</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s2">"/"</span><span class="p">,</span> <span class="n">consumes</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"application/json"</span><span class="p">,</span> <span class="s2">"application/xml"</span><span class="p">,</span> <span class="s2">"application/x-www-form-urlencoded"</span> <span class="p">})</span>
+  <span class="vi">@ResponseStatus</span><span class="p">(</span><span class="no">HttpStatus</span><span class="o">.</span><span class="no">CREATED</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="no">ResponseEntity</span><span class="o">&lt;</span><span class="no">Book</span><span class="o">&gt;</span> <span class="n">postBook</span><span class="p">(</span>
+      <span class="vi">@NotNull</span>
+      <span class="vi">@Parameter</span><span class="p">(</span><span class="n">description</span> <span class="o">=</span> <span class="s2">"Created book object"</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span>
+      <span class="vi">@Valid</span> <span class="vi">@RequestBody</span> <span class="no">Book</span> <span class="n">body</span><span class="p">,</span>
+      <span class="vi">@NotNull</span> <span class="vi">@Parameter</span><span class="p">(</span><span class="n">description</span> <span class="o">=</span> <span class="s2">"select which kind of data to fetch"</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span>
+      <span class="vi">@Valid</span> <span class="vi">@RequestHeader</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">"bookAuthorization"</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span> <span class="no">String</span> <span class="n">bookAuthorization</span><span class="p">)</span>
+      <span class="n">throws</span> <span class="no">Exception</span><span class="p">;</span>
+  <span class="vi">@RequestMapping</span><span class="p">(</span><span class="nb">method</span> <span class="o">=</span> <span class="no">RequestMethod</span><span class="o">.</span><span class="no">HEAD</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s2">"/"</span><span class="p">)</span>
+  <span class="vi">@ResponseStatus</span><span class="p">(</span><span class="no">HttpStatus</span><span class="o">.</span><span class="no">OK</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="no">Book</span> <span class="n">headBook</span><span class="p">();</span>
+  <span class="vi">@DeleteMapping</span><span class="p">(</span><span class="s2">"/{id}"</span><span class="p">)</span>
+  <span class="vi">@ResponseStatus</span><span class="p">(</span><span class="no">HttpStatus</span><span class="o">.</span><span class="no">OK</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="n">long</span> <span class="n">deleteBook</span><span class="p">(</span><span class="vi">@PathVariable</span> <span class="n">final</span> <span class="n">long</span> <span class="nb">id</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="6-create-spring-rest-controller-implementation--bookapicontrollerjava">6. Create Spring Rest Controller Implementation – BookApiController.java</h3>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">controller</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="nf">util</span><span class="o">.</span><span class="no">Collection</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">exception</span><span class="o">.</span><span class="no">BookNotFoundException</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">model</span><span class="o">.</span><span class="no">Book</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">respository</span><span class="o">.</span><span class="no">BookRepository</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">beans</span><span class="p">.</span><span class="nf">factory</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">Autowired</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">http</span><span class="o">.</span><span class="no">HttpStatus</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">http</span><span class="o">.</span><span class="no">ResponseEntity</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">web</span><span class="p">.</span><span class="nf">bind</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">DeleteMapping</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">web</span><span class="p">.</span><span class="nf">bind</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">PatchMapping</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">web</span><span class="p">.</span><span class="nf">bind</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">PathVariable</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">web</span><span class="p">.</span><span class="nf">bind</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">PutMapping</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">web</span><span class="p">.</span><span class="nf">bind</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">RequestBody</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">web</span><span class="p">.</span><span class="nf">bind</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">RequestMapping</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">web</span><span class="p">.</span><span class="nf">bind</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">RequestMethod</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">web</span><span class="p">.</span><span class="nf">bind</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">ResponseStatus</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">web</span><span class="p">.</span><span class="nf">bind</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">RestController</span><span class="p">;</span>
+<span class="vi">@RestController</span>
+<span class="kp">public</span> <span class="k">class</span> <span class="nc">BookApiController</span> <span class="n">implements</span> <span class="no">BookApi</span> <span class="p">{</span>
+  <span class="vi">@Autowired</span>
+  <span class="kp">private</span> <span class="no">BookRepository</span> <span class="n">repository</span><span class="p">;</span>
+  <span class="vi">@Override</span>
+  <span class="kp">public</span> <span class="no">ResponseEntity</span><span class="o">&lt;</span><span class="no">Book</span><span class="o">&gt;</span> <span class="n">findById</span><span class="p">(</span>
+      <span class="n">long</span> <span class="nb">id</span><span class="p">,</span>
+      <span class="no">String</span> <span class="n">bookAuthorization</span><span class="p">)</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
+    <span class="no">Book</span> <span class="n">book</span> <span class="o">=</span> <span class="n">repository</span><span class="p">.</span><span class="nf">findById</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+        <span class="p">.</span><span class="nf">orElseThrow</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="n">new</span> <span class="no">BookNotFoundException</span><span class="p">(</span><span class="s2">"Employee not found for this id :: "</span> <span class="o">+</span> <span class="nb">id</span><span class="p">));</span>
+    <span class="k">return</span> <span class="no">ResponseEntity</span><span class="p">.</span><span class="nf">ok</span><span class="p">().</span><span class="nf">body</span><span class="p">(</span><span class="n">book</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="vi">@Override</span>
+  <span class="kp">public</span> <span class="no">Collection</span><span class="o">&lt;</span><span class="no">Book</span><span class="o">&gt;</span> <span class="n">findBooks</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">repository</span><span class="p">.</span><span class="nf">findAll</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="vi">@PutMapping</span><span class="p">(</span><span class="s2">"/{id}"</span><span class="p">)</span>
+  <span class="vi">@ResponseStatus</span><span class="p">(</span><span class="no">HttpStatus</span><span class="o">.</span><span class="no">OK</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="no">Book</span> <span class="n">updateBook</span><span class="p">(</span><span class="vi">@PathVariable</span><span class="p">(</span><span class="s2">"id"</span><span class="p">)</span> <span class="n">final</span> <span class="no">String</span> <span class="nb">id</span><span class="p">,</span> <span class="vi">@RequestBody</span> <span class="n">final</span> <span class="no">Book</span> <span class="n">book</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">book</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="vi">@PatchMapping</span><span class="p">(</span><span class="s2">"/{id}"</span><span class="p">)</span>
+  <span class="vi">@ResponseStatus</span><span class="p">(</span><span class="no">HttpStatus</span><span class="o">.</span><span class="no">OK</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="no">Book</span> <span class="n">patchBook</span><span class="p">(</span><span class="vi">@PathVariable</span><span class="p">(</span><span class="s2">"id"</span><span class="p">)</span> <span class="n">final</span> <span class="no">String</span> <span class="nb">id</span><span class="p">,</span> <span class="vi">@RequestBody</span> <span class="n">final</span> <span class="no">Book</span> <span class="n">book</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">book</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="vi">@Override</span>
+  <span class="kp">public</span> <span class="no">ResponseEntity</span><span class="o">&lt;</span><span class="no">Book</span><span class="o">&gt;</span> <span class="n">postBook</span><span class="p">(</span>
+      <span class="no">Book</span> <span class="n">body</span><span class="p">,</span>
+      <span class="no">String</span> <span class="n">bookAuthorization</span><span class="p">)</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">new</span> <span class="no">ResponseEntity</span><span class="o">&lt;</span><span class="no">Book</span><span class="o">&gt;</span><span class="p">(</span><span class="n">repository</span><span class="p">.</span><span class="nf">save</span><span class="p">(</span><span class="n">body</span><span class="p">),</span> <span class="no">HttpStatus</span><span class="o">.</span><span class="no">CREATED</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="vi">@RequestMapping</span><span class="p">(</span><span class="nb">method</span> <span class="o">=</span> <span class="no">RequestMethod</span><span class="o">.</span><span class="no">HEAD</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s2">"/"</span><span class="p">)</span>
+  <span class="vi">@ResponseStatus</span><span class="p">(</span><span class="no">HttpStatus</span><span class="o">.</span><span class="no">OK</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="no">Book</span> <span class="n">headBook</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">new</span> <span class="no">Book</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="vi">@DeleteMapping</span><span class="p">(</span><span class="s2">"/{id}"</span><span class="p">)</span>
+  <span class="vi">@ResponseStatus</span><span class="p">(</span><span class="no">HttpStatus</span><span class="o">.</span><span class="no">OK</span><span class="p">)</span>
+  <span class="kp">public</span> <span class="n">long</span> <span class="n">deleteBook</span><span class="p">(</span><span class="vi">@PathVariable</span> <span class="n">final</span> <span class="n">long</span> <span class="nb">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">id</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="7-configure-openapi--openapiconfigjava">7. Configure openApi – OpenApiConfig.java</h3>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">config</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">models</span><span class="p">.</span><span class="nf">info</span><span class="o">.</span><span class="no">Info</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">models</span><span class="o">.</span><span class="no">Components</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">models</span><span class="o">.</span><span class="no">OpenAPI</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">models</span><span class="p">.</span><span class="nf">info</span><span class="o">.</span><span class="no">Contact</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">io</span><span class="p">.</span><span class="nf">swagger</span><span class="p">.</span><span class="nf">v3</span><span class="p">.</span><span class="nf">oas</span><span class="p">.</span><span class="nf">models</span><span class="p">.</span><span class="nf">info</span><span class="o">.</span><span class="no">License</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">context</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">Bean</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">context</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">Configuration</span><span class="p">;</span>
+<span class="vi">@Configuration</span>
+<span class="kp">public</span> <span class="k">class</span> <span class="nc">OpenApiConfig</span> <span class="p">{</span>
+  <span class="vi">@Bean</span>
+  <span class="kp">public</span> <span class="no">OpenAPI</span> <span class="n">customOpenAPI</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">new</span> <span class="no">OpenAPI</span><span class="p">()</span>
+        <span class="p">.</span><span class="nf">components</span><span class="p">(</span><span class="n">new</span> <span class="no">Components</span><span class="p">())</span>
+        <span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="n">new</span> <span class="no">Info</span><span class="p">()</span>
+            <span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="s2">"Book Application API"</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">description</span><span class="p">(</span><span class="s2">"This is a sample Spring Boot RESTful service using springdoc-openapi and OpenAPI 3."</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">termsOfService</span><span class="p">(</span><span class="s2">"terms"</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">contact</span><span class="p">(</span><span class="n">new</span> <span class="no">Contact</span><span class="p">().</span><span class="nf">email</span><span class="p">(</span><span class="s2">"@codersite.dev"</span><span class="p">))</span>
+            <span class="p">.</span><span class="nf">license</span><span class="p">(</span><span class="n">new</span> <span class="no">License</span><span class="p">().</span><span class="nf">name</span><span class="p">(</span><span class="s2">"GNU"</span><span class="p">))</span>
+            <span class="p">.</span><span class="nf">version</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">)</span>
+        <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="8-running-application">8. Running Application</h3>
+
+<p>This Spring boot application has an entry point Java class called OpenapiApplication.java, which you can run to start the application.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">boot</span><span class="o">.</span><span class="no">SpringApplication</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">boot</span><span class="p">.</span><span class="nf">autoconfigure</span><span class="o">.</span><span class="no">SpringBootApplication</span><span class="p">;</span>
+<span class="vi">@SpringBootApplication</span>
+<span class="kp">public</span> <span class="k">class</span> <span class="nc">OpenapiApplication</span> <span class="p">{</span>
+	<span class="kp">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="no">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+		<span class="no">SpringApplication</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="no">OpenapiApplication</span><span class="p">.</span><span class="nf">class</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Then, when we run our application, we can view the online documentation at:</p>
+
+<p><a href="http://localhost:8080/swagger-ui.html" target="_blank">http://localhost:8080/swagger-ui.html</a></p>
+
+<p><img src="/assets/images/openapi3.jpg" alt="openapi3" class="img-responsive" height="60%" width="70%" /></p>
+
+<p>You can see the source code in the following link:</p>
+
+<p><a href="https://github.com/mgamio/openapi-springboot.git" target="_blank">https://github.com/mgamio/openapi-springboot.git</a></p>
+
+<p>If you are looking for java interview resources, the following book can help you.</p>
+
+<iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen="" style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;preview=inline&amp;linkCode=kpe&amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;tag=codersite20-20"></iframe>
+
+  </div><a class="u-url" href="/rest/2020/10/02/openAPI3.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CODER SITE for developers</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Moises Gamio</li><li><a class="u-email" href="mailto:codersitedev@gmail.com">codersitedev@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mgamio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mgamio</span></a></li><li><a href="https://www.twitter.com/MoisesGamio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">MoisesGamio</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Clean code, Software design, Automated testing, Data structures, and Algorithms are among the main concepts that every developer should know, among others. This is my blog site to share my knowledge and experience about them.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

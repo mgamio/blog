@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Clean code, Software design, Automated testing, Data structures, and Algorithms
   are among the main concepts that every developer should know, among others.
   This is my blog site to share my knowledge and experience about them.
-baseurl: "/codersite" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: MoisesGamio
 github_username:  mgamio
