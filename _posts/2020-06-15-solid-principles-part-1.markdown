@@ -78,7 +78,7 @@ public class Payment {
 
 Lastly, new changes to the *nDay* variable will only depend on the requirements of every team separately. The following figure shows Classes for different actos, without conflicts.
 
-![Class for different actors](/blog/assets/images/Payment2.jpg){:class="img-responsive"}{:height="40%" width="50%"}
+![Class for different actors](/blog/assets/images/payment2.jpg){:class="img-responsive"}{:height="40%" width="50%"}
 
 Therefore, the Payment Class is only responsible for supporting to the Payments team, and the Card Class is solely responsible for supporting the Cards team.
 
