@@ -20,7 +20,7 @@ Prerequisites:
 
 Go to [spring initializr](https://start.spring.io/){:target="_blank"} and add the following dependencies:
 
-![spring initializr](/blog/assets/images/start.spring.io.jpg){:class="img-responsive"}{:height="60%" width="70%"}
+![spring initializr](/assets/images/start.spring.io.jpg){:class="img-responsive"}{:height="60%" width="70%"}
 
 Once you generate the JAR maven project, open it in your favorite IDE.
 
