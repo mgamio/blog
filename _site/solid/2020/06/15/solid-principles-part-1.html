@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>SOLID principles: The Definitive Guide (Part I) | CODER SITE for developers</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="SOLID principles: The Definitive Guide (Part I)" />
+<meta name="author" content="Moises Gamio" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated. Robert C. Martin introduced it. Design Principles." />
+<meta property="og:description" content="SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated. Robert C. Martin introduced it. Design Principles." />
+<link rel="canonical" href="localhost:4000/blog/solid/2020/06/15/solid-principles-part-1.html" />
+<meta property="og:url" content="localhost:4000/blog/solid/2020/06/15/solid-principles-part-1.html" />
+<meta property="og:site_name" content="CODER SITE for developers" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-15T15:18:45+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SOLID principles: The Definitive Guide (Part I)" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"localhost:4000/blog/solid/2020/06/15/solid-principles-part-1.html","headline":"SOLID principles: The Definitive Guide (Part I)","dateModified":"2020-06-15T15:18:45+02:00","datePublished":"2020-06-15T15:18:45+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/blog/solid/2020/06/15/solid-principles-part-1.html"},"author":{"@type":"Person","name":"Moises Gamio"},"description":"SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated. Robert C. Martin introduced it. Design Principles.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="localhost:4000/blog/feed.xml" title="CODER SITE for developers" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">CODER SITE for developers</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About</a><a class="page-link" href="/blog/book/">Book</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">SOLID principles: The Definitive Guide (Part I)</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-06-15T15:18:45+02:00" itemprop="datePublished">Jun 15, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated. Robert C. Martin introduced it. <a href="https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf" target="_blank">Design Principles</a>.</p>
+
+<p>When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.</p>
+
+<p>Let’s start with the first principle.</p>
+
+<h3 id="solid-principles-single-responsibility-principle-srp">SOLID principles: Single Responsibility Principle (SRP)</h3>
+
+<blockquote>
+  <p>… “a class should only have one reason to change“</p>
+</blockquote>
+
+<p>This principle states that <strong>a class should only have one responsibility</strong>.</p>
+
+<p>For instance, imagine an online store that issues its cards for its customers, and from the beginning, the Payment and Card teams are in mutual agreement to apply for interest and to lock cards from customers who are in late payments for 14 days or more.</p>
+
+<p>In the following code, we have the first design of the Payment Class, which supports both requirements.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">Payment</span> <span class="p">{</span>
+  <span class="kp">public</span> <span class="n">void</span> <span class="n">batch</span><span class="p">(</span><span class="no">List</span><span class="o">&lt;</span><span class="no">Customer</span><span class="o">&gt;</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="no">Customer</span> <span class="n">customer</span> <span class="p">:</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">int</span> <span class="n">nDays</span> <span class="o">=</span> <span class="n">latePaymentDays</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">nDays</span> <span class="o">&gt;=</span> <span class="mi">14</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">applyLatePaymentInterest</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
+        <span class="n">lockCard</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="the-problem-a-class-has-more-than-one-responsibility">The Problem: A Class has more than one responsibility</h3>
+
+<p>But suddenly, the Cards team wants to change the validation to 10 days. However, the Payments team manages other policies related to when interests by late payment are applied. As a result, the Payments team enters in disagreement with the Cards team. This scenario is a clear example of how this Class design violates the Single Responsibility Principle because the Payment Class not only has more than one reason to change but also it breaks the business logic of the Payments team. Moreover, both teams are stuck on how to proceed.</p>
+
+<p>The following figure shows the Class with different responsibilities:</p>
+
+<p><img src="/blog/assets/images/payment1.jpg" alt="Class with different responsibilities" class="img-responsive" height="40%" width="50%" /></p>
+
+<h3 id="the-solution-create-a-class-with-only-one-responsibility">The solution: Create a Class with only one responsibility</h3>
+
+<p>What do we need to do?. In this scenario, we can apply the <strong>S</strong>ingle Responsibility Principle</p>
+
+<p>Firstly, we move the <em>lockCard()</em> responsibility to a new Card Class. This technique is most known as refactoring</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">Card</span> <span class="p">{</span>
+  <span class="kp">public</span> <span class="n">void</span> <span class="n">batch</span><span class="p">(</span><span class="no">List</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="no">Customer</span> <span class="n">customer</span> <span class="p">:</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">int</span> <span class="n">nDays</span> <span class="o">=</span> <span class="no">Payment</span><span class="p">.</span><span class="nf">latePaymentDays</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">nDays</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">lockCard</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>After that change, we can see how it looks the new Payment Class (refactored as well):</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">Payment</span> <span class="p">{</span>
+  <span class="kp">public</span> <span class="n">void</span> <span class="n">batch</span><span class="p">(</span><span class="no">List</span><span class="o">&lt;</span><span class="no">Customer</span><span class="o">&gt;</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="no">Customer</span> <span class="n">customer</span> <span class="p">:</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">int</span> <span class="n">nDays</span> <span class="o">=</span> <span class="n">latePaymentDays</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">nDays</span> <span class="o">&gt;=</span> <span class="mi">14</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">applyLatePaymentInterest</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Lastly, new changes to the <em>nDay</em> variable will only depend on the requirements of every team separately. The following figure shows Classes for different actos, without conflicts.</p>
+
+<p><img src="/blog/assets/images/payment2.jpg" alt="Class for different actors" class="img-responsive" height="40%" width="50%" /></p>
+
+<p>Therefore, the Payment Class is only responsible for supporting to the Payments team, and the Card Class is solely responsible for supporting the Cards team.</p>
+
+<p>Also, when new features arrive, then we need to distinct in which Class to include it. Moreover, this is related to the Cohesion concept, which help us to group similar functions inside a Class, and that have the same purpose served by that Class.</p>
+
+<p>In conclusion, once you identify classes that have too many responsibilities, use this refactoring technique to create smaller classes with single responsibilities and focused only on one business actor.</p>
+
+<p>Similarly, you can read my Post about <a href="/blog/cleancode/2020/10/27/clean-code.html">Graphs</a>, where you can see how two Classes are designed with unique responsibilities to solve a problem.</p>
+
+  </div><a class="u-url" href="/blog/solid/2020/06/15/solid-principles-part-1.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CODER SITE for developers</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Moises Gamio</li><li><a class="u-email" href="mailto:codersitedev@gmail.com">codersitedev@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mgamio"><svg class="svg-icon"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mgamio</span></a></li><li><a href="https://www.twitter.com/MoisesGamio"><svg class="svg-icon"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">MoisesGamio</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Clean code, Software design, Automated testing, Data structures, and Algorithms are among the main concepts that every developer should know, among others. This is my blog site to share my knowledge and experience about them.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
