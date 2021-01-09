@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2021-01-09T01:14:48+01:00</updated><id>localhost:4000/blog/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Clean code, Software design, Automated testing, Data structures, and Algorithms are among the main concepts that every developer should know, among others. This is my blog site to share my knowledge and experience about them.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Clean Code</title><link href="localhost:4000/blog/clean-code/" rel="alternate" type="text/html" title="Clean Code" /><published>2020-10-27T14:18:45+01:00</published><updated>2020-10-27T14:18:45+01:00</updated><id>localhost:4000/blog/clean-code</id><content type="html" xml:base="localhost:4000/blog/clean-code/">&lt;p&gt;Clean code can be read and enhanced by a developer other than its original author. This kind of practice &lt;a href=&quot;https://amzn.to/3rAejgU&quot; target=&quot;_blank&quot;&gt;Robert C Martin&lt;/a&gt; introduced it.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2021-01-09T03:01:56+01:00</updated><id>localhost:4000/blog/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Clean code, Software design, Automated testing, Data structures, and Algorithms are among the main concepts that every developer should know, among others. This is my blog site to share my knowledge and experience about them.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Clean Code</title><link href="localhost:4000/blog/clean-code/" rel="alternate" type="text/html" title="Clean Code" /><published>2020-10-27T14:18:45+01:00</published><updated>2020-10-27T14:18:45+01:00</updated><id>localhost:4000/blog/clean-code</id><content type="html" xml:base="localhost:4000/blog/clean-code/">&lt;p&gt;Clean code can be read and enhanced by a developer other than its original author. This kind of practice &lt;a href=&quot;https://amzn.to/3rAejgU&quot; target=&quot;_blank&quot;&gt;Robert C Martin&lt;/a&gt; introduced it.&lt;/p&gt;
 
 &lt;p&gt;If you want to be a better programmer, you must follow these recommendations..&lt;/p&gt;
 
@@ -402,7 +402,207 @@
 
 &lt;p&gt;If you are looking for java interview resources, the following book can help you.&lt;/p&gt;
 
-&lt;iframe type=&quot;text/html&quot; width=&quot;336&quot; height=&quot;550&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; style=&quot;max-width:100%&quot; src=&quot;https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;amp;preview=inline&amp;amp;linkCode=kpe&amp;amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;amp;tag=codersite20-20&quot;&gt;&lt;/iframe&gt;</content><author><name>Moises Gamio</name></author><category term="rest" /><category term="rest" /><category term="springboot" /><summary type="html">The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.</summary></entry><entry><title type="html">SOLID principles: The Definitive Guide (Part I)</title><link href="localhost:4000/blog/solid-principles-the-definitive-guide/" rel="alternate" type="text/html" title="SOLID principles: The Definitive Guide (Part I)" /><published>2020-06-15T15:18:45+02:00</published><updated>2020-06-15T15:18:45+02:00</updated><id>localhost:4000/blog/solid-principles-the-definitive-guide</id><content type="html" xml:base="localhost:4000/blog/solid-principles-the-definitive-guide/">&lt;p&gt;SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated. Robert C. Martin introduced it. &lt;a href=&quot;https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf&quot; target=&quot;_blank&quot;&gt;Design Principles&lt;/a&gt;.&lt;/p&gt;
+&lt;iframe type=&quot;text/html&quot; width=&quot;336&quot; height=&quot;550&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; style=&quot;max-width:100%&quot; src=&quot;https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;amp;preview=inline&amp;amp;linkCode=kpe&amp;amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;amp;tag=codersite20-20&quot;&gt;&lt;/iframe&gt;</content><author><name>Moises Gamio</name></author><category term="rest" /><category term="rest" /><category term="springboot" /><summary type="html">The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.</summary></entry><entry><title type="html">Big O Notation: Analysis of Algorithms</title><link href="localhost:4000/blog/big-o-notation-analysis-of-algorithms/" rel="alternate" type="text/html" title="Big O Notation: Analysis of Algorithms" /><published>2020-06-22T15:18:45+02:00</published><updated>2020-06-22T15:18:45+02:00</updated><id>localhost:4000/blog/big-o-notation-analysis-of-algorithms</id><content type="html" xml:base="localhost:4000/blog/big-o-notation-analysis-of-algorithms/">&lt;p&gt;Big O Notation is a mathematical function, which helps us to analyze how complex an algorithm is in terms of time and space. It matters when we build an application for millions of users. We implement different algorithms to solve one problem and measure how efficient is one respect to the other ones.&lt;/p&gt;
+
+&lt;p&gt;The first study about Analysis of Algorithms was published by Knuth in 1968. &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming&quot; target=&quot;_blank&quot;&gt;The Art of Computer Programming&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;time-and-space-complexity&quot;&gt;Time and Space complexity&lt;/h3&gt;
+
+&lt;p&gt;Time complexity is related to how many steps takes an algorithm.&lt;/p&gt;
+
+&lt;p&gt;Space complexity is related to how efficient an algorithm is using the memory and disk.&lt;/p&gt;
+
+&lt;p&gt;Both terms depend on the input size, the number of items in the input. Moreover, we can analyze the complexity based on three cases:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Best case or Big Omega Ω(n): Usually the algorithm executes in one step independently of the input size.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Average case or Big Theta Θ(n): If the the input size is ramdom&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Worst-case or Big O Notation  O(n): Gives us an upper bound on the runtime for any input. It gives us a kind of guarantee that the algorithm will never take any longer with a new input size.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;order-of-growth&quot;&gt;Order of growth&lt;/h3&gt;
+
+&lt;p&gt;The order of growth is related to how the runtime of an algorithm increases when the size of the input increases without limit and tells us how efficient the algorithm is. Therefore, we can compare the relative performance of alternative algorithms.&lt;/p&gt;
+
+&lt;p&gt;Big O Notation: &lt;strong&gt;Common order-of-growth classifications&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/images/order-of-growth.jpg&quot; alt=&quot;order-of-growth&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;big-o-notation-examples&quot;&gt;Big O Notation: examples&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;O(1) – Constant&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It does not matter if the input contains 1000 or 1 million items, the code always executes in one step.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;constant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;O(N) – linear&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;An algorithm runs in O(N) time if the number of steps depends on the number of items included in the input.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons. You can visit my Post about a smaller number, for instance. Moreover, the simpler and more intuitive an algorithm is, the more useful and efficient it will be.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;O(N2) – quadratic&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If an algorithm includes two loops nested in its code, we could say that it’s running in quadratic time O(N2). For instance, when a 2D matrix is initialized in a tic-tac-toe game.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[][]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializeBoard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;O(N3) – Cubic&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When the code includes at the most three nested loops, then the algorithm runs in Cubic time. For example: given N integers, how many triples sum to exactly zero?. One approach (not the best) is to use three nested loops.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;countThreeSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;O(LogN) – logarithmic&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This kind of algorithm produces a growth curve that peaks at the beginning and slowly flattens out as the size of the input increase.&lt;/p&gt;
+
+&lt;p&gt;Log28 = 3&lt;/p&gt;
+
+&lt;p&gt;Log216 = 4&lt;/p&gt;
+
+&lt;p&gt;Log232 = 5&lt;/p&gt;
+
+&lt;p&gt;The binary search uses at most LogN key compares to search in a sorted array of size N. With 8 elements take 3 comparisons, with 16 elements takes 4 comparisons, with 32 elements takes 5 comparisons, and so on.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Comparable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;compareTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;compareTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;the-complexity-of-an-algorithm&quot;&gt;The complexity of an algorithm&lt;/h3&gt;
+
+&lt;p&gt;To find the Big O complexity of an algorithm follows the following rules:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ignore the lower order terms&lt;/li&gt;
+  &lt;li&gt;Drop the leading constants&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Example: If the time complexity of an algorithm is 2n3 + 4n + 3. Its Big O complexity simplifies to O(n3).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How to find the time complexity of an algorithm&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Given the following algorithm:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sumEvenNumbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;First, we split the code into individual operations and then compute how many times it is being executed as is shown in the following table.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Number of executions&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int sum = 0;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int number = 1;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;number &amp;lt;= N;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;N&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;number++&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;N&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;if ((number % 2) == 0)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;N&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;sum = sum + number;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;N&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;return sum;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Now, we need to sum how many times each operation is executing.&lt;/p&gt;
+
+&lt;p&gt;Time complexity = 1 + 1 + N + N + N + N + 1 =&amp;gt;   4N + 3&lt;/p&gt;
+
+&lt;h3 id=&quot;why-big-o-notation-ignores-constants&quot;&gt;Why Big O Notation ignores constants?&lt;/h3&gt;
+
+&lt;p&gt;Big O Notation describes how many steps are required relative to the number of data elements. And it serves as a way to classify the long-term growth rate of algorithms.&lt;/p&gt;
+
+&lt;p&gt;For instance, for all amounts of data, O(N) will be faster than O(N2) as shown in the following figure:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/images/bigONotation-1.jpg&quot; alt=&quot;bigONotation-1&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, if we compare O(100N) with O(N2), we can see that O(N2) is faster than O(100N) for some amounts of data as shown in the following figure:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/images/bigONotation-2.jpg&quot; alt=&quot;bigONotation-2&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;But after a point, O(100N) becomes faster and remains faster for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, O(100N) is written as O(N).&lt;/p&gt;
+
+&lt;p&gt;More about algorithms, data structures, and Big O Notation, you can learn here:&lt;/p&gt;
+
+&lt;iframe type=&quot;text/html&quot; width=&quot;336&quot; height=&quot;550&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; style=&quot;max-width:100%&quot; src=&quot;https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;amp;preview=inline&amp;amp;linkCode=kpe&amp;amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;amp;tag=codersite20-20&quot;&gt;&lt;/iframe&gt;</content><author><name>Moises Gamio</name></author><category term="bigONotation" /><summary type="html">Big O Notation is a mathematical function, which helps us to analyze how complex an algorithm is in terms of time and space. It matters when we build an application for millions of users. We implement different algorithms to solve one problem and measure how efficient is one respect to the other ones.</summary></entry><entry><title type="html">SOLID principles: The Definitive Guide (Part I)</title><link href="localhost:4000/blog/solid-principles-the-definitive-guide/" rel="alternate" type="text/html" title="SOLID principles: The Definitive Guide (Part I)" /><published>2020-06-15T15:18:45+02:00</published><updated>2020-06-15T15:18:45+02:00</updated><id>localhost:4000/blog/solid-principles-the-definitive-guide</id><content type="html" xml:base="localhost:4000/blog/solid-principles-the-definitive-guide/">&lt;p&gt;SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated. Robert C. Martin introduced it. &lt;a href=&quot;https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf&quot; target=&quot;_blank&quot;&gt;Design Principles&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.&lt;/p&gt;
 
