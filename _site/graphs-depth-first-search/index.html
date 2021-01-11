@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Graphs: Depth-First Search | CODER SITE for developers</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Graphs: Depth-First Search" />
+<meta name="author" content="Moises Gamio" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Graph is a non-linear data structure consisting of nodes (or vertices) and edges. Its shape depends on the physical or abstract problem we are trying to solve. For instance, if nodes represent cities, then the routes which connect cities may be represented by no-directed edges. But if nodes represent tasks to complete a project, then their edges must be directed to indicate which task must be completed before another. Depth-First Search (DFS), is an algorithm to search for information in Graphs." />
+<meta property="og:description" content="A Graph is a non-linear data structure consisting of nodes (or vertices) and edges. Its shape depends on the physical or abstract problem we are trying to solve. For instance, if nodes represent cities, then the routes which connect cities may be represented by no-directed edges. But if nodes represent tasks to complete a project, then their edges must be directed to indicate which task must be completed before another. Depth-First Search (DFS), is an algorithm to search for information in Graphs." />
+<link rel="canonical" href="localhost:4000/blog/graphs-depth-first-search/" />
+<meta property="og:url" content="localhost:4000/blog/graphs-depth-first-search/" />
+<meta property="og:site_name" content="CODER SITE for developers" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-01T15:18:45+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Graphs: Depth-First Search" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"localhost:4000/blog/graphs-depth-first-search/","headline":"Graphs: Depth-First Search","dateModified":"2020-06-01T15:18:45+02:00","datePublished":"2020-06-01T15:18:45+02:00","author":{"@type":"Person","name":"Moises Gamio"},"mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/blog/graphs-depth-first-search/"},"description":"A Graph is a non-linear data structure consisting of nodes (or vertices) and edges. Its shape depends on the physical or abstract problem we are trying to solve. For instance, if nodes represent cities, then the routes which connect cities may be represented by no-directed edges. But if nodes represent tasks to complete a project, then their edges must be directed to indicate which task must be completed before another. Depth-First Search (DFS), is an algorithm to search for information in Graphs.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="localhost:4000/blog/feed.xml" title="CODER SITE for developers" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">CODER SITE for developers</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About</a><a class="page-link" href="/blog/book/">Book</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Graphs: Depth-First Search</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-06-01T15:18:45+02:00" itemprop="datePublished">Jun 1, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>A <strong>Graph</strong> is a non-linear data structure consisting of nodes (or vertices) and edges. Its shape depends on the physical or abstract problem we are trying to solve. For instance, if nodes represent cities, then the routes which connect cities may be represented by <em>no-directed</em> edges. But if nodes represent tasks to complete a project, then their edges must be <em>directed</em> to indicate which task must be completed before another. Depth-First Search (DFS), is an algorithm to search for information in Graphs.</p>
+
+<p>Graph theory was first proposed by Leonhard Euler when solved the <a href="https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg" target="_blank">Seven Bridges of Königsber</a> problem.</p>
+
+<h3 id="graphs-terminology">Graphs: Terminology</h3>
+
+<p>To describe terms related to Graphs, we use the following Graph, which models <strong><em>Hyperloop</em></strong> transport to be installed in Germany, for instance.</p>
+
+<p><img src="/blog/assets/images/dfs1.jpg" alt="dfs1" class="img-responsive" height="60%" width="70%" /></p>
+
+<p>A Graph shows only the relationships between the <em>vertices</em> and the <em>edges</em>. Therefore, the most important here is to understand, which edges are connected to which vertex. Moreover, we can also say that Graph models connections between objects.</p>
+
+<p><strong>Adjacency</strong></p>
+
+<p>When two vertices are connected by a single edge, then they are adjacent or neighbors. In the figure above, the vertices represented by the cities Berlin and Leipzig are adjacent, but the cities Berlin and Dresden are not.</p>
+
+<p><strong>Path</strong></p>
+
+<p>A Path is defined as a sequence of edges. The figure above shows a path from Berlin to München, that passes through cities Leipzig and Nürnberg. Therefore, the path is Berlin, Leipzig, Nürnberg, München.</p>
+
+<p><strong>Connected Graphs</strong></p>
+
+<p>A graph is connected if exists at least one path from every vertex to every other vertex. Therefore, the figure above is connected because connects all cities.</p>
+
+<p><strong>Directed and Weighted Graphs</strong></p>
+
+<p>A graph is directed when the edges have a direction. In the figure above we have an undirected graph because the hyperloop can usually go either way. From Berlin to Leipzig is the same as from Leipzig to Berlin.</p>
+
+<p>A <a href="/blog/clean-code/" target="_blank">tree</a> is an undirected graph, as long as any two vertices are connected by exactly one path.</p>
+
+<p>Graphs are called a weighted graph when edges are given weight. For instance, the distance between cities can be weighted in how fast they are connected. The edges may contain value/cost as well.</p>
+
+<p><strong>Acyclic Graphs Versus Cyclic Graphs</strong></p>
+
+<p>In Graphs, cycles are paths through edges and vertices that start and end at the same vertex. An acyclic graph has no such cycles.</p>
+
+<h3 id="reasons-to-use-graphs">Reasons to use Graphs</h3>
+
+<p>One of the questions that a graph can answer is: which cities can be reached from a specified city?. Well, to respond to this question, we need to implement search algorithms. There are two different ways of searching in a graph: depth-first search (DFS) and breadth-first search (BFS).</p>
+
+<h3 id="depth-first-search-dfs">Depth-First Search (DFS)</h3>
+
+<p>Depth-First Search (DFS) is an algorithm for traversing or searching for in a Graph. The algorithm starts at the root node (selecting some arbitrary city as the root node) and explores as far as possible along each path. The following Graph shows the sequence of cities followed by the DFS algorithm, if we choose Berlin as the root node, for instance.</p>
+
+<p><img src="/blog/assets/images/dfsSequence.jpg" alt="dfsSequence" class="img-responsive" height="60%" width="70%" /></p>
+
+<h3 id="implementing-graphs-algorithm">Implementing Graphs Algorithm</h3>
+
+<p>We need an Object which supports any kind of data included in the Node (which includes the information, that we want to represent). We called it Vertex (because comes from a Mathematical concept). Moreover, to avoid searching in cycles, a boolean variable is included, so we will mark each node when we visit it.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">Vertex</span> <span class="p">{</span>
+  <span class="kp">private</span> <span class="no">String</span> <span class="nb">name</span><span class="p">;</span>
+  <span class="kp">private</span> <span class="n">boolean</span> <span class="n">visited</span><span class="p">;</span>
+
+  <span class="kp">public</span> <span class="no">Vertex</span><span class="p">(</span><span class="no">String</span> <span class="nb">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="nb">name</span><span class="p">;</span>
+    <span class="n">this</span><span class="p">.</span><span class="nf">visited</span> <span class="o">=</span> <span class="kp">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>To define, that two vertices are connected (through edges), we have two approaches: the adjacency matrix and the adjacency list.</p>
+
+<p><strong>The Adjacency Matrix</strong></p>
+
+<p>In a graph of N vertices, we create a two-dimensional array of NxN. An edge between two vertices (cities) indicates a connection (two adjacent nodes) and is represented by 1. No connections are represented by 0.</p>
+
+<p><img src="/blog/assets/images/dfsMatrix.jpg" alt="dfsMatrix" class="img-responsive" height="60%" width="70%" /></p>
+
+<p>The table above says, Leipzig is adjacent to Berlin, Dresden, and Nürnberg, for instance.</p>
+
+<p><strong>Create and Initialize an Abstract Data Type</strong></p>
+
+<p>We create a Abstract Data Type called Graph, to define the behavior of our new data structure.</p>
+
+<p>We need a stack data structure so we can remember the visited vertices. When we add a new Vertex (City) and is stored in our <em>arrayOfVertex[]</em> array, the <em>numOfVertices</em> variable indicates the number of Vertices already added to the Graph. Since we are going to pass a String argument (city name) to our DFS algorithm, a <em>mapOfVertex</em> hashMap is defined to register the key-value: city-index, where the index is the location at <em>arrayOfVertex[]</em>.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">Graph</span> <span class="p">{</span>
+
+  <span class="kp">private</span> <span class="n">final</span> <span class="n">int</span> <span class="no">MAX_VERTEX</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+  <span class="kp">private</span> <span class="no">Vertex</span> <span class="n">arrayOfVertex</span><span class="p">[];</span> <span class="sr">//</span><span class="n">cities</span>
+  <span class="kp">private</span> <span class="no">Map</span> <span class="n">mapOfVertex</span><span class="p">;</span>
+  <span class="sr">//m</span><span class="n">atrix</span> <span class="n">of</span> <span class="n">adjacent</span> <span class="ss">vertex:
+  </span><span class="kp">private</span> <span class="n">int</span> <span class="n">matrixOfAdjVertex</span><span class="p">[][];</span>
+  <span class="sr">//</span><span class="n">register</span> <span class="n">the</span> <span class="n">location</span> <span class="n">at</span> <span class="n">the</span> <span class="ss">arrayOfVertex:
+  </span><span class="kp">private</span> <span class="n">int</span> <span class="n">numOfVertices</span><span class="p">;</span>
+  <span class="kp">private</span> <span class="no">Stack</span> <span class="n">stack</span><span class="p">;</span>
+
+  <span class="kp">public</span> <span class="no">Graph</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">arrayOfVertex</span> <span class="o">=</span> <span class="n">new</span> <span class="no">Vertex</span><span class="p">[</span><span class="no">MAX_VERTEX</span><span class="p">];</span>
+    <span class="n">mapOfVertex</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">numOfVertex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">matrixOfAdjVertex</span> <span class="o">=</span> <span class="n">new</span> <span class="n">int</span><span class="p">[</span><span class="no">MAX_VERTEX</span><span class="p">][</span><span class="no">MAX_VERTEX</span><span class="p">];</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="n">new</span> <span class="no">Stack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="sr">//ini</span><span class="n">tialize</span> <span class="n">matrix</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">MAX_VERTEX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="no">MAX_VERTEX</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">matrixOfAdjVertex</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><strong>Adding a Vertex</strong></p>
+
+<p>Before the implementation, we create a Test case with the following assumption:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@Test</span>
+<span class="kp">public</span> <span class="n">void</span> <span class="n">test_addVertex</span><span class="p">()</span> <span class="p">{</span>
+  <span class="no">Vertex</span> <span class="n">city</span> <span class="o">=</span> <span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="s2">"Berlin"</span><span class="p">);</span>
+  <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">city</span><span class="p">);</span>
+  <span class="n">assertTrue</span><span class="p">(</span><span class="n">graph</span><span class="p">.</span><span class="nf">getMapOfVertex</span><span class="p">().</span><span class="nf">size</span><span class="p">()</span> <span class="o">==</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The implementation code register the new city in our <em>mapOfVertex</em> hashMap.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="n">void</span> <span class="n">addVertex</span><span class="p">(</span><span class="no">Vertex</span> <span class="n">city</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">mapOfVertex</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">city</span><span class="p">.</span><span class="nf">getName</span><span class="p">(),</span> <span class="n">numOfVertices</span><span class="p">);</span>
+  <span class="n">arrayOfVertex</span><span class="p">[</span><span class="n">numOfVertices</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span><span class="n">city</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The <em>numOfVertices</em> variable determines the location (index) of the new City in the <em>arrayOfVertex[]</em>.</p>
+
+<p><strong>Adding an edge</strong></p>
+
+<p>We add two entries to <em>matrixOfAdjVertex</em>, because two cities are connected in both directions.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="n">void</span> <span class="n">addEdge</span><span class="p">(</span><span class="no">String</span> <span class="n">city1</span><span class="p">,</span> <span class="no">String</span> <span class="n">city2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">mapOfVertex</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">city1</span><span class="p">);</span>
+    <span class="n">int</span> <span class="k">end</span> <span class="o">=</span> <span class="n">mapOfVertex</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">city2</span><span class="p">);</span>
+    <span class="n">matrixOfAdjVertex</span><span class="p">[</span><span class="n">start</span><span class="p">][</span><span class="k">end</span><span class="p">]</span> <span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">matrixOfAdjVertex</span><span class="p">[</span><span class="k">end</span><span class="p">][</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="depth-first-search-the-algorithm">Depth-First Search: The algorithm</h3>
+
+<p>We define a <em>dfs()</em> method, which receives the City name as its argument. Then we locate the index of this city in our hashMap, is marked as visited, and push it onto the stack.</p>
+
+<p>We iterate the stack <em>until is empty</em>. And this is what we do in every iteration:</p>
+
+<ol>
+  <li>We retrieve the Vertex from the top of the stack (peek)</li>
+  <li>We try to retrieve at least one unvisited neighbor for this vertex</li>
+  <li>If one vertex is found, it is marked as visited and pushes it onto the stack</li>
+  <li>If one vertex is not found, we pop the stack</li>
+</ol>
+
+<p>If Berlin were our entry city, then the first adjacent city will be Leipzig, which is marked as visited and push it into the stack. In the next iteration, we read Leipzig (through <em>peek</em> method) from the stack and look for its neighbors. Therefore, following these iterations, we arrive at München. That is the <em>in-depth</em> essence of this algorithm: to explore as far as possible along each branch before continuing with a new one.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="n">void</span> <span class="n">dfs</span><span class="p">(</span><span class="no">String</span> <span class="n">city</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">int</span> <span class="n">vertex</span> <span class="o">=</span> <span class="n">mapOfVertex</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">city</span><span class="p">);</span>
+    <span class="n">arrayOfVertex</span><span class="p">[</span><span class="n">vertex</span><span class="p">].</span><span class="nf">setVisited</span><span class="p">(</span><span class="kp">true</span><span class="p">);</span>
+    <span class="no">System</span><span class="p">.</span><span class="nf">out</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">city</span> <span class="o">+</span> <span class="s2">" "</span><span class="p">);</span>
+    <span class="n">stack</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="n">vertex</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">stack</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">int</span> <span class="n">adjVertex</span> <span class="o">=</span> <span class="n">getAdjVertex</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="nf">peek</span><span class="p">());</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">adjVertex</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">arrayOfVertex</span><span class="p">[</span><span class="n">adjVertex</span><span class="p">].</span><span class="nf">setVisited</span><span class="p">(</span><span class="kp">true</span><span class="p">);</span>
+        <span class="no">System</span><span class="p">.</span><span class="nf">out</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span>
+            <span class="n">arrayOfVertex</span><span class="p">[</span><span class="n">adjVertex</span><span class="p">].</span><span class="nf">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">" "</span><span class="p">);</span>
+        <span class="n">stack</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="n">adjVertex</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">stack</span><span class="p">.</span><span class="nf">pop</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">private</span> <span class="n">int</span> <span class="n">getAdjVertex</span><span class="p">(</span><span class="n">int</span> <span class="n">vertex</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">adj</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">adj</span><span class="o">&lt;</span><span class="n">numOfVertices</span><span class="p">;</span> <span class="n">adj</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">matrixOfAdjVertex</span><span class="p">[</span><span class="n">vertex</span><span class="p">][</span><span class="n">adj</span><span class="p">]</span> <span class="o">==</span><span class="mi">1</span> <span class="o">&amp;&amp;</span>
+       <span class="n">arrayOfVertex</span><span class="p">[</span><span class="n">adj</span><span class="p">].</span><span class="nf">isVisited</span><span class="p">()</span> <span class="o">==</span><span class="kp">false</span><span class="p">)</span>
+       <span class="k">return</span> <span class="n">adj</span><span class="p">;</span> <span class="sr">//</span><span class="k">return</span> <span class="n">first</span> <span class="n">adjacent</span> <span class="n">vertex</span>
+   <span class="p">}</span>
+   <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="sr">//no</span><span class="n">t</span> <span class="n">vertices</span> <span class="n">found</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><strong>Test case</strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@Test</span>
+  <span class="kp">public</span> <span class="n">void</span> <span class="n">test_dfs</span><span class="p">()</span> <span class="p">{</span>
+    <span class="no">String</span> <span class="n">city1</span> <span class="o">=</span><span class="s2">"Berlin"</span><span class="p">;</span> <span class="no">String</span> <span class="n">city2</span> <span class="o">=</span><span class="s2">"Leipzig"</span><span class="p">;</span>
+    <span class="no">String</span> <span class="n">city3</span> <span class="o">=</span><span class="s2">"Dresden"</span><span class="p">;</span> <span class="no">String</span> <span class="n">city4</span> <span class="o">=</span><span class="s2">"Nürnberg"</span><span class="p">;</span>
+    <span class="no">String</span> <span class="n">city5</span> <span class="o">=</span><span class="s2">"Hannover"</span><span class="p">;</span> <span class="no">String</span> <span class="n">city6</span> <span class="o">=</span><span class="s2">"Rostock"</span><span class="p">;</span>
+    <span class="no">String</span> <span class="n">city7</span> <span class="o">=</span><span class="s2">"Dortmund"</span><span class="p">;</span> <span class="no">String</span> <span class="n">city8</span> <span class="o">=</span><span class="s2">"Frankfurt"</span><span class="p">;</span>
+    <span class="no">String</span> <span class="n">city9</span> <span class="o">=</span><span class="s2">"Stuttgart"</span><span class="p">;</span> <span class="no">String</span> <span class="n">city10</span> <span class="o">=</span><span class="s2">"München"</span><span class="p">;</span>
+    <span class="no">String</span> <span class="n">city11</span> <span class="o">=</span><span class="s2">"Magdeburg"</span><span class="p">;</span> <span class="no">String</span> <span class="n">city12</span> <span class="o">=</span><span class="s2">"Bremen"</span><span class="p">;</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="n">city1</span><span class="p">));</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="n">city2</span><span class="p">));</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="n">city3</span><span class="p">));</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="n">city4</span><span class="p">));</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="n">city5</span><span class="p">));</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="n">city6</span><span class="p">));</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="n">city7</span><span class="p">));</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="n">city8</span><span class="p">));</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="n">city9</span><span class="p">));</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="n">city10</span><span class="p">));</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="n">city11</span><span class="p">));</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addVertex</span><span class="p">(</span><span class="n">new</span> <span class="no">Vertex</span><span class="p">(</span><span class="n">city12</span><span class="p">));</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addEdge</span><span class="p">(</span><span class="n">city1</span><span class="p">,</span> <span class="n">city2</span><span class="p">);</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addEdge</span><span class="p">(</span><span class="n">city2</span><span class="p">,</span> <span class="n">city3</span><span class="p">);</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addEdge</span><span class="p">(</span><span class="n">city3</span><span class="p">,</span> <span class="n">city4</span><span class="p">);</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addEdge</span><span class="p">(</span><span class="n">city4</span><span class="p">,</span> <span class="n">city10</span><span class="p">);</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addEdge</span><span class="p">(</span><span class="n">city11</span><span class="p">,</span> <span class="n">city5</span><span class="p">);</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addEdge</span><span class="p">(</span><span class="n">city5</span><span class="p">,</span> <span class="n">city7</span><span class="p">);</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addEdge</span><span class="p">(</span><span class="n">city7</span><span class="p">,</span> <span class="n">city8</span><span class="p">);</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addEdge</span><span class="p">(</span><span class="n">city8</span><span class="p">,</span> <span class="n">city9</span><span class="p">);</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addEdge</span><span class="p">(</span><span class="n">city1</span><span class="p">,</span> <span class="n">city6</span><span class="p">);</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addEdge</span><span class="p">(</span><span class="n">city1</span><span class="p">,</span> <span class="n">city11</span><span class="p">);</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">addEdge</span><span class="p">(</span><span class="n">city5</span><span class="p">,</span> <span class="n">city12</span><span class="p">);</span>
+    <span class="n">graph</span><span class="p">.</span><span class="nf">dfs</span><span class="p">(</span><span class="n">city1</span><span class="p">);</span>
+  <span class="p">}</span></code></pre></figure>
+
+<p>Here, the output:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Berlin Leipzig Dresden Nürnberg München Rostock Magdeburg Hannover Dortmund Frankfurt Stuttgart Bremen
+</code></pre></div></div>
+
+<p>We can change the entry city and see different traversing paths</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hannover Dortmund Frankfurt Stuttgart Magdeburg Berlin Leipzig Dresden Nürnberg München Rostock Bremen 
+</code></pre></div></div>
+
+<p>You can see as well the <em>Breadth-First Search</em> (BFS) algorithm by using an Adjacency List based on a LinkedList data structure in the following link:</p>
+
+<iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen="" style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;preview=inline&amp;linkCode=kpe&amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;tag=codersite20-20"></iframe>
+
+  </div><a class="u-url" href="/blog/graphs-depth-first-search/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CODER SITE for developers</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Moises Gamio</li><li><a class="u-email" href="mailto:codersitedev@gmail.com">codersitedev@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mgamio"><svg class="svg-icon"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mgamio</span></a></li><li><a href="https://www.twitter.com/MoisesGamio"><svg class="svg-icon"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">MoisesGamio</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Clean code, Software design, Automated testing, Data structures, and Algorithms are among the main concepts that every developer should know, among others. This is my blog site to share my knowledge and experience about them.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
