@@ -88,4 +88,11 @@ In conclusion, once you identify classes that have too many responsibilities, us
 
 Similarly, you can read my Post about [Graphs]({% post_url 2020-06-01-graphs-depth-first-search %}), where you can see how two Classes are designed with unique responsibilities to solve a problem.
 
+Similarly, you can read my Post about [Graphs]({{ site.baseurl }}{% post_url 2020-06-01-graphs-depth-first-search %}), where you can see how two Classes are designed with unique responsibilities to solve a problem.
+
+Similarly, you can read my Post about [Graphs]({{ site.baseurl }}{% post_url 2020-06-01-graphs-depth-first-search %}){:target="_blank"}, where you can see how two Classes are designed with unique responsibilities to solve a problem.
+
+Similarly, you can read my Post about [Graphs]({{ site.baseurl }}{% link _posts/2020-06-01-graphs-depth-first-search.markdown %}), where you can see how two Classes are designed with unique responsibilities to solve a problem.
+
+
 
