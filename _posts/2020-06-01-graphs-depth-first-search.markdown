@@ -32,7 +32,7 @@ A graph is connected if exists at least one path from every vertex to every othe
 
 A graph is directed when the edges have a direction. In the figure above we have an undirected graph because the hyperloop can usually go either way. From Berlin to Leipzig is the same as from Leipzig to Berlin.
 
-A [tree]({% post_url 2020-10-27-clean-code %}){:target="_blank"} is an undirected graph, as long as any two vertices are connected by exactly one path.
+A [tree]({% post_url 2020-10-27-clean-code %}) is an undirected graph, as long as any two vertices are connected by exactly one path.
 
 Graphs are called a weighted graph when edges are given weight. For instance, the distance between cities can be weighted in how fast they are connected. The edges may contain value/cost as well.
 
