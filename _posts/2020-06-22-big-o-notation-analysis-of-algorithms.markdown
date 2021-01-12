@@ -28,7 +28,7 @@ The order of growth is related to how the runtime of an algorithm increases when
 
 Big O Notation: **Common order-of-growth classifications**:
 
-![order-of-growth](/blog/assets/images/order-of-growth.jpg){:class="img-responsive"}{:height="60%" width="70%"}
+![order-of-growth](/assets/images/order-of-growth.jpg){:class="img-responsive"}{:height="60%" width="70%"}
 
 ### Big O Notation: examples
 
@@ -169,11 +169,11 @@ Big O Notation describes how many steps are required relative to the number of d
 
 For instance, for all amounts of data, O(N) will be faster than O(N2) as shown in the following figure:
 
-![bigONotation-1](/blog/assets/images/bigONotation-1.jpg){:class="img-responsive"}{:height="60%" width="70%"}
+![bigONotation-1](/assets/images/bigONotation-1.jpg){:class="img-responsive"}{:height="60%" width="70%"}
 
 Now, if we compare O(100N) with O(N2), we can see that O(N2) is faster than O(100N) for some amounts of data as shown in the following figure:
 
-![bigONotation-2](/blog/assets/images/bigONotation-2.jpg){:class="img-responsive"}{:height="60%" width="70%"}
+![bigONotation-2](/assets/images/bigONotation-2.jpg){:class="img-responsive"}{:height="60%" width="70%"}
 
 But after a point, O(100N) becomes faster and remains faster for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, O(100N) is written as O(N).
 

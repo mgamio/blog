@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-12T22:53:04+01:00</updated><id>localhost:4000/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Clean code, Software design, Automated testing, Data structures, and Algorithms are among the main concepts that every developer should know, among others. This is my blog site to share my knowledge and experience about them.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Clean Code</title><link href="localhost:4000/clean-code/" rel="alternate" type="text/html" title="Clean Code" /><published>2020-10-27T14:18:45+01:00</published><updated>2020-10-27T14:18:45+01:00</updated><id>localhost:4000/clean-code</id><content type="html" xml:base="localhost:4000/clean-code/">&lt;p&gt;Clean code can be read and enhanced by a developer other than its original author. This kind of practice &lt;a href=&quot;https://amzn.to/3rAejgU&quot; target=&quot;_blank&quot;&gt;Robert C Martin&lt;/a&gt; introduced it.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-12T23:58:41+01:00</updated><id>localhost:4000/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Clean code, Software design, Automated testing, Data structures, and Algorithms are among the main concepts that every developer should know, among others. This is my blog site to share my knowledge and experience about them.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Clean Code</title><link href="localhost:4000/clean-code/" rel="alternate" type="text/html" title="Clean Code" /><published>2020-10-27T14:18:45+01:00</published><updated>2020-10-27T14:18:45+01:00</updated><id>localhost:4000/clean-code</id><content type="html" xml:base="localhost:4000/clean-code/">&lt;p&gt;Clean code can be read and enhanced by a developer other than its original author. This kind of practice &lt;a href=&quot;https://amzn.to/3rAejgU&quot; target=&quot;_blank&quot;&gt;Robert C Martin&lt;/a&gt; introduced it.&lt;/p&gt;
 
 &lt;p&gt;If you want to be a better programmer, you must follow these recommendations..&lt;/p&gt;
 
@@ -80,7 +80,7 @@
 
 &lt;p&gt;Go to &lt;a href=&quot;https://start.spring.io/&quot; target=&quot;_blank&quot;&gt;spring initializr&lt;/a&gt; and add the following dependencies:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/start.spring.io.jpg&quot; alt=&quot;spring initializr&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/start.spring.io.jpg&quot; alt=&quot;spring initializr&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Once you generate the JAR maven project, open it in your favorite IDE.&lt;/p&gt;
 
@@ -394,7 +394,7 @@
 
 &lt;p&gt;&lt;a href=&quot;http://localhost:8080/swagger-ui.html&quot; target=&quot;_blank&quot;&gt;http://localhost:8080/swagger-ui.html&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/openapi3.jpg&quot; alt=&quot;openapi3&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/openapi3.jpg&quot; alt=&quot;openapi3&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can see the source code in the following link:&lt;/p&gt;
 
@@ -432,7 +432,7 @@
 
 &lt;p&gt;Big O Notation: &lt;strong&gt;Common order-of-growth classifications&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/order-of-growth.jpg&quot; alt=&quot;order-of-growth&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/order-of-growth.jpg&quot; alt=&quot;order-of-growth&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;big-o-notation-examples&quot;&gt;Big O Notation: examples&lt;/h3&gt;
 
@@ -592,11 +592,11 @@
 
 &lt;p&gt;For instance, for all amounts of data, O(N) will be faster than O(N2) as shown in the following figure:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/bigONotation-1.jpg&quot; alt=&quot;bigONotation-1&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/bigONotation-1.jpg&quot; alt=&quot;bigONotation-1&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now, if we compare O(100N) with O(N2), we can see that O(N2) is faster than O(100N) for some amounts of data as shown in the following figure:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/bigONotation-2.jpg&quot; alt=&quot;bigONotation-2&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/bigONotation-2.jpg&quot; alt=&quot;bigONotation-2&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;But after a point, O(100N) becomes faster and remains faster for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, O(100N) is written as O(N).&lt;/p&gt;
 
@@ -638,7 +638,7 @@
 
 &lt;p&gt;The following figure shows the Class with different responsibilities:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/payment1.jpg&quot; alt=&quot;Class with different responsibilities&quot; class=&quot;img-responsive&quot; height=&quot;40%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/payment1.jpg&quot; alt=&quot;Class with different responsibilities&quot; class=&quot;img-responsive&quot; height=&quot;40%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;the-solution-create-a-class-with-only-one-responsibility&quot;&gt;The solution: Create a Class with only one responsibility&lt;/h3&gt;
 
@@ -672,7 +672,7 @@
 
 &lt;p&gt;Lastly, new changes to the &lt;em&gt;nDay&lt;/em&gt; variable will only depend on the requirements of every team separately. The following figure shows Classes for different actos, without conflicts.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/payment2.jpg&quot; alt=&quot;Class for different actors&quot; class=&quot;img-responsive&quot; height=&quot;50%&quot; width=&quot;60%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/payment2.jpg&quot; alt=&quot;Class for different actors&quot; class=&quot;img-responsive&quot; height=&quot;50%&quot; width=&quot;60%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Therefore, the Payment Class is only responsible for supporting to the Payments team, and the Card Class is solely responsible for supporting the Cards team.&lt;/p&gt;
 
@@ -680,7 +680,7 @@
 
 &lt;p&gt;In conclusion, once you identify classes that have too many responsibilities, use this refactoring technique to create smaller classes with single responsibilities and focused only on one business actor.&lt;/p&gt;
 
-&lt;p&gt;Similarly, you can read my Post about &lt;a href=&quot;//graphs-depth-first-search/&quot; target=&quot;_blank&quot;&gt;Graphs&lt;/a&gt;, where you can see how two Classes are designed with unique responsibilities to solve a problem.&lt;/p&gt;</content><author><name>Moises Gamio</name></author><category term="solid" /><summary type="html">SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated. Robert C. Martin introduced it. Design Principles.</summary></entry><entry><title type="html">Graphs: Depth-First Search</title><link href="localhost:4000/graphs-depth-first-search/" rel="alternate" type="text/html" title="Graphs: Depth-First Search" /><published>2020-06-01T15:18:45+02:00</published><updated>2020-06-01T15:18:45+02:00</updated><id>localhost:4000/graphs-depth-first-search</id><content type="html" xml:base="localhost:4000/graphs-depth-first-search/">&lt;p&gt;A &lt;strong&gt;Graph&lt;/strong&gt; is a non-linear data structure consisting of nodes (or vertices) and edges. Its shape depends on the physical or abstract problem we are trying to solve. For instance, if nodes represent cities, then the routes which connect cities may be represented by &lt;em&gt;no-directed&lt;/em&gt; edges. But if nodes represent tasks to complete a project, then their edges must be &lt;em&gt;directed&lt;/em&gt; to indicate which task must be completed before another. Depth-First Search (DFS), is an algorithm to search for information in Graphs.&lt;/p&gt;
+&lt;p&gt;Similarly, you can read my Post about &lt;a href=&quot;/graphs-depth-first-search/&quot; target=&quot;_blank&quot;&gt;Graphs&lt;/a&gt;, where you can see how two Classes are designed with unique responsibilities to solve a problem.&lt;/p&gt;</content><author><name>Moises Gamio</name></author><category term="solid" /><summary type="html">SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated. Robert C. Martin introduced it. Design Principles.</summary></entry><entry><title type="html">Graphs: Depth-First Search</title><link href="localhost:4000/graphs-depth-first-search/" rel="alternate" type="text/html" title="Graphs: Depth-First Search" /><published>2020-06-01T15:18:45+02:00</published><updated>2020-06-01T15:18:45+02:00</updated><id>localhost:4000/graphs-depth-first-search</id><content type="html" xml:base="localhost:4000/graphs-depth-first-search/">&lt;p&gt;A &lt;strong&gt;Graph&lt;/strong&gt; is a non-linear data structure consisting of nodes (or vertices) and edges. Its shape depends on the physical or abstract problem we are trying to solve. For instance, if nodes represent cities, then the routes which connect cities may be represented by &lt;em&gt;no-directed&lt;/em&gt; edges. But if nodes represent tasks to complete a project, then their edges must be &lt;em&gt;directed&lt;/em&gt; to indicate which task must be completed before another. Depth-First Search (DFS), is an algorithm to search for information in Graphs.&lt;/p&gt;
 
 &lt;p&gt;Graph theory was first proposed by Leonhard Euler when solved the &lt;a href=&quot;https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg&quot; target=&quot;_blank&quot;&gt;Seven Bridges of Königsber&lt;/a&gt; problem.&lt;/p&gt;
 
@@ -688,7 +688,7 @@
 
 &lt;p&gt;To describe terms related to Graphs, we use the following Graph, which models &lt;strong&gt;&lt;em&gt;Hyperloop&lt;/em&gt;&lt;/strong&gt; transport to be installed in Germany, for instance.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/dfs1.jpg&quot; alt=&quot;dfs1&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/dfs1.jpg&quot; alt=&quot;dfs1&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A Graph shows only the relationships between the &lt;em&gt;vertices&lt;/em&gt; and the &lt;em&gt;edges&lt;/em&gt;. Therefore, the most important here is to understand, which edges are connected to which vertex. Moreover, we can also say that Graph models connections between objects.&lt;/p&gt;
 
@@ -708,7 +708,7 @@
 
 &lt;p&gt;A graph is directed when the edges have a direction. In the figure above we have an undirected graph because the hyperloop can usually go either way. From Berlin to Leipzig is the same as from Leipzig to Berlin.&lt;/p&gt;
 
-&lt;p&gt;A &lt;a href=&quot;/clean-code/&quot;&gt;tree&lt;/a&gt; is an undirected graph, as long as any two vertices are connected by exactly one path.&lt;/p&gt;
+&lt;p&gt;A &lt;a href=&quot;/clean-code/&quot; target=&quot;_blank&quot;&gt;tree&lt;/a&gt; is an undirected graph, as long as any two vertices are connected by exactly one path.&lt;/p&gt;
 
 &lt;p&gt;Graphs are called a weighted graph when edges are given weight. For instance, the distance between cities can be weighted in how fast they are connected. The edges may contain value/cost as well.&lt;/p&gt;
 
@@ -724,7 +724,7 @@
 
 &lt;p&gt;Depth-First Search (DFS) is an algorithm for traversing or searching for in a Graph. The algorithm starts at the root node (selecting some arbitrary city as the root node) and explores as far as possible along each path. The following Graph shows the sequence of cities followed by the DFS algorithm, if we choose Berlin as the root node, for instance.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/dfsSequence.jpg&quot; alt=&quot;dfsSequence&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/dfsSequence.jpg&quot; alt=&quot;dfsSequence&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;implementing-graphs-algorithm&quot;&gt;Implementing Graphs Algorithm&lt;/h3&gt;
 
@@ -746,7 +746,7 @@
 
 &lt;p&gt;In a graph of N vertices, we create a two-dimensional array of NxN. An edge between two vertices (cities) indicates a connection (two adjacent nodes) and is represented by 1. No connections are represented by 0.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/assets/images/dfsMatrix.jpg&quot; alt=&quot;dfsMatrix&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/dfsMatrix.jpg&quot; alt=&quot;dfsMatrix&quot; class=&quot;img-responsive&quot; height=&quot;60%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The table above says, Leipzig is adjacent to Berlin, Dresden, and Nürnberg, for instance.&lt;/p&gt;
 

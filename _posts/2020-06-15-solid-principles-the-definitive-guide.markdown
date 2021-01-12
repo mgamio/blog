@@ -40,7 +40,7 @@ But suddenly, the Cards team wants to change the validation to 10 days. However,
 
 The following figure shows the Class with different responsibilities:
 
-![Class with different responsibilities](/blog/assets/images/payment1.jpg){:class="img-responsive"}{:height="40%" width="50%"}
+![Class with different responsibilities](/assets/images/payment1.jpg){:class="img-responsive"}{:height="40%" width="50%"}
 
 ### The solution: Create a Class with only one responsibility
 
@@ -78,7 +78,7 @@ public class Payment {
 
 Lastly, new changes to the *nDay* variable will only depend on the requirements of every team separately. The following figure shows Classes for different actos, without conflicts.
 
-![Class for different actors](/blog/assets/images/payment2.jpg){:class="img-responsive"}{:height="50%" width="60%"}
+![Class for different actors](/assets/images/payment2.jpg){:class="img-responsive"}{:height="50%" width="60%"}
 
 Therefore, the Payment Class is only responsible for supporting to the Payments team, and the Card Class is solely responsible for supporting the Cards team.
 
@@ -86,4 +86,4 @@ Also, when new features arrive, then we need to distinct in which Class to inclu
 
 In conclusion, once you identify classes that have too many responsibilities, use this refactoring technique to create smaller classes with single responsibilities and focused only on one business actor.
 
-Similarly, you can read my Post about [Graphs]({{ site.baseurl }}{% post_url 2020-06-01-graphs-depth-first-search %}){:target="_blank"}, where you can see how two Classes are designed with unique responsibilities to solve a problem.
+Similarly, you can read my Post about [Graphs]({% post_url 2020-06-01-graphs-depth-first-search %}){:target="_blank"}, where you can see how two Classes are designed with unique responsibilities to solve a problem.
