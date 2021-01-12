@@ -28,7 +28,7 @@ The order of growth is related to how the runtime of an algorithm increases when
 
 Big O Notation: **Common order-of-growth classifications**:
 
-![order-of-growth](/assets/images/order-of-growth.jpg){:class="img-responsive"}{:height="60%" width="70%"}
+![order-of-growth](/assets/images/order-of-growth.jpg){:class="img-responsive"}{:height="50%" width="60%"}
 
 ### Big O Notation: examples
 
