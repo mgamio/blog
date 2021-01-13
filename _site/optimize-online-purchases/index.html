@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Optimize a basket in online purchases | CODER SITE for developers</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Optimize a basket in online purchases" />
+<meta name="author" content="Moises Gamio" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Optimize a basket in online purchases means fill a basket with the most valuable goods under a given budget." />
+<meta property="og:description" content="Optimize a basket in online purchases means fill a basket with the most valuable goods under a given budget." />
+<link rel="canonical" href="localhost:4000/optimize-online-purchases/" />
+<meta property="og:url" content="localhost:4000/optimize-online-purchases/" />
+<meta property="og:site_name" content="CODER SITE for developers" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-09T15:18:45+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Optimize a basket in online purchases" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Optimize a basket in online purchases","dateModified":"2020-04-09T15:18:45+02:00","datePublished":"2020-04-09T15:18:45+02:00","url":"localhost:4000/optimize-online-purchases/","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/optimize-online-purchases/"},"author":{"@type":"Person","name":"Moises Gamio"},"description":"Optimize a basket in online purchases means fill a basket with the most valuable goods under a given budget.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="localhost:4000/feed.xml" title="CODER SITE for developers" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CODER SITE for developers</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/book/">Book</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Optimize a basket in online purchases</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-04-09T15:18:45+02:00" itemprop="datePublished">Apr 9, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Optimize a basket in online purchases means fill a basket with the most valuable goods under a given budget.</p>
+
+<p>Imagine that we have a budget of 4 US$ and we want to buy the most valuable snacks from the following table:</p>
+
+<p><img src="/assets/images/basket.jpg" alt="basket" class="img-responsive" height="50%" width="60%" /></p>
+
+<p>But who decides if a product is more valuable than another one? Well, this depends on every business. It could be an estimation based on quantitative or qualitative analysis. For instance, for our solution, we choose a quantitative approach based on which product gives us more grams per every dollar invested.</p>
+
+<h3 id="optimize-a-basket-in-online-purchases-solution">Optimize a basket in online purchases: Solution</h3>
+
+<p>To implement our algorithm to optimize a basket in online purchases, we use the Red-Green Refactor technique, which is the basis of test-drive-development (<a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">TDD</a>). Firstly, in every assumption, we will write a test and see if it fails. Secondly, we write the code that implements only that test and sees if it succeed, then we can refactor the code to make it better. Finally, we continue with another assumption and repeat the previous steps until the algorithm is successfully implemented for all tests.</p>
+
+<p>To generalize the concept of <em>“the most valuable product”</em> we assign a <em>value</em> to every product. Our algorithm receives two parameters: an array 2-D which includes <em>[product-id][price][value]</em> and the <em>budget</em>.</p>
+
+<p><strong>Assumption #1 – Given an array of products ordered by value, return the most valuable products</strong></p>
+
+<p>We start defining a java test creating a new BasketOptimized class.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">BasketOptimizedTest</span> <span class="p">{</span>
+  <span class="no">BasketOptimized</span> <span class="n">basketOptimized</span><span class="p">;</span>
+
+  <span class="vi">@Before</span>
+  <span class="kp">public</span> <span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">basketOptimized</span> <span class="o">=</span> <span class="n">new</span> <span class="no">BasketOptimized</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="vi">@Test</span>
+  <span class="kp">public</span> <span class="n">void</span> <span class="n">productsOrderedByValue</span> <span class="p">()</span> <span class="p">{</span>
+
+    <span class="n">double</span><span class="p">[][]</span> <span class="n">myProducts</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[][]</span> <span class="p">{</span>
+        <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span>
+        <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span>
+        <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mi">75</span><span class="p">},</span>
+        <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">,</span> <span class="mi">55</span><span class="p">},</span>
+        <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">,</span> <span class="mi">47</span><span class="p">},</span>
+        <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.86</span><span class="p">,</span> <span class="mi">14</span><span class="p">},</span>
+        <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mf">1.69</span><span class="p">,</span> <span class="mi">12</span><span class="p">},</span>
+    <span class="p">};</span>
+
+    <span class="n">double</span><span class="p">[][]</span> <span class="n">mostValueableProducts</span> <span class="o">=</span>
+        <span class="n">basketOptimized</span><span class="p">.</span><span class="nf">fill</span><span class="p">(</span><span class="n">myProducts</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="n">assertEquals</span><span class="p">(</span><span class="mi">590</span><span class="n">d</span><span class="p">,</span>
+        <span class="no">Arrays</span><span class="p">.</span><span class="nf">stream</span><span class="p">(</span><span class="n">mostValueableProducts</span><span class="p">).</span>
+            <span class="nf">mapToDouble</span><span class="p">(</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]).</span><span class="nf">sum</span><span class="p">(),</span><span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The first time, it should fail because the <em>fill</em> method doesn’t exist. Then we need to create an easy implementation to pass the test: the sum of the values must be equal to 590 because this represents all selected products which its prices sum less or equal than 4.</p>
+
+<p>Now, we proceed to implement the <em>fill</em> method.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">BasketOptimized</span> <span class="p">{</span>
+
+  <span class="kp">public</span> <span class="n">double</span><span class="p">[][]</span> <span class="n">fill</span><span class="p">(</span><span class="n">double</span><span class="p">[][]</span> <span class="n">myProducts</span><span class="p">,</span> <span class="n">double</span> <span class="n">budget</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">myProducts</span><span class="p">.</span><span class="nf">length</span><span class="p">;</span>
+    <span class="n">double</span><span class="p">[][]</span> <span class="n">mostValueableProducts</span> <span class="o">=</span>  <span class="n">new</span> <span class="n">double</span><span class="p">[</span><span class="n">len</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
+
+    <span class="n">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">idx</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">myProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span> <span class="sr">//</span><span class="n">price</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">sum</span> <span class="o">&lt;=</span> <span class="n">budget</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">mostValueableProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span>
+            <span class="n">myProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span> <span class="sr">//i</span><span class="n">d</span>
+        <span class="n">mostValueableProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span>
+            <span class="n">myProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span> <span class="sr">//</span><span class="n">price</span>
+        <span class="n">mostValueableProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span>
+            <span class="n">myProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span> <span class="sr">//</span><span class="n">value</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">mostValueableProducts</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><strong>Assumption #2 – Given an array of products not ordered by value, return the most valuable products</strong></p>
+
+<p>In this case we pass a not ordered array, so we can see that our new test will fail.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@Test</span>
+<span class="kp">public</span> <span class="n">void</span> <span class="n">productsNotOrderedByValue</span> <span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">double</span><span class="p">[][]</span> <span class="n">myProducts</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[][]{</span>
+      <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span>
+      <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">,</span> <span class="mi">47</span><span class="p">},</span>
+      <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.69</span><span class="p">,</span> <span class="mi">12</span><span class="p">},</span>
+      <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">,</span> <span class="mi">55</span><span class="p">},</span>
+      <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span>
+      <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.86</span><span class="p">,</span> <span class="mi">14</span><span class="p">},</span>
+      <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mi">75</span><span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="n">double</span><span class="p">[][]</span> <span class="n">mostValueableProducts</span> 
+    <span class="o">=</span> <span class="n">basketOptimized</span><span class="p">.</span><span class="nf">fill</span><span class="p">(</span><span class="n">myProducts</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="n">assertEquals</span><span class="p">(</span><span class="mi">590</span><span class="n">d</span><span class="p">,</span> <span class="no">Arrays</span><span class="p">.</span><span class="nf">stream</span><span class="p">(</span><span class="n">mostValueableProducts</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">mapToDouble</span><span class="p">(</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]).</span><span class="nf">sum</span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>We realize that we need to order the array by value because we want the most valuable products, so its time to refactor our algorithm. What we need to do is to sort our input array.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="n">double</span><span class="p">[][]</span> <span class="n">fill</span><span class="p">(</span><span class="n">double</span><span class="p">[][]</span> <span class="n">myProducts</span><span class="p">,</span> <span class="n">double</span> <span class="n">budget</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="no">Arrays</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="n">myProducts</span><span class="p">,</span> <span class="no">Collections</span><span class="p">.</span><span class="nf">reverseOrder</span><span class="p">(</span>
+      <span class="no">Comparator</span><span class="p">.</span><span class="nf">comparingDouble</span><span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">])));</span>
+  <span class="n">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">myProducts</span><span class="p">.</span><span class="nf">length</span><span class="p">;</span>
+  <span class="n">double</span><span class="p">[][]</span> <span class="n">mostValueableProducts</span> <span class="o">=</span>  <span class="n">new</span> <span class="n">double</span><span class="p">[</span><span class="n">len</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span></code></pre></figure>
+
+<p>Then we can see our two test case were successful.</p>
+
+<h3 id="calculate-combinations">Calculate combinations</h3>
+
+<p><strong>Assumption #3 – Given an array of products, we need to obtain the most valuable products from all possible combinations of the products</strong></p>
+
+<p>Imagine the following escenario:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">double</span><span class="p">[][]</span> <span class="n">myProducts</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[][]</span> <span class="p">{</span>
+                <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span>
+                <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">,</span> <span class="mi">30</span><span class="p">},</span>
+                <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.49</span><span class="p">,</span> <span class="mi">28</span><span class="p">},</span>
+                <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">,</span> <span class="mi">55</span><span class="p">},</span>
+                <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span>
+                <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.86</span><span class="p">,</span> <span class="mi">14</span><span class="p">},</span>
+                <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mi">75</span><span class="p">},</span>
+        <span class="p">};</span>
+
+<span class="n">double</span><span class="p">[][]</span> <span class="n">mostValueableProducts</span> <span class="o">=</span> <span class="n">basketOptimized</span>
+       <span class="p">.</span><span class="nf">fill</span><span class="p">(</span><span class="n">myProducts</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="n">assertEquals</span><span class="p">(</span><span class="mi">590</span><span class="n">d</span><span class="p">,</span>
+      <span class="no">Arrays</span><span class="p">.</span><span class="nf">stream</span><span class="p">(</span><span class="n">mostValueableProducts</span><span class="p">)</span>
+       <span class="p">.</span><span class="nf">mapToDouble</span><span class="p">(</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]).</span><span class="nf">sum</span><span class="p">(),</span><span class="mi">0</span><span class="p">);</span></code></pre></figure>
+
+<p>The test is expecting a result of 590 which corresponds to the final price of 3,73US$ (0.98+0.98+0.48+1.29). Once the algorithm sort by value the input array, we have the following result:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mf">230.0</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mf">230.0</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">7.0</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mf">75.0</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.49</span><span class="p">,</span> <span class="mf">28.0</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mf">4.86</span><span class="p">,</span> <span class="mf">14.0</span><span class="p">]</span></code></pre></figure>
+
+<p>But here we realize the exists another combination of products which give us the most valuable products: 230+230+75+30+28 = 593 which corresponds to the final price of 3,44US$. Then we need to refactor our code to calculate all combinations (subsets) and return the most valuable products under a budget of 4 US$.</p>
+
+<p>The subsets can be represented by all the binary options from 0 to 7 (the array size).</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mo">0000</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="mo">0001</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">}</span> <span class="p">}</span>
+<span class="mo">0010</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">,</span> <span class="mi">30</span><span class="p">}</span> <span class="p">}</span>
+<span class="mo">0011</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">,</span> <span class="mi">30</span><span class="p">}</span> <span class="p">}</span>
+<span class="p">.</span>
+<span class="nf">.</span>
+<span class="o">.</span></code></pre></figure>
+
+<p>We build a hashMap to store all combinations and the sum of its values. Finally, we return the first element of the hashMap ordered by value</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">myProducts</span><span class="p">.</span><span class="nf">length</span><span class="p">;</span>
+<span class="n">int</span> <span class="n">numIterations</span> <span class="o">=</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="no">Math</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">myProducts</span><span class="p">.</span><span class="nf">length</span><span class="p">);</span>
+
+<span class="no">Map</span><span class="o">&lt;</span><span class="n">double</span><span class="p">[][],</span> <span class="no">Double</span><span class="o">&gt;</span> <span class="n">combinations</span> <span class="o">=</span> <span class="n">new</span> <span class="no">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">idx</span><span class="o">&lt;</span><span class="n">numIterations</span><span class="p">;</span> <span class="n">idx</span><span class="o">++</span><span class="p">){</span>
+  <span class="n">double</span><span class="p">[][]</span> <span class="n">combx</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[</span><span class="n">len</span><span class="p">][];</span>
+  <span class="n">double</span> <span class="n">sumPrice</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">double</span> <span class="n">sumValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">idx2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">idx2</span><span class="o">&lt;</span><span class="n">len</span><span class="p">;</span> <span class="n">idx2</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">idx</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="no">Math</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">idx2</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">combx</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">myProducts</span><span class="p">[</span><span class="n">idx2</span><span class="p">];</span>
+       <span class="n">sumPrice</span> <span class="o">=</span> <span class="n">sumPrice</span> <span class="o">+</span> <span class="n">myProducts</span><span class="p">[</span><span class="n">idx2</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+       <span class="n">sumValue</span> <span class="o">=</span> <span class="n">sumValue</span> <span class="o">+</span> <span class="n">myProducts</span><span class="p">[</span><span class="n">idx2</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">combx</span><span class="p">.</span><span class="nf">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">sumPrice</span> <span class="o">&lt;=</span> <span class="n">budget</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">combinations</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">combx</span><span class="p">,</span> <span class="no">Double</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">sumValue</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>You can see the complete solution explained in detail and all test cases in the following link:</p>
+
+<iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen="" style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;preview=inline&amp;linkCode=kpe&amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;tag=codersite20-20"></iframe>
+
+  </div><a class="u-url" href="/optimize-online-purchases/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CODER SITE for developers</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Moises Gamio</li><li><a class="u-email" href="mailto:codersitedev@gmail.com">codersitedev@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mgamio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mgamio</span></a></li><li><a href="https://www.twitter.com/MoisesGamio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">MoisesGamio</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Clean code, Software design, Automated testing, Data structures, and Algorithms are among the main concepts that every developer should know, among others. This is my blog site to share my knowledge and experience about them.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
