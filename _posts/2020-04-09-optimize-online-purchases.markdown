@@ -196,6 +196,6 @@ for (int idx=0; idx<numIterations; idx++){
 }
 {% endhighlight %}
 
-You can see the complete solution explained in detail and all test cases in the following link:
+You can see the complete solution explained in detail and all test cases in the following [link](https://amzn.to/2LqceUy){:target="_blank"}:
 
 <iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&preview=inline&linkCode=kpe&ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&tag=codersite20-20" ></iframe>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Given N, find the smallest number with the same number of digits | CODER SITE for developers</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Given N, find the smallest number with the same number of digits" />
+<meta name="author" content="Moises Gamio" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Write a method that, given an original number N, returns the smallest number with the same number of digits. For instance, given N=4751, the method returns 1000. Given N=100, the method should return 100. Given N=1, the method should return 0." />
+<meta property="og:description" content="Write a method that, given an original number N, returns the smallest number with the same number of digits. For instance, given N=4751, the method returns 1000. Given N=100, the method should return 100. Given N=1, the method should return 0." />
+<link rel="canonical" href="localhost:4000/given-a-positive-number-n-find-the-smallest-number-with-the-same-number-of-digits/" />
+<meta property="og:url" content="localhost:4000/given-a-positive-number-n-find-the-smallest-number-with-the-same-number-of-digits/" />
+<meta property="og:site_name" content="CODER SITE for developers" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-29T15:18:45+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Given N, find the smallest number with the same number of digits" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"localhost:4000/given-a-positive-number-n-find-the-smallest-number-with-the-same-number-of-digits/","headline":"Given N, find the smallest number with the same number of digits","dateModified":"2019-06-29T15:18:45+02:00","datePublished":"2019-06-29T15:18:45+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"localhost:4000/given-a-positive-number-n-find-the-smallest-number-with-the-same-number-of-digits/"},"author":{"@type":"Person","name":"Moises Gamio"},"description":"Write a method that, given an original number N, returns the smallest number with the same number of digits. For instance, given N=4751, the method returns 1000. Given N=100, the method should return 100. Given N=1, the method should return 0.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="localhost:4000/feed.xml" title="CODER SITE for developers" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CODER SITE for developers</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/book/">Book</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Given N, find the smallest number with the same number of digits</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-06-29T15:18:45+02:00" itemprop="datePublished">Jun 29, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Write a method that, given an original number N, returns the smallest number with the same number of digits. For instance, given N=4751, the method returns 1000. Given N=100, the method should return 100. Given N=1, the method should return 0.</p>
+
+<p>Maybe the first idea comes to our minds could be to iterate from the given original number and decrease one by one, and in every iteration to check if every new number contains one digit less than the original number, if the answer is true, then the previous one is the smallest number.</p>
+
+<p>Our assumption based on a test case:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">SmallestNumberTest</span> <span class="p">{</span>
+
+  <span class="vi">@Test</span>
+  <span class="kp">public</span> <span class="n">void</span> <span class="n">test_right_smallest_values</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">assertTrue</span><span class="p">(</span><span class="no">NumberUtils</span><span class="p">.</span><span class="nf">smallest</span><span class="p">(</span><span class="mi">4751</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="n">assertTrue</span><span class="p">(</span><span class="no">NumberUtils</span><span class="p">.</span><span class="nf">smallest</span><span class="p">(</span><span class="mi">189</span><span class="p">)</span> <span class="o">==</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="n">assertTrue</span><span class="p">(</span><span class="no">NumberUtils</span><span class="p">.</span><span class="nf">smallest</span><span class="p">(</span><span class="mi">37</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="n">assertTrue</span><span class="p">(</span><span class="no">NumberUtils</span><span class="p">.</span><span class="nf">smallest</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="vi">@Test</span>
+  <span class="kp">public</span> <span class="n">void</span> <span class="n">test_wrong_smallest_values</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">assertFalse</span><span class="p">(</span><span class="no">NumberUtils</span><span class="p">.</span><span class="nf">smallest</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">assertFalse</span><span class="p">(</span><span class="no">NumberUtils</span><span class="p">.</span><span class="nf">smallest</span><span class="p">(</span><span class="mi">2891</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2000</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Here, the implementation code:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">NumberUtils</span> <span class="p">{</span>
+  <span class="kp">public</span> <span class="n">static</span> <span class="n">int</span> <span class="n">smallest</span><span class="p">(</span><span class="n">int</span> <span class="no">N</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">int</span> <span class="n">smallestNumber</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="no">N</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="k">return</span> <span class="n">smallestNumber</span><span class="p">;</span>
+    
+    <span class="n">int</span> <span class="n">numberOfDigitsOriginalN</span> <span class="o">=</span> <span class="no">String</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="no">N</span><span class="p">).</span><span class="nf">length</span><span class="p">();</span>
+    <span class="k">while</span> <span class="p">(</span><span class="no">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="no">N</span><span class="o">--</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="no">String</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="no">N</span><span class="p">).</span><span class="nf">length</span><span class="p">()</span> <span class="o">==</span>
+          <span class="p">(</span><span class="n">numberOfDigitsOriginalN</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">++</span><span class="no">N</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">smallestNumber</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>If we realize, the solution follows a common pattern:</p>
+
+<p>N = 3891 -&gt; smallest number = 1000</p>
+
+<p>N = 189 -&gt; smallest number = 100</p>
+
+<p>N = 37 -&gt; smallest number = 10</p>
+
+<p>The smallest number is a power of 10, where the exponent is:</p>
+
+<p>(number of digits of the given N – 1)</p>
+
+<p>Here, a most optimized solution:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">NumberUtils</span> <span class="p">{</span>
+  <span class="kp">public</span> <span class="n">static</span> <span class="n">int</span> <span class="n">smallest</span><span class="p">(</span><span class="n">int</span> <span class="no">N</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">int</span> <span class="n">smallestNumber</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="no">N</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="o">||</span> <span class="no">String</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="no">N</span><span class="p">).</span><span class="nf">length</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">smallestNumber</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">int</span> <span class="n">numberOfDigits</span> <span class="o">=</span> <span class="no">String</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="no">N</span><span class="p">).</span><span class="nf">length</span><span class="p">();</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="no">Math</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">numberOfDigits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The main idea in Analysis of Algorithms is always to improve the algorithm performance by reducing the number of steps and comparisons. The simpler and more intuitive an algorithm is, the more useful and efficient it will be.</p>
+
+<p>Explore similar algorithms in the following <a href="https://amzn.to/2LqceUy" target="_blank">link</a>:</p>
+
+<iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen="" style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;preview=inline&amp;linkCode=kpe&amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;tag=codersite20-20"></iframe>
+
+
+  </div><a class="u-url" href="/given-a-positive-number-n-find-the-smallest-number-with-the-same-number-of-digits/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CODER SITE for developers</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Moises Gamio</li><li><a class="u-email" href="mailto:codersitedev@gmail.com">codersitedev@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Clean code, Software design, Automated testing, Data structures, and Algorithms are among the main concepts that every developer should know, among others. This is my blog site to share my knowledge and experience about them.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

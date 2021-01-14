@@ -178,6 +178,6 @@ Now, if we compare O(100N) with O(N2), we can see that O(N2) is faster than O(10
 
 But after a point, O(100N) becomes faster and remains faster for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, O(100N) is written as O(N).
 
-More about algorithms, data structures, and Big O Notation, you can learn here:
+More about algorithms, data structures, and Big O Notation, you can learn [here](https://amzn.to/2LqceUy){:target="_blank"}:
 
 <iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&preview=inline&linkCode=kpe&ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&tag=codersite20-20" ></iframe>
