@@ -4,9 +4,11 @@ title: About
 permalink: /about/
 ---
 
-I was born in Lima, Peru, where I studied for 5 years and obtained a degree in System Engineering. I have been working 20 years as a Software Engineer for several companies from different economic sectors such as Government, Financial, Industrial, Educative, Consulting, Retail, and Research. I have been using several technological tools such as Java, C, Cobol, C#, Visual Basic, PHP, and JScript, in operating systems such as Windows, Linux, Unix, and RISC 6000, in databases such as SQL Server, Oracle, MySQL, DB2, and Lotus Notes. My tasks have been related to Software Development, Stages of Analysis, Design, Testing, and Deployment.
+I was born in Lima, Peru, where I studied for 5 years and obtained a degree in System Engineering. I have been working 20 years as a Software Engineer for several companies from different economic sectors such as Government, Financial, Industrial, Educative, Consulting, Retail, and Research. 
 
-During 8 years, I worked as a System Analyst for the Bank Sector. Since 2014 I am working as a Software Engineer in a B2B company in Berlin, Germany.
+I have been programming in several languages such as Java, C, Cobol, C#, Visual Basic, PHP, Prolog, Python, PL/SQL and JScript. My tasks have been related to Software Development, stages of Analysis, Design, Testing, and Deployment.
+
+During 8 years, I worked as a System Analyst for the Bank Sector. Since 2014, I am working as a Software Engineer in a B2B company in Berlin, Germany.
 
 This is my blog site to share my knowledge and experience. At the moment, I am passionate about the following things:
 
