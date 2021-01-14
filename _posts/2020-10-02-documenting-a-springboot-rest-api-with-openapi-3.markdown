@@ -20,7 +20,7 @@ Prerequisites:
 
 Go to [spring initializr](https://start.spring.io/){:target="_blank"} and add the following dependencies:
 
-![spring initializr](/assets/images/start.spring.io.jpg){:class="img-responsive"}{:height="60%" width="70%"}
+![spring initializr](/assets/images/start.spring.io.jpg){:class="img-responsive"}
 
 Once you generate the JAR maven project, open it in your favorite IDE.
 
@@ -348,11 +348,11 @@ public class OpenapiApplication {
 }
 {% endhighlight %}
 
-Then, when we run our application, we can view the online documentation at:
+Then, when we run our application, we can see the online documentation at:
 
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html){:target="_blank"}
 
-![openapi3](/assets/images/openapi3.jpg){:class="img-responsive"}{:height="60%" width="70%"}
+![openapi3](/assets/images/openapi3.jpg){:class="img-responsive"}
 
 You can see the source code in the following link:
 

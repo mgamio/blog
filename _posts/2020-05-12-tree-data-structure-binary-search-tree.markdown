@@ -12,7 +12,7 @@ Moreover, you can search a tree data structure quickly, as you can an ordered ar
 
 The following figure shows the binary tree terminology:
 
-![binaryTree](/assets/images/binaryTree.jpg){:class="img-responsive"}{:height="50%" width="60%"}
+![binaryTree](/assets/images/binaryTree.jpg){:class="img-responsive"}
 
 ### Tree data structure: Use Case:
 

@@ -56,7 +56,7 @@
 
 <p>To describe terms related to Graphs, we use the following Graph, which models <strong><em>Hyperloop</em></strong> transport to be installed in Germany, for instance.</p>
 
-<p><img src="/assets/images/dfs1.jpg" alt="dfs1" class="img-responsive" height="60%" width="70%" /></p>
+<p><img src="/assets/images/dfs1.jpg" alt="dfs1" class="img-responsive" /></p>
 
 <p>A Graph shows only the relationships between the <em>vertices</em> and the <em>edges</em>. Therefore, the most important here is to understand, which edges are connected to which vertex. Moreover, we can also say that Graph models connections between objects.</p>
 
@@ -76,7 +76,7 @@
 
 <p>A graph is directed when the edges have a direction. In the figure above we have an undirected graph because the hyperloop can usually go either way. From Berlin to Leipzig is the same as from Leipzig to Berlin.</p>
 
-<p>A <a href="/clean-code/" target="_blank">tree</a> is an undirected graph, as long as any two vertices are connected by exactly one path.</p>
+<p>A <a href="/tree-data-structure-binary-search-tree/" target="_blank">tree</a> is an undirected graph, as long as any two vertices are connected by exactly one path.</p>
 
 <p>Graphs are called a weighted graph when edges are given weight. For instance, the distance between cities can be weighted in how fast they are connected. The edges may contain value/cost as well.</p>
 
@@ -92,7 +92,7 @@
 
 <p>Depth-First Search (DFS) is an algorithm for traversing or searching for in a Graph. The algorithm starts at the root node (selecting some arbitrary city as the root node) and explores as far as possible along each path. The following Graph shows the sequence of cities followed by the DFS algorithm, if we choose Berlin as the root node, for instance.</p>
 
-<p><img src="/assets/images/dfsSequence.jpg" alt="dfsSequence" class="img-responsive" height="60%" width="70%" /></p>
+<p><img src="/assets/images/dfsSequence.jpg" alt="dfsSequence" class="img-responsive" /></p>
 
 <h3 id="implementing-graphs-algorithm">Implementing Graphs Algorithm</h3>
 
@@ -114,7 +114,7 @@
 
 <p>In a graph of N vertices, we create a two-dimensional array of NxN. An edge between two vertices (cities) indicates a connection (two adjacent nodes) and is represented by 1. No connections are represented by 0.</p>
 
-<p><img src="/assets/images/dfsMatrix.jpg" alt="dfsMatrix" class="img-responsive" height="60%" width="70%" /></p>
+<p><img src="/assets/images/dfsMatrix.jpg" alt="dfsMatrix" class="img-responsive" /></p>
 
 <p>The table above says, Leipzig is adjacent to Berlin, Dresden, and Nürnberg, for instance.</p>
 

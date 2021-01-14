@@ -8,7 +8,7 @@ Optimize a basket in online purchases means fill a basket with the most valuable
 
 Imagine that we have a budget of 4 US$ and we want to buy the most valuable snacks from the following table:
 
-![basket](/assets/images/basket.jpg){:class="img-responsive"}{:height="50%" width="60%"}
+![basket](/assets/images/basket.jpg){:class="img-responsive"}
 
 But who decides if a product is more valuable than another one? Well, this depends on every business. It could be an estimation based on quantitative or qualitative analysis. For instance, for our solution, we choose a quantitative approach based on which product gives us more grams per every dollar invested.
 
