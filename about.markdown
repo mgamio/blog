@@ -22,4 +22,12 @@ This is my blog site to share my knowledge and experience. At the moment, I am p
 - Data Structure and Algorithms
 - Learning new technologies
 
-Connect with Me: [linkedin](https://www.linkedin.com/in/moises-gamio-b4370210/){:target="_blank"}
+Follow me on: 
+
+[linkedin](https://www.linkedin.com/in/moises-gamio-b4370210/){:target="_blank"}
+
+[![twitter](/assets/images/twitter.png)][1]{:target="_blank"}
+[![facebook](/assets/images/facebook.png)][3]{:target="_blank"}
+
+[1]: http://www.twitter.com/MoisesGamio
+[3]: https://www.facebook.com/codersite.dev
