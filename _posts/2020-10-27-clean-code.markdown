@@ -2,6 +2,7 @@
 layout: post
 title:  "Clean Code"
 date:   2020-10-27 14:18:45 +0100
+read_time: true
 tags: cleancode java solid
 categories: cleancode
 ---

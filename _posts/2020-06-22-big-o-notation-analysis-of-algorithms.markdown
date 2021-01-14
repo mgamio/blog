@@ -2,6 +2,7 @@
 layout: post
 title:  "Big O Notation: Analysis of Algorithms"
 date:   2020-06-22 14:18:45 +0100
+read_time: true
 categories: bigONotation
 ---
 Big O Notation is a mathematical function, which helps us to analyze how complex an algorithm is in terms of time and space. It matters when we build an application for millions of users. We implement different algorithms to solve one problem and measure how efficient is one respect to the other ones.
@@ -28,7 +29,7 @@ The order of growth is related to how the runtime of an algorithm increases when
 
 Big O Notation: **Common order-of-growth classifications**:
 
-![order-of-growth](/assets/images/order-of-growth.jpg){:class="img-responsive"}{:height="50%" width="60%"}
+![order-of-growth](/assets/images/order-of-growth.jpg){:class="img-responsive"}
 
 ### Big O Notation: examples
 
