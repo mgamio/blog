@@ -6,7 +6,9 @@ date:   2020-10-27 14:18:45 +0100
 tags: cleancode java solid
 categories: cleancode
 ---
-Clean code can be read and enhanced by a developer other than its original author. This kind of practice [Robert C Martin](https://amzn.to/3rAejgU){:target="_blank"} introduced it.
+Clean code can be read and enhanced by a developer other than its original author. 
+
+This kind of practice [Robert C Martin](https://amzn.to/3rAejgU){:target="_blank"} introduced it.
 
 If you want to be a better programmer, you must follow these recommendations..
 

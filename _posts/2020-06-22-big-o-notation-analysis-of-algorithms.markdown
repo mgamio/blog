@@ -6,7 +6,9 @@ date:   2020-06-22 14:18:45 +0100
 read_time: true
 categories: bigONotation
 ---
-Big O Notation is a mathematical function, which helps us to analyze how complex an algorithm is in terms of time and space. It matters when we build an application for millions of users. We implement different algorithms to solve one problem and measure how efficient is one respect to the other ones.
+Big O Notation is a mathematical function, which helps us to analyze how complex an algorithm is in terms of time and space. It matters when we build an application for millions of users.
+
+We implement different algorithms to solve one problem and measure how efficient is one respect to the other ones.
 
 The first study about Analysis of Algorithms was published by Knuth in 1968. [The Art of Computer Programming](https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming){:target="_blank"}.
 

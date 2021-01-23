@@ -5,7 +5,9 @@ description: "Wants to know what is the shortest path in a graphs data structure
 date:   2020-06-01 14:18:45 +0100
 categories: algorithms
 ---
-A **Graph** is a non-linear data structure consisting of nodes (or vertices) and edges. Its shape depends on the physical or abstract problem we are trying to solve. For instance, if nodes represent cities, then the routes which connect cities may be represented by *no-directed* edges. But if nodes represent tasks to complete a project, then their edges must be *directed* to indicate which task must be completed before another. Depth-First Search (DFS), is an algorithm to search for information in Graphs.
+Depth-First Search (DFS), is an algorithm to search for information in Graphs.
+
+A **Graph** is a non-linear data structure consisting of nodes (or vertices) and edges. Its shape depends on the physical or abstract problem we are trying to solve. For instance, if nodes represent cities, then the routes which connect cities may be represented by *no-directed* edges. But if nodes represent tasks to complete a project, then their edges must be *directed* to indicate which task must be completed before another.
 
 Graph theory was first proposed by Leonhard Euler when solved the [Seven Bridges of Königsber](https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg){:target="_blank"} problem.
 

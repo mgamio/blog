@@ -6,7 +6,9 @@ date:   2019-06-29 14:18:45 +0100
 read_time: true
 categories: algorithms
 ---
-Write a method that, given an original number N, returns the smallest number with the same number of digits. For instance, given N=4751, the method returns 1000. Given N=100, the method should return 100. Given N=1, the method should return 0.
+Write a method that, given an original number N, returns the smallest number with the same number of digits.
+
+For instance, given N=4751, the method returns 1000. Given N=100, the method should return 100. Given N=1, the method should return 0.
 
 Maybe the first idea comes to our minds could be to iterate from the given original number and decrease one by one, and in every iteration to check if every new number contains one digit less than the original number, if the answer is true, then the previous one is the smallest number.
 

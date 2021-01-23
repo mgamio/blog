@@ -5,7 +5,9 @@ description: "SOLID principles tell us how to arrange our functions into classes
 date:   2020-06-15 14:18:45 +0100
 categories: solid
 ---
-SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated. Robert C. Martin introduced it. [Design Principles](https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf){:target="_blank"}.
+SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.
+
+Robert C. Martin introduced it. [Design Principles](https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf){:target="_blank"}.
 
 When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.
 
