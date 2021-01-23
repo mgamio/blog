@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+description: "Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design"
 permalink: /about/
 ---
 

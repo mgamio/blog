@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Optimize a basket in online purchases"
+description: "Fill a basket with the most valuable goods under a given budget to optimize online purchases. Do it with bitmasks and functional programming"
 date:   2020-04-09 14:18:45 +0100
 categories: algorithms
 ---

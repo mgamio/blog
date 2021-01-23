@@ -45,6 +45,10 @@ theme: minima
 
 search: true
 
+google_analytics: UA-115356337-1
+
+show_excerpts: true
+
 markdown: kramdown
 gems:
   - jekyll-feed

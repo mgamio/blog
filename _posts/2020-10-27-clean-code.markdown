@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Clean Code"
+description: "Clean code can be read and enhanced by a developer other than its original author. Clean code has Intention-Revealing names"
 date:   2020-10-27 14:18:45 +0100
-read_time: true
 tags: cleancode java solid
 categories: cleancode
 ---

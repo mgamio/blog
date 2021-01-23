@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Graphs: Depth-First Search"
+description: "Wants to know what is the shortest path in a graphs data structure. So the Depth-First Search (DFS) algorithm is what you need to learn"
 date:   2020-06-01 14:18:45 +0100
 categories: algorithms
 ---

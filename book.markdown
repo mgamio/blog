@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Book
+description: "Java Challenge: Cracking the Coding Interview: based on real interviews. Java Interview Questions You'll Most Likely Be Asked"
 permalink: /book/
 ---
 
