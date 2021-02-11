@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-23T20:06:38+01:00</updated><id>localhost:4000/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Clean Code</title><link href="localhost:4000/clean-code/" rel="alternate" type="text/html" title="Clean Code" /><published>2020-10-27T14:18:45+01:00</published><updated>2020-10-27T14:18:45+01:00</updated><id>localhost:4000/clean-code</id><content type="html" xml:base="localhost:4000/clean-code/">&lt;p&gt;Clean code can be read and enhanced by a developer other than its original author.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-11T19:06:14+01:00</updated><id>localhost:4000/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Clean Code</title><link href="localhost:4000/clean-code/" rel="alternate" type="text/html" title="Clean Code" /><published>2020-10-27T14:18:45+01:00</published><updated>2020-10-27T14:18:45+01:00</updated><id>localhost:4000/clean-code</id><content type="html" xml:base="localhost:4000/clean-code/">&lt;p&gt;Clean code can be read and enhanced by a developer other than its original author.&lt;/p&gt;
 
 &lt;p&gt;This kind of practice &lt;a href=&quot;https://amzn.to/3rAejgU&quot; target=&quot;_blank&quot;&gt;Robert C Martin&lt;/a&gt; introduced it.&lt;/p&gt;
 
@@ -464,9 +464,9 @@
 
 &lt;p&gt;The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons. You can visit my Post about a smaller number, for instance. Moreover, the simpler and more intuitive an algorithm is, the more useful and efficient it will be.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;O(N2) – quadratic&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;O(N&lt;sup&gt;2&lt;/sup&gt;) – quadratic&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;If an algorithm includes two loops nested in its code, we could say that it’s running in quadratic time O(N2). For instance, when a 2D matrix is initialized in a tic-tac-toe game.&lt;/p&gt;
+&lt;p&gt;If an algorithm includes two loops nested in its code, we could say that it’s running in quadratic time O(N&lt;sup&gt;2&lt;/sup&gt;). For instance, when a 2D matrix is initialized in a tic-tac-toe game.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[][]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
@@ -479,7 +479,7 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;strong&gt;O(N3) – Cubic&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;O(N&lt;sup&gt;3&lt;/sup&gt;) – Cubic&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;When the code includes at the most three nested loops, then the algorithm runs in Cubic time. For example: given N integers, how many triples sum to exactly zero?. One approach (not the best) is to use three nested loops.&lt;/p&gt;
 
@@ -532,7 +532,7 @@
   &lt;li&gt;Drop the leading constants&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Example: If the time complexity of an algorithm is 2n3 + 4n + 3. Its Big O complexity simplifies to O(n3).&lt;/p&gt;
+&lt;p&gt;Example: If the time complexity of an algorithm is 2n&lt;sup&gt;3&lt;/sup&gt; + 4n + 3. Its Big O complexity simplifies to O(n&lt;sup&gt;3&lt;/sup&gt;).&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;How to find the time complexity of an algorithm&lt;/strong&gt;&lt;/p&gt;
 
@@ -596,11 +596,11 @@
 
 &lt;p&gt;Big O Notation describes how many steps are required relative to the number of data elements. And it serves as a way to classify the long-term growth rate of algorithms.&lt;/p&gt;
 
-&lt;p&gt;For instance, for all amounts of data, O(N) will be faster than O(N2) as shown in the following figure:&lt;/p&gt;
+&lt;p&gt;For instance, for all amounts of data, O(N) will be faster than O(N&lt;sup&gt;2&lt;/sup&gt;) as shown in the following figure:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/bigONotation-1.jpg&quot; alt=&quot;bigONotation-1&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Now, if we compare O(100N) with O(N2), we can see that O(N2) is faster than O(100N) for some amounts of data as shown in the following figure:&lt;/p&gt;
+&lt;p&gt;Now, if we compare O(100N) with O(N&lt;sup&gt;2&lt;/sup&gt;), we can see that O(N&lt;sup&gt;2&lt;/sup&gt;) is faster than O(100N) for some amounts of data as shown in the following figure:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/bigONotation-2.jpg&quot; alt=&quot;bigONotation-2&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 

@@ -62,9 +62,9 @@ public int sum(int[] numbers) {
 
 The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons. You can visit my Post about a smaller number, for instance. Moreover, the simpler and more intuitive an algorithm is, the more useful and efficient it will be.
 
-**O(N2) – quadratic**
+**O(N<sup>2</sup>) – quadratic**
 
-If an algorithm includes two loops nested in its code, we could say that it’s running in quadratic time O(N2). For instance, when a 2D matrix is initialized in a tic-tac-toe game.
+If an algorithm includes two loops nested in its code, we could say that it’s running in quadratic time O(N<sup>2</sup>). For instance, when a 2D matrix is initialized in a tic-tac-toe game.
 
 {% highlight ruby %}
 private String [][] board;
@@ -79,7 +79,7 @@ public void initializeBoard(int size) {
 }
 {% endhighlight %}
 
-**O(N3) – Cubic**
+**O(N<sup>3</sup>) – Cubic**
 
 When the code includes at the most three nested loops, then the algorithm runs in Cubic time. For example: given N integers, how many triples sum to exactly zero?. One approach (not the best) is to use three nested loops.
 
@@ -134,7 +134,7 @@ To find the Big O complexity of an algorithm follows the following rules:
 - Ignore the lower order terms
 - Drop the leading constants
 
-Example: If the time complexity of an algorithm is 2n3 + 4n + 3. Its Big O complexity simplifies to O(n3).
+Example: If the time complexity of an algorithm is 2n<sup>3</sup> + 4n + 3. Its Big O complexity simplifies to O(n<sup>3</sup>).
 
 **How to find the time complexity of an algorithm**
 
@@ -171,11 +171,11 @@ Time complexity = 1 + 1 + N + N + N + N + 1 =>   4N + 3
 
 Big O Notation describes how many steps are required relative to the number of data elements. And it serves as a way to classify the long-term growth rate of algorithms.
 
-For instance, for all amounts of data, O(N) will be faster than O(N2) as shown in the following figure:
+For instance, for all amounts of data, O(N) will be faster than O(N<sup>2</sup>) as shown in the following figure:
 
 ![bigONotation-1](/assets/images/bigONotation-1.jpg){:class="img-responsive"}
 
-Now, if we compare O(100N) with O(N2), we can see that O(N2) is faster than O(100N) for some amounts of data as shown in the following figure:
+Now, if we compare O(100N) with O(N<sup>2</sup>), we can see that O(N<sup>2</sup>) is faster than O(100N) for some amounts of data as shown in the following figure:
 
 ![bigONotation-2](/assets/images/bigONotation-2.jpg){:class="img-responsive"}
 
