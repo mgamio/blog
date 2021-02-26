@@ -2,6 +2,7 @@
 layout: post
 title:  "Tree data structure: Binary Search Tree"
 description: "Tree data structures are non-linear structures. Binary tree combines advantages from an ordered array and linkedlist and they are much faster"
+featured-image: binaryTree.jpg
 date:   2020-05-12 14:18:45 +0100
 categories: datastructure
 ---
