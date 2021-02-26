@@ -2,6 +2,7 @@
 layout: post
 title:  "Big O Notation: Analysis of Algorithms"
 description: "Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users"
+featured-image: order-of-growth.jpg
 date:   2020-06-22 14:18:45 +0100
 read_time: true
 categories: bigONotation
