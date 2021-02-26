@@ -2,6 +2,7 @@
 layout: post
 title:  "SOLID principles: The Definitive Guide (Part I)"
 description: "SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand"
+featured-image: payment2.jpg
 date:   2020-06-15 14:18:45 +0100
 categories: solid
 ---
