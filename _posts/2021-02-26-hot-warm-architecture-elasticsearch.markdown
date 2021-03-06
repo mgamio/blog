@@ -143,3 +143,5 @@ C:\...\codersite.dev>curl -XGET http://110.1.0.101:9200/_cat/nodes
 Now you can proceed to install kibana and logstash.
 
 Here you can read an article which explain [Elasticsearch](https://medium.com/@m.konda/just-elasticsearch-2-n-architecture-1fe4818c64aa){:target="_blank"} as simple as possible.
+
+If you want to know how to scale in a distribuited system, I recommend this book: [Designing Data-Intensive Applications](https://amzn.to/3rpxj15){:target="_blank"}.
