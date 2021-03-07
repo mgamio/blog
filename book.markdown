@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Book
-description: "Java Challenge: Cracking the Coding Interview: based on real interviews. Java Interview Questions You'll Most Likely Be Asked"
+title: Algorithms for Coding Interview
+description: "Based on real interviews. Java Interview Questions You'll Most Likely Be Asked. A MUST read for any Java Developer! Succinct and super informative!"
 permalink: /book/
 ---
 
