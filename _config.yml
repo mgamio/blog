@@ -17,9 +17,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: CODER SITE for developers
+title: "Algorithms for Coding Interview"
 title_separator: "|"
 name: Moises Gamio
+tagline: "codersite.dev"
 description: Make what is complex been easy to understand by learning the fundamentals of computer science and software design.
 author: Moises Gamio
 
