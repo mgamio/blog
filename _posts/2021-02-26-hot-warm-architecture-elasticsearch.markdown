@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Hot-Warm Architecture in Elasticsearch"
+title:  "Hot-Warm Architecture in Elasticsearch 1/n"
 description: "Hot-warm architecture is a powerful way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes."
 featured-image: hot-warm-elastic.jpg
 date:   2021-02-26 10:01:45 +0100
