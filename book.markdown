@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Algorithms for Coding Interview
-description: "Based on real interviews. Java Interview Questions You'll Most Likely Be Asked. A MUST read for any Java Developer! Succinct and super informative!"
+title: Book
+description: "Based on real interviews. Java Interview Questions You'll Most Likely Be Asked. A must read for any Java Developer! Succinct and super informative!"
 permalink: /book/
 ---
 
