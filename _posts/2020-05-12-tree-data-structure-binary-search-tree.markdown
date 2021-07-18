@@ -10,7 +10,7 @@ Tree data structure are non-linear data structures, they allow us to implement a
 
 A binary tree can have at the most two children: a left node and a right node. Every node contains data with a key used to identify the data stored by the node and a value that is the data contained in the node.
 
-Moreover, you can search a tree data structure quickly, as you can an ordered array, and you can also insert and delete items quickly, as you can with a linked list.
+Moreover, you can search in a tree data structure quickly, as you can with an ordered array, and you can also insert and delete items quickly, as you can with a linked list.
 
 The following figure shows the binary tree terminology:
 
