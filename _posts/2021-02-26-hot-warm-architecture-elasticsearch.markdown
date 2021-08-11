@@ -145,3 +145,12 @@ Now you can proceed to install kibana and logstash.
 Here you can read an article which explain [Elasticsearch](https://medium.com/@m.konda/just-elasticsearch-2-n-architecture-1fe4818c64aa){:target="_blank"} as simple as possible.
 
 If you want to know how to scale in a distribuited system, I recommend this book: [Designing Data-Intensive Applications](https://amzn.to/3rpxj15){:target="_blank"}.
+
+
+If my blog has helped you understand elasticsearch, please consider donating. I appreciate it when my readers let me know my work has helped them.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+<input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+<input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+</form>
