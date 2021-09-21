@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2021-08-11T20:12:29+02:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Merge two Sorted Lists</title><link href="https://codersite.dev/merge-two-sorted-lists/" rel="alternate" type="text/html" title="Merge two Sorted Lists" /><published>2021-08-03T23:18:45+02:00</published><updated>2021-08-03T23:18:45+02:00</updated><id>https://codersite.dev/merge-two-sorted-lists</id><content type="html" xml:base="https://codersite.dev/merge-two-sorted-lists/">&lt;p&gt;Given two sorted lists, merge them in a new sorted list.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2021-09-21T19:04:28+02:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Merge two Sorted Lists</title><link href="https://codersite.dev/merge-two-sorted-lists/" rel="alternate" type="text/html" title="Merge two Sorted Lists" /><published>2021-08-03T23:18:45+02:00</published><updated>2021-08-03T23:18:45+02:00</updated><id>https://codersite.dev/merge-two-sorted-lists</id><content type="html" xml:base="https://codersite.dev/merge-two-sorted-lists/">&lt;p&gt;Given two sorted lists, merge them in a new sorted list.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/mergeSortedLists.jpg&quot; alt=&quot;merge-two-sorted-lists&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
@@ -58,7 +58,7 @@
 
 &lt;iframe type=&quot;text/html&quot; width=&quot;336&quot; height=&quot;550&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; style=&quot;max-width:100%&quot; src=&quot;https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;amp;preview=inline&amp;amp;linkCode=kpe&amp;amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;amp;tag=codersite20-20&quot;&gt;&lt;/iframe&gt;
 
-&lt;p&gt;If my blog has helped you with your code interview, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
+&lt;p&gt;If my blog has helped you with your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
 
 &lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
 &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
@@ -621,7 +621,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
 &lt;input type=&quot;image&quot; src=&quot;https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif&quot; border=&quot;0&quot; name=&quot;submit&quot; title=&quot;PayPal - The safer, easier way to pay online!&quot; alt=&quot;Donate with PayPal button&quot; /&gt;
 &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;https://www.paypal.com/en_GB/i/scr/pixel.gif&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;
-&lt;/form&gt;</content><author><name>Moises Gamio</name></author><category term="rest" /><category term="rest" /><category term="springboot" /><summary type="html">The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.</summary></entry><entry><title type="html">Big O Notation: Analysis of Algorithms</title><link href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" rel="alternate" type="text/html" title="Big O Notation: Analysis of Algorithms" /><published>2020-06-22T15:18:45+02:00</published><updated>2020-06-22T15:18:45+02:00</updated><id>https://codersite.dev/big-o-notation-analysis-of-algorithms</id><content type="html" xml:base="https://codersite.dev/big-o-notation-analysis-of-algorithms/">&lt;p&gt;Big O Notation is a mathematical function, which helps us to analyze how complex an algorithm is in terms of time and space. It matters when we build an application for millions of users.&lt;/p&gt;
+&lt;/form&gt;</content><author><name>Moises Gamio</name></author><category term="rest" /><category term="rest" /><category term="springboot" /><summary type="html">The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.</summary></entry><entry><title type="html">Big O Notation: Analysis of Algorithms - coding interview</title><link href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" rel="alternate" type="text/html" title="Big O Notation: Analysis of Algorithms - coding interview" /><published>2020-06-22T15:18:45+02:00</published><updated>2020-06-22T15:18:45+02:00</updated><id>https://codersite.dev/big-o-notation-analysis-of-algorithms</id><content type="html" xml:base="https://codersite.dev/big-o-notation-analysis-of-algorithms/">&lt;p&gt;Big O Notation is a mathematical function, which helps us to analyze how complex an algorithm is in terms of time and space. It matters when we build an application for millions of users.&lt;/p&gt;
 
 &lt;p&gt;We implement different algorithms to solve one problem and measure how efficient is one respect to the other ones.&lt;/p&gt;
 
@@ -825,7 +825,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;iframe type=&quot;text/html&quot; width=&quot;336&quot; height=&quot;550&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; style=&quot;max-width:100%&quot; src=&quot;https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;amp;preview=inline&amp;amp;linkCode=kpe&amp;amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;amp;tag=codersite20-20&quot;&gt;&lt;/iframe&gt;
 
-&lt;p&gt;If my blog has helped you Big O Notation, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
+&lt;p&gt;If my blog has helped you with your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
 
 &lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
 &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
@@ -1147,7 +1147,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;iframe type=&quot;text/html&quot; width=&quot;336&quot; height=&quot;550&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; style=&quot;max-width:100%&quot; src=&quot;https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;amp;preview=inline&amp;amp;linkCode=kpe&amp;amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;amp;tag=codersite20-20&quot;&gt;&lt;/iframe&gt;
 
-&lt;p&gt;If my blog has helped you understand depth-first-search, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
+&lt;p&gt;If my blog has helped you understand depth-first-search in your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
 
 &lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
 &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
@@ -1312,7 +1312,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;iframe type=&quot;text/html&quot; width=&quot;336&quot; height=&quot;550&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; style=&quot;max-width:100%&quot; src=&quot;https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;amp;preview=inline&amp;amp;linkCode=kpe&amp;amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;amp;tag=codersite20-20&quot;&gt;&lt;/iframe&gt;
 
-&lt;p&gt;If my blog has helped you understand tree binary search, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
+&lt;p&gt;If my blog has helped you understand tree binary search in your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
 
 &lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
 &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
@@ -1498,7 +1498,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;iframe type=&quot;text/html&quot; width=&quot;336&quot; height=&quot;550&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; style=&quot;max-width:100%&quot; src=&quot;https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;amp;preview=inline&amp;amp;linkCode=kpe&amp;amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;amp;tag=codersite20-20&quot;&gt;&lt;/iframe&gt;
 
-&lt;p&gt;If my blog has helped you understand TDD approach, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
+&lt;p&gt;If my blog has helped you understand TDD approach in your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
 
 &lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
 &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
@@ -1580,7 +1580,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;iframe type=&quot;text/html&quot; width=&quot;336&quot; height=&quot;550&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; style=&quot;max-width:100%&quot; src=&quot;https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;amp;preview=inline&amp;amp;linkCode=kpe&amp;amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;amp;tag=codersite20-20&quot;&gt;&lt;/iframe&gt;
 
-&lt;p&gt;If my blog has helped you prepare your code interview, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
+&lt;p&gt;If my blog has helped you prepare your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
 
 &lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
 &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;

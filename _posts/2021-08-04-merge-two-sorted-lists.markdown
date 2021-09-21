@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Merge two Sorted Lists"
-description: "Given two sorted lists, merge them in a new sorted list"
+description: "Given two sorted lists, merge them in a new sorted list - coding interview"
 date: 2021-08-03 22:18:45 +0100
 categories: algorithms java
 ---
@@ -68,7 +68,7 @@ The previous algorithm is missing how to proceed when one of the lists still con
 
 <iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&preview=inline&linkCode=kpe&ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&tag=codersite20-20" ></iframe>
 
-If my blog has helped you with your code interview, please consider donating. I appreciate it when my readers let me know my work has helped them.
+If my blog has helped you with your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
 <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
