@@ -9,7 +9,7 @@ Given two sorted lists, merge them in a new sorted list.
 
 ![merge-two-sorted-lists](/assets/images/mergeSortedLists.jpg){:class="img-responsive"}
 
-We can join the two lists into a new list and apply a sort algorithm such as bubble sort, insertion, or quicksort. What we are going to do is to implement a new algorithm with a NlogN [NlogN]({% post_url 2020-06-22-big-o-notation-analysis-of-algorithms %}){:target="_blank"} performance.
+We can join the two lists into a new list and apply a sort algorithm such as bubble sort, insertion, or quicksort. What we are going to do is to implement a new algorithm with a [NlogN]({% post_url 2020-06-22-big-o-notation-analysis-of-algorithms %}){:target="_blank"} performance.
 
 - We define a new List to add all elements from the other two lists in a sorted way.
 - We define two indexes that point to every element in every list
