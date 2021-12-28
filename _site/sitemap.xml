@@ -1,63 +1,57 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
 <url>
-<loc>https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/</loc>
-<lastmod>2019-06-29T15:18:45+02:00</lastmod>
+  <loc>http://codersite.dev/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/optimize-online-purchases/</loc>
-<lastmod>2020-04-09T15:18:45+02:00</lastmod>
+  <loc>http://codersite.dev/about/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/tree-data-structure-binary-search-tree/</loc>
-<lastmod>2020-05-12T15:18:45+02:00</lastmod>
+  <loc>http://codersite.dev/donate/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/graphs-depth-first-search/</loc>
-<lastmod>2020-06-01T15:18:45+02:00</lastmod>
+  <loc>http://codersite.dev/book/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/solid-principles-the-definitive-guide/</loc>
-<lastmod>2020-06-15T15:18:45+02:00</lastmod>
+  <loc>http://codersite.dev/merge-two-sorted-lists/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/big-o-notation-analysis-of-algorithms/</loc>
-<lastmod>2020-06-22T15:18:45+02:00</lastmod>
+  <loc>http://codersite.dev/hot-warm-architecture-elasticsearch/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/documenting-rest-api-openapi3/</loc>
-<lastmod>2020-10-02T15:18:45+02:00</lastmod>
+  <loc>http://codersite.dev/clean-code/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/clean-code/</loc>
-<lastmod>2020-10-27T14:18:45+01:00</lastmod>
+  <loc>http://codersite.dev/documenting-rest-api-openapi3/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/hot-warm-architecture-elasticsearch/</loc>
-<lastmod>2021-02-26T10:01:45+01:00</lastmod>
+  <loc>http://codersite.dev/big-o-notation-analysis-of-algorithms/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/merge-two-sorted-lists/</loc>
-<lastmod>2021-08-03T23:18:45+02:00</lastmod>
+  <loc>http://codersite.dev/solid-principles-the-definitive-guide/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/about/</loc>
+  <loc>http://codersite.dev/graphs-depth-first-search/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/donate/</loc>
+  <loc>http://codersite.dev/tree-data-structure-binary-search-tree/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/</loc>
+  <loc>http://codersite.dev/optimize-online-purchases/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/book/</loc>
+  <loc>http://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/</loc>
 </url>
 <url>
-<loc>https://codersite.dev/assets/files/sample.pdf</loc>
-<lastmod>2021-10-21T00:09:39+02:00</lastmod>
+  <loc>http://codersite.dev/feed.xml</loc>
 </url>
 <url>
-<loc>https://codersite.dev/book/</loc>
-<lastmod>2021-11-20T22:59:17+01:00</lastmod>
+  <loc>http://codersite.dev/../index.html</loc>
+</url>
+<url>
+  <loc>http://codersite.dev/assets/files/sample.pdf</loc>
+</url>
+<url>
+  <loc></loc>
 </url>
 </urlset>
