@@ -29,6 +29,9 @@ description: >- # this means to ignore newlines until "baseurl:"
   Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://codersite.dev" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: MoisesGamio
+github_username:  mgamio
+
 permalink: /:title/
 
 navbar-links:
@@ -42,7 +45,9 @@ navbar-links:
 theme: minima
 
 plugins:
+  - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 search: true
 
