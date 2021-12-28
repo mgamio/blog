@@ -7,7 +7,7 @@ permalink: /donate/
 
 Consider supporting the good work codersite.dev does by donating or sharing with others who'd like to help.
 
-If you consider that one of our articles was really useful for your purposes, then help us to include more articles of quality in the near future with a little donation.
+If you consider that one of my articles was really useful for your purposes, then help me with a little donation to include more articles of quality.
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
 <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
