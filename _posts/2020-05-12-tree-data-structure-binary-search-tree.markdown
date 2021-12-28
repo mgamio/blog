@@ -38,7 +38,8 @@ public class Product {
   ... 
 {% endhighlight %}
 
-To store a list of Products, then, we create a NodeP Class.
+We proceed to implement the algorithm that includes all possible input validations. The for-each construct helps our code be elegant and readable and there is no use of the index. See clean code practices.
+
 
 {% highlight ruby %}
 public class NodeP {
