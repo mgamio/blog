@@ -54,9 +54,9 @@ markdown: kramdown
 gems:
   - jekyll-feed
   
-exclude:
-  - Gemfile
-  - Gemfile.lock
+#exclude:
+#  - Gemfile
+#  - Gemfile.lock
 
       
 # Exclude from processing.
