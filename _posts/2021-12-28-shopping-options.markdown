@@ -174,7 +174,7 @@ We create a new test case with big prices. You can add more items to the arrays.
 
 We run the test against the previous implementation, and the second test takes 32 ms on average. The execution time could increase if we complete the max size of our arrays.
 
-![merge-two-sorted-lists](/assets/images/shoppingOptionsTest1.jpg){:class="img-responsive"}
+![merge-two-sorted-lists](/assets/images/shoppingOptionsTest1.JPG){:class="img-responsive"}
 
 The following listing shows an optimized solution.
 
@@ -223,7 +223,7 @@ public class ShoppingOptions {
 
 We can see the new execution time.
 
-![merge-two-sorted-lists](/assets/images/shoppingOptionsTest2.jpg){:class="img-responsive"}
+![merge-two-sorted-lists](/assets/images/shoppingOptionsTest2.JPG){:class="img-responsive"}
 
 Well, what happens when our possible right prices are located at the end of the arrays?. One possible solution could be to sort the arrays before iterating and find the right combinations of prices.
 
