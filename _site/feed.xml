@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2021-12-28T18:53:59+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Shopping options</title><link href="https://codersite.dev/shopping-options/" rel="alternate" type="text/html" title="Shopping options" /><published>2021-12-28T18:18:00+01:00</published><updated>2021-12-28T18:18:00+01:00</updated><id>https://codersite.dev/shopping-options</id><content type="html" xml:base="https://codersite.dev/shopping-options/">&lt;p&gt;An Amazon customer wants to buy a pair of jeans, a pair of shoes, a skirt, and a top but has a limited budget in dollars. Given different pricing options for each product, determine how many options our customer has to buy 1 of each product. You cannot spend more money than the budgeted amount.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2021-12-28T18:57:53+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Shopping options</title><link href="https://codersite.dev/shopping-options/" rel="alternate" type="text/html" title="Shopping options" /><published>2021-12-28T18:18:00+01:00</published><updated>2021-12-28T18:18:00+01:00</updated><id>https://codersite.dev/shopping-options</id><content type="html" xml:base="https://codersite.dev/shopping-options/">&lt;p&gt;An Amazon customer wants to buy a pair of jeans, a pair of shoes, a skirt, and a top but has a limited budget in dollars. Given different pricing options for each product, determine how many options our customer has to buy 1 of each product. You cannot spend more money than the budgeted amount.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/shoppingOptions.jpg&quot; alt=&quot;merge-two-sorted-lists&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
@@ -159,7 +159,7 @@
 
 &lt;p&gt;We run the test against the previous implementation, and the second test takes 32 ms on average. The execution time could increase if we complete the max size of our arrays.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/shoppingOptionsTest1.jpg&quot; alt=&quot;merge-two-sorted-lists&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/shoppingOptionsTest1.JPG&quot; alt=&quot;merge-two-sorted-lists&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The following listing shows an optimized solution.&lt;/p&gt;
 
@@ -206,7 +206,7 @@
 
 &lt;p&gt;We can see the new execution time.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/shoppingOptionsTest2.jpg&quot; alt=&quot;merge-two-sorted-lists&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/shoppingOptionsTest2.JPG&quot; alt=&quot;merge-two-sorted-lists&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Well, what happens when our possible right prices are located at the end of the arrays?. One possible solution could be to sort the arrays before iterating and find the right combinations of prices.&lt;/p&gt;
 
