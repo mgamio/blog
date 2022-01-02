@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Tree data structure: Binary Search Tree" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Tree data structure: Binary Search Tree","dateModified":"2020-05-12T15:18:45+02:00","datePublished":"2020-05-12T15:18:45+02:00","url":"https://codersite.dev/tree-data-structure-binary-search-tree/","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/tree-data-structure-binary-search-tree/"},"author":{"@type":"Person","name":"Moises Gamio"},"description":"Tree data structures are non-linear structures. Binary tree combines advantages from an ordered array and linkedlist and they are much faster","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Moises Gamio"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/tree-data-structure-binary-search-tree/"},"url":"https://codersite.dev/tree-data-structure-binary-search-tree/","headline":"Tree data structure: Binary Search Tree","dateModified":"2020-05-12T15:18:45+02:00","datePublished":"2020-05-12T15:18:45+02:00","description":"Tree data structures are non-linear structures. Binary tree combines advantages from an ordered array and linkedlist and they are much faster","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <title>
 	   
@@ -70,15 +70,30 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Tree data structure are non-linear data structures, they allow us to implement algorithms much faster than when using linear data structures.</p>
+    <p>Tree data structures are non-linear data structures, and they allow us to implement algorithms much faster than when using linear data structures.</p>
 
-<p>A binary tree can have at the most two children: a left node and a right node. Every node contains data with a key used to identify the data stored by the node and a value that is the data contained in the node.</p>
+<h3 id="tree">Tree</h3>
+
+<p>A tree is a data structure that consists of nodes connected by edges.</p>
+
+<h3 id="binary-tree">Binary tree</h3>
+
+<p>A Binary tree can have two children: a left node and a right node. Every Node contains two elements: a key used to identify the data stored by the Node and a value that is the data contained in the Node. The following figure shows the binary tree terminology.</p>
+
+<p><img src="/assets/images/binaryTree.jpg" alt="binaryTree" class="img-responsive" /></p>
+
+<h3 id="binary-search-tree">Binary search tree</h3>
+
+<p>The most common type of Binary tree is the Binary search tree, which has two main characteristics:</p>
+
+<ul>
+  <li>The value of the left Node must be lesser than the value of its parent.</li>
+  <li>The value of the right Node must be greater than or equal to the value of its parent.</li>
+</ul>
 
 <p>Moreover, you can search in a tree data structure quickly, as you can with an ordered array, and you can also insert and delete items quickly, as you can with a linked list.</p>
 
-<p>The following figure shows the binary tree terminology:</p>
-
-<p><img src="/assets/images/binaryTree.jpg" alt="binaryTree" class="img-responsive" /></p>
+<p>It takes a maximum of log2(N) attempts to find a value. As the collection of nodes gets large, the binary search tree becomes faster over a linear search which takes up to (N) comparisons.</p>
 
 <h3 id="tree-data-structure-use-case">Tree data structure: Use Case:</h3>
 
@@ -90,7 +105,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p><strong>Solution</strong>:</p>
 
-<p>We create a Product Class.</p>
+<p>We create a Product Class which will be the data contained in a Node.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>
 
@@ -100,7 +115,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <span class="no">String</span> <span class="n">manufacturerName</span><span class="p">;</span>
   <span class="o">...</span> </code></pre></figure>
 
-<p>We proceed to implement the algorithm that includes all possible input validations. The for-each construct helps our code be elegant and readable and there is no use of the index. See clean code practices.</p>
+<p>We create a NodeP Class to store a list of Products. Moreover, this Class allows us to have two NodeP attributes to hold the left and right nodes.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">NodeP</span> <span class="p">{</span>
 
@@ -115,14 +130,9 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>We create a new abstract data type called TreeP to define the behavior of our Binary Search Tree.</p>
+<p>We create a new abstract data type called TreeP to define the behavior of our Binary Search Tree, which includes a NodeP root variable for the first element to be inserted.</p>
 
-<p>Define an <em>insert</em> method with two main characteristics:</p>
-
-<ul>
-  <li>The value of the left node must be lesser than the value of its parent.</li>
-  <li>The value of the right node must be greater than or equal to the value of its parent.</li>
-</ul>
+<p>We need to implement an insert method, where every time a new GTIN is inserted, it compares the current GTIN versus the new GTIN. We store the new GTIN on the left or the right Node, depending on the result. In this way, the insert method maintains an ordered binary search tree.</p>
 
 <p>A Test case to verify our assumptions:</p>
 
@@ -162,6 +172,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
             <span class="k">return</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="p">}</span> <span class="k">else</span>
+          <span class="n">current</span><span class="p">.</span><span class="nf">setData</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
           <span class="k">return</span><span class="p">;</span> <span class="sr">//</span><span class="n">already</span> <span class="n">exists</span>
       <span class="p">}</span>
     <span class="p">}</span>
@@ -191,7 +202,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
     <span class="n">tree</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s2">"07611400983324"</span><span class="p">).</span><span class="nf">getGtin</span><span class="p">());</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>And here the implementation:</p>
+<p>And here is the implementation that shows a find method (the gtin parameter is our key), which iterates through all nodes until a GTIN is found. This algorithm reduces the search space to N/2 because the binary search tree is always ordered.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="no">NodeP</span> <span class="n">find</span><span class="p">(</span><span class="no">String</span> <span class="n">gtin</span><span class="p">)</span> <span class="p">{</span>
 
@@ -215,7 +226,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p>One approach to solving unbalanced trees is the <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree" target="_blank">red-black tree</a> technique, which is a binary search tree with some special features.</p>
 
-<p>Assuming that we already have a balanced tree, the following algorithm shows us how fast in terms of comparisons could be a binary search tree which depends on a number <em>N</em> of elements. For instance, in 1 billion products, to find a product by GTIN, the algorithm needs only 30 comparisons. See <a href="/big-o-notation-analysis-of-algorithms/" target="_blank">Big O Notation</a>.</p>
+<p>Assuming that we already have a balanced tree, the following algorithm shows us how fast in terms of comparisons could be a binary search tree which depends on a number <em>N</em> of elements. For instance, in 1 billion products, to find a product by GTIN, the algorithm needs only 30 comparisons. See <a href="https://medium.com/@mkgv89/big-o-notation-e1aaca926c2?source=friends_link&amp;sk=3368b93ad834682803878f710a3b0d46" target="_blank">Big O Notation</a>.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@Test</span>
 <span class="kp">public</span> <span class="n">void</span> <span class="n">whenNelements_return_NroComparisons</span><span class="p">(){</span>
@@ -225,7 +236,28 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <span class="n">assertTrue</span><span class="p">(</span><span class="n">treePerformance</span><span class="p">.</span><span class="nf">comparisons</span><span class="p">(</span><span class="mi">1000000000</span><span class="p">)</span> <span class="o">&lt;=</span><span class="mi">30</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>You can see the implementation of treePerformance algorithm in the following <a href="https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&amp;preview=newtab&amp;linkCode=kpe&amp;ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2" target="_blank">link</a></p>
+<p>And here is our implementation.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">TreePerformance</span> <span class="p">{</span>
+  <span class="kp">public</span> <span class="n">static</span> <span class="n">int</span> <span class="n">comparisons</span><span class="p">(</span><span class="n">int</span> <span class="no">N</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">int</span> <span class="n">acumElements</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">comparisons</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">level</span> <span class="o">&lt;=</span> <span class="no">N</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="n">level</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">int</span> <span class="n">power</span> <span class="o">=</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="no">Math</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">level</span><span class="p">);</span>
+      <span class="n">acumElements</span> <span class="o">+=</span> <span class="n">power</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">acumElements</span> <span class="o">&gt;=</span> <span class="no">N</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">comparisons</span> <span class="o">=</span> <span class="o">++</span><span class="n">level</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="no">System</span><span class="p">.</span><span class="nf">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s2">"comparisons -&gt; "</span> <span class="o">+</span> <span class="n">comparisons</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">comparisons</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Understanding the inner workings of common data structures and algorithms is a must for Java developers. <a href="https://payhip.com/b/B9u6L" target="_blank">Learn more</a></p>
+
+<p>I like to share my knowledge and experience on Java Programming, <a href="https://codersite.dev/book/" target="_blank">Algorithms</a>, Data Structures, Clean Code, SOLID Principles, Distributed Systems, Spring Framework, and other Tech topics</p>
 
 <p>If my blog has helped you understand tree binary search in your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.</p>
 
