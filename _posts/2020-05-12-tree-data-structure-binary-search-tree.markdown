@@ -6,15 +6,28 @@ featured-image: binaryTree.jpg
 date:   2020-05-12 14:18:45 +0100
 categories: datastructure
 ---
-Tree data structure are non-linear data structures, they allow us to implement algorithms much faster than when using linear data structures.
+Tree data structures are non-linear data structures, and they allow us to implement algorithms much faster than when using linear data structures.
 
-A binary tree can have at the most two children: a left node and a right node. Every node contains data with a key used to identify the data stored by the node and a value that is the data contained in the node.
+### Tree ###
+
+A tree is a data structure that consists of nodes connected by edges.
+
+### Binary tree ###
+
+A Binary tree can have two children: a left node and a right node. Every Node contains two elements: a key used to identify the data stored by the Node and a value that is the data contained in the Node. The following figure shows the binary tree terminology.
+
+![binaryTree](/assets/images/binaryTree.jpg){:class="img-responsive"}
+
+### Binary search tree ###
+
+The most common type of Binary tree is the Binary search tree, which has two main characteristics:
+
+- The value of the left Node must be lesser than the value of its parent.
+- The value of the right Node must be greater than or equal to the value of its parent.
 
 Moreover, you can search in a tree data structure quickly, as you can with an ordered array, and you can also insert and delete items quickly, as you can with a linked list.
 
-The following figure shows the binary tree terminology:
-
-![binaryTree](/assets/images/binaryTree.jpg){:class="img-responsive"}
+It takes a maximum of log2(N) attempts to find a value. As the collection of nodes gets large, the binary search tree becomes faster over a linear search which takes up to (N) comparisons.
 
 ### Tree data structure: Use Case:
 
@@ -26,7 +39,7 @@ A Webshop wants to retrieve information about GTINs efficiently by using a binar
 
 **Solution**:
 
-We create a Product Class.
+We create a Product Class which will be the data contained in a Node.
 
 {% highlight ruby %}
 public class Product {
@@ -38,8 +51,7 @@ public class Product {
   ... 
 {% endhighlight %}
 
-We proceed to implement the algorithm that includes all possible input validations. The for-each construct helps our code be elegant and readable and there is no use of the index. See clean code practices.
-
+We create a NodeP Class to store a list of Products. Moreover, this Class allows us to have two NodeP attributes to hold the left and right nodes.
 
 {% highlight ruby %}
 public class NodeP {
@@ -56,12 +68,9 @@ public class NodeP {
 }
 {% endhighlight %}
 
-We create a new abstract data type called TreeP to define the behavior of our Binary Search Tree.
+We create a new abstract data type called TreeP to define the behavior of our Binary Search Tree, which includes a NodeP root variable for the first element to be inserted.
 
-Define an *insert* method with two main characteristics:
-
-- The value of the left node must be lesser than the value of its parent.
-- The value of the right node must be greater than or equal to the value of its parent.
+We need to implement an insert method, where every time a new GTIN is inserted, it compares the current GTIN versus the new GTIN. We store the new GTIN on the left or the right Node, depending on the result. In this way, the insert method maintains an ordered binary search tree.
 
 A Test case to verify our assumptions:
 
@@ -104,6 +113,7 @@ public class TreeP {
             return;
           }
         } else
+          current.setData(data);
           return; //already exists
       }
     }
@@ -136,7 +146,7 @@ public void test_findNode() {
 }
 {% endhighlight %}
 
-And here the implementation:
+And here is the implementation that shows a find method (the gtin parameter is our key), which iterates through all nodes until a GTIN is found. This algorithm reduces the search space to N/2 because the binary search tree is always ordered.
 
 {% highlight ruby %}
 public NodeP find(String gtin) {
@@ -162,7 +172,7 @@ This Binary Search Tree works well when the data is inserted in random order. Th
 
 One approach to solving unbalanced trees is the [red-black tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree){:target="_blank"} technique, which is a binary search tree with some special features.
 
-Assuming that we already have a balanced tree, the following algorithm shows us how fast in terms of comparisons could be a binary search tree which depends on a number *N* of elements. For instance, in 1 billion products, to find a product by GTIN, the algorithm needs only 30 comparisons. See [Big O Notation]({% post_url 2020-06-22-big-o-notation-analysis-of-algorithms %}){:target="_blank"}.
+Assuming that we already have a balanced tree, the following algorithm shows us how fast in terms of comparisons could be a binary search tree which depends on a number *N* of elements. For instance, in 1 billion products, to find a product by GTIN, the algorithm needs only 30 comparisons. See [Big O Notation](https://medium.com/@mkgv89/big-o-notation-e1aaca926c2?source=friends_link&sk=3368b93ad834682803878f710a3b0d46){:target="_blank"}.
 
 {% highlight ruby %}
 @Test
@@ -174,7 +184,30 @@ public void whenNelements_return_NroComparisons(){
 }
 {% endhighlight %}
 
-You can see the implementation of treePerformance algorithm in the following [link](https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2){:target="_blank"}
+And here is our implementation.
+
+{% highlight ruby %}
+public class TreePerformance {
+  public static int comparisons(int N) {
+    int acumElements = 0;
+    int comparisons = 0;
+    for (int level = 0; level <= N / 2; level++) {
+      int power = (int) Math.pow(2, level);
+      acumElements += power;
+      if (acumElements >= N) {
+        comparisons = ++level;
+        break;
+      }
+    }
+    System.out.println("comparisons -> " + comparisons);
+    return comparisons;
+  }
+}
+{% endhighlight %}
+
+Understanding the inner workings of common data structures and algorithms is a must for Java developers. [Learn more](https://payhip.com/b/B9u6L){:target="_blank"}
+
+I like to share my knowledge and experience on Java Programming, [Algorithms](https://codersite.dev/book/){:target="_blank"}, Data Structures, Clean Code, SOLID Principles, Distributed Systems, Spring Framework, and other Tech topics
 
 If my blog has helped you understand tree binary search in your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.
 

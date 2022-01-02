@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-01-02T01:49:05+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Shopping options</title><link href="https://codersite.dev/shopping-options/" rel="alternate" type="text/html" title="Shopping options" /><published>2021-12-28T18:18:00+01:00</published><updated>2021-12-28T18:18:00+01:00</updated><id>https://codersite.dev/shopping-options</id><content type="html" xml:base="https://codersite.dev/shopping-options/">&lt;p&gt;An Amazon customer wants to buy a pair of jeans, a pair of shoes, a skirt, and a top but has a limited budget in dollars. Given different pricing options for each product, determine how many options our customer has to buy 1 of each product. You cannot spend more money than the budgeted amount.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-01-02T20:54:06+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Shopping options</title><link href="https://codersite.dev/shopping-options/" rel="alternate" type="text/html" title="Shopping options" /><published>2021-12-28T18:18:00+01:00</published><updated>2021-12-28T18:18:00+01:00</updated><id>https://codersite.dev/shopping-options</id><content type="html" xml:base="https://codersite.dev/shopping-options/">&lt;p&gt;An Amazon customer wants to buy a pair of jeans, a pair of shoes, a skirt, and a top but has a limited budget in dollars. Given different pricing options for each product, determine how many options our customer has to buy 1 of each product. You cannot spend more money than the budgeted amount.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/shoppingOptions.jpg&quot; alt=&quot;merge-two-sorted-lists&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
@@ -1367,15 +1367,30 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
 &lt;input type=&quot;image&quot; src=&quot;https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif&quot; border=&quot;0&quot; name=&quot;submit&quot; title=&quot;PayPal - The safer, easier way to pay online!&quot; alt=&quot;Donate with PayPal button&quot; /&gt;
 &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;https://www.paypal.com/en_GB/i/scr/pixel.gif&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;
-&lt;/form&gt;</content><author><name>Moises Gamio</name></author><category term="algorithms" /><summary type="html">Depth-First Search (DFS), is an algorithm to search for information in Graphs.</summary></entry><entry><title type="html">Tree data structure: Binary Search Tree</title><link href="https://codersite.dev/tree-data-structure-binary-search-tree/" rel="alternate" type="text/html" title="Tree data structure: Binary Search Tree" /><published>2020-05-12T15:18:45+02:00</published><updated>2020-05-12T15:18:45+02:00</updated><id>https://codersite.dev/tree-data-structure-binary-search-tree</id><content type="html" xml:base="https://codersite.dev/tree-data-structure-binary-search-tree/">&lt;p&gt;Tree data structure are non-linear data structures, they allow us to implement algorithms much faster than when using linear data structures.&lt;/p&gt;
+&lt;/form&gt;</content><author><name>Moises Gamio</name></author><category term="algorithms" /><summary type="html">Depth-First Search (DFS), is an algorithm to search for information in Graphs.</summary></entry><entry><title type="html">Tree data structure: Binary Search Tree</title><link href="https://codersite.dev/tree-data-structure-binary-search-tree/" rel="alternate" type="text/html" title="Tree data structure: Binary Search Tree" /><published>2020-05-12T15:18:45+02:00</published><updated>2020-05-12T15:18:45+02:00</updated><id>https://codersite.dev/tree-data-structure-binary-search-tree</id><content type="html" xml:base="https://codersite.dev/tree-data-structure-binary-search-tree/">&lt;p&gt;Tree data structures are non-linear data structures, and they allow us to implement algorithms much faster than when using linear data structures.&lt;/p&gt;
 
-&lt;p&gt;A binary tree can have at the most two children: a left node and a right node. Every node contains data with a key used to identify the data stored by the node and a value that is the data contained in the node.&lt;/p&gt;
+&lt;h3 id=&quot;tree&quot;&gt;Tree&lt;/h3&gt;
+
+&lt;p&gt;A tree is a data structure that consists of nodes connected by edges.&lt;/p&gt;
+
+&lt;h3 id=&quot;binary-tree&quot;&gt;Binary tree&lt;/h3&gt;
+
+&lt;p&gt;A Binary tree can have two children: a left node and a right node. Every Node contains two elements: a key used to identify the data stored by the Node and a value that is the data contained in the Node. The following figure shows the binary tree terminology.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/binaryTree.jpg&quot; alt=&quot;binaryTree&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;binary-search-tree&quot;&gt;Binary search tree&lt;/h3&gt;
+
+&lt;p&gt;The most common type of Binary tree is the Binary search tree, which has two main characteristics:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The value of the left Node must be lesser than the value of its parent.&lt;/li&gt;
+  &lt;li&gt;The value of the right Node must be greater than or equal to the value of its parent.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;Moreover, you can search in a tree data structure quickly, as you can with an ordered array, and you can also insert and delete items quickly, as you can with a linked list.&lt;/p&gt;
 
-&lt;p&gt;The following figure shows the binary tree terminology:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/binaryTree.jpg&quot; alt=&quot;binaryTree&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;It takes a maximum of log2(N) attempts to find a value. As the collection of nodes gets large, the binary search tree becomes faster over a linear search which takes up to (N) comparisons.&lt;/p&gt;
 
 &lt;h3 id=&quot;tree-data-structure-use-case&quot;&gt;Tree data structure: Use Case:&lt;/h3&gt;
 
@@ -1387,7 +1402,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;p&gt;We create a Product Class.&lt;/p&gt;
+&lt;p&gt;We create a Product Class which will be the data contained in a Node.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Product&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
@@ -1397,7 +1412,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
   &lt;span class=&quot;no&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;manufacturerName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;We proceed to implement the algorithm that includes all possible input validations. The for-each construct helps our code be elegant and readable and there is no use of the index. See clean code practices.&lt;/p&gt;
+&lt;p&gt;We create a NodeP Class to store a list of Products. Moreover, this Class allows us to have two NodeP attributes to hold the left and right nodes.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NodeP&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
@@ -1412,14 +1427,9 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;We create a new abstract data type called TreeP to define the behavior of our Binary Search Tree.&lt;/p&gt;
+&lt;p&gt;We create a new abstract data type called TreeP to define the behavior of our Binary Search Tree, which includes a NodeP root variable for the first element to be inserted.&lt;/p&gt;
 
-&lt;p&gt;Define an &lt;em&gt;insert&lt;/em&gt; method with two main characteristics:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The value of the left node must be lesser than the value of its parent.&lt;/li&gt;
-  &lt;li&gt;The value of the right node must be greater than or equal to the value of its parent.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;We need to implement an insert method, where every time a new GTIN is inserted, it compares the current GTIN versus the new GTIN. We store the new GTIN on the left or the right Node, depending on the result. In this way, the insert method maintains an ordered binary search tree.&lt;/p&gt;
 
 &lt;p&gt;A Test case to verify our assumptions:&lt;/p&gt;
 
@@ -1459,6 +1469,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
             &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
           &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
           &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;already&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exists&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -1488,7 +1499,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
     &lt;span class=&quot;n&quot;&gt;tree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;07611400983324&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getGtin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;And here the implementation:&lt;/p&gt;
+&lt;p&gt;And here is the implementation that shows a find method (the gtin parameter is our key), which iterates through all nodes until a GTIN is found. This algorithm reduces the search space to N/2 because the binary search tree is always ordered.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;NodeP&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gtin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
@@ -1512,7 +1523,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;One approach to solving unbalanced trees is the &lt;a href=&quot;https://en.wikipedia.org/wiki/Red%E2%80%93black_tree&quot; target=&quot;_blank&quot;&gt;red-black tree&lt;/a&gt; technique, which is a binary search tree with some special features.&lt;/p&gt;
 
-&lt;p&gt;Assuming that we already have a balanced tree, the following algorithm shows us how fast in terms of comparisons could be a binary search tree which depends on a number &lt;em&gt;N&lt;/em&gt; of elements. For instance, in 1 billion products, to find a product by GTIN, the algorithm needs only 30 comparisons. See &lt;a href=&quot;/big-o-notation-analysis-of-algorithms/&quot; target=&quot;_blank&quot;&gt;Big O Notation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Assuming that we already have a balanced tree, the following algorithm shows us how fast in terms of comparisons could be a binary search tree which depends on a number &lt;em&gt;N&lt;/em&gt; of elements. For instance, in 1 billion products, to find a product by GTIN, the algorithm needs only 30 comparisons. See &lt;a href=&quot;https://medium.com/@mkgv89/big-o-notation-e1aaca926c2?source=friends_link&amp;amp;sk=3368b93ad834682803878f710a3b0d46&quot; target=&quot;_blank&quot;&gt;Big O Notation&lt;/a&gt;.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@Test&lt;/span&gt;
 &lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;whenNelements_return_NroComparisons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
@@ -1522,7 +1533,28 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
   &lt;span class=&quot;n&quot;&gt;assertTrue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;treePerformance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;comparisons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000000000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;You can see the implementation of treePerformance algorithm in the following &lt;a href=&quot;https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&amp;amp;preview=newtab&amp;amp;linkCode=kpe&amp;amp;ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2&quot; target=&quot;_blank&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;And here is our implementation.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TreePerformance&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;comparisons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;acumElements&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;comparisons&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;level&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;level&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;acumElements&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;power&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;acumElements&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;comparisons&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;comparisons -&amp;gt; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;comparisons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;comparisons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Understanding the inner workings of common data structures and algorithms is a must for Java developers. &lt;a href=&quot;https://payhip.com/b/B9u6L&quot; target=&quot;_blank&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I like to share my knowledge and experience on Java Programming, &lt;a href=&quot;https://codersite.dev/book/&quot; target=&quot;_blank&quot;&gt;Algorithms&lt;/a&gt;, Data Structures, Clean Code, SOLID Principles, Distributed Systems, Spring Framework, and other Tech topics&lt;/p&gt;
 
 &lt;p&gt;If my blog has helped you understand tree binary search in your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.&lt;/p&gt;
 
@@ -1530,7 +1562,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
 &lt;input type=&quot;image&quot; src=&quot;https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif&quot; border=&quot;0&quot; name=&quot;submit&quot; title=&quot;PayPal - The safer, easier way to pay online!&quot; alt=&quot;Donate with PayPal button&quot; /&gt;
 &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;https://www.paypal.com/en_GB/i/scr/pixel.gif&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;
-&lt;/form&gt;</content><author><name>Moises Gamio</name></author><category term="datastructure" /><summary type="html">Tree data structure are non-linear data structures, they allow us to implement algorithms much faster than when using linear data structures.</summary></entry><entry><title type="html">Optimize a basket in online purchases</title><link href="https://codersite.dev/optimize-online-purchases/" rel="alternate" type="text/html" title="Optimize a basket in online purchases" /><published>2020-04-09T15:18:45+02:00</published><updated>2020-04-09T15:18:45+02:00</updated><id>https://codersite.dev/optimize-online-purchases</id><content type="html" xml:base="https://codersite.dev/optimize-online-purchases/">&lt;p&gt;Optimize a basket in online purchases means fill a basket with the most valuable goods under a given budget.&lt;/p&gt;
+&lt;/form&gt;</content><author><name>Moises Gamio</name></author><category term="datastructure" /><summary type="html">Tree data structures are non-linear data structures, and they allow us to implement algorithms much faster than when using linear data structures.</summary></entry><entry><title type="html">Optimize a basket in online purchases</title><link href="https://codersite.dev/optimize-online-purchases/" rel="alternate" type="text/html" title="Optimize a basket in online purchases" /><published>2020-04-09T15:18:45+02:00</published><updated>2020-04-09T15:18:45+02:00</updated><id>https://codersite.dev/optimize-online-purchases</id><content type="html" xml:base="https://codersite.dev/optimize-online-purchases/">&lt;p&gt;Optimize a basket in online purchases means fill a basket with the most valuable goods under a given budget.&lt;/p&gt;
 
 &lt;p&gt;Imagine that we have a budget of 4 US$ and we want to buy the most valuable snacks from the following table:&lt;/p&gt;
 
