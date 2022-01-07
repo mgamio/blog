@@ -88,7 +88,7 @@ You can see a lot of typical algorithms implemented with Clean Code principles i
 <iframe width="336" height="550" src="https://www.youtube.com/embed/qf4vJrhNQn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-If my blog has helped you understand clean code, please consider donating. I appreciate it when my readers let me know my work has helped them.
+If my blog has helped you understand [clean code](https://amzn.to/3HH4kNN){:target="_blank"}, please consider donating. I appreciate it when my readers let me know my work has helped them.
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
 <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />

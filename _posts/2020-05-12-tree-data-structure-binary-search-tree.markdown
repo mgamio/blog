@@ -209,7 +209,7 @@ Understanding the inner workings of common data structures and algorithms is a m
 
 I like to share my knowledge and experience on Java Programming, [Algorithms](https://codersite.dev/book/){:target="_blank"}, Data Structures, Clean Code, SOLID Principles, Distributed Systems, Spring Framework, and other Tech topics
 
-If my blog has helped you understand tree binary search in your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.
+If my blog has helped you understand tree binary search in your [coding interview](https://codersite.gumroad.com/l/jqgde/uyn1iyx){:target="_blank"}, please consider donating. I appreciate it when my readers let me know my work has helped them.
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
 <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
