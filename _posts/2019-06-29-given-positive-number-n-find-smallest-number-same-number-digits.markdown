@@ -86,7 +86,7 @@ The main idea in Analysis of Algorithms is always to improve the algorithm perfo
 
 You can see a solution for negative numbers in the following [link](https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2){:target="_blank"}
 
-If my blog has helped you prepare your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.
+If my blog has helped you prepare your [coding interview](https://codersite.gumroad.com/l/jqgde/uyn1iyx){:target="_blank"}, please consider donating. I appreciate it when my readers let me know my work has helped them.
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
 <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />

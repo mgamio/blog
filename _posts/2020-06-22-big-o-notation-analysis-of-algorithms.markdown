@@ -184,7 +184,7 @@ But after a point, O(100N) becomes faster and remains faster for all increasing 
 
 More about algorithms, data structures, and Big O Notation, you can learn [here](https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2){:target="_blank"}
 
-If my blog has helped you with your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.
+If my blog has helped you with your [coding interview](https://codersite.gumroad.com/l/jqgde/uyn1iyx){:target="_blank"}, please consider donating. I appreciate it when my readers let me know my work has helped them.
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
 <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />

@@ -227,11 +227,11 @@ We can see the new execution time.
 
 Well, what happens when our possible right prices are located at the end of the arrays?. One possible solution could be to sort the arrays before iterating and find the right combinations of prices.
 
-Understanding the inner workings of common data structures and algorithms is a must for Java developers. [Learn more](https://payhip.com/b/B9u6L){:target="_blank"}
+Understanding the inner workings of common [data structures](https://codersite.dev/book/){:target="_blank"} and algorithms is a must for Java developers. [Learn more](https://payhip.com/b/B9u6L){:target="_blank"}
 
-I like to share my knowledge and experience on Java Programming, [Algorithms](https://codersite.dev/book/){:target="_blank"}, Data Structures, Clean Code, SOLID Principles, Distributed Systems, Spring Framework, and other Tech topics
+I like to share my knowledge and experience on Java Programming, [Algorithms](https://amzn.to/3zzsAyB){:target="_blank"}, Data Structures, Clean Code, SOLID Principles, Distributed Systems, Spring Framework, and other Tech topics
 
-If you consider that one of my articles was useful for your coding interview and want to support me as a writer, please consider donating. I appreciate it when my readers let me know my work has helped them.
+If you consider that one of my articles was useful for your [coding interview](https://codersite.gumroad.com/l/jqgde/uyn1iyx){:target="_blank"} and want to support me as a writer, please consider donating. I appreciate it when my readers let me know my work has helped them.
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
 <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />

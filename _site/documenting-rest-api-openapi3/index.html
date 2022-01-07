@@ -78,7 +78,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <ul>
   <li>Java 8.x</li>
-  <li>Maven 3.x</li>
+  <li>[Maven(https://amzn.to/3JLvxAX){:target=”_blank”} 3.x</li>
 </ul>
 
 <h2 id="steps">Steps</h2>
@@ -151,7 +151,9 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 	<span class="o">&lt;</span><span class="sr">/build&gt;
 &lt;/</span><span class="n">project</span><span class="o">&gt;</span></code></pre></figure>
 
-<p>To generate automatically the API documentation, we add the <a href="https://springdoc.org/" target="_blank">springdoc-openapi-ui</a> dependency to our pom.xml:</p>
+<p>To generate automatically the API documentation, we add the <a href="https://springdoc.org/" target="_blank">springdoc-openapi-ui</a> dependency to our pom.xml file.</p>
+
+<p>The main idea for documenting our back-end RESTful APIs is to communicate what our endpoints are doing to third-party developers.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
    <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="nf">springdoc</span><span class="o">&lt;</span><span class="sr">/groupId&gt;
@@ -170,6 +172,12 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 <span class="n">spring</span><span class="p">.</span><span class="nf">jpa</span><span class="p">.</span><span class="nf">database</span><span class="o">-</span><span class="n">platform</span><span class="o">=</span><span class="n">org</span><span class="p">.</span><span class="nf">hibernate</span><span class="p">.</span><span class="nf">dialect</span><span class="o">.</span><span class="no">H2Dialect</span></code></pre></figure>
 
 <h3 id="3-create-jpa-entity--bookjava">3. Create JPA Entity – Book.java</h3>
+
+<p>JPA stands for Java Persistence API and is a Java specification about how to handle relational data.</p>
+
+<p>Even when Spring Data provides a standard programming model for different databases, switching from a SQL database to a NoSQL database is impossible without touching the source code.</p>
+
+<p>@Entity annotation describes the Book data that will be stored by Spring Data and makes our Book object ready for storage in a JPA-based relational data store.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">model</span><span class="p">;</span>
 <span class="n">import</span> <span class="n">com</span><span class="p">.</span><span class="nf">fasterxml</span><span class="p">.</span><span class="nf">jackson</span><span class="p">.</span><span class="nf">annotation</span><span class="o">.</span><span class="no">JsonProperty</span><span class="p">;</span>
@@ -224,6 +232,10 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <h3 id="4-create-a-string-data-repository--bookrepositoryjava">4. Create a String Data Repository – BookRepository.java</h3>
 
+<p>Repositories are used to store and access data from different types of databases.</p>
+
+<p>Spring Data JPA repository supports creating, reading, updating, and deleting records against our back-end datastore.</p>
+
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">respository</span><span class="p">;</span>
 <span class="n">import</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">model</span><span class="o">.</span><span class="no">Book</span><span class="p">;</span>
 <span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">data</span><span class="p">.</span><span class="nf">jpa</span><span class="p">.</span><span class="nf">repository</span><span class="o">.</span><span class="no">JpaRepository</span><span class="p">;</span>
@@ -232,6 +244,8 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 <span class="kp">public</span> <span class="n">interface</span> <span class="no">BookRepository</span> <span class="n">extends</span> <span class="no">JpaRepository</span><span class="o">&lt;</span><span class="no">Book</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="p">{}</span></code></pre></figure>
 
 <h3 id="5-create-spring-rest-controller-interface--bookapi">5. Create Spring Rest Controller Interface – BookApi</h3>
+
+<p>We create an Interface to describe the API functionalities with the openapi annotations. In this way, we separate our API contract from the implementation Class.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">controller</span><span class="p">;</span>
 <span class="n">import</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">model</span><span class="o">.</span><span class="no">Book</span><span class="p">;</span>
@@ -294,6 +308,8 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 <span class="p">}</span></code></pre></figure>
 
 <h3 id="6-create-spring-rest-controller-implementation--bookapicontrollerjava">6. Create Spring Rest Controller Implementation – BookApiController.java</h3>
+
+<p>@RestController annotation tells Spring that this Class describes endpoints that should be made available over the web. The data returned by each method will be included in the response body.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">.</span><span class="nf">controller</span><span class="p">;</span>
 <span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="nf">util</span><span class="o">.</span><span class="no">Collection</span><span class="p">;</span>
@@ -385,7 +401,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <h3 id="8-running-application">8. Running Application</h3>
 
-<p>This Spring boot application has an entry point Java class called OpenapiApplication.java, which you can run to start the application.</p>
+<p>This <a href="https://amzn.to/3JQ440Q" target="_blank">Spring boot</a> application has an entry point Java class called OpenapiApplication.java, which you can run to start the application.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="p">;</span>
 <span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="nf">springframework</span><span class="p">.</span><span class="nf">boot</span><span class="o">.</span><span class="no">SpringApplication</span><span class="p">;</span>
@@ -397,15 +413,43 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 	<span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
+<p>@SpringBootApplication add the following functionalities:</p>
+
+<ul>
+  <li>OpenApiApplication Class becomes a Configuration class.</li>
+  <li>It enables Component scan, which means looking for other components, configurations, controllers, and services in the com.openapi package.</li>
+  <li>It enables autoconfiguration; Spring Boot looks for other JAR files in the classpath and configures it automatically, e.g., H2 database, JPA.</li>
+</ul>
+
+<p>Spring Boot will detect and start an embedded Tomcat webserver.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">2021</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">28</span> <span class="mi">12</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mo">02</span><span class="o">.</span><span class="mi">659</span>  <span class="no">INFO</span> <span class="mi">9312</span> <span class="o">---</span> <span class="p">[</span>  <span class="n">restartedMain</span><span class="p">]</span> <span class="p">.</span><span class="nf">s</span><span class="p">.</span><span class="nf">d</span><span class="p">.</span><span class="nf">r</span><span class="p">.</span><span class="nf">c</span><span class="o">.</span><span class="no">RepositoryConfigurationDelegate</span> <span class="p">:</span> <span class="no">Bootstrapping</span> <span class="no">Spring</span> <span class="no">Data</span> <span class="no">JPA</span> <span class="n">repositories</span> <span class="k">in</span> <span class="no">DEFERRED</span> <span class="n">mode</span><span class="o">.</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">28</span> <span class="mi">12</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mo">02</span><span class="o">.</span><span class="mi">881</span>  <span class="no">INFO</span> <span class="mi">9312</span> <span class="o">---</span> <span class="p">[</span>  <span class="n">restartedMain</span><span class="p">]</span> <span class="p">.</span><span class="nf">s</span><span class="p">.</span><span class="nf">d</span><span class="p">.</span><span class="nf">r</span><span class="p">.</span><span class="nf">c</span><span class="o">.</span><span class="no">RepositoryConfigurationDelegate</span> <span class="p">:</span> <span class="no">Finished</span> <span class="no">Spring</span> <span class="no">Data</span> <span class="n">repository</span> <span class="n">scanning</span> <span class="k">in</span> <span class="mi">201</span><span class="n">ms</span><span class="o">.</span> <span class="no">Found</span> <span class="mi">1</span> <span class="no">JPA</span> <span class="n">repository</span> <span class="n">interfaces</span><span class="o">.</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">28</span> <span class="mi">12</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mo">04</span><span class="o">.</span><span class="mi">812</span>  <span class="no">INFO</span> <span class="mi">9312</span> <span class="o">---</span> <span class="p">[</span>  <span class="n">restartedMain</span><span class="p">]</span> <span class="n">o</span><span class="p">.</span><span class="nf">s</span><span class="p">.</span><span class="nf">b</span><span class="p">.</span><span class="nf">w</span><span class="p">.</span><span class="nf">embedded</span><span class="p">.</span><span class="nf">tomcat</span><span class="o">.</span><span class="no">TomcatWebServer</span>  <span class="p">:</span> <span class="no">Tomcat</span> <span class="n">initialized</span> <span class="n">with</span> <span class="n">port</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="mi">8080</span> <span class="p">(</span><span class="n">http</span><span class="p">)</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">28</span> <span class="mi">12</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mo">04</span><span class="o">.</span><span class="mi">847</span>  <span class="no">INFO</span> <span class="mi">9312</span> <span class="o">---</span> <span class="p">[</span>  <span class="n">restartedMain</span><span class="p">]</span> <span class="n">o</span><span class="p">.</span><span class="nf">apache</span><span class="p">.</span><span class="nf">catalina</span><span class="p">.</span><span class="nf">core</span><span class="o">.</span><span class="no">StandardService</span>   <span class="p">:</span> <span class="no">Starting</span> <span class="n">service</span> <span class="p">[</span><span class="no">Tomcat</span><span class="p">]</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">28</span> <span class="mi">12</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mo">04</span><span class="o">.</span><span class="mi">848</span>  <span class="no">INFO</span> <span class="mi">9312</span> <span class="o">---</span> <span class="p">[</span>  <span class="n">restartedMain</span><span class="p">]</span> <span class="n">org</span><span class="p">.</span><span class="nf">apache</span><span class="p">.</span><span class="nf">catalina</span><span class="p">.</span><span class="nf">core</span><span class="o">.</span><span class="no">StandardEngine</span>  <span class="p">:</span> <span class="no">Starting</span> <span class="no">Servlet</span> <span class="ss">engine: </span><span class="p">[</span><span class="no">Apache</span> <span class="no">Tomcat</span><span class="o">/</span><span class="mf">9.0</span><span class="o">.</span><span class="mi">38</span><span class="p">]</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">28</span> <span class="mi">12</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mo">05</span><span class="o">.</span><span class="mi">131</span>  <span class="no">INFO</span> <span class="mi">9312</span> <span class="o">---</span> <span class="p">[</span>  <span class="n">restartedMain</span><span class="p">]</span> <span class="n">o</span><span class="p">.</span><span class="nf">a</span><span class="p">.</span><span class="nf">c</span><span class="p">.</span><span class="nf">c</span><span class="o">.</span><span class="no">C</span><span class="p">.</span><span class="nf">[</span><span class="no">Tomcat</span><span class="p">].</span><span class="nf">[</span><span class="n">localhost</span><span class="p">].</span><span class="nf">[</span><span class="o">/</span><span class="p">]</span>       <span class="p">:</span> <span class="no">Initializing</span> <span class="no">Spring</span> <span class="n">embedded</span> <span class="no">WebApplicationContext</span>
+<span class="p">.</span>
+<span class="nf">.</span>
+<span class="o">.</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">28</span> <span class="mi">12</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mf">11.700</span>  <span class="no">INFO</span> <span class="mi">9312</span> <span class="o">---</span> <span class="p">[</span>  <span class="n">restartedMain</span><span class="p">]</span> <span class="n">o</span><span class="p">.</span><span class="nf">s</span><span class="p">.</span><span class="nf">b</span><span class="p">.</span><span class="nf">w</span><span class="p">.</span><span class="nf">embedded</span><span class="p">.</span><span class="nf">tomcat</span><span class="o">.</span><span class="no">TomcatWebServer</span>  <span class="p">:</span> <span class="no">Tomcat</span> <span class="n">started</span> <span class="n">on</span> <span class="n">port</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="mi">8080</span> <span class="p">(</span><span class="n">http</span><span class="p">)</span> <span class="n">with</span> <span class="n">context</span> <span class="n">path</span> <span class="s1">''</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">28</span> <span class="mi">12</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mf">11.703</span>  <span class="no">INFO</span> <span class="mi">9312</span> <span class="o">---</span> <span class="p">[</span>  <span class="n">restartedMain</span><span class="p">]</span> <span class="no">DeferredRepositoryInitializationListener</span> <span class="p">:</span> <span class="no">Triggering</span> <span class="n">deferred</span> <span class="n">initialization</span> <span class="n">of</span> <span class="no">Spring</span> <span class="no">Data</span> <span class="n">repositories</span><span class="err">…</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">28</span> <span class="mi">12</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mf">12.668</span>  <span class="no">INFO</span> <span class="mi">9312</span> <span class="o">---</span> <span class="p">[</span>  <span class="n">restartedMain</span><span class="p">]</span> <span class="no">DeferredRepositoryInitializationListener</span> <span class="p">:</span> <span class="no">Spring</span> <span class="no">Data</span> <span class="n">repositories</span> <span class="n">initialized!</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">28</span> <span class="mi">12</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mf">12.704</span>  <span class="no">INFO</span> <span class="mi">9312</span> <span class="o">---</span> <span class="p">[</span>  <span class="n">restartedMain</span><span class="p">]</span> <span class="n">com</span><span class="p">.</span><span class="nf">openapi</span><span class="o">.</span><span class="no">OpenapiApplication</span>           <span class="p">:</span> <span class="no">Started</span> <span class="no">OpenapiApplication</span> <span class="k">in</span> <span class="mf">14.363</span> <span class="n">seconds</span> <span class="p">(</span><span class="no">JVM</span> <span class="n">running</span> <span class="k">for</span> <span class="mf">18.621</span><span class="p">)</span></code></pre></figure>
+
 <p>Then, when we run our application, we can see the online documentation at:</p>
 
 <p><a href="http://localhost:8080/swagger-ui.html" target="_blank">http://localhost:8080/swagger-ui.html</a></p>
 
 <p><img src="/assets/images/openapi3.jpg" alt="openapi3" class="img-responsive" /></p>
 
+<p>OpenAPI includes a “Try it out” button, which can be used to actually try out the API, not just read its documentation.</p>
+
 <p>You can see the source code in the following link:</p>
 
 <p><a href="https://github.com/mgamio/openapi-springboot.git" target="_blank">https://github.com/mgamio/openapi-springboot.git</a></p>
+
+<p>Most of the companies usually follow a <a href="https://amzn.to/3F1ZzwH" target="_blank">Design-First API</a> Strategy using SwaggerHub product for example. But the export plugins are not always aligned with the most updated version of OpenAPI.</p>
 
 <p>If you are looking for java interview resources, the following <a href="https://amzn.to/3kTn02B" target="_blank">link</a> can help you.</p>
 

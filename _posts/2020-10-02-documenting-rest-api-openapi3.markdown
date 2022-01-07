@@ -13,7 +13,7 @@ To learn more about REST see [Representational State Transfer](https://en.wikipe
 Prerequisites:
 
 - Java 8.x
-- Maven 3.x
+- [Maven(https://amzn.to/3JLvxAX){:target="_blank"} 3.x
 
 ## Steps
 
@@ -87,7 +87,9 @@ Below, you can see the pom.xml to use:
 </project>
 {% endhighlight %}
 
-To generate automatically the API documentation, we add the [springdoc-openapi-ui](https://springdoc.org/){:target="_blank"} dependency to our pom.xml:
+To generate automatically the API documentation, we add the [springdoc-openapi-ui](https://springdoc.org/){:target="_blank"} dependency to our pom.xml file.
+
+The main idea for documenting our back-end RESTful APIs is to communicate what our endpoints are doing to third-party developers.
 
 {% highlight ruby %}
 <dependency>
@@ -110,6 +112,12 @@ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 {% endhighlight %}
 
 ### 3. Create JPA Entity – Book.java
+
+JPA stands for Java Persistence API and is a Java specification about how to handle relational data.
+
+Even when Spring Data provides a standard programming model for different databases, switching from a SQL database to a NoSQL database is impossible without touching the source code.
+
+@Entity annotation describes the Book data that will be stored by Spring Data and makes our Book object ready for storage in a JPA-based relational data store.
 
 {% highlight ruby %}
 package com.openapi.model;
@@ -166,6 +174,10 @@ public class Book {
 
 ### 4. Create a String Data Repository – BookRepository.java
 
+Repositories are used to store and access data from different types of databases.
+
+Spring Data JPA repository supports creating, reading, updating, and deleting records against our back-end datastore.
+
 {% highlight ruby %}
 package com.openapi.respository;
 import com.openapi.model.Book;
@@ -176,6 +188,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {}
 {% endhighlight %}
 
 ### 5. Create Spring Rest Controller Interface – BookApi
+
+We create an Interface to describe the API functionalities with the openapi annotations. In this way, we separate our API contract from the implementation Class.
 
 {% highlight ruby %}
 package com.openapi.controller;
@@ -240,6 +254,8 @@ public interface BookApi {
 {% endhighlight %}
 
 ### 6. Create Spring Rest Controller Implementation – BookApiController.java
+
+@RestController annotation tells Spring that this Class describes endpoints that should be made available over the web. The data returned by each method will be included in the response body.
 
 {% highlight ruby %}
 package com.openapi.controller;
@@ -335,7 +351,7 @@ public class OpenApiConfig {
 
 ### 8. Running Application
 
-This Spring boot application has an entry point Java class called OpenapiApplication.java, which you can run to start the application.
+This [Spring boot](https://amzn.to/3JQ440Q){:target="_blank"} application has an entry point Java class called OpenapiApplication.java, which you can run to start the application.
 
 {% highlight ruby %}
 package com.openapi;
@@ -349,15 +365,43 @@ public class OpenapiApplication {
 }
 {% endhighlight %}
 
+@SpringBootApplication add the following functionalities:
+
+- OpenApiApplication Class becomes a Configuration class.
+- It enables Component scan, which means looking for other components, configurations, controllers, and services in the com.openapi package.
+- It enables autoconfiguration; Spring Boot looks for other JAR files in the classpath and configures it automatically, e.g., H2 database, JPA.
+
+Spring Boot will detect and start an embedded Tomcat webserver.
+
+{% highlight ruby %}
+2021-10-28 12:48:02.659  INFO 9312 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-10-28 12:48:02.881  INFO 9312 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 201ms. Found 1 JPA repository interfaces.
+2021-10-28 12:48:04.812  INFO 9312 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-10-28 12:48:04.847  INFO 9312 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-28 12:48:04.848  INFO 9312 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2021-10-28 12:48:05.131  INFO 9312 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+.
+.
+.
+2021-10-28 12:48:11.700  INFO 9312 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-10-28 12:48:11.703  INFO 9312 --- [  restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-10-28 12:48:12.668  INFO 9312 --- [  restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-10-28 12:48:12.704  INFO 9312 --- [  restartedMain] com.openapi.OpenapiApplication           : Started OpenapiApplication in 14.363 seconds (JVM running for 18.621)
+{% endhighlight %}
+
 Then, when we run our application, we can see the online documentation at:
 
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html){:target="_blank"}
 
 ![openapi3](/assets/images/openapi3.jpg){:class="img-responsive"}
 
+OpenAPI includes a “Try it out” button, which can be used to actually try out the API, not just read its documentation.
+
 You can see the source code in the following link:
 
 [https://github.com/mgamio/openapi-springboot.git](https://github.com/mgamio/openapi-springboot.git){:target="_blank"}
+
+Most of the companies usually follow a [Design-First API](https://amzn.to/3F1ZzwH){:target="_blank"} Strategy using SwaggerHub product for example. But the export plugins are not always aligned with the most updated version of OpenAPI.
 
 If you are looking for java interview resources, the following [link](https://amzn.to/3kTn02B){:target="_blank"} can help you.
 
