@@ -26,10 +26,12 @@ In the following code, we have the first design of the Payment Class, which supp
 
 {% highlight ruby %}
 public class Payment {
+  public static final int MAX_DAYS = 14;
+  
   public void batch(List<Customer> customers) {
     for (Customer customer : customers) {
       int nDays = latePaymentDays(customer);
-      if (nDays >= 14) {
+      if (nDays >= MAX_DAYS) {
         applyLatePaymentInterest(customer);
         lockCard(customer);
       }
@@ -54,10 +56,12 @@ Firstly, we move the *lockCard()* responsibility to a new Card Class. This techn
 
 {% highlight ruby %}
 public class Card {
+  public static final int MAX_DAYS = 10;
+  
   public void batch(List customers) {
     for (Customer customer : customers) {
       int nDays = Payment.latePaymentDays(customer);
-      if (nDays >= 10) {
+      if (nDays >= MAX_DAYS) {
         lockCard(customer);
       }
     }
@@ -65,14 +69,16 @@ public class Card {
 }
 {% endhighlight %}
 
-After that change, we can see how it looks the new Payment Class (refactored as well): 
+After that change and following [Clean code](https://codersite.dev/clean-code/){:target="_blank"} principles, we can see how it looks the new Payment Class (refactored as well):
 
 {% highlight ruby %}
 public class Payment {
+  public static final int MAX_DAYS = 14;
+  
   public void batch(List<Customer> customers) {
     for (Customer customer : customers) {
       int nDays = latePaymentDays(customer);
-      if (nDays >= 14) {
+      if (nDays >= MAX_DAYS) {
         applyLatePaymentInterest(customer);
       }
     }
@@ -80,7 +86,7 @@ public class Payment {
 }
 {% endhighlight %}
 
-Lastly, new changes to the *nDay* variable will only depend on the requirements of every team separately. The following figure shows Classes for different actos, without conflicts.
+Finally, new changes to the MAX_DAYS variable will only depend on the requirements of every team separately. The following figure shows the Classes for different actors, without conflicts.
 
 ![Class for different actors](/assets/images/payment2.jpg){:class="img-responsive"}
 

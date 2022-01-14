@@ -45,7 +45,7 @@ private Z_E2F_RS_Result ingredients:
 Imagine that we dont have the //ingredients comment in e2fResult variable. Then, further in any part of our code, when we try to process this variable, we have the following sentence:
 
 {% highlight ruby %}
-e2f = e2fResult[idx]
+e2f = e2fResult[i]
 {% endhighlight %}
 
 And we don’t know what does e2f means!. Well, someone suggests asking the person responsible for this code. But that guy is not at the office. Well, send it an email, and he is on holiday!.

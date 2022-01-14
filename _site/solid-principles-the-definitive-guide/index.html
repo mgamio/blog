@@ -91,10 +91,12 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 <p>In the following code, we have the first design of the Payment Class, which supports both requirements.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">Payment</span> <span class="p">{</span>
+  <span class="kp">public</span> <span class="n">static</span> <span class="n">final</span> <span class="n">int</span> <span class="no">MAX_DAYS</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+  
   <span class="kp">public</span> <span class="n">void</span> <span class="n">batch</span><span class="p">(</span><span class="no">List</span><span class="o">&lt;</span><span class="no">Customer</span><span class="o">&gt;</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="no">Customer</span> <span class="n">customer</span> <span class="p">:</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">int</span> <span class="n">nDays</span> <span class="o">=</span> <span class="n">latePaymentDays</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">nDays</span> <span class="o">&gt;=</span> <span class="mi">14</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">nDays</span> <span class="o">&gt;=</span> <span class="no">MAX_DAYS</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">applyLatePaymentInterest</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
         <span class="n">lockCard</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
       <span class="p">}</span>
@@ -117,30 +119,34 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 <p>Firstly, we move the <em>lockCard()</em> responsibility to a new Card Class. This technique is most known as refactoring</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">Card</span> <span class="p">{</span>
+  <span class="kp">public</span> <span class="n">static</span> <span class="n">final</span> <span class="n">int</span> <span class="no">MAX_DAYS</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  
   <span class="kp">public</span> <span class="n">void</span> <span class="n">batch</span><span class="p">(</span><span class="no">List</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="no">Customer</span> <span class="n">customer</span> <span class="p">:</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">int</span> <span class="n">nDays</span> <span class="o">=</span> <span class="no">Payment</span><span class="p">.</span><span class="nf">latePaymentDays</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">nDays</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">nDays</span> <span class="o">&gt;=</span> <span class="no">MAX_DAYS</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">lockCard</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>After that change, we can see how it looks the new Payment Class (refactored as well):</p>
+<p>After that change and following <a href="https://codersite.dev/clean-code/" target="_blank">Clean code</a> principles, we can see how it looks the new Payment Class (refactored as well):</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">Payment</span> <span class="p">{</span>
+  <span class="kp">public</span> <span class="n">static</span> <span class="n">final</span> <span class="n">int</span> <span class="no">MAX_DAYS</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+  
   <span class="kp">public</span> <span class="n">void</span> <span class="n">batch</span><span class="p">(</span><span class="no">List</span><span class="o">&lt;</span><span class="no">Customer</span><span class="o">&gt;</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="no">Customer</span> <span class="n">customer</span> <span class="p">:</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">int</span> <span class="n">nDays</span> <span class="o">=</span> <span class="n">latePaymentDays</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">nDays</span> <span class="o">&gt;=</span> <span class="mi">14</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">nDays</span> <span class="o">&gt;=</span> <span class="no">MAX_DAYS</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">applyLatePaymentInterest</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Lastly, new changes to the <em>nDay</em> variable will only depend on the requirements of every team separately. The following figure shows Classes for different actos, without conflicts.</p>
+<p>Finally, new changes to the MAX_DAYS variable will only depend on the requirements of every team separately. The following figure shows the Classes for different actors, without conflicts.</p>
 
 <p><img src="/assets/images/payment2.jpg" alt="Class for different actors" class="img-responsive" /></p>
 
