@@ -3,8 +3,8 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading"><a rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a></h2>
-    
+    <h2 class="footer-heading">{{ site.title | escape }}</h2>
+
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
@@ -27,11 +27,6 @@
 
       <div class="footer-col footer-col-3">
         <p>{{- site.description | escape -}}</p>
-		<a href="{{ site.url }}/policies/policy.html">{{ site.policy }}</a>
-		<br/>
-		<a href="{{ site.url }}/policies/termsOfService.html">{{ site.termsOfService }}</a>
-		<br/>
-		<a href="{{ site.url }}/policies/impressum.html">{{ site.impressum }}</a>
       </div>
     </div>
 

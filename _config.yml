@@ -31,10 +31,15 @@ baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://codersite.dev" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: MoisesGamio
 github_username:  mgamio
-policy: Privacy policy
-termsOfService: Terms of service
-impressum: Impressum
+
 permalink: /:title/
+
+navbar-links:
+  About Me: "aboutme"
+  Resources:
+    - Beautiful Jekyll: "https://beautifuljekyll.com"
+    - Learn markdown: "https://www.markdowntutorial.com/"
+  Author's home: "https://deanattali.com"
   
 # Build settings
 theme: minima
