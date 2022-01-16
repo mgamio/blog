@@ -36,6 +36,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-115356337-1', 'auto');
+  ga('set', 'anonymizeIp', true)
   ga('send', 'pageview');
 }
 </script>
@@ -106,7 +107,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p>But if instead we adopt names which reveal intent from beginning, we could avoid these catastrophic scenarios.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ingredient</span> <span class="o">=</span> <span class="n">ingredients</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ingredient</span> <span class="o">=</span> <span class="n">ingredients</span><span class="p">[</span><span class="n">i</span><span class="p">]</span></code></pre></figure>
 
 <h2 id="clean-code-tells-a-story">Clean Code tells a story</h2>
 
@@ -168,8 +169,8 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">CODER SITE for developers</h2>
-
+    <h2 class="footer-heading"><a rel="author" href="/">CODER SITE for developers</a></h2>
+    
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
@@ -181,6 +182,11 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
       <div class="footer-col footer-col-3">
         <p>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</p>
+		<a href="https://codersite.dev/policies/policy.html">Privacy policy</a>
+		<br/>
+		<a href="https://codersite.dev/policies/termsOfService.html">Terms of service</a>
+		<br/>
+		<a href="https://codersite.dev/policies/impressum.html">Impressum</a>
       </div>
     </div>
 
