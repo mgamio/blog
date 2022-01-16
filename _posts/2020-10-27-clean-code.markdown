@@ -53,7 +53,7 @@ And we don’t know what does e2f means!. Well, someone suggests asking the pers
 But if instead we adopt names which reveal intent from beginning, we could avoid these catastrophic scenarios.
 
 {% highlight ruby %}
-ingredient = ingredients[idx]
+ingredient = ingredients[i]
 {% endhighlight %}
 
 ## Clean Code tells a story
