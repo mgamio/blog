@@ -82,15 +82,9 @@ The table above says, Leipzig is adjacent to Berlin, Dresden, and Nürnberg, for
 
 **Create and Initialize an Abstract Data Type**
 
-We create an Abstract Data Type called a Graph to define the behavior of our new data structure.
+We create a Abstract Data Type called Graph, to define the behavior of our new data structure.
 
-We need a stack data structure so we can remember the visited vertices. A stack follows the last-in, first-out (LIFO) principle, i.e., the city inserted at last is the first city to come out of the stack.
-
-We define an *arrayOfVertex[]* array to store new Vertices(cities) added to the Graph.
-
-We define a *numOfVertices* variable that indicates the number of Vertices already added to the Graph.
-
-Since we will pass a String argument (city name) to our DFS algorithm, a *mapOfVertex* hashMap is defined to register the key-value: *city-index*, where the *index* is the City's location at *arrayOfVertex[]*.
+We need a stack data structure so we can remember the visited vertices. When we add a new Vertex (City) and is stored in our *arrayOfVertex[]* array, the *numOfVertices* variable indicates the number of Vertices already added to the Graph. Since we are going to pass a String argument (city name) to our DFS algorithm, a *mapOfVertex* hashMap is defined to register the key-value: city-index, where the index is the location at *arrayOfVertex[]*.
 
 {% highlight ruby %}
 public class Graph {
@@ -156,8 +150,6 @@ public void addEdge(String city1, String city2) {
     matrixOfAdjVertex[end][start] =1;
 }
 {% endhighlight %}
-
-You can implement your code for these methods. The point here is that we need to define the topology of our Graph, adding Vertices(cities) and edges that connect them.
 
 ### Depth-First Search: The algorithm ###
 

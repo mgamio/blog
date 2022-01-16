@@ -36,7 +36,6 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-115356337-1', 'auto');
-  ga('set', 'anonymizeIp', true)
   ga('send', 'pageview');
 }
 </script>
@@ -145,15 +144,9 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p><strong>Create and Initialize an Abstract Data Type</strong></p>
 
-<p>We create an Abstract Data Type called a Graph to define the behavior of our new data structure.</p>
+<p>We create a Abstract Data Type called Graph, to define the behavior of our new data structure.</p>
 
-<p>We need a stack data structure so we can remember the visited vertices. A stack follows the last-in, first-out (LIFO) principle, i.e., the city inserted at last is the first city to come out of the stack.</p>
-
-<p>We define an <em>arrayOfVertex[]</em> array to store new Vertices(cities) added to the Graph.</p>
-
-<p>We define a <em>numOfVertices</em> variable that indicates the number of Vertices already added to the Graph.</p>
-
-<p>Since we will pass a String argument (city name) to our DFS algorithm, a <em>mapOfVertex</em> hashMap is defined to register the key-value: <em>city-index</em>, where the <em>index</em> is the City’s location at <em>arrayOfVertex[]</em>.</p>
+<p>We need a stack data structure so we can remember the visited vertices. When we add a new Vertex (City) and is stored in our <em>arrayOfVertex[]</em> array, the <em>numOfVertices</em> variable indicates the number of Vertices already added to the Graph. Since we are going to pass a String argument (city name) to our DFS algorithm, a <em>mapOfVertex</em> hashMap is defined to register the key-value: city-index, where the index is the location at <em>arrayOfVertex[]</em>.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">Graph</span> <span class="p">{</span>
 
@@ -211,8 +204,6 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
     <span class="n">matrixOfAdjVertex</span><span class="p">[</span><span class="n">start</span><span class="p">][</span><span class="k">end</span><span class="p">]</span> <span class="o">=</span><span class="mi">1</span><span class="p">;</span>
     <span class="n">matrixOfAdjVertex</span><span class="p">[</span><span class="k">end</span><span class="p">][</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
-
-<p>You can implement your code for these methods. The point here is that we need to define the topology of our Graph, adding Vertices(cities) and edges that connect them.</p>
 
 <h3 id="depth-first-search-the-algorithm">Depth-First Search: The algorithm</h3>
 
@@ -334,8 +325,8 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
   <div class="wrapper">
 
-    <h2 class="footer-heading"><a rel="author" href="/">CODER SITE for developers</a></h2>
-    
+    <h2 class="footer-heading">CODER SITE for developers</h2>
+
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
@@ -347,11 +338,6 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
       <div class="footer-col footer-col-3">
         <p>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</p>
-		<a href="https://codersite.dev/policies/policy.html">Privacy policy</a>
-		<br/>
-		<a href="https://codersite.dev/policies/termsOfService.html">Terms of service</a>
-		<br/>
-		<a href="https://codersite.dev/policies/impressum.html">Impressum</a>
       </div>
     </div>
 

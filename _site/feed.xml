@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-01-17T00:47:42+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Shopping options</title><link href="https://codersite.dev/shopping-options/" rel="alternate" type="text/html" title="Shopping options" /><published>2021-12-28T18:18:00+01:00</published><updated>2021-12-28T18:18:00+01:00</updated><id>https://codersite.dev/shopping-options</id><content type="html" xml:base="https://codersite.dev/shopping-options/">&lt;p&gt;An Amazon customer wants to buy a pair of jeans, a pair of shoes, a skirt, and a top but has a limited budget in dollars. Given different pricing options for each product, determine how many options our customer has to buy 1 of each product. You cannot spend more money than the budgeted amount.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-01-17T00:51:27+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">Shopping options</title><link href="https://codersite.dev/shopping-options/" rel="alternate" type="text/html" title="Shopping options" /><published>2021-12-28T18:18:00+01:00</published><updated>2021-12-28T18:18:00+01:00</updated><id>https://codersite.dev/shopping-options</id><content type="html" xml:base="https://codersite.dev/shopping-options/">&lt;p&gt;An Amazon customer wants to buy a pair of jeans, a pair of shoes, a skirt, and a top but has a limited budget in dollars. Given different pricing options for each product, determine how many options our customer has to buy 1 of each product. You cannot spend more money than the budgeted amount.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/shoppingOptions.jpg&quot; alt=&quot;merge-two-sorted-lists&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
@@ -453,7 +453,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;But if instead we adopt names which reveal intent from beginning, we could avoid these catastrophic scenarios.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;ingredient&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ingredients&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;ingredient&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ingredients&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;clean-code-tells-a-story&quot;&gt;Clean Code tells a story&lt;/h2&gt;
 
@@ -1259,15 +1259,9 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;&lt;strong&gt;Create and Initialize an Abstract Data Type&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;We create an Abstract Data Type called a Graph to define the behavior of our new data structure.&lt;/p&gt;
+&lt;p&gt;We create a Abstract Data Type called Graph, to define the behavior of our new data structure.&lt;/p&gt;
 
-&lt;p&gt;We need a stack data structure so we can remember the visited vertices. A stack follows the last-in, first-out (LIFO) principle, i.e., the city inserted at last is the first city to come out of the stack.&lt;/p&gt;
-
-&lt;p&gt;We define an &lt;em&gt;arrayOfVertex[]&lt;/em&gt; array to store new Vertices(cities) added to the Graph.&lt;/p&gt;
-
-&lt;p&gt;We define a &lt;em&gt;numOfVertices&lt;/em&gt; variable that indicates the number of Vertices already added to the Graph.&lt;/p&gt;
-
-&lt;p&gt;Since we will pass a String argument (city name) to our DFS algorithm, a &lt;em&gt;mapOfVertex&lt;/em&gt; hashMap is defined to register the key-value: &lt;em&gt;city-index&lt;/em&gt;, where the &lt;em&gt;index&lt;/em&gt; is the City’s location at &lt;em&gt;arrayOfVertex[]&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;We need a stack data structure so we can remember the visited vertices. When we add a new Vertex (City) and is stored in our &lt;em&gt;arrayOfVertex[]&lt;/em&gt; array, the &lt;em&gt;numOfVertices&lt;/em&gt; variable indicates the number of Vertices already added to the Graph. Since we are going to pass a String argument (city name) to our DFS algorithm, a &lt;em&gt;mapOfVertex&lt;/em&gt; hashMap is defined to register the key-value: city-index, where the index is the location at &lt;em&gt;arrayOfVertex[]&lt;/em&gt;.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Graph&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
@@ -1325,8 +1319,6 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
     &lt;span class=&quot;n&quot;&gt;matrixOfAdjVertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;matrixOfAdjVertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;You can implement your code for these methods. The point here is that we need to define the topology of our Graph, adding Vertices(cities) and edges that connect them.&lt;/p&gt;
 
 &lt;h3 id=&quot;depth-first-search-the-algorithm&quot;&gt;Depth-First Search: The algorithm&lt;/h3&gt;
 
