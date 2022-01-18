@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="SOLID principles: The Open-Closed Principle (Part II)" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"Moises Gamio"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/open-closed-principle/"},"url":"https://codersite.dev/open-closed-principle/","headline":"SOLID principles: The Open-Closed Principle (Part II)","dateModified":"2022-01-06T00:18:45+01:00","datePublished":"2022-01-06T00:18:45+01:00","description":"SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"SOLID principles: The Open-Closed Principle (Part II)","dateModified":"2022-01-06T00:18:45+01:00","datePublished":"2022-01-06T00:18:45+01:00","url":"https://codersite.dev/open-closed-principle/","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/open-closed-principle/"},"author":{"@type":"Person","name":"Moises Gamio"},"description":"SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <title>
 	   
@@ -192,10 +192,10 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">RateLimit</span> <span class="n">implements</span> <span class="no">HandlerInterceptor</span> <span class="p">{</span>
   
-  <span class="kp">private</span> <span class="no">DBData</span> <span class="n">dbData</span><span class="p">;</span>
+  <span class="kp">private</span> <span class="no">DataService</span> <span class="n">dataService</span><span class="p">;</span>
   
-  <span class="kp">public</span> <span class="no">RateLimit</span><span class="p">(</span><span class="no">DBData</span> <span class="n">dbData</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">this</span><span class="p">.</span><span class="nf">dbData</span> <span class="o">=</span> <span class="n">dbData</span><span class="p">;</span>
+  <span class="kp">public</span> <span class="no">RateLimit</span><span class="p">(</span><span class="no">DataService</span> <span class="n">dataService</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="p">.</span><span class="nf">dataService</span> <span class="o">=</span> <span class="n">dataService</span><span class="p">;</span>
   <span class="p">}</span>
   
   <span class="vi">@Override</span>
@@ -203,7 +203,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 			<span class="no">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
     <span class="sr">//</span><span class="n">getClientId</span>
     <span class="o">...</span>
-    <span class="n">dbData</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">();</span>
+    <span class="n">dataService</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">();</span>
     <span class="o">...</span>
     <span class="sr">//</span><span class="n">build</span> <span class="no">Buckets</span>
     <span class="sr">//e</span><span class="n">valuate</span> <span class="n">request</span> <span class="n">per</span> <span class="n">clientId</span>
@@ -216,7 +216,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p>Calling to <em>getAPIPlans</em> is now fixed (closed for modification). If we want it to behave differently, we implement it in a new class (open for extension) that will follow the contracts defined in our interface.</p>
 
-<p>How a dependency is instantiated in our RateLimit is thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.</p>
+<p>How our new DBData dependency is instantiated in our RateLimit class is thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.</p>
 
 	<style> .gumroad-follow-form-embed { zoom: 1; } .gumroad-follow-form-embed:before, .gumroad-follow-form-embed:after { display: table; line-height: 0; content: ""; } .gumroad-follow-form-embed:after { clear: both; } .gumroad-follow-form-embed * { margin: 0; border: 0; padding: 0; outline: 0; box-sizing: border-box !important; float: left !important; } .gumroad-follow-form-embed input { border-radius: 4px; border-top-right-radius: 0; border-bottom-right-radius: 0; font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 15px; line-height: 20px; background: #fff; border: 1px solid #ddd; border-right: 0; color: #aaa; padding: 10px; box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.02); background-position: top right; background-repeat: no-repeat; text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-appearance: none; -moz-appearance: caret; width: 65% !important; height: 40px !important; } .gumroad-follow-form-embed button { border-radius: 4px; border-top-left-radius: 0; border-bottom-left-radius: 0; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12); -webkit-transition: all .05s ease-in-out; transition: all .05s ease-in-out; display: inline-block; padding: 11px 15px 12px; cursor: pointer; color: #fff; font-size: 15px; line-height: 100%; font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; background: #8fb0ff; border: 1px solid #819ee6; filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b5d6ff, endColorstr=#84a3ec, GradientType=0)"; background: -webkit-linear-gradient(#b5d6ff, #84a3ec); background: linear-gradient(to bottom, #b5d6ff, #84a3ec); height: 40px !important; width: 35% !important; } </style> 
 <p>I like to share my knowledge and experience on Java Programming, Algorithms, Data Structures, Clean Code, SOLID Principles, Distributed Systems, Spring Framework, and other Tech topics.</p>

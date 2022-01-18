@@ -134,10 +134,10 @@ Finally, we refactor our RateLimit class.
 {% highlight ruby %}
 public class RateLimit implements HandlerInterceptor {
   
-  private DBData dbData;
+  private DataService dataService;
   
-  public RateLimit(DBData dbData) {
-    this.dbData = dbData;
+  public RateLimit(DataService dataService) {
+    this.dataService = dataService;
   }
   
   @Override
@@ -145,7 +145,7 @@ public class RateLimit implements HandlerInterceptor {
 			Object handler) throws Exception {
     //getClientId
     ...
-    dbData.getAPIPlans();
+    dataService.getAPIPlans();
     ...
     //build Buckets
     //evaluate request per clientId
@@ -159,4 +159,4 @@ If later we decided to retrieve the parameters from a NoSQL database, we would n
 
 Calling to *getAPIPlans* is now fixed (closed for modification). If we want it to behave differently, we implement it in a new class (open for extension) that will follow the contracts defined in our interface.
 
-How a dependency is instantiated in our RateLimit is thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.
+How our new DBData dependency is instantiated in our RateLimit class is thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.
