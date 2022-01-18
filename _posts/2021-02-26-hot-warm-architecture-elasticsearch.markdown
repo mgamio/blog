@@ -146,11 +146,4 @@ Here you can read an article which explain [Elasticsearch](https://medium.com/@m
 
 If you want to know how to scale in a distribuited system, I recommend this book: [Designing Data-Intensive Applications](https://amzn.to/3rpxj15){:target="_blank"}.
 
-
-If my blog has helped you understand elasticsearch, please consider donating. I appreciate it when my readers let me know my work has helped them.
-
-<form action="https://www.paypal.com/donate" method="post" target="_top">
-<input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
-<input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-<img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
-</form>
+If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.
