@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:image" content="/assets/images/payment2.jpg" /><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>SOLID principles: The Open-Closed Principle (Part II) | CODER SITE for developers</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="SOLID principles: The Open-Closed Principle (Part II)" />
+<meta name="author" content="Moises Gamio" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand" />
+<meta property="og:description" content="SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand" />
+<link rel="canonical" href="https://codersite.dev/open-closed-principle/" />
+<meta property="og:url" content="https://codersite.dev/open-closed-principle/" />
+<meta property="og:site_name" content="CODER SITE for developers" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-06T00:18:45+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SOLID principles: The Open-Closed Principle (Part II)" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Moises Gamio"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/open-closed-principle/"},"url":"https://codersite.dev/open-closed-principle/","headline":"SOLID principles: The Open-Closed Principle (Part II)","dateModified":"2022-01-06T00:18:45+01:00","datePublished":"2022-01-06T00:18:45+01:00","description":"SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<title>
+	   
+		   SOLID principles: The Open-Closed Principle (Part II)
+	   
+    </title>
+	<meta itemprop="description" name="description" content="SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand" />
+
+  <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://codersite.dev/feed.xml" title="CODER SITE for developers" /><script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-115356337-1', 'auto');
+  ga('set', 'anonymizeIp', true)
+  ga('send', 'pageview');
+}
+</script>
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+     crossorigin="anonymous"></script> 
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CODER SITE for developers</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/donate/">Donate</a><a class="page-link" href="/book/">Book</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">SOLID principles: The Open-Closed Principle (Part II)</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-01-06T00:18:45+01:00" itemprop="datePublished">Jan 6, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.</p>
+
+<p>Robert C. Martin introduced it. <a href="https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf" target="_blank">Design Principles</a>.</p>
+
+<p>When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.</p>
+
+<p>After looking at the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Single Responsibility Principle</a>, let’s continue with the second principle..</p>
+
+<h3 id="solid-principles-the-open-closed-principle-ocp">SOLID principles: The Open-Closed Principle (OCP)</h3>
+
+<blockquote>
+  <p>… “a module, class or function should be open for extension but closed for modification“</p>
+</blockquote>
+
+<p><a href="https://amzn.to/3eSkKXx" target="_blank">Bertrand Meyer</a> coined the principle, suggesting that we should build software so that we can change what the code does without touching our current code implementation.</p>
+
+<p>For instance, imagine you are designing and implementing a rate limit algorithm to control the number of request allowed for every endpoint in a <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">REST API</a>.</p>
+
+<p>An interceptor - <em>HandlerInterceptor</em> - allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.</p>
+
+<p>From the beginning, you decide to retrieve the parameters about the number of requests per plan from a text file. The following <em>getAPIPlans</em> method retrieves those parameters.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">RateLimit</span> <span class="n">implements</span> <span class="no">HandlerInterceptor</span> <span class="p">{</span>
+  <span class="sr">//</span><span class="kp">private</span> <span class="n">variables</span>
+  
+  <span class="vi">@Override</span>
+  <span class="kp">public</span> <span class="n">boolean</span> <span class="n">preHandle</span><span class="p">(</span><span class="no">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> <span class="no">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span>
+			<span class="no">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
+    <span class="sr">//</span><span class="n">getClientId</span>
+    <span class="o">...</span>
+    <span class="n">getAPIPlans</span><span class="p">();</span>
+    <span class="o">...</span>
+    <span class="sr">//</span><span class="n">build</span> <span class="no">Buckets</span>
+    <span class="sr">//e</span><span class="n">valuate</span> <span class="n">request</span> <span class="n">per</span> <span class="n">clientId</span>
+    <span class="sr">//</span><span class="n">accept</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="n">or</span> <span class="n">refuse</span><span class="p">(</span><span class="mi">429</span><span class="p">)</span> <span class="n">request</span>
+  <span class="p">}</span>
+  
+  <span class="kp">private</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
+    <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">clientIdPlans</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="no">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ClassPathResource</span><span class="p">(</span><span class="s2">"apiPlans.txt"</span><span class="p">);</span>
+    <span class="n">try</span> <span class="p">{</span>
+      <span class="no">List</span><span class="o">&lt;</span><span class="no">String</span><span class="o">&gt;</span> <span class="n">allLines</span> <span class="o">=</span> <span class="no">Files</span><span class="p">.</span><span class="nf">readAllLines</span><span class="p">(</span><span class="no">Paths</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">resource</span><span class="p">.</span><span class="nf">getURI</span><span class="p">()));</span>
+      <span class="k">for</span> <span class="p">(</span><span class="no">String</span> <span class="ss">line: </span><span class="n">allLines</span><span class="p">)</span> <span class="p">{</span>
+	    <span class="no">String</span><span class="p">[]</span> <span class="n">attributes</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">);</span>
+  	    <span class="no">String</span> <span class="n">clientId</span> <span class="o">=</span> <span class="n">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	    <span class="n">long</span> <span class="n">capacity</span> <span class="o">=</span> <span class="no">Long</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">attributes</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nf">longValue</span><span class="p">();</span>
+	    <span class="n">clientIdPlans</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">capacity</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="kp">catch</span> <span class="p">(</span><span class="no">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kp">throw</span> <span class="n">new</span> <span class="no">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="nf">getMessage</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">clientIdPlans</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="suddenly-an-unexpected-scenario-arises">Suddenly an unexpected scenario arises.</h3>
+
+<p>The developer leaves the company, and a new one arrives.</p>
+
+<p>As developers, we usually receive tasks to do maintenance in projects that do not belong to us; specifically, we never created that code.</p>
+
+<p>Then weeks later, your team decides that must be retrieved parameters from a database. Therefore you proceed to replace the <em>getAPIPlans</em> method; then, <em>you break the open-closed principle</em>.</p>
+
+<p>That is the meaning of the principle; you can not touch the code that is already implemented and working for a long time. Suppose the code is too complex to understand, not well documented, and includes a lot of dependencies. In that case, we have a lot of probabilities to introduce a bug or break some functionalities that we cannot visualize. Unless it is a bug that we have to fix, we should never modify the existing code.</p>
+
+<p>Even if the code is not well designed or does not follow well object-oriented principles, it could not be easy to extend a class to introduce new functionalities.</p>
+
+<p>For this scenario, the team decides to implement the open-closed principle to support future changes.  To refactor the code, we adopt composition and polymorphism..</p>
+
+<p>The following diagram shows the goal of our design.</p>
+
+<p><img src="/assets/images/rateLimit.jpg" alt="rateLimit" class="img-responsive" /></p>
+
+<p>Firstly, you think abstractions, create an interface, and define a contract that includes all functionalities.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="n">interface</span> <span class="no">DataService</span> <span class="p">{</span>
+
+  <span class="kp">public</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="no">Exception</span><span class="p">;</span>
+
+<span class="p">}</span></code></pre></figure>
+
+<p>Secondly, we move our <em>getAPIPlans</em> method to a new implementation class.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">TextData</span> <span class="n">implements</span> <span class="no">DataService</span> <span class="p">{</span>
+
+  <span class="kp">private</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
+    <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">clientIdPlans</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="p">.</span>
+	<span class="nf">.</span>
+	<span class="p">.</span>
+    <span class="nf">return</span> <span class="n">clientIdPlans</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Thanks to abstractions, we can create a new class to implement <em>getAPIPlans</em> with different behavior, in this case, to retrieve parameters from a database.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">DBData</span> <span class="n">implements</span> <span class="no">DataService</span> <span class="p">{</span>
+
+  <span class="kp">private</span> <span class="no">DataSource</span> <span class="n">datasource</span><span class="p">;</span>
+  
+  <span class="kp">public</span> <span class="no">DBData</span><span class="p">(</span><span class="no">DataSource</span> <span class="n">datasource</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="p">.</span><span class="nf">datasource</span> <span class="o">=</span> <span class="n">datasource</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="kp">private</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
+    <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">clientIdPlans</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="no">Plan</span> <span class="n">plan</span> <span class="p">:</span> <span class="n">datasource</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">())</span> <span class="p">{</span>
+      <span class="p">.</span>
+      <span class="nf">.</span>
+      <span class="o">.</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">clientIdPlans</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Introducing a new abstraction layer with different implementations avoids tight coupling between classes.</p>
+
+<p>Finally, we refactor our RateLimit class.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">RateLimit</span> <span class="n">implements</span> <span class="no">HandlerInterceptor</span> <span class="p">{</span>
+  
+  <span class="kp">private</span> <span class="no">DBData</span> <span class="n">dbData</span><span class="p">;</span>
+  
+  <span class="kp">public</span> <span class="no">RateLimit</span><span class="p">(</span><span class="no">DBData</span> <span class="n">dbData</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="p">.</span><span class="nf">dbData</span> <span class="o">=</span> <span class="n">dbData</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="vi">@Override</span>
+  <span class="kp">public</span> <span class="n">boolean</span> <span class="n">preHandle</span><span class="p">(</span><span class="no">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> <span class="no">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span>
+			<span class="no">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
+    <span class="sr">//</span><span class="n">getClientId</span>
+    <span class="o">...</span>
+    <span class="n">dbData</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">();</span>
+    <span class="o">...</span>
+    <span class="sr">//</span><span class="n">build</span> <span class="no">Buckets</span>
+    <span class="sr">//e</span><span class="n">valuate</span> <span class="n">request</span> <span class="n">per</span> <span class="n">clientId</span>
+    <span class="sr">//</span><span class="n">accept</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="n">or</span> <span class="n">refuse</span><span class="p">(</span><span class="mi">429</span><span class="p">)</span> <span class="n">request</span>
+  <span class="p">}</span>
+  
+<span class="p">}</span></code></pre></figure>
+
+<p>If later we decided to retrieve the parameters from a NoSQL database, we would no longer have to touch the code, create a new class that implements <em>getAPIPlans</em>, and instantiate this new class in RateLimit.</p>
+
+<p>Calling to <em>getAPIPlans</em> is now fixed (closed for modification). If we want it to behave differently, we implement it in a new class (open for extension) that will follow the contracts defined in our interface.</p>
+
+<p>How a dependency is instantiated in our RateLimit is thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.</p>
+
+	<style> .gumroad-follow-form-embed { zoom: 1; } .gumroad-follow-form-embed:before, .gumroad-follow-form-embed:after { display: table; line-height: 0; content: ""; } .gumroad-follow-form-embed:after { clear: both; } .gumroad-follow-form-embed * { margin: 0; border: 0; padding: 0; outline: 0; box-sizing: border-box !important; float: left !important; } .gumroad-follow-form-embed input { border-radius: 4px; border-top-right-radius: 0; border-bottom-right-radius: 0; font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 15px; line-height: 20px; background: #fff; border: 1px solid #ddd; border-right: 0; color: #aaa; padding: 10px; box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.02); background-position: top right; background-repeat: no-repeat; text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-appearance: none; -moz-appearance: caret; width: 65% !important; height: 40px !important; } .gumroad-follow-form-embed button { border-radius: 4px; border-top-left-radius: 0; border-bottom-left-radius: 0; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12); -webkit-transition: all .05s ease-in-out; transition: all .05s ease-in-out; display: inline-block; padding: 11px 15px 12px; cursor: pointer; color: #fff; font-size: 15px; line-height: 100%; font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; background: #8fb0ff; border: 1px solid #819ee6; filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b5d6ff, endColorstr=#84a3ec, GradientType=0)"; background: -webkit-linear-gradient(#b5d6ff, #84a3ec); background: linear-gradient(to bottom, #b5d6ff, #84a3ec); height: 40px !important; width: 35% !important; } </style> 
+<p>I like to share my knowledge and experience on Java Programming, Algorithms, Data Structures, Clean Code, SOLID Principles, Distributed Systems, Spring Framework, and other Tech topics.</p>
+<h4>Stay Connected!. Follow me to get updates on my latest articles.</h4>
+<form action="https://app.gumroad.com/follow_from_embed_form" class="form gumroad-follow-form-embed" method="post"> <input name="seller_id" type="hidden" value="9094055701944"> <input name="email" placeholder="Your email address" type="email"> <button data-custom-highlight-color="" type="submit">Follow</button> </form>
+	<br/>
+<p>Please contribute to the production of this content by leaving a tiny donation or sharing this article.</p>
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+<input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+<input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+</form>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+     crossorigin="anonymous"></script>
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div><a class="u-url" href="/open-closed-principle/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading"><a rel="author" href="/">CODER SITE for developers</a></h2>
+    
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Moises Gamio</li><li><a class="u-email" href="mailto:codersitedev@gmail.com">codersitedev@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mgamio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mgamio</span></a></li><li><a href="https://www.twitter.com/MoisesGamio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">MoisesGamio</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</p>
+		<a href="https://codersite.dev/policies/policy.html">Privacy policy</a>
+		<br/>
+		<a href="https://codersite.dev/policies/termsOfService.html">Terms of service</a>
+		<br/>
+		<a href="https://codersite.dev/policies/impressum.html">Impressum</a>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

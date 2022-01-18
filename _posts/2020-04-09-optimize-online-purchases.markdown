@@ -199,11 +199,3 @@ for (int idx=0; idx<numIterations; idx++){
 {% endhighlight %}
 
 You can see the complete solution explained in detail and all test cases in the following [link](https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2){:target="_blank"}
-
-If my blog has helped you understand TDD approach in your coding interview, please consider donating. I appreciate it when my readers let me know my work has helped them.
-
-<form action="https://www.paypal.com/donate" method="post" target="_top">
-<input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
-<input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-<img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
-</form>
