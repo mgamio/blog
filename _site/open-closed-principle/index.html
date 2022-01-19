@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="SOLID principles: The Open-Closed Principle (Part II)" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"SOLID principles: The Open-Closed Principle (Part II)","dateModified":"2022-01-06T00:18:45+01:00","datePublished":"2022-01-06T00:18:45+01:00","url":"https://codersite.dev/open-closed-principle/","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/open-closed-principle/"},"author":{"@type":"Person","name":"Moises Gamio"},"description":"SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Moises Gamio"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/open-closed-principle/"},"url":"https://codersite.dev/open-closed-principle/","headline":"SOLID principles: The Open-Closed Principle (Part II)","dateModified":"2022-01-06T00:18:45+01:00","datePublished":"2022-01-06T00:18:45+01:00","description":"SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <title>
 	   
@@ -89,9 +89,9 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p>For instance, imagine you are designing and implementing a rate limit algorithm to control the number of request allowed for every endpoint in a <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">REST API</a>.</p>
 
-<p>An interceptor - <em>HandlerInterceptor</em> - allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.</p>
+<p>Our RateLimit class implements an interceptor - <em>HandlerInterceptor</em> - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.</p>
 
-<p>From the beginning, you decide to retrieve the parameters about the number of requests per plan from a text file. The following <em>getAPIPlans</em> method retrieves those parameters.</p>
+<p>From the beginning, the team agrees to retrieve the parameters about the number of requests per plan from a text file. The following <em>getAPIPlans</em> method retrieves those parameters.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">RateLimit</span> <span class="n">implements</span> <span class="no">HandlerInterceptor</span> <span class="p">{</span>
   <span class="sr">//</span><span class="kp">private</span> <span class="n">variables</span>
@@ -100,9 +100,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <span class="kp">public</span> <span class="n">boolean</span> <span class="n">preHandle</span><span class="p">(</span><span class="no">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> <span class="no">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span>
 			<span class="no">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
     <span class="sr">//</span><span class="n">getClientId</span>
-    <span class="o">...</span>
     <span class="n">getAPIPlans</span><span class="p">();</span>
-    <span class="o">...</span>
     <span class="sr">//</span><span class="n">build</span> <span class="no">Buckets</span>
     <span class="sr">//e</span><span class="n">valuate</span> <span class="n">request</span> <span class="n">per</span> <span class="n">clientId</span>
     <span class="sr">//</span><span class="n">accept</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="n">or</span> <span class="n">refuse</span><span class="p">(</span><span class="mi">429</span><span class="p">)</span> <span class="n">request</span>
@@ -128,7 +126,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <h3 id="suddenly-an-unexpected-scenario-arises">Suddenly an unexpected scenario arises.</h3>
 
-<p>The developer leaves the company, and a new one arrives.</p>
+<p>The developer leaves the company, and a new one arrives—for example, You.</p>
 
 <p>As developers, we usually receive tasks to do maintenance in projects that do not belong to us; specifically, we never created that code.</p>
 
@@ -158,10 +156,9 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
   <span class="kp">private</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
     <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">clientIdPlans</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-    <span class="p">.</span>
-	<span class="nf">.</span>
-	<span class="p">.</span>
-    <span class="nf">return</span> <span class="n">clientIdPlans</span><span class="p">;</span>
+	<span class="sr">//</span><span class="n">code</span> <span class="n">omitted</span>
+	
+    <span class="k">return</span> <span class="n">clientIdPlans</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
@@ -178,9 +175,8 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <span class="kp">private</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
     <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">clientIdPlans</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
     <span class="k">for</span> <span class="p">(</span><span class="no">Plan</span> <span class="n">plan</span> <span class="p">:</span> <span class="n">datasource</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">())</span> <span class="p">{</span>
-      <span class="p">.</span>
-      <span class="nf">.</span>
-      <span class="o">.</span>
+      <span class="sr">//</span><span class="n">code</span> <span class="n">omitted</span>
+	 
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">clientIdPlans</span><span class="p">;</span>
   <span class="p">}</span>
@@ -202,9 +198,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <span class="kp">public</span> <span class="n">boolean</span> <span class="n">preHandle</span><span class="p">(</span><span class="no">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> <span class="no">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span>
 			<span class="no">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
     <span class="sr">//</span><span class="n">getClientId</span>
-    <span class="o">...</span>
     <span class="n">dataService</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">();</span>
-    <span class="o">...</span>
     <span class="sr">//</span><span class="n">build</span> <span class="no">Buckets</span>
     <span class="sr">//e</span><span class="n">valuate</span> <span class="n">request</span> <span class="n">per</span> <span class="n">clientId</span>
     <span class="sr">//</span><span class="n">accept</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="n">or</span> <span class="n">refuse</span><span class="p">(</span><span class="mi">429</span><span class="p">)</span> <span class="n">request</span>

@@ -22,9 +22,9 @@ After looking at the [Single Responsibility Principle](https://codersite.dev/sol
 
 For instance, imagine you are designing and implementing a rate limit algorithm to control the number of request allowed for every endpoint in a [REST API](https://codersite.dev/documenting-rest-api-openapi3/){:target="_blank"}.
 
-An interceptor - *HandlerInterceptor* - allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.
+Our RateLimit class implements an interceptor - *HandlerInterceptor* - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.
 
-From the beginning, you decide to retrieve the parameters about the number of requests per plan from a text file. The following *getAPIPlans* method retrieves those parameters.
+From the beginning, the team agrees to retrieve the parameters about the number of requests per plan from a text file. The following *getAPIPlans* method retrieves those parameters.
 
 {% highlight ruby %}
 public class RateLimit implements HandlerInterceptor {
@@ -34,9 +34,7 @@ public class RateLimit implements HandlerInterceptor {
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
 			Object handler) throws Exception {
     //getClientId
-    ...
     getAPIPlans();
-    ...
     //build Buckets
     //evaluate request per clientId
     //accept(200) or refuse(429) request
@@ -63,7 +61,7 @@ public class RateLimit implements HandlerInterceptor {
 
 ### Suddenly an unexpected scenario arises.
 
-The developer leaves the company, and a new one arrives.
+The developer leaves the company, and a new one arrives—for example, You.
 
 As developers, we usually receive tasks to do maintenance in projects that do not belong to us; specifically, we never created that code.
 
@@ -96,9 +94,8 @@ public class TextData implements DataService {
 
   private Map<String, Long> getAPIPlans() throws Exception {
     Map<String, Long> clientIdPlans = new ConcurrentHashMap<>();
-    .
-	.
-	.
+	//code omitted
+	
     return clientIdPlans;
   }
 }
@@ -118,9 +115,8 @@ public class DBData implements DataService {
   private Map<String, Long> getAPIPlans() throws Exception {
     Map<String, Long> clientIdPlans = new ConcurrentHashMap<>();
     for (Plan plan : datasource.getAPIPlans()) {
-      .
-      .
-      .
+      //code omitted
+	 
     }
     return clientIdPlans;
   }
@@ -144,9 +140,7 @@ public class RateLimit implements HandlerInterceptor {
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
 			Object handler) throws Exception {
     //getClientId
-    ...
     dataService.getAPIPlans();
-    ...
     //build Buckets
     //evaluate request per clientId
     //accept(200) or refuse(429) request
