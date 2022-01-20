@@ -12,6 +12,8 @@ This kind of practice [Robert C Martin](https://amzn.to/3rAejgU){:target="_blank
 
 If you want to be a better programmer, you must follow these recommendations..
 
+![cleanCode](/assets/images/cleanCode.jpg){:class="img-responsive"}
+
 ## Clean Code has Intention-Revealing names
 
 Names reveal intent. Someone who reads your code must understand the purpose of your variable, function, or class.
