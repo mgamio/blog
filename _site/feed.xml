@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-01-19T14:06:03+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">SOLID principles: The Open-Closed Principle (Part II)</title><link href="https://codersite.dev/open-closed-principle/" rel="alternate" type="text/html" title="SOLID principles: The Open-Closed Principle (Part II)" /><published>2022-01-06T00:18:45+01:00</published><updated>2022-01-06T00:18:45+01:00</updated><id>https://codersite.dev/open-closed-principle</id><content type="html" xml:base="https://codersite.dev/open-closed-principle/">&lt;p&gt;SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.&lt;/p&gt;
-
-&lt;p&gt;Robert C. Martin introduced it. &lt;a href=&quot;https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf&quot; target=&quot;_blank&quot;&gt;Design Principles&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-01-21T00:07:01+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">SOLID principles: The Open-Closed Principle (Part II)</title><link href="https://codersite.dev/open-closed-principle/" rel="alternate" type="text/html" title="SOLID principles: The Open-Closed Principle (Part II)" /><published>2022-01-06T00:18:45+01:00</published><updated>2022-01-06T00:18:45+01:00</updated><id>https://codersite.dev/open-closed-principle</id><content type="html" xml:base="https://codersite.dev/open-closed-principle/">&lt;p&gt;SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.&lt;/p&gt;
 
 &lt;p&gt;When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.&lt;/p&gt;
 
 &lt;p&gt;After looking at the &lt;a href=&quot;https://codersite.dev/solid-principles-the-definitive-guide/&quot; target=&quot;_blank&quot;&gt;Single Responsibility Principle&lt;/a&gt;, let’s continue with the second principle..&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/openClosedPrinciple.jpg&quot; alt=&quot;openClosedPrinciple&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;solid-principles-the-open-closed-principle-ocp&quot;&gt;SOLID principles: The Open-Closed Principle (OCP)&lt;/h3&gt;
 
@@ -537,6 +537,8 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 &lt;p&gt;This kind of practice &lt;a href=&quot;https://amzn.to/3rAejgU&quot; target=&quot;_blank&quot;&gt;Robert C Martin&lt;/a&gt; introduced it.&lt;/p&gt;
 
 &lt;p&gt;If you want to be a better programmer, you must follow these recommendations..&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/cleanCode.jpg&quot; alt=&quot;cleanCode&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;clean-code-has-intention-revealing-names&quot;&gt;Clean Code has Intention-Revealing names&lt;/h2&gt;
 
