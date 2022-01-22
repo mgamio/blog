@@ -2,6 +2,7 @@
 layout: post
 title:  "Shopping options"
 description: "Shopping options under a budgeted amount"
+featured-image: shoppingOptions.jpg
 date: 2021-12-28 18:18:00 +0100
 categories: algorithms java interview
 ---

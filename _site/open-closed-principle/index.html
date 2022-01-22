@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:image" content="/assets/images/payment2.jpg" /><!-- Begin Jekyll SEO tag v2.7.1 -->
+  <meta property="og:image" content="https://codersite.dev/assets/images/openClosedPrinciple.jpg" /><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>SOLID principles: The Open-Closed Principle (Part II) | CODER SITE for developers</title>
 <meta name="generator" content="Jekyll v4.2.1" />
 <meta property="og:title" content="SOLID principles: The Open-Closed Principle (Part II)" />
@@ -75,52 +75,52 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p>When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.</p>
 
-<p>After looking at the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Single Responsibility Principle</a>, let’s continue with the second principle..</p>
+<p>After looking at the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Single Responsibility Principle</a>, let’s continue with the second principle.</p>
 
 <p><img src="/assets/images/openClosedPrinciple.jpg" alt="openClosedPrinciple" class="img-responsive" /></p>
 
 <h3 id="solid-principles-the-open-closed-principle-ocp">SOLID principles: The Open-Closed Principle (OCP)</h3>
 
 <blockquote>
-  <p>… “a module, class or function should be open for extension but closed for modification“</p>
+  <p>… “a module, class, or function should be open for extension but closed for modification.“</p>
 </blockquote>
 
-<p><a href="https://amzn.to/3eSkKXx" target="_blank">Bertrand Meyer</a> coined the principle, suggesting that we should build software so that we can change what the code does without touching our current code implementation.</p>
+<p><a href="https://amzn.to/3eSkKXx" target="_blank">Bertrand Meyer</a> coined the principle, suggesting that we should build software to be extendable without touching its current code implementation.</p>
 
-<p>For instance, imagine you are designing and implementing a rate limit algorithm to control the number of request allowed for every endpoint in a <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">REST API</a>.</p>
+<p>For instance, imagine designing and implementing a rate limit algorithm to control the number of requests allowed for every endpoint in a <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">REST API</a>.</p>
 
-<p>Our RateLimit class implements an interceptor - <em>HandlerInterceptor</em> - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.</p>
+<p>The RateLimit class implements an interceptor - <em>HandlerInterceptor</em> - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.</p>
 
-<p>From the beginning, the team agrees to retrieve the parameters about the number of requests per plan from a text file. The following <em>getAPIPlans</em> method retrieves those parameters.</p>
+<p>The team wants to retrieve the number of requests by plan from a text file. The following <em>getAPIPlans</em> method retrieves those parameters.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">RateLimit</span> <span class="n">implements</span> <span class="no">HandlerInterceptor</span> <span class="p">{</span>
-  <span class="sr">//</span><span class="kp">private</span> <span class="n">variables</span>
+  <span class="kp">private</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">apiPlans</span><span class="p">;</span>
   
   <span class="vi">@Override</span>
-  <span class="kp">public</span> <span class="n">boolean</span> <span class="n">preHandle</span><span class="p">(</span><span class="no">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> <span class="no">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span>
-			<span class="no">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
+  <span class="kp">public</span> <span class="n">boolean</span> <span class="n">preHandle</span><span class="p">(</span><span class="no">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> 
+    <span class="no">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span> <span class="no">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
     <span class="sr">//</span><span class="n">getClientId</span>
-    <span class="n">getAPIPlans</span><span class="p">();</span>
+    <span class="n">apiPlans</span> <span class="o">=</span> <span class="n">getAPIPlans</span><span class="p">();</span>
     <span class="sr">//</span><span class="n">build</span> <span class="no">Buckets</span>
     <span class="sr">//e</span><span class="n">valuate</span> <span class="n">request</span> <span class="n">per</span> <span class="n">clientId</span>
     <span class="sr">//</span><span class="n">accept</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="n">or</span> <span class="n">refuse</span><span class="p">(</span><span class="mi">429</span><span class="p">)</span> <span class="n">request</span>
   <span class="p">}</span>
   
   <span class="kp">private</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
-    <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">clientIdPlans</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">apiPlans</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
     <span class="no">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ClassPathResource</span><span class="p">(</span><span class="s2">"apiPlans.txt"</span><span class="p">);</span>
     <span class="n">try</span> <span class="p">{</span>
       <span class="no">List</span><span class="o">&lt;</span><span class="no">String</span><span class="o">&gt;</span> <span class="n">allLines</span> <span class="o">=</span> <span class="no">Files</span><span class="p">.</span><span class="nf">readAllLines</span><span class="p">(</span><span class="no">Paths</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">resource</span><span class="p">.</span><span class="nf">getURI</span><span class="p">()));</span>
       <span class="k">for</span> <span class="p">(</span><span class="no">String</span> <span class="ss">line: </span><span class="n">allLines</span><span class="p">)</span> <span class="p">{</span>
 	    <span class="no">String</span><span class="p">[]</span> <span class="n">attributes</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">);</span>
-  	    <span class="no">String</span> <span class="n">clientId</span> <span class="o">=</span> <span class="n">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  	    <span class="no">String</span> <span class="n">plan</span> <span class="o">=</span> <span class="n">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 	    <span class="n">long</span> <span class="n">capacity</span> <span class="o">=</span> <span class="no">Long</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">attributes</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nf">longValue</span><span class="p">();</span>
-	    <span class="n">clientIdPlans</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">capacity</span><span class="p">);</span>
+	    <span class="n">apiPlans</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">capacity</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span> <span class="kp">catch</span> <span class="p">(</span><span class="no">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
         <span class="kp">throw</span> <span class="n">new</span> <span class="no">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="nf">getMessage</span><span class="p">());</span>
     <span class="p">}</span>
-    <span class="k">return</span> <span class="n">clientIdPlans</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">apiPlans</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
@@ -136,13 +136,23 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p>Even if the code is not well designed or does not follow well object-oriented principles, it could not be easy to extend a class to introduce new functionalities.</p>
 
-<p>For this scenario, the team decides to implement the open-closed principle to support future changes.  To refactor the code, we adopt composition and polymorphism..</p>
+<p>The team implements the open-closed principle to support future changes for this scenario. To refactor the code, we adopt polymorphism and aggregation.</p>
+
+<h3 id="polymorphism">Polymorphism</h3>
+
+<p>Polymorphism is part of the core concepts of Object-Oriented Programming and means many forms, allowing an object to behave differently in some instances. For our scenario, polymorphism will enable the <em>getAPIPlans</em> method to achieve its goals in different ways: retrieve the parameters from a text file or a database.</p>
+
+<h3 id="aggregation">Aggregation</h3>
+
+<p>Aggregation defines a HAS-A relationship between these two classes. Their objects have their life cycle, but one of them is the owner of the HAS-A relationship.</p>
 
 <p>The following diagram shows the goal of our design.</p>
 
 <p><img src="/assets/images/rateLimit.jpg" alt="rateLimit" class="img-responsive" /></p>
 
-<p>Firstly, you think abstractions, create an interface, and define a contract that includes all functionalities.</p>
+<h3 id="enabling-the-open-closed-principle">Enabling the Open-Closed Principle</h3>
+
+<p>Firstly,  and thinking abstractly, you should create an interface and define a contract that will include all required functionalities.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="n">interface</span> <span class="no">DataService</span> <span class="p">{</span>
 
@@ -150,44 +160,44 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <span class="p">}</span></code></pre></figure>
 
-<p>Secondly, we move our <em>getAPIPlans</em> method to a new implementation class.</p>
+<p>Secondly, we move our <em>getAPIPlans</em> method to a new class that implements the previous interface.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">TextData</span> <span class="n">implements</span> <span class="no">DataService</span> <span class="p">{</span>
-
-  <span class="kp">private</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
-    <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">clientIdPlans</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+  <span class="vi">@Override</span>
+  <span class="kp">public</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
+    <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">apiPlans</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 	<span class="sr">//</span><span class="n">code</span> <span class="n">omitted</span>
 	
-    <span class="k">return</span> <span class="n">clientIdPlans</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">apiPlans</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
 <p>Thanks to abstractions, we can create a new class to implement <em>getAPIPlans</em> with different behavior, in this case, to retrieve parameters from a database.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">DBData</span> <span class="n">implements</span> <span class="no">DataService</span> <span class="p">{</span>
-
   <span class="kp">private</span> <span class="no">DataSource</span> <span class="n">datasource</span><span class="p">;</span>
   
   <span class="kp">public</span> <span class="no">DBData</span><span class="p">(</span><span class="no">DataSource</span> <span class="n">datasource</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">this</span><span class="p">.</span><span class="nf">datasource</span> <span class="o">=</span> <span class="n">datasource</span><span class="p">;</span>
   <span class="p">}</span>
   
-  <span class="kp">private</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
-    <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">clientIdPlans</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+  <span class="vi">@Override</span>
+  <span class="kp">public</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
+    <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">apiPlans</span> <span class="o">=</span> <span class="n">new</span> <span class="no">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
     <span class="k">for</span> <span class="p">(</span><span class="no">Plan</span> <span class="n">plan</span> <span class="p">:</span> <span class="n">datasource</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">())</span> <span class="p">{</span>
       <span class="sr">//</span><span class="n">code</span> <span class="n">omitted</span>
 	 
     <span class="p">}</span>
-    <span class="k">return</span> <span class="n">clientIdPlans</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">apiPlans</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
 <p>Introducing a new abstraction layer with different implementations avoids tight coupling between classes.</p>
 
-<p>Finally, we refactor our RateLimit class.</p>
+<p>Finally, we refactor our RateLimit class <em>aggregating</em> an instance of DataService type in its constructor method.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">RateLimit</span> <span class="n">implements</span> <span class="no">HandlerInterceptor</span> <span class="p">{</span>
-  
+  <span class="kp">private</span> <span class="no">Map</span><span class="o">&lt;</span><span class="no">String</span><span class="p">,</span> <span class="no">Long</span><span class="o">&gt;</span> <span class="n">apiPlans</span><span class="p">;</span>
   <span class="kp">private</span> <span class="no">DataService</span> <span class="n">dataService</span><span class="p">;</span>
   
   <span class="kp">public</span> <span class="no">RateLimit</span><span class="p">(</span><span class="no">DataService</span> <span class="n">dataService</span><span class="p">)</span> <span class="p">{</span>
@@ -195,22 +205,24 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <span class="p">}</span>
   
   <span class="vi">@Override</span>
-  <span class="kp">public</span> <span class="n">boolean</span> <span class="n">preHandle</span><span class="p">(</span><span class="no">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> <span class="no">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span>
-			<span class="no">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
+  <span class="kp">public</span> <span class="n">boolean</span> <span class="n">preHandle</span><span class="p">(</span><span class="no">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> 
+    <span class="no">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span> <span class="no">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="no">Exception</span> <span class="p">{</span>
     <span class="sr">//</span><span class="n">getClientId</span>
-    <span class="n">dataService</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">();</span>
+    <span class="n">apiPlans</span> <span class="o">=</span> <span class="n">dataService</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">();</span>
     <span class="sr">//</span><span class="n">build</span> <span class="no">Buckets</span>
     <span class="sr">//e</span><span class="n">valuate</span> <span class="n">request</span> <span class="n">per</span> <span class="n">clientId</span>
     <span class="sr">//</span><span class="n">accept</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="n">or</span> <span class="n">refuse</span><span class="p">(</span><span class="mi">429</span><span class="p">)</span> <span class="n">request</span>
   <span class="p">}</span>
-  
 <span class="p">}</span></code></pre></figure>
 
 <p>If later we decided to retrieve the parameters from a NoSQL database, we would no longer have to touch the code, create a new class that implements <em>getAPIPlans</em>, and instantiate this new class in RateLimit.</p>
 
+<p>Even if, instead of implementing the <em>HandlerInterceptor</em> interface, we implement a <em>Filter</em> to design our Rate Limit algorithm, we can reuse the DataService interface as one of its dependencies.</p>
+
 <p>Calling to <em>getAPIPlans</em> is now fixed (closed for modification). If we want it to behave differently, we implement it in a new class (open for extension) that will follow the contracts defined in our interface.</p>
 
-<p>How our new DBData dependency is instantiated in our RateLimit class is thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.</p>
+<p>Our new DBData dependency is instantiated in our RateLimit class thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.</p>
+
 
 	<style> .gumroad-follow-form-embed { zoom: 1; } .gumroad-follow-form-embed:before, .gumroad-follow-form-embed:after { display: table; line-height: 0; content: ""; } .gumroad-follow-form-embed:after { clear: both; } .gumroad-follow-form-embed * { margin: 0; border: 0; padding: 0; outline: 0; box-sizing: border-box !important; float: left !important; } .gumroad-follow-form-embed input { border-radius: 4px; border-top-right-radius: 0; border-bottom-right-radius: 0; font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 15px; line-height: 20px; background: #fff; border: 1px solid #ddd; border-right: 0; color: #aaa; padding: 10px; box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.02); background-position: top right; background-repeat: no-repeat; text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-appearance: none; -moz-appearance: caret; width: 65% !important; height: 40px !important; } .gumroad-follow-form-embed button { border-radius: 4px; border-top-left-radius: 0; border-bottom-left-radius: 0; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12); -webkit-transition: all .05s ease-in-out; transition: all .05s ease-in-out; display: inline-block; padding: 11px 15px 12px; cursor: pointer; color: #fff; font-size: 15px; line-height: 100%; font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; background: #8fb0ff; border: 1px solid #819ee6; filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b5d6ff, endColorstr=#84a3ec, GradientType=0)"; background: -webkit-linear-gradient(#b5d6ff, #84a3ec); background: linear-gradient(to bottom, #b5d6ff, #84a3ec); height: 40px !important; width: 35% !important; } </style> 
 <p>I like to share my knowledge and experience on Java Programming, Algorithms, Data Structures, Clean Code, SOLID Principles, Distributed Systems, Spring Framework, and other Tech topics.</p>

@@ -2,6 +2,7 @@
 layout: post
 title:  "Merge two Sorted Lists"
 description: "Given two sorted lists, merge them in a new sorted list - coding interview"
+featured-image: mergeSortedLists.jpg
 date: 2021-08-03 22:18:45 +0100
 categories: algorithms java
 ---
