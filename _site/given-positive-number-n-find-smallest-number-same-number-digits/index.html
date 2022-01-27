@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Given N, find the smallest number with the same number of digits" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Given N, find the smallest number with the same number of digits","dateModified":"2019-06-29T15:18:45+02:00","datePublished":"2019-06-29T15:18:45+02:00","url":"https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/"},"author":{"@type":"Person","name":"Moises Gamio"},"description":"Write an algorithm that, given an original number N, returns the smallest number with the same number of digits. For instance, given 123, return 100","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Moises Gamio"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/"},"url":"https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/","headline":"Given N, find the smallest number with the same number of digits","dateModified":"2019-06-29T15:18:45+02:00","datePublished":"2019-06-29T15:18:45+02:00","description":"Write an algorithm that, given an original number N, returns the smallest number with the same number of digits. For instance, given 123, return 100","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <title>
 	   
@@ -98,7 +98,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Here, the implementation code:</p>
+<p>Here, is the implementation code that works for positive numbers:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">NumberUtils</span> <span class="p">{</span>
   <span class="kp">public</span> <span class="n">static</span> <span class="n">int</span> <span class="n">smallest</span><span class="p">(</span><span class="n">int</span> <span class="no">N</span><span class="p">)</span> <span class="p">{</span>
@@ -130,22 +130,31 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p>(number of digits of the given N – 1)</p>
 
-<p>Here, a most optimized solution:</p>
+<p>If we want to include negative numbers, we must consider the smallest number with the same number of digits and the same sign. We add our test case for negative numbers as well:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@Test</span>
+  <span class="kp">public</span> <span class="n">void</span> <span class="n">test_right_smallest_values</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">assertTrue</span><span class="p">(</span><span class="no">NumberUtils</span><span class="p">.</span><span class="nf">smallest4</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">9</span><span class="p">);</span>
+  <span class="n">assertTrue</span><span class="p">(</span><span class="no">NumberUtils</span><span class="p">.</span><span class="nf">smallest4</span><span class="p">(</span><span class="o">-</span><span class="mi">37</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">99</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Here, is the algorithm for positive and negative numbers:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">public</span> <span class="k">class</span> <span class="nc">NumberUtils</span> <span class="p">{</span>
   <span class="kp">public</span> <span class="n">static</span> <span class="n">int</span> <span class="n">smallest</span><span class="p">(</span><span class="n">int</span> <span class="no">N</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">smallestNumber</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="no">N</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="o">||</span> <span class="no">String</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="no">N</span><span class="p">).</span><span class="nf">length</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">smallestNumber</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">int</span> <span class="n">numberOfDigits</span> <span class="o">=</span> <span class="no">String</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="no">N</span><span class="p">).</span><span class="nf">length</span><span class="p">();</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="no">Math</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">numberOfDigits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">int</span> <span class="n">numberOfDigits</span> <span class="o">=</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="no">String</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="no">Math</span><span class="p">.</span><span class="nf">abs</span><span class="p">(</span><span class="no">N</span><span class="p">)).</span><span class="nf">length</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="no">N</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">numberOfDigits</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="no">Math</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">numberOfDigits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span>
+      <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="no">Math</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">numberOfDigits</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>The main idea in Analysis of Algorithms is always to improve the algorithm performance by reducing the number of steps and comparisons. The simpler and more intuitive an algorithm is, the more useful and efficient it will be.</p>
-
-<p>You can see a solution for negative numbers in the following <a href="https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&amp;preview=newtab&amp;linkCode=kpe&amp;ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2" target="_blank">link</a></p>
+<p>The main idea in <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Analysis of Algorithms</a> is always to improve the algorithm performance by reducing the number of steps and comparisons. The simpler and more intuitive an algorithm is, the more useful and efficient it will be.</p>
 
 	<style> .gumroad-follow-form-embed { zoom: 1; } .gumroad-follow-form-embed:before, .gumroad-follow-form-embed:after { display: table; line-height: 0; content: ""; } .gumroad-follow-form-embed:after { clear: both; } .gumroad-follow-form-embed * { margin: 0; border: 0; padding: 0; outline: 0; box-sizing: border-box !important; float: left !important; } .gumroad-follow-form-embed input { border-radius: 4px; border-top-right-radius: 0; border-bottom-right-radius: 0; font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 15px; line-height: 20px; background: #fff; border: 1px solid #ddd; border-right: 0; color: #aaa; padding: 10px; box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.02); background-position: top right; background-repeat: no-repeat; text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-appearance: none; -moz-appearance: caret; width: 65% !important; height: 40px !important; } .gumroad-follow-form-embed button { border-radius: 4px; border-top-left-radius: 0; border-bottom-left-radius: 0; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12); -webkit-transition: all .05s ease-in-out; transition: all .05s ease-in-out; display: inline-block; padding: 11px 15px 12px; cursor: pointer; color: #fff; font-size: 15px; line-height: 100%; font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; background: #8fb0ff; border: 1px solid #819ee6; filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b5d6ff, endColorstr=#84a3ec, GradientType=0)"; background: -webkit-linear-gradient(#b5d6ff, #84a3ec); background: linear-gradient(to bottom, #b5d6ff, #84a3ec); height: 40px !important; width: 35% !important; } </style> 
 <p>I like to share my knowledge and experience on Java Programming, Algorithms, Data Structures, Clean Code, SOLID Principles, Distributed Systems, Spring Framework, and other Tech topics.</p>
