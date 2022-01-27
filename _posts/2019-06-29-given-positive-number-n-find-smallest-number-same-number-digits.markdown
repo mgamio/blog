@@ -36,7 +36,7 @@ public class SmallestNumberTest {
 }
 {% endhighlight %}
 
-Here, the implementation code:
+Here, is the implementation code that works for positive numbers:
 
 {% highlight ruby %}
 public class NumberUtils {
@@ -70,21 +70,32 @@ The smallest number is a power of 10, where the exponent is:
 
 (number of digits of the given N – 1)
 
-Here, a most optimized solution:
+If we want to include negative numbers, we must consider the smallest number with the same number of digits and the same sign. We add our test case for negative numbers as well:
+
+{% highlight ruby %}
+@Test
+  public void test_right_smallest_values() {
+  assertTrue(NumberUtils.smallest4(-1) == -9);
+  assertTrue(NumberUtils.smallest4(-37) == -99);
+}
+{% endhighlight %}
+
+Here, is the algorithm for positive and negative numbers:
 
 {% highlight ruby %}
 public class NumberUtils {
   public static int smallest(int N) {
-    int smallestNumber = 0;
-    if (N <= 1 || String.valueOf(N).length() == 1) {
-      return smallestNumber;
-    }
-    int numberOfDigits = String.valueOf(N).length();
-    return (int) Math.pow(10, numberOfDigits - 1);
+    int numberOfDigits = (int) String.valueOf(Math.abs(N)).length();
+    if (N >= 0) {
+      if (numberOfDigits == 1) {
+        return 0;
+      } else {
+        return (int) Math.pow(10, numberOfDigits - 1);
+      }
+    } else
+      return 1 - (int) Math.pow(10, numberOfDigits);
   }
 }
 {% endhighlight %}
 
-The main idea in Analysis of Algorithms is always to improve the algorithm performance by reducing the number of steps and comparisons. The simpler and more intuitive an algorithm is, the more useful and efficient it will be.
-
-You can see a solution for negative numbers in the following [link](https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2){:target="_blank"}
+The main idea in [Analysis of Algorithms](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"} is always to improve the algorithm performance by reducing the number of steps and comparisons. The simpler and more intuitive an algorithm is, the more useful and efficient it will be.
