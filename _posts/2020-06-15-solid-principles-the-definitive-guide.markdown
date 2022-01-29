@@ -2,7 +2,7 @@
 layout: post
 title:  "SOLID principles: The Definitive Guide (Part I)"
 description: "SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand"
-featured-image: payment2.jpg
+featured-image: payment2b.jpeg
 date:   2020-06-15 14:18:45 +0100
 categories: solid
 ---
@@ -88,7 +88,7 @@ public class Payment {
 
 Finally, new changes to the MAX_DAYS variable will only depend on the requirements of every team separately. The following figure shows the Classes for different actors, without conflicts.
 
-![Class for different actors](/assets/images/payment2.jpg){:class="img-responsive"}
+![Class for different actors](/assets/images/payment2b.jpeg){:class="img-responsive"}
 
 Therefore, the Payment Class is only responsible for supporting to the Payments team, and the Card Class is solely responsible for supporting the Cards team.
 
