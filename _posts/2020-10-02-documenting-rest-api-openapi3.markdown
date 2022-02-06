@@ -14,7 +14,7 @@ To learn more about REST see [Representational State Transfer](https://en.wikipe
 Prerequisites:
 
 - Java 8.x
-- [Maven(https://amzn.to/3JLvxAX){:target="_blank"} 3.x
+- [Maven 3.x](https://amzn.to/3JLvxAX){:target="_blank"}
 
 ## Steps
 
@@ -116,7 +116,7 @@ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 
 JPA stands for Java Persistence API and is a Java specification about how to handle relational data.
 
-Even when Spring Data provides a standard programming model for different databases, switching from a SQL database to a NoSQL database is impossible without touching the source code.
+Even when Spring Data provides a standard programming model for different databases, switching from a SQL database to a [NoSQL database](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"} is impossible without touching the source code.
 
 @Entity annotation describes the Book data that will be stored by Spring Data and makes our Book object ready for storage in a JPA-based relational data store.
 
