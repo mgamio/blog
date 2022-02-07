@@ -79,7 +79,7 @@ Polymorphism is part of the core concepts of Object-Oriented Programming and mea
 
 ### Aggregation
 
-Aggregation defines a HAS-A relationship between these two classes. Their objects have their life cycle, but one of them is the owner of the HAS-A relationship.
+Aggregation defines a HAS-A relationship between two classes. Their objects have their life cycle, but one of them is the owner of the HAS-A relationship.
 
 The following diagram shows the goal of our design.
 
@@ -158,7 +158,7 @@ public class RateLimit implements HandlerInterceptor {
 }
 {% endhighlight %}
 
-If later we decided to retrieve the parameters from a NoSQL database, we would no longer have to touch the code, create a new class that implements *getAPIPlans*, and instantiate this new class in RateLimit.
+If later we decided to retrieve the parameters from a [NoSQL database](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}, we would no longer have to touch the code, create a new class that implements *getAPIPlans*, and instantiate this new class in RateLimit.
 
 Even if, instead of implementing the *HandlerInterceptor* interface, we implement a *Filter* to design our Rate Limit algorithm, we can reuse the DataService interface as one of its dependencies.
 
