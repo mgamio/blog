@@ -144,7 +144,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <h3 id="aggregation">Aggregation</h3>
 
-<p>Aggregation defines a HAS-A relationship between these two classes. Their objects have their life cycle, but one of them is the owner of the HAS-A relationship.</p>
+<p>Aggregation defines a HAS-A relationship between two classes. Their objects have their life cycle, but one of them is the owner of the HAS-A relationship.</p>
 
 <p>The following diagram shows the goal of our design.</p>
 
@@ -215,7 +215,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>If later we decided to retrieve the parameters from a NoSQL database, we would no longer have to touch the code, create a new class that implements <em>getAPIPlans</em>, and instantiate this new class in RateLimit.</p>
+<p>If later we decided to retrieve the parameters from a <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">NoSQL database</a>, we would no longer have to touch the code, create a new class that implements <em>getAPIPlans</em>, and instantiate this new class in RateLimit.</p>
 
 <p>Even if, instead of implementing the <em>HandlerInterceptor</em> interface, we implement a <em>Filter</em> to design our Rate Limit algorithm, we can reuse the DataService interface as one of its dependencies.</p>
 
