@@ -4,6 +4,7 @@ title:  "Documenting a SpringBoot REST API with OpenAPI 3"
 description: "The main idea for documenting your back-end RESTful APIs with openAPIi 3 to communicate to third-party developers what your endpoints are doing"
 featured-image: openapi3.jpg
 date:   2020-10-02 14:18:45 +0100
+last_modified_at: 2021-11-12 14:18:45 +0100
 tags:   rest springboot
 categories: rest
 ---

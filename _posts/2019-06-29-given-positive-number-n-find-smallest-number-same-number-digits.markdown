@@ -4,6 +4,7 @@ title:  "Given N, find the smallest number with the same number of digits"
 description: "Write an algorithm that, given an original number N, returns the smallest number with the same number of digits. For instance, given 123, return 100"
 featured-image: smallestNumber.jpg
 date:   2019-06-29 14:18:45 +0100
+last_modified_at: 2021-10-29 14:18:45 +0100
 read_time: true
 categories: algorithms
 ---
