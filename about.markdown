@@ -1,11 +1,15 @@
 ---
 layout: page
-title: About
+title: About Me
 description: "Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design"
 permalink: /about/
 ---
 
 I was born in Lima, Peru, where I studied for 5 years and obtained a degree in System Engineering. I have been working 20 years as a Software Engineer for several companies from different economic sectors such as Government, Financial, Industrial, Educative, Consulting, Retail, and Research. 
+
+![moisesgamio](/assets/images/moisesgamio.png){:.image-40-right}
+
+### A little more..
 
 I have been programming in several languages such as Java, C, Cobol, C#, Visual Basic, PHP, Prolog, Python, PL/SQL and JScript. My tasks have been related to Software Development, stages of Analysis, Design, Testing, and Deployment.
 
