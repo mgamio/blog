@@ -5,7 +5,7 @@ description: "Do you like coding? Make what is complex been easy to understand b
 permalink: /about/
 ---
 
-I was born in Lima, Peru, where I studied for 5 years and obtained a degree in System Engineering. I have been working 20 years as a Software Engineer for several companies from different economic sectors such as Government, Financial, Industrial, Educative, Consulting, Retail, and Research. 
+I was born in Lima, Peru, where I studied for 5 years and obtained a degree in System Engineering. I have been working 25 years as a Software Engineer for several companies from different economic sectors such as Government, Financial, Industrial, Educative, Consulting, Retail, and Research. 
 
 ![moisesgamio](/assets/images/moisesgamio.png){:.image-40-right}
 
