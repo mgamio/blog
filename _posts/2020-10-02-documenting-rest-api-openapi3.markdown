@@ -4,7 +4,7 @@ title:  "Documenting a SpringBoot REST API with OpenAPI 3"
 description: "The main idea for documenting your back-end RESTful APIs with openAPIi 3 to communicate to third-party developers what your endpoints are doing"
 featured-image: openapi3.jpg
 date:   2020-10-02 14:18:45 +0100
-last_modified_at: 2021-11-12 14:18:45 +0100
+last_modified_at: 2022-02-17 22:27:00 +0100
 tags:   rest springboot
 categories: rest
 ---
@@ -404,6 +404,8 @@ You can see the source code in the following link:
 [https://github.com/mgamio/openapi-springboot.git](https://github.com/mgamio/openapi-springboot.git){:target="_blank"}
 
 Most of the companies usually follow a [Design-First API](https://amzn.to/3F1ZzwH){:target="_blank"} Strategy using SwaggerHub product for example. But the export plugins are not always aligned with the most updated version of OpenAPI.
+
+Documenting an API facilitates interaction between internal development teams that build different web services for the same product.
 
 If you are looking for java interview resources, the following [link](https://amzn.to/3kTn02B){:target="_blank"} can help you.
 
