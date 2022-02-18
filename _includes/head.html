@@ -2,7 +2,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%if page.featured-image %}
   <meta property="og:image" content="{{ site.url }}/assets/images/{{ page.featured-image }}" />
+  {% else %}
+  <meta property="og:image" content="{{ site.url }}/assets/images/machines.jpg" />
+  {% endif %}
+  
   {%- seo -%}
     <title>
 	   {%if page.title %}
