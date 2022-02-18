@@ -1,57 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
 <url>
-  <loc>http://codersite.dev/</loc>
+  <loc>https://codersite.dev/</loc>
+  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/about/</loc>
+  <loc>https://codersite.dev/about/</loc>
+  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/donate/</loc>
+  <loc>https://codersite.dev/donate/</loc>
+  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/book/</loc>
+  <loc>https://codersite.dev/book/</loc>
+  <lastmod>2022-02-17T21:30:41+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/merge-two-sorted-lists/</loc>
+  <loc>https://codersite.dev/open-closed-principle/</loc>
+  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/hot-warm-architecture-elasticsearch/</loc>
+  <loc>https://codersite.dev/shopping-options/</loc>
+  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/clean-code/</loc>
+  <loc>https://codersite.dev/merge-two-sorted-lists/</loc>
+  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/documenting-rest-api-openapi3/</loc>
+  <loc>https://codersite.dev/hot-warm-architecture-elasticsearch/</loc>
+  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/big-o-notation-analysis-of-algorithms/</loc>
+  <loc>https://codersite.dev/clean-code/</loc>
+  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/solid-principles-the-definitive-guide/</loc>
+  <loc>https://codersite.dev/documenting-rest-api-openapi3/</loc>
+  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/graphs-depth-first-search/</loc>
+  <loc>https://codersite.dev/big-o-notation-analysis-of-algorithms/</loc>
+  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/tree-data-structure-binary-search-tree/</loc>
+  <loc>https://codersite.dev/solid-principles-the-definitive-guide/</loc>
+  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/optimize-online-purchases/</loc>
+  <loc>https://codersite.dev/graphs-depth-first-search/</loc>
+  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/</loc>
+  <loc>https://codersite.dev/tree-data-structure-binary-search-tree/</loc>
+  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/feed.xml</loc>
+  <loc>https://codersite.dev/optimize-online-purchases/</loc>
+  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/../index.html</loc>
+  <loc>https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/</loc>
+  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://codersite.dev/assets/files/sample.pdf</loc>
+  <loc>https://codersite.dev/policies/policy.html</loc>
+  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc></loc>
+  <loc>https://codersite.dev/policies/termsOfService.html</loc>
+  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codersite.dev/policies/impressum.html</loc>
+  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codersite.dev/index.html</loc>
+  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://codersite.dev/assets/files/sample.pdf</loc>
+  <lastmod>2022-02-17T21:30:41+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 </urlset>
