@@ -16,6 +16,8 @@ For instance, given N=4751, the method returns 1000. Given N=100, the method sho
 
 Maybe the first idea comes to our minds could be to iterate from the given original number and decrease one by one, and in every iteration to check if every new number contains one digit less than the original number, if the answer is true, then the previous one is the smallest number.
 
+## Define a test case to validate what your code will do
+
 Our assumption based on a test case:
 
 {% highlight ruby %}

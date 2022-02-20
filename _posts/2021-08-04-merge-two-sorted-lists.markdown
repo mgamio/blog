@@ -18,6 +18,8 @@ We can join the two lists into a new list and apply a sort algorithm such as bub
 - We compare elements from both lists and add the smaller one to the new list in every iteration. Before passing to the next iteration, we increment in one the index of the list, which contains the smaller element.
 - If there is a list that still contains elements, we add them directly to the new list.
 
+## A test case helps to validate your assumptions
+
 Our assumption based on a test case:
 
 {% highlight ruby %}

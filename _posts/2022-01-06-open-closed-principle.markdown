@@ -14,7 +14,7 @@ After looking at the [Single Responsibility Principle](https://codersite.dev/sol
 
 ![openClosedPrinciple](/assets/images/openClosedPrinciple.jpg){:class="img-responsive"}
 
-### SOLID principles: The Open-Closed Principle (OCP)
+## SOLID principles: The Open-Closed Principle (OCP)
 
 > … “a module, class, or function should be open for extension but closed for modification.“
 
@@ -59,7 +59,7 @@ public class RateLimit implements HandlerInterceptor {
 }
 {% endhighlight %}
 
-### Suddenly an unexpected scenario arises.
+## Suddenly an unexpected scenario arises.
 
 The developer leaves the company, and a new one arrives—for example, You.
 
@@ -85,7 +85,7 @@ The following diagram shows the goal of our design.
 
 ![rateLimit](/assets/images/rateLimit.jpg){:class="img-responsive"}
 
-### Enabling the Open-Closed Principle
+## Enabling the Open-Closed Principle
 
 Firstly,  and thinking abstractly, you should create an interface and define a contract that will include all required functionalities.
 

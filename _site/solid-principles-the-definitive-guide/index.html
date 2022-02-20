@@ -80,7 +80,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p>Let’s start with the first principle.</p>
 
-<h3 id="solid-principles-single-responsibility-principle-srp">SOLID principles: Single Responsibility Principle (SRP)</h3>
+<h2 id="solid-principles-single-responsibility-principle-srp">SOLID principles: Single Responsibility Principle (SRP)</h2>
 
 <blockquote>
   <p>… “a class should only have one reason to change“</p>
@@ -106,7 +106,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<h3 id="the-problem-a-class-has-more-than-one-responsibility">The Problem: A Class has more than one responsibility</h3>
+<h2 id="the-problem-a-class-has-more-than-one-responsibility">The Problem: A Class has more than one responsibility</h2>
 
 <p>But suddenly, the Cards team wants to change the validation to 10 days. However, the Payments team manages other policies related to when interests by late payment are applied. As a result, the Payments team enters in disagreement with the Cards team. This scenario is a clear example of how this Class design violates the Single Responsibility Principle because the Payment Class not only has more than one reason to change but also it breaks the business logic of the Payments team. Moreover, both teams are stuck on how to proceed.</p>
 
@@ -114,7 +114,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p><img src="/assets/images/payment1.jpg" alt="Class with different responsibilities" class="img-responsive" /></p>
 
-<h3 id="the-solution-create-a-class-with-only-one-responsibility">The solution: Create a Class with only one responsibility</h3>
+<h2 id="the-solution-create-a-class-with-only-one-responsibility">The solution: Create a Class with only one responsibility</h2>
 
 <p>What do we need to do?. In this scenario, we can apply the <strong>S</strong>ingle Responsibility Principle</p>
 

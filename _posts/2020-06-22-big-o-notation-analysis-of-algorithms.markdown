@@ -13,7 +13,7 @@ We implement different algorithms to solve one problem and measure how efficient
 
 The first study about Analysis of Algorithms was published by Knuth in 1968. [The Art of Computer Programming](https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming){:target="_blank"}.
 
-### Time and Space complexity
+## Time and Space complexity
 
 Time complexity is related to how many steps takes an algorithm.
 
@@ -27,7 +27,7 @@ Both terms depend on the input size, the number of items in the input. Moreover,
 
 - Worst-case or Big O Notation  O(n): Gives us an upper bound on the runtime for any input. It gives us a kind of guarantee that the algorithm will never take any longer with a new input size.
 
-### Order of growth
+## Order of growth
 
 The order of growth is related to how the runtime of an algorithm increases when the size of the input increases without limit and tells us how efficient the algorithm is. Therefore, we can compare the relative performance of alternative algorithms.
 
@@ -35,7 +35,7 @@ Big O Notation: **Common order-of-growth classifications**:
 
 ![order-of-growth](/assets/images/order-of-growth.jpg){:class="img-responsive"}
 
-### Big O Notation: examples
+## Big O Notation: examples
 
 **O(1) – Constant**
 
@@ -130,7 +130,7 @@ public static <T extends Comparable<T>> boolean search(T target, T[] array) {
 }
 {% endhighlight %}
 
-### The complexity of an algorithm
+## The complexity of an algorithm
 
 To find the Big O complexity of an algorithm follows the following rules:
 
@@ -170,7 +170,7 @@ Now, we need to sum how many times each operation is executing.
 
 Time complexity = 1 + 1 + N + N + N + N + 1 =>   4N + 3
 
-### Why Big O Notation ignores constants?
+## Why Big O Notation ignores constants?
 
 Big O Notation describes how many steps are required relative to the number of data elements. And it serves as a way to classify the long-term growth rate of algorithms.
 

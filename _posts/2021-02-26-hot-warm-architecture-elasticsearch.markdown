@@ -16,16 +16,18 @@ In Warm nodes, You are still querying your index, but it is read-only.
 
 In Cold nodes, You are querying your index less frequently. You can deploy it to less performant hardware.
 
-### Problem
+## Problem
+
 When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, and more, we usually analyze our web server *logs*.
 But this task is tedious because the *logs* are distributed in a cluster that contains several web servers machines.
 
-### Solution
+## Solution
+
 We are going to install a Hot-Cold Logging Cluster on the Elasticsearch Service as shown in the following figure.
 
 ![hot-warm-architecture](/assets/images/hot-warm-elastic.jpg){:class="img-responsive"}
 
-### Installation
+## Installation
 
 We have the following IP addresses (Three Windows Servers):
 {% highlight ruby %}
@@ -40,7 +42,7 @@ Open Windows Defender Firewall and add the following rule for the three machines
 
 For the *hotnode* add an extra 5044 port to the rule if you want to install *logstash* in that machine.
 
-### Configure Elasticsearch cluster settings at Master Node ###
+## Configure Elasticsearch cluster settings at Master Node
 
 Open .../elasticsearch.yml and copy the following content.
 
@@ -73,7 +75,7 @@ epoch      timestamp cluster     status node.total node.data shards pri relo ini
 1611057767 12:02:47  elasticprod green           1         0      0   0    0    0        0             0                  -                100.0%
 {% endhighlight %}
 
-### Configure Elasticsearch cluster settings at Hot Node ###
+## Configure Elasticsearch cluster settings at Hot Node
 
 {% highlight ruby %}
 bootstrap.memory_lock: true
@@ -106,7 +108,7 @@ C:\...\codersite.dev>curl -XGET http://110.1.0.101:9200/_cat/nodes
 110.1.0.102 1 60 8    cdhlrstw - hotnode.codersite.dev
 {% endhighlight %}
 
-### Configure Elasticsearch cluster settings at Cold Node ###
+## Configure Elasticsearch cluster settings at Cold Node
 
 {% highlight ruby %}
 bootstrap.memory_lock: true

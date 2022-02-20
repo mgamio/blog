@@ -24,7 +24,7 @@ budgeted = 10
 
 The customer must buy shoes for 4 dollars since there is only one option. This leaves 6 dollars to spend on the other 3 items. Combinations of prices paid for jeans, skirts, and tops respectively that add up to 6 dollars or less are [2,2,2], [2,2,1], [3,2,1], [2,3,1]. There are 4 ways the customer can purchase all 4 items.
 
-Function description
+## Function description ##
 
 Create a function that returns an integer representing the number of options present to buy the four items.
 
@@ -46,7 +46,7 @@ Constraints
 
 1 ≤ dollars, prices ≤ 1000000000
 
-**Solution**
+## Solution
 
 To find how many ways the customer can purchase all four items, we can iterate the four arrays, combine all its products, and validate that he/she cannot spend more money than the budgeted amount.
 
