@@ -12,7 +12,7 @@ A **Graph** is a non-linear data structure consisting of nodes (or vertices) and
 
 Graph theory was first proposed by Leonhard Euler when solved the [Seven Bridges of Königsber](https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg){:target="_blank"} problem.
 
-### Graphs: Terminology
+## Graphs: Terminology
 
 To describe terms related to Graphs, we use the following Graph, which models ***Hyperloop*** transport to be installed in Germany, for instance.
 
@@ -44,11 +44,11 @@ Graphs are called a weighted graph when edges are given weight. For instance, th
 
 In Graphs, cycles are paths through edges and vertices that start and end at the same vertex. An acyclic graph has no such cycles.
 
-### Reasons to use Graphs ###
+## Reasons to use Graphs ###
 
 One of the questions that a graph can answer is: which cities can be reached from a specified city?. Well, to respond to this question, we need to implement search algorithms. There are two different ways of searching in a graph: depth-first search (DFS) and breadth-first search (BFS).
 
-### Depth-First Search (DFS) ###
+## Depth-First Search (DFS) ###
 
 Depth-First Search (DFS) is an algorithm for traversing or searching for in a Graph. The algorithm starts at the root node (selecting some arbitrary city as the root node) and explores as far as possible along each path. The following Graph shows the sequence of cities followed by the DFS algorithm, if we choose Berlin as the root node, for instance.
 

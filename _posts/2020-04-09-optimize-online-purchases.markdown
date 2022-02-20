@@ -14,7 +14,7 @@ Imagine that we have a budget of 4 US$ and we want to buy the most valuable snac
 
 But who decides if a product is more valuable than another one? Well, this depends on every business. It could be an estimation based on quantitative or qualitative analysis. For instance, for our solution, we choose a quantitative approach based on which product gives us more grams per every dollar invested.
 
-### Optimize a basket in online purchases: Solution
+## Optimize a basket in online purchases: Solution
 
 To implement our algorithm to optimize a basket in online purchases, we use the Red-Green Refactor technique, which is the basis of test-drive-development ([TDD](https://en.wikipedia.org/wiki/Test-driven_development){:target="_blank"}). Firstly, in every assumption, we will write a test and see if it fails. Secondly, we write the code that implements only that test and sees if it succeed, then we can refactor the code to make it better. Finally, we continue with another assumption and repeat the previous steps until the algorithm is successfully implemented for all tests.
 

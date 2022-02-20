@@ -82,16 +82,18 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p>In Cold nodes, You are querying your index less frequently. You can deploy it to less performant hardware.</p>
 
-<h3 id="problem">Problem</h3>
+<h2 id="problem">Problem</h2>
+
 <p>When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, and more, we usually analyze our web server <em>logs</em>.
 But this task is tedious because the <em>logs</em> are distributed in a cluster that contains several web servers machines.</p>
 
-<h3 id="solution">Solution</h3>
+<h2 id="solution">Solution</h2>
+
 <p>We are going to install a Hot-Cold Logging Cluster on the Elasticsearch Service as shown in the following figure.</p>
 
 <p><img src="/assets/images/hot-warm-elastic.jpg" alt="hot-warm-architecture" class="img-responsive" /></p>
 
-<h3 id="installation">Installation</h3>
+<h2 id="installation">Installation</h2>
 
 <p>We have the following IP addresses (Three Windows Servers):</p>
 
@@ -105,7 +107,7 @@ But this task is tedious because the <em>logs</em> are distributed in a cluster 
 
 <p>For the <em>hotnode</em> add an extra 5044 port to the rule if you want to install <em>logstash</em> in that machine.</p>
 
-<h3 id="configure-elasticsearch-cluster-settings-at-master-node">Configure Elasticsearch cluster settings at Master Node</h3>
+<h2 id="configure-elasticsearch-cluster-settings-at-master-node">Configure Elasticsearch cluster settings at Master Node</h2>
 
 <p>Open …/elasticsearch.yml and copy the following content.</p>
 
@@ -134,7 +136,7 @@ But this task is tedious because the <em>logs</em> are distributed in a cluster 
 <span class="n">epoch</span>      <span class="n">timestamp</span> <span class="n">cluster</span>     <span class="n">status</span> <span class="n">node</span><span class="p">.</span><span class="nf">total</span> <span class="n">node</span><span class="p">.</span><span class="nf">data</span> <span class="n">shards</span> <span class="n">pri</span> <span class="n">relo</span> <span class="n">init</span> <span class="n">unassign</span> <span class="n">pending_tasks</span> <span class="n">max_task_wait_time</span> <span class="n">active_shards_percent</span>
 <span class="mi">1611057767</span> <span class="mi">12</span><span class="p">:</span><span class="mo">02</span><span class="p">:</span><span class="mi">47</span>  <span class="n">elasticprod</span> <span class="n">green</span>           <span class="mi">1</span>         <span class="mi">0</span>      <span class="mi">0</span>   <span class="mi">0</span>    <span class="mi">0</span>    <span class="mi">0</span>        <span class="mi">0</span>             <span class="mi">0</span>                  <span class="o">-</span>                <span class="mf">100.0</span><span class="o">%</span></code></pre></figure>
 
-<h3 id="configure-elasticsearch-cluster-settings-at-hot-node">Configure Elasticsearch cluster settings at Hot Node</h3>
+<h2 id="configure-elasticsearch-cluster-settings-at-hot-node">Configure Elasticsearch cluster settings at Hot Node</h2>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">bootstrap</span><span class="p">.</span><span class="nf">memory_lock</span><span class="p">:</span> <span class="kp">true</span>
 <span class="n">cluster</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">elasticprod</span>
@@ -163,7 +165,7 @@ But this task is tedious because the <em>logs</em> are distributed in a cluster 
 <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span> <span class="mi">4</span> <span class="mi">66</span> <span class="mi">0</span>    <span class="n">lmr</span>      <span class="o">*</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
 <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.102</span> <span class="mi">1</span> <span class="mi">60</span> <span class="mi">8</span>    <span class="n">cdhlrstw</span> <span class="o">-</span> <span class="n">hotnode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span></code></pre></figure>
 
-<h3 id="configure-elasticsearch-cluster-settings-at-cold-node">Configure Elasticsearch cluster settings at Cold Node</h3>
+<h2 id="configure-elasticsearch-cluster-settings-at-cold-node">Configure Elasticsearch cluster settings at Cold Node</h2>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">bootstrap</span><span class="p">.</span><span class="nf">memory_lock</span><span class="p">:</span> <span class="kp">true</span>
 <span class="n">cluster</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">elasticprod</span>

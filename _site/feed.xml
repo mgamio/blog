@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-02-20T00:30:56+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">SOLID principles: The Open-Closed Principle (Part II)</title><link href="https://codersite.dev/open-closed-principle/" rel="alternate" type="text/html" title="SOLID principles: The Open-Closed Principle (Part II)" /><published>2022-01-06T00:18:45+01:00</published><updated>2022-01-06T00:18:45+01:00</updated><id>https://codersite.dev/open-closed-principle</id><content type="html" xml:base="https://codersite.dev/open-closed-principle/">&lt;p&gt;SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-02-20T01:01:22+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">SOLID principles: The Open-Closed Principle (Part II)</title><link href="https://codersite.dev/open-closed-principle/" rel="alternate" type="text/html" title="SOLID principles: The Open-Closed Principle (Part II)" /><published>2022-01-06T00:18:45+01:00</published><updated>2022-01-06T00:18:45+01:00</updated><id>https://codersite.dev/open-closed-principle</id><content type="html" xml:base="https://codersite.dev/open-closed-principle/">&lt;p&gt;SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.&lt;/p&gt;
 
 &lt;p&gt;When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.&lt;/p&gt;
 
@@ -6,7 +6,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/openClosedPrinciple.jpg&quot; alt=&quot;openClosedPrinciple&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;solid-principles-the-open-closed-principle-ocp&quot;&gt;SOLID principles: The Open-Closed Principle (OCP)&lt;/h3&gt;
+&lt;h2 id=&quot;solid-principles-the-open-closed-principle-ocp&quot;&gt;SOLID principles: The Open-Closed Principle (OCP)&lt;/h2&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;… “a module, class, or function should be open for extension but closed for modification.“&lt;/p&gt;
@@ -51,7 +51,7 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;suddenly-an-unexpected-scenario-arises&quot;&gt;Suddenly an unexpected scenario arises.&lt;/h3&gt;
+&lt;h2 id=&quot;suddenly-an-unexpected-scenario-arises&quot;&gt;Suddenly an unexpected scenario arises.&lt;/h2&gt;
 
 &lt;p&gt;The developer leaves the company, and a new one arrives—for example, You.&lt;/p&gt;
 
@@ -77,7 +77,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/rateLimit.jpg&quot; alt=&quot;rateLimit&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;enabling-the-open-closed-principle&quot;&gt;Enabling the Open-Closed Principle&lt;/h3&gt;
+&lt;h2 id=&quot;enabling-the-open-closed-principle&quot;&gt;Enabling the Open-Closed Principle&lt;/h2&gt;
 
 &lt;p&gt;Firstly,  and thinking abstractly, you should create an interface and define a contract that will include all required functionalities.&lt;/p&gt;
 
@@ -166,7 +166,7 @@
 
 &lt;p&gt;The customer must buy shoes for 4 dollars since there is only one option. This leaves 6 dollars to spend on the other 3 items. Combinations of prices paid for jeans, skirts, and tops respectively that add up to 6 dollars or less are [2,2,2], [2,2,1], [3,2,1], [2,3,1]. There are 4 ways the customer can purchase all 4 items.&lt;/p&gt;
 
-&lt;p&gt;Function description&lt;/p&gt;
+&lt;h2 id=&quot;function-description&quot;&gt;Function description&lt;/h2&gt;
 
 &lt;p&gt;Create a function that returns an integer representing the number of options present to buy the four items.&lt;/p&gt;
 
@@ -188,7 +188,7 @@
 
 &lt;p&gt;1 ≤ dollars, prices ≤ 1000000000&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
 
 &lt;p&gt;To find how many ways the customer can purchase all four items, we can iterate the four arrays, combine all its products, and validate that he/she cannot spend more money than the budgeted amount.&lt;/p&gt;
 
@@ -374,6 +374,8 @@
   &lt;li&gt;If there is a list that still contains elements, we add them directly to the new list.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&quot;a-test-case-helps-to-validate-your-assumptions&quot;&gt;A test case helps to validate your assumptions&lt;/h2&gt;
+
 &lt;p&gt;Our assumption based on a test case:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@Test&lt;/span&gt;
@@ -426,16 +428,18 @@
 
 &lt;p&gt;In Cold nodes, You are querying your index less frequently. You can deploy it to less performant hardware.&lt;/p&gt;
 
-&lt;h3 id=&quot;problem&quot;&gt;Problem&lt;/h3&gt;
+&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
 &lt;p&gt;When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, and more, we usually analyze our web server &lt;em&gt;logs&lt;/em&gt;.
 But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed in a cluster that contains several web servers machines.&lt;/p&gt;
 
-&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
 &lt;p&gt;We are going to install a Hot-Cold Logging Cluster on the Elasticsearch Service as shown in the following figure.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/hot-warm-elastic.jpg&quot; alt=&quot;hot-warm-architecture&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;installation&quot;&gt;Installation&lt;/h3&gt;
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
 
 &lt;p&gt;We have the following IP addresses (Three Windows Servers):&lt;/p&gt;
 
@@ -449,7 +453,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;For the &lt;em&gt;hotnode&lt;/em&gt; add an extra 5044 port to the rule if you want to install &lt;em&gt;logstash&lt;/em&gt; in that machine.&lt;/p&gt;
 
-&lt;h3 id=&quot;configure-elasticsearch-cluster-settings-at-master-node&quot;&gt;Configure Elasticsearch cluster settings at Master Node&lt;/h3&gt;
+&lt;h2 id=&quot;configure-elasticsearch-cluster-settings-at-master-node&quot;&gt;Configure Elasticsearch cluster settings at Master Node&lt;/h2&gt;
 
 &lt;p&gt;Open …/elasticsearch.yml and copy the following content.&lt;/p&gt;
 
@@ -478,7 +482,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 &lt;span class=&quot;n&quot;&gt;epoch&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;timestamp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cluster&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shards&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pri&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;init&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unassign&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pending_tasks&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max_task_wait_time&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;active_shards_percent&lt;/span&gt;
 &lt;span class=&quot;mi&quot;&gt;1611057767&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;02&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;47&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;elasticprod&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;green&lt;/span&gt;           &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;         &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;      &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;        &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;             &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;                  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;                &lt;span class=&quot;mf&quot;&gt;100.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;configure-elasticsearch-cluster-settings-at-hot-node&quot;&gt;Configure Elasticsearch cluster settings at Hot Node&lt;/h3&gt;
+&lt;h2 id=&quot;configure-elasticsearch-cluster-settings-at-hot-node&quot;&gt;Configure Elasticsearch cluster settings at Hot Node&lt;/h2&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;memory_lock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;cluster&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elasticprod&lt;/span&gt;
@@ -507,7 +511,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 &lt;span class=&quot;mf&quot;&gt;110.1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.101&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;66&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;lmr&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;masternode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;codersite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dev&lt;/span&gt;
 &lt;span class=&quot;mf&quot;&gt;110.1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.102&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;cdhlrstw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hotnode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;codersite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dev&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;configure-elasticsearch-cluster-settings-at-cold-node&quot;&gt;Configure Elasticsearch cluster settings at Cold Node&lt;/h3&gt;
+&lt;h2 id=&quot;configure-elasticsearch-cluster-settings-at-cold-node&quot;&gt;Configure Elasticsearch cluster settings at Cold Node&lt;/h2&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;memory_lock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;cluster&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elasticprod&lt;/span&gt;
@@ -1003,7 +1007,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;The first study about Analysis of Algorithms was published by Knuth in 1968. &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming&quot; target=&quot;_blank&quot;&gt;The Art of Computer Programming&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;time-and-space-complexity&quot;&gt;Time and Space complexity&lt;/h3&gt;
+&lt;h2 id=&quot;time-and-space-complexity&quot;&gt;Time and Space complexity&lt;/h2&gt;
 
 &lt;p&gt;Time complexity is related to how many steps takes an algorithm.&lt;/p&gt;
 
@@ -1023,7 +1027,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;order-of-growth&quot;&gt;Order of growth&lt;/h3&gt;
+&lt;h2 id=&quot;order-of-growth&quot;&gt;Order of growth&lt;/h2&gt;
 
 &lt;p&gt;The order of growth is related to how the runtime of an algorithm increases when the size of the input increases without limit and tells us how efficient the algorithm is. Therefore, we can compare the relative performance of alternative algorithms.&lt;/p&gt;
 
@@ -1031,7 +1035,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/order-of-growth.jpg&quot; alt=&quot;order-of-growth&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;big-o-notation-examples&quot;&gt;Big O Notation: examples&lt;/h3&gt;
+&lt;h2 id=&quot;big-o-notation-examples&quot;&gt;Big O Notation: examples&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;O(1) – Constant&lt;/strong&gt;&lt;/p&gt;
 
@@ -1116,7 +1120,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;the-complexity-of-an-algorithm&quot;&gt;The complexity of an algorithm&lt;/h3&gt;
+&lt;h2 id=&quot;the-complexity-of-an-algorithm&quot;&gt;The complexity of an algorithm&lt;/h2&gt;
 
 &lt;p&gt;To find the Big O complexity of an algorithm follows the following rules:&lt;/p&gt;
 
@@ -1185,7 +1189,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;Time complexity = 1 + 1 + N + N + N + N + 1 =&amp;gt;   4N + 3&lt;/p&gt;
 
-&lt;h3 id=&quot;why-big-o-notation-ignores-constants&quot;&gt;Why Big O Notation ignores constants?&lt;/h3&gt;
+&lt;h2 id=&quot;why-big-o-notation-ignores-constants&quot;&gt;Why Big O Notation ignores constants?&lt;/h2&gt;
 
 &lt;p&gt;Big O Notation describes how many steps are required relative to the number of data elements. And it serves as a way to classify the long-term growth rate of algorithms.&lt;/p&gt;
 
@@ -1207,7 +1211,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;Let’s start with the first principle.&lt;/p&gt;
 
-&lt;h3 id=&quot;solid-principles-single-responsibility-principle-srp&quot;&gt;SOLID principles: Single Responsibility Principle (SRP)&lt;/h3&gt;
+&lt;h2 id=&quot;solid-principles-single-responsibility-principle-srp&quot;&gt;SOLID principles: Single Responsibility Principle (SRP)&lt;/h2&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;… “a class should only have one reason to change“&lt;/p&gt;
@@ -1233,7 +1237,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;the-problem-a-class-has-more-than-one-responsibility&quot;&gt;The Problem: A Class has more than one responsibility&lt;/h3&gt;
+&lt;h2 id=&quot;the-problem-a-class-has-more-than-one-responsibility&quot;&gt;The Problem: A Class has more than one responsibility&lt;/h2&gt;
 
 &lt;p&gt;But suddenly, the Cards team wants to change the validation to 10 days. However, the Payments team manages other policies related to when interests by late payment are applied. As a result, the Payments team enters in disagreement with the Cards team. This scenario is a clear example of how this Class design violates the Single Responsibility Principle because the Payment Class not only has more than one reason to change but also it breaks the business logic of the Payments team. Moreover, both teams are stuck on how to proceed.&lt;/p&gt;
 
@@ -1241,7 +1245,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/payment1.jpg&quot; alt=&quot;Class with different responsibilities&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;the-solution-create-a-class-with-only-one-responsibility&quot;&gt;The solution: Create a Class with only one responsibility&lt;/h3&gt;
+&lt;h2 id=&quot;the-solution-create-a-class-with-only-one-responsibility&quot;&gt;The solution: Create a Class with only one responsibility&lt;/h2&gt;
 
 &lt;p&gt;What do we need to do?. In this scenario, we can apply the &lt;strong&gt;S&lt;/strong&gt;ingle Responsibility Principle&lt;/p&gt;
 
@@ -1293,7 +1297,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;Graph theory was first proposed by Leonhard Euler when solved the &lt;a href=&quot;https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg&quot; target=&quot;_blank&quot;&gt;Seven Bridges of Königsber&lt;/a&gt; problem.&lt;/p&gt;
 
-&lt;h3 id=&quot;graphs-terminology&quot;&gt;Graphs: Terminology&lt;/h3&gt;
+&lt;h2 id=&quot;graphs-terminology&quot;&gt;Graphs: Terminology&lt;/h2&gt;
 
 &lt;p&gt;To describe terms related to Graphs, we use the following Graph, which models &lt;strong&gt;&lt;em&gt;Hyperloop&lt;/em&gt;&lt;/strong&gt; transport to be installed in Germany, for instance.&lt;/p&gt;
 
@@ -1325,11 +1329,11 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;In Graphs, cycles are paths through edges and vertices that start and end at the same vertex. An acyclic graph has no such cycles.&lt;/p&gt;
 
-&lt;h3 id=&quot;reasons-to-use-graphs&quot;&gt;Reasons to use Graphs&lt;/h3&gt;
+&lt;h2 id=&quot;reasons-to-use-graphs&quot;&gt;Reasons to use Graphs&lt;/h2&gt;
 
 &lt;p&gt;One of the questions that a graph can answer is: which cities can be reached from a specified city?. Well, to respond to this question, we need to implement search algorithms. There are two different ways of searching in a graph: depth-first search (DFS) and breadth-first search (BFS).&lt;/p&gt;
 
-&lt;h3 id=&quot;depth-first-search-dfs&quot;&gt;Depth-First Search (DFS)&lt;/h3&gt;
+&lt;h2 id=&quot;depth-first-search-dfs&quot;&gt;Depth-First Search (DFS)&lt;/h2&gt;
 
 &lt;p&gt;Depth-First Search (DFS) is an algorithm for traversing or searching for in a Graph. The algorithm starts at the root node (selecting some arbitrary city as the root node) and explores as far as possible along each path. The following Graph shows the sequence of cities followed by the DFS algorithm, if we choose Berlin as the root node, for instance.&lt;/p&gt;
 
@@ -1521,7 +1525,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;You can see as well the &lt;em&gt;Breadth-First Search&lt;/em&gt; (BFS) algorithm by using an Adjacency List based on a LinkedList data structure in the following &lt;a href=&quot;https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&amp;amp;preview=newtab&amp;amp;linkCode=kpe&amp;amp;ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2&quot; target=&quot;_blank&quot;&gt;link&lt;/a&gt;&lt;/p&gt;</content><author><name>Moises Gamio</name></author><category term="algorithms" /><summary type="html">Depth-First Search (DFS), is an algorithm to search for information in Graphs.</summary></entry><entry><title type="html">Tree data structure: Binary Search Tree</title><link href="https://codersite.dev/tree-data-structure-binary-search-tree/" rel="alternate" type="text/html" title="Tree data structure: Binary Search Tree" /><published>2020-05-12T15:18:45+02:00</published><updated>2020-05-12T15:18:45+02:00</updated><id>https://codersite.dev/tree-data-structure-binary-search-tree</id><content type="html" xml:base="https://codersite.dev/tree-data-structure-binary-search-tree/">&lt;p&gt;Tree data structures are non-linear data structures, and they allow us to implement algorithms much faster than when using linear data structures.&lt;/p&gt;
 
-&lt;h3 id=&quot;tree&quot;&gt;Tree&lt;/h3&gt;
+&lt;h2 id=&quot;tree&quot;&gt;Tree&lt;/h2&gt;
 
 &lt;p&gt;A tree is a data structure that consists of nodes connected by edges.&lt;/p&gt;
 
@@ -1544,7 +1548,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;It takes a maximum of log2(N) attempts to find a value. As the collection of nodes gets large, the binary search tree becomes faster over a linear search which takes up to (N) comparisons.&lt;/p&gt;
 
-&lt;h3 id=&quot;tree-data-structure-use-case&quot;&gt;Tree data structure: Use Case:&lt;/h3&gt;
+&lt;h2 id=&quot;tree-data-structure-use-case&quot;&gt;Tree data structure: Use Case:&lt;/h2&gt;
 
 &lt;p&gt;The Global Trade Item Number (GTIN) can be used by a company to uniquely identify all of its trade items.&lt;/p&gt;
 

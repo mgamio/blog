@@ -8,7 +8,7 @@ categories: datastructure
 ---
 Tree data structures are non-linear data structures, and they allow us to implement algorithms much faster than when using linear data structures.
 
-### Tree ###
+## Tree ###
 
 A tree is a data structure that consists of nodes connected by edges.
 
@@ -29,7 +29,7 @@ Moreover, you can search in a tree data structure quickly, as you can with an or
 
 It takes a maximum of log2(N) attempts to find a value. As the collection of nodes gets large, the binary search tree becomes faster over a linear search which takes up to (N) comparisons.
 
-### Tree data structure: Use Case:
+## Tree data structure: Use Case:
 
 The Global Trade Item Number (GTIN) can be used by a company to uniquely identify all of its trade items.
 
