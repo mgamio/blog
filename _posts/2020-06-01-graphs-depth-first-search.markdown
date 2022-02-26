@@ -16,7 +16,7 @@ Graph theory was first proposed by Leonhard Euler when solved the [Seven Bridges
 
 To describe terms related to Graphs, we use the following Graph, which models ***Hyperloop*** transport to be installed in Germany, for instance.
 
-![dfs1](/assets/images/dfs1.jpg){:class="img-responsive"}
+![dfs1](/assets/images/graphTerminology.jpg){:class="img-responsive"}
 
 A Graph shows only the relationships between the *vertices* and the *edges*. Therefore, the most important here is to understand, which edges are connected to which vertex. Moreover, we can also say that Graph models connections between objects.
 
@@ -254,4 +254,4 @@ We can change the entry city and see different traversing paths
 Hannover Dortmund Frankfurt Stuttgart Magdeburg Berlin Leipzig Dresden Nürnberg München Rostock Bremen 
 ```
 
-You can see as well the *Breadth-First Search* (BFS) algorithm by using an Adjacency List based on a LinkedList data structure in the following [link](https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2){:target="_blank"}
+You can see as well the *Breadth-First Search* (BFS) algorithm by using an Adjacency List based on a LinkedList data structure in the following [link](https://amzn.to/35bIlAY){:target="_blank"}
