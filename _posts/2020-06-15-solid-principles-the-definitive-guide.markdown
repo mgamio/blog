@@ -96,6 +96,4 @@ Also, when new features arrive, then we need to distinct in which Class to inclu
 
 In conclusion, once you identify classes that have too many responsibilities, use this refactoring technique to create smaller classes with single responsibilities and focused only on one business actor.
 
-Similarly, you can read my Post about [Graphs]({% post_url 2020-06-01-graphs-depth-first-search %}){:target="_blank"}, where you can see how two Classes are designed with unique responsibilities to solve a problem.
-
-[Keep going learning solid principles here]({% post_url 2022-01-06-open-closed-principle %}){:target="_blank"}
+Now that you've learned the Single Responsibility principle, it's time to learn the [Open-closed principle]({% post_url 2022-01-06-open-closed-principle %}){:target="_blank"} to avoid future software maintenance costs.

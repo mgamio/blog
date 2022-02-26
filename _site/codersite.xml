@@ -2,51 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>http://localhost:4000/open-closed-principle/</loc>
+        <loc>https://codersite.dev/open-closed-principle/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/shopping-options/</loc>
+        <loc>https://codersite.dev/shopping-options/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/merge-two-sorted-lists/</loc>
+        <loc>https://codersite.dev/merge-two-sorted-lists/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/hot-warm-architecture-elasticsearch/</loc>
+        <loc>https://codersite.dev/hot-warm-architecture-elasticsearch/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/clean-code/</loc>
+        <loc>https://codersite.dev/clean-code/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/documenting-rest-api-openapi3/</loc>
+        <loc>https://codersite.dev/documenting-rest-api-openapi3/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/big-o-notation-analysis-of-algorithms/</loc>
+        <loc>https://codersite.dev/big-o-notation-analysis-of-algorithms/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/solid-principles-the-definitive-guide/</loc>
+        <loc>https://codersite.dev/solid-principles-the-definitive-guide/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/graphs-depth-first-search/</loc>
+        <loc>https://codersite.dev/graphs-depth-first-search/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/tree-data-structure-binary-search-tree/</loc>
+        <loc>https://codersite.dev/tree-data-structure-binary-search-tree/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/optimize-online-purchases/</loc>
+        <loc>https://codersite.dev/optimize-online-purchases/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/given-positive-number-n-find-smallest-number-same-number-digits/</loc>
+        <loc>https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/</loc>
     </url>
     
 
@@ -54,7 +54,7 @@
     
     
     <url>
-        <loc>http://localhost:4000/404.html</loc>
+        <loc>https://codersite.dev/404.html</loc>
     </url>
     
     
@@ -62,33 +62,7 @@
     
     
     <url>
-        <loc>http://localhost:4000/about/</loc>
-    </url>
-    
-    
-    
-    
-    
-    
-    
-    <url>
-        <loc>http://localhost:4000/donate/</loc>
-    </url>
-    
-    
-    
-    
-    
-    <url>
-        <loc>http://localhost:4000/policies/impressum.html</loc>
-    </url>
-    
-    
-    
-    
-    
-    <url>
-        <loc>http://localhost:4000/</loc>
+        <loc>https://codersite.dev/about/</loc>
     </url>
     
     
@@ -97,10 +71,8 @@
     
     
     
-    
-    
     <url>
-        <loc>http://localhost:4000/policies/policy.html</loc>
+        <loc>https://codersite.dev/donate/</loc>
     </url>
     
     
@@ -108,7 +80,35 @@
     
     
     <url>
-        <loc>http://localhost:4000/policies/termsOfService.html</loc>
+        <loc>https://codersite.dev/policies/impressum.html</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://codersite.dev/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://codersite.dev/policies/policy.html</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://codersite.dev/policies/termsOfService.html</loc>
     </url>
     
     

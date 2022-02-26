@@ -395,7 +395,7 @@ Then, when we run our application, we can see the online documentation at:
 
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html){:target="_blank"}
 
-![openapi3](/assets/images/openapi3.jpg){:class="img-responsive"}
+![openapi3](/assets/images/openapi-3.jpg){:class="img-responsive"}
 
 OpenAPI includes a “Try it out” button, which can be used to actually try out the API, not just read its documentation.
 
