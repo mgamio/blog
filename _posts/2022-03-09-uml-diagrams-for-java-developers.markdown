@@ -48,7 +48,7 @@ The composer returns the final image design in a PDF file to the user
 
 The following image shows a System Context diagram to see the big picture, including the actors and services. [C4 model](https://c4model.com/){:target="_blank"} helps software development teams describe and communicate software architecture.
 
-![adsContextDiagram](/assets/images/adsContextDiagram.jpg "context diagram"){:class="img-responsive"}
+![adsContextDiagram](/assets/images/adsContextDiagram.JPG "context diagram"){:class="img-responsive"}
 
 On the client-side, we need the following artifact.
 
@@ -72,7 +72,7 @@ Its better to include a new service called **FlyerComposerService** between Ads 
 
 A class is a template for creating objects providing initial values for state (attributes) and behavior (operations). Each attribute has a type. Each operation has a signature.
 
-![adsClassUMLNotation](/assets/images/adsClassUMLNotation.jpg "UML class diagram"){:class="img-responsive"}
+![adsClassUMLNotation](/assets/images/adsClassUMLNotation.JPG "UML class diagram"){:class="img-responsive"}
 
 From the figure above:
 
@@ -107,7 +107,7 @@ UML conveys how a class is related to other classes. Let's see the kind of relat
 
 #### Dependency
 
-![umlDependency](/assets/images/umlDependency.jpg "UML dependency relationship"){:class="img-responsive"}
+![umlDependency](/assets/images/umlDependency.JPG "UML dependency relationship"){:class="img-responsive"}
 
 Dependency is a relationship used to show that some class requires or depends on another class or interface. In other words, some class provides (supplier) particular functionalities that others require (client). 
 
@@ -115,7 +115,7 @@ At the **FlyerComposerService** class above, we can see how is declared the depe
 
 #### Realization
 
-![umlRealization](/assets/images/umlRealization.jpg "UML realization relationship"){:class="img-responsive"}
+![umlRealization](/assets/images/umlRealization.JPG "UML realization relationship"){:class="img-responsive"}
 
 Realization is a relationship where one class realizes or implements the specification defined in another class (usually an interface).
 
@@ -125,7 +125,7 @@ Defining and creating interfaces is an excellent approach to building software t
 
 The following figure conveys the Class diagram.
 
-![adsClassDiagram](/assets/images/adsClassDiagram.jpg "class diagram"){:class="img-responsive"}
+![adsClassDiagram](/assets/images/adsClassDiagram.JPG "class diagram"){:class="img-responsive"}
 
 For example, we can see how the QRService interface is implemented into code.
 

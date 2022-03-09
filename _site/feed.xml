@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-03-09T13:54:47+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">UML Diagrams for Java Developers</title><link href="https://codersite.dev/uml-diagrams-for-java-developers/" rel="alternate" type="text/html" title="UML Diagrams for Java Developers" /><published>2022-03-09T00:18:45+01:00</published><updated>2022-03-09T00:18:45+01:00</updated><id>https://codersite.dev/uml-diagrams-for-java-developers</id><content type="html" xml:base="https://codersite.dev/uml-diagrams-for-java-developers/">&lt;p&gt;The &lt;strong&gt;U&lt;/strong&gt;nified &lt;strong&gt;M&lt;/strong&gt;odeling &lt;strong&gt;L&lt;/strong&gt;anguage is a graphical notation for modeling systems and conveying User software requirements. All developers must understand this notation before starting programming.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-03-09T14:10:17+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">UML Diagrams for Java Developers</title><link href="https://codersite.dev/uml-diagrams-for-java-developers/" rel="alternate" type="text/html" title="UML Diagrams for Java Developers" /><published>2022-03-09T00:18:45+01:00</published><updated>2022-03-09T00:18:45+01:00</updated><id>https://codersite.dev/uml-diagrams-for-java-developers</id><content type="html" xml:base="https://codersite.dev/uml-diagrams-for-java-developers/">&lt;p&gt;The &lt;strong&gt;U&lt;/strong&gt;nified &lt;strong&gt;M&lt;/strong&gt;odeling &lt;strong&gt;L&lt;/strong&gt;anguage is a graphical notation for modeling systems and conveying User software requirements. All developers must understand this notation before starting programming.&lt;/p&gt;
 
 &lt;p&gt;UML is not only pretty pictures. Instead, they communicate the software design decisions to programmers.&lt;/p&gt;
 
@@ -44,7 +44,7 @@
 
 &lt;p&gt;The following image shows a System Context diagram to see the big picture, including the actors and services. &lt;a href=&quot;https://c4model.com/&quot; target=&quot;_blank&quot;&gt;C4 model&lt;/a&gt; helps software development teams describe and communicate software architecture.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/adsContextDiagram.jpg&quot; alt=&quot;adsContextDiagram&quot; title=&quot;context diagram&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/adsContextDiagram.JPG&quot; alt=&quot;adsContextDiagram&quot; title=&quot;context diagram&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;On the client-side, we need the following artifact.&lt;/p&gt;
 
@@ -68,7 +68,7 @@
 
 &lt;p&gt;A class is a template for creating objects providing initial values for state (attributes) and behavior (operations). Each attribute has a type. Each operation has a signature.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/adsClassUMLNotation.jpg&quot; alt=&quot;adsClassUMLNotation&quot; title=&quot;UML class diagram&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/adsClassUMLNotation.JPG&quot; alt=&quot;adsClassUMLNotation&quot; title=&quot;UML class diagram&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;From the figure above:&lt;/p&gt;
 
@@ -102,7 +102,7 @@
 
 &lt;h4 id=&quot;dependency&quot;&gt;Dependency&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/umlDependency.jpg&quot; alt=&quot;umlDependency&quot; title=&quot;UML dependency relationship&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/umlDependency.JPG&quot; alt=&quot;umlDependency&quot; title=&quot;UML dependency relationship&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Dependency is a relationship used to show that some class requires or depends on another class or interface. In other words, some class provides (supplier) particular functionalities that others require (client).&lt;/p&gt;
 
@@ -110,7 +110,7 @@
 
 &lt;h4 id=&quot;realization&quot;&gt;Realization&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/umlRealization.jpg&quot; alt=&quot;umlRealization&quot; title=&quot;UML realization relationship&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/umlRealization.JPG&quot; alt=&quot;umlRealization&quot; title=&quot;UML realization relationship&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Realization is a relationship where one class realizes or implements the specification defined in another class (usually an interface).&lt;/p&gt;
 
@@ -120,7 +120,7 @@
 
 &lt;p&gt;The following figure conveys the Class diagram.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/adsClassDiagram.jpg&quot; alt=&quot;adsClassDiagram&quot; title=&quot;class diagram&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/adsClassDiagram.JPG&quot; alt=&quot;adsClassDiagram&quot; title=&quot;class diagram&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;For example, we can see how the QRService interface is implemented into code.&lt;/p&gt;
 
