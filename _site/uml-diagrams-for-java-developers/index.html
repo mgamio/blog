@@ -7,7 +7,7 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.codersite.dev" />
   
-  <meta property="og:image" content="https://codersite.dev/assets/images/adsContextDiagram.jpg" />
+  <meta property="og:image" content="https://codersite.dev/assets/images/codersiteFlyers.jpg" />
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>UML Diagrams for Java Developers | CODER SITE for developers</title>
 <meta name="generator" content="Jekyll v4.2.1" />
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="UML Diagrams for Java Developers" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"UML Diagrams for Java Developers","dateModified":"2022-03-09T00:18:45+01:00","datePublished":"2022-03-09T00:18:45+01:00","url":"https://codersite.dev/uml-diagrams-for-java-developers/","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/uml-diagrams-for-java-developers/"},"author":{"@type":"Person","name":"Moises Gamio"},"description":"Design essensial UML diagram before starting programming","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Moises Gamio"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/uml-diagrams-for-java-developers/"},"url":"https://codersite.dev/uml-diagrams-for-java-developers/","headline":"UML Diagrams for Java Developers","dateModified":"2022-03-09T00:18:45+01:00","datePublished":"2022-03-09T00:18:45+01:00","description":"Design essensial UML diagram before starting programming","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <title>
 	   
@@ -87,7 +87,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <h2 id="user-requirement">User requirement</h2>
 
-<p>Given a text message, a URL link, and an image, build a service that automates the composition of flyer design, including the image, text, and the QR code for the link in a PDF file with an A4 format divided in one, two, four or eight parts ready to print.</p>
+<p>Given a text message, a URL link, and an image, build a service that automates the composition of flyer design, including the image, text, and the QR code for the link in a PDF file with an A4 format divided into one, two, four or eight parts ready to print.</p>
 
 <p><img src="/assets/images/formFlyer.jpg" alt="formFlyer" title="codersite flyer" class="img-responsive" /></p>
 
@@ -129,7 +129,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p>In addition, we need the following artifacts on the server-side.</p>
 
-<p><strong>Ads Composer Service</strong>, receives the user data and delegate the sub-tasks to three additional services</p>
+<p><strong>Ads Composer Service</strong> receives the user data and delegates the sub-tasks to three additional services</p>
 
 <p><strong>QR service</strong>, responsible for generating a QR code for the URL link</p>
 
@@ -139,7 +139,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p>The Ads composer service is responsible for orchestrating all calls to these three last services.</p>
 
-<p>Its better to include a new service called <strong>FlyerComposerService</strong> between Ads Composer Service and the three services. It facilitates the migration task if you want to adopt a microservices architecture.</p>
+<p>It’s better to include a new service called <strong>FlyerComposerService</strong> between Ads Composer Service and the three services. It facilitates the migration task if you want to adopt a microservices architecture.</p>
 
 <h3 id="uml-class-notation">UML Class Notation</h3>
 

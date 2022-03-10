@@ -2,7 +2,7 @@
 layout: post
 title:  "UML Diagrams for Java Developers"
 description: "Design essensial UML diagram before starting programming"
-featured-image: adsContextDiagram.jpg
+featured-image: codersiteFlyers.jpg
 date:   2022-03-09 00:18:45 +0100
 categories: solid design
 ---
@@ -18,7 +18,7 @@ Every developer can abstract the main components from a user requirement differe
 
 ## User requirement
 
-Given a text message, a URL link, and an image, build a service that automates the composition of flyer design, including the image, text, and the QR code for the link in a PDF file with an A4 format divided in one, two, four or eight parts ready to print.
+Given a text message, a URL link, and an image, build a service that automates the composition of flyer design, including the image, text, and the QR code for the link in a PDF file with an A4 format divided into one, two, four or eight parts ready to print.
 
 ![formFlyer](/assets/images/formFlyer.jpg "codersite flyer"){:class="img-responsive"}
 
@@ -56,7 +56,7 @@ On the client-side, we need the following artifact.
 
 In addition, we need the following artifacts on the server-side.
 
-**Ads Composer Service**, receives the user data and delegate the sub-tasks to three additional services
+**Ads Composer Service** receives the user data and delegates the sub-tasks to three additional services
 
 **QR service**, responsible for generating a QR code for the URL link
 
@@ -66,7 +66,7 @@ In addition, we need the following artifacts on the server-side.
 
 The Ads composer service is responsible for orchestrating all calls to these three last services.
 
-Its better to include a new service called **FlyerComposerService** between Ads Composer Service and the three services. It facilitates the migration task if you want to adopt a microservices architecture.
+It's better to include a new service called **FlyerComposerService** between Ads Composer Service and the three services. It facilitates the migration task if you want to adopt a microservices architecture.
 
 ### UML Class Notation
 
