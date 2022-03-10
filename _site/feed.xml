@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-03-09T14:10:17+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">UML Diagrams for Java Developers</title><link href="https://codersite.dev/uml-diagrams-for-java-developers/" rel="alternate" type="text/html" title="UML Diagrams for Java Developers" /><published>2022-03-09T00:18:45+01:00</published><updated>2022-03-09T00:18:45+01:00</updated><id>https://codersite.dev/uml-diagrams-for-java-developers</id><content type="html" xml:base="https://codersite.dev/uml-diagrams-for-java-developers/">&lt;p&gt;The &lt;strong&gt;U&lt;/strong&gt;nified &lt;strong&gt;M&lt;/strong&gt;odeling &lt;strong&gt;L&lt;/strong&gt;anguage is a graphical notation for modeling systems and conveying User software requirements. All developers must understand this notation before starting programming.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-03-10T20:12:32+01:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">UML Diagrams for Java Developers</title><link href="https://codersite.dev/uml-diagrams-for-java-developers/" rel="alternate" type="text/html" title="UML Diagrams for Java Developers" /><published>2022-03-09T00:18:45+01:00</published><updated>2022-03-09T00:18:45+01:00</updated><id>https://codersite.dev/uml-diagrams-for-java-developers</id><content type="html" xml:base="https://codersite.dev/uml-diagrams-for-java-developers/">&lt;p&gt;The &lt;strong&gt;U&lt;/strong&gt;nified &lt;strong&gt;M&lt;/strong&gt;odeling &lt;strong&gt;L&lt;/strong&gt;anguage is a graphical notation for modeling systems and conveying User software requirements. All developers must understand this notation before starting programming.&lt;/p&gt;
 
 &lt;p&gt;UML is not only pretty pictures. Instead, they communicate the software design decisions to programmers.&lt;/p&gt;
 
@@ -10,7 +10,7 @@
 
 &lt;h2 id=&quot;user-requirement&quot;&gt;User requirement&lt;/h2&gt;
 
-&lt;p&gt;Given a text message, a URL link, and an image, build a service that automates the composition of flyer design, including the image, text, and the QR code for the link in a PDF file with an A4 format divided in one, two, four or eight parts ready to print.&lt;/p&gt;
+&lt;p&gt;Given a text message, a URL link, and an image, build a service that automates the composition of flyer design, including the image, text, and the QR code for the link in a PDF file with an A4 format divided into one, two, four or eight parts ready to print.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/formFlyer.jpg&quot; alt=&quot;formFlyer&quot; title=&quot;codersite flyer&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
@@ -52,7 +52,7 @@
 
 &lt;p&gt;In addition, we need the following artifacts on the server-side.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Ads Composer Service&lt;/strong&gt;, receives the user data and delegate the sub-tasks to three additional services&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ads Composer Service&lt;/strong&gt; receives the user data and delegates the sub-tasks to three additional services&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;QR service&lt;/strong&gt;, responsible for generating a QR code for the URL link&lt;/p&gt;
 
@@ -62,7 +62,7 @@
 
 &lt;p&gt;The Ads composer service is responsible for orchestrating all calls to these three last services.&lt;/p&gt;
 
-&lt;p&gt;Its better to include a new service called &lt;strong&gt;FlyerComposerService&lt;/strong&gt; between Ads Composer Service and the three services. It facilitates the migration task if you want to adopt a microservices architecture.&lt;/p&gt;
+&lt;p&gt;It’s better to include a new service called &lt;strong&gt;FlyerComposerService&lt;/strong&gt; between Ads Composer Service and the three services. It facilitates the migration task if you want to adopt a microservices architecture.&lt;/p&gt;
 
 &lt;h3 id=&quot;uml-class-notation&quot;&gt;UML Class Notation&lt;/h3&gt;
 
