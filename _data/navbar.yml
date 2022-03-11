@@ -1,0 +1,8 @@
+- name: About Me
+  link: "/about"
+- name: Affiliate
+  link: "/affiliate"
+- name: Donate
+  link: "/donate"
+- name: Book
+  link: "/book"
