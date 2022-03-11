@@ -4,6 +4,7 @@ title:  "SOLID principles: The Definitive Guide (Part I)"
 description: "SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand"
 featured-image: payment2b.jpeg
 date:   2020-06-15 14:18:45 +0100
+last_modified_at: 2022-03-11 17:50:00 +0100
 categories: solid
 ---
 SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.
@@ -95,5 +96,7 @@ Therefore, the Payment Class is only responsible for supporting to the Payments 
 Also, when new features arrive, then we need to distinct in which Class to include it. Moreover, this is related to the Cohesion concept, which help us to group similar functions inside a Class, and that have the same purpose served by that Class.
 
 In conclusion, once you identify classes that have too many responsibilities, use this refactoring technique to create smaller classes with single responsibilities and focused only on one business actor.
+
+Use this principle as a tool when translating [business software requirements into technical specifications](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"}. Programmers must understand these design decisions before programming.
 
 Now that you've learned the Single Responsibility principle, it's time to learn the [Open-closed principle]({% post_url 2022-01-06-open-closed-principle %}){:target="_blank"} to avoid future software maintenance costs.
