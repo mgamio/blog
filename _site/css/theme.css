@@ -202,7 +202,7 @@
 }
 .ts-product-container .ts-product{
     display: inline-block;
-    height: 515px;
+    height: 415px;
     margin: 10px 10px;
     width: 180px;
     // background: #eee;
@@ -219,5 +219,17 @@
 	text-align: center;
 	display: block;
 	overflow: hidden;
-	height: 155px;
+	height: 165px;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+   border-radius: 5px; /* 5px rounded corners */
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
