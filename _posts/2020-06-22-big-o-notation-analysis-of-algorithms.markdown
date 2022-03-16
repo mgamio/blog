@@ -4,6 +4,7 @@ title:  "Big O Notation: Analysis of Algorithms - coding interview"
 description: "Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users"
 featured-image: order-of-growth.jpg
 date:   2020-06-22 14:18:45 +0100
+last_modified_at: 2022-03-22 17:50:00 +0100
 read_time: true
 categories: bigONotation
 ---
@@ -184,4 +185,6 @@ Now, if we compare O(100N) with O(N<sup>2</sup>), we can see that O(N<sup>2</sup
 
 But after a point, O(100N) becomes faster and remains faster for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, O(100N) is written as O(N).
 
-More about algorithms, data structures, and Big O Notation, you can learn [here](https://amzn.to/3HrGXrF){:target="_blank"}
+This article was just an introduction to algorithm analysis to face a real code interview as developers, where they are asked to build rough models. If you want to create a mathematical model for the execution time of a discrete operation, for example, you should take a course in [discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics){:target="_blank"}.
+
+Being ready to analyze algorithms requires practice and study of different algorithms, and you can find it in this [link](https://amzn.to/3HrGXrF){:target="_blank"} with a lot of explanation details.
