@@ -67,5 +67,5 @@ public class SortedList {
 
 {% endhighlight %}
 
-The previous algorithm is missing how to proceed when one of the lists still contains elements not compared. Keep reading [here](https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2){:target="_blank"}
+The previous algorithm is missing how to proceed when one of the lists still contains elements not compared. Keep reading [here](https://amzn.to/3wdwVry){:target="_blank"}
 

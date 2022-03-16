@@ -167,7 +167,7 @@ First, we split the code into individual operations and then compute how many ti
 | sum = sum + number; | N |
 | return sum; | 1 |
 
-Now, we need to sum how many times each operation is executing.
+Now, we need to sum up how many times each operation is executing.
 
 Time complexity = 1 + 1 + N + N + N + N + 1 =>   4N + 3
 
