@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Documenting a SpringBoot REST API with OpenAPI 3"
+title: "Documenting a SpringBoot REST API with OpenAPI 3"
 description: "The main idea for documenting your back-end RESTful APIs with openAPIi 3 to communicate to third-party developers what your endpoints are doing"
 featured-image: openapi3.jpg
-date:   2020-10-02 14:18:45 +0100
-last_modified_at: 2022-02-17 22:27:00 +0100
-tags:   rest springboot
+date: 2020-10-02 14:18:45 +0100
+last_modified_at: 2022-03-18 10:38:00 +0100
+tags: rest springboot
 categories: rest
 ---
 The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.
@@ -403,10 +403,10 @@ You can see the source code in the following link:
 
 [https://github.com/mgamio/openapi-springboot.git](https://github.com/mgamio/openapi-springboot.git){:target="_blank"}
 
-Most of the companies usually follow a [Design-First API](https://amzn.to/3F1ZzwH){:target="_blank"} Strategy using SwaggerHub product for example. But the export plugins are not always aligned with the most updated version of OpenAPI.
+Most of the companies usually follow a [Design-First API](https://swagger.io/blog/api-design/design-first-or-code-first-api-development/){:target="_blank"} Strategy using SwaggerHub product for example. But the export plugins are not always aligned with the most updated version of OpenAPI.
+
+Once you receive the [technical specifications in UML](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"}, you need to decide whether to take the Design First approach or the Code First approach.
 
 Documenting an API facilitates interaction between internal development teams that build different web services for the same product.
-
-If you are looking for java interview resources, the following [link](https://amzn.to/3kTn02B){:target="_blank"} can help you.
 
 <iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&preview=inline&linkCode=kpe&ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&tag=codersite20-20" ></iframe>
