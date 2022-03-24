@@ -14,3 +14,15 @@ If you consider that one of my articles was really useful for your purposes, the
 <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
 <img alt="pixel" title="pixel paypal" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
 </form>
+
+<br />
+<br />
+
+## Or choose the perfect gift for your friends or loved ones!
+
+<a href="https://codercuy.creator-spring.com/" target="_blank"><img class="card-img-top" border="0" src="../assets/images/codercuy.jpg" ></a>
+
+<div class="center">
+  <a target="_blank" href="https://codercuy.creator-spring.com/"><button type="button" class="btn btn-info">I want this!</button></a>
+</div> 
+				
