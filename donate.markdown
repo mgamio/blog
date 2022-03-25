@@ -18,9 +18,9 @@ If you consider that one of my articles was really useful for your purposes, the
 <br />
 <br />
 
-## Or choose the perfect gift for your friends or loved ones!
+### Or choose the perfect gift for your friends or loved ones!
 
-<a href="https://codercuy.creator-spring.com/" target="_blank"><img class="card-img-top" border="0" src="../assets/images/codercuy.jpg" ></a>
+<a href="https://codercuy.creator-spring.com/" target="_blank"><img class="card-img-top" width="489" height="456" alt="codercuy" border="0" src="../assets/images/codercuy.jpg" ></a>
 
 <div class="center">
   <a target="_blank" href="https://codercuy.creator-spring.com/"><button type="button" class="btn btn-info">I want this!</button></a>
