@@ -5,7 +5,7 @@ description: "Do you like coding? Make what is complex been easy to understand b
 permalink: /about/
 ---
 
-I was born in Lima, Peru, where I studied for 5 years and obtained a degree in System Engineering. I have been working 25 years as a Software Engineer for several companies from different economic sectors such as Government, Financial, Industrial, Educative, Consulting, Retail, and Research. 
+I was born in Lima, Peru, where I studied for 5 years and obtained a degree in System Engineering. I have been working 20 years as a Software Engineer for several companies from different economic sectors such as Government, Financial, Industrial, Educative, Consulting, Retail, and Research. 
 
 ![moisesgamio](/assets/images/moisesgamio.jpg){:.image-40-right}
 
@@ -38,3 +38,5 @@ Follow me on:
 [2]: http://www.twitter.com/MoisesGamio
 [3]: https://github.com/mgamio
 [4]: https://www.facebook.com/codersite.dev
+
+<a href="https://codercuy.creator-spring.com/" target="_blank"><img class="card-img-top"  width="489" height="456" alt="codercuy" border="0" src="../assets/images/codercuy.jpg" ></a>
