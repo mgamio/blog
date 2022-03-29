@@ -4,6 +4,7 @@ title:  "Optimize a basket in online purchases"
 description: "Fill a basket with the most valuable goods under a given budget to optimize online purchases. Do it with bitmasks and functional programming"
 featured-image: basket.jpg
 date:   2020-04-09 14:18:45 +0100
+last_modified_at: 2022-03-29 10:38:00 +0100
 categories: algorithms
 ---
 Optimize a basket in online purchases means fill a basket with the most valuable goods under a given budget.
@@ -22,7 +23,7 @@ To generalize the concept of *“the most valuable product”* we assign a *valu
 
 **Assumption #1 – Given an array of products ordered by value, return the most valuable products**
 
-We start defining a java test creating a new BasketOptimized class.
+We start defining a java test creating a new BasketOptimized class. For naming variables, you can read [clean code](https://codersite.dev/clean-code/){:target="_blank"}.
 
 {% highlight ruby %}
 public class BasketOptimizedTest {
@@ -120,7 +121,7 @@ public double[][] fill(double[][] myProducts, double budget) {
   double[][] mostValueableProducts =  new double[len][3];
 {% endhighlight %}
 
-Then we can see our two test case were successful.
+Then we can see our two test cases were successful.
 
 ### Calculate combinations ###
 
@@ -198,4 +199,4 @@ for (int idx=0; idx<numIterations; idx++){
 }
 {% endhighlight %}
 
-You can see the complete solution explained in detail and all test cases in the following [link](https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2){:target="_blank"}
+You can see the complete solution explained in detail and all test cases in this [link](https://amzn.to/3Lst26n){:target="_blank"}
