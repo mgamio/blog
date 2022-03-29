@@ -5,4 +5,6 @@ description: "Do you like coding? Make what is complex been easy to understand b
 permalink: /affiliate/
 ---
 
+Disclosure: I’m a proud affiliate of some of the resources mentioned in this article. If you buy a book through my links on this page, I may get a small commission for referring you. Thanks!
+
 {%- include_relative _includes/affiliate.html -%}
