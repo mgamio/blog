@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://codersite.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codersite.dev/" rel="alternate" type="text/html" /><updated>2022-04-06T14:30:20+02:00</updated><id>https://codersite.dev/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">UML Diagrams for Java Developers</title><link href="https://codersite.dev/uml-diagrams-for-java-developers/" rel="alternate" type="text/html" title="UML Diagrams for Java Developers" /><published>2022-03-09T00:18:45+01:00</published><updated>2022-03-09T00:18:45+01:00</updated><id>https://codersite.dev/uml-diagrams-for-java-developers</id><content type="html" xml:base="https://codersite.dev/uml-diagrams-for-java-developers/"><![CDATA[<p>The <strong>U</strong>nified <strong>M</strong>odeling <strong>L</strong>anguage is a graphical notation for modeling systems and conveying User software requirements. All developers must understand this notation before starting programming.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-10T14:50:22+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">CODER SITE for developers</title><subtitle>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</subtitle><author><name>Moises Gamio</name></author><entry><title type="html">UML Diagrams for Java Developers</title><link href="http://localhost:4000/uml-diagrams-for-java-developers/" rel="alternate" type="text/html" title="UML Diagrams for Java Developers" /><published>2022-03-09T00:18:45+01:00</published><updated>2022-03-09T00:18:45+01:00</updated><id>http://localhost:4000/uml-diagrams-for-java-developers</id><content type="html" xml:base="http://localhost:4000/uml-diagrams-for-java-developers/"><![CDATA[<p>The <strong>U</strong>nified <strong>M</strong>odeling <strong>L</strong>anguage is a graphical notation for modeling systems and conveying User software requirements. All developers must understand this notation before starting programming.</p>
 
 <p>UML is not only pretty pictures. Instead, they communicate the software design decisions to programmers.</p>
 
@@ -26,13 +26,36 @@
   <li>We build models to understand better the system we are developing.</li>
   <li>Models document the design decisions we have made.</li>
   <li>Models allow an open discussion in the development team before starting programming.</li>
+  <li>Accelerate the implementation stage because, during the design stage, the technical issues were already discussed.</li>
 </ul>
 
-<h2 id="design-proposal">Design proposal</h2>
+<h2 id="visualising-software-architecture---design-proposal">Visualising software architecture - design proposal</h2>
 
-<p>As system analysts, we delegate <strong>responsibilities</strong> to specific software elements called <em>services</em> that execute specific sub-tasks to achieve the user software requirements. Read the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Single Responsibility Principle</a>.</p>
+<p>The <a href="https://c4model.com/" target="_blank">C4 model</a> enables software development teams to describe and communicate software design decisions, similar to Google maps zooming in and out of an area of interest.</p>
 
-<p>We need a composer class that accepts the input data from the user. Then, the composer delegates the following subtasks to different services.</p>
+<p>These areas of interest in the software are:</p>
+
+<p><strong>Context -&gt; Containers -&gt; Components -&gt; Code</strong></p>
+
+<h3 id="context-diagram">Context diagram</h3>
+
+<p>A system context diagram shows the big picture. It says that building a new web application will achieve the user requirement.</p>
+
+<p><img src="/assets/images/flyerContextDiagram.png" alt="flyerContextDiagram" title="codersite flyer Context Diagram" class="img-responsive" /></p>
+
+<h3 id="container-diagram">Container diagram</h3>
+
+<p>The container diagram shows how the responsibilities are distributed in different execution units - containers.</p>
+
+<p>We need a Form on the front end and an API application on the back end for our web application.</p>
+
+<p><img src="/assets/images/flyerContainerDiagram.png" alt="flyerContainerDiagram" title="codersite flyer Container Diagram" class="img-responsive" /></p>
+
+<h3 id="component-diagram">Component diagram</h3>
+
+<p>As system analysts, we delegate <strong>responsibilities</strong> to software elements called <em>components</em> or <em>services</em> that execute sub-tasks with specific technologies to achieve the user software requirements. Read the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Single Responsibility Principle</a>.</p>
+
+<p>The API application interacts with the user requests. Then, delegates the following subtasks to different services.</p>
 
 <ul>
   <li>Generate a QR Code based on the URL link achieved by the <strong>QR Service</strong>.</li>
@@ -40,29 +63,13 @@
   <li>Build a PDF file that includes the last design image achieved by the <strong>PDF Service</strong>.</li>
 </ul>
 
-<p>The composer returns the final image design in a PDF file to the user</p>
+<p>The API application returns the final image design in a PDF file to the user.</p>
 
-<p>The following image shows a System Context diagram to see the big picture, including the actors and services. <a href="https://c4model.com/" target="_blank">C4 model</a> helps software development teams describe and communicate software architecture.</p>
+<p><img src="/assets/images/flyerComponentDiagram.png" alt="flyerComponentDiagram" title="codersite flyer Component Diagram" class="img-responsive" /></p>
 
-<p><img src="/assets/images/adsContextDiagram.JPG" alt="adsContextDiagram" title="context diagram" class="img-responsive" /></p>
+<p>It’s better to include a new service called <strong>FlyerComposerService</strong> between API application and the three services. It facilitates the migration task if you want to adopt a microservices architecture.</p>
 
-<p>On the client-side, we need the following artifact.</p>
-
-<p><strong>Web application</strong> shows a Formular to the client and forwards its requested data to our backend side.</p>
-
-<p>In addition, we need the following artifacts on the server-side.</p>
-
-<p><strong>Ads Composer Service</strong> receives the user data and delegates the sub-tasks to three additional services</p>
-
-<p><strong>QR service</strong>, responsible for generating a QR code for the URL link</p>
-
-<p><strong>Image Service</strong>, responsible for merging the QR code, text, and image into a new image composition</p>
-
-<p><strong>PDF Service</strong> is responsible for arranging the image composition into a PDF file</p>
-
-<p>The Ads composer service is responsible for orchestrating all calls to these three last services.</p>
-
-<p>It’s better to include a new service called <strong>FlyerComposerService</strong> between Ads Composer Service and the three services. It facilitates the migration task if you want to adopt a microservices architecture.</p>
+<p>The <em>FlyerComposerService</em> class is responsible for orchestrating all calls to these three last services.</p>
 
 <h3 id="uml-class-notation">UML Class Notation</h3>
 
@@ -146,7 +153,7 @@
   <li>An explicit UML class diagram facilitates communication between developers.</li>
 </ul>
 
-<p>We will see how to implement every Spring Boot service in the following articles, so follow me!</p>]]></content><author><name>Moises Gamio</name></author><category term="solid" /><category term="design" /><summary type="html"><![CDATA[Design essensial UML diagram before starting programming]]></summary></entry><entry><title type="html">SOLID principles: The Open-Closed Principle (Part II)</title><link href="https://codersite.dev/open-closed-principle/" rel="alternate" type="text/html" title="SOLID principles: The Open-Closed Principle (Part II)" /><published>2022-01-06T00:18:45+01:00</published><updated>2022-01-06T00:18:45+01:00</updated><id>https://codersite.dev/open-closed-principle</id><content type="html" xml:base="https://codersite.dev/open-closed-principle/"><![CDATA[<p>SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.</p>
+<p>We will see how to implement every Spring Boot service in the following articles, so follow me!</p>]]></content><author><name>Moises Gamio</name></author><category term="solid" /><category term="design" /><summary type="html"><![CDATA[Design essensial UML diagram before starting programming]]></summary></entry><entry><title type="html">SOLID principles: The Open-Closed Principle (Part II)</title><link href="http://localhost:4000/open-closed-principle/" rel="alternate" type="text/html" title="SOLID principles: The Open-Closed Principle (Part II)" /><published>2022-01-06T00:18:45+01:00</published><updated>2022-01-06T00:18:45+01:00</updated><id>http://localhost:4000/open-closed-principle</id><content type="html" xml:base="http://localhost:4000/open-closed-principle/"><![CDATA[<p>SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.</p>
 
 <p>When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.</p>
 
@@ -296,7 +303,7 @@
 
 <p>Calling to <em>getAPIPlans</em> is now fixed (closed for modification). If we want it to behave differently, we implement it in a new class (open for extension) that will follow the contracts defined in our interface.</p>
 
-<p>Our new DBData dependency is instantiated in our RateLimit class thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.</p>]]></content><author><name>Moises Gamio</name></author><category term="solid" /><summary type="html"><![CDATA[SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand]]></summary></entry><entry><title type="html">Shopping options</title><link href="https://codersite.dev/shopping-options/" rel="alternate" type="text/html" title="Shopping options" /><published>2021-12-28T18:18:00+01:00</published><updated>2021-12-28T18:18:00+01:00</updated><id>https://codersite.dev/shopping-options</id><content type="html" xml:base="https://codersite.dev/shopping-options/"><![CDATA[<p>An Amazon customer wants to buy a pair of jeans, a pair of shoes, a skirt, and a top but has a limited budget in dollars. Given different pricing options for each product, determine how many options our customer has to buy 1 of each product. You cannot spend more money than the budgeted amount.</p>
+<p>Our new DBData dependency is instantiated in our RateLimit class thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.</p>]]></content><author><name>Moises Gamio</name></author><category term="solid" /><summary type="html"><![CDATA[SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand]]></summary></entry><entry><title type="html">Shopping options</title><link href="http://localhost:4000/shopping-options/" rel="alternate" type="text/html" title="Shopping options" /><published>2021-12-28T18:18:00+01:00</published><updated>2021-12-28T18:18:00+01:00</updated><id>http://localhost:4000/shopping-options</id><content type="html" xml:base="http://localhost:4000/shopping-options/"><![CDATA[<p>An Amazon customer wants to buy a pair of jeans, a pair of shoes, a skirt, and a top but has a limited budget in dollars. Given different pricing options for each product, determine how many options our customer has to buy 1 of each product. You cannot spend more money than the budgeted amount.</p>
 
 <p><img src="/assets/images/shoppingOptions.jpg" alt="merge-two-sorted-lists" class="img-responsive" /></p>
 
@@ -508,7 +515,7 @@
 
 <p>Well, what happens when our possible right prices are located at the end of the arrays?. One possible solution could be to sort the arrays before iterating and find the right combinations of prices.</p>
 
-<p>Understanding the inner workings of common <a href="https://codersite.dev/book/" target="_blank">data structures</a> and <a href="https://codersite.gumroad.com/l/jqgde/uyn1iyx" target="_blank">algorithms</a> is a must for Java developers. <a href="https://payhip.com/b/B9u6L" target="_blank">Learn more</a></p>]]></content><author><name>Moises Gamio</name></author><category term="algorithms" /><category term="java" /><category term="interview" /><summary type="html"><![CDATA[Shopping options under a budgeted amount]]></summary></entry><entry><title type="html">Merge two Sorted Lists</title><link href="https://codersite.dev/merge-two-sorted-lists/" rel="alternate" type="text/html" title="Merge two Sorted Lists" /><published>2021-08-03T23:18:45+02:00</published><updated>2021-08-03T23:18:45+02:00</updated><id>https://codersite.dev/merge-two-sorted-lists</id><content type="html" xml:base="https://codersite.dev/merge-two-sorted-lists/"><![CDATA[<p>Given two sorted lists, merge them in a new sorted list.</p>
+<p>Understanding the inner workings of common <a href="https://codersite.dev/book/" target="_blank">data structures</a> and <a href="https://codersite.gumroad.com/l/jqgde/uyn1iyx" target="_blank">algorithms</a> is a must for Java developers. <a href="https://payhip.com/b/B9u6L" target="_blank">Learn more</a></p>]]></content><author><name>Moises Gamio</name></author><category term="algorithms" /><category term="java" /><category term="interview" /><summary type="html"><![CDATA[Shopping options under a budgeted amount]]></summary></entry><entry><title type="html">Merge two Sorted Lists</title><link href="http://localhost:4000/merge-two-sorted-lists/" rel="alternate" type="text/html" title="Merge two Sorted Lists" /><published>2021-08-03T23:18:45+02:00</published><updated>2021-08-03T23:18:45+02:00</updated><id>http://localhost:4000/merge-two-sorted-lists</id><content type="html" xml:base="http://localhost:4000/merge-two-sorted-lists/"><![CDATA[<p>Given two sorted lists, merge them in a new sorted list.</p>
 
 <p><img src="/assets/images/mergeSortedLists.jpg" alt="merge-two-sorted-lists" class="img-responsive" /></p>
 
@@ -566,7 +573,7 @@
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>The previous algorithm is missing how to proceed when one of the lists still contains elements not compared. Keep reading <a href="https://amzn.to/3wdwVry" target="_blank">here</a></p>]]></content><author><name>Moises Gamio</name></author><category term="algorithms" /><category term="java" /><summary type="html"><![CDATA[Given two sorted lists, merge them in a new sorted list - coding interview]]></summary></entry><entry><title type="html">Hot-Warm Architecture in Elasticsearch 1/n</title><link href="https://codersite.dev/hot-warm-architecture-elasticsearch/" rel="alternate" type="text/html" title="Hot-Warm Architecture in Elasticsearch 1/n" /><published>2021-02-26T10:01:45+01:00</published><updated>2021-02-26T10:01:45+01:00</updated><id>https://codersite.dev/hot-warm-architecture-elasticsearch</id><content type="html" xml:base="https://codersite.dev/hot-warm-architecture-elasticsearch/"><![CDATA[<p>Elasticsearch is a distributed real-time document store where every field is indexed and searchable.</p>
+<p>The previous algorithm is missing how to proceed when one of the lists still contains elements not compared. Keep reading <a href="https://amzn.to/3wdwVry" target="_blank">here</a></p>]]></content><author><name>Moises Gamio</name></author><category term="algorithms" /><category term="java" /><summary type="html"><![CDATA[Given two sorted lists, merge them in a new sorted list - coding interview]]></summary></entry><entry><title type="html">Hot-Warm Architecture in Elasticsearch 1/n</title><link href="http://localhost:4000/hot-warm-architecture-elasticsearch/" rel="alternate" type="text/html" title="Hot-Warm Architecture in Elasticsearch 1/n" /><published>2021-02-26T10:01:45+01:00</published><updated>2021-02-26T10:01:45+01:00</updated><id>http://localhost:4000/hot-warm-architecture-elasticsearch</id><content type="html" xml:base="http://localhost:4000/hot-warm-architecture-elasticsearch/"><![CDATA[<p>Elasticsearch is a distributed real-time document store where every field is indexed and searchable.</p>
 
 <p>Hot-warm architecture is a way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes.</p>
 
@@ -695,7 +702,7 @@ But this task is tedious because the <em>logs</em> are distributed in a cluster 
 
 <p>If you want to know how to scale in a distribuited system, I recommend this book: <a href="https://amzn.to/3rpxj15" target="_blank">Designing Data-Intensive Applications</a>.</p>
 
-<p>If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.</p>]]></content><author><name>Moises Gamio</name></author><category term="distribuitedsystems" /><category term="elastic" /><summary type="html"><![CDATA[Hot-warm architecture is a powerful way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes.]]></summary></entry><entry><title type="html">Clean Code</title><link href="https://codersite.dev/clean-code/" rel="alternate" type="text/html" title="Clean Code" /><published>2020-10-27T14:18:45+01:00</published><updated>2020-10-27T14:18:45+01:00</updated><id>https://codersite.dev/clean-code</id><content type="html" xml:base="https://codersite.dev/clean-code/"><![CDATA[<p>Clean code can be read and enhanced by a developer other than its original author.</p>
+<p>If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.</p>]]></content><author><name>Moises Gamio</name></author><category term="distribuitedsystems" /><category term="elastic" /><summary type="html"><![CDATA[Hot-warm architecture is a powerful way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes.]]></summary></entry><entry><title type="html">Clean Code</title><link href="http://localhost:4000/clean-code/" rel="alternate" type="text/html" title="Clean Code" /><published>2020-10-27T14:18:45+01:00</published><updated>2020-10-27T14:18:45+01:00</updated><id>http://localhost:4000/clean-code</id><content type="html" xml:base="http://localhost:4000/clean-code/"><![CDATA[<p>Clean code can be read and enhanced by a developer other than its original author.</p>
 
 <p>This kind of practice <a href="https://amzn.to/3rAejgU" target="_blank">Robert C Martin</a> introduced it.</p>
 
@@ -764,7 +771,7 @@ But this task is tedious because the <em>logs</em> are distributed in a cluster 
 
 <p>You can see a lot of typical algorithms implemented with Clean Code principles in the following <a href="https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&amp;preview=newtab&amp;linkCode=kpe&amp;ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2" target="_blank">link</a></p>
 
-<iframe width="336" height="550" src="https://www.youtube.com/embed/qf4vJrhNQn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>]]></content><author><name>Moises Gamio</name></author><category term="cleancode" /><category term="cleancode" /><category term="java" /><category term="solid" /><summary type="html"><![CDATA[Clean code can be read and enhanced by a developer other than its original author. Clean code has Intention-Revealing names]]></summary></entry><entry><title type="html">Documenting a SpringBoot REST API with OpenAPI 3</title><link href="https://codersite.dev/documenting-rest-api-openapi3/" rel="alternate" type="text/html" title="Documenting a SpringBoot REST API with OpenAPI 3" /><published>2020-10-02T15:18:45+02:00</published><updated>2022-03-18T10:38:00+01:00</updated><id>https://codersite.dev/documenting-rest-api-openapi3</id><content type="html" xml:base="https://codersite.dev/documenting-rest-api-openapi3/"><![CDATA[<p>The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.</p>
+<iframe width="336" height="550" src="https://www.youtube.com/embed/qf4vJrhNQn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>]]></content><author><name>Moises Gamio</name></author><category term="cleancode" /><category term="cleancode" /><category term="java" /><category term="solid" /><summary type="html"><![CDATA[Clean code can be read and enhanced by a developer other than its original author. Clean code has Intention-Revealing names]]></summary></entry><entry><title type="html">Documenting a SpringBoot REST API with OpenAPI 3</title><link href="http://localhost:4000/documenting-rest-api-openapi3/" rel="alternate" type="text/html" title="Documenting a SpringBoot REST API with OpenAPI 3" /><published>2020-10-02T15:18:45+02:00</published><updated>2022-03-18T10:38:00+01:00</updated><id>http://localhost:4000/documenting-rest-api-openapi3</id><content type="html" xml:base="http://localhost:4000/documenting-rest-api-openapi3/"><![CDATA[<p>The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.</p>
 
 <p>To learn more about REST see <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">Representational State Transfer</a>.</p>
 
@@ -1149,7 +1156,7 @@ But this task is tedious because the <em>logs</em> are distributed in a cluster 
 
 <p>Documenting an API facilitates interaction between internal development teams that build different web services for the same product.</p>
 
-<iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen="" style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;preview=inline&amp;linkCode=kpe&amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;tag=codersite20-20"></iframe>]]></content><author><name>Moises Gamio</name></author><category term="rest" /><category term="rest" /><category term="springboot" /><summary type="html"><![CDATA[The main idea for documenting your back-end RESTful APIs with openAPIi 3 to communicate to third-party developers what your endpoints are doing]]></summary></entry><entry><title type="html">Big O Notation: Analysis of Algorithms - coding interview</title><link href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" rel="alternate" type="text/html" title="Big O Notation: Analysis of Algorithms - coding interview" /><published>2020-06-22T15:18:45+02:00</published><updated>2022-03-22T17:50:00+01:00</updated><id>https://codersite.dev/big-o-notation-analysis-of-algorithms</id><content type="html" xml:base="https://codersite.dev/big-o-notation-analysis-of-algorithms/"><![CDATA[<p>Big O Notation is a mathematical notation that helps us analyze how complex an algorithm is in terms of time and space. When we build an application for one user or millions of users, it matters.</p>
+<iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen="" style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;preview=inline&amp;linkCode=kpe&amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;tag=codersite20-20"></iframe>]]></content><author><name>Moises Gamio</name></author><category term="rest" /><category term="rest" /><category term="springboot" /><summary type="html"><![CDATA[The main idea for documenting your back-end RESTful APIs with openAPIi 3 to communicate to third-party developers what your endpoints are doing]]></summary></entry><entry><title type="html">Big O Notation: Analysis of Algorithms - coding interview</title><link href="http://localhost:4000/big-o-notation-analysis-of-algorithms/" rel="alternate" type="text/html" title="Big O Notation: Analysis of Algorithms - coding interview" /><published>2020-06-22T15:18:45+02:00</published><updated>2022-03-22T17:50:00+01:00</updated><id>http://localhost:4000/big-o-notation-analysis-of-algorithms</id><content type="html" xml:base="http://localhost:4000/big-o-notation-analysis-of-algorithms/"><![CDATA[<p>Big O Notation is a mathematical notation that helps us analyze how complex an algorithm is in terms of time and space. When we build an application for one user or millions of users, it matters.</p>
 
 <p>We implement different algorithms to solve one problem and measure how efficient is one respect to the other ones.</p>
 
@@ -1353,7 +1360,7 @@ But this task is tedious because the <em>logs</em> are distributed in a cluster 
 
 <p>This article was just an introduction to algorithm analysis to face a real code interview as developers, where they are asked to build rough models. If you want to create a mathematical model for the execution time of a discrete operation, for example, you should take a course in <a href="https://en.wikipedia.org/wiki/Discrete_mathematics" target="_blank">discrete mathematics</a>.</p>
 
-<p>Being ready to analyze algorithms requires practice and study of different algorithms, and you can find it in this <a href="https://amzn.to/3HrGXrF" target="_blank">link</a> with a lot of explanation details.</p>]]></content><author><name>Moises Gamio</name></author><category term="bigONotation" /><summary type="html"><![CDATA[Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users]]></summary></entry><entry><title type="html">SOLID principles: The Definitive Guide (Part I)</title><link href="https://codersite.dev/solid-principles-the-definitive-guide/" rel="alternate" type="text/html" title="SOLID principles: The Definitive Guide (Part I)" /><published>2020-06-15T15:18:45+02:00</published><updated>2022-03-11T17:50:00+01:00</updated><id>https://codersite.dev/solid-principles-the-definitive-guide</id><content type="html" xml:base="https://codersite.dev/solid-principles-the-definitive-guide/"><![CDATA[<p>SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.</p>
+<p>Being ready to analyze algorithms requires practice and study of different algorithms, and you can find it in this <a href="https://amzn.to/3HrGXrF" target="_blank">link</a> with a lot of explanation details.</p>]]></content><author><name>Moises Gamio</name></author><category term="bigONotation" /><summary type="html"><![CDATA[Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users]]></summary></entry><entry><title type="html">SOLID principles: The Definitive Guide (Part I)</title><link href="http://localhost:4000/solid-principles-the-definitive-guide/" rel="alternate" type="text/html" title="SOLID principles: The Definitive Guide (Part I)" /><published>2020-06-15T15:18:45+02:00</published><updated>2022-03-11T17:50:00+01:00</updated><id>http://localhost:4000/solid-principles-the-definitive-guide</id><content type="html" xml:base="http://localhost:4000/solid-principles-the-definitive-guide/"><![CDATA[<p>SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.</p>
 
 <p>Robert C. Martin introduced it. <a href="https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf" target="_blank">Design Principles</a>.</p>
 
@@ -1441,7 +1448,7 @@ But this task is tedious because the <em>logs</em> are distributed in a cluster 
 
 <p>Use this principle as a tool when translating <a href="https://codersite.dev/uml-diagrams-for-java-developers/" target="_blank">business software requirements into technical specifications</a>. Programmers must understand these design decisions before programming.</p>
 
-<p>Now that you’ve learned the Single Responsibility principle, it’s time to learn the <a href="/open-closed-principle/" target="_blank">Open-closed principle</a> to avoid future software maintenance costs.</p>]]></content><author><name>Moises Gamio</name></author><category term="solid" /><summary type="html"><![CDATA[SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand]]></summary></entry><entry><title type="html">Graphs: Depth-First Search</title><link href="https://codersite.dev/graphs-depth-first-search/" rel="alternate" type="text/html" title="Graphs: Depth-First Search" /><published>2020-06-01T15:18:45+02:00</published><updated>2020-06-01T15:18:45+02:00</updated><id>https://codersite.dev/graphs-depth-first-search</id><content type="html" xml:base="https://codersite.dev/graphs-depth-first-search/"><![CDATA[<p>Depth-First Search (DFS), is an algorithm to search for information in Graphs.</p>
+<p>Now that you’ve learned the Single Responsibility principle, it’s time to learn the <a href="/open-closed-principle/" target="_blank">Open-closed principle</a> to avoid future software maintenance costs.</p>]]></content><author><name>Moises Gamio</name></author><category term="solid" /><summary type="html"><![CDATA[SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand]]></summary></entry><entry><title type="html">Graphs: Depth-First Search</title><link href="http://localhost:4000/graphs-depth-first-search/" rel="alternate" type="text/html" title="Graphs: Depth-First Search" /><published>2020-06-01T15:18:45+02:00</published><updated>2020-06-01T15:18:45+02:00</updated><id>http://localhost:4000/graphs-depth-first-search</id><content type="html" xml:base="http://localhost:4000/graphs-depth-first-search/"><![CDATA[<p>Depth-First Search (DFS), is an algorithm to search for information in Graphs.</p>
 
 <p>A <strong>Graph</strong> is a non-linear data structure consisting of nodes (or vertices) and edges. Its shape depends on the physical or abstract problem we are trying to solve. For instance, if nodes represent cities, then the routes which connect cities may be represented by <em>no-directed</em> edges. But if nodes represent tasks to complete a project, then their edges must be <em>directed</em> to indicate which task must be completed before another.</p>
 

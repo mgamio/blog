@@ -33,40 +33,47 @@ We can implement our code or reuse external libraries as dependencies, but the f
 - We build models to understand better the system we are developing.
 - Models document the design decisions we have made.
 - Models allow an open discussion in the development team before starting programming.
+- Accelerate the implementation stage because, during the design stage, the technical issues were already discussed.
 
-## Design proposal
+## Visualising software architecture - design proposal
 
-As system analysts, we delegate **responsibilities** to specific software elements called *services* that execute specific sub-tasks to achieve the user software requirements. Read the [Single Responsibility Principle](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}.
+The [C4 model](https://c4model.com/){:target="_blank"} enables software development teams to describe and communicate software design decisions, similar to Google maps zooming in and out of an area of interest.
 
-We need a composer class that accepts the input data from the user. Then, the composer delegates the following subtasks to different services.
+These areas of interest in the software are:
+
+**Context -> Containers -> Components -> Code**
+
+### Context diagram
+
+A system context diagram shows the big picture. It says that building a new web application will achieve the user requirement.
+
+![flyerContextDiagram](/assets/images/flyerContextDiagram.png "codersite flyer Context Diagram"){:class="img-responsive"}
+
+### Container diagram
+
+The container diagram shows how the responsibilities are distributed in different execution units - containers.
+
+We need a Form on the front end and an API application on the back end for our web application.
+
+![flyerContainerDiagram](/assets/images/flyerContainerDiagram.png "codersite flyer Container Diagram"){:class="img-responsive"}
+
+### Component diagram
+
+As system analysts, we delegate **responsibilities** to software elements called *components* or *services* that execute sub-tasks with specific technologies to achieve the user software requirements. Read the [Single Responsibility Principle](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}.
+
+The API application interacts with the user requests. Then, delegates the following subtasks to different services.
 
 - Generate a QR Code based on the URL link achieved by the **QR Service**.
 - Merge the previous QR Code, text message, and image in a final image design performed by the **Image Service**.
 - Build a PDF file that includes the last design image achieved by the **PDF Service**.
 
-The composer returns the final image design in a PDF file to the user
+The API application returns the final image design in a PDF file to the user.
 
-The following image shows a System Context diagram to see the big picture, including the actors and services. [C4 model](https://c4model.com/){:target="_blank"} helps software development teams describe and communicate software architecture.
+![flyerComponentDiagram](/assets/images/flyerComponentDiagram.png "codersite flyer Component Diagram"){:class="img-responsive"}
 
-![adsContextDiagram](/assets/images/adsContextDiagram.JPG "context diagram"){:class="img-responsive"}
+It's better to include a new service called **FlyerComposerService** between API application and the three services. It facilitates the migration task if you want to adopt a microservices architecture.
 
-On the client-side, we need the following artifact.
-
-**Web application** shows a Formular to the client and forwards its requested data to our backend side.
-
-In addition, we need the following artifacts on the server-side.
-
-**Ads Composer Service** receives the user data and delegates the sub-tasks to three additional services
-
-**QR service**, responsible for generating a QR code for the URL link
-
-**Image Service**, responsible for merging the QR code, text, and image into a new image composition
-
-**PDF Service** is responsible for arranging the image composition into a PDF file
-
-The Ads composer service is responsible for orchestrating all calls to these three last services.
-
-It's better to include a new service called **FlyerComposerService** between Ads Composer Service and the three services. It facilitates the migration task if you want to adopt a microservices architecture.
+The *FlyerComposerService* class is responsible for orchestrating all calls to these three last services.
 
 ### UML Class Notation
 
