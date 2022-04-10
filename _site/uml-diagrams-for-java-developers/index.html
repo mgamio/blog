@@ -7,7 +7,7 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.codersite.dev" />
   
-  <meta property="og:image" content="https://codersite.dev/assets/images/codersiteFlyers.jpg" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/codersiteFlyers.jpg" />
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>UML Diagrams for Java Developers | CODER SITE for developers</title>
 <meta name="generator" content="Jekyll v4.2.2" />
@@ -16,15 +16,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Design essensial UML diagram before starting programming" />
 <meta property="og:description" content="Design essensial UML diagram before starting programming" />
-<link rel="canonical" href="https://codersite.dev/uml-diagrams-for-java-developers/" />
-<meta property="og:url" content="https://codersite.dev/uml-diagrams-for-java-developers/" />
+<link rel="canonical" href="http://localhost:4000/uml-diagrams-for-java-developers/" />
+<meta property="og:url" content="http://localhost:4000/uml-diagrams-for-java-developers/" />
 <meta property="og:site_name" content="CODER SITE for developers" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-03-09T00:18:45+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="UML Diagrams for Java Developers" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Moises Gamio"},"dateModified":"2022-03-09T00:18:45+01:00","datePublished":"2022-03-09T00:18:45+01:00","description":"Design essensial UML diagram before starting programming","headline":"UML Diagrams for Java Developers","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/uml-diagrams-for-java-developers/"},"url":"https://codersite.dev/uml-diagrams-for-java-developers/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Moises Gamio"},"dateModified":"2022-03-09T00:18:45+01:00","datePublished":"2022-03-09T00:18:45+01:00","description":"Design essensial UML diagram before starting programming","headline":"UML Diagrams for Java Developers","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/uml-diagrams-for-java-developers/"},"url":"http://localhost:4000/uml-diagrams-for-java-developers/"}</script>
 <!-- End Jekyll SEO tag -->
 <title>
 	   
@@ -33,20 +33,7 @@
     </title>
 	<meta itemprop="description" name="description" content="Design essensial UML diagram before starting programming" />
 
-  <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://codersite.dev/feed.xml" title="CODER SITE for developers" /><script>
-if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-115356337-1', 'auto');
-  ga('set', 'anonymizeIp', true)
-  ga('send', 'pageview');
-}
-</script>
-  
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+  <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CODER SITE for developers" /><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
      crossorigin="anonymous"></script> 
 </head>
 <body><header class="site-header" role="banner">
@@ -113,13 +100,36 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <li>We build models to understand better the system we are developing.</li>
   <li>Models document the design decisions we have made.</li>
   <li>Models allow an open discussion in the development team before starting programming.</li>
+  <li>Accelerate the implementation stage because, during the design stage, the technical issues were already discussed.</li>
 </ul>
 
-<h2 id="design-proposal">Design proposal</h2>
+<h2 id="visualising-software-architecture---design-proposal">Visualising software architecture - design proposal</h2>
 
-<p>As system analysts, we delegate <strong>responsibilities</strong> to specific software elements called <em>services</em> that execute specific sub-tasks to achieve the user software requirements. Read the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Single Responsibility Principle</a>.</p>
+<p>The <a href="https://c4model.com/" target="_blank">C4 model</a> enables software development teams to describe and communicate software design decisions, similar to Google maps zooming in and out of an area of interest.</p>
 
-<p>We need a composer class that accepts the input data from the user. Then, the composer delegates the following subtasks to different services.</p>
+<p>These areas of interest in the software are:</p>
+
+<p><strong>Context -&gt; Containers -&gt; Components -&gt; Code</strong></p>
+
+<h3 id="context-diagram">Context diagram</h3>
+
+<p>A system context diagram shows the big picture. It says that building a new web application will achieve the user requirement.</p>
+
+<p><img src="/assets/images/flyerContextDiagram.png" alt="flyerContextDiagram" title="codersite flyer Context Diagram" class="img-responsive" /></p>
+
+<h3 id="container-diagram">Container diagram</h3>
+
+<p>The container diagram shows how the responsibilities are distributed in different execution units - containers.</p>
+
+<p>We need a Form on the front end and an API application on the back end for our web application.</p>
+
+<p><img src="/assets/images/flyerContainerDiagram.png" alt="flyerContainerDiagram" title="codersite flyer Container Diagram" class="img-responsive" /></p>
+
+<h3 id="component-diagram">Component diagram</h3>
+
+<p>As system analysts, we delegate <strong>responsibilities</strong> to software elements called <em>components</em> or <em>services</em> that execute sub-tasks with specific technologies to achieve the user software requirements. Read the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Single Responsibility Principle</a>.</p>
+
+<p>The API application interacts with the user requests. Then, delegates the following subtasks to different services.</p>
 
 <ul>
   <li>Generate a QR Code based on the URL link achieved by the <strong>QR Service</strong>.</li>
@@ -127,29 +137,13 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <li>Build a PDF file that includes the last design image achieved by the <strong>PDF Service</strong>.</li>
 </ul>
 
-<p>The composer returns the final image design in a PDF file to the user</p>
+<p>The API application returns the final image design in a PDF file to the user.</p>
 
-<p>The following image shows a System Context diagram to see the big picture, including the actors and services. <a href="https://c4model.com/" target="_blank">C4 model</a> helps software development teams describe and communicate software architecture.</p>
+<p><img src="/assets/images/flyerComponentDiagram.png" alt="flyerComponentDiagram" title="codersite flyer Component Diagram" class="img-responsive" /></p>
 
-<p><img src="/assets/images/adsContextDiagram.JPG" alt="adsContextDiagram" title="context diagram" class="img-responsive" /></p>
+<p>It’s better to include a new service called <strong>FlyerComposerService</strong> between API application and the three services. It facilitates the migration task if you want to adopt a microservices architecture.</p>
 
-<p>On the client-side, we need the following artifact.</p>
-
-<p><strong>Web application</strong> shows a Formular to the client and forwards its requested data to our backend side.</p>
-
-<p>In addition, we need the following artifacts on the server-side.</p>
-
-<p><strong>Ads Composer Service</strong> receives the user data and delegates the sub-tasks to three additional services</p>
-
-<p><strong>QR service</strong>, responsible for generating a QR code for the URL link</p>
-
-<p><strong>Image Service</strong>, responsible for merging the QR code, text, and image into a new image composition</p>
-
-<p><strong>PDF Service</strong> is responsible for arranging the image composition into a PDF file</p>
-
-<p>The Ads composer service is responsible for orchestrating all calls to these three last services.</p>
-
-<p>It’s better to include a new service called <strong>FlyerComposerService</strong> between Ads Composer Service and the three services. It facilitates the migration task if you want to adopt a microservices architecture.</p>
+<p>The <em>FlyerComposerService</em> class is responsible for orchestrating all calls to these three last services.</p>
 
 <h3 id="uml-class-notation">UML Class Notation</h3>
 
@@ -246,43 +240,43 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
     <h3>Share this Article:</h3>
 
     <div class="share-buttons">
-        <a  href="https://www.facebook.com/sharer/sharer.php?u=https://codersite.dev//uml-diagrams-for-java-developers/"
+        <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000//uml-diagrams-for-java-developers/"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Facebook" >
             <i class="fa fa-facebook-official share-button"> facebook</i>
         </a>
 
-        <a  href="https://twitter.com/intent/tweet?text=UML Diagrams for Java Developers&url=https://codersite.dev//uml-diagrams-for-java-developers/"
+        <a  href="https://twitter.com/intent/tweet?text=UML Diagrams for Java Developers&url=http://localhost:4000//uml-diagrams-for-java-developers/"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Twitter" >
             <i class="fa fa-twitter share-button"> twitter</i>
         </a>
 
-        <a  href="http://pinterest.com/pin/create/button/?url=https://codersite.dev//uml-diagrams-for-java-developers/"
+        <a  href="http://pinterest.com/pin/create/button/?url=http://localhost:4000//uml-diagrams-for-java-developers/"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Pinterest" >
             <i class="fa fa-pinterest-p share-button"> pinterest</i>
         </a>
 
-        <a  href="http://www.tumblr.com/share/link?url=https://codersite.dev//uml-diagrams-for-java-developers/"
+        <a  href="http://www.tumblr.com/share/link?url=http://localhost:4000//uml-diagrams-for-java-developers/"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Tumblr" >
             <i class="fa fa-tumblr share-button"> tumblr</i>
         </a>
 
-        <a  href="http://www.reddit.com/submit?url=https://codersite.dev//uml-diagrams-for-java-developers/"
+        <a  href="http://www.reddit.com/submit?url=http://localhost:4000//uml-diagrams-for-java-developers/"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Reddit" >
             <i class="fa fa-reddit-alien share-button"> reddit</i>
         </a>
 
-        <a  href="https://www.linkedin.com/shareArticle?mini=true&url=https://codersite.dev//uml-diagrams-for-java-developers/&title=UML Diagrams for Java Developers&summary=Design essensial UML diagram before starting programming&source=CODER SITE for developers"
+        <a  href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000//uml-diagrams-for-java-developers/&title=UML Diagrams for Java Developers&summary=Design essensial UML diagram before starting programming&source=CODER SITE for developers"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on LinkedIn" >
             <i class="fa fa-linkedin share-button"> linkedin</i>
         </a>
 
-        <a  href="mailto:?subject=UML Diagrams for Java Developers&amp;body=Check out this site https://codersite.dev//uml-diagrams-for-java-developers/"
+        <a  href="mailto:?subject=UML Diagrams for Java Developers&amp;body=Check out this site http://localhost:4000//uml-diagrams-for-java-developers/"
             title="Share via Email" >
             <i class="fa fa-envelope share-button"> email</i>
         </a>
@@ -414,11 +408,11 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
       <div class="footer-col footer-col-3">
         <p>Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.</p>
-		<a href="https://codersite.dev/policies/policy.html">Privacy policy</a>
+		<a href="http://localhost:4000/policies/policy.html">Privacy policy</a>
 		<br/>
-		<a href="https://codersite.dev/policies/termsOfService.html">Terms of service</a>
+		<a href="http://localhost:4000/policies/termsOfService.html">Terms of service</a>
 		<br/>
-		<a href="https://codersite.dev/policies/impressum.html">Impressum</a>
+		<a href="http://localhost:4000/policies/impressum.html">Impressum</a>
       </div>
     </div>
 
