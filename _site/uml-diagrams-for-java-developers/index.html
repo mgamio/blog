@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="UML Diagrams for Java Developers" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Moises Gamio"},"dateModified":"2022-03-09T00:18:45+01:00","datePublished":"2022-03-09T00:18:45+01:00","description":"Design essensial UML diagram before starting programming","headline":"UML Diagrams for Java Developers","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/uml-diagrams-for-java-developers/"},"url":"http://localhost:4000/uml-diagrams-for-java-developers/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Moises Gamio"},"dateModified":"2022-04-18T15:18:45+02:00","datePublished":"2022-03-09T00:18:45+01:00","description":"Design essensial UML diagram before starting programming","headline":"UML Diagrams for Java Developers","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/uml-diagrams-for-java-developers/"},"url":"http://localhost:4000/uml-diagrams-for-java-developers/"}</script>
 <!-- End Jekyll SEO tag -->
 <title>
 	   
@@ -69,7 +69,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">UML Diagrams for Java Developers</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2022-03-09T00:18:45+01:00" itemprop="datePublished"><!--Mar 9, 2022 | By Moises Gamio-->Last updated: Mar 9, 2022 | By Moises Gamio</time></p>
+      <time class="dt-published" datetime="2022-03-09T00:18:45+01:00" itemprop="datePublished"><!--Mar 9, 2022 | By Moises Gamio-->Last updated: Apr 18, 2022 | By Moises Gamio</time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
@@ -81,7 +81,7 @@
 
 <p>As entrepreneurs, we usually pay for costly advertisements to promote our products. We can create a little application to make our ads, promote them as printed flyers, and reduce our investments in ads.</p>
 
-<p>Every developer can abstract the main components from a user requirement differently. To have a standard UML notation helps to eliminate ambiguities about the requirements from the beginning. I want to show you how to translate business requirements into technical solutions with this use case.</p>
+<p>Every developer can abstract the main components from a user requirement differently. Having a standard UML notation helps to eliminate ambiguities about the requirements from the beginning. I want to show you how to translate business requirements into technical solutions with this use case.</p>
 
 <h2 id="user-requirement">User requirement</h2>
 
@@ -89,7 +89,7 @@
 
 <p><img src="/assets/images/formFlyer.jpg" alt="formFlyer" title="codersite flyer" class="img-responsive" /></p>
 
-<p>From the user requirement, we can realize that we need a task to create a QR-code, a job to manipulate elements inside an image, and a task to create a PDF file.</p>
+<p>From the user requirement, we can realize that we need a task to create a QR code, a job to manipulate elements inside an image, and a task to create a PDF file.</p>
 
 <p>We can implement our code or reuse external libraries as dependencies, but the following figure shows the desired result, whatever the implementation approach is chosen.</p>
 
@@ -101,16 +101,16 @@
   <li>We build models to understand better the system we are developing.</li>
   <li>Models document the design decisions we have made.</li>
   <li>Models allow an open discussion in the development team before starting programming.</li>
-  <li>Accelerate the implementation stage because, during the design stage, the technical issues were already discussed.</li>
+  <li>It speeds up the implementation stage because potential technical issues are discussed during the design stage.</li>
 </ul>
 
-<h2 id="visualising-software-architecture---design-proposal">Visualising software architecture - design proposal</h2>
+<h2 id="visualizing-software-architecture---design-proposal">Visualizing software architecture - design proposal</h2>
 
 <p>The <a href="https://c4model.com/" target="_blank">C4 model</a> enables software development teams to describe and communicate software design decisions, similar to Google maps zooming in and out of an area of interest.</p>
 
 <p>These areas of interest in the software are:</p>
 
-<p><strong>Context -&gt; Containers -&gt; Components -&gt; Code</strong></p>
+<p><strong>Context -&gt; Containers -&gt; Components -&gt; Code</strong> - UML Notation</p>
 
 <h3 id="context-diagram">Context diagram</h3>
 
@@ -142,7 +142,7 @@
 
 <p><img src="/assets/images/flyerComponentDiagram.png" alt="flyerComponentDiagram" title="codersite flyer Component Diagram" class="img-responsive" /></p>
 
-<p>It’s better to include a new service called <strong>FlyerComposerService</strong> between API application and the three services. It facilitates the migration task if you want to adopt a microservices architecture.</p>
+<p>It’s better to include a new service called <strong>FlyerComposerService</strong> between the API application and the three services. It facilitates the migration task if you want to adopt a microservices architecture.</p>
 
 <p>The <em>FlyerComposerService</em> class is responsible for orchestrating all calls to these three last services.</p>
 
@@ -196,7 +196,7 @@
 
 <p>Realization is a relationship where one class realizes or implements the specification defined in another class (usually an interface).</p>
 
-<p>Defining and creating interfaces is an excellent approach to building software to be extendable. Read the <a href="https://codersite.dev/open-closed-principle/" target="_blank">Open-Closed Principle</a>.</p>
+<p>Defining and creating interfaces is an excellent approach to building software to is extendable. Read the <a href="https://codersite.dev/open-closed-principle/" target="_blank">Open-Closed Principle</a>.</p>
 
 <h3 id="the-implemented-code-reflects-the-intent-of-the-uml-designer">The implemented code reflects the intent of the UML designer.</h3>
 
