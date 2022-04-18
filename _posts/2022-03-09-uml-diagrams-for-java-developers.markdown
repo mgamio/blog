@@ -4,6 +4,7 @@ title:  "UML Diagrams for Java Developers"
 description: "Design essensial UML diagram before starting programming"
 featured-image: codersiteFlyers.jpg
 date:   2022-03-09 00:18:45 +0100
+last_modified_at: 2022-04-18 14:18:45 +0100
 categories: solid design
 ---
 The **U**nified **M**odeling **L**anguage is a graphical notation for modeling systems and conveying User software requirements. All developers must understand this notation before starting programming.
@@ -14,7 +15,7 @@ UML is not only pretty pictures. Instead, they communicate the software design d
 
 As entrepreneurs, we usually pay for costly advertisements to promote our products. We can create a little application to make our ads, promote them as printed flyers, and reduce our investments in ads.
 
-Every developer can abstract the main components from a user requirement differently. To have a standard UML notation helps to eliminate ambiguities about the requirements from the beginning. I want to show you how to translate business requirements into technical solutions with this use case.
+Every developer can abstract the main components from a user requirement differently. Having a standard UML notation helps to eliminate ambiguities about the requirements from the beginning. I want to show you how to translate business requirements into technical solutions with this use case.
 
 ## User requirement
 
@@ -22,7 +23,7 @@ Given a text message, a URL link, and an image, build a service that automates t
 
 ![formFlyer](/assets/images/formFlyer.jpg "codersite flyer"){:class="img-responsive"}
 
-From the user requirement, we can realize that we need a task to create a QR-code, a job to manipulate elements inside an image, and a task to create a PDF file.
+From the user requirement, we can realize that we need a task to create a QR code, a job to manipulate elements inside an image, and a task to create a PDF file.
 
 We can implement our code or reuse external libraries as dependencies, but the following figure shows the desired result, whatever the implementation approach is chosen.
 
@@ -33,15 +34,15 @@ We can implement our code or reuse external libraries as dependencies, but the f
 - We build models to understand better the system we are developing.
 - Models document the design decisions we have made.
 - Models allow an open discussion in the development team before starting programming.
-- Accelerate the implementation stage because, during the design stage, the technical issues were already discussed.
+- It speeds up the implementation stage because potential technical issues are discussed during the design stage.
 
-## Visualising software architecture - design proposal
+## Visualizing software architecture - design proposal
 
 The [C4 model](https://c4model.com/){:target="_blank"} enables software development teams to describe and communicate software design decisions, similar to Google maps zooming in and out of an area of interest.
 
 These areas of interest in the software are:
 
-**Context -> Containers -> Components -> Code**
+**Context -> Containers -> Components -> Code** - UML Notation
 
 ### Context diagram
 
@@ -71,7 +72,7 @@ The API application returns the final image design in a PDF file to the user.
 
 ![flyerComponentDiagram](/assets/images/flyerComponentDiagram.png "codersite flyer Component Diagram"){:class="img-responsive"}
 
-It's better to include a new service called **FlyerComposerService** between API application and the three services. It facilitates the migration task if you want to adopt a microservices architecture.
+It's better to include a new service called **FlyerComposerService** between the API application and the three services. It facilitates the migration task if you want to adopt a microservices architecture.
 
 The *FlyerComposerService* class is responsible for orchestrating all calls to these three last services.
 
@@ -126,7 +127,7 @@ At the **FlyerComposerService** class above, we can see how is declared the depe
 
 Realization is a relationship where one class realizes or implements the specification defined in another class (usually an interface).
 
-Defining and creating interfaces is an excellent approach to building software to be extendable. Read the [Open-Closed Principle](https://codersite.dev/open-closed-principle/){:target="_blank"}.
+Defining and creating interfaces is an excellent approach to building software to is extendable. Read the [Open-Closed Principle](https://codersite.dev/open-closed-principle/){:target="_blank"}.
 
 ### The implemented code reflects the intent of the UML designer.
 
