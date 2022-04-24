@@ -2,17 +2,17 @@
 layout: post
 title:  "SOLID principles: The Open-Closed Principle (Part II)"
 description: "SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand"
-featured-image: openClosedPrinciple.jpg
-date:   2022-01-06 00:18:45 +0100
-categories: solid
+author: moises
+categories: [ design ]
+image: assets/images/openClosedPrinciple.jpg
+comments: false
 ---
+
 SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.
 
 When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.
 
 After looking at the [Single Responsibility Principle](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}, let’s continue with the second principle.
-
-![openClosedPrinciple](/assets/images/openClosedPrinciple.jpg){:class="img-responsive"}
 
 ## SOLID principles: The Open-Closed Principle (OCP)
 
@@ -26,7 +26,7 @@ The RateLimit class implements an interceptor - *HandlerInterceptor* - that allo
 
 The team wants to retrieve the number of requests by plan from a text file. The following *getAPIPlans* method retrieves those parameters.
 
-{% highlight ruby %}
+```kotlin
 public class RateLimit implements HandlerInterceptor {
   private Map<String, Long> apiPlans;
   
@@ -57,7 +57,7 @@ public class RateLimit implements HandlerInterceptor {
     return apiPlans;
   }
 }
-{% endhighlight %}
+```
 
 ## Suddenly an unexpected scenario arises.
 
@@ -89,31 +89,31 @@ The following diagram shows the goal of our design.
 
 Firstly,  and thinking abstractly, you should create an interface and define a contract that will include all required functionalities.
 
-{% highlight ruby %}
+```kotlin
 public interface DataService {
 
   public Map<String, Long> getAPIPlans() throws Exception;
 
 }
-{% endhighlight %}
+```
 
 Secondly, we move our *getAPIPlans* method to a new class that implements the previous interface.
 
-{% highlight ruby %}
+```kotlin
 public class TextData implements DataService {
   @Override
   public Map<String, Long> getAPIPlans() throws Exception {
     Map<String, Long> apiPlans = new ConcurrentHashMap<>();
-	//code omitted
+    //code omitted
 	
     return apiPlans;
   }
 }
-{% endhighlight %}
+```
 
 Thanks to abstractions, we can create a new class to implement *getAPIPlans* with different behavior, in this case, to retrieve parameters from a database.
 
-{% highlight ruby %}
+```kotlin
 public class DBData implements DataService {
   private DataSource datasource;
   
@@ -125,19 +125,19 @@ public class DBData implements DataService {
   public Map<String, Long> getAPIPlans() throws Exception {
     Map<String, Long> apiPlans = new ConcurrentHashMap<>();
     for (Plan plan : datasource.getAPIPlans()) {
-      //code omitted
+    //code omitted
 	 
     }
     return apiPlans;
   }
 }
-{% endhighlight %}
+```
 
 Introducing a new abstraction layer with different implementations avoids tight coupling between classes. 
 
 Finally, we refactor our RateLimit class *aggregating* an instance of DataService type in its constructor method.
 
-{% highlight ruby %}
+```kotlin
 public class RateLimit implements HandlerInterceptor {
   private Map<String, Long> apiPlans;
   private DataService dataService;
@@ -156,7 +156,7 @@ public class RateLimit implements HandlerInterceptor {
     //accept(200) or refuse(429) request
   }
 }
-{% endhighlight %}
+```
 
 If later we decided to retrieve the parameters from a [NoSQL database](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}, we would no longer have to touch the code, create a new class that implements *getAPIPlans*, and instantiate this new class in RateLimit.
 
@@ -165,4 +165,3 @@ Even if, instead of implementing the *HandlerInterceptor* interface, we implemen
 Calling to *getAPIPlans* is now fixed (closed for modification). If we want it to behave differently, we implement it in a new class (open for extension) that will follow the contracts defined in our interface.
 
 Our new DBData dependency is instantiated in our RateLimit class thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.
-

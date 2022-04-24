@@ -2,12 +2,12 @@
 layout: post
 title: "Documenting a SpringBoot REST API with OpenAPI 3"
 description: "The main idea for documenting your back-end RESTful APIs with openAPIi 3 to communicate to third-party developers what your endpoints are doing"
-featured-image: openapi3.jpg
-date: 2020-10-02 14:18:45 +0100
-last_modified_at: 2022-03-18 10:38:00 +0100
-tags: rest springboot
-categories: rest
+author: moises
+categories: [ Web APIs ]
+image: assets/images/apiDocumentation.jpg
+comments: false
 ---
+
 The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.
 
 To learn more about REST see [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="_blank"}.
@@ -29,7 +29,7 @@ Once you generate the JAR maven project, open it in your favorite IDE.
 
 Below, you can see the pom.xml to use:
 
-{% highlight ruby %}
+```kotlin
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -87,31 +87,31 @@ Below, you can see the pom.xml to use:
 		</plugins>
 	</build>
 </project>
-{% endhighlight %}
+```
 
 To generate automatically the API documentation, we add the [springdoc-openapi-ui](https://springdoc.org/){:target="_blank"} dependency to our pom.xml file.
 
 The main idea for documenting our back-end RESTful APIs is to communicate what our endpoints are doing to third-party developers.
 
-{% highlight ruby %}
+```kotlin
 <dependency>
    <groupId>org.springdoc</groupId>
    <artifactId>springdoc-openapi-ui</artifactId>
    <version>1.3.9</version>
 </dependency>
-{% endhighlight %}
+```
 
 ### 2. Configure H2 Database
 
 The H2 in-memory database is volatile, which means data will be lost when we restart the application. We add the following properties to the application.properties file.
 
-{% highlight ruby %}
+```kotlin
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
 spring.datasource.password=password
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-{% endhighlight %}
+```
 
 ### 3. Create JPA Entity – Book.java
 
@@ -121,7 +121,7 @@ Even when Spring Data provides a standard programming model for different databa
 
 @Entity annotation describes the Book data that will be stored by Spring Data and makes our Book object ready for storage in a JPA-based relational data store.
 
-{% highlight ruby %}
+```kotlin
 package com.openapi.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -172,7 +172,7 @@ public class Book {
     this.author = author;
   }
 }
-{% endhighlight %}
+```
 
 ### 4. Create a String Data Repository – BookRepository.java
 
@@ -180,20 +180,20 @@ Repositories are used to store and access data from different types of databases
 
 Spring Data JPA repository supports creating, reading, updating, and deleting records against our back-end datastore.
 
-{% highlight ruby %}
+```kotlin
 package com.openapi.respository;
 import com.openapi.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {}
-{% endhighlight %}
+```
 
 ### 5. Create Spring Rest Controller Interface – BookApi
 
 We create an Interface to describe the API functionalities with the openapi annotations. In this way, we separate our API contract from the implementation Class.
 
-{% highlight ruby %}
+```kotlin
 package com.openapi.controller;
 import com.openapi.model.Book;
 import io.swagger.v3.oas.annotations.Operation;
@@ -253,13 +253,13 @@ public interface BookApi {
   @ResponseStatus(HttpStatus.OK)
   public long deleteBook(@PathVariable final long id);
 }
-{% endhighlight %}
+```
 
 ### 6. Create Spring Rest Controller Implementation – BookApiController.java
 
 @RestController annotation tells Spring that this Class describes endpoints that should be made available over the web. The data returned by each method will be included in the response body.
 
-{% highlight ruby %}
+```kotlin
 package com.openapi.controller;
 import java.util.Collection;
 import com.openapi.exception.BookNotFoundException;
@@ -320,11 +320,11 @@ public class BookApiController implements BookApi {
     return id;
   }
 }
-{% endhighlight %}
+```
 
 ### 7. Configure openApi – OpenApiConfig.java
 
-{% highlight ruby %}
+```kotlin
 package com.openapi.config;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.Components;
@@ -343,19 +343,19 @@ public class OpenApiConfig {
             .title("Book Application API")
             .description("This is a sample Spring Boot RESTful service using springdoc-openapi and OpenAPI 3.")
             .termsOfService("terms")
-            .contact(new Contact().email("@codersite.dev"))
+            .contact(new Contact().email("codersitedev@gmail.com"))
             .license(new License().name("GNU"))
             .version("1.0")
         );
   }
 }
-{% endhighlight %}
+```
 
 ### 8. Running Application
 
 This [Spring boot](https://amzn.to/3JQ440Q){:target="_blank"} application has an entry point Java class called OpenapiApplication.java, which you can run to start the application.
 
-{% highlight ruby %}
+```kotlin
 package com.openapi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -365,7 +365,7 @@ public class OpenapiApplication {
 		SpringApplication.run(OpenapiApplication.class, args);
 	}
 }
-{% endhighlight %}
+```
 
 @SpringBootApplication add the following functionalities:
 

@@ -1,12 +1,14 @@
 ---
 layout: post
-title:  "SOLID principles: The Definitive Guide (Part I)"
-description: "SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand"
-featured-image: payment2b.jpeg
-date:   2020-06-15 14:18:45 +0100
-last_modified_at: 2022-03-11 17:50:00 +0100
-categories: solid
+title: "SOLID principles: The Definitive Guide (Part I)"
+author: moises
+categories: [ design ]
+image: assets/images/solid.jpg
+featured: true
+hidden: true
+comments: false
 ---
+
 SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.
 
 Robert C. Martin introduced it. [Design Principles](https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf){:target="_blank"}.
@@ -25,7 +27,7 @@ For instance, imagine an online store that issues its cards for its customers, a
 
 In the following code, we have the first design of the Payment Class, which supports both requirements.
 
-{% highlight ruby %}
+```kotlin
 public class Payment {
   public static final int MAX_DAYS = 14;
   
@@ -39,7 +41,7 @@ public class Payment {
     }
   }
 }
-{% endhighlight %}
+```
 
 ## The Problem: A Class has more than one responsibility
 
@@ -55,7 +57,7 @@ What do we need to do?. In this scenario, we can apply the **S**ingle Responsibi
 
 Firstly, we move the *lockCard()* responsibility to a new Card Class. This technique is most known as refactoring
 
-{% highlight ruby %}
+```kotlin
 public class Card {
   public static final int MAX_DAYS = 10;
   
@@ -68,11 +70,11 @@ public class Card {
     }
   }
 }
-{% endhighlight %}
+```
 
 After that change and following [Clean code](https://codersite.dev/clean-code/){:target="_blank"} principles, we can see how it looks the new Payment Class (refactored as well):
 
-{% highlight ruby %}
+```kotlin
 public class Payment {
   public static final int MAX_DAYS = 14;
   
@@ -85,7 +87,7 @@ public class Payment {
     }
   }
 }
-{% endhighlight %}
+```
 
 Finally, new changes to the MAX_DAYS variable will only depend on the requirements of every team separately. The following figure shows the Classes for different actors, without conflicts.
 
@@ -99,4 +101,4 @@ In conclusion, once you identify classes that have too many responsibilities, us
 
 Use this principle as a tool when translating [business software requirements into technical specifications](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"}. Programmers must understand these design decisions before programming.
 
-Now that you've learned the Single Responsibility principle, it's time to learn the [Open-closed principle]({% post_url 2022-01-06-open-closed-principle %}){:target="_blank"} to avoid future software maintenance costs.
+Now that you've learned the Single Responsibility principle, it's time to learn the [Open-closed principle](https://codersite.dev/open-closed-principle/){:target="_blank"} to avoid future software maintenance costs.

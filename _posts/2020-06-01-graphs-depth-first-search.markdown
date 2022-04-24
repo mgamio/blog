@@ -2,10 +2,12 @@
 layout: post
 title:  "Graphs: Depth-First Search"
 description: "Wants to know what is the shortest path in a graphs data structure. So the Depth-First Search (DFS) algorithm is what you need to learn"
-featured-image: dfsSequence.jpg
-date:   2020-06-01 14:18:45 +0100
-categories: algorithms
+author: moises
+categories: [ algorithms ]
+image: assets/images/dfsAlgorithm.jpg
+comments: false
 ---
+
 Depth-First Search (DFS), is an algorithm to search for information in Graphs.
 
 A **Graph** is a non-linear data structure consisting of nodes (or vertices) and edges. Its shape depends on the physical or abstract problem we are trying to solve. For instance, if nodes represent cities, then the routes which connect cities may be represented by *no-directed* edges. But if nodes represent tasks to complete a project, then their edges must be *directed* to indicate which task must be completed before another.
@@ -58,7 +60,7 @@ Depth-First Search (DFS) is an algorithm for traversing or searching for in a Gr
 
 We need an Object which supports any kind of data included in the Node (which includes the information, that we want to represent). We called it Vertex (because comes from a Mathematical concept). Moreover, to avoid searching in cycles, a boolean variable is included, so we will mark each node when we visit it.
 
-{% highlight ruby %}
+```kotlin
 public class Vertex {
   private String name;
   private boolean visited;
@@ -68,7 +70,7 @@ public class Vertex {
     this.visited = false;
   }
 }
-{% endhighlight %}
+```
 
 To define, that two vertices are connected (through edges), we have two approaches: the adjacency matrix and the adjacency list.
 
@@ -92,7 +94,7 @@ We define a *numOfVertices* variable that indicates the number of Vertices alrea
 
 Since we will pass a String argument (city name) to our DFS algorithm, a *mapOfVertex* hashMap is defined to register the key-value: *city-index*, where the *index* is the City's location at *arrayOfVertex[]*.
 
-{% highlight ruby %}
+```kotlin
 public class Graph {
 
   private final int MAX_VERTEX = 15;
@@ -118,29 +120,29 @@ public class Graph {
     }
   }
 }
-{% endhighlight %}
+```
 
 **Adding a Vertex**
 
 Before the implementation, we create a Test case with the following assumption:
 
-{% highlight ruby %}
+```kotlin
 @Test
 public void test_addVertex() {
   Vertex city = new Vertex("Berlin");
   graph.addVertex(city);
   assertTrue(graph.getMapOfVertex().size() ==1);
 }
-{% endhighlight %}
+```
 
 The implementation code register the new city in our *mapOfVertex* hashMap.
 
-{% highlight ruby %}
+```kotlin
 public void addVertex(Vertex city) {
   mapOfVertex.put(city.getName(), numOfVertices);
   arrayOfVertex[numOfVertices++] =city;
 }
-{% endhighlight %}
+```
 
 The *numOfVertices* variable determines the location (index) of the new City in the *arrayOfVertex[]*.
 
@@ -148,14 +150,14 @@ The *numOfVertices* variable determines the location (index) of the new City in 
 
 We add two entries to *matrixOfAdjVertex*, because two cities are connected in both directions.
 
-{% highlight ruby %}
+```kotlin
 public void addEdge(String city1, String city2) {
     int start = mapOfVertex.get(city1);
     int end = mapOfVertex.get(city2);
     matrixOfAdjVertex[start][end] =1;
     matrixOfAdjVertex[end][start] =1;
 }
-{% endhighlight %}
+```
 
 You can implement your code for these methods. The point here is that we need to define the topology of our Graph, adding Vertices(cities) and edges that connect them.
 
@@ -172,7 +174,7 @@ We iterate the stack *until is empty*. And this is what we do in every iteration
 
 If Berlin were our entry city, then the first adjacent city will be Leipzig, which is marked as visited and push it into the stack. In the next iteration, we read Leipzig (through *peek* method) from the stack and look for its neighbors. Therefore, following these iterations, we arrive at München. That is the *in-depth* essence of this algorithm: to explore as far as possible along each branch before continuing with a new one.
 
-{% highlight ruby %}
+```kotlin
 public void dfs(String city) {
     int vertex = mapOfVertex.get(city);
     arrayOfVertex[vertex].setVisited(true);
@@ -191,9 +193,9 @@ public void dfs(String city) {
       }
     }
   }
-{% endhighlight %}
+```
 
-{% highlight ruby %}
+```kotlin
 private int getAdjVertex(int vertex) {
 for (int adj=0; adj<numOfVertices; adj++) {
    if (matrixOfAdjVertex[vertex][adj] ==1 &&
@@ -202,11 +204,11 @@ for (int adj=0; adj<numOfVertices; adj++) {
    }
    return -1; //not vertices found
 }
-{% endhighlight %}
+```
 
 **Test case**
 
-{% highlight ruby %}
+```kotlin
 @Test
   public void test_dfs() {
     String city1 ="Berlin"; String city2 ="Leipzig";
@@ -240,7 +242,7 @@ for (int adj=0; adj<numOfVertices; adj++) {
     graph.addEdge(city5, city12);
     graph.dfs(city1);
   }
-{% endhighlight %}
+```
 
 Here, the output:
 

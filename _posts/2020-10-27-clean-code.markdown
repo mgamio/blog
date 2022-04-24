@@ -2,18 +2,17 @@
 layout: post
 title:  "Clean Code"
 description: "Clean code can be read and enhanced by a developer other than its original author. Clean code has Intention-Revealing names"
-featured-image: cleanCode.jpg
-date:   2020-10-27 14:18:45 +0100
-tags: cleancode java solid
-categories: cleancode
+author: moises
+categories: [ Coding Practices ]
+image: assets/images/cleanCode.jpg
+comments: false
 ---
+
 Clean code can be read and enhanced by a developer other than its original author. 
 
 This kind of practice [Robert C Martin](https://amzn.to/3rAejgU){:target="_blank"} introduced it.
 
 If you want to be a better programmer, you must follow these recommendations..
-
-![cleanCode](/assets/images/cleanCode.jpg){:class="img-responsive"}
 
 ## Clean Code has Intention-Revealing names
 
@@ -21,43 +20,43 @@ Names reveal intent. Someone who reads your code must understand the purpose of 
 
 Real situation:
 
-{% highlight ruby %}
+```kotlin
 int sId; //supplier Id
 int artDelPrice;
-{% endhighlight %}
+```
 
 It must be refactored to this:
 
-{% highlight ruby %}
+```kotlin
 int supplierId;
 int articleDeliveredPrice;
-{% endhighlight %}
+```
 
 Even with external dependencies:
 
-{% highlight ruby %}
+```kotlin
 private Z_E2F_RS_Result e2fResult: //ingredients recordset
-{% endhighlight %}
+```
 
 It must be refactored to this:
 
-{% highlight ruby %}
+```kotlin
 private Z_E2F_RS_Result ingredients:
-{% endhighlight %}
+```
 
 Imagine that we dont have the //ingredients comment in e2fResult variable. Then, further in any part of our code, when we try to process this variable, we have the following sentence:
 
-{% highlight ruby %}
+```kotlin
 e2f = e2fResult[i]
-{% endhighlight %}
+```
 
 And we don’t know what does e2f means!. Well, someone suggests asking the person responsible for this code. But that guy is not at the office. Well, send it an email, and he is on holiday!.
 
 But if instead we adopt names which reveal intent from beginning, we could avoid these catastrophic scenarios.
 
-{% highlight ruby %}
+```kotlin
 ingredient = ingredients[i]
-{% endhighlight %}
+```
 
 ## Clean Code tells a story
 
@@ -65,7 +64,7 @@ When we try to fix bugs, when analyzing the secuence of actions (functions, meth
 
 This will always happen because our initial design based on the initial requirements change over time. As developers, we are responsible for refactoring our code to made it a simple story that everybody can understand. For example, look at the following code:
 
-{% highlight ruby %}
+```kotlin
 ACMEWebServiceClient.login();
 if (process.equals("core") {
     ACMEWebServiceClient.transfer_buyersCoreData_to_ACME();
@@ -77,7 +76,7 @@ if (process.equals("events")) {
     ACMEWebServiceClient.transfer_events_to_ACME();
 }
 ACMEServiceClient.logout();
-{% endhighlight %}
+```
 
 Other recommendations of clean code are:
 
@@ -88,4 +87,4 @@ Other recommendations of clean code are:
 
 You can see a lot of typical algorithms implemented with Clean Code principles in the following [link](https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2){:target="_blank"}
 
-<iframe width="336" height="550" src="https://www.youtube.com/embed/qf4vJrhNQn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p><iframe style="width:100%;" height="550" src="https://www.youtube.com/embed/qf4vJrhNQn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
