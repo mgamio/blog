@@ -5,7 +5,7 @@ description: "This blogsite shares knowledge and use cases and helps developers 
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
 baseurl: ""
-url: "https://coderside.dev"
+url: "https://codersite.dev"
 google_analytics: 'UA-115356337-1'
 disqus: 'demowebsite'
 mailchimp-list: 'https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;id=8d64d36cba'
