@@ -2,10 +2,12 @@
 layout: post
 title:  "Hot-Warm Architecture in Elasticsearch 1/n"
 description: "Hot-warm architecture is a powerful way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes."
-featured-image: hot-warm-elastic.jpg
-date:   2021-02-26 10:01:45 +0100
-categories: distribuitedsystems elastic
+author: moises
+categories: [ distribuited systems ]
+image: assets/images/elastic.jpg
+comments: false
 ---
+
 Elasticsearch is a distributed real-time document store where every field is indexed and searchable.
 
 Hot-warm architecture is a way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes. 

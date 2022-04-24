@@ -2,10 +2,12 @@
 layout: post
 title:  "Tree data structure: Binary Search Tree"
 description: "Tree data structures are non-linear structures. Binary tree combines advantages from an ordered array and linkedlist and they are much faster"
-featured-image: binaryTree.jpg
-date:   2020-05-12 14:18:45 +0100
-categories: datastructure
+author: moises
+categories: [ algorithms ]
+image: assets/images/binarySearchTree.jpg
+comments: false
 ---
+
 Tree data structures are non-linear data structures, and they allow us to implement algorithms much faster than when using linear data structures.
 
 ## Tree ###
@@ -41,7 +43,7 @@ A Webshop wants to retrieve information about GTINs efficiently by using a binar
 
 We create a Product Class which will be the data contained in a Node.
 
-{% highlight ruby %}
+```kotlin
 public class Product {
 
   Integer productId;
@@ -49,11 +51,11 @@ public class Product {
   Double price;
   String manufacturerName;
   ... 
-{% endhighlight %}
+```
 
 We create a NodeP Class to store a list of Products. Moreover, this Class allows us to have two NodeP attributes to hold the left and right nodes.
 
-{% highlight ruby %}
+```kotlin
 public class NodeP {
 
   private String gtin;
@@ -66,7 +68,7 @@ public class NodeP {
     this.data = data;
   }
 }
-{% endhighlight %}
+```
 
 We create a new abstract data type called TreeP to define the behavior of our Binary Search Tree, which includes a NodeP root variable for the first element to be inserted.
 
@@ -74,17 +76,17 @@ We need to implement an insert method, where every time a new GTIN is inserted, 
 
 A Test case to verify our assumptions:
 
-{% highlight ruby %}
+```kotlin
 @Test
 public void when_rootNull_inserNode() {
   tree.insert("04007801321224", new ArrayList<>(Arrays.asList(product1)));
   assertTrue(tree.getRoot() != null);
 }
-{% endhighlight %}
+```
 
 And here the implementation for the insert method:
 
-{% highlight ruby %}
+```kotlin
 public class TreeP {
 
   private NodeP root;
@@ -120,11 +122,11 @@ public class TreeP {
     return;
   }
 }
-{% endhighlight %}
+```
 
 Create a Test case for a find method:
 
-{% highlight ruby %}
+```kotlin
 @Test
 public void test_findNode() {
   tree.insert("04000345706564",
@@ -144,11 +146,11 @@ public void test_findNode() {
   assertEquals("07611400983324", 
     tree.find("07611400983324").getGtin());
 }
-{% endhighlight %}
+```
 
 And here is the implementation that shows a find method (the gtin parameter is our key), which iterates through all nodes until a GTIN is found. This algorithm reduces the search space to N/2 because the binary search tree is always ordered.
 
-{% highlight ruby %}
+```kotlin
 public NodeP find(String gtin) {
 
   NodeP current = root;
@@ -166,15 +168,15 @@ public NodeP find(String gtin) {
   }
   return current;
 }
-{% endhighlight %}
+```
 
 This Binary Search Tree works well when the data is inserted in random order. Therefore, when the values to be inserted are already *ordered*, a binary tree becomes unbalanced. With an unbalanced tree, we can not find data quickly.
 
 One approach to solving unbalanced trees is the [red-black tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree){:target="_blank"} technique, which is a binary search tree with some special features.
 
-Assuming that we already have a balanced tree, the following algorithm shows us how fast in terms of comparisons could be a binary search tree which depends on a number *N* of elements. For instance, in 1 billion products, to find a product by GTIN, the algorithm needs only 30 comparisons. See [Big O Notation](https://medium.com/@mkgv89/big-o-notation-e1aaca926c2?source=friends_link&sk=3368b93ad834682803878f710a3b0d46){:target="_blank"}.
+Assuming that we already have a balanced tree, the following algorithm shows us how fast in terms of comparisons could be a binary search tree which depends on a number *N* of elements. For instance, in 1 billion products, to find a product by GTIN, the algorithm needs only 30 comparisons. See [Big O Notation](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"}.
 
-{% highlight ruby %}
+```kotlin
 @Test
 public void whenNelements_return_NroComparisons(){
   assertTrue(treePerformance.comparisons(15) <= 4);
@@ -182,11 +184,11 @@ public void whenNelements_return_NroComparisons(){
   assertTrue(treePerformance.comparisons(1000) <=10);
   assertTrue(treePerformance.comparisons(1000000000) <=30);
 }
-{% endhighlight %}
+```
 
 And here is our implementation.
 
-{% highlight ruby %}
+```kotlin
 public class TreePerformance {
   public static int comparisons(int N) {
     int acumElements = 0;
@@ -203,6 +205,6 @@ public class TreePerformance {
     return comparisons;
   }
 }
-{% endhighlight %}
+```
 
 Understanding the inner workings of common data structures and algorithms is a must for Java developers. [Learn more](https://payhip.com/b/B9u6L){:target="_blank"}

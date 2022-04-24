@@ -2,11 +2,12 @@
 layout: post
 title:  "UML Diagrams for Java Developers"
 description: "Design essensial UML diagram before starting programming"
-featured-image: codersiteFlyers.jpg
-date:   2022-03-09 00:18:45 +0100
-last_modified_at: 2022-04-18 14:18:45 +0100
-categories: solid design
+author: moises
+categories: [ design ]
+image: assets/images/umlDiagrams.jpg
+comments: false
 ---
+
 The **U**nified **M**odeling **L**anguage is a graphical notation for modeling systems and conveying User software requirements. All developers must understand this notation before starting programming.
 
 UML is not only pretty pictures. Instead, they communicate the software design decisions to programmers.
@@ -46,7 +47,7 @@ These areas of interest in the software are:
 
 ### Context diagram
 
-A system context diagram shows the big picture. It says that building a new web application will achieve the user requirement.
+A system context diagram shows the big picture. This diagram shows actors and software systems rather than technologies. For our use case, it says that building a new web application will achieve the user requirement.
 
 ![flyerContextDiagram](/assets/images/flyerContextDiagram.png "codersite flyer Context Diagram"){:class="img-responsive"}
 
@@ -90,7 +91,7 @@ From the figure above:
 
 The following section shows how these compartments are translated into code.
 
-{% highlight ruby %}
+```kotlin
 public class FlyerComposerService {
 
   private QRService qrService;
@@ -106,8 +107,7 @@ public class FlyerComposerService {
   }
 
 }
-{% endhighlight %}
-
+```
 
 ### Relationships between classes
 
@@ -137,15 +137,15 @@ The following figure conveys the Class diagram.
 
 For example, we can see how the QRService interface is implemented into code.
 
-{% highlight ruby %}
+```kotlin
 public interface QRService {
   byte[] generateQRCode(String qrText) throws Exception;
 }
-{% endhighlight %}
+```
 
 In addition, we can see how the QRServiceImpl class is implemented into code
 
-{% highlight ruby %}
+```kotlin
 public class QRServiceImpl implements QRService {
   @Override
   public byte[] generateQRCode(String qrText) throws Exception {
@@ -153,7 +153,7 @@ public class QRServiceImpl implements QRService {
   //code omitted
   }
 }
-{% endhighlight %}  
+```
 
 ### Conclusions
 

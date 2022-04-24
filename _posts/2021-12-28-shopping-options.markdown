@@ -2,13 +2,14 @@
 layout: post
 title:  "Shopping options"
 description: "Shopping options under a budgeted amount"
-featured-image: shoppingOptions.jpg
-date: 2021-12-28 18:18:00 +0100
-categories: algorithms java interview
+author: moises
+categories: [ algorithms ]
+image: assets/images/shoppingOptions.jpg
+comments: false
+id: index
 ---
-An Amazon customer wants to buy a pair of jeans, a pair of shoes, a skirt, and a top but has a limited budget in dollars. Given different pricing options for each product, determine how many options our customer has to buy 1 of each product. You cannot spend more money than the budgeted amount.
 
-![merge-two-sorted-lists](/assets/images/shoppingOptions.jpg){:class="img-responsive"}
+An Amazon customer wants to buy a pair of jeans, a pair of shoes, a skirt, and a top but has a limited budget in dollars. Given different pricing options for each product, determine how many options our customer has to buy 1 of each product. You cannot spend more money than the budgeted amount.
 
 Example
 
@@ -52,7 +53,7 @@ To find how many ways the customer can purchase all four items, we can iterate t
 
 Here is our assumption based on a Test case.
 
-{% highlight ruby %}
+```kotlin
 @Test
 public void test_shoppingOptions() {
   int[] priceOfJeans = {2, 3};
@@ -62,11 +63,11 @@ public void test_shoppingOptions() {
   assertEquals(4, ShoppingOptions.getNumberOfOptions(priceOfJeans, priceOfShoes,
           priceOfSkirts, priceOfTops, 10));
 }
-{% endhighlight %}
+```
 
 We proceed to implement the algorithm that includes all possible input validations. The for-each construct helps our code be elegant and readable and there is no use of the index. See [clean code](https://medium.com/@mkgv89/clean-code-fe3a1deee528?sk=dd8329f6fddf7e4738e4d13c4c05aad2){:target="_blank"} practices.
 
-{% highlight ruby %}
+```kotlin
 public class ShoppingOptions {
   public static int getNumberOfOptions(int[] priceOfJeans,
     int[] priceOfShoes, int[] priceOfSkirts, int[] priceOfTops, int dollars) {
@@ -110,11 +111,11 @@ public class ShoppingOptions {
     return numberOfOptions;
   }
 }
-{% endhighlight %}
+```
 
 A function or method should be small, making it easier to read and understand. Therefore, we refactor our code, moving all validations to a private method. The following code shows a new implementation of our algorithm.
 
-{% highlight ruby %}
+```kotlin
 public class ShoppingOptions {
   public static int getNumberOfOptions(int[] priceOfJeans,
     int[] priceOfShoes, int[] priceOfSkirts, int[] priceOfTops, int dollars) {
@@ -149,7 +150,7 @@ public class ShoppingOptions {
     }
   }
 }
-{% endhighlight %}
+```
 
 This algorithm works fine when array size and values are small. But based on the constraints, imagine you are processing a priceOfShoe value of 100000 at the location priceOfShoes[101], and at that moment, the sum of priceOfJean + priceOfShoe is greater than 10 dollars. Therefore, it does not sense to continue processing the following possible 1000000000 items of pricesOfSkits[] and other 1000000000 items of priceOfTops[].
 
@@ -157,7 +158,7 @@ We need to skip this particular iteration and use “continue” to order proces
 
 We create a new test case with big prices. You can add more items to the arrays.
 
-{% highlight ruby %}
+```kotlin
 @Test
   public void test_shoppingOptionsBigPrices() {
     int[] priceOfJeans = {2,10000,3,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
@@ -171,15 +172,15 @@ We create a new test case with big prices. You can add more items to the arrays.
     assertEquals(4, ShoppingOptions.getNumberOfOptions(priceOfJeans, priceOfShoes,
             priceOfSkirts, priceOfTops, 10));
   }
-{% endhighlight %}
+```
 
 We run the test against the previous implementation, and the second test takes 32 ms on average. The execution time could increase if we complete the max size of our arrays.
 
-![merge-two-sorted-lists](/assets/images/shoppingOptionsTest1.JPG){:class="img-responsive"}
+![shopping-Options-Test1](/assets/images/shoppingOptionsTest1.JPG){:class="img-responsive"}
 
 The following listing shows an optimized solution.
 
-{% highlight ruby %}
+```kotlin
 public class ShoppingOptions {
   public static int getNumberOfOptions(int[] priceOfJeans,
     int[] priceOfShoes, int[] priceOfSkirts, int[] priceOfTops, int dollars) {
@@ -220,11 +221,11 @@ public class ShoppingOptions {
     }
   }
 }
-{% endhighlight %}
+```
 
 We can see the new execution time.
 
-![merge-two-sorted-lists](/assets/images/shoppingOptionsTest2.JPG){:class="img-responsive"}
+![shopping-Options-Test2](/assets/images/shoppingOptionsTest2.JPG){:class="img-responsive"}
 
 Well, what happens when our possible right prices are located at the end of the arrays?. One possible solution could be to sort the arrays before iterating and find the right combinations of prices.
 

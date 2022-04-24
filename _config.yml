@@ -1,80 +1,73 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: "CODER SITE for developers"
-title_separator: "|"
-name: Moises Gamio
-tagline: "codersite.dev"
-description: Make what is complex been easy to understand by learning the fundamentals of computer science and software design.
-author: Moises Gamio
-
-email: codersitedev@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Do you like coding? Make what is complex been easy to understand by learning the fundamentals of computer science and software design.
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://codersite.dev" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: MoisesGamio
-github_username:  mgamio
-policy: Privacy policy
-termsOfService: Terms of service
-impressum: Impressum
+# Site
+name: "codersite"
+title: "Improve your Programming Problem-solving skills with Examples"
+description: "This blogsite shares knowledge and use cases and helps developers be better software engineers."
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/logo.png'
+baseurl: ""
+url: "https://coderside.dev"
+google_analytics: 'UA-115356337-1'
+disqus: 'demowebsite'
+mailchimp-list: 'https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;id=8d64d36cba'
+include: ["_pages"]
 permalink: /:title/
-  
-# Build settings
-theme: minima
 
+# Authors
+authors:
+  moises:
+    name: Moises Gamio
+    display_name: Moises Gamio
+    avatar: 'assets/images/author.jpg'
+    email: codersitedev@gmail.com
+    web: https://codersite.dev/
+    twitter: https://twitter.com/MoisesGamio
+    description: "Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors."
+  john:
+    name: John
+    display_name: John    
+    avatar: 'assets/images/avatar.png'
+    gravatar: b1cc14991db7a456fcd761680bbc8f81
+    email: wowthemesnet@gmail.com
+    web: https://www.wowthemes.net
+    twitter: https://twitter.com/wowthemesnet
+    description: "This is the author box. Write a short description of the author here. You are currently previewing Mediumish demo, a Jekyll template compatible with Github pages."
+
+# Plugins
 plugins:
-  - jekyll-feed
+  - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-seo-tag
-
-search: true
-
-google_analytics: UA-115356337-1
-
-show_excerpts: true
-
-markdown: kramdown
-gems:
   - jekyll-feed
-  
-#exclude:
-#  - Gemfile
-#  - Gemfile.lock
+  - jekyll-seo-tag
+  - jekyll-archives
+    
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: archive
+  permalinks:
+    category: '/category/:name/'
+    
+# Pagination 
+paginate: 6
+paginate_path: /page:num/
+    
+# Other
+markdown: kramdown
 
-      
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+# Adsense (change to "enabled" to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)
+adsense: "enabled"
+adsense-data-ad-client: "pub-9154513114335042"
+adsense-data-ad-slot: "1269872539"
+
+# Lazy Images ("enabled" or "disabled")
+lazyimages: "disabled"
+
+exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]

@@ -2,12 +2,14 @@
 layout: post
 title:  "Big O Notation: Analysis of Algorithms - coding interview"
 description: "Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users"
-featured-image: order-of-growth.jpg
-date:   2020-06-22 14:18:45 +0100
-last_modified_at: 2022-03-22 17:50:00 +0100
-read_time: true
-categories: bigONotation
+author: moises
+categories: [ algorithms ]
+image: assets/images/algorithm.jpg
+featured: true
+hidden: true
+comments: false
 ---
+
 Big O Notation is a mathematical notation that helps us analyze how complex an algorithm is in terms of time and space. When we build an application for one user or millions of users, it matters.
 
 We implement different algorithms to solve one problem and measure how efficient is one respect to the other ones.
@@ -42,11 +44,11 @@ Big O Notation: **Common order-of-growth classifications**:
 
 It does not matter if the input contains 1000 or 1 million items, the code always executes in one step.
 
-{% highlight ruby %}
+```kotlin
 public void constant(List<string> list, String item) {
   list.add(item);
 }
-{% endhighlight %}
+```
 
 In a best-case scenario, an *add* method takes O(1) time. The worst-case scenario takes O(n).
 
@@ -54,7 +56,7 @@ In a best-case scenario, an *add* method takes O(1) time. The worst-case scenari
 
 An algorithm runs in O(N) time if the number of steps depends on the number of items included in the input.
 
-{% highlight ruby %}
+```kotlin
 public int sum(int[] numbers) {
   int sum =0;
   for (int i =0; i<numbers.length; i++) {
@@ -62,7 +64,7 @@ public int sum(int[] numbers) {
   }
   return sum;
 }
-{% endhighlight %}
+```
 
 The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons. You can visit [find the smallest number with the same number of digits](https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/){:target="_blank"}, for instance. Moreover, the simpler and more intuitive an algorithm is, the more useful and efficient it will be.
 
@@ -70,7 +72,7 @@ The main idea in Analysis of Algorithms is always to improve the algorithm perfo
 
 If an algorithm includes two loops nested in its code, we could say that it’s running in quadratic time O(N<sup>2</sup>). For instance, when a 2D matrix is initialized in a tic-tac-toe game.
 
-{% highlight ruby %}
+```kotlin
 private String [][] board;
 
 public void initializeBoard(int size) {
@@ -81,13 +83,13 @@ public void initializeBoard(int size) {
     }
   }
 }
-{% endhighlight %}
+```
 
 **O(N<sup>3</sup>) – Cubic**
 
 When the code includes at the most three nested loops, then the algorithm runs in Cubic time. For example: given N integers, how many triples sum to exactly zero?. One approach (not the best) is to use three nested loops.
 
-{% highlight ruby %}
+```kotlin
 public int countThreeSum(int[] numbers) {
   int N =numbers.length;
   int count =0;
@@ -99,7 +101,7 @@ public int countThreeSum(int[] numbers) {
 
   return count;
 }
-{% endhighlight %}
+```
 
 **O(LogN) – logarithmic**
 
@@ -113,7 +115,7 @@ Log232 = 5
 
 The binary search uses at most LogN key compares to search in a sorted array of size N. With 8 elements take 3 comparisons, with 16 elements takes 4 comparisons, with 32 elements takes 5 comparisons, and so on.
 
-{% highlight ruby %}
+```kotlin
 public static <T extends Comparable<T>> boolean search(T target, T[] array) {
   int min = 0;
   int max = array.length - 1;
@@ -129,7 +131,7 @@ public static <T extends Comparable<T>> boolean search(T target, T[] array) {
   }
   return false;
 }
-{% endhighlight %}
+```
 
 ## The complexity of an algorithm
 
@@ -144,7 +146,7 @@ Example: If the time complexity of an algorithm is 2n<sup>3</sup> + 4n + 3. Its 
 
 Given the following algorithm:
 
-{% highlight ruby %}
+```kotlin
 public Integer sumEvenNumbers(Integer N) {
   int sum = 0;
   for (int number = 1; number <= N; number++)
@@ -153,7 +155,7 @@ public Integer sumEvenNumbers(Integer N) {
 
   return sum;
 }
-{% endhighlight %}
+```
 
 First, we split the code into individual operations and then compute how many times it is being executed as is shown in the following table.
 
@@ -166,6 +168,8 @@ First, we split the code into individual operations and then compute how many ti
 | if ((number % 2) == 0) | N |
 | sum = sum + number; | N |
 | return sum; | 1 |
+|    |     |
+
 
 Now, we need to sum up how many times each operation is executing.
 
