@@ -47,6 +47,10 @@ Constraints
 
 1 ≤ dollars, prices ≤ 1000000000
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ## Solution
 
 To find how many ways the customer can purchase all four items, we can iterate the four arrays, combine all its products, and validate that he/she cannot spend more money than the budgeted amount.
@@ -222,6 +226,10 @@ public class ShoppingOptions {
   }
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 We can see the new execution time.
 

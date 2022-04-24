@@ -113,6 +113,10 @@ spring.datasource.password=password
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ### 3. Create JPA Entity – Book.java
 
 JPA stands for Java Persistence API and is a Java specification about how to handle relational data.
@@ -321,6 +325,10 @@ public class BookApiController implements BookApi {
   }
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ### 7. Configure openApi – OpenApiConfig.java
 

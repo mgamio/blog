@@ -56,6 +56,10 @@ Depth-First Search (DFS) is an algorithm for traversing or searching for in a Gr
 
 ![dfsSequence](/assets/images/dfsSequence.jpg){:class="img-responsive"}
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ### Implementing Graphs Algorithm ###
 
 We need an Object which supports any kind of data included in the Node (which includes the information, that we want to represent). We called it Vertex (because comes from a Mathematical concept). Moreover, to avoid searching in cycles, a boolean variable is included, so we will mark each node when we visit it.
@@ -160,6 +164,10 @@ public void addEdge(String city1, String city2) {
 ```
 
 You can implement your code for these methods. The point here is that we need to define the topology of our Graph, adding Vertices(cities) and edges that connect them.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ### Depth-First Search: The algorithm ###
 
