@@ -30,6 +30,10 @@ Both terms depend on the input size, the number of items in the input. Moreover,
 
 - Worst-case or Big O Notation  O(n): Gives us an upper bound on the runtime for any input. It gives us a kind of guarantee that the algorithm will never take any longer with a new input size.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ## Order of growth
 
 The order of growth is related to how the runtime of an algorithm increases when the size of the input increases without limit and tells us how efficient the algorithm is. Therefore, we can compare the relative performance of alternative algorithms.
@@ -132,6 +136,10 @@ public static <T extends Comparable<T>> boolean search(T target, T[] array) {
   return false;
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ## The complexity of an algorithm
 
