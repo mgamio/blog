@@ -30,6 +30,10 @@ To generalize the concept of *“the most valuable product”* we assign a *valu
 
 We start defining a java test creating a new BasketOptimized class. For naming variables, you can read [clean code](https://codersite.dev/clean-code/){:target="_blank"}.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ```kotlin
 public class BasketOptimizedTest {
   BasketOptimized basketOptimized;
@@ -117,6 +121,10 @@ public void productsNotOrderedByValue () {
 
 We realize that we need to order the array by value because we want the most valuable products, so its time to refactor our algorithm. What we need to do is to sort our input array.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ```kotlin
 public double[][] fill(double[][] myProducts, double budget) {
 
@@ -163,6 +171,10 @@ The test is expecting a result of 590 which corresponds to the final price of 3,
 [3.0, 0.49, 28.0]
 [6.0, 4.86, 14.0]
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 But here we realize the exists another combination of products which give us the most valuable products: 230+230+75+30+28 = 593 which corresponds to the final price of 3,44US$. Then we need to refactor our code to calculate all combinations (subsets) and return the most valuable products under a budget of 4 US$.
 

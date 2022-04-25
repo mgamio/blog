@@ -43,6 +43,10 @@ public class Payment {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ## The Problem: A Class has more than one responsibility
 
 But suddenly, the Cards team wants to change the validation to 10 days. However, the Payments team manages other policies related to when interests by late payment are applied. As a result, the Payments team enters in disagreement with the Cards team. This scenario is a clear example of how this Class design violates the Single Responsibility Principle because the Payment Class not only has more than one reason to change but also it breaks the business logic of the Payments team. Moreover, both teams are stuck on how to proceed.
@@ -73,6 +77,10 @@ public class Card {
 ```
 
 After that change and following [Clean code](https://codersite.dev/clean-code/){:target="_blank"} principles, we can see how it looks the new Payment Class (refactored as well):
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ```kotlin
 public class Payment {

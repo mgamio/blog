@@ -27,6 +27,10 @@ The most common type of Binary tree is the Binary search tree, which has two mai
 - The value of the left Node must be lesser than the value of its parent.
 - The value of the right Node must be greater than or equal to the value of its parent.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 Moreover, you can search in a tree data structure quickly, as you can with an ordered array, and you can also insert and delete items quickly, as you can with a linked list.
 
 It takes a maximum of log2(N) attempts to find a value. As the collection of nodes gets large, the binary search tree becomes faster over a linear search which takes up to (N) comparisons.
@@ -73,6 +77,10 @@ public class NodeP {
 We create a new abstract data type called TreeP to define the behavior of our Binary Search Tree, which includes a NodeP root variable for the first element to be inserted.
 
 We need to implement an insert method, where every time a new GTIN is inserted, it compares the current GTIN versus the new GTIN. We store the new GTIN on the left or the right Node, depending on the result. In this way, the insert method maintains an ordered binary search tree.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 A Test case to verify our assumptions:
 
@@ -169,6 +177,10 @@ public NodeP find(String gtin) {
   return current;
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 This Binary Search Tree works well when the data is inserted in random order. Therefore, when the values to be inserted are already *ordered*, a binary tree becomes unbalanced. With an unbalanced tree, we can not find data quickly.
 
