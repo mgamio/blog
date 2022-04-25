@@ -2,7 +2,7 @@
 name: "codersite"
 title: "Improve your Programming Problem-solving skills with Examples"
 description: "This blogsite shares knowledge and use cases and helps developers be better software engineers."
-logo: 'assets/images/logo.png'
+logo: 'assets/images/logo.svg'
 favicon: 'assets/images/logo.png'
 baseurl: ""
 url: "https://codersite.dev"
