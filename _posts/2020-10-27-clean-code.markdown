@@ -44,6 +44,10 @@ It must be refactored to this:
 private Z_E2F_RS_Result ingredients:
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 Imagine that we dont have the //ingredients comment in e2fResult variable. Then, further in any part of our code, when we try to process this variable, we have the following sentence:
 
 ```kotlin

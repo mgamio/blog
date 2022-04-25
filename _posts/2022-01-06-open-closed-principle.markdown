@@ -26,6 +26,10 @@ The RateLimit class implements an interceptor - *HandlerInterceptor* - that allo
 
 The team wants to retrieve the number of requests by plan from a text file. The following *getAPIPlans* method retrieves those parameters.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ```kotlin
 public class RateLimit implements HandlerInterceptor {
   private Map<String, Long> apiPlans;
@@ -76,6 +80,10 @@ The team implements the open-closed principle to support future changes for this
 ### Polymorphism
 
 Polymorphism is part of the core concepts of Object-Oriented Programming and means many forms, allowing an object to behave differently in some instances. For our scenario, polymorphism will enable the *getAPIPlans* method to achieve its goals in different ways: retrieve the parameters from a text file or a database.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ### Aggregation
 
@@ -132,6 +140,10 @@ public class DBData implements DataService {
   }
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 Introducing a new abstraction layer with different implementations avoids tight coupling between classes. 
 

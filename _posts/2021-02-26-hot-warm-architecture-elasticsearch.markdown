@@ -23,6 +23,10 @@ In Cold nodes, You are querying your index less frequently. You can deploy it to
 When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, and more, we usually analyze our web server *logs*.
 But this task is tedious because the *logs* are distributed in a cluster that contains several web servers machines.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ## Solution
 
 We are going to install a Hot-Cold Logging Cluster on the Elasticsearch Service as shown in the following figure.
@@ -68,6 +72,10 @@ xpack.security.enabled: false
 discovery.seed_hosts: ["110.1.0.102:9300", "110.1.0.103:9300"]
 path.repo: E:\repo
 {% endhighlight %}
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 Check the installation with the following command:
 

@@ -101,6 +101,10 @@ The main idea for documenting our back-end RESTful APIs is to communicate what o
 </dependency>
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ### 2. Configure H2 Database
 
 The H2 in-memory database is volatile, which means data will be lost when we restart the application. We add the following properties to the application.properties file.
@@ -112,10 +116,6 @@ spring.datasource.username=sa
 spring.datasource.password=password
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 ```
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 ### 3. Create JPA Entity – Book.java
 
@@ -192,6 +192,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {}
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ### 5. Create Spring Rest Controller Interface – BookApi
 

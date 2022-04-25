@@ -30,6 +30,10 @@ When two vertices are connected by a single edge, then they are adjacent or neig
 
 A Path is defined as a sequence of edges. The figure above shows a path from Berlin to München, that passes through cities Leipzig and Nürnberg. Therefore, the path is Berlin, Leipzig, Nürnberg, München.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 **Connected Graphs**
 
 A graph is connected if exists at least one path from every vertex to every other vertex. Therefore, the figure above is connected because connects all cities.
@@ -49,6 +53,10 @@ In Graphs, cycles are paths through edges and vertices that start and end at the
 ## Reasons to use Graphs ###
 
 One of the questions that a graph can answer is: which cities can be reached from a specified city?. Well, to respond to this question, we need to implement search algorithms. There are two different ways of searching in a graph: depth-first search (DFS) and breadth-first search (BFS).
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ## Depth-First Search (DFS) ###
 
@@ -85,6 +93,10 @@ In a graph of N vertices, we create a two-dimensional array of NxN. An edge betw
 ![dfsMatrix](/assets/images/dfsMatrix.jpg){:class="img-responsive"}
 
 The table above says, Leipzig is adjacent to Berlin, Dresden, and Nürnberg, for instance.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 **Create and Initialize an Abstract Data Type**
 
@@ -150,6 +162,10 @@ public void addVertex(Vertex city) {
 
 The *numOfVertices* variable determines the location (index) of the new City in the *arrayOfVertex[]*.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 **Adding an edge**
 
 We add two entries to *matrixOfAdjVertex*, because two cities are connected in both directions.
@@ -164,10 +180,6 @@ public void addEdge(String city1, String city2) {
 ```
 
 You can implement your code for these methods. The point here is that we need to define the topology of our Graph, adding Vertices(cities) and edges that connect them.
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 ### Depth-First Search: The algorithm ###
 
@@ -202,6 +214,10 @@ public void dfs(String city) {
     }
   }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ```kotlin
 private int getAdjVertex(int vertex) {

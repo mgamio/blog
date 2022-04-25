@@ -70,6 +70,10 @@ public int sum(int[] numbers) {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons. You can visit [find the smallest number with the same number of digits](https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/){:target="_blank"}, for instance. Moreover, the simpler and more intuitive an algorithm is, the more useful and efficient it will be.
 
 **O(N<sup>2</sup>) – quadratic**
@@ -117,6 +121,10 @@ Log216 = 4
 
 Log232 = 5
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 The binary search uses at most LogN key compares to search in a sorted array of size N. With 8 elements take 3 comparisons, with 16 elements takes 4 comparisons, with 32 elements takes 5 comparisons, and so on.
 
 ```kotlin
@@ -136,10 +144,6 @@ public static <T extends Comparable<T>> boolean search(T target, T[] array) {
   return false;
 }
 ```
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 ## The complexity of an algorithm
 
@@ -164,6 +168,10 @@ public Integer sumEvenNumbers(Integer N) {
   return sum;
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 First, we split the code into individual operations and then compute how many times it is being executed as is shown in the following table.
 

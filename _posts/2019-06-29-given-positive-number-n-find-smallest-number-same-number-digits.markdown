@@ -37,6 +37,10 @@ public class SmallestNumberTest {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 Here, is the implementation code that works for positive numbers:
 
 ```kotlin

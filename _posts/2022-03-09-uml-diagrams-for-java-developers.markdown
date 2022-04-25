@@ -26,6 +26,10 @@ Given a text message, a URL link, and an image, build a service that automates t
 
 From the user requirement, we can realize that we need a task to create a QR code, a job to manipulate elements inside an image, and a task to create a PDF file.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 We can implement our code or reuse external libraries as dependencies, but the following figure shows the desired result, whatever the implementation approach is chosen.
 
 ![codersiteFlyers](/assets/images/codersiteFlyers.jpg "codersite flyers"){:class="img-responsive"}
@@ -51,6 +55,10 @@ A system context diagram shows the big picture. This diagram shows actors and so
 
 ![flyerContextDiagram](/assets/images/flyerContextDiagram.png "codersite flyer Context Diagram"){:class="img-responsive"}
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ### Container diagram
 
 The container diagram shows how the responsibilities are distributed in different execution units - containers.
@@ -74,6 +82,10 @@ The API application returns the final image design in a PDF file to the user.
 ![flyerComponentDiagram](/assets/images/flyerComponentDiagram.png "codersite flyer Component Diagram"){:class="img-responsive"}
 
 It's better to include a new service called **FlyerComposerService** between the API application and the three services. It facilitates the migration task if you want to adopt a microservices architecture.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 The *FlyerComposerService* class is responsible for orchestrating all calls to these three last services.
 
@@ -120,6 +132,10 @@ UML conveys how a class is related to other classes. Let's see the kind of relat
 Dependency is a relationship used to show that some class requires or depends on another class or interface. In other words, some class provides (supplier) particular functionalities that others require (client). 
 
 At the **FlyerComposerService** class above, we can see how is declared the dependencies as member variables.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 #### Realization
 

@@ -119,6 +119,10 @@ public class ShoppingOptions {
 
 A function or method should be small, making it easier to read and understand. Therefore, we refactor our code, moving all validations to a private method. The following code shows a new implementation of our algorithm.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ```kotlin
 public class ShoppingOptions {
   public static int getNumberOfOptions(int[] priceOfJeans,
@@ -184,6 +188,10 @@ We run the test against the previous implementation, and the second test takes 3
 
 The following listing shows an optimized solution.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ```kotlin
 public class ShoppingOptions {
   public static int getNumberOfOptions(int[] priceOfJeans,
@@ -226,10 +234,6 @@ public class ShoppingOptions {
   }
 }
 ```
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 We can see the new execution time.
 
