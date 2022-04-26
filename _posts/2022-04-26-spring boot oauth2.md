@@ -1,17 +1,20 @@
 ---
 layout: post
 title:  "Spring Boot and OAuth2"
+description: "OAuth is an authorization framework many companies use to secure access to its protected resources. "
 author: moises
-categories: [ Jekyll, tutorial ]
+categories: [ Web APIs ]
 image: assets/images/oauthRoles.jpg
+comments: false
 ---
-This tutorial will show how to integrate OAuth2 with Spring Security in a Spring Boot application.
 
-The Spring Boot application I am going to use is based on my previous article: <a href="https://codersite.dev/documenting-rest-api-openapi3/">Documenting a SpringBoot REST API with OpenAPI 3</a>
+This tutorial will show how to integrate OAuth2 with Spring Security in a Spring Boot application with openapi3.
+
+The Spring Boot application I am going to use is based on my previous article: [Documenting a SpringBoot REST API with OpenAPI 3](https://codersite.dev/documenting-rest-api-openapi3/){:target="_blank"}
 
 ## OAuth
 
-<a href="https://datatracker.ietf.org/doc/html/rfc6749">OAuth</a> is an authorization framework many companies use to secure access to its protected resources. It performs this by using access tokens.
+[OAuth](https://datatracker.ietf.org/doc/html/rfc6749){:target="_blank"} is an authorization framework many companies use to secure access to its protected resources. It performs this by using access tokens.
 
 The token represents a delegated right of access on behalf of the resource owner.
 
@@ -26,6 +29,10 @@ OAuth defines four roles
 - Client – the application which require access to protected resources on behalf of the resource owner and with its authorization.
 
 - Authorization Server – responsible for authenticating user’s identity and gives an authorization token.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ## Authorization grant
 
@@ -47,19 +54,19 @@ The  Client Credentials grant type is the most appropriate for server-to-server 
 
 We add the Spring oauth dependency to our pom.xml file.
 
-{% highlight ruby %}
+```kotlin
 <dependency>
   <groupId>org.springframework.security.oauth.boot</groupId>
   <artifactId>spring-security-oauth2-autoconfigure</artifactId>
   <version>2.5.1</version>
 </dependency>
-{% endhighlight %}
+```
 
 ### Enable Authorization Server Support
 
 We open the main application class and add @EnableAuthorizationServer to enable the support for the authorization server. 
 
-{% highlight ruby %}
+```kotlin
 @EnableAuthorizationServer
 @SpringBootApplication
 public class OpenapiApplication {
@@ -67,7 +74,11 @@ public class OpenapiApplication {
 		SpringApplication.run(OpenapiApplication.class, args);
 	}
 }
-{% endhighlight %}
+```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 @EnableAuthorizationServer enables the client credentials grant type by default.
 
@@ -75,16 +86,16 @@ public class OpenapiApplication {
 
 Open/create the resources/application.yml file and add the following properties:
 
-{% highlight ruby %}
+```kotlin
 security:
   oauth2:
     client:
-      client-id: codercuy-client
+      client-id: codersite-client
       client-secret: strong-secret
       scope:
         - read
         - write
-{% endhighlight %}
+```
 
 Now, we need to tell Spring which endpoints -resources- must be authenticated. Otherwise, all requests will skip security.
 
@@ -92,7 +103,7 @@ Now, we need to tell Spring which endpoints -resources- must be authenticated. O
 
 Create a class that extends ResourceServerConfigurerAdapter and add the following code.
 
-{% highlight ruby %}
+```kotlin
 @Configuration
 @EnableResourceServer
 public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter
@@ -105,7 +116,7 @@ public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter
             .antMatchers("/").permitAll();
   }
 }
-{% endhighlight %}
+```
 
 Now, run the main application.
 
@@ -119,11 +130,15 @@ Then you receive an error.
 
 Why this happens? Well, we need to tell openapi that configure security.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ### Configure openapi and oauth2
 
 Open OpenApiConfig class and add the new code.
 
-{% highlight ruby %}
+```kotlin
 @Configuration
 public class OpenApiConfig {
 
@@ -154,7 +169,7 @@ public class OpenApiConfig {
         );
   }
 }
-{% endhighlight %}
+```
 
 Now, rerun the main application, and we can see a new green button called Authorize. Then enter the credentials and the scope.
 
