@@ -90,7 +90,7 @@ Open/create the resources/application.yml file and add the following properties:
 security:
   oauth2:
     client:
-      client-id: codersite-client
+      client-id: codercuy-client
       client-secret: strong-secret
       scope:
         - read
