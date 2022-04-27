@@ -5,8 +5,8 @@
     <description>This blogsite shares knowledge and use cases and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 28 Apr 2022 00:45:55 +0200</pubDate>
-    <lastBuildDate>Thu, 28 Apr 2022 00:45:55 +0200</lastBuildDate>
+    <pubDate>Thu, 28 Apr 2022 01:21:59 +0200</pubDate>
+    <lastBuildDate>Thu, 28 Apr 2022 01:21:59 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -17,7 +17,7 @@
 
 &lt;h2 id=&quot;oauth&quot;&gt;OAuth&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749&quot; target=&quot;_blank&quot;&gt;OAuth&lt;/a&gt; is an authorization framework many companies use to secure access to its protected resources. It performs this by using access tokens.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749&quot; target=&quot;_blank&quot;&gt;OAuth&lt;/a&gt; is an authorization framework many companies use to secure access to their protected resources. It performs this by using access tokens.&lt;/p&gt;
 
 &lt;p&gt;The token represents a delegated right of access on behalf of the resource owner.&lt;/p&gt;
 
@@ -27,16 +27,16 @@
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;Resource Owner – the user who grants access to a protected resource.&lt;/p&gt;
+    &lt;p&gt;The Resource Owner is the user who grants access to a protected resource.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Resource Server – store user’s data and http services and respond to protected resource requests using access tokens.&lt;/p&gt;
+    &lt;p&gt;Resource Server stores users’ data and HTTP services and responds to protected resource requests using access tokens.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Client – the application which require access to protected resources on behalf of the resource owner and with its authorization.&lt;/p&gt;
+    &lt;p&gt;The client is the application that requires access to protected resources on behalf of the resource owner and its authorization.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Authorization Server – responsible for authenticating user’s identity and gives an authorization token.&lt;/p&gt;
+    &lt;p&gt;The authorization server is responsible for authenticating the user’s identity and giving an authorization token.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -60,18 +60,18 @@
     &lt;p&gt;Implicit, optimized for clients implemented in a browser using a scripting language such as JavaScript&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Resource Owner Password Credentials, used when there is a high degree of trust between the resource owner and the client&lt;/p&gt;
+    &lt;p&gt;Resource Owner Password Credentials are used when there is a high degree of trust between the resource owner and the client&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Client Credentials, used when the client is requesting access to protected resources based on an authorization previously arranged with the authorization server.&lt;/p&gt;
+    &lt;p&gt;Client Credentials are used when the client is requesting access to protected resources based on an authorization previously arranged with the authorization server.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;The  Client Credentials grant type is the most appropriate for server-to-server applications, such as typical B2B interactions.&lt;/p&gt;
 
-&lt;h3 id=&quot;gettin-started&quot;&gt;Gettin Started&lt;/h3&gt;
+&lt;h3 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h3&gt;
 
-&lt;p&gt;We add the Spring oauth dependency to our pom.xml file.&lt;/p&gt;
+&lt;p&gt;We add the Spring Oauth dependency to our pom.xml file.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -135,7 +135,7 @@
         &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Now, we need to tell Spring which endpoints -resources- must be authenticated. Otherwise, all requests will skip security.&lt;/p&gt;
+&lt;p&gt;We need to tell Spring which endpoints -resources- must be authenticated. Otherwise, all requests will skip security.&lt;/p&gt;
 
 &lt;h3 id=&quot;enable-resource-server-support&quot;&gt;Enable Resource Server Support&lt;/h3&gt;
 
@@ -171,13 +171,13 @@
 
 &lt;p&gt;&lt;a href=&quot;http://localhost:8080/swagger-ui.html&quot; target=&quot;_blank&quot;&gt;http://localhost:8080/swagger-ui.html&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;And try to insert a book (Try out button). In the bookAuthorization parameter write anything (“key” for example).&lt;/p&gt;
+&lt;p&gt;And try to insert a book (Try out button). In the bookAuthorization parameter, write anything (“key,” for example).&lt;/p&gt;
 
 &lt;p&gt;Then you receive an error.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/oauth2Post.jpg&quot; alt=&quot;oauth2Post&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Why this happens? Well, we need to tell openapi that configure security.&lt;/p&gt;
+&lt;p&gt;Why does this happen? Well, we need to tell OpenAPI that configures security.&lt;/p&gt;
 
 &lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
 &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
@@ -185,7 +185,7 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 &lt;/script&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;configure-openapi-and-oauth2&quot;&gt;Configure openapi and oauth2&lt;/h3&gt;
+&lt;h3 id=&quot;configure-openapi-andoauth2&quot;&gt;Configure OpenAPI and Oauth2&lt;/h3&gt;
 
 &lt;p&gt;Open OpenApiConfig class and add the new code.&lt;/p&gt;
 
