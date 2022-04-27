@@ -230,7 +230,7 @@
 
 <h2 id="oauth">OAuth</h2>
 
-<p><a href="https://datatracker.ietf.org/doc/html/rfc6749" target="_blank">OAuth</a> is an authorization framework many companies use to secure access to its protected resources. It performs this by using access tokens.</p>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc6749" target="_blank">OAuth</a> is an authorization framework many companies use to secure access to their protected resources. It performs this by using access tokens.</p>
 
 <p>The token represents a delegated right of access on behalf of the resource owner.</p>
 
@@ -240,16 +240,16 @@
 
 <ul>
   <li>
-    <p>Resource Owner – the user who grants access to a protected resource.</p>
+    <p>The Resource Owner is the user who grants access to a protected resource.</p>
   </li>
   <li>
-    <p>Resource Server – store user’s data and http services and respond to protected resource requests using access tokens.</p>
+    <p>Resource Server stores users’ data and HTTP services and responds to protected resource requests using access tokens.</p>
   </li>
   <li>
-    <p>Client – the application which require access to protected resources on behalf of the resource owner and with its authorization.</p>
+    <p>The client is the application that requires access to protected resources on behalf of the resource owner and its authorization.</p>
   </li>
   <li>
-    <p>Authorization Server – responsible for authenticating user’s identity and gives an authorization token.</p>
+    <p>The authorization server is responsible for authenticating the user’s identity and giving an authorization token.</p>
   </li>
 </ul>
 
@@ -273,18 +273,18 @@
     <p>Implicit, optimized for clients implemented in a browser using a scripting language such as JavaScript</p>
   </li>
   <li>
-    <p>Resource Owner Password Credentials, used when there is a high degree of trust between the resource owner and the client</p>
+    <p>Resource Owner Password Credentials are used when there is a high degree of trust between the resource owner and the client</p>
   </li>
   <li>
-    <p>Client Credentials, used when the client is requesting access to protected resources based on an authorization previously arranged with the authorization server.</p>
+    <p>Client Credentials are used when the client is requesting access to protected resources based on an authorization previously arranged with the authorization server.</p>
   </li>
 </ul>
 
 <p>The  Client Credentials grant type is the most appropriate for server-to-server applications, such as typical B2B interactions.</p>
 
-<h3 id="gettin-started">Gettin Started</h3>
+<h3 id="getting-started">Getting Started</h3>
 
-<p>We add the Spring oauth dependency to our pom.xml file.</p>
+<p>We add the Spring Oauth dependency to our pom.xml file.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -348,7 +348,7 @@
         <span class="p">-</span> <span class="n">write</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Now, we need to tell Spring which endpoints -resources- must be authenticated. Otherwise, all requests will skip security.</p>
+<p>We need to tell Spring which endpoints -resources- must be authenticated. Otherwise, all requests will skip security.</p>
 
 <h3 id="enable-resource-server-support">Enable Resource Server Support</h3>
 
@@ -384,13 +384,13 @@
 
 <p><a href="http://localhost:8080/swagger-ui.html" target="_blank">http://localhost:8080/swagger-ui.html</a></p>
 
-<p>And try to insert a book (Try out button). In the bookAuthorization parameter write anything (“key” for example).</p>
+<p>And try to insert a book (Try out button). In the bookAuthorization parameter, write anything (“key,” for example).</p>
 
 <p>Then you receive an error.</p>
 
 <p><img src="/assets/images/oauth2Post.jpg" alt="oauth2Post" class="img-responsive" /></p>
 
-<p>Why this happens? Well, we need to tell openapi that configure security.</p>
+<p>Why does this happen? Well, we need to tell OpenAPI that configures security.</p>
 
 <div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -398,7 +398,7 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script></div>
 
-<h3 id="configure-openapi-and-oauth2">Configure openapi and oauth2</h3>
+<h3 id="configure-openapi-andoauth2">Configure OpenAPI and Oauth2</h3>
 
 <p>Open OpenApiConfig class and add the new code.</p>
 

@@ -14,7 +14,7 @@ The Spring Boot application I am going to use is based on my previous article: [
 
 ## OAuth
 
-[OAuth](https://datatracker.ietf.org/doc/html/rfc6749){:target="_blank"} is an authorization framework many companies use to secure access to its protected resources. It performs this by using access tokens.
+[OAuth](https://datatracker.ietf.org/doc/html/rfc6749){:target="_blank"} is an authorization framework many companies use to secure access to their protected resources. It performs this by using access tokens.
 
 The token represents a delegated right of access on behalf of the resource owner.
 
@@ -22,13 +22,13 @@ The token represents a delegated right of access on behalf of the resource owner
 
 OAuth defines four roles
 
-- Resource Owner – the user who grants access to a protected resource.
+- The Resource Owner is the user who grants access to a protected resource.
 
-- Resource Server – store user’s data and http services and respond to protected resource requests using access tokens.
+- Resource Server stores users' data and HTTP services and responds to protected resource requests using access tokens.
 
-- Client – the application which require access to protected resources on behalf of the resource owner and with its authorization.
+- The client is the application that requires access to protected resources on behalf of the resource owner and its authorization.
 
-- Authorization Server – responsible for authenticating user’s identity and gives an authorization token.
+- The authorization server is responsible for authenticating the user's identity and giving an authorization token.
 
 <div>
 {%- include inArticleAds.html -%}
@@ -44,15 +44,15 @@ OAuth defines four grant types.
 
 - Implicit, optimized for clients implemented in a browser using a scripting language such as JavaScript
 
-- Resource Owner Password Credentials, used when there is a high degree of trust between the resource owner and the client
+- Resource Owner Password Credentials are used when there is a high degree of trust between the resource owner and the client
 
-- Client Credentials, used when the client is requesting access to protected resources based on an authorization previously arranged with the authorization server.
+- Client Credentials are used when the client is requesting access to protected resources based on an authorization previously arranged with the authorization server.
 
 The  Client Credentials grant type is the most appropriate for server-to-server applications, such as typical B2B interactions.
 
-### Gettin Started
+### Getting Started
 
-We add the Spring oauth dependency to our pom.xml file.
+We add the Spring Oauth dependency to our pom.xml file.
 
 ```kotlin
 <dependency>
@@ -97,7 +97,7 @@ security:
         - write
 ```
 
-Now, we need to tell Spring which endpoints -resources- must be authenticated. Otherwise, all requests will skip security.
+We need to tell Spring which endpoints -resources- must be authenticated. Otherwise, all requests will skip security.
 
 ### Enable Resource Server Support
 
@@ -122,19 +122,19 @@ Now, run the main application.
 
 <a href="http://localhost:8080/swagger-ui.html" target="_blank">http://localhost:8080/swagger-ui.html</a>
 
-And try to insert a book (Try out button). In the bookAuthorization parameter write anything ("key" for example).
+And try to insert a book (Try out button). In the bookAuthorization parameter, write anything ("key," for example).
 
 Then you receive an error.
 
 ![oauth2Post](/assets/images/oauth2Post.jpg){:class="img-responsive"}
 
-Why this happens? Well, we need to tell openapi that configure security.
+Why does this happen? Well, we need to tell OpenAPI that configures security.
 
 <div>
 {%- include inArticleAds.html -%}
 </div>
 
-### Configure openapi and oauth2
+### Configure OpenAPI and Oauth2
 
 Open OpenApiConfig class and add the new code.
 
