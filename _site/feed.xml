@@ -5,13 +5,13 @@
     <description>This blogsite shares knowledge and use cases and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 Apr 2022 23:34:11 +0200</pubDate>
-    <lastBuildDate>Tue, 26 Apr 2022 23:34:11 +0200</lastBuildDate>
+    <pubDate>Thu, 28 Apr 2022 00:45:55 +0200</pubDate>
+    <lastBuildDate>Thu, 28 Apr 2022 00:45:55 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
         <title>Spring Boot and OAuth2</title>
-        <description>&lt;p&gt;This tutorial will show how to integrate OAuth2 with Spring Security in a Spring Boot application with openapi3.&lt;/p&gt;
+        <description>&lt;p&gt;This tutorial will show how to integrate OAuth2 with Spring Security in a Spring Boot application with OpenAPI 3.&lt;/p&gt;
 
 &lt;p&gt;The Spring Boot application I am going to use is based on my previous article: &lt;a href=&quot;https://codersite.dev/documenting-rest-api-openapi3/&quot; target=&quot;_blank&quot;&gt;Documenting a SpringBoot REST API with OpenAPI 3&lt;/a&gt;&lt;/p&gt;
 
@@ -171,7 +171,7 @@
 
 &lt;p&gt;&lt;a href=&quot;http://localhost:8080/swagger-ui.html&quot; target=&quot;_blank&quot;&gt;http://localhost:8080/swagger-ui.html&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;And try to insert a book (Try out button). In bookAuthorization parameter write anything (“key” for example).&lt;/p&gt;
+&lt;p&gt;And try to insert a book (Try out button). In the bookAuthorization parameter write anything (“key” for example).&lt;/p&gt;
 
 &lt;p&gt;Then you receive an error.&lt;/p&gt;
 
@@ -250,6 +250,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;From the previous code, you can see that before setting up a security requirement in OpenAPI, we need to define a new security scheme component called “spring_oauth” for example.&lt;/p&gt;
 
 &lt;p&gt;Now, rerun the main application, and we can see a new green button called Authorize. Then enter the credentials and the scope.&lt;/p&gt;
 
