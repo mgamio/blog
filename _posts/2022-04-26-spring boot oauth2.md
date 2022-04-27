@@ -8,7 +8,7 @@ image: assets/images/oauthRoles.jpg
 comments: false
 ---
 
-This tutorial will show how to integrate OAuth2 with Spring Security in a Spring Boot application with openapi3.
+This tutorial will show how to integrate OAuth2 with Spring Security in a Spring Boot application with OpenAPI 3.
 
 The Spring Boot application I am going to use is based on my previous article: [Documenting a SpringBoot REST API with OpenAPI 3](https://codersite.dev/documenting-rest-api-openapi3/){:target="_blank"}
 
@@ -122,7 +122,7 @@ Now, run the main application.
 
 <a href="http://localhost:8080/swagger-ui.html" target="_blank">http://localhost:8080/swagger-ui.html</a>
 
-And try to insert a book (Try out button). In bookAuthorization parameter write anything ("key" for example).
+And try to insert a book (Try out button). In the bookAuthorization parameter write anything ("key" for example).
 
 Then you receive an error.
 
@@ -170,6 +170,8 @@ public class OpenApiConfig {
   }
 }
 ```
+
+From the previous code, you can see that before setting up a security requirement in OpenAPI, we need to define a new security scheme component called "spring_oauth" for example.
 
 Now, rerun the main application, and we can see a new green button called Authorize. Then enter the credentials and the scope.
 
