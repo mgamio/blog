@@ -5,12 +5,12 @@
     <description>This blogsite shares knowledge and use cases and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 28 Apr 2022 01:21:59 +0200</pubDate>
-    <lastBuildDate>Thu, 28 Apr 2022 01:21:59 +0200</lastBuildDate>
+    <pubDate>Sun, 08 May 2022 14:27:54 +0200</pubDate>
+    <lastBuildDate>Sun, 08 May 2022 14:27:54 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
-        <title>Spring Boot and OAuth2</title>
+        <title>Spring Boot, OpenAPI3, and OAuth2</title>
         <description>&lt;p&gt;This tutorial will show how to integrate OAuth2 with Spring Security in a Spring Boot application with OpenAPI 3.&lt;/p&gt;
 
 &lt;p&gt;The Spring Boot application I am going to use is based on my previous article: &lt;a href=&quot;https://codersite.dev/documenting-rest-api-openapi3/&quot; target=&quot;_blank&quot;&gt;Documenting a SpringBoot REST API with OpenAPI 3&lt;/a&gt;&lt;/p&gt;
@@ -2219,7 +2219,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;Documenting an API facilitates interaction between internal development teams that build different web services for the same product.&lt;/p&gt;
 
-&lt;iframe type=&quot;text/html&quot; width=&quot;336&quot; height=&quot;550&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; style=&quot;max-width:100%&quot; src=&quot;https://lesen.amazon.de/kp/card?asin=B086JCK6C4&amp;amp;preview=inline&amp;amp;linkCode=kpe&amp;amp;ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&amp;amp;tag=codersite20-20&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;Let’s now see how to integrate &lt;a href=&quot;https://codersite.dev/spring-boot-oauth2/&quot; target=&quot;_blank&quot;&gt;OAuth2&lt;/a&gt; to protect our endpoints.&lt;/p&gt;
 </description>
         <pubDate>Fri, 02 Oct 2020 00:00:00 +0200</pubDate>
         <link>http://localhost:4000/documenting-rest-api-openapi3/</link>

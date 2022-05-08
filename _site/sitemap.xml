@@ -6,12 +6,22 @@
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://codersite.dev/about/</loc>
+  <loc>https://codersite.dev</loc>
+  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://codersite.dev/about</loc>
   <lastmod>2022-02-17T21:30:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://codersite.dev/donate/</loc>
+  <loc>https://codersite.dev/affiliate</loc>
+  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codersite.dev/categories</loc>
   <lastmod>2022-02-17T21:30:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -81,17 +91,17 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://codersite.dev/policies/policy.html</loc>
+  <loc>https://codersite.dev/policy.html</loc>
   <lastmod>2022-02-17T21:30:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://codersite.dev/policies/termsOfService.html</loc>
+  <loc>https://codersite.dev/termsOfService.html</loc>
   <lastmod>2022-02-17T21:30:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://codersite.dev/policies/impressum.html</loc>
+  <loc>https://codersite.dev/impressum.html</loc>
   <lastmod>2022-02-17T21:30:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -108,6 +118,11 @@
 <url>
   <loc>https://codersite.dev/uml-diagrams-for-java-developers/</loc>
   <lastmod>2022-03-09T13:30:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codersite.dev/spring-boot-oauth2/</loc>
+  <lastmod>2022-05-08T13:30:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 </urlset>
