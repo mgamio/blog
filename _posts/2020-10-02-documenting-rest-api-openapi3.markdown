@@ -421,4 +421,4 @@ Once you receive the [technical specifications in UML](https://codersite.dev/uml
 
 Documenting an API facilitates interaction between internal development teams that build different web services for the same product.
 
-<iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen style="max-width:100%" src="https://lesen.amazon.de/kp/card?asin=B086JCK6C4&preview=inline&linkCode=kpe&ref_=cm_sw_r_kb_dp_f2H6Fb7NENATK&tag=codersite20-20" ></iframe>
+Let's now see how to integrate [OAuth2](https://codersite.dev/spring-boot-oauth2/){:target="_blank"} to protect our endpoints.
