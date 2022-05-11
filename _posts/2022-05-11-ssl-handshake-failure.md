@@ -19,6 +19,10 @@ A summary of the steps in the SSL handshake:
 
 For more information about cryptographic algorithms and digital certificates, refer [here](https://www.ibm.com/docs/en/ibm-mq/7.5?topic=mechanisms-cryptographic-security-protocols-tls-ssl){:target="_blank"}.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ## Handshake Failure Scenario
 
 We try to build a Spring WebClient component to consume data from an API Server (target_server).
@@ -51,6 +55,9 @@ Once the client is running, throws the following error.
 ```kotlin
 ERROR WebClientRequestException: Received fatal alert: handshake_failure; nested exception is javax.net.ssl.SSLException: Received fatal alert: handshake_failure)
 ```
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ## Analysis
 
@@ -90,6 +97,9 @@ SSL-Session:
     Protocol  : TLSv1.2
     Cipher    : ECDHE-RSA-AES128-GCM-SHA256
 ```
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 The server is using the **TLSv1.2** protocol, that means Client and Server are not using the same protocol version.
 
