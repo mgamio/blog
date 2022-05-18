@@ -246,7 +246,8 @@
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
-</script></div>
+</script>
+<br /></div>
 
 <h2 id="handshake-failure-scenario">Handshake Failure Scenario</h2>
 
@@ -300,13 +301,47 @@
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
-</script></div>
+</script>
+<br /></div>
 
 <h2 id="analysis">Analysis</h2>
 
 <p>We usually check if both parties - client and server - comply with all the steps of the Handshake mechanism.</p>
 
-<p>When the client initializes, we see the following lines on the console.</p>
+<p>The first two steps deal with cryptographic protocols and cipher suites.</p>
+
+<h3 id="what-is-tls">What is TLS?</h3>
+
+<p>Transport Layer Security (TLS) is a protocol for implementing cryptography on the web. Encrypts data sent over the Internet to ensure hackers cannot see your sensitive information such as passwords or credit card numbers.</p>
+
+<p>TLS protocol evolved from Secure Socket Layer (SSL) developed by Netscape to secure web sessions.</p>
+
+<h3 id="cipher-suite">Cipher Suite</h3>
+
+<p>A Cipher Suite is a set of cryptographic algorithms used by an SSL or TLS connection. A suite includes three distinct algorithms:</p>
+
+<ul>
+  <li>The key exchange and authentication algorithm.</li>
+  <li>The encryption algorithm to encipher the data</li>
+  <li>The MAC (Message Authentication Code) algorithm generates the message digest.</li>
+</ul>
+
+<p>For example, the Cipher Suite SSL_RSA_WITH_RC4_128_MD5 includes:</p>
+
+<ul>
+  <li>The RSA key exchange and authentication algorithm</li>
+  <li>The RC4 encryption algorithm, using a 128-bit key</li>
+  <li>The MD5 MAC algorithm</li>
+</ul>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>Returning to our scenario, when the client initializes, we see the following lines on the console.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -359,7 +394,8 @@
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
-</script></div>
+</script>
+<br /></div>
 
 <p>The server is using the <strong>TLSv1.2</strong> protocol, that means Client and Server are not using the same protocol version.</p>
 
