@@ -63,7 +63,33 @@ ERROR WebClientRequestException: Received fatal alert: handshake_failure; nested
 
 We usually check if both parties - client and server - comply with all the steps of the Handshake mechanism.
 
-When the client initializes, we see the following lines on the console.
+The first two steps deal with cryptographic protocols and cipher suites.
+
+### What is TLS?
+
+Transport Layer Security (TLS) is a protocol for implementing cryptography on the web. Encrypts data sent over the Internet to ensure hackers cannot see your sensitive information such as passwords or credit card numbers.
+
+TLS protocol evolved from Secure Socket Layer (SSL) developed by Netscape to secure web sessions. 
+
+### Cipher Suite
+
+A Cipher Suite is a set of cryptographic algorithms used by an SSL or TLS connection. A suite includes three distinct algorithms:
+
+- The key exchange and authentication algorithm.
+- The encryption algorithm to encipher the data
+- The MAC (Message Authentication Code) algorithm generates the message digest.
+
+For example, the Cipher Suite SSL_RSA_WITH_RC4_128_MD5 includes:
+
+- The RSA key exchange and authentication algorithm
+- The RC4 encryption algorithm, using a 128-bit key
+- The MD5 MAC algorithm
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
+Returning to our scenario, when the client initializes, we see the following lines on the console.
 
 ```kotlin
 15:11:23.567 [main] DEBUG io.netty.handler.ssl.OpenSsl - netty-tcnative not in the classpath; OpenSslEngine will be unavailable.
