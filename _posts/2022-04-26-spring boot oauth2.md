@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Spring Boot, OpenAPI3, and OAuth2"
-description: "OAuth is an authorization framework many companies use to secure access to its protected resources. "
+description: "OAuth is an authorization framework many companies use to secure access to its protected resources."
 author: moises
 categories: [ Web APIs ]
 image: assets/images/oauthRoles.jpg
