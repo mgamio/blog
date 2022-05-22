@@ -42,6 +42,8 @@ Inheritance is a process in which a class inherits the attributes and methods of
 
 Inheritance provides the ability to create new classes with new functionalities maintaining the functionalities inherited. In this way, it promotes code reusability.
 
+This relationship is an *is-a* relationship because when a subclass inherits from a superclass, it can do anything that the superclass can do. 
+
 In Java, we create inheritance between classes via the *extends* keyword.
 
 <div>
@@ -51,6 +53,40 @@ In Java, we create inheritance between classes via the *extends* keyword.
 ## Polymorphism
 
 Polymorphism means many shapes and is coupled to inheritance. For example, a Shape class defines a *draw* method, but Square and Circle's subclasses will implement it differently.
+
+## Composition
+
+The composition provides a mechanism for building classes from other classes. In Java, we usually create a class with instance variables that references one or more objects of other classes.
+
+The benefit of separating one class from another one is the Reuse.
+
+For example, in a shopping context, we need an *address* where to deliver the order.
+
+```kotlin
+public class Order {
+
+  private int clientId;
+  private List<Item> orderItems;
+  private Address shippingAddress;
+  
+  //code omitted for brevity
+}
+```
+
+In a bank context, we need an *address* where to contact a customer.
+
+```kotlin
+public class Customer {
+
+  private int customerId;
+  private String lastName;
+  private Address address;
+  
+  //code omitted for brevity
+}
+```
+
+We use the term *has-a* to describe composition relationships. An order *has-a(n)* address. A customer *has-a(n)* address.
 
 ## Advantanges of object-oriented programming
 
