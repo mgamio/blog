@@ -54,7 +54,9 @@ public class Product {
   String name;
   Double price;
   String manufacturerName;
-  ... 
+  .
+  //code omitted for brevity
+}
 ```
 
 We create a NodeP Class to store a list of Products. Moreover, this Class allows us to have two NodeP attributes to hold the left and right nodes.
