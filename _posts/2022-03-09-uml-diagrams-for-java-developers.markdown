@@ -115,7 +115,7 @@ public class FlyerComposerService {
     byte[] image,
     int nroFlyers)
     .
-    //code omitted
+    //code omitted for brevity
   }
 
 }
@@ -166,7 +166,7 @@ public class QRServiceImpl implements QRService {
   @Override
   public byte[] generateQRCode(String qrText) throws Exception {
   .
-  //code omitted
+  //code omitted for brevity
   }
 }
 ```

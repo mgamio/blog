@@ -112,7 +112,7 @@ public class TextData implements DataService {
   @Override
   public Map<String, Long> getAPIPlans() throws Exception {
     Map<String, Long> apiPlans = new ConcurrentHashMap<>();
-    //code omitted
+    //code omitted for brevity
 	
     return apiPlans;
   }
@@ -133,7 +133,7 @@ public class DBData implements DataService {
   public Map<String, Long> getAPIPlans() throws Exception {
     Map<String, Long> apiPlans = new ConcurrentHashMap<>();
     for (Plan plan : datasource.getAPIPlans()) {
-    //code omitted
+    //code omitted for brevity
 	 
     }
     return apiPlans;
