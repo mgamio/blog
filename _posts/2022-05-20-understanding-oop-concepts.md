@@ -60,7 +60,7 @@ The composition provides a mechanism for building classes from other classes. In
 
 The benefit of separating one class from another one is the Reuse.
 
-For example, in a shopping context, we need an *address* where to deliver the order.
+For example, in a shopping context, we need a list of requested items and an *address* where to deliver the order.
 
 ```kotlin
 public class Order {
@@ -73,7 +73,62 @@ public class Order {
 }
 ```
 
-In a bank context, we need an *address* where to contact a customer.
+We build an Item class including an Article class.
+
+```kotlin
+public class Item {
+
+  private Article article;
+  private double quantity;
+  
+  //code omitted for brevity
+}
+```
+
+And the Article class includes enough attributes to support the shopping business.
+
+```kotlin
+public class Article {
+
+  private int id;
+  private String name;
+  private double deliveryPrice;
+  
+  //code omitted for brevity
+}
+```
+
+Even we can reuse the Article class to support a Search request.
+
+```kotlin
+public class SearchResponse {
+
+  private List<Article> articles;
+  
+  //code omitted for brevity
+}
+```
+
+What happens if the business wants to introduce articles in a country where some articles are forbidden to trade?.
+
+We can not add a new attribute called *tradable* to the Article class because we will never use it in normal countries.
+
+Here, we can use the other technique to build new classes: inheritance.
+
+![class and object](/assets/images/tradableArticle.png){:class="img-responsive"}
+
+Now, we can support the new requirement for the new country.
+
+```kotlin
+public class SearchResponse {
+
+  private List<TradableArticle> articles;
+  
+  //code omitted for brevity
+}
+```
+
+We can reuse our classes even out of context. For example, in a Bank context, we need an *address* to contact a customer.
 
 ```kotlin
 public class Customer {

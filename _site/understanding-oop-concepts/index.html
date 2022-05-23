@@ -287,7 +287,7 @@
 
 <p>The benefit of separating one class from another one is the Reuse.</p>
 
-<p>For example, in a shopping context, we need an <em>address</em> where to deliver the order.</p>
+<p>For example, in a shopping context, we need a list of requested items and an <em>address</em> where to deliver the order.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -307,7 +307,85 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>In a bank context, we need an <em>address</em> where to contact a customer.</p>
+<p>We build an Item class including an Article class.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Item</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="nc">Article</span> <span class="n">article</span><span class="p">;</span>
+  <span class="k">private</span> <span class="n">double</span> <span class="n">quantity</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>And the Article class includes enough attributes to support the shopping business.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Article</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="n">int</span> <span class="n">id</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">name</span><span class="p">;</span>
+  <span class="k">private</span> <span class="n">double</span> <span class="n">deliveryPrice</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Even we can reuse the Article class to support a Search request.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">SearchResponse</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Article</span><span class="p">&gt;</span> <span class="n">articles</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>What happens if the business wants to introduce articles in a country where some articles are forbidden to trade?.</p>
+
+<p>We can not add a new attribute called <em>tradable</em> to the Article class because we will never use it in normal countries.</p>
+
+<p>Here, we can use the other technique to build new classes: inheritance.</p>
+
+<p><img src="/assets/images/tradableArticle.png" alt="class and object" class="img-responsive" /></p>
+
+<p>Now, we can support the new requirement for the new country.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">SearchResponse</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">TradableArticle</span><span class="p">&gt;</span> <span class="n">articles</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We can reuse our classes even out of context. For example, in a Bank context, we need an <em>address</em> to contact a customer.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
