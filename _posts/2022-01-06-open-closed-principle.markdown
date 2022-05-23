@@ -93,6 +93,8 @@ The following diagram shows the goal of our design.
 
 ![rateLimit](/assets/images/rateLimit.jpg){:class="img-responsive"}
 
+Read more about [Object-Oriented Programming concepts](https://codersite.dev/understanding-oop-concepts/){:target="_blank"}
+
 ## Enabling the Open-Closed Principle
 
 Firstly,  and thinking abstractly, you should create an interface and define a contract that will include all required functionalities.
