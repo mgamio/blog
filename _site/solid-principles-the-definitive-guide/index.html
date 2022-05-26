@@ -286,7 +286,9 @@
 
 <h2 id="the-problem-a-class-has-more-than-one-responsibility">The Problem: A Class has more than one responsibility</h2>
 
-<p>But suddenly, the Cards team wants to change the validation to 10 days. However, the Payments team manages other policies related to when interests by late payment are applied. As a result, the Payments team enters in disagreement with the Cards team. This scenario is a clear example of how this Class design violates the Single Responsibility Principle because the Payment Class not only has more than one reason to change but also it breaks the business logic of the Payments team. Moreover, both teams are stuck on how to proceed.</p>
+<p>But suddenly, the Cards team wants to change the validation to 10 days. However, the Payments team manages other policies related to when interests by late payment are applied. As a result, the Payments team disagrees with the Cards team. Moreover, both teams are stuck on how to proceed.</p>
+
+<p>This scenario is a clear example of how this Class design violates the Single Responsibility Principle. The Payment class has more than one reason to change and breaks the Payments team’s business logic if they accept the Cards team’s requirement.</p>
 
 <p>The following figure shows the Class with different responsibilities:</p>
 
