@@ -243,6 +243,10 @@
 
 <p><a href="https://amzn.to/3eSkKXx" target="_blank">Bertrand Meyer</a> coined the principle, suggesting that we should build software to be extendable without touching its current code implementation.</p>
 
+<p>But there are situations we change one of our classes, and we realize that we need to adapt all its depending classes.</p>
+
+<h2 id="when-we-cannot-visualize-future-requirements">When we cannot visualize future requirements</h2>
+
 <p>For instance, imagine designing and implementing a rate limit algorithm to control the number of requests allowed for every endpoint in a <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">REST API</a>.</p>
 
 <p>The RateLimit class implements an interceptor - <em>HandlerInterceptor</em> - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.</p>
@@ -318,7 +322,7 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h2 id="suddenly-an-unexpected-scenario-arises">Suddenly an unexpected scenario arises.</h2>
+<h2 id="when-suddenly-an-unexpected-scenario-arises">When suddenly, an unexpected scenario arises</h2>
 
 <p>The developer leaves the company, and a new one arrives—for example, You.</p>
 
@@ -330,7 +334,7 @@
 
 <p>Even if the code is not well designed or does not follow well object-oriented principles, it could not be easy to extend a class to introduce new functionalities.</p>
 
-<p>The team implements the open-closed principle to support future changes for this scenario. To refactor the code, we adopt polymorphism and aggregation.</p>
+<p>The team decides to implement the open-closed principle to support future changes for this scenario. But they need to refactor the code by adopting polymorphism and aggregation.</p>
 
 <h3 id="polymorphism">Polymorphism</h3>
 

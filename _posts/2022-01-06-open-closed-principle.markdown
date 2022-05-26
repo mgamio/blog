@@ -20,6 +20,10 @@ After looking at the [Single Responsibility Principle](https://codersite.dev/sol
 
 [Bertrand Meyer](https://amzn.to/3eSkKXx){:target="_blank"} coined the principle, suggesting that we should build software to be extendable without touching its current code implementation.
 
+But there are situations we change one of our classes, and we realize that we need to adapt all its depending classes.
+
+## When we cannot visualize future requirements
+
 For instance, imagine designing and implementing a rate limit algorithm to control the number of requests allowed for every endpoint in a [REST API](https://codersite.dev/documenting-rest-api-openapi3/){:target="_blank"}.
 
 The RateLimit class implements an interceptor - *HandlerInterceptor* - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.
@@ -63,7 +67,7 @@ public class RateLimit implements HandlerInterceptor {
 }
 ```
 
-## Suddenly an unexpected scenario arises.
+## When suddenly, an unexpected scenario arises
 
 The developer leaves the company, and a new one arrives—for example, You.
 
@@ -75,7 +79,7 @@ That is the meaning of the principle; you can not touch the code that is already
 
 Even if the code is not well designed or does not follow well object-oriented principles, it could not be easy to extend a class to introduce new functionalities.
 
-The team implements the open-closed principle to support future changes for this scenario. To refactor the code, we adopt polymorphism and aggregation.
+The team decides to implement the open-closed principle to support future changes for this scenario. But they need to refactor the code by adopting polymorphism and aggregation.
 
 ### Polymorphism
 
