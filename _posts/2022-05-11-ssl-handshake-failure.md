@@ -50,7 +50,7 @@ Mono<String> monoString = webClient
 logger.info(monoString.block());
 ```
 
-Once the client is running, throws the following error.
+Once the client is running, it throws the following error.
 
 ```kotlin
 ERROR WebClientRequestException: Received fatal alert: handshake_failure; nested exception is javax.net.ssl.SSLException: Received fatal alert: handshake_failure)
@@ -127,13 +127,13 @@ SSL-Session:
 {%- include inArticleAds.html -%}
 </div>
 
-The server is using the **TLSv1.2** protocol, that means Client and Server are not using the same protocol version.
+The server uses the **TLSv1.2** protocol, which means the Client and Server are not using the same protocol version.
 
 ## Solution
 
 From the server response, some ciphers are not supported in the TLSv1.2 protocol.
 
-We can upgrade java version but sometimes is not easy because many applications depend on WebSphere licenses, and we need to wait until the next release.
+We can upgrade the java version, but sometimes it is not easy because many applications depend on WebSphere licenses, and we need to wait until the next release.
 
 Once we have identified the supported Protocol and Cipher Suites supported by the server, we can modify the ones supported by the Client through the TLS configuration to be able to connect to the Server.
 
@@ -152,4 +152,4 @@ We rerun the Client and see the console.
 
 ```
 
-Now Client and Server are agree on the SSL Handshake and can exchange data.
+Now Client and Server are agreed on the SSL Handshake and can exchange data.
