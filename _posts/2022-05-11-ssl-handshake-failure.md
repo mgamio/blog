@@ -59,12 +59,6 @@ ERROR WebClientRequestException: Received fatal alert: handshake_failure; nested
 {%- include inArticleAds.html -%}
 </div>
 
-## Analysis
-
-We usually check if both parties - client and server - comply with all the steps of the Handshake mechanism.
-
-The first two steps deal with cryptographic protocols and cipher suites.
-
 ### What is TLS?
 
 Transport Layer Security (TLS) is a protocol for implementing cryptography on the web. Encrypts data sent over the Internet to ensure hackers cannot see your sensitive information such as passwords or credit card numbers.
@@ -88,6 +82,12 @@ For example, the Cipher Suite SSL_RSA_WITH_RC4_128_MD5 includes:
 <div>
 {%- include inArticleAds.html -%}
 </div>
+
+## Analysis
+
+We usually check if both parties - client and server - comply with all the steps of the Handshake mechanism.
+
+The first two steps deal with cryptographic protocols and cipher suites.
 
 Returning to our scenario, when the client initializes, we see the following lines on the console.
 
