@@ -5,8 +5,8 @@
     <description>This blogsite shares knowledge and use cases and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 27 May 2022 22:17:55 +0200</pubDate>
-    <lastBuildDate>Fri, 27 May 2022 22:17:55 +0200</lastBuildDate>
+    <pubDate>Mon, 30 May 2022 19:22:10 +0200</pubDate>
+    <lastBuildDate>Mon, 30 May 2022 19:22:10 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -288,12 +288,6 @@
 &lt;/script&gt;
 &lt;br /&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;analysis&quot;&gt;Analysis&lt;/h2&gt;
-
-&lt;p&gt;We usually check if both parties - client and server - comply with all the steps of the Handshake mechanism.&lt;/p&gt;
-
-&lt;p&gt;The first two steps deal with cryptographic protocols and cipher suites.&lt;/p&gt;
-
 &lt;h3 id=&quot;what-is-tls&quot;&gt;What is TLS?&lt;/h3&gt;
 
 &lt;p&gt;Transport Layer Security (TLS) is a protocol for implementing cryptography on the web. Encrypts data sent over the Internet to ensure hackers cannot see your sensitive information such as passwords or credit card numbers.&lt;/p&gt;
@@ -324,6 +318,12 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 &lt;/script&gt;
 &lt;br /&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;analysis&quot;&gt;Analysis&lt;/h2&gt;
+
+&lt;p&gt;We usually check if both parties - client and server - comply with all the steps of the Handshake mechanism.&lt;/p&gt;
+
+&lt;p&gt;The first two steps deal with cryptographic protocols and cipher suites.&lt;/p&gt;
 
 &lt;p&gt;Returning to our scenario, when the client initializes, we see the following lines on the console.&lt;/p&gt;
 
