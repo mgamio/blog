@@ -5,8 +5,8 @@
     <description>This blogsite shares knowledge and use cases and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 12 Jun 2022 19:29:13 +0200</pubDate>
-    <lastBuildDate>Sun, 12 Jun 2022 19:29:13 +0200</lastBuildDate>
+    <pubDate>Sun, 26 Jun 2022 17:20:15 +0200</pubDate>
+    <lastBuildDate>Sun, 26 Jun 2022 17:20:15 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1257,7 +1257,7 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;We proceed to implement the algorithm that includes all possible input validations. The for-each construct helps our code be elegant and readable and there is no use of the index. See &lt;a href=&quot;https://medium.com/@mkgv89/clean-code-fe3a1deee528?sk=dd8329f6fddf7e4738e4d13c4c05aad2&quot; target=&quot;_blank&quot;&gt;clean code&lt;/a&gt; practices.&lt;/p&gt;
+&lt;p&gt;We proceed to implement the algorithm that includes all possible input validations. The for-each construct helps our code be elegant and readable and there is no use of the index. See &lt;a href=&quot;https://codersite.dev/clean-code/&quot; target=&quot;_blank&quot;&gt;clean code&lt;/a&gt; practices.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -1426,9 +1426,9 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;This algorithm works fine when array size and values are small. But based on the constraints, imagine you are processing a priceOfShoe value of 100000 at the location priceOfShoes[101], and at that moment, the sum of priceOfJean + priceOfShoe is greater than 10 dollars. Therefore, it does not sense to continue processing the following possible 1000000000 items of pricesOfSkits[] and other 1000000000 items of priceOfTops[].&lt;/p&gt;
+&lt;p&gt;This algorithm works fine when array size and values are small. But based on the constraints, imagine you are processing a priceOfShoe value of 100000 at the location priceOfShoes[101]. At that moment, the sum of priceOfJean + priceOfShoe is already greater than 10 dollars. Therefore, it does not make sense to continue processing the following possible 1000000000 items of pricesOfSkits[] and other 1000000000 items of priceOfTops[].&lt;/p&gt;
 
-&lt;p&gt;We need to skip this particular iteration and use “continue” to order process the next priceOfShoe at the location priceOfShoes[102], for example.&lt;/p&gt;
+&lt;p&gt;To skip this particular iteration, we use the “continue” statement and proceed with the next iteration in the loop. The next priceOfShoe at the location priceOfShoes[102], for example.&lt;/p&gt;
 
 &lt;p&gt;We create a new test case with big prices. You can add more items to the arrays.&lt;/p&gt;
 
@@ -1559,9 +1559,9 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/shoppingOptionsTest2.JPG&quot; alt=&quot;shopping-Options-Test2&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Well, what happens when our possible right prices are located at the end of the arrays?. One possible solution could be to sort the arrays before iterating and find the right combinations of prices.&lt;/p&gt;
+&lt;p&gt;What happens when our possible choosing prices are located at the end of the arrays?. One possible solution could be to sort the arrays before iterating and find the right combinations of prices.&lt;/p&gt;
 
-&lt;p&gt;Understanding the inner workings of common &lt;a href=&quot;https://codersite.dev/book/&quot; target=&quot;_blank&quot;&gt;data structures&lt;/a&gt; and &lt;a href=&quot;https://codersite.gumroad.com/l/jqgde/uyn1iyx&quot; target=&quot;_blank&quot;&gt;algorithms&lt;/a&gt; is a must for Java developers. &lt;a href=&quot;https://payhip.com/b/B9u6L&quot; target=&quot;_blank&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Understanding the inner workings of common &lt;a href=&quot;https://codersite.dev/book/&quot; target=&quot;_blank&quot;&gt;data structures&lt;/a&gt; and &lt;a href=&quot;https://codersite.gumroad.com/l/jqgde/uyn1iyx&quot; target=&quot;_blank&quot;&gt;algorithms&lt;/a&gt; is a must for Java developers. &lt;a href=&quot;https://amzn.to/3ynMyO4&quot; target=&quot;_blank&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 28 Dec 2021 00:00:00 +0100</pubDate>
         <link>http://localhost:4000/shopping-options/</link>
