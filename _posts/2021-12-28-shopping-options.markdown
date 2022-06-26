@@ -69,7 +69,7 @@ public void test_shoppingOptions() {
 }
 ```
 
-We proceed to implement the algorithm that includes all possible input validations. The for-each construct helps our code be elegant and readable and there is no use of the index. See [clean code](https://medium.com/@mkgv89/clean-code-fe3a1deee528?sk=dd8329f6fddf7e4738e4d13c4c05aad2){:target="_blank"} practices.
+We proceed to implement the algorithm that includes all possible input validations. The for-each construct helps our code be elegant and readable and there is no use of the index. See [clean code](https://codersite.dev/clean-code/){:target="_blank"} practices.
 
 ```kotlin
 public class ShoppingOptions {
@@ -160,9 +160,9 @@ public class ShoppingOptions {
 }
 ```
 
-This algorithm works fine when array size and values are small. But based on the constraints, imagine you are processing a priceOfShoe value of 100000 at the location priceOfShoes[101], and at that moment, the sum of priceOfJean + priceOfShoe is greater than 10 dollars. Therefore, it does not sense to continue processing the following possible 1000000000 items of pricesOfSkits[] and other 1000000000 items of priceOfTops[].
+This algorithm works fine when array size and values are small. But based on the constraints, imagine you are processing a priceOfShoe value of 100000 at the location priceOfShoes[101]. At that moment, the sum of priceOfJean + priceOfShoe is already greater than 10 dollars. Therefore, it does not make sense to continue processing the following possible 1000000000 items of pricesOfSkits[] and other 1000000000 items of priceOfTops[].
 
-We need to skip this particular iteration and use “continue” to order process the next priceOfShoe at the location priceOfShoes[102], for example.
+To skip this particular iteration, we use the “continue” statement and proceed with the next iteration in the loop. The next priceOfShoe at the location priceOfShoes[102], for example.
 
 We create a new test case with big prices. You can add more items to the arrays.
 
@@ -239,6 +239,6 @@ We can see the new execution time.
 
 ![shopping-Options-Test2](/assets/images/shoppingOptionsTest2.JPG){:class="img-responsive"}
 
-Well, what happens when our possible right prices are located at the end of the arrays?. One possible solution could be to sort the arrays before iterating and find the right combinations of prices.
+What happens when our possible choosing prices are located at the end of the arrays?. One possible solution could be to sort the arrays before iterating and find the right combinations of prices.
 
-Understanding the inner workings of common [data structures](https://codersite.dev/book/){:target="_blank"} and [algorithms](https://codersite.gumroad.com/l/jqgde/uyn1iyx){:target="_blank"} is a must for Java developers. [Learn more](https://payhip.com/b/B9u6L){:target="_blank"}
+Understanding the inner workings of common [data structures](https://codersite.dev/book/){:target="_blank"} and [algorithms](https://codersite.gumroad.com/l/jqgde/uyn1iyx){:target="_blank"} is a must for Java developers. [Learn more](https://amzn.to/3ynMyO4){:target="_blank"}
