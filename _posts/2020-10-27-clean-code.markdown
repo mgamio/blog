@@ -82,6 +82,60 @@ if (process.equals("events")) {
 ACMEServiceClient.logout();
 ```
 
+## Functions should do one thing
+
+Imagine we want to retrieve image objects from an external web service. 
+
+Firstly, we receive image metadata that informs different values to decide if an image is valid o not, and one of these values is an image identifier to retrieve the final image object.
+
+```kotlin
+private String retrieveImageId(String[] values) {
+  
+  if (values[2] != "Y" || values[3] != "Y")
+    return null;
+	
+  return values[4]; //imageId
+}
+```
+
+The previous code is doing more than one thing: validate and retrieve.
+
+Each thing should implement only one level of abstraction. Therefore we proceed to refactor it.
+
+```kotlin
+private boolean validateImage(String[] values) {
+  
+  if (values[2] != "Y" || values[3] != "Y")
+    return false;
+	
+  return true;
+}
+```
+
+```kotlin
+private String retrieveImageId(String[] values) {
+  
+  return values[4]; //imageId
+}
+```
+
+Here, an example how to use these new small functions.
+
+```kotlin
+public void syncronizeImages () {
+  
+  Response response = api.getImages();
+  Row[] rows = response.getRows();
+  for (Row row : rows) {
+    String[] values = row.getValues();
+    if (validateImage(values)) {
+      String imageId = retrieveImageId(values);
+      //call ULR to retrieve image object
+    }
+  }
+}
+```
+
 Other recommendations of clean code are:
 
 * Clean Code separates levels of detail

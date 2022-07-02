@@ -318,6 +318,86 @@
 <span class="nc">ACMEServiceClient</span><span class="p">.</span><span class="nf">logout</span><span class="p">();</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h2 id="functions-should-do-one-thing">Functions should do one thing</h2>
+
+<p>Imagine we want to retrieve image objects from an external web service.</p>
+
+<p>Firstly, we receive image metadata that informs different values to decide if an image is valid o not, and one of these values is an image identifier to retrieve the final image object.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">String</span> <span class="nf">retrieveImageId</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">!=</span> <span class="s">"Y"</span> <span class="p">||</span> <span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">!=</span> <span class="s">"Y"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+	
+  <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="c1">//imageId</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The previous code is doing more than one thing: validate and retrieve.</p>
+
+<p>Each thing should implement only one level of abstraction. Therefore we proceed to refactor it.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="n">boolean</span> <span class="nf">validateImage</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">!=</span> <span class="s">"Y"</span> <span class="p">||</span> <span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">!=</span> <span class="s">"Y"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+	
+  <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">String</span> <span class="nf">retrieveImageId</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="c1">//imageId</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Here, an example how to use these new small functions.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">syncronizeImages</span> <span class="p">()</span> <span class="p">{</span>
+  
+  <span class="nc">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">getImages</span><span class="p">();</span>
+  <span class="nc">Row</span><span class="p">[]</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">getRows</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nc">Row</span> <span class="n">row</span> <span class="p">:</span> <span class="n">rows</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">String</span><span class="p">[]</span> <span class="n">values</span> <span class="p">=</span> <span class="n">row</span><span class="p">.</span><span class="nf">getValues</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nf">validateImage</span><span class="p">(</span><span class="n">values</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nc">String</span> <span class="n">imageId</span> <span class="p">=</span> <span class="nf">retrieveImageId</span><span class="p">(</span><span class="n">values</span><span class="p">);</span>
+      <span class="c1">//call ULR to retrieve image object</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <p>Other recommendations of clean code are:</p>
 
 <ul>
