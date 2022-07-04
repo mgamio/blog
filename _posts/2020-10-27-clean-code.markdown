@@ -99,7 +99,7 @@ private String retrieveImageId(String[] values) {
     return null;
 	
     String imageId = null;
-    //get the first not null value as the immageId
+    //get the first not null value as the imageId
     if (values[4] != null) {
       imageId = values[4]; //imageAIXId
     } else if (values[5] != null) {
