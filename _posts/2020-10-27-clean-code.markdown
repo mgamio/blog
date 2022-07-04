@@ -95,10 +95,20 @@ Firstly, we receive image metadata that informs different values to decide if an
 ```kotlin
 private String retrieveImageId(String[] values) {
   
-  if (values[2] != "Y" || values[3] != "Y")
+  if (!values[2].equals("Y") || !values[3].equals("Y"))
     return null;
 	
-  return values[4]; //imageId
+    String imageId = null;
+    //get the first not null value as the immageId
+    if (values[4] != null) {
+      imageId = values[4]; //imageAIXId
+    } else if (values[5] != null) {
+      imageId = values[5]; //imageLIXId
+    } else if (values[6] != null) {
+      imageId = values[6]; //imageOIXId
+    }
+
+    return imageId;
 }
 ```
 
@@ -113,7 +123,7 @@ Each thing should implement only one level of abstraction. Therefore we proceed 
 ```kotlin
 private boolean validateImage(String[] values) {
   
-  if (values[2] != "Y" || values[3] != "Y")
+  if (!values[2].equals("Y") || !values[3].equals("Y"))
     return false;
 	
   return true;
@@ -123,11 +133,21 @@ private boolean validateImage(String[] values) {
 ```kotlin
 private String retrieveImageId(String[] values) {
   
-  return values[4]; //imageId
+  String imageId = null;
+  //get the first not null value as the immageId
+  if (values[4] != null) {
+    imageId = values[4]; //imageAIXId
+  } else if (values[5] != null) {
+    imageId = values[5]; //imageLIXId
+  } else if (values[6] != null) {
+    imageId = values[6]; //imageOIXId
+  }
+
+  return imageId;
 }
 ```
 
-Here, an example how to use these new small functions.
+Here is an example of how to use these new smaller functions.
 
 ```kotlin
 public void syncronizeImages () {
@@ -139,6 +159,7 @@ public void syncronizeImages () {
     if (validateImage(values)) {
       String imageId = retrieveImageId(values);
       //call ULR to retrieve image object
+      //code omitted for brevity
     }
   }
 }

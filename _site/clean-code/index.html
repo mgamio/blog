@@ -338,12 +338,32 @@
 5
 6
 7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
 </pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">String</span> <span class="nf">retrieveImageId</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
   
-  <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">!=</span> <span class="s">"Y"</span> <span class="p">||</span> <span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">!=</span> <span class="s">"Y"</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(!</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nf">equals</span><span class="p">(</span><span class="s">"Y"</span><span class="p">)</span> <span class="p">||</span> <span class="p">!</span><span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="nf">equals</span><span class="p">(</span><span class="s">"Y"</span><span class="p">))</span>
     <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
 	
-  <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="c1">//imageId</span>
+    <span class="nc">String</span> <span class="n">imageId</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+    <span class="c1">//get the first not null value as the immageId</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">imageId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="c1">//imageAIXId</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">imageId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span> <span class="c1">//imageLIXId</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">imageId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span> <span class="c1">//imageOIXId</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">imageId</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -367,24 +387,12 @@
 7
 </pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="n">boolean</span> <span class="nf">validateImage</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
   
-  <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">!=</span> <span class="s">"Y"</span> <span class="p">||</span> <span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">!=</span> <span class="s">"Y"</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(!</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nf">equals</span><span class="p">(</span><span class="s">"Y"</span><span class="p">)</span> <span class="p">||</span> <span class="p">!</span><span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="nf">equals</span><span class="p">(</span><span class="s">"Y"</span><span class="p">))</span>
     <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
 	
   <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">String</span> <span class="nf">retrieveImageId</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
-  
-  <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="c1">//imageId</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Here, an example how to use these new small functions.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -398,6 +406,39 @@
 10
 11
 12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">String</span> <span class="nf">retrieveImageId</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="nc">String</span> <span class="n">imageId</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+  <span class="c1">//get the first not null value as the immageId</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">imageId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="c1">//imageAIXId</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">imageId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span> <span class="c1">//imageLIXId</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">imageId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span> <span class="c1">//imageOIXId</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="n">imageId</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Here is an example of how to use these new smaller functions.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
 </pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">syncronizeImages</span> <span class="p">()</span> <span class="p">{</span>
   
   <span class="nc">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">getImages</span><span class="p">();</span>
@@ -407,6 +448,7 @@
     <span class="k">if</span> <span class="p">(</span><span class="nf">validateImage</span><span class="p">(</span><span class="n">values</span><span class="p">))</span> <span class="p">{</span>
       <span class="nc">String</span> <span class="n">imageId</span> <span class="p">=</span> <span class="nf">retrieveImageId</span><span class="p">(</span><span class="n">values</span><span class="p">);</span>
       <span class="c1">//call ULR to retrieve image object</span>
+      <span class="c1">//code omitted for brevity</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
