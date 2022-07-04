@@ -68,6 +68,10 @@ When we try to fix bugs, when analyzing the secuence of actions (functions, meth
 
 This will always happen because our initial design based on the initial requirements change over time. As developers, we are responsible for refactoring our code to made it a simple story that everybody can understand. For example, look at the following code:
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ```kotlin
 ACMEWebServiceClient.login();
 if (process.equals("core") {
@@ -97,6 +101,10 @@ private String retrieveImageId(String[] values) {
   return values[4]; //imageId
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 The previous code is doing more than one thing: validate and retrieve.
 
