@@ -68,10 +68,6 @@ When we try to fix bugs, when analyzing the secuence of actions (functions, meth
 
 This will always happen because our initial design based on the initial requirements change over time. As developers, we are responsible for refactoring our code to made it a simple story that everybody can understand. For example, look at the following code:
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 ```kotlin
 ACMEWebServiceClient.login();
 if (process.equals("core") {
@@ -85,6 +81,10 @@ if (process.equals("events")) {
 }
 ACMEServiceClient.logout();
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ## Functions should do one thing
 
@@ -112,10 +112,6 @@ private String retrieveImageId(String[] values) {
 }
 ```
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 The previous code is doing more than one thing: validate and retrieve.
 
 Each thing should implement only one level of abstraction. Therefore we proceed to refactor it.
@@ -129,6 +125,10 @@ private boolean validateImage(String[] values) {
   return true;
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ```kotlin
 private String retrieveImageId(String[] values) {
@@ -172,6 +172,6 @@ Other recommendations of clean code are:
 * Clean Code has small methods
 * Clean Code has Command/Query separation
 
-You can see a lot of typical algorithms implemented with Clean Code principles in the following [link](https://lesen.amazon.de/kp/embed?asin=B086JCK6C4&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_SD6EZ360ZYYSM2HAZHQ2){:target="_blank"}
+You can see a lot of typical algorithms implemented with Clean Code principles in the following [link](https://amzn.to/3PiUs0w){:target="_blank"}
 
 <p><iframe style="width:100%;" height="550" src="https://www.youtube.com/embed/qf4vJrhNQn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>

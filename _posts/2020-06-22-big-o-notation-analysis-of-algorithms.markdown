@@ -54,6 +54,10 @@ public void constant(List<string> list, String item) {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 In a best-case scenario, an *add* method takes O(1) time. The worst-case scenario takes O(n).
 
 **O(N) – linear**
@@ -69,10 +73,6 @@ public int sum(int[] numbers) {
   return sum;
 }
 ```
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons. You can visit [find the smallest number with the same number of digits](https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/){:target="_blank"}, for instance. Moreover, the simpler and more intuitive an algorithm is, the more useful and efficient it will be.
 
@@ -92,6 +92,10 @@ public void initializeBoard(int size) {
   }
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 **O(N<sup>3</sup>) – Cubic**
 
@@ -121,10 +125,6 @@ Log216 = 4
 
 Log232 = 5
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 The binary search uses at most LogN key compares to search in a sorted array of size N. With 8 elements take 3 comparisons, with 16 elements takes 4 comparisons, with 32 elements takes 5 comparisons, and so on.
 
 ```kotlin
@@ -144,6 +144,10 @@ public static <T extends Comparable<T>> boolean search(T target, T[] array) {
   return false;
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ## The complexity of an algorithm
 
@@ -169,10 +173,6 @@ public Integer sumEvenNumbers(Integer N) {
 }
 ```
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 First, we split the code into individual operations and then compute how many times it is being executed as is shown in the following table.
 
 | Description | Number of executions |
@@ -190,6 +190,10 @@ First, we split the code into individual operations and then compute how many ti
 Now, we need to sum up how many times each operation is executing.
 
 Time complexity = 1 + 1 + N + N + N + N + 1 =>   4N + 3
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ## Why Big O Notation ignores constants?
 

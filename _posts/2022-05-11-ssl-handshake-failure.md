@@ -19,10 +19,6 @@ A summary of the steps in the SSL handshake:
 
 For more information about cryptographic algorithms and digital certificates, refer [here](https://www.ibm.com/docs/en/ibm-mq/7.5?topic=mechanisms-cryptographic-security-protocols-tls-ssl){:target="_blank"}.
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 ## Handshake Failure Scenario
 
 We try to build a Spring WebClient component to consume data from an API Server (target_server).
@@ -50,14 +46,15 @@ Mono<String> monoString = webClient
 logger.info(monoString.block());
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 Once the client is running, it throws the following error.
 
 ```kotlin
 ERROR WebClientRequestException: Received fatal alert: handshake_failure; nested exception is javax.net.ssl.SSLException: Received fatal alert: handshake_failure)
 ```
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 ### What is TLS?
 

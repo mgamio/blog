@@ -49,15 +49,15 @@ These areas of interest in the software are:
 
 **Context -> Containers -> Components -> Code** - UML Notation
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ### Context diagram
 
 A system context diagram shows the big picture. This diagram shows actors and software systems rather than technologies. For our use case, it says that building a new web application will achieve the user requirement.
 
 ![flyerContextDiagram](/assets/images/flyerContextDiagram.png "codersite flyer Context Diagram"){:class="img-responsive"}
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 ### Container diagram
 
@@ -66,6 +66,10 @@ The container diagram shows how the responsibilities are distributed in differen
 We need a Form on the front end and an API application on the back end for our web application.
 
 ![flyerContainerDiagram](/assets/images/flyerContainerDiagram.png "codersite flyer Container Diagram"){:class="img-responsive"}
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ### Component diagram
 
@@ -121,6 +125,10 @@ public class FlyerComposerService {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ### Relationships between classes
 
 UML conveys how a class is related to other classes. Let's see the kind of relationships that matter to our design.
@@ -133,10 +141,6 @@ Dependency is a relationship used to show that some class requires or depends on
 
 At the **FlyerComposerService** class above, we can see how is declared the dependencies as member variables.
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 #### Realization
 
 ![umlRealization](/assets/images/umlRealization.JPG "UML realization relationship"){:class="img-responsive"}
@@ -144,6 +148,10 @@ At the **FlyerComposerService** class above, we can see how is declared the depe
 Realization is a relationship where one class realizes or implements the specification defined in another class (usually an interface).
 
 Defining and creating interfaces is an excellent approach to building software to is extendable. Read the [Open-Closed Principle](https://codersite.dev/open-closed-principle/){:target="_blank"}.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ### The implemented code reflects the intent of the UML designer.
 

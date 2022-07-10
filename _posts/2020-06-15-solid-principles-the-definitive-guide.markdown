@@ -78,11 +78,11 @@ public class Card {
 }
 ```
 
-After that change and following [Clean code](https://codersite.dev/clean-code/){:target="_blank"} principles, we can see how it looks the new Payment Class (refactored as well):
-
 <div>
 {%- include inArticleAds.html -%}
 </div>
+
+After that change and following [Clean code](https://codersite.dev/clean-code/){:target="_blank"} principles, we can see how it looks the new Payment Class (refactored as well):
 
 ```kotlin
 public class Payment {
@@ -106,6 +106,10 @@ Finally, new changes to the MAX_DAYS variable will only depend on the requiremen
 Therefore, the Payment Class is only responsible for supporting to the Payments team, and the Card Class is solely responsible for supporting the Cards team.
 
 Also, when new features arrive, then we need to distinct in which Class to include it. Moreover, this is related to the Cohesion concept, which help us to group similar functions inside a Class, and that have the same purpose served by that Class.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 In conclusion, once you identify classes that have too many responsibilities, use this refactoring technique to create smaller classes with single responsibilities and focused only on one business actor.
 

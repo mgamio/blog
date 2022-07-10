@@ -75,6 +75,10 @@ As developers, we usually receive tasks to do maintenance in projects that do no
 
 Then weeks later, your team decides that must be retrieved parameters from a database. Therefore you proceed to replace the *getAPIPlans* method; then, *you break the open-closed principle*.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 That is the meaning of the principle; you can not touch the code that is already implemented and working for a long time. Suppose the code is too complex to understand, not well documented, and includes a lot of dependencies. In that case, we have a lot of probabilities to introduce a bug or break some functionalities that we cannot visualize. Unless it is a bug that we have to fix, we should never modify the existing code.
 
 Even if the code is not well designed or does not follow well object-oriented principles, it could not be easy to extend a class to introduce new functionalities.
@@ -85,10 +89,6 @@ The team decides to implement the open-closed principle to support future change
 
 Polymorphism is part of the core concepts of Object-Oriented Programming and means many forms, allowing an object to behave differently in some instances. For our scenario, polymorphism will enable the *getAPIPlans* method to achieve its goals in different ways: retrieve the parameters from a text file or a database.
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 ### Aggregation
 
 Aggregation defines a HAS-A relationship between two classes. Their objects have their life cycle, but one of them is the owner of the HAS-A relationship.
@@ -96,6 +96,10 @@ Aggregation defines a HAS-A relationship between two classes. Their objects have
 The following diagram shows the goal of our design.
 
 ![rateLimit](/assets/images/rateLimit.jpg){:class="img-responsive"}
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 Read more about [Object-Oriented Programming concepts](https://codersite.dev/understanding-oop-concepts/){:target="_blank"}
 

@@ -76,13 +76,13 @@ public class NodeP {
 }
 ```
 
-We create a new abstract data type called TreeP to define the behavior of our Binary Search Tree, which includes a NodeP root variable for the first element to be inserted.
-
-We need to implement an insert method, where every time a new GTIN is inserted, it compares the current GTIN versus the new GTIN. We store the new GTIN on the left or the right Node, depending on the result. In this way, the insert method maintains an ordered binary search tree.
-
 <div>
 {%- include inArticleAds.html -%}
 </div>
+
+We create a new abstract data type called TreeP to define the behavior of our Binary Search Tree, which includes a NodeP root variable for the first element to be inserted.
+
+We need to implement an insert method, where every time a new GTIN is inserted, it compares the current GTIN versus the new GTIN. We store the new GTIN on the left or the right Node, depending on the result. In this way, the insert method maintains an ordered binary search tree.
 
 A Test case to verify our assumptions:
 
@@ -133,6 +133,10 @@ public class TreeP {
   }
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 Create a Test case for a find method:
 
@@ -221,4 +225,4 @@ public class TreePerformance {
 }
 ```
 
-Understanding the inner workings of common data structures and algorithms is a must for Java developers. [Learn more](https://payhip.com/b/B9u6L){:target="_blank"}
+Understanding the inner workings of common data structures and algorithms is a must for Java developers. [Learn more](https://amzn.to/3PiUs0w){:target="_blank"}

@@ -20,6 +20,10 @@ Imagine that we have a budget of 4 US$ and we want to buy the most valuable snac
 
 But who decides if a product is more valuable than another one? Well, this depends on every business. It could be an estimation based on quantitative or qualitative analysis. For instance, for our solution, we choose a quantitative approach based on which product gives us more grams per every dollar invested.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ## Optimize a basket in online purchases: Solution
 
 To implement our algorithm to optimize a basket in online purchases, we use the Red-Green Refactor technique, which is the basis of test-drive-development ([TDD](https://en.wikipedia.org/wiki/Test-driven_development){:target="_blank"}). Firstly, in every assumption, we will write a test and see if it fails. Secondly, we write the code that implements only that test and sees if it succeed, then we can refactor the code to make it better. Finally, we continue with another assumption and repeat the previous steps until the algorithm is successfully implemented for all tests.
@@ -29,10 +33,6 @@ To generalize the concept of *“the most valuable product”* we assign a *valu
 **Assumption #1 – Given an array of products ordered by value, return the most valuable products**
 
 We start defining a java test creating a new BasketOptimized class. For naming variables, you can read [clean code](https://codersite.dev/clean-code/){:target="_blank"}.
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 ```kotlin
 public class BasketOptimizedTest {
@@ -64,6 +64,10 @@ public class BasketOptimizedTest {
   }
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 The first time, it should fail because the *fill* method doesn’t exist. Then we need to create an easy implementation to pass the test: the sum of the values must be equal to 590 because this represents all selected products which its prices sum less or equal than 4.
 
@@ -119,11 +123,11 @@ public void productsNotOrderedByValue () {
 }
 ```
 
-We realize that we need to order the array by value because we want the most valuable products, so its time to refactor our algorithm. What we need to do is to sort our input array.
-
 <div>
 {%- include inArticleAds.html -%}
 </div>
+
+We realize that we need to order the array by value because we want the most valuable products, so its time to refactor our algorithm. What we need to do is to sort our input array.
 
 ```kotlin
 public double[][] fill(double[][] myProducts, double budget) {
