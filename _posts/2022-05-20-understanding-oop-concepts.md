@@ -109,6 +109,10 @@ public class SearchResponse {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 What happens if the business wants to introduce articles in a country where some articles are forbidden to trade?.
 
 We can not add a new attribute called *tradable* to the Article class because we will never use it in normal countries.

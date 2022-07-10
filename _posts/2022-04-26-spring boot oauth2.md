@@ -122,6 +122,10 @@ Now, run the main application.
 
 <a href="http://localhost:8080/swagger-ui.html" target="_blank">http://localhost:8080/swagger-ui.html</a>
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 And try to insert a book (Try out button). In the bookAuthorization parameter, write anything ("key," for example).
 
 Then you receive an error.
@@ -129,10 +133,6 @@ Then you receive an error.
 ![oauth2Post](/assets/images/oauth2Post.jpg){:class="img-responsive"}
 
 Why does this happen? Well, we need to tell OpenAPI that configures security.
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 ### Configure OpenAPI and Oauth2
 
@@ -170,6 +170,10 @@ public class OpenApiConfig {
   }
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 From the previous code, you can see that before setting up a security requirement in OpenAPI, we need to define a new security scheme component called "spring_oauth" for example.
 

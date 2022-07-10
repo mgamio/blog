@@ -117,11 +117,11 @@ public class ShoppingOptions {
 }
 ```
 
-A function or method should be small, making it easier to read and understand. Therefore, we refactor our code, moving all validations to a private method. The following code shows a new implementation of our algorithm.
-
 <div>
 {%- include inArticleAds.html -%}
 </div>
+
+A function or method should be small, making it easier to read and understand. Therefore, we refactor our code, moving all validations to a private method. The following code shows a new implementation of our algorithm.
 
 ```kotlin
 public class ShoppingOptions {
@@ -160,6 +160,10 @@ public class ShoppingOptions {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 This algorithm works fine when array size and values are small. But based on the constraints, imagine you are processing a priceOfShoe value of 100000 at the location priceOfShoes[101]. At that moment, the sum of priceOfJean + priceOfShoe is already greater than 10 dollars. Therefore, it does not make sense to continue processing the following possible 1000000000 items of pricesOfSkits[] and other 1000000000 items of priceOfTops[].
 
 To skip this particular iteration, we use the “continue” statement and proceed with the next iteration in the loop. The next priceOfShoe at the location priceOfShoes[102], for example.
@@ -186,11 +190,11 @@ We run the test against the previous implementation, and the second test takes 3
 
 ![shopping-Options-Test1](/assets/images/shoppingOptionsTest1.JPG){:class="img-responsive"}
 
-The following listing shows an optimized solution.
-
 <div>
 {%- include inArticleAds.html -%}
 </div>
+
+The following listing shows an optimized solution.
 
 ```kotlin
 public class ShoppingOptions {
@@ -241,4 +245,4 @@ We can see the new execution time.
 
 What happens when our possible choosing prices are located at the end of the arrays?. One possible solution could be to sort the arrays before iterating and find the right combinations of prices.
 
-Understanding the inner workings of common [data structures](https://codersite.dev/book/){:target="_blank"} and [algorithms](https://codersite.gumroad.com/l/jqgde/uyn1iyx){:target="_blank"} is a must for Java developers. [Learn more](https://amzn.to/3ynMyO4){:target="_blank"}
+Understanding the inner workings of common [data structures](https://amzn.to/3ynMyO4){:target="_blank"} and [algorithms](https://codersite.gumroad.com/l/jqgde/uyn1iyx){:target="_blank"} is a must for Java developers. [Learn more](https://codersite.dev/book/){:target="_blank"}

@@ -22,6 +22,10 @@ To describe terms related to Graphs, we use the following Graph, which models **
 
 A Graph shows only the relationships between the *vertices* and the *edges*. Therefore, the most important here is to understand, which edges are connected to which vertex. Moreover, we can also say that Graph models connections between objects.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 **Adjacency**
 
 When two vertices are connected by a single edge, then they are adjacent or neighbors. In the figure above, the vertices represented by the cities Berlin and Leipzig are adjacent, but the cities Berlin and Dresden are not.
@@ -29,10 +33,6 @@ When two vertices are connected by a single edge, then they are adjacent or neig
 **Path**
 
 A Path is defined as a sequence of edges. The figure above shows a path from Berlin to München, that passes through cities Leipzig and Nürnberg. Therefore, the path is Berlin, Leipzig, Nürnberg, München.
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 **Connected Graphs**
 
@@ -64,10 +64,6 @@ Depth-First Search (DFS) is an algorithm for traversing or searching for in a Gr
 
 ![dfsSequence](/assets/images/dfsSequence.jpg){:class="img-responsive"}
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 ### Implementing Graphs Algorithm ###
 
 We need an Object which supports any kind of data included in the Node (which includes the information, that we want to represent). We called it Vertex (because comes from a Mathematical concept). Moreover, to avoid searching in cycles, a boolean variable is included, so we will mark each node when we visit it.
@@ -84,6 +80,10 @@ public class Vertex {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 To define, that two vertices are connected (through edges), we have two approaches: the adjacency matrix and the adjacency list.
 
 **The Adjacency Matrix**
@@ -94,15 +94,15 @@ In a graph of N vertices, we create a two-dimensional array of NxN. An edge betw
 
 The table above says, Leipzig is adjacent to Berlin, Dresden, and Nürnberg, for instance.
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 **Create and Initialize an Abstract Data Type**
 
 We create an Abstract Data Type called a Graph to define the behavior of our new data structure.
 
 We need a stack data structure so we can remember the visited vertices. A stack follows the last-in, first-out (LIFO) principle, i.e., the city inserted at last is the first city to come out of the stack.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 We define an *arrayOfVertex[]* array to store new Vertices(cities) added to the Graph.
 
@@ -151,6 +151,10 @@ public void test_addVertex() {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 The implementation code register the new city in our *mapOfVertex* hashMap.
 
 ```kotlin
@@ -161,10 +165,6 @@ public void addVertex(Vertex city) {
 ```
 
 The *numOfVertices* variable determines the location (index) of the new City in the *arrayOfVertex[]*.
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 **Adding an edge**
 

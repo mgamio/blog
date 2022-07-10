@@ -18,10 +18,6 @@ Given two sorted lists, merge them in a new sorted list.
 
 ## Solution
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 We can join the two lists into a new list and apply a sort algorithm such as bubble sort, insertion, or quicksort. What we are going to do is to implement a new algorithm with a [NlogN]({% post_url 2020-06-22-big-o-notation-analysis-of-algorithms %}){:target="_blank"} performance.
 
 - We define a new List to add all elements from the other two lists in a sorted way.
@@ -29,6 +25,10 @@ We can join the two lists into a new list and apply a sort algorithm such as bub
 - We iterate both lists while still exist elements in both lists
 - We compare elements from both lists and add the smaller one to the new list in every iteration. Before passing to the next iteration, we increment in one the index of the list, which contains the smaller element.
 - If there is a list that still contains elements, we add them directly to the new list.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ## A test case helps to validate your assumptions
 

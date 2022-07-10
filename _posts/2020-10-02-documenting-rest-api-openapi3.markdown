@@ -29,6 +29,10 @@ Once you generate the JAR maven project, open it in your favorite IDE.
 
 Below, you can see the pom.xml to use:
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ```kotlin
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -91,6 +95,10 @@ Below, you can see the pom.xml to use:
 
 To generate automatically the API documentation, we add the [springdoc-openapi-ui](https://springdoc.org/){:target="_blank"} dependency to our pom.xml file.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 The main idea for documenting our back-end RESTful APIs is to communicate what our endpoints are doing to third-party developers.
 
 ```kotlin
@@ -100,10 +108,6 @@ The main idea for documenting our back-end RESTful APIs is to communicate what o
    <version>1.3.9</version>
 </dependency>
 ```
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 ### 2. Configure H2 Database
 
@@ -178,6 +182,10 @@ public class Book {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ### 4. Create a String Data Repository – BookRepository.java
 
 Repositories are used to store and access data from different types of databases.
@@ -192,10 +200,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {}
 ```
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 ### 5. Create Spring Rest Controller Interface – BookApi
 
@@ -262,6 +266,10 @@ public interface BookApi {
   public long deleteBook(@PathVariable final long id);
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ### 6. Create Spring Rest Controller Implementation – BookApiController.java
 
@@ -378,6 +386,10 @@ public class OpenapiApplication {
 	}
 }
 ```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 @SpringBootApplication add the following functionalities:
 
