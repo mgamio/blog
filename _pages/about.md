@@ -54,9 +54,9 @@ comments: false
 
 	  <p>A fun t-shirt for every front-end, backend or developers who loves programming.</p>
 
-      <a href="https://codercuy.creator-spring.com/" target="_blank"><img class="card-img-top" alt="codercuy" border="0" src="../assets/images/codercuy.jpg" ></a>
+      <a href="https://codercuy.creator-spring.com/listing/hello-world-2189?product=389&variation=100029&size=3000" target="_blank"><img class="card-img-top" alt="codercuy" border="0" src="../assets/images/codercuy.jpg" ></a>
       
-	  <center><a target="_blank" href="https://codercuy.creator-spring.com/" class="btn btn-danger">I want this!</a></center>
+	  <center><a target="_blank" href="https://codercuy.creator-spring.com/listing/hello-world-2189?product=389&variation=100029&size=3002" class="btn btn-danger">I want this!</a></center>
 
     </div>
 
