@@ -12,7 +12,7 @@ Clean code can be read and enhanced by a developer other than its original autho
 
 This kind of practice [Robert C Martin](https://amzn.to/3rAejgU){:target="_blank"} introduced it.
 
-If you want to be a better programmer, you must follow these recommendations..
+If you want to be a better programmer, you must follow these recommendations.
 
 ## Clean Code has Intention-Revealing names
 
@@ -35,13 +35,13 @@ int articleDeliveredPrice;
 Even with external dependencies:
 
 ```kotlin
-private Z_E2F_RS_Result e2fResult: //ingredients recordset
+private Z_E2F_RS_Result e2fResult; //ingredients recordset
 ```
 
 It must be refactored to this:
 
 ```kotlin
-private Z_E2F_RS_Result ingredients:
+private Z_E2F_RS_Result ingredients;
 ```
 
 <div>
@@ -51,7 +51,7 @@ private Z_E2F_RS_Result ingredients:
 Imagine that we dont have the //ingredients comment in e2fResult variable. Then, further in any part of our code, when we try to process this variable, we have the following sentence:
 
 ```kotlin
-e2f = e2fResult[i]
+e2f = e2fResult[i];
 ```
 
 And we don’t know what does e2f means!. Well, someone suggests asking the person responsible for this code. But that guy is not at the office. Well, send it an email, and he is on holiday!.
@@ -59,7 +59,7 @@ And we don’t know what does e2f means!. Well, someone suggests asking the pers
 But if instead we adopt names which reveal intent from beginning, we could avoid these catastrophic scenarios.
 
 ```kotlin
-ingredient = ingredients[i]
+ingredient = ingredients[i];
 ```
 
 ## Clean Code tells a story
