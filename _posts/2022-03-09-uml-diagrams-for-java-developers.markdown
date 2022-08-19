@@ -117,8 +117,8 @@ public class FlyerComposerService {
   public byte[] composeFlyer(String[] qrText,
     String text,
     byte[] image,
-    int nroFlyers)
-    .
+    int nroFlyers) {
+    
     //code omitted for brevity
   }
 
@@ -173,7 +173,7 @@ In addition, we can see how the QRServiceImpl class is implemented into code
 public class QRServiceImpl implements QRService {
   @Override
   public byte[] generateQRCode(String qrText) throws Exception {
-  .
+  
   //code omitted for brevity
   }
 }
