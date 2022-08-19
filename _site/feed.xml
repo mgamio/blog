@@ -5,8 +5,8 @@
     <description>This blogsite shares knowledge and use cases and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 19 Aug 2022 14:47:12 +0200</pubDate>
-    <lastBuildDate>Fri, 19 Aug 2022 14:47:12 +0200</lastBuildDate>
+    <pubDate>Fri, 19 Aug 2022 18:04:00 +0200</pubDate>
+    <lastBuildDate>Fri, 19 Aug 2022 18:04:00 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1996,7 +1996,7 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
 
 &lt;p&gt;Imagine we want to retrieve image objects from an external web service.&lt;/p&gt;
 
-&lt;p&gt;Firstly, we receive image metadata that informs different values to decide if an image is valid o not, and one of these values is an image identifier to retrieve the final image object.&lt;/p&gt;
+&lt;p&gt;Firstly, we receive image metadata that informs different values to decide if an image is valid or not, and one of these values is an image identifier to retrieve the final image object.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -2127,7 +2127,6 @@ But this task is tedious because the &lt;em&gt;logs&lt;/em&gt; are distributed i
   &lt;li&gt;Clean Code separates levels of detail&lt;/li&gt;
   &lt;li&gt;Clean Code needs a few comments&lt;/li&gt;
   &lt;li&gt;Clean Code has small methods&lt;/li&gt;
-  &lt;li&gt;Clean Code has Command/Query separation&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;You can see a lot of typical algorithms implemented with Clean Code principles in the following &lt;a href=&quot;https://amzn.to/3PiUs0w&quot; target=&quot;_blank&quot;&gt;link&lt;/a&gt;&lt;/p&gt;

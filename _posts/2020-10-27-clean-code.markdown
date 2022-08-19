@@ -90,7 +90,7 @@ ACMEServiceClient.logout();
 
 Imagine we want to retrieve image objects from an external web service. 
 
-Firstly, we receive image metadata that informs different values to decide if an image is valid o not, and one of these values is an image identifier to retrieve the final image object.
+Firstly, we receive image metadata that informs different values to decide if an image is valid or not, and one of these values is an image identifier to retrieve the final image object.
 
 ```kotlin
 private String retrieveImageId(String[] values) {
@@ -170,7 +170,6 @@ Other recommendations of clean code are:
 * Clean Code separates levels of detail
 * Clean Code needs a few comments
 * Clean Code has small methods
-* Clean Code has Command/Query separation
 
 You can see a lot of typical algorithms implemented with Clean Code principles in the following [link](https://amzn.to/3PiUs0w){:target="_blank"}
 
