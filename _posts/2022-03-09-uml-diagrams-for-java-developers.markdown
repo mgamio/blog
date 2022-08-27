@@ -186,3 +186,7 @@ public class QRServiceImpl implements QRService {
 - An explicit UML class diagram facilitates communication between developers.
 
 We will see how to implement every Spring Boot service in the following articles, so follow me!
+
+With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.
+
+<a href="https://amzn.to/3e0K8Nv" target="_blank"><img alt="codersite" border="0" width="425" height="700" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>

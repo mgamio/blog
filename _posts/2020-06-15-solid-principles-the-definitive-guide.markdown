@@ -116,3 +116,7 @@ In conclusion, once you identify classes that have too many responsibilities, us
 Use this principle as a tool when translating [business software requirements into technical specifications](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"}. Programmers must understand these design decisions before programming.
 
 Now that you've learned the Single Responsibility principle, it's time to learn the [Open-closed principle](https://codersite.dev/open-closed-principle/){:target="_blank"} to avoid future software maintenance costs.
+
+With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.
+
+<a href="https://amzn.to/3e0K8Nv" target="_blank"><img alt="codersite" border="0" width="425" height="700" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>
