@@ -158,7 +158,7 @@ We use the term *has-a* to describe composition relationships. An order *has-a(n
 
 Learn how to use these concepts in [SOLID design principles](https://codersite.dev/open-closed-principle/){:target="_blank"}.
 
-Learn more about Software Design with this practical guide.
+With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.
 
 <a href="https://amzn.to/3e0K8Nv" target="_blank"><img alt="codersite" border="0" width="425" height="700" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>
 
