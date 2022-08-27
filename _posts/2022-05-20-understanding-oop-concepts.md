@@ -157,3 +157,8 @@ We use the term *has-a* to describe composition relationships. An order *has-a(n
 - You don't define global data. Every object contains its data.
 
 Learn how to use these concepts in [SOLID design principles](https://codersite.dev/open-closed-principle/){:target="_blank"}.
+
+Learn more about Software Design with this practical guide.
+
+<a href="https://amzn.to/3e0K8Nv" target="_blank"><img alt="codersite" border="0" width="425" height="700" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>
+
