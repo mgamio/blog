@@ -25,12 +25,13 @@ comments: false
     <ul>
       <li>Clean Code</li>
       <li>Spring Framework</li>
-      <li>Web APIs</li>
+      <li>RESTful Web Services</li>
       <li>Automated testing</li>
       <li>Software Design</li>
       <li>Software Architecture</li>
       <li>Distributed Systems</li>
       <li>Data Structure and Algorithms</li>
+	  <li>Object-Oriented Programming</li>
       <li>Learning new technologies</li>
     </ul>
 	
@@ -50,6 +51,14 @@ comments: false
         <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
       </form>
 
+      <br/>
+
+      <p>This practical guide aims to make you a better software designer within the object-oriented paradigm.</p>
+
+      <a href="https://amzn.to/3AucVBA" target="_blank"><img class="card-img-top" alt="design" border="0" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>
+      
+	  <center><a target="_blank" href="https://amzn.to/3AucVBA" class="btn btn-danger">EUR 5.00</a></center>
+	  
       <br/>
 
 	  <p>A fun t-shirt for every front-end, backend or developers who loves programming.</p>
