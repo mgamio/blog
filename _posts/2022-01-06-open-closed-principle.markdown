@@ -188,7 +188,6 @@ Calling to *getAPIPlans* is now fixed (closed for modification). If we want it t
 
 Our new DBData dependency is instantiated in our RateLimit class thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.
 
-With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.
-
-<a href="https://amzn.to/3e0K8Nv" target="_blank"><img alt="codersite" border="0" width="425" height="700" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>
-
+<div>
+{%- include softwareDesign.html -%}
+</div>

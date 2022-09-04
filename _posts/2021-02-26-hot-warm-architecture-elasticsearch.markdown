@@ -160,6 +160,8 @@ Now you can proceed to install kibana and logstash.
 
 Here you can read an article which explain [Elasticsearch](https://medium.com/@m.konda/just-elasticsearch-2-n-architecture-1fe4818c64aa){:target="_blank"} as simple as possible.
 
-If you want to know how to scale in a distribuited system, I recommend this book: [Designing Data-Intensive Applications](https://amzn.to/3rpxj15){:target="_blank"}.
-
 If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.
+
+<div>
+{%- include softwareDesign.html -%}
+</div>
