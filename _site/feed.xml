@@ -5,13 +5,13 @@
     <description>This blogsite shares knowledge and use cases and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 04 Sep 2022 17:09:18 +0200</pubDate>
-    <lastBuildDate>Sun, 04 Sep 2022 17:09:18 +0200</lastBuildDate>
+    <pubDate>Wed, 07 Sep 2022 20:38:23 +0200</pubDate>
+    <lastBuildDate>Wed, 07 Sep 2022 20:38:23 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
         <title>The Ubiquitous Language</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://codercuy.com/domain-driven-design/&quot; target=&quot;_blank&quot;&gt;Domain Driven Design&lt;/a&gt; aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.&lt;/p&gt;
+        <description>&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Domain-driven_design&quot; target=&quot;_blank&quot;&gt;Domain Driven Design&lt;/a&gt; aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -48,6 +48,10 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/ubiquitousLanguage.jpg&quot; alt=&quot;ubiquitous Language&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
+&lt;h2 id=&quot;understand-business-concepts-before-translating-them-into-source-code&quot;&gt;Understand business concepts before translating them into source code&lt;/h2&gt;
+
+&lt;p&gt;The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain.&lt;/p&gt;
+
 &lt;p&gt;Some developers can specify the following class design when your bounded context is translated into source code.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
@@ -66,9 +70,11 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;We, as developers, define variables that usually follow what is specified in programming languages, frameworks, conventions, etc. But if we were involved for weeks in analyzing requirements, why not introduce business variable names in our code?&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;imageId&lt;/em&gt; attribute is a good name, but other business domains may already use it. We, as developers, sometimes disconnect from business and look for variable names that usually follow conventions, standards, programming languages, framework recommendations, or technical terms.&lt;/p&gt;
 
-&lt;p&gt;Ubiquitous language tries to introduce the influence of business communication structures on software. The following code aligns more with the relationship between IT and business stakeholders.&lt;/p&gt;
+&lt;p&gt;If we’ve been involved in requirements analysis for weeks, why not introduce the same business terminology into our variable names? &lt;a href=&quot;https://codersite.dev/clean-code/&quot; target=&quot;_blank&quot;&gt;Variable names reveal intent&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ubiquitous language tries to introduce the influence of business communication structures on software. Whenever you can, try to introduce business terminology into your variable names.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -86,10 +92,17 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div&gt;&lt;p&gt;With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.&lt;/p&gt;
+&lt;h2 id=&quot;never-assume-and-ask-questions-to-clarify-ambiguous-and-synonyms-terms&quot;&gt;Never assume and ask questions to clarify ambiguous and synonyms terms&lt;/h2&gt;
 
-&lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;codersite&quot; border=&quot;0&quot; width=&quot;425&quot; height=&quot;700&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/div&gt;
+&lt;p&gt;You receive a task to implement a service to retrieve documents used in the shipment of goods, and you decide to call it  &lt;strong&gt;&lt;em&gt;shipping notes&lt;/em&gt;&lt;/strong&gt;. But your business doesn’t ship goods by the sea!&lt;/p&gt;
+
+&lt;p&gt;Ask always questions to your colleagues and business experts to clarify business concepts. Then you will realize that your service should implement &lt;strong&gt;&lt;em&gt;delivery notes&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Use the ubiquitous language as a tool for effective communication and knowledge sharing.&lt;/p&gt;
+
+&lt;p&gt;Learn more about analysis and software design with this practical guide.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;codersite&quot; border=&quot;0&quot; width=&quot;425&quot; height=&quot;700&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 27 Aug 2022 00:00:00 +0200</pubDate>
         <link>http://localhost:4000/the-ubiquitous-language/</link>
