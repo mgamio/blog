@@ -8,7 +8,7 @@ image: assets/images/theUbiquitousLanguage.jpg
 comments: false
 ---
 
-[Domain Driven Design](https://codercuy.com/domain-driven-design/){:target="_blank"} aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.
+[Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design){:target="_blank"} aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.
 
 - *Bounded Context* means that within the boundary, each component of the software model has a specific meaning and does particular things. For example, in a shopping application, we build components to support the *Sales Context* and others to support the *Buyer Context*.
 
@@ -35,6 +35,10 @@ During the integration process, business experts and developers are in constant 
 
 ![ubiquitous Language](/assets/images/ubiquitousLanguage.jpg){:class="img-responsive"}
 
+## Understand business concepts before translating them into source code
+
+The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain.
+
 Some developers can specify the following class design when your bounded context is translated into source code.
 
 ```kotlin
@@ -47,9 +51,11 @@ public class Product {
 }
 ```
 
-We, as developers, define variables that usually follow what is specified in programming languages, frameworks, conventions, etc. But if we were involved for weeks in analyzing requirements, why not introduce business variable names in our code?
+The *imageId* attribute is a good name, but other business domains may already use it. We, as developers, sometimes disconnect from business and look for variable names that usually follow conventions, standards, programming languages, framework recommendations, or technical terms.
 
-Ubiquitous language tries to introduce the influence of business communication structures on software. The following code aligns more with the relationship between IT and business stakeholders.
+If we've been involved in requirements analysis for weeks, why not introduce the same business terminology into our variable names? [Variable names reveal intent](https://codersite.dev/clean-code/){:target="_blank"}. 
+
+Ubiquitous language tries to introduce the influence of business communication structures on software. Whenever you can, try to introduce business terminology into your variable names.
 
 ```kotlin
 public class Product {
@@ -61,6 +67,14 @@ public class Product {
 }
 ```
 
-<div>
-{%- include softwareDesign.html -%}
-</div>
+## Never assume and ask questions to clarify ambiguous and synonyms terms
+
+You receive a task to implement a service to retrieve documents used in the shipment of goods, and you decide to call it  ***shipping notes***. But your business doesn't ship goods by the sea! 
+
+Ask always questions to your colleagues and business experts to clarify business concepts. Then you will realize that your service should implement ***delivery notes***.
+
+Use the ubiquitous language as a tool for effective communication and knowledge sharing.
+
+Learn more about analysis and software design with this practical guide.
+
+<a href="https://amzn.to/3q7otGe" target="_blank"><img alt="codersite" border="0" width="425" height="700" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>
