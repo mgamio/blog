@@ -8,7 +8,7 @@ image: assets/images/theUbiquitousLanguage.jpg
 comments: false
 ---
 
-[Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design){:target="_blank"} aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.
+[Domain Driven Design](https://codercuy.com/domain-driven-design/){:target="_blank"} aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.
 
 - *Bounded Context* means that within the boundary, each component of the software model has a specific meaning and does particular things. For example, in a shopping application, we build components to support the *Sales Context* and others to support the *Buyer Context*.
 
