@@ -1,7 +1,7 @@
 # Site
 name: "codersite"
 title: "Improve your Programming Problem-solving skills with Examples"
-description: "This blogsite shares knowledge and use cases and helps developers be better software engineers."
+description: "This blog site shares knowledge and business case studies and helps developers be better software engineers."
 logo: 'assets/images/logo.svg'
 favicon: 'assets/images/logo.png'
 baseurl: ""
