@@ -77,4 +77,4 @@ Use the ubiquitous language as a tool for effective communication and knowledge 
 
 Learn more about analysis and software design with this practical guide.
 
-<a href="https://amzn.to/3q7otGe" target="_blank"><img alt="codersite" border="0" width="425" height="700" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>
+<a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>
