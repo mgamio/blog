@@ -110,7 +110,7 @@ public class SearchResponse {
 ```
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include softwareDesignAd1.html -%}
 </div>
 
 What happens if the business wants to introduce articles in a country where some articles are forbidden to trade?.
