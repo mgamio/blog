@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Ubiquitous Language"
+title:  "Introduce business terminology into your variable names"
 description: "Domain Driven Design aims to build strategic software based on domain models."
 author: moises
 categories: [ Domain-Driven Design ]
@@ -8,13 +8,19 @@ image: assets/images/theUbiquitousLanguage.jpg
 comments: false
 ---
 
+A *Domain* is an area of knowledge associated with a problem we are trying to solve.
+
+A *Domain Model* represents those aspects of a domain that are relevant to a particular problem.
+
 [Domain Driven Design](https://codercuy.com/domain-driven-design/){:target="_blank"} aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.
 
-- *Bounded Context* means that within the boundary, each component of the software model has a specific meaning and does particular things. For example, in a shopping application, we build components to support the *Sales Context* and others to support the *Buyer Context*.
+- *Bounded Context* is a subsystem that defines a specific responsibility with an explicit boundary. For example, in a shopping application, we build specific components to support the *Sales Context* and others to support the *Buyer Context*.
 
 - The *Ubiquitous Language* reflects a language spoken among team members working in the Bounded Context.
 
-As developers, we need to choose appropriate names for our variables that reflect the business terms used in all communication channels during the design stage of our software model.
+Using bounded contexts reduces coupling between subsystems, and we can exchange data between them via explicit [API](https://codersite.dev/documenting-rest-api-openapi3/){:target="_blank"}, avoiding dependencies.
+
+As developers, we need to choose appropriate names for our variables that reflect the business terms used in all communication channels during the design stage of our domain models.
 
 ## Case study
 
@@ -37,7 +43,7 @@ During the integration process, business experts and developers are in constant 
 
 ## Understand business concepts before translating them into source code
 
-The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain.
+The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain. It is a set of concepts and vocabulary shared between everyone on the team.
 
 Some developers can specify the following class design when your bounded context is translated into source code.
 
@@ -72,6 +78,15 @@ public class Product {
 You receive a task to implement a service to retrieve documents used in the shipment of goods, and you decide to call it  ***shipping notes***. But your business doesn't ship goods by the sea! 
 
 Ask always questions to your colleagues and business experts to clarify business concepts. Then you will realize that your service should implement ***delivery notes***.
+
+The following class design represents a fundamental concept in the domain expert’s mental model.
+
+```kotlin
+public interface DeliveryNoteService {
+
+  //code omitted for brevity
+}
+```
 
 Use the ubiquitous language as a tool for effective communication and knowledge sharing.
 
