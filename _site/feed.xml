@@ -5,24 +5,30 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Sep 2022 01:16:11 +0200</pubDate>
-    <lastBuildDate>Tue, 20 Sep 2022 01:16:11 +0200</lastBuildDate>
+    <pubDate>Sat, 01 Oct 2022 12:13:19 +0200</pubDate>
+    <lastBuildDate>Sat, 01 Oct 2022 12:13:19 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
-        <title>The Ubiquitous Language</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://codercuy.com/domain-driven-design/&quot; target=&quot;_blank&quot;&gt;Domain Driven Design&lt;/a&gt; aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.&lt;/p&gt;
+        <title>Introduce business terminology into your variable names</title>
+        <description>&lt;p&gt;A &lt;em&gt;Domain&lt;/em&gt; is an area of knowledge associated with a problem we are trying to solve.&lt;/p&gt;
+
+&lt;p&gt;A &lt;em&gt;Domain Model&lt;/em&gt; represents those aspects of a domain that are relevant to a particular problem.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://codercuy.com/domain-driven-design/&quot; target=&quot;_blank&quot;&gt;Domain Driven Design&lt;/a&gt; aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;em&gt;Bounded Context&lt;/em&gt; means that within the boundary, each component of the software model has a specific meaning and does particular things. For example, in a shopping application, we build components to support the &lt;em&gt;Sales Context&lt;/em&gt; and others to support the &lt;em&gt;Buyer Context&lt;/em&gt;.&lt;/p&gt;
+    &lt;p&gt;&lt;em&gt;Bounded Context&lt;/em&gt; is a subsystem that defines a specific responsibility with an explicit boundary. For example, in a shopping application, we build specific components to support the &lt;em&gt;Sales Context&lt;/em&gt; and others to support the &lt;em&gt;Buyer Context&lt;/em&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;The &lt;em&gt;Ubiquitous Language&lt;/em&gt; reflects a language spoken among team members working in the Bounded Context.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;As developers, we need to choose appropriate names for our variables that reflect the business terms used in all communication channels during the design stage of our software model.&lt;/p&gt;
+&lt;p&gt;Using bounded contexts reduces coupling between subsystems, and we can exchange data between them via explicit &lt;a href=&quot;https://codersite.dev/documenting-rest-api-openapi3/&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt;, avoiding dependencies.&lt;/p&gt;
+
+&lt;p&gt;As developers, we need to choose appropriate names for our variables that reflect the business terms used in all communication channels during the design stage of our domain models.&lt;/p&gt;
 
 &lt;h2 id=&quot;case-study&quot;&gt;Case study&lt;/h2&gt;
 
@@ -50,7 +56,7 @@
 
 &lt;h2 id=&quot;understand-business-concepts-before-translating-them-into-source-code&quot;&gt;Understand business concepts before translating them into source code&lt;/h2&gt;
 
-&lt;p&gt;The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain.&lt;/p&gt;
+&lt;p&gt;The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain. It is a set of concepts and vocabulary shared between everyone on the team.&lt;/p&gt;
 
 &lt;p&gt;Some developers can specify the following class design when your bounded context is translated into source code.&lt;/p&gt;
 
@@ -97,6 +103,18 @@
 &lt;p&gt;You receive a task to implement a service to retrieve documents used in the shipment of goods, and you decide to call it  &lt;strong&gt;&lt;em&gt;shipping notes&lt;/em&gt;&lt;/strong&gt;. But your business doesn’t ship goods by the sea!&lt;/p&gt;
 
 &lt;p&gt;Ask always questions to your colleagues and business experts to clarify business concepts. Then you will realize that your service should implement &lt;strong&gt;&lt;em&gt;delivery notes&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The following class design represents a fundamental concept in the domain expert’s mental model.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DeliveryNoteService&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//code omitted for brevity&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Use the ubiquitous language as a tool for effective communication and knowledge sharing.&lt;/p&gt;
 
