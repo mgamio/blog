@@ -5,57 +5,9 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 12 Oct 2022 00:05:05 +0200</pubDate>
-    <lastBuildDate>Wed, 12 Oct 2022 00:05:05 +0200</lastBuildDate>
+    <pubDate>Wed, 12 Oct 2022 00:15:48 +0200</pubDate>
+    <lastBuildDate>Wed, 12 Oct 2022 00:15:48 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
-    
-      <item>
-        <title>German vocabulary for Software Engineers</title>
-        <description>&lt;p&gt;A helpful vocabulary with the most common words when working as a software developer in Germany.&lt;/p&gt;
-
-&lt;p&gt;I have worked in Berlin for eight años and would like to share this vocabulary with the most common words used in my software meetings, documents, emails, and coding tasks.&lt;/p&gt;
-
-&lt;p&gt;As part of my continuous german learning, I will update the list occasionally.&lt;/p&gt;
-
-&lt;h2 id=&quot;softwareentwicklung&quot;&gt;Softwareentwicklung&lt;/h2&gt;
-
-&lt;p&gt;die Erstellung : creation&lt;/p&gt;
-
-&lt;p&gt;die Gestaltung : design&lt;/p&gt;
-
-&lt;p&gt;die Bereitstellung : deployment&lt;/p&gt;
-
-&lt;p&gt;die Unterstützung : support&lt;/p&gt;
-
-&lt;p&gt;die Entwicklung : development&lt;/p&gt;
-
-&lt;p&gt;Loop-Anweisung : LOOP statement&lt;/p&gt;
-
-&lt;p&gt;die Anwendung : application&lt;/p&gt;
-
-&lt;p&gt;die Sicherheit : security&lt;/p&gt;
-
-&lt;p&gt;das Betriebssystem : operating system&lt;/p&gt;
-
-&lt;p&gt;Internet der Dinge (IoT) : Internet of Things&lt;/p&gt;
-
-&lt;p&gt;der Programmierer : programmer&lt;/p&gt;
-
-&lt;p&gt;der Codierer : coder&lt;/p&gt;
-
-&lt;p&gt;IT-Lösung : IT-solution&lt;/p&gt;
-
-&lt;p&gt;der Softwareentwickler : software developer&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 12 Oct 2022 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/german-vocabulary-software-engineers/</link>
-        <guid isPermaLink="true">http://localhost:4000/german-vocabulary-software-engineers/</guid>
-        
-        
-        <category>Language</category>
-        
-      </item>
     
       <item>
         <title>File Access Denied in a Cluster with Load Balancing</title>
@@ -150,6 +102,54 @@
         
         
         <category>Web Performance</category>
+        
+      </item>
+    
+      <item>
+        <title>German vocabulary for Software Engineers</title>
+        <description>&lt;p&gt;A helpful vocabulary with the most common words when working as a software developer in Germany.&lt;/p&gt;
+
+&lt;p&gt;I have worked in Berlin for eight años and would like to share this vocabulary with the most common words used in my software meetings, documents, emails, and coding tasks.&lt;/p&gt;
+
+&lt;p&gt;As part of my continuous german learning, I will update the list occasionally.&lt;/p&gt;
+
+&lt;h2 id=&quot;softwareentwicklung&quot;&gt;Softwareentwicklung&lt;/h2&gt;
+
+&lt;p&gt;die Erstellung : creation&lt;/p&gt;
+
+&lt;p&gt;die Gestaltung : design&lt;/p&gt;
+
+&lt;p&gt;die Bereitstellung : deployment&lt;/p&gt;
+
+&lt;p&gt;die Unterstützung : support&lt;/p&gt;
+
+&lt;p&gt;die Entwicklung : development&lt;/p&gt;
+
+&lt;p&gt;Loop-Anweisung : LOOP statement&lt;/p&gt;
+
+&lt;p&gt;die Anwendung : application&lt;/p&gt;
+
+&lt;p&gt;die Sicherheit : security&lt;/p&gt;
+
+&lt;p&gt;das Betriebssystem : operating system&lt;/p&gt;
+
+&lt;p&gt;Internet der Dinge (IoT) : Internet of Things&lt;/p&gt;
+
+&lt;p&gt;der Programmierer : programmer&lt;/p&gt;
+
+&lt;p&gt;der Codierer : coder&lt;/p&gt;
+
+&lt;p&gt;IT-Lösung : IT-solution&lt;/p&gt;
+
+&lt;p&gt;der Softwareentwickler : software developer&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 03 Oct 2022 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/german-vocabulary-software-engineers/</link>
+        <guid isPermaLink="true">http://localhost:4000/german-vocabulary-software-engineers/</guid>
+        
+        
+        <category>Language</category>
         
       </item>
     
