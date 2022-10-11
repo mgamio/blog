@@ -228,7 +228,7 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>Load balancing is a process that routes network traffic to a group of backend servers, also known as a server pool. A load balancer is responsible for distributing incoming requests to a collection of application servers.</p>
+                <p>Load balancing is a process that routes network traffic to a group of backend servers, also known as a server pool. A load balancer is responsible for <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">distributing incoming requests</a> to a collection of application servers.</p>
 
 <p>Load balancers help solve problems of performance, economy, and availability.</p>
 
@@ -260,22 +260,24 @@
 
 <h2 id="when-a-cluster-shares-a-file-server">When a Cluster shares a File Server</h2>
 
-<p>We want to deploy a Java Client to retrieve image objects from an external API and store it in an internal file server.</p>
+<p>We want to deploy a Java WebClient to retrieve image objects from an external API and store it in an internal file server.</p>
 
-<p>The java client is deployed in a cluster with two application servers.</p>
+<p>The Java WebClient is deployed in a cluster with two application servers.</p>
 
 <p><img src="/assets/images/loadBalancingFileServer.jpg" alt="loadBalancing and FileServer." class="img-responsive" /></p>
 
-<p>The first time a user requests the execution of the java client, the load balancer delegates the task to the first application server, for example.</p>
+<p>The cluster uses a load balancer to delegate a specific task to one of its servers in a randomized order.</p>
 
-<p>The java client store some image files in a directory, for example:</p>
+<p>The first time a user requests the execution of the Java WebClient, the load balancer delegates the task to the first application server, for example.</p>
+
+<p>The Java WebClient stores some image files in a directory, and the <em>AppServer1</em> server owns those files.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre><span class="nc">U</span><span class="p">:</span><span class="err">\</span><span class="n">imagesFromApi</span><span class="err">\</span><span class="n">image1</span><span class="p">.</span><span class="nf">jpg</span> <span class="p">(</span><span class="n">owner</span> <span class="nc">AppServer1</span><span class="p">)</span>
 <span class="nc">U</span><span class="p">:</span><span class="err">\</span><span class="n">imagesFromApi</span><span class="err">\</span><span class="n">image2</span><span class="p">.</span><span class="nf">jpg</span> <span class="p">(</span><span class="n">owner</span> <span class="nc">AppServer1</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>One week after, the java client is requested again, but it needs to execute the following code to delete an image file on the internal file server if the same image was deleted on the external API.</p>
+<p>One week after, the Java WebClient is requested again, but it needs to execute the following code to delete an image file on the internal file server if the same image was deleted on the external API.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -295,19 +297,19 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>But this second time, the load balancer delegates the execution of the task to the second application server - AppServer2. Then, the java client throws an error.</p>
+<p>But this second time, the load balancer delegates the execution of the task to the second application server - <em>AppServer2</em>. Then, the java client throws an error.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nc">Access</span> <span class="k">is</span> <span class="n">denied</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>The Java client cannot delete files that another user created.</p>
+<p>The Java WebClient cannot delete files that another user created.</p>
 
 <h2 id="possible-solutions">Possible Solutions</h2>
 
 <ul>
-  <li>Configure only one user account on application servers - hardware configuration.</li>
-  <li>Deploy the java client in only one server.</li>
+  <li>Configure only one user account on application servers and give it full access control - hardware configuration.</li>
+  <li>Deploy the Java WebClient in only one server.</li>
 </ul>
 
 
@@ -363,6 +365,8 @@
             
             <a class="prev d-block col-md-6" href="http://localhost:4000/the-ubiquitous-language/"> &laquo; Introduce business terminology into your variable names</a>
             
+            
+            <a class="next d-block col-md-6 text-lg-right" href="http://localhost:4000/german-vocabulary-software-engineers/">German vocabulary for Software Engineers &raquo; </a>
             
             <div class="clearfix"></div>
             </div>
@@ -436,6 +440,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
                     <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
                 
                     <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
                 
             
             

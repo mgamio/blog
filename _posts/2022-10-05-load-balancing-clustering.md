@@ -8,7 +8,7 @@ image: assets/images/loadBalancing.jpg
 comments: false
 ---
 
-Load balancing is a process that routes network traffic to a group of backend servers, also known as a server pool. A load balancer is responsible for distributing incoming requests to a collection of application servers.
+Load balancing is a process that routes network traffic to a group of backend servers, also known as a server pool. A load balancer is responsible for [distributing incoming requests](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"} to a collection of application servers.
 
 Load balancers help solve problems of performance, economy, and availability.
 
@@ -32,21 +32,23 @@ The benefits of building a cluster are:
 
 ## When a Cluster shares a File Server
 
-We want to deploy a Java Client to retrieve image objects from an external API and store it in an internal file server.
+We want to deploy a Java WebClient to retrieve image objects from an external API and store it in an internal file server.
 
-The java client is deployed in a cluster with two application servers.
+The Java WebClient is deployed in a cluster with two application servers.
 
 ![loadBalancing and FileServer.](/assets/images/loadBalancingFileServer.jpg){:class="img-responsive"}
 
-The first time a user requests the execution of the java client, the load balancer delegates the task to the first application server, for example.
+The cluster uses a load balancer to delegate a specific task to one of its servers in a randomized order.
 
-The java client store some image files in a directory, for example:
+The first time a user requests the execution of the Java WebClient, the load balancer delegates the task to the first application server, for example.
+
+The Java WebClient stores some image files in a directory, and the *AppServer1* server owns those files.
 
 ```kotlin
 U:\imagesFromApi\image1.jpg (owner AppServer1)
 U:\imagesFromApi\image2.jpg (owner AppServer1)
 ```
-One week after, the java client is requested again, but it needs to execute the following code to delete an image file on the internal file server if the same image was deleted on the external API.
+One week after, the Java WebClient is requested again, but it needs to execute the following code to delete an image file on the internal file server if the same image was deleted on the external API.
 
 ```kotlin
 public void deleteFile(String fileName) throws Exception {
@@ -59,18 +61,18 @@ public void deleteFile(String fileName) throws Exception {
 }
 ```
 
-But this second time, the load balancer delegates the execution of the task to the second application server - AppServer2. Then, the java client throws an error.
+But this second time, the load balancer delegates the execution of the task to the second application server - *AppServer2*. Then, the java client throws an error.
 
 ```kotlin
 Access is denied
 ```
 
-The Java client cannot delete files that another user created.
+The Java WebClient cannot delete files that another user created.
 
 ## Possible Solutions
 
-- Configure only one user account on application servers - hardware configuration.
-- Deploy the java client in only one server.
+- Configure only one user account on application servers and give it full access control - hardware configuration.
+- Deploy the Java WebClient in only one server.
 
 
 

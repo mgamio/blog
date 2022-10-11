@@ -64,7 +64,7 @@ TLS protocol evolved from Secure Socket Layer (SSL) developed by Netscape to sec
 
 ### Cipher Suite
 
-A Cipher Suite is a set of cryptographic algorithms used by an SSL or TLS connection. A suite includes three distinct algorithms:
+A Cipher Suite is a set of cryptographic algorithms used by an SSL or TLS connection. A suite includes three distinct [algorithms](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"}:
 
 - The key exchange and authentication algorithm.
 - The encryption algorithm to encipher the data
