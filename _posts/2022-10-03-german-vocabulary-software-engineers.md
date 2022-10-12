@@ -16,15 +16,21 @@ As part of my continuous german learning, I will update the list occasionally.
 
 ## Softwareentwicklung
 
+der Softwareentwickler : software developer
+
+das Konzept: plan. It is a document that describes a plan to carry out a project. 
+
 die Erstellung : creation
 
 die Gestaltung : design
 
+die Entwicklung : development
+
+die Umsetzung : implementation
+
 die Bereitstellung : deployment
 
 die Unterstützung : support
-
-die Entwicklung : development
 
 Loop-Anweisung : LOOP statement
 
@@ -41,7 +47,4 @@ der Programmierer : programmer
 der Codierer : coder
 
 IT-Lösung : IT-solution
-
-der Softwareentwickler : software developer
-
 
