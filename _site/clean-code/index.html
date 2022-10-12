@@ -453,6 +453,83 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="dont-comment-bad-code-rewrite-it">Don’t comment bad code, rewrite it</h2>
+
+<p>Imagine you requested metadata from a list of articles, but the external API, for any reason, includes additional articles in its response object. Before processing their metadata, you want to check that retrieved articles are inside your temporal map of requested articles. Introduces a comment to alert your colleagues.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">syncronizeImages</span> <span class="p">()</span> <span class="p">{</span>
+
+  <span class="nc">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">getImages</span><span class="p">(</span><span class="n">mapOfArticles</span><span class="p">);</span>
+  <span class="nc">Row</span><span class="p">[]</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">getRows</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nc">Row</span> <span class="n">row</span> <span class="p">:</span> <span class="n">rows</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">String</span><span class="p">[]</span> <span class="n">values</span> <span class="p">=</span> <span class="n">row</span><span class="p">.</span><span class="nf">getValues</span><span class="p">();</span>
+    <span class="nc">String</span> <span class="n">articleId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    
+    <span class="c1">//only requested articles</span>
+    <span class="k">if</span> <span class="p">(!</span><span class="n">mapOfArticles</span><span class="p">.</span><span class="nf">containsKey</span><span class="p">(</span><span class="n">articleId</span><span class="p">))</span>
+      <span class="k">continue</span><span class="p">;</span>
+	  
+    <span class="c1">//code omitted for brevity</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>You can avoid this extra unnecessary comment if you express in your code what you want to communicate by renaming the map variable name.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">syncronizeImages</span> <span class="p">()</span> <span class="p">{</span>
+
+  <span class="nc">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">getImages</span><span class="p">(</span><span class="n">mapOfRequestedArticles</span><span class="p">);</span>
+  <span class="nc">Row</span><span class="p">[]</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">getRows</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nc">Row</span> <span class="n">row</span> <span class="p">:</span> <span class="n">rows</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">String</span><span class="p">[]</span> <span class="n">values</span> <span class="p">=</span> <span class="n">row</span><span class="p">.</span><span class="nf">getValues</span><span class="p">();</span>
+    <span class="nc">String</span> <span class="n">articleId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    
+    <span class="k">if</span> <span class="p">(!</span><span class="n">mapOfRequestedArticles</span><span class="p">.</span><span class="nf">containsKey</span><span class="p">(</span><span class="n">articleId</span><span class="p">))</span>
+      <span class="k">continue</span><span class="p">;</span>
+	  
+    <span class="c1">//code omitted for brevity</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Now, your code is more expressive.</p>
+
 <p>Other recommendations of clean code are:</p>
 
 <ul>
