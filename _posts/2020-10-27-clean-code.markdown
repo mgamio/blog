@@ -165,6 +165,53 @@ public void syncronizeImages () {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
+## Don't comment bad code, rewrite it
+
+Imagine you requested metadata from a list of articles, but the external API, for any reason, includes additional articles in its response object. Before processing their metadata, you want to check that retrieved articles are inside your temporal map of requested articles. Introduces a comment to alert your colleagues.
+
+```kotlin  
+public void syncronizeImages () {
+
+  Response response = api.getImages(mapOfArticles);
+  Row[] rows = response.getRows();
+  for (Row row : rows) {
+    String[] values = row.getValues();
+    String articleId = values[1];
+    
+    //only requested articles
+    if (!mapOfArticles.containsKey(articleId))
+      continue;
+	  
+    //code omitted for brevity
+  }
+}
+```
+
+You can avoid this extra unnecessary comment if you express in your code what you want to communicate by renaming the map variable name.
+
+```kotlin  
+public void syncronizeImages () {
+
+  Response response = api.getImages(mapOfRequestedArticles);
+  Row[] rows = response.getRows();
+  for (Row row : rows) {
+    String[] values = row.getValues();
+    String articleId = values[1];
+    
+    if (!mapOfRequestedArticles.containsKey(articleId))
+      continue;
+	  
+    //code omitted for brevity
+  }
+}
+```
+
+Now, your code is more expressive.
+
 Other recommendations of clean code are:
 
 * Clean Code separates levels of detail
