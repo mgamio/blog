@@ -14,11 +14,13 @@ I have worked in Berlin for eight años and would like to share this vocabulary 
 
 As part of my continuous german learning, I will update the list occasionally.
 
-## Softwareentwicklung
+## Softwareentwicklung : software development
 
 der Softwareentwickler : software developer
 
 das Konzept: plan. It is a document that describes a plan to carry out a project. 
+
+Programmiersprache : programming language
 
 die Erstellung : creation
 
@@ -47,4 +49,10 @@ der Programmierer : programmer
 der Codierer : coder
 
 IT-Lösung : IT-solution
+
+die Qualitätssicherung : quality assurance
+
+der Softwareentwurf : software design
+
+die Softwarearchitektur : software architecture
 
