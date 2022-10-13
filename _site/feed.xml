@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 12 Oct 2022 17:11:54 +0200</pubDate>
-    <lastBuildDate>Wed, 12 Oct 2022 17:11:54 +0200</lastBuildDate>
+    <pubDate>Fri, 14 Oct 2022 00:21:05 +0200</pubDate>
+    <lastBuildDate>Fri, 14 Oct 2022 00:21:05 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -113,11 +113,13 @@
 
 &lt;p&gt;As part of my continuous german learning, I will update the list occasionally.&lt;/p&gt;
 
-&lt;h2 id=&quot;softwareentwicklung&quot;&gt;Softwareentwicklung&lt;/h2&gt;
+&lt;h2 id=&quot;softwareentwicklung--software-development&quot;&gt;Softwareentwicklung : software development&lt;/h2&gt;
 
 &lt;p&gt;der Softwareentwickler : software developer&lt;/p&gt;
 
 &lt;p&gt;das Konzept: plan. It is a document that describes a plan to carry out a project.&lt;/p&gt;
+
+&lt;p&gt;Programmiersprache : programming language&lt;/p&gt;
 
 &lt;p&gt;die Erstellung : creation&lt;/p&gt;
 
@@ -146,6 +148,12 @@
 &lt;p&gt;der Codierer : coder&lt;/p&gt;
 
 &lt;p&gt;IT-Lösung : IT-solution&lt;/p&gt;
+
+&lt;p&gt;die Qualitätssicherung : quality assurance&lt;/p&gt;
+
+&lt;p&gt;der Softwareentwurf : software design&lt;/p&gt;
+
+&lt;p&gt;die Softwarearchitektur : software architecture&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 03 Oct 2022 00:00:00 +0200</pubDate>
