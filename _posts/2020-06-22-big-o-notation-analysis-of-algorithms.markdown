@@ -14,6 +14,8 @@ Big O Notation is a mathematical notation that helps us analyze how complex an a
 
 We implement different algorithms to solve one problem and measure how efficient is one respect to the other ones.
 
+Algorithm analysis is an essential part of computational complexity theory, which aims to quantify the resources required to solve computational problems.
+
 The first study about Analysis of Algorithms was published by Knuth in 1968. [The Art of Computer Programming](https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming){:target="_blank"}.
 
 ## Time and Space complexity
@@ -209,6 +211,6 @@ Now, if we compare O(100N) with O(N<sup>2</sup>), we can see that O(N<sup>2</sup
 
 But after a point, O(100N) becomes faster and remains faster for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, O(100N) is written as O(N).
 
-This article was just an introduction to algorithm analysis to face a real code interview as developers, where they are asked to build rough models. If you want to create a mathematical model for the execution time of a discrete operation, for example, you should take a course in [discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics){:target="_blank"}.
+This article was just an introduction to algorithm analysis to face an actual code interview as software developers, where they are asked to build approximated models. If you want to create a mathematical model for the execution time of a discrete operation, for example, you should take a course in [discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics){:target="_blank"}.
 
-Being ready to analyze algorithms requires practice and study of different algorithms, and you can find it in this [link](https://amzn.to/3HrGXrF){:target="_blank"} with a lot of explanation details.
+Preparing to discuss algorithms analysis in your following programming interview requires practicing and studying different algorithms, and you can find it in this [link](https://amzn.to/3HrGXrF){:target="_blank"} with many explanation details.
