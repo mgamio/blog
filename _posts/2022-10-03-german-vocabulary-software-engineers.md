@@ -48,6 +48,10 @@ der Programmierer : programmer
 
 der Codierer : coder
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 IT-Lösung : IT-solution
 
 die Qualitätssicherung : quality assurance
@@ -55,4 +59,24 @@ die Qualitätssicherung : quality assurance
 der Softwareentwurf : software design
 
 die Softwarearchitektur : software architecture
+
+## Am Computer
+
+der Lautsprecher : speaker
+
+der Bildschirm : screen
+
+die Tastatur : keyboard
+
+die Taste : key
+
+das Kabel : cable
+
+die Maus : mouse
+
+das Gerät : device
+
+der Drucker : printer
+
+
 
