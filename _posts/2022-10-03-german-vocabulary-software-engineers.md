@@ -36,8 +36,6 @@ die Unterstützung : support
 
 Loop-Anweisung : LOOP statement
 
-die Anwendung : application
-
 die Sicherheit : security
 
 das Betriebssystem : operating system
@@ -59,6 +57,46 @@ die Qualitätssicherung : quality assurance
 der Softwareentwurf : software design
 
 die Softwarearchitektur : software architecture
+
+die Anwendung : application
+
+## Anwendungen : Applications
+
+Unternehmensanwendung : Enterprise Application
+
+starten : start
+ 
+stoppen : stop
+
+installieren : install
+
+deinstallieren : uninstall
+
+aktualisieren : update
+
+Datei entfernen : remove file
+
+exportieren : export
+
+analysieren : analyze
+
+der Bericht : report
+
+die Einstellungen : settings
+
+Implementierungseinstellungen : deployment settings
+
+zurücksetzen : reset
+
+anwenden : apply
+
+Allgemeine Eigenschaften : general properties
+
+löschen : delete
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ## Am Computer
 
