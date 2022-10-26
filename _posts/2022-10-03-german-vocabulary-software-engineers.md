@@ -94,6 +94,18 @@ Allgemeine Eigenschaften : general properties
 
 löschen : delete
 
+der Ausfall : outage
+
+die Datenlast : data load
+
+die Anfrage : request
+
+herunterladen : download
+
+der Fehler : error
+
+Fehler (Programmierfehler) : bug
+
 <div>
 {%- include inArticleAds.html -%}
 </div>
