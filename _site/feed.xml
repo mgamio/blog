@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 26 Oct 2022 22:57:17 +0200</pubDate>
-    <lastBuildDate>Wed, 26 Oct 2022 22:57:17 +0200</lastBuildDate>
+    <pubDate>Wed, 26 Oct 2022 23:01:19 +0200</pubDate>
+    <lastBuildDate>Wed, 26 Oct 2022 23:01:19 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1026,11 +1026,10 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;
+&lt;div&gt;&lt;center&gt;
+  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; src=&quot;../assets/images/softwareDesign1.png&quot; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+
 &lt;br /&gt;&lt;/div&gt;
 
 &lt;p&gt;From the previous code, you can see that before setting up a security requirement in OpenAPI, we need to define a new security scheme component called “spring_oauth” for example.&lt;/p&gt;

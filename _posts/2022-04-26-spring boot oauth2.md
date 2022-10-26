@@ -172,7 +172,7 @@ public class OpenApiConfig {
 ```
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include softwareDesignAd1.html -%}
 </div>
 
 From the previous code, you can see that before setting up a security requirement in OpenAPI, we need to define a new security scheme component called "spring_oauth" for example.
