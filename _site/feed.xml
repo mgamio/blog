@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 28 Oct 2022 18:25:52 +0200</pubDate>
-    <lastBuildDate>Fri, 28 Oct 2022 18:25:52 +0200</lastBuildDate>
+    <pubDate>Wed, 02 Nov 2022 20:25:51 +0100</pubDate>
+    <lastBuildDate>Wed, 02 Nov 2022 20:25:51 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -164,49 +164,63 @@
 
 &lt;h2 id=&quot;anwendungen--applications&quot;&gt;Anwendungen : Applications&lt;/h2&gt;
 
-&lt;p&gt;Unternehmensanwendung : Enterprise Application&lt;/p&gt;
+&lt;p&gt;abbrechen : cancel&lt;/p&gt;
+
+&lt;p&gt;aktualisieren : update&lt;/p&gt;
+
+&lt;p&gt;Allgemeine Eigenschaften : general properties&lt;/p&gt;
+
+&lt;p&gt;analysieren : analyze&lt;/p&gt;
+
+&lt;p&gt;die Anfrage : request&lt;/p&gt;
+
+&lt;p&gt;annehmen : accept&lt;/p&gt;
+
+&lt;p&gt;anwenden : apply&lt;/p&gt;
+
+&lt;p&gt;der Ausfall : outage&lt;/p&gt;
+
+&lt;p&gt;der Bericht : report&lt;/p&gt;
+
+&lt;p&gt;Datei entfernen : remove file&lt;/p&gt;
+
+&lt;p&gt;die Datenlast : data load&lt;/p&gt;
+
+&lt;p&gt;deinstallieren : uninstall&lt;/p&gt;
+
+&lt;p&gt;der Fehler : error&lt;/p&gt;
+
+&lt;p&gt;die Einstellungen : settings&lt;/p&gt;
+
+&lt;p&gt;durchsuchen : browse&lt;/p&gt;
+
+&lt;p&gt;exportieren : export&lt;/p&gt;
+
+&lt;p&gt;Fehler (&lt;em&gt;Programmierfehler&lt;/em&gt;) : bug&lt;/p&gt;
+
+&lt;p&gt;fertigstellen (&lt;em&gt;Installation&lt;/em&gt;) : finish&lt;/p&gt;
+
+&lt;p&gt;herunterladen : download&lt;/p&gt;
+
+&lt;p&gt;hochladen (&lt;em&gt;Daten, Programm&lt;/em&gt;) : upload&lt;/p&gt;
+
+&lt;p&gt;Implementierungseinstellungen : deployment settings&lt;/p&gt;
+
+&lt;p&gt;installieren : install&lt;/p&gt;
+
+&lt;p&gt;löschen : delete&lt;/p&gt;
 
 &lt;p&gt;starten : start&lt;/p&gt;
 
 &lt;p&gt;stoppen : stop&lt;/p&gt;
 
-&lt;p&gt;installieren : install&lt;/p&gt;
+&lt;p&gt;Unternehmensanwendung : Enterprise Application&lt;/p&gt;
 
-&lt;p&gt;deinstallieren : uninstall&lt;/p&gt;
+&lt;p&gt;weiter : next&lt;/p&gt;
 
-&lt;p&gt;aktualisieren : update&lt;/p&gt;
-
-&lt;p&gt;Datei entfernen : remove file&lt;/p&gt;
-
-&lt;p&gt;exportieren : export&lt;/p&gt;
-
-&lt;p&gt;analysieren : analyze&lt;/p&gt;
-
-&lt;p&gt;der Bericht : report&lt;/p&gt;
-
-&lt;p&gt;die Einstellungen : settings&lt;/p&gt;
-
-&lt;p&gt;Implementierungseinstellungen : deployment settings&lt;/p&gt;
+&lt;p&gt;züruck : previous&lt;/p&gt;
 
 &lt;p&gt;zurücksetzen : reset&lt;/p&gt;
-
-&lt;p&gt;anwenden : apply&lt;/p&gt;
-
-&lt;p&gt;Allgemeine Eigenschaften : general properties&lt;/p&gt;
-
-&lt;p&gt;löschen : delete&lt;/p&gt;
-
-&lt;p&gt;der Ausfall : outage&lt;/p&gt;
-
-&lt;p&gt;die Datenlast : data load&lt;/p&gt;
-
-&lt;p&gt;die Anfrage : request&lt;/p&gt;
-
-&lt;p&gt;herunterladen : download&lt;/p&gt;
-
-&lt;p&gt;der Fehler : error&lt;/p&gt;
-
-&lt;p&gt;Fehler (Programmierfehler) : bug&lt;/p&gt;
 
 &lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
 &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
@@ -217,21 +231,25 @@
 
 &lt;h2 id=&quot;am-computer&quot;&gt;Am Computer&lt;/h2&gt;
 
+&lt;p&gt;der Bildschirm : screen&lt;/p&gt;
+
+&lt;p&gt;der Drucker : printer&lt;/p&gt;
+
+&lt;p&gt;die Festplatte : hard disk HD&lt;/p&gt;
+
+&lt;p&gt;das Gerät : device&lt;/p&gt;
+
+&lt;p&gt;das Kabel : cable&lt;/p&gt;
+
 &lt;p&gt;der Lautsprecher : speaker&lt;/p&gt;
 
-&lt;p&gt;der Bildschirm : screen&lt;/p&gt;
+&lt;p&gt;die Maus : mouse&lt;/p&gt;
+
+&lt;p&gt;der Monitor : monitor&lt;/p&gt;
 
 &lt;p&gt;die Tastatur : keyboard&lt;/p&gt;
 
 &lt;p&gt;die Taste : key&lt;/p&gt;
-
-&lt;p&gt;das Kabel : cable&lt;/p&gt;
-
-&lt;p&gt;die Maus : mouse&lt;/p&gt;
-
-&lt;p&gt;das Gerät : device&lt;/p&gt;
-
-&lt;p&gt;der Drucker : printer&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 03 Oct 2022 00:00:00 +0200</pubDate>

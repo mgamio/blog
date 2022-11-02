@@ -62,49 +62,63 @@ die Anwendung : application
 
 ## Anwendungen : Applications
 
-Unternehmensanwendung : Enterprise Application
+abbrechen : cancel
+
+aktualisieren : update
+
+Allgemeine Eigenschaften : general properties
+
+analysieren : analyze
+
+die Anfrage : request
+
+annehmen : accept
+
+anwenden : apply
+
+der Ausfall : outage
+
+der Bericht : report
+
+Datei entfernen : remove file
+
+die Datenlast : data load
+
+deinstallieren : uninstall
+
+der Fehler : error
+
+die Einstellungen : settings
+
+durchsuchen : browse
+
+exportieren : export
+
+Fehler (*Programmierfehler*) : bug
+
+fertigstellen (*Installation*) : finish
+
+herunterladen : download
+
+hochladen (*Daten, Programm*) : upload
+
+Implementierungseinstellungen : deployment settings
+
+installieren : install
+
+löschen : delete
 
 starten : start
  
 stoppen : stop
 
-installieren : install
+Unternehmensanwendung : Enterprise Application
 
-deinstallieren : uninstall
+weiter : next
 
-aktualisieren : update
-
-Datei entfernen : remove file
-
-exportieren : export
-
-analysieren : analyze
-
-der Bericht : report
-
-die Einstellungen : settings
-
-Implementierungseinstellungen : deployment settings
+züruck : previous
 
 zurücksetzen : reset
-
-anwenden : apply
-
-Allgemeine Eigenschaften : general properties
-
-löschen : delete
-
-der Ausfall : outage
-
-die Datenlast : data load
-
-die Anfrage : request
-
-herunterladen : download
-
-der Fehler : error
-
-Fehler (Programmierfehler) : bug
 
 <div>
 {%- include inArticleAds.html -%}
@@ -112,21 +126,27 @@ Fehler (Programmierfehler) : bug
 
 ## Am Computer
 
+der Bildschirm : screen
+
+der Drucker : printer
+
+die Festplatte : hard disk HD
+
+das Gerät : device
+
+das Kabel : cable
+
 der Lautsprecher : speaker
 
-der Bildschirm : screen
+die Maus : mouse
+
+der Monitor : monitor
 
 die Tastatur : keyboard
 
 die Taste : key
 
-das Kabel : cable
 
-die Maus : mouse
-
-das Gerät : device
-
-der Drucker : printer
 
 
 
