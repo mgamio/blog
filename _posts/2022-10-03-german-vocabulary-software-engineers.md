@@ -16,49 +16,51 @@ As part of my continuous german learning, I will update the list occasionally.
 
 ## Softwareentwicklung : software development
 
-der Softwareentwickler : software developer
-
-das Konzept: plan. It is a document that describes a plan to carry out a project. 
-
-Programmiersprache : programming language
-
-die Erstellung : creation
-
-die Gestaltung : design
-
-die Entwicklung : development
-
-die Umsetzung : implementation
+die Anwendung : application
 
 die Bereitstellung : deployment
 
-die Unterstützung : support
-
-Loop-Anweisung : LOOP statement
-
-die Sicherheit : security
-
 das Betriebssystem : operating system
+
+der Codierer : coder
+
+die Erstellung : creation
+
+die Entwicklung : development
+
+die Gestaltung : design
 
 Internet der Dinge (IoT) : Internet of Things
 
+IT-Lösung : IT-solution
+
+das Konzept: plan. It is a document that describes a plan to carry out a project. 
+
+Loop-Anweisung : LOOP statement
+
 der Programmierer : programmer
 
-der Codierer : coder
+Programmiersprache : programming language
+
+die Qualitätssicherung : quality assurance
 
 <div>
 {%- include inArticleAds.html -%}
 </div>
 
-IT-Lösung : IT-solution
-
-die Qualitätssicherung : quality assurance
-
-der Softwareentwurf : software design
+die Sicherheit : security
 
 die Softwarearchitektur : software architecture
 
-die Anwendung : application
+der Softwareentwickler : software developer
+
+der Softwareentwurf : software design
+
+die Umgebung : environment
+
+die Umsetzung : implementation
+
+die Unterstützung : support
 
 ## Anwendungen : Applications
 
