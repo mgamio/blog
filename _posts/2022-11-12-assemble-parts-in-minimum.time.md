@@ -76,6 +76,8 @@ You get the number of parts if you ask the size() method of the list. So in that
 
 Validate your input data and check if the *numOfParts* value equals the list size.
 
+If you are facing a face-to-face interview, always ask the interviewer about the variables in case of doubt. [Never assume](https://codersite.dev/the-ubiquitous-language/){:target="_blank"}, this way you show that you will be a good team player in future projects.
+
 Our final algorithm
 
 ```kotlin
