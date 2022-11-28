@@ -233,9 +233,15 @@
 
 <h2 id="a-web-client-cannot-control-what-happens-on-the-server-side">A web client cannot control what happens on the server side</h2>
 
+<p>Business-to-business (<a href="https://codersite.dev/the-ubiquitous-language/" target="_blank">B2B</a>) is a typical scenario where one business acts as a client and the other acts as a server.</p>
+
+<p>A client-side company doesn’t care if there is a monolithic or microservice architecture on the server side.</p>
+
+<p><img src="/assets/images/webClient.png" alt="webClient" class="img-responsive" /></p>
+
 <p>We have implemented a web client that retrieves data from a thousand articles on each request.</p>
 
-<p>We need to send 50 thousand items. But suddenly, the server throws a 503 status code, and the web client continues with the following thousand articles.</p>
+<p>We need to send 50 thousand items. But suddenly, the external API throws a 503 status code, and the web client continues with the following thousand articles.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2

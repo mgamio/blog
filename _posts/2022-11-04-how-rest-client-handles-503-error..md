@@ -19,9 +19,15 @@ In any case, the server will relieve itself after some delay.
 
 ## A web client cannot control what happens on the server side
 
+Business-to-business ([B2B](https://codersite.dev/the-ubiquitous-language/){:target="_blank"}) is a typical scenario where one business acts as a client and the other acts as a server.
+
+A client-side company doesn't care if there is a monolithic or microservice architecture on the server side.
+
+![webClient](/assets/images/webClient.png){:class="img-responsive"}
+
 We have implemented a web client that retrieves data from a thousand articles on each request.
 
-We need to send 50 thousand items. But suddenly, the server throws a 503 status code, and the web client continues with the following thousand articles.
+We need to send 50 thousand items. But suddenly, the external API throws a 503 status code, and the web client continues with the following thousand articles.
 
 ```kotlin
 public Response getArticles(StringJoiner arrayOf1000Articles) throws Exception {

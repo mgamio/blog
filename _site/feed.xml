@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 27 Nov 2022 19:15:18 +0100</pubDate>
-    <lastBuildDate>Sun, 27 Nov 2022 19:15:18 +0100</lastBuildDate>
+    <pubDate>Mon, 28 Nov 2022 22:00:45 +0100</pubDate>
+    <lastBuildDate>Mon, 28 Nov 2022 22:00:45 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -168,9 +168,15 @@
 
 &lt;h2 id=&quot;a-web-client-cannot-control-what-happens-on-the-server-side&quot;&gt;A web client cannot control what happens on the server side&lt;/h2&gt;
 
+&lt;p&gt;Business-to-business (&lt;a href=&quot;https://codersite.dev/the-ubiquitous-language/&quot; target=&quot;_blank&quot;&gt;B2B&lt;/a&gt;) is a typical scenario where one business acts as a client and the other acts as a server.&lt;/p&gt;
+
+&lt;p&gt;A client-side company doesn’t care if there is a monolithic or microservice architecture on the server side.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/webClient.png&quot; alt=&quot;webClient&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;We have implemented a web client that retrieves data from a thousand articles on each request.&lt;/p&gt;
 
-&lt;p&gt;We need to send 50 thousand items. But suddenly, the server throws a 503 status code, and the web client continues with the following thousand articles.&lt;/p&gt;
+&lt;p&gt;We need to send 50 thousand items. But suddenly, the external API throws a 503 status code, and the web client continues with the following thousand articles.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
