@@ -114,6 +114,10 @@ starten : start
  
 stoppen : stop
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 Unternehmensanwendung : Enterprise Application
 
 weiter : next
@@ -121,10 +125,6 @@ weiter : next
 züruck : previous
 
 zurücksetzen : reset
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 ## Am Computer
 
@@ -147,6 +147,32 @@ der Monitor : monitor
 die Tastatur : keyboard
 
 die Taste : key
+
+## Sicherheit : Security
+
+Authentication : Authentifizierung
+
+beschränken : limit, restrict
+
+der Cyberangriff : cyber attack
+
+der Datenschutz : data protection
+
+passwordgeschützt : password protected
+
+Sicherheitsprüfung : security auditing
+
+der Schlüssel : cipher *key to secret code*
+
+Verwaltungssicherheit : Administrative security
+
+Verwaltung von SSL-Zertifikaten und Schlüsseln : SSL certificate and key management
+
+Zertifikatsverfall : certificate expiration
+
+der Zugriff : access
+
+
 
 
 
