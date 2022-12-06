@@ -242,7 +242,33 @@
 
 <p>The RateLimit class implements an interceptor - <em>HandlerInterceptor</em> - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.</p>
 
-<p>The team wants to retrieve the number of requests by plan from a text file. The following <em>getAPIPlans</em> method retrieves those parameters.</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">RateLimit</span> <span class="n">implements</span> <span class="nc">HandlerInterceptor</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span><span class="p">;</span>
+  
+  <span class="nd">@Override</span>
+  <span class="k">public</span> <span class="n">boolean</span> <span class="nf">preHandle</span><span class="p">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> 
+    <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span> <span class="nc">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+    <span class="c1">//getClientId</span>
+    <span class="n">apiPlans</span> <span class="p">=</span> <span class="nf">getAPIPlans</span><span class="p">();</span>
+    <span class="c1">//build Buckets</span>
+    <span class="c1">//evaluate request per clientId</span>
+    <span class="c1">//accept(200) or refuse(429) request</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -250,6 +276,12 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 <br /></div>
+
+<p>The number of requests allowed during a time interval is specified in plans; for example, plan A allows to consume 100 requests in 1 minute.</p>
+
+<p>The team wants to retrieve the number of requests by plan from a text file. The following <em>getAPIPlans</em> method retrieves those parameters.</p>
+
+<p>The following getAPIPlans method retrieves those parameters.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -267,49 +299,21 @@
 14
 15
 16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">RateLimit</span> <span class="n">implements</span> <span class="nc">HandlerInterceptor</span> <span class="p">{</span>
-  <span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span><span class="p">;</span>
-  
-  <span class="nd">@Override</span>
-  <span class="k">public</span> <span class="n">boolean</span> <span class="nf">preHandle</span><span class="p">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> 
-    <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span> <span class="nc">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-    <span class="c1">//getClientId</span>
-    <span class="n">apiPlans</span> <span class="p">=</span> <span class="nf">getAPIPlans</span><span class="p">();</span>
-    <span class="c1">//build Buckets</span>
-    <span class="c1">//evaluate request per clientId</span>
-    <span class="c1">//accept(200) or refuse(429) request</span>
-  <span class="p">}</span>
-  
-  <span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="nf">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-    <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ConcurrentHashMap</span><span class="p">&lt;&gt;();</span>
-    <span class="nc">Resource</span> <span class="n">resource</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ClassPathResource</span><span class="p">(</span><span class="s">"apiPlans.txt"</span><span class="p">);</span>
-    <span class="k">try</span> <span class="p">{</span>
-      <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">allLines</span> <span class="p">=</span> <span class="nc">Files</span><span class="p">.</span><span class="nf">readAllLines</span><span class="p">(</span><span class="nc">Paths</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">resource</span><span class="p">.</span><span class="nf">getURI</span><span class="p">()));</span>
-      <span class="k">for</span> <span class="p">(</span><span class="nc">String</span> <span class="n">line</span><span class="p">:</span> <span class="n">allLines</span><span class="p">)</span> <span class="p">{</span>
-	    <span class="nc">String</span><span class="p">[]</span> <span class="n">attributes</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">":"</span><span class="p">);</span>
-  	    <span class="nc">String</span> <span class="n">plan</span> <span class="p">=</span> <span class="n">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-	    <span class="n">long</span> <span class="n">capacity</span> <span class="p">=</span> <span class="nc">Long</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">attributes</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nf">longValue</span><span class="p">();</span>
-	    <span class="n">apiPlans</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">capacity</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="nf">getMessage</span><span class="p">());</span>
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="nf">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+  <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ConcurrentHashMap</span><span class="p">&lt;&gt;();</span>
+  <span class="nc">Resource</span> <span class="n">resource</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ClassPathResource</span><span class="p">(</span><span class="s">"apiPlans.txt"</span><span class="p">);</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">allLines</span> <span class="p">=</span> <span class="nc">Files</span><span class="p">.</span><span class="nf">readAllLines</span><span class="p">(</span><span class="nc">Paths</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">resource</span><span class="p">.</span><span class="nf">getURI</span><span class="p">()));</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nc">String</span> <span class="n">line</span><span class="p">:</span> <span class="n">allLines</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nc">String</span><span class="p">[]</span> <span class="n">attributes</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">":"</span><span class="p">);</span>
+      <span class="nc">String</span> <span class="n">plan</span> <span class="p">=</span> <span class="n">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+      <span class="n">long</span> <span class="n">capacity</span> <span class="p">=</span> <span class="nc">Long</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">attributes</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nf">longValue</span><span class="p">();</span>
+      <span class="n">apiPlans</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">capacity</span><span class="p">);</span>
     <span class="p">}</span>
-    <span class="k">return</span> <span class="n">apiPlans</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="nf">getMessage</span><span class="p">());</span>
   <span class="p">}</span>
+  <span class="k">return</span> <span class="n">apiPlans</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -321,14 +325,14 @@
 
 <p>Then weeks later, your team decides that must be retrieved parameters from a database. Therefore you proceed to replace the <em>getAPIPlans</em> method; then, <em>you break the open-closed principle</em>.</p>
 
+<p>That is the meaning of the principle; you can not touch the code that is already implemented and working for a long time. Suppose the code is too complex to understand, not well documented, and includes a lot of dependencies. In that case, we have a lot of probabilities to introduce a bug or break some functionalities that we cannot visualize. Unless it is a bug that we have to fix, we should never modify the existing code.</p>
+
 <div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 <br /></div>
-
-<p>That is the meaning of the principle; you can not touch the code that is already implemented and working for a long time. Suppose the code is too complex to understand, not well documented, and includes a lot of dependencies. In that case, we have a lot of probabilities to introduce a bug or break some functionalities that we cannot visualize. Unless it is a bug that we have to fix, we should never modify the existing code.</p>
 
 <p>Even if the code is not well designed or does not follow well object-oriented principles, it could not be easy to extend a class to introduce new functionalities.</p>
 

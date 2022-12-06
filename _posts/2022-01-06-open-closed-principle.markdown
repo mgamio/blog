@@ -28,12 +28,6 @@ For instance, imagine designing and implementing a rate limit algorithm to contr
 
 The RateLimit class implements an interceptor - *HandlerInterceptor* - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.
 
-The team wants to retrieve the number of requests by plan from a text file. The following *getAPIPlans* method retrieves those parameters.
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 ```kotlin
 public class RateLimit implements HandlerInterceptor {
   private Map<String, Long> apiPlans;
@@ -47,23 +41,35 @@ public class RateLimit implements HandlerInterceptor {
     //evaluate request per clientId
     //accept(200) or refuse(429) request
   }
-  
-  private Map<String, Long> getAPIPlans() throws Exception {
-    Map<String, Long> apiPlans = new ConcurrentHashMap<>();
-    Resource resource = new ClassPathResource("apiPlans.txt");
-    try {
-      List<String> allLines = Files.readAllLines(Paths.get(resource.getURI()));
-      for (String line: allLines) {
-	    String[] attributes = line.split(":");
-  	    String plan = attributes[0];
-	    long capacity = Long.valueOf(attributes[1]).longValue();
-	    apiPlans.put(plan, capacity);
-      }
-    } catch (IOException e) {
-        throw new RuntimeException(e.getMessage());
+}
+```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
+The number of requests allowed during a time interval is specified in plans; for example, plan A allows to consume 100 requests in 1 minute.
+
+The team wants to retrieve the number of requests by plan from a text file. The following *getAPIPlans* method retrieves those parameters.
+
+The following getAPIPlans method retrieves those parameters.
+
+```kotlin
+private Map<String, Long> getAPIPlans() throws Exception {
+  Map<String, Long> apiPlans = new ConcurrentHashMap<>();
+  Resource resource = new ClassPathResource("apiPlans.txt");
+  try {
+    List<String> allLines = Files.readAllLines(Paths.get(resource.getURI()));
+    for (String line: allLines) {
+      String[] attributes = line.split(":");
+      String plan = attributes[0];
+      long capacity = Long.valueOf(attributes[1]).longValue();
+      apiPlans.put(plan, capacity);
     }
-    return apiPlans;
+  } catch (IOException e) {
+      throw new RuntimeException(e.getMessage());
   }
+  return apiPlans;
 }
 ```
 
@@ -75,11 +81,11 @@ As developers, we usually receive tasks to do maintenance in projects that do no
 
 Then weeks later, your team decides that must be retrieved parameters from a database. Therefore you proceed to replace the *getAPIPlans* method; then, *you break the open-closed principle*.
 
+That is the meaning of the principle; you can not touch the code that is already implemented and working for a long time. Suppose the code is too complex to understand, not well documented, and includes a lot of dependencies. In that case, we have a lot of probabilities to introduce a bug or break some functionalities that we cannot visualize. Unless it is a bug that we have to fix, we should never modify the existing code.
+
 <div>
 {%- include inArticleAds.html -%}
 </div>
-
-That is the meaning of the principle; you can not touch the code that is already implemented and working for a long time. Suppose the code is too complex to understand, not well documented, and includes a lot of dependencies. In that case, we have a lot of probabilities to introduce a bug or break some functionalities that we cannot visualize. Unless it is a bug that we have to fix, we should never modify the existing code.
 
 Even if the code is not well designed or does not follow well object-oriented principles, it could not be easy to extend a class to introduce new functionalities.
 
