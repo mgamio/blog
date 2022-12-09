@@ -202,7 +202,7 @@
 }
 .ts-product-container .ts-product{
     display: inline-block;
-    height: 515px;
+    height: 520px;
     margin: 10px 10px;
     width: 240px;
     // background: #eee;
@@ -219,7 +219,7 @@
 	text-align: center;
 	display: block;
 	overflow: hidden;
-	height: 145px;
+	height: 130px;
 }
 .card {
   /* Add shadows to create the "card" effect */
