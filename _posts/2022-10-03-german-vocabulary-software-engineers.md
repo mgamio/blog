@@ -88,13 +88,13 @@ die Datenlast : data load
 
 deinstallieren : uninstall
 
-der Fehler : error
+durchsuchen : browse
 
 die Einstellungen : settings
 
-durchsuchen : browse
-
 exportieren : export
+
+der Fehler : error
 
 Fehler (*Programmierfehler*) : bug
 
@@ -154,9 +154,15 @@ Authentication : Authentifizierung
 
 beschränken : limit, restrict
 
+das Benutzerkonto : user account
+
 der Cyberangriff : cyber attack
 
 der Datenschutz : data protection
+
+das Kennwort : password
+
+der Identitätsdiebstahl : identity theft
 
 passwordgeschützt : password protected
 

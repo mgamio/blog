@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 08 Dec 2022 22:04:23 +0100</pubDate>
-    <lastBuildDate>Thu, 08 Dec 2022 22:04:23 +0100</lastBuildDate>
+    <pubDate>Fri, 09 Dec 2022 14:15:53 +0100</pubDate>
+    <lastBuildDate>Fri, 09 Dec 2022 14:15:53 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -471,13 +471,13 @@
 
 &lt;p&gt;deinstallieren : uninstall&lt;/p&gt;
 
-&lt;p&gt;der Fehler : error&lt;/p&gt;
+&lt;p&gt;durchsuchen : browse&lt;/p&gt;
 
 &lt;p&gt;die Einstellungen : settings&lt;/p&gt;
 
-&lt;p&gt;durchsuchen : browse&lt;/p&gt;
-
 &lt;p&gt;exportieren : export&lt;/p&gt;
+
+&lt;p&gt;der Fehler : error&lt;/p&gt;
 
 &lt;p&gt;Fehler (&lt;em&gt;Programmierfehler&lt;/em&gt;) : bug&lt;/p&gt;
 
@@ -540,9 +540,15 @@
 
 &lt;p&gt;beschränken : limit, restrict&lt;/p&gt;
 
+&lt;p&gt;das Benutzerkonto : user account&lt;/p&gt;
+
 &lt;p&gt;der Cyberangriff : cyber attack&lt;/p&gt;
 
 &lt;p&gt;der Datenschutz : data protection&lt;/p&gt;
+
+&lt;p&gt;das Kennwort : password&lt;/p&gt;
+
+&lt;p&gt;der Identitätsdiebstahl : identity theft&lt;/p&gt;
 
 &lt;p&gt;passwordgeschützt : password protected&lt;/p&gt;
 
