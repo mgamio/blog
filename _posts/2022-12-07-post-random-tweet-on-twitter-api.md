@@ -102,7 +102,7 @@ Every three hours, we check if the new random number is not included in the queu
 
 The *remove* method deletes the oldest element from the queue (remember *the element inserted at first is the first element to come out of the list*).
 
-The new method executes (*do*) the following instructions *while* a new random number is not found.
+The new method executes (**do**) the following instructions **while** a new random number is not found.
 
 ```kotlin
 private Article getRandomArticle() {
