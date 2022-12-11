@@ -28,6 +28,15 @@ We have created an automated client to publish tweets under a Scheduler’s cont
 
 We have a text file listing all the articles we have written.
 
+```kotlin
+SOLID principles;article_URL;#solid #objectoriented
+Binary Search Tree;article_URL;#algorithm #datastructure
+Clean code;article_URL;#programming #codingpractices
+.
+.
+.
+```
+
 We have the following metadata for every article.
 
 ```kotlin
