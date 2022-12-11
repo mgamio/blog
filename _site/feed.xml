@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 11 Dec 2022 12:21:39 +0100</pubDate>
-    <lastBuildDate>Sun, 11 Dec 2022 12:21:39 +0100</lastBuildDate>
+    <pubDate>Sun, 11 Dec 2022 12:24:39 +0100</pubDate>
+    <lastBuildDate>Sun, 11 Dec 2022 12:24:39 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -128,7 +128,7 @@
 
 &lt;p&gt;The &lt;em&gt;remove&lt;/em&gt; method deletes the oldest element from the queue (remember &lt;em&gt;the element inserted at first is the first element to come out of the list&lt;/em&gt;).&lt;/p&gt;
 
-&lt;p&gt;The new method executes (&lt;em&gt;do&lt;/em&gt;) the following instructions &lt;em&gt;while&lt;/em&gt; a new random number is not found.&lt;/p&gt;
+&lt;p&gt;The new method executes (&lt;strong&gt;do&lt;/strong&gt;) the following instructions &lt;strong&gt;while&lt;/strong&gt; a new random number is not found.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
