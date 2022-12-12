@@ -47,10 +47,19 @@ public class Article {
 }
 ```
 
-Loading all the articles sequentially into a hashmap where the key is an integer
+Load all the articles sequentially into a hashmap. We define the hashmap key as an integer to uniquely identify every article.
 
 ```kotlin
 private Map<Integer, Article> articlesMap;
+.
+.
+.
+int n = 1;
+for (String line: allLines) {
+  Article article = new Article();
+  //code omitted for brevity
+  articlesMap.put(n++, article);
+}	  
 ```
 
 We choose a random number with the following method.
@@ -79,7 +88,7 @@ public void postInTwitter() throws Exception {
 }
 ```
 
-But once an article is retrieved, the following article will probably be the same if we use this *getRandomNumber* method.
+But once an article is retrieved, the following article will probably be the same if we use the previous *getRandomNumber* method.
 
 ## Don't post duplicate articles in a time frame.
 
@@ -87,11 +96,13 @@ What we want is to post no duplicate articles in a time frame.
 
 For example, if we post every three hours, eight posts are in one day. Well, we want to show eight no-duplicate tweets for our users throughout the day.
 
+As developers, we need to have a basic understanding of the inner workings of data structures. Could an array, linked list, queue, or stack satisfy our requirement?
+
 A [Queue](https://amzn.to/3FxeKSb){:target="_blank"} is an abstract data type, which includes a collection of objects that follow the first-in, first-out (FIFO) principle, i.e., the element inserted at first is the first element to come out of the list.
 
 A MAX_ARTICLES variable defines your frame time. You can increase or decrease it according to the number of your articles.
 
-We define a queue of integers.
+We define a queue of integers that is implemented by a linked list.
 
 ```kotlin
 private int MAX_ARTICLES = 8;
@@ -101,6 +112,10 @@ private Queue<Integer> queue = new LinkedList<>();
 Every three hours, we check if the new random number is not included in the queue. If the validation is successful, we retrieve a new article and publish it.
 
 The *remove* method deletes the oldest element from the queue (remember *the element inserted at first is the first element to come out of the list*).
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 The new method executes (**do**) the following instructions **while** a new random number is not found.
 
@@ -124,10 +139,6 @@ private Article getRandomArticle() {
   return article;
 }
 ```
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 The [Big O notation](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"} to *add* and *remove* elements is O(1).
 

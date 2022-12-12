@@ -264,10 +264,28 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Loading all the articles sequentially into a hashmap where the key is an integer</p>
+<p>Load all the articles sequentially into a hashmap. We define the hashmap key as an integer to uniquely identify every article.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
 </pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">,</span> <span class="nc">Article</span><span class="p">&gt;</span> <span class="n">articlesMap</span><span class="p">;</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="n">int</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="nc">String</span> <span class="n">line</span><span class="p">:</span> <span class="n">allLines</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">Article</span><span class="p">();</span>
+  <span class="c1">//code omitted for brevity</span>
+  <span class="n">articlesMap</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">n</span><span class="p">++,</span> <span class="n">article</span><span class="p">);</span>
+<span class="p">}</span>	  
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>We choose a random number with the following method.</p>
@@ -309,7 +327,7 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>But once an article is retrieved, the following article will probably be the same if we use this <em>getRandomNumber</em> method.</p>
+<p>But once an article is retrieved, the following article will probably be the same if we use the previous <em>getRandomNumber</em> method.</p>
 
 <h2 id="dont-post-duplicate-articles-in-a-time-frame">Don’t post duplicate articles in a time frame.</h2>
 
@@ -317,11 +335,13 @@
 
 <p>For example, if we post every three hours, eight posts are in one day. Well, we want to show eight no-duplicate tweets for our users throughout the day.</p>
 
+<p>As developers, we need to have a basic understanding of the inner workings of data structures. Could an array, linked list, queue, or stack satisfy our requirement?</p>
+
 <p>A <a href="https://amzn.to/3FxeKSb" target="_blank">Queue</a> is an abstract data type, which includes a collection of objects that follow the first-in, first-out (FIFO) principle, i.e., the element inserted at first is the first element to come out of the list.</p>
 
 <p>A MAX_ARTICLES variable defines your frame time. You can increase or decrease it according to the number of your articles.</p>
 
-<p>We define a queue of integers.</p>
+<p>We define a queue of integers that is implemented by a linked list.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -332,6 +352,13 @@
 <p>Every three hours, we check if the new random number is not included in the queue. If the validation is successful, we retrieve a new article and publish it.</p>
 
 <p>The <em>remove</em> method deletes the oldest element from the queue (remember <em>the element inserted at first is the first element to come out of the list</em>).</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
 
 <p>The new method executes (<strong>do</strong>) the following instructions <strong>while</strong> a new random number is not found.</p>
 
@@ -372,13 +399,6 @@
   <span class="k">return</span> <span class="n">article</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
-
-<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
 
 <p>The <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Big O notation</a> to <em>add</em> and <em>remove</em> elements is O(1).</p>
 
