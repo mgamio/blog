@@ -5,6 +5,7 @@ description: "Object-oriented concepts give you a solid foundation for making cr
 author: moises
 categories: [ Object-Oriented ]
 image: assets/images/oop.jpg
+featured: true
 comments: false
 ---
 
