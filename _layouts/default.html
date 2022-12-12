@@ -6,8 +6,6 @@
 
 <link rel="icon" href="{{ site.baseurl }}/assets/images/logo.png">
 
-<title>{{ page.title }}</title>
-
 {% seo %}
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -118,7 +116,7 @@ ga('send', 'pageview');
 ================================================== -->
 {%- if page.layout == "default" -%}
   <div class="mainheading">
-    <h1 class="sitetitle" style="text-align:center;">{{ site.title }}</h1>
+    <h1 class="sitetitle" style="text-align:center;">{{ site.header }}</h1>
     <p class="lead" style="text-align:center;">
         {{ site.description }}
     </p>

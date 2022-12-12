@@ -1,6 +1,7 @@
 # Site
 name: "codersite"
-title: "Improve your Programming Problem-solving skills with Examples"
+title: "codersite"
+header: "Improve your Programming Problem-solving skills with Examples"
 description: "This blog site shares knowledge and business case studies and helps developers be better software engineers."
 logo: 'assets/images/logo.svg'
 favicon: 'assets/images/logo.png'
