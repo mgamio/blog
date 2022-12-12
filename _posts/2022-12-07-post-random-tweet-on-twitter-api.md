@@ -14,7 +14,7 @@ The [Twitter API](https://developer.twitter.com/en/docs/twitter-api){:target="_b
 
 To execute *@Scheduled* annotations, we add an *@EnableScheduling* annotation on the main class.
 
-A *cron* attribute - as in Unix-based systems - enables the method to be executed at a specified date/time
+A *cron* attribute - as in Unix-based systems - enables the method to be executed at a specified date/time.
 
 ```kotlin
 @Scheduled(cron = "0 0 0/3 1/1 * ?")
@@ -178,6 +178,6 @@ Once you deploy the scheduler to any cloud provider, its log files show the queu
 
 With the help of this softbot, you can now focus on writing more articles. Look at it in action on my [Twitter](https://twitter.com/MoisesGamio){:target="_blank"} account!.
 
-Similar questions you can find in my [book](https://amzn.to/3FxeKSb){:target="_blank"} about algorithms and inner workings of Data Structures. Learn how to apply common algorithms to the practical problems.
+Similar questions you can find in my [book](https://amzn.to/3FxeKSb){:target="_blank"} about algorithms and the inner workings of Data Structures. Learn how to apply common algorithms to practical problems.
 
 <iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=DE&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=mkgv89-21&language=en_GB&marketplace=amazon&region=DE&placement=B086JCK6C4&asins=B086JCK6C4&linkId=78e646bc8bd99599b961d3e15b102848&show_border=true&link_opens_in_new_window=true"></iframe>

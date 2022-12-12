@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 12 Dec 2022 12:30:41 +0100</pubDate>
-    <lastBuildDate>Mon, 12 Dec 2022 12:30:41 +0100</lastBuildDate>
+    <pubDate>Mon, 12 Dec 2022 12:50:48 +0100</pubDate>
+    <lastBuildDate>Mon, 12 Dec 2022 12:50:48 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -17,7 +17,7 @@
 
 &lt;p&gt;To execute &lt;em&gt;@Scheduled&lt;/em&gt; annotations, we add an &lt;em&gt;@EnableScheduling&lt;/em&gt; annotation on the main class.&lt;/p&gt;
 
-&lt;p&gt;A &lt;em&gt;cron&lt;/em&gt; attribute - as in Unix-based systems - enables the method to be executed at a specified date/time&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;cron&lt;/em&gt; attribute - as in Unix-based systems - enables the method to be executed at a specified date/time.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nd&quot;&gt;@Scheduled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cron&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;0 0 0/3 1/1 * ?&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -255,7 +255,7 @@
 
 &lt;p&gt;With the help of this softbot, you can now focus on writing more articles. Look at it in action on my &lt;a href=&quot;https://twitter.com/MoisesGamio&quot; target=&quot;_blank&quot;&gt;Twitter&lt;/a&gt; account!.&lt;/p&gt;
 
-&lt;p&gt;Similar questions you can find in my &lt;a href=&quot;https://amzn.to/3FxeKSb&quot; target=&quot;_blank&quot;&gt;book&lt;/a&gt; about algorithms and inner workings of Data Structures. Learn how to apply common algorithms to the practical problems.&lt;/p&gt;
+&lt;p&gt;Similar questions you can find in my &lt;a href=&quot;https://amzn.to/3FxeKSb&quot; target=&quot;_blank&quot;&gt;book&lt;/a&gt; about algorithms and the inner workings of Data Structures. Learn how to apply common algorithms to practical problems.&lt;/p&gt;
 
 &lt;iframe sandbox=&quot;allow-popups allow-scripts allow-modals allow-forms allow-same-origin&quot; style=&quot;width:120px;height:240px;&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; src=&quot;//ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;amp;OneJS=1&amp;amp;Operation=GetAdHtml&amp;amp;MarketPlace=DE&amp;amp;source=ss&amp;amp;ref=as_ss_li_til&amp;amp;ad_type=product_link&amp;amp;tracking_id=mkgv89-21&amp;amp;language=en_GB&amp;amp;marketplace=amazon&amp;amp;region=DE&amp;amp;placement=B086JCK6C4&amp;amp;asins=B086JCK6C4&amp;amp;linkId=78e646bc8bd99599b961d3e15b102848&amp;amp;show_border=true&amp;amp;link_opens_in_new_window=true&quot;&gt;&lt;/iframe&gt;
 </description>
