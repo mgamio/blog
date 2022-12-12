@@ -4,7 +4,6 @@ title: "SOLID principles: The Definitive Guide (Part I)"
 author: moises
 categories: [ design ]
 image: assets/images/solid.jpg
-featured: true
 hidden: true
 comments: false
 ---
