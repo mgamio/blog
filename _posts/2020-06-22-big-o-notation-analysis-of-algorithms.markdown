@@ -6,7 +6,7 @@ author: moises
 categories: [ algorithms ]
 image: assets/images/algorithm.jpg
 featured: true
-hidden: true
+hidden: false
 comments: false
 ---
 

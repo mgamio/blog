@@ -6,6 +6,7 @@ author: moises
 categories: [ Object-Oriented ]
 image: assets/images/oop.jpg
 featured: true
+hidden: false
 comments: false
 ---
 
