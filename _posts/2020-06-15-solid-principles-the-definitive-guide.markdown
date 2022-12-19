@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "SOLID principles: The Definitive Guide (Part I)"
+description: "SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated"
 author: moises
 categories: [ design ]
 image: assets/images/solid.jpg
-hidden: true
 comments: false
 ---
 
