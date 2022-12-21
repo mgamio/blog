@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Post a random tweet on Twitter API"
-description: "Post a random tweet on Twitter API"
+title:  "How to Post a Random Tweet using Twitter API"
+description: "How to Post a Random Tweet using Twitter API"
 author: moises
 categories: [ algorithms ]
 image: assets/images/postInTwitterAPI.jpg
@@ -96,7 +96,7 @@ What we want is to post no duplicate articles in a time frame.
 
 For example, if we post every three hours, eight posts are in one day. Well, we want to show eight no-duplicate tweets for our users throughout the day.
 
-As developers, we need to have a basic understanding of the inner workings of data structures. Could an array, linked list, queue, or stack satisfy our requirement?
+As developers, we need to understand the inner workings of data structures to support the behavior - method - we want to implement. Could an array, linked list, queue, or stack satisfy our requirement?
 
 A [Queue](https://amzn.to/3FxeKSb){:target="_blank"} is an abstract data type, which includes a collection of objects that follow the first-in, first-out (FIFO) principle, i.e., the element inserted at first is the first element to come out of the list.
 

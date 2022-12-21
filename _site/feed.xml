@@ -5,12 +5,12 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Dec 2022 22:56:11 +0100</pubDate>
-    <lastBuildDate>Mon, 19 Dec 2022 22:56:11 +0100</lastBuildDate>
+    <pubDate>Wed, 21 Dec 2022 23:30:17 +0100</pubDate>
+    <lastBuildDate>Wed, 21 Dec 2022 23:30:17 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
-        <title>Post a random tweet on Twitter API</title>
+        <title>How to Post a Random Tweet using Twitter API</title>
         <description>&lt;p&gt;The &lt;a href=&quot;https://developer.twitter.com/en/docs/twitter-api&quot; target=&quot;_blank&quot;&gt;Twitter API&lt;/a&gt; enables developers to post tweets programmatically.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;@Scheduled&lt;/em&gt; is a Spring annotation that marks a method to be scheduled.&lt;/p&gt;
@@ -130,7 +130,7 @@
 
 &lt;p&gt;For example, if we post every three hours, eight posts are in one day. Well, we want to show eight no-duplicate tweets for our users throughout the day.&lt;/p&gt;
 
-&lt;p&gt;As developers, we need to have a basic understanding of the inner workings of data structures. Could an array, linked list, queue, or stack satisfy our requirement?&lt;/p&gt;
+&lt;p&gt;As developers, we need to understand the inner workings of data structures to support the behavior - method - we want to implement. Could an array, linked list, queue, or stack satisfy our requirement?&lt;/p&gt;
 
 &lt;p&gt;A &lt;a href=&quot;https://amzn.to/3FxeKSb&quot; target=&quot;_blank&quot;&gt;Queue&lt;/a&gt; is an abstract data type, which includes a collection of objects that follow the first-in, first-out (FIFO) principle, i.e., the element inserted at first is the first element to come out of the list.&lt;/p&gt;
 
