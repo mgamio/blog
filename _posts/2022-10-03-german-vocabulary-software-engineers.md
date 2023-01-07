@@ -74,6 +74,8 @@ analysieren : analyze
 
 die Anfrage : request
 
+die Angabe (*Daten*) : information, data
+
 annehmen : accept
 
 anwenden : apply
@@ -93,6 +95,8 @@ deinstallieren : uninstall
 durchsuchen : browse
 
 die Einstellungen : settings
+
+eingeben (*Daten*) : enter
 
 entfernen: remove
 
@@ -125,6 +129,8 @@ stoppen : stop
 </div>
 
 Unternehmensanwendung : Enterprise Application
+
+verlassen (*Programm*) : quit
 
 weiter : next
 
