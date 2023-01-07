@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 07 Jan 2023 15:42:48 +0100</pubDate>
-    <lastBuildDate>Sat, 07 Jan 2023 15:42:48 +0100</lastBuildDate>
+    <pubDate>Sat, 07 Jan 2023 16:15:20 +0100</pubDate>
+    <lastBuildDate>Sat, 07 Jan 2023 16:15:20 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -716,6 +716,8 @@
 
 &lt;p&gt;die Anfrage : request&lt;/p&gt;
 
+&lt;p&gt;die Angabe (&lt;em&gt;Daten&lt;/em&gt;) : information, data&lt;/p&gt;
+
 &lt;p&gt;annehmen : accept&lt;/p&gt;
 
 &lt;p&gt;anwenden : apply&lt;/p&gt;
@@ -735,6 +737,8 @@
 &lt;p&gt;durchsuchen : browse&lt;/p&gt;
 
 &lt;p&gt;die Einstellungen : settings&lt;/p&gt;
+
+&lt;p&gt;eingeben (&lt;em&gt;Daten&lt;/em&gt;) : enter&lt;/p&gt;
 
 &lt;p&gt;entfernen: remove&lt;/p&gt;
 
@@ -770,6 +774,8 @@
 &lt;br /&gt;&lt;/div&gt;
 
 &lt;p&gt;Unternehmensanwendung : Enterprise Application&lt;/p&gt;
+
+&lt;p&gt;verlassen (&lt;em&gt;Programm&lt;/em&gt;) : quit&lt;/p&gt;
 
 &lt;p&gt;weiter : next&lt;/p&gt;
 
