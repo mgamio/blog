@@ -78,6 +78,8 @@ annehmen : accept
 
 anwenden : apply
 
+Ausnahmebehandlung : exception handling
+
 der Ausfall : outage
 
 der Bericht : report
@@ -92,6 +94,8 @@ durchsuchen : browse
 
 die Einstellungen : settings
 
+entfernen: remove
+
 exportieren : export
 
 der Fehler : error
@@ -101,6 +105,8 @@ Fehler (*Programmierfehler*) : bug
 fertigstellen (*Installation*) : finish
 
 herunterladen : download
+
+hinzufügen : add
 
 hochladen (*Daten, Programm*) : upload
 
@@ -159,6 +165,8 @@ das Benutzerkonto : user account
 der Cyberangriff : cyber attack
 
 der Datenschutz : data protection
+
+datenübernahme : data transfer
 
 das Kennwort : password
 
