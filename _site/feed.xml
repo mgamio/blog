@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Dec 2022 23:30:17 +0100</pubDate>
-    <lastBuildDate>Wed, 21 Dec 2022 23:30:17 +0100</lastBuildDate>
+    <pubDate>Sat, 07 Jan 2023 15:42:48 +0100</pubDate>
+    <lastBuildDate>Sat, 07 Jan 2023 15:42:48 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -720,6 +720,8 @@
 
 &lt;p&gt;anwenden : apply&lt;/p&gt;
 
+&lt;p&gt;Ausnahmebehandlung : exception handling&lt;/p&gt;
+
 &lt;p&gt;der Ausfall : outage&lt;/p&gt;
 
 &lt;p&gt;der Bericht : report&lt;/p&gt;
@@ -734,6 +736,8 @@
 
 &lt;p&gt;die Einstellungen : settings&lt;/p&gt;
 
+&lt;p&gt;entfernen: remove&lt;/p&gt;
+
 &lt;p&gt;exportieren : export&lt;/p&gt;
 
 &lt;p&gt;der Fehler : error&lt;/p&gt;
@@ -743,6 +747,8 @@
 &lt;p&gt;fertigstellen (&lt;em&gt;Installation&lt;/em&gt;) : finish&lt;/p&gt;
 
 &lt;p&gt;herunterladen : download&lt;/p&gt;
+
+&lt;p&gt;hinzufügen : add&lt;/p&gt;
 
 &lt;p&gt;hochladen (&lt;em&gt;Daten, Programm&lt;/em&gt;) : upload&lt;/p&gt;
 
@@ -804,6 +810,8 @@
 &lt;p&gt;der Cyberangriff : cyber attack&lt;/p&gt;
 
 &lt;p&gt;der Datenschutz : data protection&lt;/p&gt;
+
+&lt;p&gt;datenübernahme : data transfer&lt;/p&gt;
 
 &lt;p&gt;das Kennwort : password&lt;/p&gt;
 
