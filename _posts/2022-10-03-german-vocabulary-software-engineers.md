@@ -86,6 +86,8 @@ der Ausfall : outage
 
 der Bericht : report
 
+die Datei : file (computer)
+
 Datei entfernen : remove file
 
 die Datenlast : data load
