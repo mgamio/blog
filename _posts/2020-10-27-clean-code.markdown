@@ -212,6 +212,32 @@ public void syncronizeImages () {
 
 Now, your code is more expressive.
 
+## Choose simplicity over complexity
+
+As developers, sometimes we use ternary conditional operators that take less space, but when we introduce more variables, the code is not readable or is more difficult to evolve.
+
+For example, when we try to build the article’s image URL, we need to evaluate if an image is valid and if the image is not restricted; if it is restricted, we need to assess whether a partner can retrieve this image.
+
+```kotlin  
+String articleImageURL = (imageId <= 0 || (imageIdIsRestricted && !partnerCanSeeImage)) ? null : IMAGE_URL + imageId;
+```
+
+The previous code can be refactored using nested if-else statements, which is easier to understand.
+
+```kotlin  
+String articleImageURL = null;
+if (imageId > 0) {
+  if (imageIdIsRestricted) {
+    if (partnerCanSeeImage) {
+      articleImageURL = IMAGE_URL + imageId;
+    }
+  } else {
+    articleImageURL = IMAGE_URL + imageId;
+  }
+}
+```
+
+
 Other recommendations of clean code are:
 
 * Clean Code separates levels of detail
