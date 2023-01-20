@@ -518,6 +518,40 @@
 
 <p>Now, your code is more expressive.</p>
 
+<h2 id="choose-simplicity-over-complexity">Choose simplicity over complexity</h2>
+
+<p>As developers, sometimes we use ternary conditional operators that take less space, but when we introduce more variables, the code is not readable or is more difficult to evolve.</p>
+
+<p>For example, when we try to build the article’s image URL, we need to evaluate if an image is valid and if the image is not restricted; if it is restricted, we need to assess whether a partner can retrieve this image.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">articleImageURL</span> <span class="p">=</span> <span class="p">(</span><span class="n">imageId</span> <span class="p">&lt;=</span> <span class="mi">0</span> <span class="p">||</span> <span class="p">(</span><span class="n">imageIdIsRestricted</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">partnerCanSeeImage</span><span class="p">))</span> <span class="p">?</span> <span class="k">null</span> <span class="p">:</span> <span class="nc">IMAGE_URL</span> <span class="p">+</span> <span class="n">imageId</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The previous code can be refactored using nested if-else statements, which is easier to understand.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">articleImageURL</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">imageId</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">imageIdIsRestricted</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">partnerCanSeeImage</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">articleImageURL</span> <span class="p">=</span> <span class="nc">IMAGE_URL</span> <span class="p">+</span> <span class="n">imageId</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">articleImageURL</span> <span class="p">=</span> <span class="nc">IMAGE_URL</span> <span class="p">+</span> <span class="n">imageId</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <p>Other recommendations of clean code are:</p>
 
 <ul>
