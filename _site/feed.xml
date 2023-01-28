@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 20 Jan 2023 19:57:23 +0100</pubDate>
-    <lastBuildDate>Fri, 20 Jan 2023 19:57:23 +0100</lastBuildDate>
+    <pubDate>Sat, 28 Jan 2023 16:32:44 +0100</pubDate>
+    <lastBuildDate>Sat, 28 Jan 2023 16:32:44 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -809,7 +809,7 @@
 
 &lt;h2 id=&quot;sicherheit--security&quot;&gt;Sicherheit : Security&lt;/h2&gt;
 
-&lt;p&gt;Authentication : Authentifizierung&lt;/p&gt;
+&lt;p&gt;Authentifizierung : Authentication&lt;/p&gt;
 
 &lt;p&gt;beschränken : limit, restrict&lt;/p&gt;
 
