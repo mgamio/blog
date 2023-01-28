@@ -164,7 +164,7 @@ die Taste : key
 
 ## Sicherheit : Security
 
-Authentication : Authentifizierung
+Authentifizierung : Authentication 
 
 beschränken : limit, restrict
 
