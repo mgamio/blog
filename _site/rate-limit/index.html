@@ -7,24 +7,24 @@
 <link rel="icon" href="/assets/images/logo.png">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Understanding Object-Oriented Programming concepts | codersite</title>
+<title>Rate Limiting Algorithm | codersite</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Understanding Object-Oriented Programming concepts" />
+<meta property="og:title" content="Rate Limiting Algorithm" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Object-oriented concepts give you a solid foundation for making critical design decisions." />
-<meta property="og:description" content="Object-oriented concepts give you a solid foundation for making critical design decisions." />
-<link rel="canonical" href="http://localhost:4000/understanding-oop-concepts/" />
-<meta property="og:url" content="http://localhost:4000/understanding-oop-concepts/" />
+<meta name="description" content="Hot to implement a rate limiter in a backend API" />
+<meta property="og:description" content="Hot to implement a rate limiter in a backend API" />
+<link rel="canonical" href="http://localhost:4000/rate-limit/" />
+<meta property="og:url" content="http://localhost:4000/rate-limit/" />
 <meta property="og:site_name" content="codersite" />
-<meta property="og:image" content="http://localhost:4000/assets/images/oop.jpg" />
+<meta property="og:image" content="http://localhost:4000/assets/images/rateLimitAlgorithm.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-05-20T00:00:00+02:00" />
+<meta property="article:published_time" content="2023-02-02T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="http://localhost:4000/assets/images/oop.jpg" />
-<meta property="twitter:title" content="Understanding Object-Oriented Programming concepts" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/rateLimitAlgorithm.jpg" />
+<meta property="twitter:title" content="Rate Limiting Algorithm" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-05-20T00:00:00+02:00","datePublished":"2022-05-20T00:00:00+02:00","description":"Object-oriented concepts give you a solid foundation for making critical design decisions.","headline":"Understanding Object-Oriented Programming concepts","image":"http://localhost:4000/assets/images/oop.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/understanding-oop-concepts/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/understanding-oop-concepts/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2023-02-02T00:00:00+01:00","datePublished":"2023-02-02T00:00:00+01:00","description":"Hot to implement a rate limiter in a backend API","headline":"Rate Limiting Algorithm","image":"http://localhost:4000/assets/images/rateLimitAlgorithm.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/rate-limit/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/rate-limit/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -148,19 +148,19 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Understanding Object-Oriented Programming concepts&url=http://localhost:4000/understanding-oop-concepts/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Rate Limiting Algorithm&url=http://localhost:4000/rate-limit/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
 
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/understanding-oop-concepts/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/rate-limit/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
                 <i class="fab fa-facebook-f"></i>
             </a>
         </li>
 
          <li class="ml-1 mr-1">
-            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/understanding-oop-concepts/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/rate-limit/" onclick="window.open(this.href, 'width=550,height=435');return false;">
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </li>	
@@ -192,7 +192,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Understanding Object-Oriented Programming concepts</h1>
+                <h1 class="posttitle">Rate Limiting Algorithm</h1>
 
             </div>
 
@@ -205,7 +205,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/oop.jpg" alt="Understanding Object-Oriented Programming concepts">
+            <img class="featured-image img-fluid" src="/assets/images/rateLimitAlgorithm.jpg" alt="Rate Limiting Algorithm">
             
 
             
@@ -216,207 +216,189 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>Object-oriented concepts give you a solid foundation for making critical design decisions.</p>
+                <p>A <a href="https://cloud.google.com/architecture/rate-limiting-strategies-techniques" target="_blank">rate-limiting</a> system controls the rate of traffic sent or received on a network interface. APIs will use rate-limiting techniques to control how many times application Clients are allowed to call an API endpoint during a given time interval. Traffic is allowed up to one specified rate, whereas traffic that exceeds that rate is denied – HTTP code 429.</p>
 
-<h2 id="class">Class</h2>
-
-<p>A class is a template or prototype that describes what an object will be. It defines its attributes(data) and behavior(methods). We must design a class before creating an object.</p>
-
-<h2 id="object">Object</h2>
-
-<p>An object is an instance of a class. When we create an object, we create real-world entities such as cars, bicycles, or dogs with their own attributes and own behaviors.</p>
-
-<p><img src="/assets/images/carClass.jpg" alt="class and object" class="img-responsive" /></p>
-
-<p>In Java, we instantiate an object via the <em>new</em> keyword. When you design a class follow the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Single Responsibility Principle (SRP)</a>.</p>
-
-<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
-
-<h2 id="abstraction">Abstraction</h2>
-
-<p>Abstraction allows an object telling to its users what an application does instead of how it does it. You can see the essential buttons on your TV remote control, but you don’t care what happens behind when you press one of these buttons. In Java, we create abstractions via Interfaces and Abstract classes.</p>
-
-<h2 id="encapsulation-and-data-hiding">Encapsulation and Data Hiding</h2>
-
-<p>Restricting access to specific attributes and methods is called <em>data hiding</em>. Objects should not manipulate the data of other objects.</p>
-
-<p>Encapsulation is the action of combining the data and methods in the same entity. In this way, we control access to the data in the object.</p>
-
-<h2 id="inheritance">Inheritance</h2>
-
-<p>Inheritance is a process in which a class inherits the attributes and methods of another class.</p>
-
-<p>Inheritance provides the ability to create new classes with new functionalities while maintaining the functionalities inherited. In this way, it promotes code reusability.</p>
-
-<p>This relationship is an <em>is-a</em> relationship because when a subclass inherits from a superclass, it can do anything that the superclass can do.</p>
-
-<p>In Java, we create inheritance between classes via the <em>extends</em> keyword.</p>
-
-<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
-
-<h2 id="polymorphism">Polymorphism</h2>
-
-<p>Polymorphism means many shapes and is coupled to inheritance. For example, a Shape class defines a <em>draw</em> method, but Square and Circle’s subclasses will implement it differently.</p>
-
-<h2 id="composition">Composition</h2>
-
-<p>The composition provides a mechanism for building classes from other classes. In Java, we usually create a class with instance variables that references one or more objects of other classes.</p>
-
-<p>The benefit of separating one class from another one is the Reuse.</p>
-
-<p>For example, in a shopping context, we need a list of requested items and an <em>address</em> where to deliver the order.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Order</span> <span class="p">{</span>
-
-  <span class="k">private</span> <span class="n">int</span> <span class="n">clientId</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Item</span><span class="p">&gt;</span> <span class="n">orderItems</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">Address</span> <span class="n">shippingAddress</span><span class="p">;</span>
-  
-  <span class="c1">//code omitted for brevity</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>We build an Item class including an Article class.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Item</span> <span class="p">{</span>
-
-  <span class="k">private</span> <span class="nc">Article</span> <span class="n">article</span><span class="p">;</span>
-  <span class="k">private</span> <span class="n">double</span> <span class="n">quantity</span><span class="p">;</span>
-  
-  <span class="c1">//code omitted for brevity</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>And the Article class includes enough attributes to support the shopping business.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Article</span> <span class="p">{</span>
-
-  <span class="k">private</span> <span class="n">int</span> <span class="n">id</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="k">private</span> <span class="n">double</span> <span class="n">deliveryPrice</span><span class="p">;</span>
-  
-  <span class="c1">//code omitted for brevity</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Even we can reuse the Article class to support a Search request.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">SearchResponse</span> <span class="p">{</span>
-
-  <span class="k">private</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Article</span><span class="p">&gt;</span> <span class="n">articles</span><span class="p">;</span>
-  
-  <span class="c1">//code omitted for brevity</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<div><center>
-  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" src="../assets/images/softwareDesign1.png" /></a>
-</center>
-
-<br /></div>
-
-<p>What happens if the business wants to introduce articles in a country where some articles are forbidden to trade?.</p>
-
-<p>We can not add a new attribute called <em>tradable</em> to the Article class because we will never use it in normal countries.</p>
-
-<p>Here, we can use the other technique to build new classes: inheritance.</p>
-
-<p><img src="/assets/images/tradableArticle.png" alt="class and object" class="img-responsive" /></p>
-
-<p>Now, we can support the new requirement for the new country.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">SearchResponse</span> <span class="p">{</span>
-
-  <span class="k">private</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">TradableArticle</span><span class="p">&gt;</span> <span class="n">articles</span><span class="p">;</span>
-  
-  <span class="c1">//code omitted for brevity</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>We can reuse our classes even out of context. For example, in a Bank context, we need an <em>address</em> to contact a customer.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="p">{</span>
-
-  <span class="k">private</span> <span class="n">int</span> <span class="n">customerId</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">String</span> <span class="n">lastName</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">Address</span> <span class="n">address</span><span class="p">;</span>
-  
-  <span class="c1">//code omitted for brevity</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>We use the term <em>has-a</em> to describe composition relationships. An order <em>has-a(n)</em> address. A customer <em>has-a(n)</em> address.</p>
-
-<h2 id="advantages-of-object-oriented-programming">Advantages of object-oriented programming</h2>
+<h2 id="reasons-to-implement-a-rate-limit">Reasons to implement a rate limit</h2>
 
 <ul>
-  <li>Your program focuses on data, not on functions. You create a program using objects, not functions.</li>
-  <li>You define methods to control the access to its data.</li>
-  <li>Objects communicate through methods - messages</li>
-  <li>The application adapts to new changes.</li>
-  <li>Objects have unique responsibilities.</li>
-  <li>You don’t define global data. Every object contains its data.</li>
+  <li>
+    <p>Avoid a denial-of-service (DoS) attack. So, the first principle here will be Availability for our distributed systems.</p>
+  </li>
+  <li>
+    <p>We have database functions that use expensive hardware resources when the API requests arrive concurrently or sequentially without limit.</p>
+  </li>
 </ul>
 
-<p>Learn how to use these concepts in <a href="https://codersite.dev/open-closed-principle/" target="_blank">SOLID design principles</a>.</p>
+<h2 id="token-bucket-algorithm">Token-bucket algorithm</h2>
 
-<div><p>With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Token_bucket" target="_blank">token-bucket</a> algorithm is explained with the analogy of a bucket with finite capacity, into which tokens are added at a fixed rate. But it can’t fill up infinitely. If a token arrives when the bucket is complete, it’s discarded. On every request, <strong><em>n</em></strong> number of tokens are removed from the bucket. The request is rejected if there are fewer than <strong><em>n</em></strong> tokens in the bucket.</p>
 
-<a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
-</div>
+<p>When we have somebody that takes out tokens, we also need somebody that puts tokens into the bucket. The <em>refiller</em> periodically creates new tokens and puts them into the bucket.</p>
+
+<p><img src="/assets/images/rateLimitRefiller.jpg" alt="rate-Limit-Refiller" class="img-responsive" /></p>
+
+<h2 id="about-bucket4j">About Bucket4j</h2>
+
+<p><a href="https://bucket4j.com/8.1.1/toc.html" target="_blank">Bucket4j</a> is a Java rate-limiting library implemented on top of ideas of the token-bucket algorithm.</p>
+
+<p>Maven Configuration: We need to add the bucket4j dependency to our pom.xml file.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="p">&lt;</span><span class="n">dependency</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">groupId</span><span class="p">&gt;</span><span class="n">com</span><span class="p">.</span><span class="n">bucket4j</span><span class="p">&lt;/</span><span class="n">groupId</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">artifactId</span><span class="p">&gt;</span><span class="n">bucket4j-core</span><span class="p">&lt;/</span><span class="n">artifactId</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">version</span><span class="p">&gt;</span><span class="mf">8.1.1</span><span class="p">&lt;/</span><span class="n">version</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="n">dependency</span><span class="p">&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>You can implement a rate limiter for your clients based on subscription plans or even for each endpoint. For learning purposes, we implement a rate limit based on external IPs.</p>
+
+<h2 id="inspirational-quotes-about-tech">Inspirational Quotes About Tech</h2>
+
+<p>We implement a web service allowing clients to retrieve a Random Quote about tech.</p>
+
+<p>Firstly, we define a <em>Repository</em> class to retrieve Quotes data from a text file, for example.</p>
+
+<p>Secondly, we define a <em>Service</em> class to manipulate the previous data and get a random Quote.</p>
+
+<p>Finally, we assemble all these components in a <em>RestContoller</em> class.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="nd">@RestController</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">"/v1"</span><span class="p">)</span>
+<span class="k">public</span> <span class="kd">class</span> <span class="nc">QuoteController</span> <span class="p">{</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="k">private</span> <span class="nc">QuoteService</span> <span class="n">quoteService</span><span class="p">;</span>
+
+  <span class="nd">@GetMapping</span><span class="p">(</span><span class="n">value</span> <span class="p">=</span> <span class="s">"/quotes/random"</span><span class="p">,</span> <span class="n">produces</span> <span class="p">=</span> <span class="nc">MediaType</span><span class="p">.</span><span class="nc">APPLICATION_JSON_VALUE</span><span class="p">)</span>
+  <span class="k">public</span> <span class="nc">Quote</span> <span class="nf">getQuote</span><span class="p">(</span><span class="nc">HttpServletRequest</span> <span class="n">httpServletRequest</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+
+    <span class="k">return</span> <span class="n">quoteService</span><span class="p">.</span><span class="nf">getRandomQuote</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>For more information on implementing RESTful web services, visit this <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">link</a>.</p>
+
+<p>Once you deploy the API service, you can request a random quote from a Web Client like Postman.</p>
+
+<p><img src="/assets/images/randomQuotePostman.jpg" alt="rate-Limit-random" class="img-responsive" /></p>
+
+<p>But in reality, web Clients are automated, especially in B2B integrations, where developers on the client side send hundreds or thousands of requests per minute to analyze random data during the implementation stage.</p>
+
+<p>We should implement a rate limit to protect our software infrastructure from unintentional requests that exceed the regular consumption of our web services.</p>
+
+<h2 id="implementing-spring-mvc-handlerinterceptor">Implementing Spring MVC HandlerInterceptor</h2>
+
+<p>The <em>preHandle</em> method of a <em>HandlerInterceptor</em> Interface intercepts a client request and adds a preprocess.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="nd">@Component</span>
+<span class="k">public</span> <span class="kd">class</span> <span class="nc">RateLimitInterceptor</span> <span class="n">implements</span> <span class="nc">HandlerInterceptor</span> <span class="p">{</span>
+ 
+  <span class="nd">@Override</span>
+  <span class="k">public</span> <span class="n">boolean</span> <span class="nf">preHandle</span><span class="p">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> 
+    <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span> <span class="nc">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+    
+	<span class="c1">//preprocess here</span>
+    
+	<span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Firstly, to detect an external IP, we implement the following method.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>  <span class="k">private</span> <span class="nc">String</span> <span class="nf">getClientIP</span><span class="p">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">String</span> <span class="n">ip</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">getHeader</span><span class="p">(</span><span class="s">"X-FORWARDED-FOR"</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">ip</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">ip</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">ip</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">getRemoteAddr</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">ip</span><span class="p">;</span>
+  <span class="p">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>To use the <em>bucket4j</em> library, we need to understand their terminology.</p>
+
+<p><strong>Bucket</strong>  is the Interface that defines the behavior of a rate-limiter - based on the Token Bucket algorithm. A bucket is created using a builder pattern.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">Bucket</span> <span class="n">bucket</span> <span class="p">=</span> <span class="nc">Bucket</span><span class="p">.</span><span class="nf">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="nf">addLimit</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span>
+  <span class="p">.</span><span class="nf">build</span><span class="p">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>To add a <em>Limit</em> to the bucket, we define a <em>Bandwidth</em> denoted by the following terms.</p>
+
+<p><strong>Capacity</strong> specifies how many tokens your bucket has.</p>
+
+<p><strong>Refill</strong> specifies how fast tokens can be refilled after it was consumed from a bucket.</p>
+
+<p>If we choose the interval refill, the bucket will wait until the whole period is elapsed before regenerating the whole amount of tokens.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="c1">// generates 10 tokens each minute</span>
+<span class="nc">Refill</span><span class="p">.</span><span class="nf">intervally</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nc">Duration</span><span class="p">.</span><span class="nf">ofMinutes</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>For example, if we decide that <em>one</em> client request represents a token, and the client sends ten requests over the next 15 seconds, then the client must wait 45 seconds to send the following request; otherwise, the API rejects the request. We will see this implementation later.</p>
+
+<p>The following code defines a bucket with 10 tokens of capacity.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="k">final</span> <span class="nc">Bucket</span> <span class="n">freeBucket</span> <span class="p">=</span> <span class="nc">Bucket</span><span class="p">.</span><span class="nf">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="nf">addLimit</span><span class="p">(</span><span class="nc">Bandwidth</span><span class="p">.</span><span class="nf">classic</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nc">Refill</span><span class="p">.</span><span class="nf">intervally</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nc">Duration</span><span class="p">.</span><span class="nf">ofMinutes</span><span class="p">(</span><span class="mi">1</span><span class="p">))))</span>
+  <span class="p">.</span><span class="nf">build</span><span class="p">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 
 				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
      crossorigin="anonymous"></script>
@@ -438,7 +420,7 @@
             <!-- Post Date -->
             <p>
             <small>
-                <span class="post-date"><time class="post-date" datetime="2022-05-20">20 May 2022</time></span>           
+                <span class="post-date"><time class="post-date" datetime="2023-02-02">02 Feb 2023</time></span>           
                 
                 </small>
             </p>
@@ -449,7 +431,7 @@
                     
                     
                     <li>
-                        <a class="smoothscroll" href="/categories#Object-Oriented">Object-Oriented</a>
+                        <a class="smoothscroll" href="/categories#algorithms">algorithms</a>
                     </li>
                     
                 </ul>
@@ -468,10 +450,8 @@
             <!-- Prev/Next -->
             <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
             
-            <a class="prev d-block col-md-6" href="http://localhost:4000/ssl-handshake-failure/"> &laquo; SSL Handshake Failure</a>
+            <a class="prev d-block col-md-6" href="http://localhost:4000/post-random-tweet-on-twitter-api/"> &laquo; How to Post a Random Tweet using Twitter API</a>
             
-            
-            <a class="next d-block col-md-6 text-lg-right" href="http://localhost:4000/the-ubiquitous-language/">Introduce business terminology into your variable names &raquo; </a>
             
             <div class="clearfix"></div>
             </div>

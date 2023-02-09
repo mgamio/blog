@@ -237,6 +237,70 @@ if (imageId > 0) {
 }
 ```
 
+## Avoid Hard coding
+
+Hard coding is embedding data directly into the source code instead of obtaining the data from external sources.
+
+Sometimes we can't avoid including conditional statements using hardcoded values because we need to implement them in a production environment immediately. There are hundreds of reasons why this happens because every company is different.
+
+A company wants to implement in its code validation of customers who have the right to view images from certain providers.
+
+The standard procedure in this company starts with a requirement to the DBA to implement a database function to retrieve a list of providers with this kind of restriction, create param classes for the developers, a period of implementation in a development environment, and its tests in a test environment, and deliver to the production environment.
+
+But the company is facing problems with image author property rights and does not have the resources to implement the requirement, then decides to introduce hard-coded values.
+
+```kotlin  
+ boolean picIsRestricted = result.getProviderId() == "530636" || result.getProviderId()== "36507"; 
+```
+
+We usually forget the standard procedure to implement the solution because our code is already working. But these hard code values are required in other modules, packages, and classes and may need to validate more providers, etc., and the effort to maintain the code increase exponentially. And I think you know the rest of the history.
+
+You can implement a little function to retrieve external data from a text file.
+
+```kotlin  
+public interface DataService {
+
+  public List<String> getRestrictedProviders() throws Exception;
+
+}
+```
+
+Then, you can implement your hard-coded values in a implementation class.
+
+```kotlin  
+public class DataServiceImpl implements DataService {
+
+  @Override
+  public List<String> getRestrictedProviders() throws Exception {
+    List<String> listOfRestrictedProviders = new ArrayList<>();
+    Resource resource = new ClassPathResource("providers.txt");
+      try {
+        List<String> allLines = Files.readAllLines(Paths.get(resource.getURI()));
+        for (String provider : allLines) {
+          listOfRestrictedProviders.add(provider);
+          //TODO retrieve data from a standard database function
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    return listOfRestrictedProviders;
+  }
+}
+```
+
+Then in any place of your code, you can always reuse the same validation.
+
+```kotlin  
+
+  List<String> listOfRestrictedProviders = dataService.getRestrictedProviders();
+
+  boolean picIsRestricted = listOfRestrictedProviders.contains(result.getProviderId());
+
+}
+```
+
+The day you decide to implement the standard procedure - database function - your effort in refactoring your code will be minimal.
+
 
 Other recommendations of clean code are:
 
