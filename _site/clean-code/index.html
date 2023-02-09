@@ -552,6 +552,96 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h2 id="avoid-hard-coding">Avoid Hard coding</h2>
+
+<p>Hard coding is embedding data directly into the source code instead of obtaining the data from external sources.</p>
+
+<p>Sometimes we can’t avoid including conditional statements using hardcoded values because we need to implement them in a production environment immediately. There are hundreds of reasons why this happens because every company is different.</p>
+
+<p>A company wants to implement in its code validation of customers who have the right to view images from certain providers.</p>
+
+<p>The standard procedure in this company starts with a requirement to the DBA to implement a database function to retrieve a list of providers with this kind of restriction, create param classes for the developers, a period of implementation in a development environment, and its tests in a test environment, and deliver to the production environment.</p>
+
+<p>But the company is facing problems with image author property rights and does not have the resources to implement the requirement, then decides to introduce hard-coded values.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre> <span class="n">boolean</span> <span class="n">picIsRestricted</span> <span class="p">=</span> <span class="n">result</span><span class="p">.</span><span class="nf">getProviderId</span><span class="p">()</span> <span class="p">==</span> <span class="s">"530636"</span> <span class="p">||</span> <span class="n">result</span><span class="p">.</span><span class="nf">getProviderId</span><span class="p">()==</span> <span class="s">"36507"</span><span class="p">;</span> 
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We usually forget the standard procedure to implement the solution because our code is already working. But these hard code values are required in other modules, packages, and classes and may need to validate more providers, etc., and the effort to maintain the code increase exponentially. And I think you know the rest of the history.</p>
+
+<p>You can implement a little function to retrieve external data from a text file.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">interface</span> <span class="nc">DataService</span> <span class="p">{</span>
+
+  <span class="k">public</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="nf">getRestrictedProviders</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Then, you can implement your hard-coded values in a implementation class.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">DataServiceImpl</span> <span class="n">implements</span> <span class="nc">DataService</span> <span class="p">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="k">public</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="nf">getRestrictedProviders</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+    <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">listOfRestrictedProviders</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;&gt;();</span>
+    <span class="nc">Resource</span> <span class="n">resource</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ClassPathResource</span><span class="p">(</span><span class="s">"providers.txt"</span><span class="p">);</span>
+      <span class="k">try</span> <span class="p">{</span>
+        <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">allLines</span> <span class="p">=</span> <span class="nc">Files</span><span class="p">.</span><span class="nf">readAllLines</span><span class="p">(</span><span class="nc">Paths</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">resource</span><span class="p">.</span><span class="nf">getURI</span><span class="p">()));</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nc">String</span> <span class="n">provider</span> <span class="p">:</span> <span class="n">allLines</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">listOfRestrictedProviders</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">provider</span><span class="p">);</span>
+          <span class="c1">//TODO retrieve data from a standard database function</span>
+        <span class="p">}</span>
+      <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">e</span><span class="p">.</span><span class="nf">printStackTrace</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="k">return</span> <span class="n">listOfRestrictedProviders</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Then in any place of your code, you can always reuse the same validation.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>
+  <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">listOfRestrictedProviders</span> <span class="p">=</span> <span class="n">dataService</span><span class="p">.</span><span class="nf">getRestrictedProviders</span><span class="p">();</span>
+
+  <span class="n">boolean</span> <span class="n">picIsRestricted</span> <span class="p">=</span> <span class="n">listOfRestrictedProviders</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="nf">getProviderId</span><span class="p">());</span>
+
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The day you decide to implement the standard procedure - database function - your effort in refactoring your code will be minimal.</p>
+
 <p>Other recommendations of clean code are:</p>
 
 <ul>
@@ -674,7 +764,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
             
             
                 
-                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (8)</a>
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (9)</a>
                 
                     <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
                 
