@@ -212,6 +212,10 @@ public void syncronizeImages () {
 
 Now, your code is more expressive.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ## Choose simplicity over complexity
 
 As developers, sometimes we use ternary conditional operators that take less space, but when we introduce more variables, the code is not readable or is more difficult to evolve.
@@ -288,6 +292,10 @@ public class DataServiceImpl implements DataService {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 Then in any place of your code, you can always reuse the same validation.
 
 ```kotlin  
@@ -301,6 +309,77 @@ Then in any place of your code, you can always reuse the same validation.
 
 The day you decide to implement the standard procedure - database function - your effort in refactoring your code will be minimal.
 
+## Name your variables according to the context
+
+It is usual to have an attribute that applies to two different objects. For example, an Buyer has an email address.
+
+```kotlin  
+public class Buyer {
+
+  private int buyerId;
+  private String lastName;
+  private String email;
+  
+  //code omitted for brevity
+}
+```
+
+We can see the same attribute in a Supplier Object.
+
+```kotlin  
+public class Supplier {
+
+  private int supplierId;
+  private String contact;
+  private String email;
+  
+  //code omitted for brevity
+}
+```
+
+When retrieving an email from a supplier object, we may lose the context.
+
+```kotlin  
+String email = supplier.getEmail();
+}
+```
+
+Further in our code, maybe we are unsure if the email variable refers to a Supplier or a Buyer.
+
+I prefer to define the schemas of our Objects based on the context.
+
+```kotlin  
+public class Buyer {
+
+  private int buyerId;
+  private String buyerLastName;
+  private String buyerEmail;
+  
+  //code omitted for brevity
+}
+```
+
+The same for the Supplier object.
+
+```kotlin  
+public class Supplier {
+
+  private int supplierId;
+  private String supplierContact;
+  private String supplierEmail;
+  
+  //code omitted for brevity
+}
+```
+
+The most advanced editors provide coding assistance features such as variable name suggestions as you type.
+
+```kotlin  
+String supplierEmail = supplier.getSupplierEmail();
+
+String buyerEmail = buyer.getBuyerEmail();
+}
+```
 
 Other recommendations of clean code are:
 

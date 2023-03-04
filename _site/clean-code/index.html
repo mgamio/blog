@@ -518,6 +518,13 @@
 
 <p>Now, your code is more expressive.</p>
 
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
 <h2 id="choose-simplicity-over-complexity">Choose simplicity over complexity</h2>
 
 <p>As developers, sometimes we use ternary conditional operators that take less space, but when we introduce more variables, the code is not readable or is more difficult to evolve.</p>
@@ -624,6 +631,13 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
 <p>Then in any place of your code, you can always reuse the same validation.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -641,6 +655,110 @@
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>The day you decide to implement the standard procedure - database function - your effort in refactoring your code will be minimal.</p>
+
+<h2 id="name-your-variables-according-to-the-context">Name your variables according to the context</h2>
+
+<p>It is usual to have an attribute that applies to two different objects. For example, an Buyer has an email address.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Buyer</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="n">int</span> <span class="n">buyerId</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">lastName</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">email</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We can see the same attribute in a Supplier Object.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Supplier</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="n">int</span> <span class="n">supplierId</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">contact</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">email</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>When retrieving an email from a supplier object, we may lose the context.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">email</span> <span class="p">=</span> <span class="n">supplier</span><span class="p">.</span><span class="nf">getEmail</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Further in our code, maybe we are unsure if the email variable refers to a Supplier or a Buyer.</p>
+
+<p>I prefer to define the schemas of our Objects based on the context.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Buyer</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="n">int</span> <span class="n">buyerId</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">buyerLastName</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">buyerEmail</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The same for the Supplier object.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Supplier</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="n">int</span> <span class="n">supplierId</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">supplierContact</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">supplierEmail</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The most advanced editors provide coding assistance features such as variable name suggestions as you type.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">supplierEmail</span> <span class="p">=</span> <span class="n">supplier</span><span class="p">.</span><span class="nf">getSupplierEmail</span><span class="p">();</span>
+
+<span class="nc">String</span> <span class="n">buyerEmail</span> <span class="p">=</span> <span class="n">buyer</span><span class="p">.</span><span class="nf">getBuyerEmail</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Other recommendations of clean code are:</p>
 
