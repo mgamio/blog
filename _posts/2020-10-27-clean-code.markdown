@@ -269,7 +269,7 @@ public interface DataService {
 }
 ```
 
-Then, you can implement your hard-coded values in a implementation class.
+Then, you can implement your hard-coded values in an implementation class.
 
 ```kotlin  
 public class DataServiceImpl implements DataService {
@@ -296,7 +296,7 @@ public class DataServiceImpl implements DataService {
 {%- include inArticleAds.html -%}
 </div>
 
-Then in any place of your code, you can always reuse the same validation.
+Then, you can always reuse the same validation in any place of your code.
 
 ```kotlin  
 
@@ -341,10 +341,9 @@ When retrieving an email from a supplier object, we may lose the context.
 
 ```kotlin  
 String email = supplier.getEmail();
-}
 ```
 
-Further in our code, maybe we are unsure if the email variable refers to a Supplier or a Buyer.
+Further in our code, we may be unsure if the email variable refers to a Supplier or a Buyer.
 
 I prefer to define the schemas of our Objects based on the context.
 
@@ -359,7 +358,7 @@ public class Buyer {
 }
 ```
 
-The same for the Supplier object.
+We do the same for the Supplier object.
 
 ```kotlin  
 public class Supplier {
@@ -378,7 +377,6 @@ The most advanced editors provide coding assistance features such as variable na
 String supplierEmail = supplier.getSupplierEmail();
 
 String buyerEmail = buyer.getBuyerEmail();
-}
 ```
 
 Other recommendations of clean code are:

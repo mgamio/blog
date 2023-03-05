@@ -591,7 +591,7 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Then, you can implement your hard-coded values in a implementation class.</p>
+<p>Then, you can implement your hard-coded values in an implementation class.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -638,7 +638,7 @@
 </script>
 <br /></div>
 
-<p>Then in any place of your code, you can always reuse the same validation.</p>
+<p>Then, you can always reuse the same validation in any place of your code.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -701,12 +701,10 @@
 <p>When retrieving an email from a supplier object, we may lose the context.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
 </pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">email</span> <span class="p">=</span> <span class="n">supplier</span><span class="p">.</span><span class="nf">getEmail</span><span class="p">();</span>
-<span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Further in our code, maybe we are unsure if the email variable refers to a Supplier or a Buyer.</p>
+<p>Further in our code, we may be unsure if the email variable refers to a Supplier or a Buyer.</p>
 
 <p>I prefer to define the schemas of our Objects based on the context.</p>
 
@@ -728,7 +726,7 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>The same for the Supplier object.</p>
+<p>We do the same for the Supplier object.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -753,11 +751,9 @@
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4
 </pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">supplierEmail</span> <span class="p">=</span> <span class="n">supplier</span><span class="p">.</span><span class="nf">getSupplierEmail</span><span class="p">();</span>
 
 <span class="nc">String</span> <span class="n">buyerEmail</span> <span class="p">=</span> <span class="n">buyer</span><span class="p">.</span><span class="nf">getBuyerEmail</span><span class="p">();</span>
-<span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Other recommendations of clean code are:</p>
