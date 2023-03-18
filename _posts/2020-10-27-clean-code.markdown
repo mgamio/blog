@@ -241,7 +241,15 @@ if (imageId > 0) {
 }
 ```
 
-## Avoid Hard coding
+Even the KISS (Keep It Simple, Stupid) principle suggests that developers should strive for simplicity and avoid unnecessary complexity. This makes code easier to understand, maintain, and debug.
+
+You can learn more about software design principles in my how-to guidelines.
+
+<div>
+{%- include softwareDesignAd2.html -%}
+</div>
+
+## Avoid hard coding
 
 Hard coding is embedding data directly into the source code instead of obtaining the data from external sources.
 
@@ -254,7 +262,7 @@ The standard procedure in this company starts with a requirement to the DBA to i
 But the company is facing problems with image author property rights and does not have the resources to implement the requirement, then decides to introduce hard-coded values.
 
 ```kotlin  
- boolean picIsRestricted = result.getProviderId() == "530636" || result.getProviderId()== "36507"; 
+ boolean picIsRestricted = result.getProviderId() == "530636" || result.getProviderId() == "36507"; 
 ```
 
 We usually forget the standard procedure to implement the solution because our code is already working. But these hard code values are required in other modules, packages, and classes and may need to validate more providers, etc., and the effort to maintain the code increase exponentially. And I think you know the rest of the history.
@@ -311,7 +319,7 @@ The day you decide to implement the standard procedure - database function - you
 
 ## Name your variables according to the context
 
-It is usual to have an attribute that applies to two different objects. For example, an Buyer has an email address.
+It is usual to have an attribute that applies to two different objects. For example, an Buyer Object has an email address.
 
 ```kotlin  
 public class Buyer {
