@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Mar 2023 19:30:51 +0100</pubDate>
-    <lastBuildDate>Sun, 19 Mar 2023 19:30:51 +0100</lastBuildDate>
+    <pubDate>Wed, 29 Mar 2023 13:13:40 +0200</pubDate>
+    <lastBuildDate>Wed, 29 Mar 2023 13:13:40 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1078,7 +1078,11 @@
 
 &lt;p&gt;anwenden : apply&lt;/p&gt;
 
+&lt;p&gt;der Anwender (von Software, Programmen) : user&lt;/p&gt;
+
 &lt;p&gt;Ausnahmebehandlung : exception handling&lt;/p&gt;
+
+&lt;p&gt;der Ausdruck : printout&lt;/p&gt;
 
 &lt;p&gt;der Ausfall : outage&lt;/p&gt;
 
@@ -1194,6 +1198,16 @@
 &lt;p&gt;Zertifikatsverfall : certificate expiration&lt;/p&gt;
 
 &lt;p&gt;der Zugriff : access&lt;/p&gt;
+
+&lt;h2 id=&quot;datenbank--database&quot;&gt;Datenbank : Database&lt;/h2&gt;
+
+&lt;p&gt;Stammdaten : master data&lt;/p&gt;
+
+&lt;p&gt;der JDBC-Treiber : JDBC driver&lt;/p&gt;
+
+&lt;h2 id=&quot;networking&quot;&gt;Networking&lt;/h2&gt;
+
+&lt;p&gt;die Verknüpfung : link&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 03 Oct 2022 00:00:00 +0200</pubDate>
