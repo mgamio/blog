@@ -80,7 +80,11 @@ annehmen : accept
 
 anwenden : apply
 
+der Anwender (von Software, Programmen) : user
+
 Ausnahmebehandlung : exception handling
+
+der Ausdruck : printout
 
 der Ausfall : outage
 
@@ -194,7 +198,15 @@ Zertifikatsverfall : certificate expiration
 
 der Zugriff : access
 
+## Datenbank : Database
 
+Stammdaten : master data
+
+der JDBC-Treiber : JDBC driver
+
+## Networking
+
+die Verknüpfung : link
 
 
 
