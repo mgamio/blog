@@ -37,7 +37,7 @@ It takes a maximum of log2(N) attempts to find a value. As the collection of nod
 
 ## Tree data structure: Use Case:
 
-The Global Trade Item Number (GTIN) can be used by a company to uniquely identify all of its trade items.
+The Global Trade Item Number [(GTIN)](https://www.gs1.org/standards/id-keys/gtin){:target="_blank"} can be used by a company to uniquely identify all of its trade items.
 
 The GTIN can be used to identify types of products that are produced by different manufacturers.
 
