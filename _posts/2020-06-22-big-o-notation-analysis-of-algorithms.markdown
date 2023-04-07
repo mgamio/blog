@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Big O Notation: Analysis of Algorithms - coding interview"
+title:  "Big O Notation and Analysis of Algorithms - coding interview"
 description: "Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users"
 author: moises
 categories: [ algorithms ]
@@ -18,19 +18,21 @@ Algorithm analysis is an essential part of computational complexity theory, whic
 
 The first study about Analysis of Algorithms was published by Knuth in 1968. [The Art of Computer Programming](https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming){:target="_blank"}.
 
-## Time and Space complexity
+Asymptotic Notation is used to describe the running time of an algorithm. There are three different notations: Big Omega, Big Theta, and Big O Notation.
 
-Time complexity is related to how many steps takes an algorithm.
+## Time complexity analysis and space complexity analysis
 
-Space complexity is related to how efficient an algorithm is using the memory and disk.
+Time complexity analysis is related to how many steps takes an algorithm.
 
-Both terms depend on the input size, the number of items in the input. Moreover, we can analyze the complexity based on three cases:
+Space complexity analysis is related to how efficient an algorithm is using the memory and disk.
+
+Both terms depend on the input size, the number of items in the input. Both terms depend on the input size and the number of items in the input. Moreover, we can analyze the complexity based on three cases or asymptotic notations.:
 
 - Best case or Big Omega Ω(n): Usually the algorithm executes in one step independently of the input size.
 
 - Average case or Big Theta Θ(n): If the the input size is ramdom 
 
-- Worst-case or Big O Notation  O(n): Gives us an upper bound on the runtime for any input. It gives us a kind of guarantee that the algorithm will never take any longer with a new input size.
+- Worst-case analysis or Big O Notation O(n): Gives us an upper bound on the runtime for any input. It gives us a kind of guarantee that the algorithm will never take any longer with a new input size.
 
 <div>
 {%- include inArticleAds.html -%}
@@ -127,6 +129,8 @@ Log216 = 4
 
 Log232 = 5
 
+**Analysis of searching algorithms**
+
 The binary search uses at most LogN key compares to search in a sorted array of size N. With 8 elements take 3 comparisons, with 16 elements takes 4 comparisons, with 32 elements takes 5 comparisons, and so on.
 
 ```kotlin
@@ -211,6 +215,8 @@ Now, if we compare O(100N) with O(N<sup>2</sup>), we can see that O(N<sup>2</sup
 
 But after a point, O(100N) becomes faster and remains faster for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, O(100N) is written as O(N).
 
-This article was just an introduction to algorithm analysis to face an actual code interview as software developers, where they are asked to build approximated models. If you want to create a mathematical model for the execution time of a discrete operation, for example, you should take a course in [discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics){:target="_blank"}.
+This article was just an introduction to algorithm analysis to face an actual code interview as a software developer. They are asked to build approximated models using Big O notation in Java. The same concepts apply to Python algorithm analysis.
+
+If you want to create a mathematical model for the execution time of a discrete operation, for example, you should take a course in [discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics){:target="_blank"}.
 
 Preparing to discuss algorithms analysis in your following programming interview requires practicing and studying different algorithms, and you can find it in this [link](https://amzn.to/3HrGXrF){:target="_blank"} with many explanation details.

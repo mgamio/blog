@@ -7,9 +7,9 @@
 <link rel="icon" href="/assets/images/logo.png">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Big O Notation: Analysis of Algorithms - coding interview | codersite</title>
+<title>Big O Notation and Analysis of Algorithms - coding interview | codersite</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Big O Notation: Analysis of Algorithms - coding interview" />
+<meta property="og:title" content="Big O Notation and Analysis of Algorithms - coding interview" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users" />
@@ -22,9 +22,9 @@
 <meta property="article:published_time" content="2020-06-22T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="http://localhost:4000/assets/images/algorithm.jpg" />
-<meta property="twitter:title" content="Big O Notation: Analysis of Algorithms - coding interview" />
+<meta property="twitter:title" content="Big O Notation and Analysis of Algorithms - coding interview" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2020-06-22T00:00:00+02:00","datePublished":"2020-06-22T00:00:00+02:00","description":"Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users","headline":"Big O Notation: Analysis of Algorithms - coding interview","image":"http://localhost:4000/assets/images/algorithm.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/big-o-notation-analysis-of-algorithms/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/big-o-notation-analysis-of-algorithms/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2020-06-22T00:00:00+02:00","datePublished":"2020-06-22T00:00:00+02:00","description":"Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users","headline":"Big O Notation and Analysis of Algorithms - coding interview","image":"http://localhost:4000/assets/images/algorithm.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/big-o-notation-analysis-of-algorithms/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/big-o-notation-analysis-of-algorithms/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -148,7 +148,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Big O Notation: Analysis of Algorithms - coding interview&url=http://localhost:4000/big-o-notation-analysis-of-algorithms/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Big O Notation and Analysis of Algorithms - coding interview&url=http://localhost:4000/big-o-notation-analysis-of-algorithms/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -192,7 +192,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Big O Notation: Analysis of Algorithms - coding interview</h1>
+                <h1 class="posttitle">Big O Notation and Analysis of Algorithms - coding interview</h1>
 
             </div>
 
@@ -205,7 +205,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/algorithm.jpg" alt="Big O Notation: Analysis of Algorithms - coding interview">
+            <img class="featured-image img-fluid" src="/assets/images/algorithm.jpg" alt="Big O Notation and Analysis of Algorithms - coding interview">
             
 
             
@@ -224,13 +224,15 @@
 
 <p>The first study about Analysis of Algorithms was published by Knuth in 1968. <a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming" target="_blank">The Art of Computer Programming</a>.</p>
 
-<h2 id="time-and-space-complexity">Time and Space complexity</h2>
+<p>Asymptotic Notation is used to describe the running time of an algorithm. There are three different notations: Big Omega, Big Theta, and Big O Notation.</p>
 
-<p>Time complexity is related to how many steps takes an algorithm.</p>
+<h2 id="time-complexity-analysis-and-space-complexity-analysis">Time complexity analysis and space complexity analysis</h2>
 
-<p>Space complexity is related to how efficient an algorithm is using the memory and disk.</p>
+<p>Time complexity analysis is related to how many steps takes an algorithm.</p>
 
-<p>Both terms depend on the input size, the number of items in the input. Moreover, we can analyze the complexity based on three cases:</p>
+<p>Space complexity analysis is related to how efficient an algorithm is using the memory and disk.</p>
+
+<p>Both terms depend on the input size, the number of items in the input. Both terms depend on the input size and the number of items in the input. Moreover, we can analyze the complexity based on three cases or asymptotic notations.:</p>
 
 <ul>
   <li>
@@ -240,7 +242,7 @@
     <p>Average case or Big Theta Θ(n): If the the input size is ramdom</p>
   </li>
   <li>
-    <p>Worst-case or Big O Notation  O(n): Gives us an upper bound on the runtime for any input. It gives us a kind of guarantee that the algorithm will never take any longer with a new input size.</p>
+    <p>Worst-case analysis or Big O Notation O(n): Gives us an upper bound on the runtime for any input. It gives us a kind of guarantee that the algorithm will never take any longer with a new input size.</p>
   </li>
 </ul>
 
@@ -374,6 +376,8 @@
 <p>Log216 = 4</p>
 
 <p>Log232 = 5</p>
+
+<p><strong>Analysis of searching algorithms</strong></p>
 
 <p>The binary search uses at most LogN key compares to search in a sorted array of size N. With 8 elements take 3 comparisons, with 16 elements takes 4 comparisons, with 32 elements takes 5 comparisons, and so on.</p>
 
@@ -519,7 +523,9 @@
 
 <p>But after a point, O(100N) becomes faster and remains faster for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, O(100N) is written as O(N).</p>
 
-<p>This article was just an introduction to algorithm analysis to face an actual code interview as software developers, where they are asked to build approximated models. If you want to create a mathematical model for the execution time of a discrete operation, for example, you should take a course in <a href="https://en.wikipedia.org/wiki/Discrete_mathematics" target="_blank">discrete mathematics</a>.</p>
+<p>This article was just an introduction to algorithm analysis to face an actual code interview as a software developer. They are asked to build approximated models using Big O notation in Java. The same concepts apply to Python algorithm analysis.</p>
+
+<p>If you want to create a mathematical model for the execution time of a discrete operation, for example, you should take a course in <a href="https://en.wikipedia.org/wiki/Discrete_mathematics" target="_blank">discrete mathematics</a>.</p>
 
 <p>Preparing to discuss algorithms analysis in your following programming interview requires practicing and studying different algorithms, and you can find it in this <a href="https://amzn.to/3HrGXrF" target="_blank">link</a> with many explanation details.</p>
 
