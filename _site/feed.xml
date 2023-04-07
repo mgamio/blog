@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 07 Apr 2023 10:38:09 +0200</pubDate>
-    <lastBuildDate>Fri, 07 Apr 2023 10:38:09 +0200</lastBuildDate>
+    <pubDate>Fri, 07 Apr 2023 12:10:00 +0200</pubDate>
+    <lastBuildDate>Fri, 07 Apr 2023 12:10:00 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1342,7 +1342,7 @@
       </item>
     
       <item>
-        <title>Understanding Object-Oriented Programming concepts</title>
+        <title>Understanding OOP concepts</title>
         <description>&lt;p&gt;Understanding OOP concepts give you a solid foundation for making critical decisions about object-oriented software design.&lt;/p&gt;
 
 &lt;h2 id=&quot;class&quot;&gt;Class&lt;/h2&gt;
