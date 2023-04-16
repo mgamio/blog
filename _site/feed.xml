@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Apr 2023 12:18:52 +0200</pubDate>
-    <lastBuildDate>Sun, 16 Apr 2023 12:18:52 +0200</lastBuildDate>
+    <pubDate>Sun, 16 Apr 2023 18:39:16 +0200</pubDate>
+    <lastBuildDate>Sun, 16 Apr 2023 18:39:16 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1046,8 +1046,6 @@
 &lt;/script&gt;
 &lt;br /&gt;&lt;/div&gt;
 
-&lt;p&gt;die Sicherheit : security&lt;/p&gt;
-
 &lt;p&gt;die Softwarearchitektur : software architecture&lt;/p&gt;
 
 &lt;p&gt;der Softwareentwickler : software developer&lt;/p&gt;
@@ -1181,11 +1179,15 @@
 
 &lt;p&gt;datenübernahme : data transfer&lt;/p&gt;
 
+&lt;p&gt;freischalten : authorize&lt;/p&gt;
+
 &lt;p&gt;das Kennwort : password&lt;/p&gt;
 
 &lt;p&gt;der Identitätsdiebstahl : identity theft&lt;/p&gt;
 
 &lt;p&gt;passwordgeschützt : password protected&lt;/p&gt;
+
+&lt;p&gt;die Sicherheit : security&lt;/p&gt;
 
 &lt;p&gt;Sicherheitsprüfung : security auditing&lt;/p&gt;
 

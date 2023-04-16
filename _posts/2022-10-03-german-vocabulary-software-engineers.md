@@ -48,8 +48,6 @@ die Qualitätssicherung : quality assurance
 {%- include inArticleAds.html -%}
 </div>
 
-die Sicherheit : security
-
 die Softwarearchitektur : software architecture
 
 der Softwareentwickler : software developer
@@ -180,11 +178,15 @@ der Datenschutz : data protection
 
 datenübernahme : data transfer
 
+freischalten : authorize
+
 das Kennwort : password
 
 der Identitätsdiebstahl : identity theft
 
 passwordgeschützt : password protected
+
+die Sicherheit : security
 
 Sicherheitsprüfung : security auditing
 
