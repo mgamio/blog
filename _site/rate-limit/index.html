@@ -7,13 +7,13 @@
 <link rel="icon" href="/assets/images/logo.png">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Rate Limiting Algorithm | codersite</title>
+<title>How to implement Rate Limiting | codersite</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Rate Limiting Algorithm" />
+<meta property="og:title" content="How to implement Rate Limiting" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Hot to implement a rate limiter in a backend API" />
-<meta property="og:description" content="Hot to implement a rate limiter in a backend API" />
+<meta name="description" content="Hot to implement an API Rate Limiting in a backend API. Rate Limiting Algorithms" />
+<meta property="og:description" content="Hot to implement an API Rate Limiting in a backend API. Rate Limiting Algorithms" />
 <link rel="canonical" href="http://localhost:4000/rate-limit/" />
 <meta property="og:url" content="http://localhost:4000/rate-limit/" />
 <meta property="og:site_name" content="codersite" />
@@ -22,9 +22,9 @@
 <meta property="article:published_time" content="2023-02-02T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="http://localhost:4000/assets/images/rateLimitAlgorithm.jpg" />
-<meta property="twitter:title" content="Rate Limiting Algorithm" />
+<meta property="twitter:title" content="How to implement Rate Limiting" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2023-02-02T00:00:00+01:00","datePublished":"2023-02-02T00:00:00+01:00","description":"Hot to implement a rate limiter in a backend API","headline":"Rate Limiting Algorithm","image":"http://localhost:4000/assets/images/rateLimitAlgorithm.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/rate-limit/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/rate-limit/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2023-02-02T00:00:00+01:00","datePublished":"2023-02-02T00:00:00+01:00","description":"Hot to implement an API Rate Limiting in a backend API. Rate Limiting Algorithms","headline":"How to implement Rate Limiting","image":"http://localhost:4000/assets/images/rateLimitAlgorithm.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/rate-limit/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/rate-limit/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -148,7 +148,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Rate Limiting Algorithm&url=http://localhost:4000/rate-limit/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=How to implement Rate Limiting&url=http://localhost:4000/rate-limit/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -192,7 +192,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Rate Limiting Algorithm</h1>
+                <h1 class="posttitle">How to implement Rate Limiting</h1>
 
             </div>
 
@@ -205,7 +205,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/rateLimitAlgorithm.jpg" alt="Rate Limiting Algorithm">
+            <img class="featured-image img-fluid" src="/assets/images/rateLimitAlgorithm.jpg" alt="How to implement Rate Limiting">
             
 
             
@@ -216,9 +216,9 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>A <a href="https://cloud.google.com/architecture/rate-limiting-strategies-techniques" target="_blank">rate-limiting</a> system controls the rate of traffic sent or received on a network interface. APIs will use rate-limiting techniques to control how many times application Clients are allowed to call an API endpoint during a given time interval. Traffic is allowed up to one specified rate, whereas traffic that exceeds that rate is denied – HTTP code 429.</p>
+                <p>A <a href="https://cloud.google.com/architecture/rate-limiting-strategies-techniques" target="_blank">rate-limiting</a> system controls the rate of traffic sent or received on a network interface. APIs will use rate-limiting techniques to control how many times application Clients are allowed to call an API endpoint during a given time interval - Request Limiting. Traffic is allowed up to one specified rate, whereas traffic that exceeds that rate is denied – HTTP code 429.</p>
 
-<h2 id="reasons-to-implement-a-rate-limit">Reasons to implement a rate limit</h2>
+<h2 id="reasons-to-implement-rate-limiting">Reasons to implement Rate Limiting</h2>
 
 <ul>
   <li>
@@ -226,6 +226,9 @@
   </li>
   <li>
     <p>We must protect database functions that use expensive hardware resources when the API requests arrive concurrently or sequentially without limit.</p>
+  </li>
+  <li>
+    <p>Limiting Concurrent Requests.</p>
   </li>
 </ul>
 
@@ -239,7 +242,7 @@
 
 <h2 id="about-bucket4j">About Bucket4j</h2>
 
-<p><a href="https://bucket4j.com/8.1.1/toc.html" target="_blank">Bucket4j</a> is a Java rate-limiting library implemented on top of ideas of the token-bucket algorithm.</p>
+<p><a href="https://bucket4j.com/8.1.1/toc.html" target="_blank">Bucket4j</a> is a Java rate limiting library implemented on top of ideas of the token-bucket algorithm.</p>
 
 <p>Maven Configuration: We need to add the bucket4j dependency to our pom.xml file.</p>
 
@@ -262,7 +265,7 @@
 </script>
 <br /></div>
 
-<p>You can implement a rate limiter for your clients based on subscription plans or even for each endpoint. For learning purposes, we implement a rate limit based on external IPs.</p>
+<p>You can implement a rate limiting for your clients based on subscription plans or even for each endpoint. For learning purposes, we implement a rate limit based on external IPs.</p>
 
 <h2 id="inspirational-quotes-about-tech">Inspirational Quotes About Tech</h2>
 
@@ -318,7 +321,7 @@
 
 <p>But in reality, web Clients are automated, especially in B2B integrations, where developers on the client side send hundreds or thousands of requests per minute to analyze random data during the implementation stage.</p>
 
-<p>We should implement a rate limit to protect our software infrastructure from unintentional requests that exceed the regular consumption of our web services.</p>
+<p>We should implement a Rate Limiting Algorithm to protect our software infrastructure from unintentional requests that exceed the regular consumption of our web services.</p>
 
 <div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -434,7 +437,7 @@
     <span class="p">.</span><span class="nf">build</span><span class="p">();</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>We need a hashMap to store the buckets corresponding to each external IP. And we also need a variable that defines how many tokens we can consume from the bucket when a request arrives.</p>
+<p>We need a <em>hashMap</em> to store the buckets corresponding to each external IP. And we also need a variable that defines how many tokens we can consume from the bucket when a request arrives.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -509,7 +512,7 @@
 </script>
 <br /></div>
 
-<p>We need to register our RateLimitInterceptor class by extending the WebMvcConfigurerAdapter class.</p>
+<p>We need to register our <em>RateLimitInterceptor</em> class by extending the <em>WebMvcConfigurerAdapter</em> class.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -542,6 +545,8 @@
 <p>Offering valuable content through your API can also motivate external developers or companies to pay more for leveraging the API. When they exceed the ten requests by default, they subscribe to plans.</p>
 
 <p>Depending on how your software infrastructure is built, you can define plans with access to all API endpoints or a clientId+endpoint combination for example.</p>
+
+<p>You can use these ideas when trying to implement rate limiting with Redis or with AWS.</p>
 
 <p>You can download the code from the following link</p>
 
