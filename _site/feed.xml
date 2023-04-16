@@ -5,15 +5,15 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Apr 2023 18:39:16 +0200</pubDate>
-    <lastBuildDate>Sun, 16 Apr 2023 18:39:16 +0200</lastBuildDate>
+    <pubDate>Sun, 16 Apr 2023 20:49:34 +0200</pubDate>
+    <lastBuildDate>Sun, 16 Apr 2023 20:49:34 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
-        <title>Rate Limiting Algorithm</title>
-        <description>&lt;p&gt;A &lt;a href=&quot;https://cloud.google.com/architecture/rate-limiting-strategies-techniques&quot; target=&quot;_blank&quot;&gt;rate-limiting&lt;/a&gt; system controls the rate of traffic sent or received on a network interface. APIs will use rate-limiting techniques to control how many times application Clients are allowed to call an API endpoint during a given time interval. Traffic is allowed up to one specified rate, whereas traffic that exceeds that rate is denied – HTTP code 429.&lt;/p&gt;
+        <title>How to implement Rate Limiting</title>
+        <description>&lt;p&gt;A &lt;a href=&quot;https://cloud.google.com/architecture/rate-limiting-strategies-techniques&quot; target=&quot;_blank&quot;&gt;rate-limiting&lt;/a&gt; system controls the rate of traffic sent or received on a network interface. APIs will use rate-limiting techniques to control how many times application Clients are allowed to call an API endpoint during a given time interval - Request Limiting. Traffic is allowed up to one specified rate, whereas traffic that exceeds that rate is denied – HTTP code 429.&lt;/p&gt;
 
-&lt;h2 id=&quot;reasons-to-implement-a-rate-limit&quot;&gt;Reasons to implement a rate limit&lt;/h2&gt;
+&lt;h2 id=&quot;reasons-to-implement-rate-limiting&quot;&gt;Reasons to implement Rate Limiting&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -21,6 +21,9 @@
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;We must protect database functions that use expensive hardware resources when the API requests arrive concurrently or sequentially without limit.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Limiting Concurrent Requests.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -34,7 +37,7 @@
 
 &lt;h2 id=&quot;about-bucket4j&quot;&gt;About Bucket4j&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://bucket4j.com/8.1.1/toc.html&quot; target=&quot;_blank&quot;&gt;Bucket4j&lt;/a&gt; is a Java rate-limiting library implemented on top of ideas of the token-bucket algorithm.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://bucket4j.com/8.1.1/toc.html&quot; target=&quot;_blank&quot;&gt;Bucket4j&lt;/a&gt; is a Java rate limiting library implemented on top of ideas of the token-bucket algorithm.&lt;/p&gt;
 
 &lt;p&gt;Maven Configuration: We need to add the bucket4j dependency to our pom.xml file.&lt;/p&gt;
 
@@ -57,7 +60,7 @@
 &lt;/script&gt;
 &lt;br /&gt;&lt;/div&gt;
 
-&lt;p&gt;You can implement a rate limiter for your clients based on subscription plans or even for each endpoint. For learning purposes, we implement a rate limit based on external IPs.&lt;/p&gt;
+&lt;p&gt;You can implement a rate limiting for your clients based on subscription plans or even for each endpoint. For learning purposes, we implement a rate limit based on external IPs.&lt;/p&gt;
 
 &lt;h2 id=&quot;inspirational-quotes-about-tech&quot;&gt;Inspirational Quotes About Tech&lt;/h2&gt;
 
@@ -113,7 +116,7 @@
 
 &lt;p&gt;But in reality, web Clients are automated, especially in B2B integrations, where developers on the client side send hundreds or thousands of requests per minute to analyze random data during the implementation stage.&lt;/p&gt;
 
-&lt;p&gt;We should implement a rate limit to protect our software infrastructure from unintentional requests that exceed the regular consumption of our web services.&lt;/p&gt;
+&lt;p&gt;We should implement a Rate Limiting Algorithm to protect our software infrastructure from unintentional requests that exceed the regular consumption of our web services.&lt;/p&gt;
 
 &lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
 &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
@@ -229,7 +232,7 @@
     &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;We need a hashMap to store the buckets corresponding to each external IP. And we also need a variable that defines how many tokens we can consume from the bucket when a request arrives.&lt;/p&gt;
+&lt;p&gt;We need a &lt;em&gt;hashMap&lt;/em&gt; to store the buckets corresponding to each external IP. And we also need a variable that defines how many tokens we can consume from the bucket when a request arrives.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -304,7 +307,7 @@
 &lt;/script&gt;
 &lt;br /&gt;&lt;/div&gt;
 
-&lt;p&gt;We need to register our RateLimitInterceptor class by extending the WebMvcConfigurerAdapter class.&lt;/p&gt;
+&lt;p&gt;We need to register our &lt;em&gt;RateLimitInterceptor&lt;/em&gt; class by extending the &lt;em&gt;WebMvcConfigurerAdapter&lt;/em&gt; class.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -337,6 +340,8 @@
 &lt;p&gt;Offering valuable content through your API can also motivate external developers or companies to pay more for leveraging the API. When they exceed the ten requests by default, they subscribe to plans.&lt;/p&gt;
 
 &lt;p&gt;Depending on how your software infrastructure is built, you can define plans with access to all API endpoints or a clientId+endpoint combination for example.&lt;/p&gt;
+
+&lt;p&gt;You can use these ideas when trying to implement rate limiting with Redis or with AWS.&lt;/p&gt;
 
 &lt;p&gt;You can download the code from the following link&lt;/p&gt;
 

@@ -1,20 +1,22 @@
 ---
 layout: post
-title:  "Rate Limiting Algorithm"
-description: "Hot to implement a rate limiter in a backend API"
+title:  "How to implement Rate Limiting"
+description: "Hot to implement an API Rate Limiting in a backend API. Rate Limiting Algorithms"
 author: moises
 categories: [ algorithms ]
 image: assets/images/rateLimitAlgorithm.jpg
 comments: false
 ---
 
-A [rate-limiting](https://cloud.google.com/architecture/rate-limiting-strategies-techniques){:target="_blank"} system controls the rate of traffic sent or received on a network interface. APIs will use rate-limiting techniques to control how many times application Clients are allowed to call an API endpoint during a given time interval. Traffic is allowed up to one specified rate, whereas traffic that exceeds that rate is denied – HTTP code 429.
+A [rate-limiting](https://cloud.google.com/architecture/rate-limiting-strategies-techniques){:target="_blank"} system controls the rate of traffic sent or received on a network interface. APIs will use rate-limiting techniques to control how many times application Clients are allowed to call an API endpoint during a given time interval - Request Limiting. Traffic is allowed up to one specified rate, whereas traffic that exceeds that rate is denied – HTTP code 429.
 
-## Reasons to implement a rate limit
+## Reasons to implement Rate Limiting
 
 - Avoid a denial-of-service (DoS) attack. So, the first principle here will be Availability for our distributed systems.
 
 - We must protect database functions that use expensive hardware resources when the API requests arrive concurrently or sequentially without limit.
+
+- Limiting Concurrent Requests.
 
 ## Token-bucket algorithm
 
@@ -26,7 +28,7 @@ When we have somebody that takes out tokens, we also need somebody that puts tok
 
 ## About Bucket4j
 
-[Bucket4j](https://bucket4j.com/8.1.1/toc.html){:target="_blank"} is a Java rate-limiting library implemented on top of ideas of the token-bucket algorithm.
+[Bucket4j](https://bucket4j.com/8.1.1/toc.html){:target="_blank"} is a Java rate limiting library implemented on top of ideas of the token-bucket algorithm.
 
 Maven Configuration: We need to add the bucket4j dependency to our pom.xml file.
 
@@ -42,7 +44,7 @@ Maven Configuration: We need to add the bucket4j dependency to our pom.xml file.
 {%- include inArticleAds.html -%}
 </div>
 
-You can implement a rate limiter for your clients based on subscription plans or even for each endpoint. For learning purposes, we implement a rate limit based on external IPs.
+You can implement a rate limiting for your clients based on subscription plans or even for each endpoint. For learning purposes, we implement a rate limit based on external IPs.
 
 ## Inspirational Quotes About Tech
 
@@ -84,7 +86,7 @@ Once you deploy the API service, you can request a random quote from a Web Clien
 
 But in reality, web Clients are automated, especially in B2B integrations, where developers on the client side send hundreds or thousands of requests per minute to analyze random data during the implementation stage.
 
-We should implement a rate limit to protect our software infrastructure from unintentional requests that exceed the regular consumption of our web services.
+We should implement a Rate Limiting Algorithm to protect our software infrastructure from unintentional requests that exceed the regular consumption of our web services.
 
 <div>
 {%- include inArticleAds.html -%}
@@ -166,7 +168,7 @@ The following code defines a bucket with 10 tokens of capacity.
     .build();
 ```
 
-We need a hashMap to store the buckets corresponding to each external IP. And we also need a variable that defines how many tokens we can consume from the bucket when a request arrives.
+We need a *hashMap* to store the buckets corresponding to each external IP. And we also need a variable that defines how many tokens we can consume from the bucket when a request arrives.
 
 ```kotlin
   private final Map<String, Bucket> buckets = new ConcurrentHashMap<>();
@@ -211,7 +213,7 @@ The magic of this library is in the *isConsumed()* method. After asking the buck
 {%- include inArticleAds.html -%}
 </div>
 
-We need to register our RateLimitInterceptor class by extending the WebMvcConfigurerAdapter class.
+We need to register our *RateLimitInterceptor* class by extending the *WebMvcConfigurerAdapter* class.
 
 ```kotlin
 @Configuration
@@ -234,6 +236,8 @@ After you send ten requests, the eleventh request is rejected, and the web clien
 Offering valuable content through your API can also motivate external developers or companies to pay more for leveraging the API. When they exceed the ten requests by default, they subscribe to plans.
 
 Depending on how your software infrastructure is built, you can define plans with access to all API endpoints or a clientId+endpoint combination for example.
+
+You can use these ideas when trying to implement rate limiting with Redis or with AWS.
 
 You can download the code from the following link
 
