@@ -213,7 +213,7 @@ Now, if we compare O(100N) with O(N<sup>2</sup>), we can see that O(N<sup>2</sup
 
 ![bigONotation-2](/assets/images/bigONotation-2.jpg){:class="img-responsive"}
 
-But after a point, O(100N) becomes faster and remains faster for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, O(100N) is written as O(N).
+But after a intersection point, O(100N) becomes faster and remains faster (in terms of the "number of steps") for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, the value of 100 is irrelevant and O(100N) is written as O(N). The fewer steps, the faster the algorithm.
 
 This article was just an introduction to algorithm analysis to face an actual code interview as a software developer. They are asked to build approximated models using Big O notation in Java. The same concepts apply to Python algorithm analysis.
 
