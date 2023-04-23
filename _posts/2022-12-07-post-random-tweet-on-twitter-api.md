@@ -8,11 +8,13 @@ image: assets/images/postInTwitterAPI.jpg
 comments: false
 ---
 
-The [Twitter API](https://developer.twitter.com/en/docs/twitter-api){:target="_blank"} enables developers to post tweets programmatically.
+The [Twitter API](https://developer.twitter.com/en/docs/twitter-api){:target="_blank"} enables developers programmatically posting tweets.
 
 *@Scheduled* is a Spring annotation that marks a method to be scheduled.
 
 To execute *@Scheduled* annotations, we add an *@EnableScheduling* annotation on the main class.
+
+A *cron job* is a Linux job scheduler that sets up tasks periodically that run at a fixed date or interval.
 
 A *cron* attribute - as in Unix-based systems - enables the method to be executed at a specified date/time.
 
@@ -22,9 +24,9 @@ A *cron* attribute - as in Unix-based systems - enables the method to be execute
 
 ## The requirement
 
-We want to delegate our manual tweets to an automated process, even when we are sleeping.
+We want to delegate our manual tweets to an automated process, even when we are sleeping, to support our social media automation.
 
-We have created an automated client to publish tweets under a Scheduler’s control.
+We have created a Tweet scheduling client to publish tweets under a Scheduler’s control.
 
 We have a text file listing all the articles we have written.
 
@@ -74,7 +76,7 @@ private int getRandomNumber(int min, int max) {
 {%- include inArticleAds.html -%}
 </div>
 
-The following code shows a method executed every three hours to retrieve a random article and send it to the Twitter API.
+The following code snippet shows a method executed every three hours to retrieve a random article and send it to the Twitter API as a scheduled tweet.
 
 ```kotlin
 @Scheduled(cron = "0 0 0/3 1/1 * ?")
@@ -157,7 +159,7 @@ public void postInTwitter() throws Exception {
 }
 ```
 
-Once you deploy the scheduler to any cloud provider, its log files show the queue's random numbers, for example.
+Once you deploy the Tweet scheduling to any cloud provider, its log files show the queue's random numbers, for example.
 
 ```kotlin
 42 
@@ -176,7 +178,7 @@ Once you deploy the scheduler to any cloud provider, its log files show the queu
 65 28 52 31 33 6 44 24 
 ```
 
-With the help of this softbot, you can now focus on writing more articles. Look at it in action on my [Twitter](https://twitter.com/MoisesGamio){:target="_blank"} account!.
+With the help of this Twitter bot, you can now focus on writing more articles. Look at it in action on my [Twitter](https://twitter.com/MoisesGamio){:target="_blank"} account!.
 
 Similar questions you can find in my [book](https://amzn.to/3FxeKSb){:target="_blank"} about algorithms and the inner workings of Data Structures. Learn how to apply common algorithms to practical problems.
 

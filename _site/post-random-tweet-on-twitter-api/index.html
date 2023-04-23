@@ -216,11 +216,13 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>The <a href="https://developer.twitter.com/en/docs/twitter-api" target="_blank">Twitter API</a> enables developers to post tweets programmatically.</p>
+                <p>The <a href="https://developer.twitter.com/en/docs/twitter-api" target="_blank">Twitter API</a> enables developers programmatically posting tweets.</p>
 
 <p><em>@Scheduled</em> is a Spring annotation that marks a method to be scheduled.</p>
 
 <p>To execute <em>@Scheduled</em> annotations, we add an <em>@EnableScheduling</em> annotation on the main class.</p>
+
+<p>A <em>cron job</em> is a Linux job scheduler that sets up tasks periodically that run at a fixed date or interval.</p>
 
 <p>A <em>cron</em> attribute - as in Unix-based systems - enables the method to be executed at a specified date/time.</p>
 
@@ -230,9 +232,9 @@
 
 <h2 id="the-requirement">The requirement</h2>
 
-<p>We want to delegate our manual tweets to an automated process, even when we are sleeping.</p>
+<p>We want to delegate our manual tweets to an automated process, even when we are sleeping, to support our social media automation.</p>
 
-<p>We have created an automated client to publish tweets under a Scheduler’s control.</p>
+<p>We have created a Tweet scheduling client to publish tweets under a Scheduler’s control.</p>
 
 <p>We have a text file listing all the articles we have written.</p>
 
@@ -305,7 +307,7 @@
 </script>
 <br /></div>
 
-<p>The following code shows a method executed every three hours to retrieve a random article and send it to the Twitter API.</p>
+<p>The following code snippet shows a method executed every three hours to retrieve a random article and send it to the Twitter API as a scheduled tweet.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -426,7 +428,7 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Once you deploy the scheduler to any cloud provider, its log files show the queue’s random numbers, for example.</p>
+<p>Once you deploy the Tweet scheduling to any cloud provider, its log files show the queue’s random numbers, for example.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -458,7 +460,7 @@
 <span class="mi">65</span> <span class="mi">28</span> <span class="mi">52</span> <span class="mi">31</span> <span class="mi">33</span> <span class="mi">6</span> <span class="mi">44</span> <span class="mi">24</span> 
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>With the help of this softbot, you can now focus on writing more articles. Look at it in action on my <a href="https://twitter.com/MoisesGamio" target="_blank">Twitter</a> account!.</p>
+<p>With the help of this Twitter bot, you can now focus on writing more articles. Look at it in action on my <a href="https://twitter.com/MoisesGamio" target="_blank">Twitter</a> account!.</p>
 
 <p>Similar questions you can find in my <a href="https://amzn.to/3FxeKSb" target="_blank">book</a> about algorithms and the inner workings of Data Structures. Learn how to apply common algorithms to practical problems.</p>
 
