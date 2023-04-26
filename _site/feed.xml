@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 26 Apr 2023 07:01:29 +0200</pubDate>
-    <lastBuildDate>Wed, 26 Apr 2023 07:01:29 +0200</lastBuildDate>
+    <pubDate>Wed, 26 Apr 2023 20:50:12 +0200</pubDate>
+    <lastBuildDate>Wed, 26 Apr 2023 20:50:12 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1215,6 +1215,8 @@
 &lt;p&gt;der JDBC-Treiber : JDBC driver&lt;/p&gt;
 
 &lt;h2 id=&quot;networking&quot;&gt;Networking&lt;/h2&gt;
+
+&lt;p&gt;dir Glasfaser : optical fiber&lt;/p&gt;
 
 &lt;p&gt;die Verknüpfung : link&lt;/p&gt;
 
