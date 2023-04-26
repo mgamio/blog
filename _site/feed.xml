@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 26 Apr 2023 06:20:51 +0200</pubDate>
-    <lastBuildDate>Wed, 26 Apr 2023 06:20:51 +0200</lastBuildDate>
+    <pubDate>Wed, 26 Apr 2023 07:01:29 +0200</pubDate>
+    <lastBuildDate>Wed, 26 Apr 2023 07:01:29 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -776,7 +776,7 @@
       </item>
     
       <item>
-        <title>How a REST client handles 503 Service Unavailable Error</title>
+        <title>REST client error handling - 503 Error</title>
         <description>&lt;p&gt;The HTTP 503 Service Unavailable server error response code indicates that the server is temporarily not ready to handle the request.&lt;/p&gt;
 
 &lt;p&gt;Common causes of the 503 HTTP Status Code:&lt;/p&gt;
@@ -788,7 +788,7 @@
 
 &lt;p&gt;In any case, the server will relieve itself after some delay.&lt;/p&gt;
 
-&lt;h2 id=&quot;a-web-client-cannot-control-what-happens-on-the-server-side&quot;&gt;A web client cannot control what happens on the server side&lt;/h2&gt;
+&lt;h2 id=&quot;a-rest-client-cannot-control-what-happens-on-the-server-side&quot;&gt;A REST client cannot control what happens on the server side&lt;/h2&gt;
 
 &lt;p&gt;Business-to-business (&lt;a href=&quot;https://codersite.dev/the-ubiquitous-language/&quot; target=&quot;_blank&quot;&gt;B2B&lt;/a&gt;) is a typical scenario where one business acts as a client and the other acts as a server.&lt;/p&gt;
 
@@ -798,7 +798,7 @@
 
 &lt;p&gt;We have implemented a web client that retrieves data from a thousand articles on each request.&lt;/p&gt;
 
-&lt;p&gt;We need to send 50 thousand items. But suddenly, the external API throws a 503 status code, and the web client continues with the following thousand articles.&lt;/p&gt;
+&lt;p&gt;We need to send 50 thousand items. We reuse the following method to send a thousand articles every time. But suddenly, the external API throws an HTTP 503 status code. To avoid our REST client aborting the process, we catch the exception and put the error into a logger, and the program continues with the following one thousand articles.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -832,9 +832,9 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Well, looking at our internal server logs - &lt;em&gt;logger&lt;/em&gt; - won’t help to retry the request that failed. Sometimes we usually call the company that takes care of the external server.&lt;/p&gt;
+&lt;p&gt;Well, looking at our internal server logs - &lt;em&gt;logger&lt;/em&gt; - won’t help to retry the request that failed. Sometimes we usually call the company that takes care of the external server. Usually, they report that there was a Service outage response.&lt;/p&gt;
 
-&lt;p&gt;What this 503 error suggests is a retry action from our web client.&lt;/p&gt;
+&lt;p&gt;What this 503 error suggests is a retry action from our REST client to deal with external server errors.&lt;/p&gt;
 
 &lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
 &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
@@ -843,7 +843,7 @@
 &lt;/script&gt;
 &lt;br /&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;how-does-the-web-client-automate-the-retry-action&quot;&gt;How does the Web Client automate the retry action?&lt;/h2&gt;
+&lt;h2 id=&quot;how-does-the-rest-client-automate-a-retry-action&quot;&gt;How does the REST Client automate a retry action?&lt;/h2&gt;
 
 &lt;p&gt;As developers, we need to anticipate and automate retrying the request with a certain number of attempts. If the server error persists, we need to inform our users about the failed request’s content.&lt;/p&gt;
 

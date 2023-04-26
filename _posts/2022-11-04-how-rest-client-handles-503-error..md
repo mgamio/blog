@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "How a REST client handles 503 Service Unavailable Error"
-description: "How a REST client handles 503 Service Unavailable Error"
+title:  "REST client error handling - 503 Error"
+description: "How a REST client handles 503 Service Unavailable Error. Troubleshooting REST clients"
 author: moises
 categories: [ Web APIs ]
 image: assets/images/503ServiceUnavailableError.jpg
@@ -17,7 +17,7 @@ Common causes of the 503 HTTP Status Code:
 
 In any case, the server will relieve itself after some delay.
 
-## A web client cannot control what happens on the server side
+## A REST client cannot control what happens on the server side
 
 Business-to-business ([B2B](https://codersite.dev/the-ubiquitous-language/){:target="_blank"}) is a typical scenario where one business acts as a client and the other acts as a server.
 
@@ -27,7 +27,7 @@ A client-side company doesn't care if there is a monolithic or microservice arch
 
 We have implemented a web client that retrieves data from a thousand articles on each request.
 
-We need to send 50 thousand items. But suddenly, the external API throws a 503 status code, and the web client continues with the following thousand articles.
+We need to send 50 thousand items. We reuse the following method to send a thousand articles every time. But suddenly, the external API throws an HTTP 503 status code. To avoid our REST client aborting the process, we catch the exception and put the error into a logger, and the program continues with the following one thousand articles.
 
 ```kotlin
 public Response getArticles(StringJoiner arrayOf1000Articles) throws Exception {
@@ -47,15 +47,15 @@ public Response getArticles(StringJoiner arrayOf1000Articles) throws Exception {
 }
 ```
 
-Well, looking at our internal server logs - *logger* - won't help to retry the request that failed. Sometimes we usually call the company that takes care of the external server.
+Well, looking at our internal server logs - *logger* - won't help to retry the request that failed. Sometimes we usually call the company that takes care of the external server. Usually, they report that there was a Service outage response.
 
-What this 503 error suggests is a retry action from our web client.
+What this 503 error suggests is a retry action from our REST client to deal with external server errors.
 
 <div>
 {%- include inArticleAds.html -%}
 </div>
 
-## How does the Web Client automate the retry action?
+## How does the REST Client automate a retry action?
 
 As developers, we need to anticipate and automate retrying the request with a certain number of attempts. If the server error persists, we need to inform our users about the failed request's content.
 

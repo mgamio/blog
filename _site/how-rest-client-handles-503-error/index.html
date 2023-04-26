@@ -7,13 +7,13 @@
 <link rel="icon" href="/assets/images/logo.png">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>How a REST client handles 503 Service Unavailable Error | codersite</title>
+<title>REST client error handling - 503 Error | codersite</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="How a REST client handles 503 Service Unavailable Error" />
+<meta property="og:title" content="REST client error handling - 503 Error" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="How a REST client handles 503 Service Unavailable Error" />
-<meta property="og:description" content="How a REST client handles 503 Service Unavailable Error" />
+<meta name="description" content="How a REST client handles 503 Service Unavailable Error. Troubleshooting REST clients" />
+<meta property="og:description" content="How a REST client handles 503 Service Unavailable Error. Troubleshooting REST clients" />
 <link rel="canonical" href="http://localhost:4000/how-rest-client-handles-503-error/" />
 <meta property="og:url" content="http://localhost:4000/how-rest-client-handles-503-error/" />
 <meta property="og:site_name" content="codersite" />
@@ -22,9 +22,9 @@
 <meta property="article:published_time" content="2022-11-04T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="http://localhost:4000/assets/images/503ServiceUnavailableError.jpg" />
-<meta property="twitter:title" content="How a REST client handles 503 Service Unavailable Error" />
+<meta property="twitter:title" content="REST client error handling - 503 Error" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-11-04T00:00:00+01:00","datePublished":"2022-11-04T00:00:00+01:00","description":"How a REST client handles 503 Service Unavailable Error","headline":"How a REST client handles 503 Service Unavailable Error","image":"http://localhost:4000/assets/images/503ServiceUnavailableError.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/how-rest-client-handles-503-error/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/how-rest-client-handles-503-error/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-11-04T00:00:00+01:00","datePublished":"2022-11-04T00:00:00+01:00","description":"How a REST client handles 503 Service Unavailable Error. Troubleshooting REST clients","headline":"REST client error handling - 503 Error","image":"http://localhost:4000/assets/images/503ServiceUnavailableError.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/how-rest-client-handles-503-error/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/how-rest-client-handles-503-error/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -148,7 +148,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=How a REST client handles 503 Service Unavailable Error&url=http://localhost:4000/how-rest-client-handles-503-error/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=REST client error handling - 503 Error&url=http://localhost:4000/how-rest-client-handles-503-error/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -192,7 +192,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">How a REST client handles 503 Service Unavailable Error</h1>
+                <h1 class="posttitle">REST client error handling - 503 Error</h1>
 
             </div>
 
@@ -205,7 +205,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/503ServiceUnavailableError.jpg" alt="How a REST client handles 503 Service Unavailable Error">
+            <img class="featured-image img-fluid" src="/assets/images/503ServiceUnavailableError.jpg" alt="REST client error handling - 503 Error">
             
 
             
@@ -227,7 +227,7 @@
 
 <p>In any case, the server will relieve itself after some delay.</p>
 
-<h2 id="a-web-client-cannot-control-what-happens-on-the-server-side">A web client cannot control what happens on the server side</h2>
+<h2 id="a-rest-client-cannot-control-what-happens-on-the-server-side">A REST client cannot control what happens on the server side</h2>
 
 <p>Business-to-business (<a href="https://codersite.dev/the-ubiquitous-language/" target="_blank">B2B</a>) is a typical scenario where one business acts as a client and the other acts as a server.</p>
 
@@ -237,7 +237,7 @@
 
 <p>We have implemented a web client that retrieves data from a thousand articles on each request.</p>
 
-<p>We need to send 50 thousand items. But suddenly, the external API throws a 503 status code, and the web client continues with the following thousand articles.</p>
+<p>We need to send 50 thousand items. We reuse the following method to send a thousand articles every time. But suddenly, the external API throws an HTTP 503 status code. To avoid our REST client aborting the process, we catch the exception and put the error into a logger, and the program continues with the following one thousand articles.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -271,9 +271,9 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Well, looking at our internal server logs - <em>logger</em> - won’t help to retry the request that failed. Sometimes we usually call the company that takes care of the external server.</p>
+<p>Well, looking at our internal server logs - <em>logger</em> - won’t help to retry the request that failed. Sometimes we usually call the company that takes care of the external server. Usually, they report that there was a Service outage response.</p>
 
-<p>What this 503 error suggests is a retry action from our web client.</p>
+<p>What this 503 error suggests is a retry action from our REST client to deal with external server errors.</p>
 
 <div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -282,7 +282,7 @@
 </script>
 <br /></div>
 
-<h2 id="how-does-the-web-client-automate-the-retry-action">How does the Web Client automate the retry action?</h2>
+<h2 id="how-does-the-rest-client-automate-a-retry-action">How does the REST Client automate a retry action?</h2>
 
 <p>As developers, we need to anticipate and automate retrying the request with a certain number of attempts. If the server error persists, we need to inform our users about the failed request’s content.</p>
 
