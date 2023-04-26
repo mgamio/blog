@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Apr 2023 21:20:55 +0200</pubDate>
-    <lastBuildDate>Sun, 23 Apr 2023 21:20:55 +0200</lastBuildDate>
+    <pubDate>Wed, 26 Apr 2023 06:20:51 +0200</pubDate>
+    <lastBuildDate>Wed, 26 Apr 2023 06:20:51 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -678,7 +678,7 @@
 
 &lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
 
-&lt;p&gt;You can notice that we always take the first two parts of minimum size. Once we have its required time, the length of the list decreases by one element. Based on this behavior, we propose the following pseudocode.&lt;/p&gt;
+&lt;p&gt;You can notice that we always take the first two parts of minimum size. Once we have its required time, the length of the list decreases by one element. Based on this behavior, we propose the following pseudocode to optimize the assembly process of parts to reduce the time it takes to complete the task.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Sorting a list in descending order.&lt;/li&gt;
@@ -724,9 +724,9 @@
 
 &lt;p&gt;Validate your input data and check if the &lt;em&gt;numOfParts&lt;/em&gt; value equals the list size.&lt;/p&gt;
 
-&lt;p&gt;If you are facing a face-to-face interview, always ask the interviewer about the variables in case of doubt. &lt;a href=&quot;https://codersite.dev/the-ubiquitous-language/&quot; target=&quot;_blank&quot;&gt;Never assume&lt;/a&gt;, this way you show that you will be a good team player in future projects.&lt;/p&gt;
+&lt;p&gt;If you are facing a face-to-face interview, always ask the interviewer about the variables in case of doubt. &lt;a href=&quot;https://codersite.dev/the-ubiquitous-language/&quot; target=&quot;_blank&quot;&gt;Never assume and ask questions&lt;/a&gt;, this way you show that you will be a good team player in future projects.&lt;/p&gt;
 
-&lt;p&gt;Our final algorithm&lt;/p&gt;
+&lt;p&gt;Our final algorithm for the Assembly optimization.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
