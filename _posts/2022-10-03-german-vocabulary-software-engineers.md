@@ -208,6 +208,8 @@ der JDBC-Treiber : JDBC driver
 
 ## Networking
 
+dir Glasfaser : optical fiber
+
 die Verknüpfung : link
 
 
