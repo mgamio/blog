@@ -124,6 +124,8 @@ installieren : install
 
 löschen : delete
 
+das Quellcode : source code
+
 starten : start
  
 stoppen : stop
