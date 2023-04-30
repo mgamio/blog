@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "File Access Denied in a Cluster with Load Balancing"
-description: "Load balancing is a process that routes network traffic to a group of backend servers, also known as a server pool"
+description: "Load balancing, Traffic distribution, Scalability solutions and Server performance optimization"
 author: moises
 categories: [ Web Performance ]
 image: assets/images/loadBalancing.jpg
@@ -10,7 +10,7 @@ comments: false
 
 Load balancing is a process that routes network traffic to a group of backend servers, also known as a server pool. A load balancer is responsible for [distributing incoming requests](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"} to a collection of application servers.
 
-Load balancers help solve problems of performance, economy, and availability.
+Load balancers help solve problems of server performance, high availability and scalability in distributed systems.
 
 ## Application Server
 
@@ -38,7 +38,7 @@ The Java WebClient is deployed in a cluster with two application servers.
 
 ![loadBalancing and FileServer.](/assets/images/loadBalancingFileServer.jpg){:class="img-responsive"}
 
-The cluster uses a load balancer to delegate a specific task to one of its servers in a randomized order.
+The cluster uses a load balancer to delegate a specific task to one of its servers in a randomized order. A load-balancing algorithm is a load balancer's logic to distribute network traffic between servers.
 
 The first time a user requests the execution of the Java WebClient, the load balancer delegates the task to the first application server, for example.
 
@@ -69,11 +69,13 @@ Access is denied
 
 The Java WebClient cannot delete files that another user created.
 
+We cannot change the permissions of a file from within a Java program as we can on Linux systems - *chmod* command.
+
 ## Possible Solutions
 
 - Configure only one user account on application servers and give it full access control - hardware configuration.
 - Deploy the Java WebClient in only one server.
 
-
+Now any application server in the cluster can create or delete any file on the file server.
 
 

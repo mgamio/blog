@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 27 Apr 2023 12:52:38 +0200</pubDate>
-    <lastBuildDate>Thu, 27 Apr 2023 12:52:38 +0200</lastBuildDate>
+    <pubDate>Sun, 30 Apr 2023 17:33:19 +0200</pubDate>
+    <lastBuildDate>Sun, 30 Apr 2023 17:33:19 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -916,7 +916,7 @@
         <title>File Access Denied in a Cluster with Load Balancing</title>
         <description>&lt;p&gt;Load balancing is a process that routes network traffic to a group of backend servers, also known as a server pool. A load balancer is responsible for &lt;a href=&quot;https://codersite.dev/hot-warm-architecture-elasticsearch/&quot; target=&quot;_blank&quot;&gt;distributing incoming requests&lt;/a&gt; to a collection of application servers.&lt;/p&gt;
 
-&lt;p&gt;Load balancers help solve problems of performance, economy, and availability.&lt;/p&gt;
+&lt;p&gt;Load balancers help solve problems of server performance, high availability and scalability in distributed systems.&lt;/p&gt;
 
 &lt;h2 id=&quot;application-server&quot;&gt;Application Server&lt;/h2&gt;
 
@@ -952,7 +952,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/loadBalancingFileServer.jpg&quot; alt=&quot;loadBalancing and FileServer.&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;The cluster uses a load balancer to delegate a specific task to one of its servers in a randomized order.&lt;/p&gt;
+&lt;p&gt;The cluster uses a load balancer to delegate a specific task to one of its servers in a randomized order. A load-balancing algorithm is a load balancer’s logic to distribute network traffic between servers.&lt;/p&gt;
 
 &lt;p&gt;The first time a user requests the execution of the Java WebClient, the load balancer delegates the task to the first application server, for example.&lt;/p&gt;
 
@@ -991,12 +991,16 @@
 
 &lt;p&gt;The Java WebClient cannot delete files that another user created.&lt;/p&gt;
 
+&lt;p&gt;We cannot change the permissions of a file from within a Java program as we can on Linux systems - &lt;em&gt;chmod&lt;/em&gt; command.&lt;/p&gt;
+
 &lt;h2 id=&quot;possible-solutions&quot;&gt;Possible Solutions&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Configure only one user account on application servers and give it full access control - hardware configuration.&lt;/li&gt;
   &lt;li&gt;Deploy the Java WebClient in only one server.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Now any application server in the cluster can create or delete any file on the file server.&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 05 Oct 2022 00:00:00 +0200</pubDate>
