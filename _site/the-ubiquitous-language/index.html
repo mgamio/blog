@@ -12,8 +12,8 @@
 <meta property="og:title" content="Introduce business terminology into your variable names" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Domain Driven Design aims to build strategic software based on domain models." />
-<meta property="og:description" content="Domain Driven Design aims to build strategic software based on domain models." />
+<meta name="description" content="Domain Driven Design aims to build strategic software based on domain models. Domain modeling in microservices architecture" />
+<meta property="og:description" content="Domain Driven Design aims to build strategic software based on domain models. Domain modeling in microservices architecture" />
 <link rel="canonical" href="http://localhost:4000/the-ubiquitous-language/" />
 <meta property="og:url" content="http://localhost:4000/the-ubiquitous-language/" />
 <meta property="og:site_name" content="codersite" />
@@ -24,7 +24,7 @@
 <meta property="twitter:image" content="http://localhost:4000/assets/images/theUbiquitousLanguage.jpg" />
 <meta property="twitter:title" content="Introduce business terminology into your variable names" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-08-27T00:00:00+02:00","datePublished":"2022-08-27T00:00:00+02:00","description":"Domain Driven Design aims to build strategic software based on domain models.","headline":"Introduce business terminology into your variable names","image":"http://localhost:4000/assets/images/theUbiquitousLanguage.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/the-ubiquitous-language/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/the-ubiquitous-language/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-08-27T00:00:00+02:00","datePublished":"2022-08-27T00:00:00+02:00","description":"Domain Driven Design aims to build strategic software based on domain models. Domain modeling in microservices architecture","headline":"Introduce business terminology into your variable names","image":"http://localhost:4000/assets/images/theUbiquitousLanguage.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/the-ubiquitous-language/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/the-ubiquitous-language/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -220,7 +220,7 @@
 
 <p>A <em>Domain Model</em> represents those aspects of a domain that are relevant to a particular problem.</p>
 
-<p><a href="https://codercuy.com/domain-driven-design/" target="_blank">Domain Driven Design</a> aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.</p>
+<p><a href="https://en.wikipedia.org/wiki/Domain-driven_design" target="_blank">Domain Driven Design</a> aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.</p>
 
 <ul>
   <li>
@@ -233,7 +233,9 @@
 
 <p>Using bounded contexts reduces coupling between subsystems, and we can exchange data between them via explicit <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">API</a>, avoiding dependencies.</p>
 
-<p>As developers, we need to choose appropriate names for our variables that reflect the business terms used in all communication channels during the design stage of our domain models.</p>
+<p>As developers, we must choose appropriate names for our variables that reflect the business terms used in all communication channels during the Domain modeling design stage.</p>
+
+<p><img src="/assets/images/ubiquitousLanguage.jpg" alt="ubiquitous Language" class="img-responsive" /></p>
 
 <h2 id="case-study">Case study</h2>
 
@@ -257,11 +259,9 @@
   <li>Email interactions occur to clarify how to build a URL path to retrieve the final image object using the <em>mediaAssetID</em> attribute.</li>
 </ul>
 
-<p><img src="/assets/images/ubiquitousLanguage.jpg" alt="ubiquitous Language" class="img-responsive" /></p>
-
 <h2 id="understand-business-concepts-before-translating-them-into-source-code">Understand business concepts before translating them into source code</h2>
 
-<p>The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain. It is a set of concepts and vocabulary shared between everyone on the team.</p>
+<p>The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain. Ubiquitous language in software development is a set of concepts and vocabulary shared between everyone on the team.</p>
 
 <p>Some developers can specify the following class design when your bounded context is translated into source code.</p>
 
@@ -285,7 +285,9 @@
 
 <p>If we’ve been involved in requirements analysis for weeks, why not introduce the same business terminology into our variable names? <a href="https://codersite.dev/clean-code/" target="_blank">Variable names reveal intent</a>.</p>
 
-<p>Ubiquitous language tries to introduce the influence of business communication structures on software. Whenever you can, try to introduce business terminology into your variable names.</p>
+<p>One of the benefits of using ubiquitous language is introducing the influence of business communication structures on software. Whenever you can, try to introduce business terminology into your variable names.</p>
+
+<p>By introducing a better name for our variables, we can establish an effective ubiquitous language in domain-driven design</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -307,7 +309,7 @@
 
 <p>You receive a task to implement a service to retrieve documents used in the shipment of goods, and you decide to call it  <strong><em>shipping notes</em></strong>. But your business doesn’t ship goods by the sea!</p>
 
-<p>Ask always questions to your colleagues and business experts to clarify business concepts. Then you will realize that your service should implement <strong><em>delivery notes</em></strong>.</p>
+<p>Ask always questions to your colleagues and domains experts to clarify business concepts. Then you will realize that your service should implement <strong><em>delivery notes</em></strong>.</p>
 
 <p>The following class design represents a fundamental concept in the domain expert’s mental model.</p>
 
@@ -321,9 +323,11 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Use the ubiquitous language as a tool for effective communication and knowledge sharing.</p>
+<p>Use the ubiquitous language as a tool for effective cross-team collaboration and knowledge sharing.</p>
 
-<p>Learn more about analysis and software design with this practical guide.</p>
+<p>Using the Ubiquitous language in agile software development and in domain modeling of microservices architecture is a common practice.</p>
+
+<p>Learn Real-world use cases of OOP in software development with this practical guide.</p>
 
 <p><a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a></p>
 
