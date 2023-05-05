@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 05 May 2023 16:27:57 +0200</pubDate>
-    <lastBuildDate>Fri, 05 May 2023 16:27:57 +0200</lastBuildDate>
+    <pubDate>Fri, 05 May 2023 16:35:54 +0200</pubDate>
+    <lastBuildDate>Fri, 05 May 2023 16:35:54 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1237,7 +1237,7 @@
       </item>
     
       <item>
-        <title>Introduce business terminology into your variable names</title>
+        <title>How to establish an effective ubiquitous language in domain-driven design</title>
         <description>&lt;p&gt;A &lt;em&gt;Domain&lt;/em&gt; is an area of knowledge associated with a problem we are trying to solve.&lt;/p&gt;
 
 &lt;p&gt;A &lt;em&gt;Domain Model&lt;/em&gt; represents those aspects of a domain that are relevant to a particular problem.&lt;/p&gt;
@@ -1280,6 +1280,8 @@
   &lt;li&gt;The vendor communicates to the development team that its internal API describes a &lt;em&gt;mediaAssetID&lt;/em&gt; attribute to uniquely identify an image object in its domain.&lt;/li&gt;
   &lt;li&gt;Email interactions occur to clarify how to build a URL path to retrieve the final image object using the &lt;em&gt;mediaAssetID&lt;/em&gt; attribute.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;We want to introduce business terminology into our variable names&lt;/p&gt;
 
 &lt;h2 id=&quot;understand-business-concepts-before-translating-them-into-source-code&quot;&gt;Understand business concepts before translating them into source code&lt;/h2&gt;
 

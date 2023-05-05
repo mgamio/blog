@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introduce business terminology into your variable names"
+title:  "How to establish an effective ubiquitous language in domain-driven design"
 description: "Domain Driven Design aims to build strategic software based on domain models. Domain modeling in microservices architecture"
 author: moises
 categories: [ Domain-Driven Design ]
@@ -40,6 +40,8 @@ During the integration process, business experts and developers are in constant 
 
 - The vendor communicates to the development team that its internal API describes a *mediaAssetID* attribute to uniquely identify an image object in its domain.
 - Email interactions occur to clarify how to build a URL path to retrieve the final image object using the *mediaAssetID* attribute.
+
+We want to introduce business terminology into our variable names
 
 ## Understand business concepts before translating them into source code
 
