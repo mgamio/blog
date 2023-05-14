@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "SSL Handshake Failure"
+title:  "Resolving SSL handshake failure in Java applications"
 description: "The Secure Socket Layer (SSL) enables a secured connection between a client and a server."
 author: moises
 categories: [ Web APIs ]
@@ -19,7 +19,7 @@ A summary of the steps in the SSL handshake:
 
 For more information about cryptographic algorithms and digital certificates, refer [here](https://www.ibm.com/docs/en/ibm-mq/7.5?topic=mechanisms-cryptographic-security-protocols-tls-ssl){:target="_blank"}.
 
-## Handshake Failure Scenario
+## SSL handshake failure during API integration
 
 We try to build a Spring WebClient component to consume data from an API Server (target_server).
 
@@ -50,7 +50,7 @@ logger.info(monoString.block());
 {%- include inArticleAds.html -%}
 </div>
 
-Once the client is running, it throws the following error.
+Once the client is running, it throws the following error - a common SSL Handshake issue.
 
 ```kotlin
 ERROR WebClientRequestException: Received fatal alert: handshake_failure; nested exception is javax.net.ssl.SSLException: Received fatal alert: handshake_failure)
@@ -80,9 +80,9 @@ For example, the Cipher Suite SSL_RSA_WITH_RC4_128_MD5 includes:
 {%- include inArticleAds.html -%}
 </div>
 
-## Analysis
+## How to interpret SSL handshake failure logs
 
-We usually check if both parties - client and server - comply with all the steps of the Handshake mechanism.
+We usually check if both parties - client and server - comply with all the steps of the SSL Handshake mechanism.
 
 The first two steps deal with cryptographic protocols and cipher suites.
 
@@ -126,7 +126,7 @@ SSL-Session:
 
 The server uses the **TLSv1.2** protocol, which means the Client and Server are not using the same protocol version.
 
-## Solution
+## Fixing SSL handshake failures
 
 From the server response, some ciphers are not supported in the TLSv1.2 protocol.
 

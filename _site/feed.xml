@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Apr 2023 17:33:19 +0200</pubDate>
-    <lastBuildDate>Sun, 30 Apr 2023 17:33:19 +0200</lastBuildDate>
+    <pubDate>Sun, 14 May 2023 20:46:59 +0200</pubDate>
+    <lastBuildDate>Sun, 14 May 2023 20:46:59 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1576,7 +1576,7 @@
       </item>
     
       <item>
-        <title>SSL Handshake Failure</title>
+        <title>Resolving SSL handshake failure in Java applications</title>
         <description>&lt;p&gt;The Secure Socket Layer (SSL) enables a secured connection between a client and a server. SSL Handshake is a set of steps that make it possible for this secured connection over the network.&lt;/p&gt;
 
 &lt;p&gt;A summary of the steps in the SSL handshake:&lt;/p&gt;
@@ -1590,7 +1590,7 @@
 
 &lt;p&gt;For more information about cryptographic algorithms and digital certificates, refer &lt;a href=&quot;https://www.ibm.com/docs/en/ibm-mq/7.5?topic=mechanisms-cryptographic-security-protocols-tls-ssl&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;handshake-failure-scenario&quot;&gt;Handshake Failure Scenario&lt;/h2&gt;
+&lt;h2 id=&quot;ssl-handshake-failure-during-api-integration&quot;&gt;SSL handshake failure during API integration&lt;/h2&gt;
 
 &lt;p&gt;We try to build a Spring WebClient component to consume data from an API Server (target_server).&lt;/p&gt;
 
@@ -1640,7 +1640,7 @@
 &lt;/script&gt;
 &lt;br /&gt;&lt;/div&gt;
 
-&lt;p&gt;Once the client is running, it throws the following error.&lt;/p&gt;
+&lt;p&gt;Once the client is running, it throws the following error - a common SSL Handshake issue.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nc&quot;&gt;ERROR&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebClientRequestException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Received&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fatal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handshake_failure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nested&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exception&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;javax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ssl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SSLException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Received&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fatal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handshake_failure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -1677,9 +1677,9 @@
 &lt;/script&gt;
 &lt;br /&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;analysis&quot;&gt;Analysis&lt;/h2&gt;
+&lt;h2 id=&quot;how-to-interpret-ssl-handshake-failure-logs&quot;&gt;How to interpret SSL handshake failure logs&lt;/h2&gt;
 
-&lt;p&gt;We usually check if both parties - client and server - comply with all the steps of the Handshake mechanism.&lt;/p&gt;
+&lt;p&gt;We usually check if both parties - client and server - comply with all the steps of the SSL Handshake mechanism.&lt;/p&gt;
 
 &lt;p&gt;The first two steps deal with cryptographic protocols and cipher suites.&lt;/p&gt;
 
@@ -1741,7 +1741,7 @@
 
 &lt;p&gt;The server uses the &lt;strong&gt;TLSv1.2&lt;/strong&gt; protocol, which means the Client and Server are not using the same protocol version.&lt;/p&gt;
 
-&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+&lt;h2 id=&quot;fixing-ssl-handshake-failures&quot;&gt;Fixing SSL handshake failures&lt;/h2&gt;
 
 &lt;p&gt;From the server response, some ciphers are not supported in the TLSv1.2 protocol.&lt;/p&gt;
 
