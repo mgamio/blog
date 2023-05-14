@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Understanding OOP concepts | codersite</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Understanding OOP concepts" />
+<meta name="author" content="moises" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Object-oriented concepts give you a solid foundation for making critical design decisions." />
+<meta property="og:description" content="Object-oriented concepts give you a solid foundation for making critical design decisions." />
+<link rel="canonical" href="http://localhost:4000/understanding-oop-concepts/" />
+<meta property="og:url" content="http://localhost:4000/understanding-oop-concepts/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:image" content="http://localhost:4000/assets/images/oop.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-20T00:00:00+02:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/oop.jpg" />
+<meta property="twitter:title" content="Understanding OOP concepts" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-05-20T00:00:00+02:00","datePublished":"2022-05-20T00:00:00+02:00","description":"Object-oriented concepts give you a solid foundation for making critical design decisions.","headline":"Understanding OOP concepts","image":"http://localhost:4000/assets/images/oop.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/understanding-oop-concepts/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/understanding-oop-concepts/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script src="/assets/js/jquery.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+  crossorigin="anonymous"></script></head>
+
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+ 
+                <li class="nav-item">
+                <a class="nav-link" href="/recommended">Recommended</a>
+                </li>
+				
+                <li class="nav-item">
+                <a class="nav-link" href="/book">Books</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Understanding OOP concepts&url=http://localhost:4000/understanding-oop-concepts/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/understanding-oop-concepts/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+         <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/understanding-oop-concepts/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>	
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://codersite.dev">Moises Gamio</a><a target="_blank" href="https://twitter.com/MoisesGamio" class="btn follow">Follow</a>
+                        <span class="author-description">Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors.</span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Understanding OOP concepts</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+			
+			
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/oop.jpg" alt="Understanding OOP concepts">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>Understanding OOP concepts give you a solid foundation for making critical decisions about object-oriented software design.</p>
+
+<h2 id="class">Class</h2>
+
+<p>A class is a template or prototype that describes what an object will be. It defines its attributes(data) and behavior(methods). We must design a class before creating an object.</p>
+
+<h2 id="object">Object</h2>
+
+<p>An object is an instance of a class. When we create an object, we create real-world entities such as cars, bicycles, or dogs with their own attributes and own behaviors.</p>
+
+<p><img src="/assets/images/carClass.jpg" alt="class and object" class="img-responsive" /></p>
+
+<p>We instantiate an object via the <em>new</em> keyword in the Java programming language. When you design a class follow the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Single Responsibility Principle (SRP)</a>.</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="abstraction-in-oop">Abstraction in OOP</h2>
+
+<p>Abstraction allows an object telling to its users what an application does instead of how it does it. You can see the essential buttons on your TV remote control, but you don’t care what happens behind when you press one of these buttons. In Java, we create abstractions via Interfaces and Abstract classes.</p>
+
+<h2 id="encapsulation-in-oop-and-data-hiding">Encapsulation in OOP and Data Hiding</h2>
+
+<p>Restricting access to specific attributes and methods is called <em>data hiding</em>. Objects should not manipulate the data of other objects.</p>
+
+<p>Encapsulation is the action of combining the data and methods in the same entity. In this way, we control access to the data in the object.</p>
+
+<h2 id="inheritance-in-oop">Inheritance in OOP</h2>
+
+<p>Inheritance is a process in which a class inherits the attributes and methods of another class.</p>
+
+<p>Class inheritance in OOP provides the ability to create new classes with new functionalities while maintaining the functionalities inherited. In this way, it promotes code reusability.</p>
+
+<p>This relationship is an <em>is-a</em> relationship because when a subclass inherits from a superclass, it can do anything that the superclass can do.</p>
+
+<p>In Java, we create inheritance between classes via the <em>extends</em> keyword.</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="polymorphism-in-oop">Polymorphism in OOP</h2>
+
+<p>Polymorphism in OOP means many shapes and is coupled to inheritance. For example, a Shape class defines a <em>draw</em> method, but Square and Circle’s subclasses will implement it differently.</p>
+
+<h2 id="composition-in-oop">Composition in OOP</h2>
+
+<p>The composition in OOP provides a mechanism for building classes from other classes. In Java, we usually create a class with instance variables that references one or more objects of other classes.</p>
+
+<p>The benefit of separating one class from another one is the <em>Reuse</em>.</p>
+
+<p>For example, in a shopping context, we need a list of requested <em>items</em> and an <em>address</em> where to deliver the <em>order</em>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Order</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="n">int</span> <span class="n">clientId</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Item</span><span class="p">&gt;</span> <span class="n">orderItems</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">Address</span> <span class="n">shippingAddress</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We build an <em>Item</em> class including an <em>Article</em> class.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Item</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="nc">Article</span> <span class="n">article</span><span class="p">;</span>
+  <span class="k">private</span> <span class="n">double</span> <span class="n">quantity</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>And the <em>Article</em> class includes enough attributes to support the shopping business.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Article</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="n">int</span> <span class="n">id</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">name</span><span class="p">;</span>
+  <span class="k">private</span> <span class="n">double</span> <span class="n">deliveryPrice</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Even we can reuse the <em>Article</em> class to support a <em>Search</em> request.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">SearchResponse</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Article</span><span class="p">&gt;</span> <span class="n">articles</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><center>
+  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" src="../assets/images/softwareDesign1.png" /></a>
+</center>
+
+<br /></div>
+
+<p>What happens if the business wants to introduce articles in a country where some articles are forbidden to trade?.</p>
+
+<p>We can not add a new attribute called <em>tradable</em> to the Article class because we will never use it in normal countries.</p>
+
+<p>Here, we can use the other technique to build new classes: <strong>inheritance</strong>.</p>
+
+<p><img src="/assets/images/tradableArticle.png" alt="class and object" class="img-responsive" /></p>
+
+<p>Now, we can support the new requirement for the new country.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">SearchResponse</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">TradableArticle</span><span class="p">&gt;</span> <span class="n">articles</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We can reuse our classes even out of context. For example, in a Bank context, we need an <em>address</em> to contact a <em>customer</em>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="n">int</span> <span class="n">customerId</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">lastName</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">Address</span> <span class="n">address</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We use the term <em>has-a</em> to describe composition relationships. An order <em>has-a(n)</em> address. A customer <em>has-a(n)</em> address.</p>
+
+<h2 id="advantages-of-object-oriented-programming">Advantages of object-oriented programming</h2>
+
+<ul>
+  <li>Your program focuses on data, not on functions. You create a program using objects, not functions.</li>
+  <li>You define methods to control the access to its data.</li>
+  <li>Objects communicate through methods - messages</li>
+  <li>The application adapts to new changes.</li>
+  <li>Objects have unique responsibilities.</li>
+  <li>You don’t define global data. Every object contains its data.</li>
+</ul>
+
+<p>Understanding OOP concepts in Java or Python OOP concepts makes your system design resilient to future changes.</p>
+
+<p>Learn how to use these concepts in <a href="https://codersite.dev/open-closed-principle/" target="_blank">SOLID design principles</a>.</p>
+
+<div><p>With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.</p>
+<center>
+  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
+</center>
+
+<br /></div>
+
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+     crossorigin="anonymous"></script>
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2022-05-20">20 May 2022</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Object-Oriented">Object-Oriented</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="http://localhost:4000/ssl-handshake-failure/"> &laquo; Resolving SSL handshake failure in Java applications</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="http://localhost:4000/the-ubiquitous-language/">Introduce business terminology into your variable names &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<!--<div class="alertbar">-->
+	<div class="container text-center">
+		<span><a class="navbar-brand" href="/"><img src="/assets/images/logo.svg" height="30" alt="codersite"></a> &nbsp; Stay Connected!. Follow me to get my latest articles.</span>
+        <form action="https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;id=8d64d36cba" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+<!--</div>-->
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (9)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#design">design (3)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distribuited-systems">distribuited systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2023 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/policy">Privacy policy |</a>
+				<a href="/termsOfService">Terms of service |</a>
+				<a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+</body>
+</html>

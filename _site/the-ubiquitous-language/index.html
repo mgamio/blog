@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Introduce business terminology into your variable names | codersite</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Introduce business terminology into your variable names" />
+<meta name="author" content="moises" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Domain Driven Design aims to build strategic software based on domain models." />
+<meta property="og:description" content="Domain Driven Design aims to build strategic software based on domain models." />
+<link rel="canonical" href="http://localhost:4000/the-ubiquitous-language/" />
+<meta property="og:url" content="http://localhost:4000/the-ubiquitous-language/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:image" content="http://localhost:4000/assets/images/theUbiquitousLanguage.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-27T00:00:00+02:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/theUbiquitousLanguage.jpg" />
+<meta property="twitter:title" content="Introduce business terminology into your variable names" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-08-27T00:00:00+02:00","datePublished":"2022-08-27T00:00:00+02:00","description":"Domain Driven Design aims to build strategic software based on domain models.","headline":"Introduce business terminology into your variable names","image":"http://localhost:4000/assets/images/theUbiquitousLanguage.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/the-ubiquitous-language/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/the-ubiquitous-language/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script src="/assets/js/jquery.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+  crossorigin="anonymous"></script></head>
+
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+ 
+                <li class="nav-item">
+                <a class="nav-link" href="/recommended">Recommended</a>
+                </li>
+				
+                <li class="nav-item">
+                <a class="nav-link" href="/book">Books</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Introduce business terminology into your variable names&url=http://localhost:4000/the-ubiquitous-language/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/the-ubiquitous-language/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+         <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/the-ubiquitous-language/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>	
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://codersite.dev">Moises Gamio</a><a target="_blank" href="https://twitter.com/MoisesGamio" class="btn follow">Follow</a>
+                        <span class="author-description">Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors.</span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Introduce business terminology into your variable names</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+			
+			
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/theUbiquitousLanguage.jpg" alt="Introduce business terminology into your variable names">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>A <em>Domain</em> is an area of knowledge associated with a problem we are trying to solve.</p>
+
+<p>A <em>Domain Model</em> represents those aspects of a domain that are relevant to a particular problem.</p>
+
+<p><a href="https://codercuy.com/domain-driven-design/" target="_blank">Domain Driven Design</a> aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.</p>
+
+<ul>
+  <li>
+    <p><em>Bounded Context</em> is a subsystem that defines a specific responsibility with an explicit boundary. For example, in a shopping application, we build specific components to support the <em>Sales Context</em> and others to support the <em>Buyer Context</em>.</p>
+  </li>
+  <li>
+    <p>The <em>Ubiquitous Language</em> reflects a language spoken among team members working in the Bounded Context.</p>
+  </li>
+</ul>
+
+<p>Using bounded contexts reduces coupling between subsystems, and we can exchange data between them via explicit <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">API</a>, avoiding dependencies.</p>
+
+<p>As developers, we need to choose appropriate names for our variables that reflect the business terms used in all communication channels during the design stage of our domain models.</p>
+
+<h2 id="case-study">Case study</h2>
+
+<p>Business-to-business (B2B) is a business conducted between one company and another.</p>
+
+<p>A leading company implements an e-commerce portal to sell t-shirt products from various vendors and manufacturers.</p>
+
+<p>A vendor wants to avoid duplication of effort to manually upload images on both sides and asks the lead company to use an internal API to update their product images.</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>During the integration process, business experts and developers are in constant communication to clarify requirements. For example.</p>
+
+<ul>
+  <li>The vendor communicates to the development team that its internal API describes a <em>mediaAssetID</em> attribute to uniquely identify an image object in its domain.</li>
+  <li>Email interactions occur to clarify how to build a URL path to retrieve the final image object using the <em>mediaAssetID</em> attribute.</li>
+</ul>
+
+<p><img src="/assets/images/ubiquitousLanguage.jpg" alt="ubiquitous Language" class="img-responsive" /></p>
+
+<h2 id="understand-business-concepts-before-translating-them-into-source-code">Understand business concepts before translating them into source code</h2>
+
+<p>The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain. It is a set of concepts and vocabulary shared between everyone on the team.</p>
+
+<p>Some developers can specify the following class design when your bounded context is translated into source code.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="n">int</span> <span class="n">id</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">imageId</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">imageURL</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <em>imageId</em> attribute is a good name, but other business domains may already use it. We, as developers, sometimes disconnect from business and look for variable names that usually follow conventions, standards, programming languages, framework recommendations, or technical terms.</p>
+
+<p>If we’ve been involved in requirements analysis for weeks, why not introduce the same business terminology into our variable names? <a href="https://codersite.dev/clean-code/" target="_blank">Variable names reveal intent</a>.</p>
+
+<p>Ubiquitous language tries to introduce the influence of business communication structures on software. Whenever you can, try to introduce business terminology into your variable names.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="n">int</span> <span class="n">id</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">mediaAssetID</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">mediaAssetURL</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="never-assume-and-ask-questions-to-clarify-ambiguous-and-synonyms-terms">Never assume and ask questions to clarify ambiguous and synonyms terms</h2>
+
+<p>You receive a task to implement a service to retrieve documents used in the shipment of goods, and you decide to call it  <strong><em>shipping notes</em></strong>. But your business doesn’t ship goods by the sea!</p>
+
+<p>Ask always questions to your colleagues and business experts to clarify business concepts. Then you will realize that your service should implement <strong><em>delivery notes</em></strong>.</p>
+
+<p>The following class design represents a fundamental concept in the domain expert’s mental model.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">interface</span> <span class="nc">DeliveryNoteService</span> <span class="p">{</span>
+
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Use the ubiquitous language as a tool for effective communication and knowledge sharing.</p>
+
+<p>Learn more about analysis and software design with this practical guide.</p>
+
+<p><a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a></p>
+
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+     crossorigin="anonymous"></script>
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2022-08-27">27 Aug 2022</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Domain-Driven-Design">Domain-Driven Design</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="http://localhost:4000/understanding-oop-concepts/"> &laquo; Understanding OOP concepts</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="http://localhost:4000/german-vocabulary-software-engineers/">German vocabulary for Software Engineers &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<!--<div class="alertbar">-->
+	<div class="container text-center">
+		<span><a class="navbar-brand" href="/"><img src="/assets/images/logo.svg" height="30" alt="codersite"></a> &nbsp; Stay Connected!. Follow me to get my latest articles.</span>
+        <form action="https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;id=8d64d36cba" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+<!--</div>-->
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (9)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#design">design (3)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distribuited-systems">distribuited systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2023 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/policy">Privacy policy |</a>
+				<a href="/termsOfService">Terms of service |</a>
+				<a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+</body>
+</html>
