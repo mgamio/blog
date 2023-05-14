@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>SOLID principles: The Open-Closed Principle (Part II) | codersite</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="SOLID principles: The Open-Closed Principle (Part II)" />
+<meta name="author" content="moises" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand" />
+<meta property="og:description" content="SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand" />
+<link rel="canonical" href="http://localhost:4000/open-closed-principle/" />
+<meta property="og:url" content="http://localhost:4000/open-closed-principle/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:image" content="http://localhost:4000/assets/images/openClosedPrinciple.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-06T00:00:00+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/openClosedPrinciple.jpg" />
+<meta property="twitter:title" content="SOLID principles: The Open-Closed Principle (Part II)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-01-06T00:00:00+01:00","datePublished":"2022-01-06T00:00:00+01:00","description":"SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand","headline":"SOLID principles: The Open-Closed Principle (Part II)","image":"http://localhost:4000/assets/images/openClosedPrinciple.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/open-closed-principle/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/open-closed-principle/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script src="/assets/js/jquery.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+  crossorigin="anonymous"></script></head>
+
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+ 
+                <li class="nav-item">
+                <a class="nav-link" href="/recommended">Recommended</a>
+                </li>
+				
+                <li class="nav-item">
+                <a class="nav-link" href="/book">Books</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=SOLID principles: The Open-Closed Principle (Part II)&url=http://localhost:4000/open-closed-principle/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/open-closed-principle/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+         <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/open-closed-principle/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>	
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://codersite.dev">Moises Gamio</a><a target="_blank" href="https://twitter.com/MoisesGamio" class="btn follow">Follow</a>
+                        <span class="author-description">Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors.</span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">SOLID principles: The Open-Closed Principle (Part II)</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+			
+			
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/openClosedPrinciple.jpg" alt="SOLID principles: The Open-Closed Principle (Part II)">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.</p>
+
+<p>When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.</p>
+
+<p>After looking at the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Single Responsibility Principle</a>, let’s continue with the second principle.</p>
+
+<h2 id="solid-principles-the-open-closed-principle-ocp">SOLID principles: The Open-Closed Principle (OCP)</h2>
+
+<blockquote>
+  <p>… “a module, class, or function should be open for extension but closed for modification.“</p>
+</blockquote>
+
+<p><a href="https://amzn.to/3eSkKXx" target="_blank">Bertrand Meyer</a> coined the principle, suggesting that we should build software to be extendable without touching its current code implementation.</p>
+
+<p>But there are situations we change one of our classes, and we realize that we need to adapt all its depending classes.</p>
+
+<h2 id="when-we-cannot-visualize-future-requirements">When we cannot visualize future requirements</h2>
+
+<p>For instance, imagine designing and implementing a rate limit algorithm to control the number of requests allowed for every endpoint in a <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">REST API</a>.</p>
+
+<p>The RateLimit class implements an interceptor - <em>HandlerInterceptor</em> - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">RateLimit</span> <span class="n">implements</span> <span class="nc">HandlerInterceptor</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span><span class="p">;</span>
+  
+  <span class="nd">@Override</span>
+  <span class="k">public</span> <span class="n">boolean</span> <span class="nf">preHandle</span><span class="p">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> 
+    <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span> <span class="nc">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+    <span class="c1">//getClientId</span>
+    <span class="n">apiPlans</span> <span class="p">=</span> <span class="nf">getAPIPlans</span><span class="p">();</span>
+    <span class="c1">//build Buckets</span>
+    <span class="c1">//evaluate request per clientId</span>
+    <span class="c1">//accept(200) or refuse(429) request</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>The number of requests allowed during a time interval is specified in plans; for example, plan A allows to consume 100 requests in 1 minute.</p>
+
+<p>The team wants to retrieve the number of requests by plan from a text file. The following <em>getAPIPlans</em> method retrieves those parameters.</p>
+
+<p>The following getAPIPlans method retrieves those parameters.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="nf">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+  <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ConcurrentHashMap</span><span class="p">&lt;&gt;();</span>
+  <span class="nc">Resource</span> <span class="n">resource</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ClassPathResource</span><span class="p">(</span><span class="s">"apiPlans.txt"</span><span class="p">);</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">allLines</span> <span class="p">=</span> <span class="nc">Files</span><span class="p">.</span><span class="nf">readAllLines</span><span class="p">(</span><span class="nc">Paths</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">resource</span><span class="p">.</span><span class="nf">getURI</span><span class="p">()));</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nc">String</span> <span class="n">line</span><span class="p">:</span> <span class="n">allLines</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nc">String</span><span class="p">[]</span> <span class="n">attributes</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">":"</span><span class="p">);</span>
+      <span class="nc">String</span> <span class="n">plan</span> <span class="p">=</span> <span class="n">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+      <span class="n">long</span> <span class="n">capacity</span> <span class="p">=</span> <span class="nc">Long</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">attributes</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nf">longValue</span><span class="p">();</span>
+      <span class="n">apiPlans</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">capacity</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="nf">getMessage</span><span class="p">());</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">apiPlans</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="when-suddenly-an-unexpected-scenario-arises">When suddenly, an unexpected scenario arises</h2>
+
+<p>The developer leaves the company, and a new one arrives—for example, You.</p>
+
+<p>As developers, we usually receive tasks to do maintenance in projects that do not belong to us; specifically, we never created that code.</p>
+
+<p>Then weeks later, your team decides that must be retrieved parameters from a database. Therefore you proceed to replace the <em>getAPIPlans</em> method; then, <em>you break the open-closed principle</em>.</p>
+
+<p>That is the meaning of the principle; you can not touch the code that is already implemented and working for a long time. Suppose the code is too complex to understand, not well documented, and includes a lot of dependencies. In that case, we have a lot of probabilities to introduce a bug or break some functionalities that we cannot visualize. Unless it is a bug that we have to fix, we should never modify the existing code.</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>Even if the code is not well designed or does not follow well object-oriented principles, it could not be easy to extend a class to introduce new functionalities.</p>
+
+<p>The team decides to implement the open-closed principle to support future changes for this scenario. But they need to refactor the code by adopting polymorphism and aggregation.</p>
+
+<h3 id="polymorphism">Polymorphism</h3>
+
+<p>Polymorphism is part of the core concepts of Object-Oriented Programming and means many forms, allowing an object to behave differently in some instances. For our scenario, polymorphism will enable the <em>getAPIPlans</em> method to achieve its goals in different ways: retrieve the parameters from a text file or a database.</p>
+
+<h3 id="aggregation">Aggregation</h3>
+
+<p>Aggregation defines a HAS-A relationship between two classes. Their objects have their life cycle, but one of them is the owner of the HAS-A relationship.</p>
+
+<p>The following diagram shows the goal of our design.</p>
+
+<p><img src="/assets/images/rateLimit.jpg" alt="rateLimit" class="img-responsive" /></p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>Read more about <a href="https://codersite.dev/understanding-oop-concepts/" target="_blank">Object-Oriented Programming concepts</a></p>
+
+<h2 id="enabling-the-open-closed-principle">Enabling the Open-Closed Principle</h2>
+
+<p>Firstly,  and thinking abstractly, you should create an interface and define a contract that will include all required functionalities.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">interface</span> <span class="nc">DataService</span> <span class="p">{</span>
+
+  <span class="k">public</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="nf">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Secondly, we move our <em>getAPIPlans</em> method to a new class that implements the previous interface.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">TextData</span> <span class="n">implements</span> <span class="nc">DataService</span> <span class="p">{</span>
+  <span class="nd">@Override</span>
+  <span class="k">public</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="nf">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+    <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ConcurrentHashMap</span><span class="p">&lt;&gt;();</span>
+    <span class="c1">//code omitted for brevity</span>
+	
+    <span class="k">return</span> <span class="n">apiPlans</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Thanks to abstractions, we can create a new class to implement <em>getAPIPlans</em> with different behavior, in this case, to retrieve parameters from a database.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">DBData</span> <span class="n">implements</span> <span class="nc">DataService</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nc">DataSource</span> <span class="n">datasource</span><span class="p">;</span>
+  
+  <span class="k">public</span> <span class="nc">DBData</span><span class="p">(</span><span class="nc">DataSource</span> <span class="n">datasource</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">datasource</span> <span class="p">=</span> <span class="n">datasource</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="nd">@Override</span>
+  <span class="k">public</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="nf">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+    <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ConcurrentHashMap</span><span class="p">&lt;&gt;();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nc">Plan</span> <span class="n">plan</span> <span class="p">:</span> <span class="n">datasource</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">//code omitted for brevity</span>
+	 
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">apiPlans</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>Introducing a new abstraction layer with different implementations avoids tight coupling between classes.</p>
+
+<p>Finally, we refactor our RateLimit class <em>aggregating</em> an instance of DataService type in its constructor method.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">RateLimit</span> <span class="n">implements</span> <span class="nc">HandlerInterceptor</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">DataService</span> <span class="n">dataService</span><span class="p">;</span>
+  
+  <span class="k">public</span> <span class="nc">RateLimit</span><span class="p">(</span><span class="nc">DataService</span> <span class="n">dataService</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">dataService</span> <span class="p">=</span> <span class="n">dataService</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="nd">@Override</span>
+  <span class="k">public</span> <span class="n">boolean</span> <span class="nf">preHandle</span><span class="p">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> 
+    <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span> <span class="nc">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+    <span class="c1">//getClientId</span>
+    <span class="n">apiPlans</span> <span class="p">=</span> <span class="n">dataService</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">();</span>
+    <span class="c1">//build Buckets</span>
+    <span class="c1">//evaluate request per clientId</span>
+    <span class="c1">//accept(200) or refuse(429) request</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>If later we decided to retrieve the parameters from a <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">NoSQL database</a>, we would no longer have to touch the code, create a new class that implements <em>getAPIPlans</em>, and instantiate this new class in RateLimit.</p>
+
+<p>Even if, instead of implementing the <em>HandlerInterceptor</em> interface, we implement a <em>Filter</em> to design our Rate Limit algorithm, we can reuse the DataService interface as one of its dependencies.</p>
+
+<p>Calling to <em>getAPIPlans</em> is now fixed (closed for modification). If we want it to behave differently, we implement it in a new class (open for extension) that will follow the contracts defined in our interface.</p>
+
+<p>Our new DBData dependency is instantiated in our RateLimit class thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.</p>
+
+<div><p>With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.</p>
+<center>
+  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
+</center>
+
+<br /></div>
+
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+     crossorigin="anonymous"></script>
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2022-01-06">06 Jan 2022</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#design">design</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="http://localhost:4000/shopping-options/"> &laquo; Shopping options</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="http://localhost:4000/uml-diagrams-for-java-developers/">UML Diagrams for Java Developers &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<!--<div class="alertbar">-->
+	<div class="container text-center">
+		<span><a class="navbar-brand" href="/"><img src="/assets/images/logo.svg" height="30" alt="codersite"></a> &nbsp; Stay Connected!. Follow me to get my latest articles.</span>
+        <form action="https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;id=8d64d36cba" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+<!--</div>-->
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (9)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#design">design (3)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distribuited-systems">distribuited systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2023 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/policy">Privacy policy |</a>
+				<a href="/termsOfService">Terms of service |</a>
+				<a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Big O Notation and Analysis of Algorithms - coding interview | codersite</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Big O Notation and Analysis of Algorithms - coding interview" />
+<meta name="author" content="moises" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users" />
+<meta property="og:description" content="Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users" />
+<link rel="canonical" href="http://localhost:4000/big-o-notation-analysis-of-algorithms/" />
+<meta property="og:url" content="http://localhost:4000/big-o-notation-analysis-of-algorithms/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:image" content="http://localhost:4000/assets/images/algorithm.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-22T00:00:00+02:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/algorithm.jpg" />
+<meta property="twitter:title" content="Big O Notation and Analysis of Algorithms - coding interview" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2020-06-22T00:00:00+02:00","datePublished":"2020-06-22T00:00:00+02:00","description":"Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users","headline":"Big O Notation and Analysis of Algorithms - coding interview","image":"http://localhost:4000/assets/images/algorithm.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/big-o-notation-analysis-of-algorithms/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/big-o-notation-analysis-of-algorithms/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script src="/assets/js/jquery.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+  crossorigin="anonymous"></script></head>
+
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+ 
+                <li class="nav-item">
+                <a class="nav-link" href="/recommended">Recommended</a>
+                </li>
+				
+                <li class="nav-item">
+                <a class="nav-link" href="/book">Books</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Big O Notation and Analysis of Algorithms - coding interview&url=http://localhost:4000/big-o-notation-analysis-of-algorithms/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/big-o-notation-analysis-of-algorithms/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+         <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/big-o-notation-analysis-of-algorithms/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>	
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://codersite.dev">Moises Gamio</a><a target="_blank" href="https://twitter.com/MoisesGamio" class="btn follow">Follow</a>
+                        <span class="author-description">Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors.</span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Big O Notation and Analysis of Algorithms - coding interview</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+			
+			
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/algorithm.jpg" alt="Big O Notation and Analysis of Algorithms - coding interview">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>Big O Notation is a mathematical notation that helps us analyze how complex an algorithm is in terms of time and space. When we build an application for one user or millions of users, it matters.</p>
+
+<p>We implement different algorithms to solve one problem and measure how efficient is one respect to the other ones.</p>
+
+<p>Algorithm analysis is an essential part of computational complexity theory, which aims to quantify the resources required to solve computational problems.</p>
+
+<p>The first study about Analysis of Algorithms was published by Knuth in 1968. <a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming" target="_blank">The Art of Computer Programming</a>.</p>
+
+<p>Asymptotic Notation is used to describe the running time of an algorithm. There are three different notations: Big Omega, Big Theta, and Big O Notation.</p>
+
+<h2 id="time-complexity-analysis-and-space-complexity-analysis">Time complexity analysis and space complexity analysis</h2>
+
+<p>Time complexity analysis is related to how many steps takes an algorithm.</p>
+
+<p>Space complexity analysis is related to how efficient an algorithm is using the memory and disk.</p>
+
+<p>Both terms depend on the input size, the number of items in the input. Both terms depend on the input size and the number of items in the input. Moreover, we can analyze the complexity based on three cases or asymptotic notations.:</p>
+
+<ul>
+  <li>
+    <p>Best case or Big Omega Ω(n): Usually the algorithm executes in one step independently of the input size.</p>
+  </li>
+  <li>
+    <p>Average case or Big Theta Θ(n): If the the input size is ramdom</p>
+  </li>
+  <li>
+    <p>Worst-case analysis or Big O Notation O(n): Gives us an upper bound on the runtime for any input. It gives us a kind of guarantee that the algorithm will never take any longer with a new input size.</p>
+  </li>
+</ul>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="order-of-growth">Order of growth</h2>
+
+<p>The order of growth is related to how the runtime of an algorithm increases when the size of the input increases without limit and tells us how efficient the algorithm is. Therefore, we can compare the relative performance of alternative algorithms.</p>
+
+<p>Big O Notation: <strong>Common order-of-growth classifications</strong>:</p>
+
+<p><img src="/assets/images/order-of-growth.jpg" alt="order-of-growth" class="img-responsive" /></p>
+
+<h2 id="big-o-notation-examples">Big O Notation: examples</h2>
+
+<p><strong>O(1) – Constant</strong></p>
+
+<p>It does not matter if the input contains 1000 or 1 million items, the code always executes in one step.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">constant</span><span class="p">(</span><span class="nc">List</span><span class="p">&lt;</span><span class="err">str</span><span class="k">in</span><span class="err">g</span><span class="p">&gt;</span> <span class="n">list</span><span class="p">,</span> <span class="nc">String</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">list</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>In a best-case scenario, an <em>add</em> method takes O(1) time. The worst-case scenario takes O(n).</p>
+
+<p><strong>O(N) – linear</strong></p>
+
+<p>An algorithm runs in O(N) time if the number of steps depends on the number of items included in the input.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">int</span> <span class="nf">sum</span><span class="p">(</span><span class="n">int</span><span class="p">[]</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">int</span> <span class="n">sum</span> <span class="p">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="p">&lt;</span><span class="n">numbers</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+    <span class="n">sum</span><span class="p">+=</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons. You can visit <a href="https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/" target="_blank">find the smallest number with the same number of digits</a>, for instance. Moreover, the simpler and more intuitive an algorithm is, the more useful and efficient it will be.</p>
+
+<p><strong>O(N<sup>2</sup>) – quadratic</strong></p>
+
+<p>If an algorithm includes two loops nested in its code, we could say that it’s running in quadratic time O(N<sup>2</sup>). For instance, when a 2D matrix is initialized in a tic-tac-toe game.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">String</span> <span class="p">[][]</span> <span class="n">board</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="n">void</span> <span class="nf">initializeBoard</span><span class="p">(</span><span class="n">int</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="n">board</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">String</span><span class="p">[</span><span class="n">size</span><span class="p">][</span><span class="n">size</span><span class="p">];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">x</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="p">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">x</span><span class="p">++)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">y</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="p">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">y</span><span class="p">++)</span> <span class="p">{</span>
+      <span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="p">=</span> <span class="s">" "</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p><strong>O(N<sup>3</sup>) – Cubic</strong></p>
+
+<p>When the code includes at the most three nested loops, then the algorithm runs in Cubic time. For example: given N integers, how many triples sum to exactly zero?. One approach (not the best) is to use three nested loops.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">int</span> <span class="nf">countThreeSum</span><span class="p">(</span><span class="n">int</span><span class="p">[]</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">int</span> <span class="nc">N</span> <span class="p">=</span><span class="n">numbers</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
+  <span class="n">int</span> <span class="n">count</span> <span class="p">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="p">&lt;</span><span class="nc">N</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">j</span> <span class="p">=</span> <span class="n">i</span><span class="p">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="p">&lt;</span><span class="nc">N</span><span class="p">;</span> <span class="n">j</span><span class="p">++)</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">k</span> <span class="p">=</span> <span class="n">j</span><span class="p">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="p">&lt;</span><span class="nc">N</span><span class="p">;</span> <span class="n">k</span><span class="p">++)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">+</span> <span class="n">numbers</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">+</span> <span class="n">numbers</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="p">==</span> <span class="mi">0</span><span class="p">)</span>
+          <span class="n">count</span><span class="p">++;</span>
+
+  <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>O(LogN) – logarithmic</strong></p>
+
+<p>This kind of algorithm produces a growth curve that peaks at the beginning and slowly flattens out as the size of the input increase.</p>
+
+<p>Log28 = 3</p>
+
+<p>Log216 = 4</p>
+
+<p>Log232 = 5</p>
+
+<p><strong>Analysis of searching algorithms</strong></p>
+
+<p>The binary search uses at most LogN key compares to search in a sorted array of size N. With 8 elements take 3 comparisons, with 16 elements takes 4 comparisons, with 32 elements takes 5 comparisons, and so on.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">static</span> <span class="p">&lt;</span><span class="nc">T</span> <span class="n">extends</span> <span class="nc">Comparable</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;&gt;</span> <span class="n">boolean</span> <span class="nf">search</span><span class="p">(</span><span class="nc">T</span> <span class="n">target</span><span class="p">,</span> <span class="nc">T</span><span class="p">[]</span> <span class="n">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">int</span> <span class="n">min</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">int</span> <span class="n">max</span> <span class="p">=</span> <span class="n">array</span><span class="p">.</span><span class="n">length</span> <span class="p">-</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">min</span> <span class="p">&lt;=</span> <span class="n">max</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">int</span> <span class="n">mid</span> <span class="p">=</span> <span class="p">(</span><span class="n">min</span> <span class="p">+</span> <span class="n">max</span><span class="p">)</span> <span class="p">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="nf">compareTo</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span> <span class="p">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">max</span> <span class="p">=</span> <span class="n">mid</span> <span class="p">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="nf">compareTo</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">min</span> <span class="p">=</span> <span class="n">mid</span> <span class="p">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="the-complexity-of-an-algorithm">The complexity of an algorithm</h2>
+
+<p>To find the Big O complexity of an algorithm follows the following rules:</p>
+
+<ul>
+  <li>Ignore the lower order terms</li>
+  <li>Drop the leading constants</li>
+</ul>
+
+<p>Example: If the time complexity of an algorithm is 2n<sup>3</sup> + 4n + 3. Its Big O complexity simplifies to O(n<sup>3</sup>).</p>
+
+<p><strong>How to find the time complexity of an algorithm</strong></p>
+
+<p>Given the following algorithm:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="nc">Integer</span> <span class="nf">sumEvenNumbers</span><span class="p">(</span><span class="nc">Integer</span> <span class="nc">N</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">int</span> <span class="n">sum</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">number</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">number</span> <span class="p">&lt;=</span> <span class="nc">N</span><span class="p">;</span> <span class="n">number</span><span class="p">++)</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">number</span> <span class="p">%</span> <span class="mi">2</span><span class="p">)</span> <span class="p">==</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="n">sum</span> <span class="p">=</span> <span class="n">sum</span> <span class="p">+</span> <span class="n">number</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>First, we split the code into individual operations and then compute how many times it is being executed as is shown in the following table.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Description</th>
+      <th style="text-align: center">Number of executions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">int sum = 0;</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">int number = 1;</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">number &lt;= N;</td>
+      <td style="text-align: center">N</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">number++</td>
+      <td style="text-align: center">N</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">if ((number % 2) == 0)</td>
+      <td style="text-align: center">N</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">sum = sum + number;</td>
+      <td style="text-align: center">N</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">return sum;</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Now, we need to sum up how many times each operation is executing.</p>
+
+<p>Time complexity = 1 + 1 + N + N + N + N + 1 =&gt;   4N + 3</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="why-big-o-notation-ignores-constants">Why Big O Notation ignores constants?</h2>
+
+<p>Big O Notation describes how many steps are required relative to the number of data elements. And it serves as a way to classify the long-term growth rate of algorithms.</p>
+
+<p>For instance, for all amounts of data, O(N) will be faster than O(N<sup>2</sup>) as shown in the following figure:</p>
+
+<p><img src="/assets/images/bigONotation-1.jpg" alt="bigONotation-1" class="img-responsive" /></p>
+
+<p>Now, if we compare O(100N) with O(N<sup>2</sup>), we can see that O(N<sup>2</sup>) is faster than O(100N) for some amounts of data as shown in the following figure:</p>
+
+<p><img src="/assets/images/bigONotation-2.jpg" alt="bigONotation-2" class="img-responsive" /></p>
+
+<p>But after an intersection point, O(100N) becomes faster and remains faster (in terms of the “number of steps”) for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, the value of 100 is irrelevant and O(100N) is written as O(N). The fewer steps, the faster the algorithm.</p>
+
+<p>This article was just an introduction to algorithm analysis to face an actual code interview as a software developer. They are asked to build approximated models using Big O notation in Java. The same concepts apply to Python algorithm analysis.</p>
+
+<p>If you want to create a mathematical model for the execution time of a discrete operation, for example, you should take a course in <a href="https://en.wikipedia.org/wiki/Discrete_mathematics" target="_blank">discrete mathematics</a>.</p>
+
+<p>Preparing to discuss algorithms analysis in your following programming interview requires practicing and studying different algorithms, and you can find it in this <a href="https://amzn.to/3HrGXrF" target="_blank">link</a> with many explanation details.</p>
+
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+     crossorigin="anonymous"></script>
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2020-06-22">22 Jun 2020</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#algorithms">algorithms</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="http://localhost:4000/solid-principles-the-definitive-guide/"> &laquo; SOLID principles: The Definitive Guide (Part I)</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="http://localhost:4000/documenting-rest-api-openapi3/">Documenting a SpringBoot REST API with OpenAPI 3 &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<!--<div class="alertbar">-->
+	<div class="container text-center">
+		<span><a class="navbar-brand" href="/"><img src="/assets/images/logo.svg" height="30" alt="codersite"></a> &nbsp; Stay Connected!. Follow me to get my latest articles.</span>
+        <form action="https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;id=8d64d36cba" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+<!--</div>-->
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (9)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#design">design (3)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distribuited-systems">distribuited systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2023 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/policy">Privacy policy |</a>
+				<a href="/termsOfService">Terms of service |</a>
+				<a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+</body>
+</html>

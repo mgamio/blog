@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>UML Diagrams for Java Developers | codersite</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="UML Diagrams for Java Developers" />
+<meta name="author" content="moises" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Design essensial UML diagram before starting programming" />
+<meta property="og:description" content="Design essensial UML diagram before starting programming" />
+<link rel="canonical" href="http://localhost:4000/uml-diagrams-for-java-developers/" />
+<meta property="og:url" content="http://localhost:4000/uml-diagrams-for-java-developers/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:image" content="http://localhost:4000/assets/images/umlDiagrams.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-09T00:00:00+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/umlDiagrams.jpg" />
+<meta property="twitter:title" content="UML Diagrams for Java Developers" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-03-09T00:00:00+01:00","datePublished":"2022-03-09T00:00:00+01:00","description":"Design essensial UML diagram before starting programming","headline":"UML Diagrams for Java Developers","image":"http://localhost:4000/assets/images/umlDiagrams.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/uml-diagrams-for-java-developers/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/uml-diagrams-for-java-developers/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script src="/assets/js/jquery.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+  crossorigin="anonymous"></script></head>
+
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+ 
+                <li class="nav-item">
+                <a class="nav-link" href="/recommended">Recommended</a>
+                </li>
+				
+                <li class="nav-item">
+                <a class="nav-link" href="/book">Books</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=UML Diagrams for Java Developers&url=http://localhost:4000/uml-diagrams-for-java-developers/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/uml-diagrams-for-java-developers/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+         <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/uml-diagrams-for-java-developers/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>	
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://codersite.dev">Moises Gamio</a><a target="_blank" href="https://twitter.com/MoisesGamio" class="btn follow">Follow</a>
+                        <span class="author-description">Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors.</span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">UML Diagrams for Java Developers</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+			
+			
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/umlDiagrams.jpg" alt="UML Diagrams for Java Developers">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>The <strong>U</strong>nified <strong>M</strong>odeling <strong>L</strong>anguage is a graphical notation for modeling systems and conveying User software requirements. All developers must understand this notation before starting programming.</p>
+
+<p>UML is not only pretty pictures. Instead, they communicate the software design decisions to programmers.</p>
+
+<h2 id="use-case">Use case</h2>
+
+<p>As entrepreneurs, we usually pay for costly advertisements to promote our products. We can create a little application to make our ads, promote them as printed flyers, and reduce our investments in ads.</p>
+
+<p>Every developer can abstract the main components from a user requirement differently. Having a standard UML notation helps to eliminate ambiguities about the requirements from the beginning. I want to show you how to translate business requirements into technical solutions with this use case.</p>
+
+<h2 id="user-requirement">User requirement</h2>
+
+<p>Given a text message, a URL link, and an image, build a service that automates the composition of flyer design, including the image, text, and the QR code for the link in a PDF file with an A4 format divided into one, two, four or eight parts ready to print.</p>
+
+<p><img src="/assets/images/formFlyer.jpg" alt="formFlyer" title="codersite flyer" class="img-responsive" /></p>
+
+<p>From the user requirement, we can realize that we need a task to create a QR code, a job to manipulate elements inside an image, and a task to create a PDF file.</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>We can implement our code or reuse external libraries as dependencies, but the following figure shows the desired result, whatever the implementation approach is chosen.</p>
+
+<p><img src="/assets/images/codersiteFlyers.jpg" alt="codersiteFlyers" title="codersite flyers" class="img-responsive" /></p>
+
+<h2 id="why-do-we-model">Why do we model?</h2>
+
+<ul>
+  <li>We build models to understand better the system we are developing.</li>
+  <li>Models document the design decisions we have made.</li>
+  <li>Models allow an open discussion in the development team before starting programming.</li>
+  <li>It speeds up the implementation stage because potential technical issues are discussed during the design stage.</li>
+</ul>
+
+<h2 id="visualizing-software-architecture---design-proposal">Visualizing software architecture - design proposal</h2>
+
+<p>The <a href="https://c4model.com/" target="_blank">C4 model</a> enables software development teams to describe and communicate software design decisions, similar to Google maps zooming in and out of an area of interest.</p>
+
+<p>These areas of interest in the software are:</p>
+
+<p><strong>Context -&gt; Containers -&gt; Components -&gt; Code</strong> - UML Notation</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h3 id="context-diagram">Context diagram</h3>
+
+<p>A system context diagram shows the big picture. This diagram shows actors and software systems rather than technologies. For our use case, it says that building a new web application will achieve the user requirement.</p>
+
+<p><img src="/assets/images/flyerContextDiagram.png" alt="flyerContextDiagram" title="codersite flyer Context Diagram" class="img-responsive" /></p>
+
+<h3 id="container-diagram">Container diagram</h3>
+
+<p>The container diagram shows how the responsibilities are distributed in different execution units - containers.</p>
+
+<p>We need a Form on the front end and an API application on the back end for our web application.</p>
+
+<p><img src="/assets/images/flyerContainerDiagram.png" alt="flyerContainerDiagram" title="codersite flyer Container Diagram" class="img-responsive" /></p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h3 id="component-diagram">Component diagram</h3>
+
+<p>As system analysts, we delegate <strong>responsibilities</strong> to software elements called <em>components</em> or <em>services</em> that execute sub-tasks with specific technologies to achieve the user software requirements. Read the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Single Responsibility Principle</a>.</p>
+
+<p>The API application interacts with the user requests. Then, delegates the following subtasks to different services.</p>
+
+<ul>
+  <li>Generate a QR Code based on the URL link achieved by the <strong>QR Service</strong>.</li>
+  <li>Merge the previous QR Code, text message, and image in a final image design performed by the <strong>Image Service</strong>.</li>
+  <li>Build a PDF file that includes the last design image achieved by the <strong>PDF Service</strong>.</li>
+</ul>
+
+<p>The API application returns the final image design in a PDF file to the user.</p>
+
+<p><img src="/assets/images/flyerComponentDiagram.png" alt="flyerComponentDiagram" title="codersite flyer Component Diagram" class="img-responsive" /></p>
+
+<p>It’s better to include a new service called <strong>FlyerComposerService</strong> between the API application and the three services. It facilitates the migration task if you want to adopt a microservices architecture.</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>The <em>FlyerComposerService</em> class is responsible for orchestrating all calls to these three last services.</p>
+
+<h3 id="uml-class-notation">UML Class Notation</h3>
+
+<p>A class is a template for creating objects providing initial values for state (attributes) and behavior (operations). Each attribute has a type. Each operation has a signature.</p>
+
+<p><img src="/assets/images/adsClassUMLNotation.JPG" alt="adsClassUMLNotation" title="UML class diagram" class="img-responsive" /></p>
+
+<p>From the figure above:</p>
+
+<ul>
+  <li>The first compartment describes the class name.</li>
+  <li>The second compartment describes the attributes with its visibility, private(-) or public(+), and their types.</li>
+  <li>The third compartment describes the operations and their return types.</li>
+</ul>
+
+<p>The following section shows how these compartments are translated into code.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">FlyerComposerService</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="nc">QRService</span> <span class="n">qrService</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">ImageService</span> <span class="n">imageService</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">PDFService</span> <span class="n">pdfService</span><span class="p">;</span>
+  
+  <span class="k">public</span> <span class="n">byte</span><span class="p">[]</span> <span class="nf">composeFlyer</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">qrText</span><span class="p">,</span>
+    <span class="nc">String</span> <span class="n">text</span><span class="p">,</span>
+    <span class="n">byte</span><span class="p">[]</span> <span class="n">image</span><span class="p">,</span>
+    <span class="n">int</span> <span class="n">nroFlyers</span><span class="p">)</span> <span class="p">{</span>
+    
+    <span class="c1">//code omitted for brevity</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h3 id="relationships-between-classes">Relationships between classes</h3>
+
+<p>UML conveys how a class is related to other classes. Let’s see the kind of relationships that matter to our design.</p>
+
+<h4 id="dependency">Dependency</h4>
+
+<p><img src="/assets/images/umlDependency.JPG" alt="umlDependency" title="UML dependency relationship" class="img-responsive" /></p>
+
+<p>Dependency is a relationship used to show that some class requires or depends on another class or interface. In other words, some class provides (supplier) particular functionalities that others require (client).</p>
+
+<p>At the <strong>FlyerComposerService</strong> class above, we can see how is declared the dependencies as member variables.</p>
+
+<h4 id="realization">Realization</h4>
+
+<p><img src="/assets/images/umlRealization.JPG" alt="umlRealization" title="UML realization relationship" class="img-responsive" /></p>
+
+<p>Realization is a relationship where one class realizes or implements the specification defined in another class (usually an interface).</p>
+
+<p>Defining and creating interfaces is an excellent approach to building software to is extendable. Read the <a href="https://codersite.dev/open-closed-principle/" target="_blank">Open-Closed Principle</a>.</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h3 id="the-implemented-code-reflects-the-intent-of-the-uml-designer">The implemented code reflects the intent of the UML designer.</h3>
+
+<p>The following figure conveys the Class diagram.</p>
+
+<p><img src="/assets/images/adsClassDiagram.JPG" alt="adsClassDiagram" title="class diagram" class="img-responsive" /></p>
+
+<p>For example, we can see how the QRService interface is implemented into code.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">interface</span> <span class="nc">QRService</span> <span class="p">{</span>
+  <span class="n">byte</span><span class="p">[]</span> <span class="nf">generateQRCode</span><span class="p">(</span><span class="nc">String</span> <span class="n">qrText</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>In addition, we can see how the QRServiceImpl class is implemented into code</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">QRServiceImpl</span> <span class="n">implements</span> <span class="nc">QRService</span> <span class="p">{</span>
+  <span class="nd">@Override</span>
+  <span class="k">public</span> <span class="n">byte</span><span class="p">[]</span> <span class="nf">generateQRCode</span><span class="p">(</span><span class="nc">String</span> <span class="n">qrText</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="conclusions">Conclusions</h3>
+
+<ul>
+  <li>UML convey how to build the software without ambiguities, e.g., build first an interface instead of a class.</li>
+  <li>Modeling through UML yields an understanding of a system.</li>
+  <li>An explicit UML class diagram facilitates communication between developers.</li>
+</ul>
+
+<p>We will see how to implement every Spring Boot service in the following articles, so follow me!</p>
+
+<div><p>With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.</p>
+<center>
+  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
+</center>
+
+<br /></div>
+
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+     crossorigin="anonymous"></script>
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2022-03-09">09 Mar 2022</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#design">design</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="http://localhost:4000/open-closed-principle/"> &laquo; SOLID principles: The Open-Closed Principle (Part II)</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="http://localhost:4000/spring-boot-oauth2/">Spring Boot, OpenAPI3, and OAuth2 &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<!--<div class="alertbar">-->
+	<div class="container text-center">
+		<span><a class="navbar-brand" href="/"><img src="/assets/images/logo.svg" height="30" alt="codersite"></a> &nbsp; Stay Connected!. Follow me to get my latest articles.</span>
+        <form action="https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;id=8d64d36cba" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+<!--</div>-->
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (9)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#design">design (3)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distribuited-systems">distribuited systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2023 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/policy">Privacy policy |</a>
+				<a href="/termsOfService">Terms of service |</a>
+				<a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Clean Code | codersite</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Clean Code" />
+<meta name="author" content="moises" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Clean code can be read and enhanced by a developer other than its original author. Clean code has Intention-Revealing names" />
+<meta property="og:description" content="Clean code can be read and enhanced by a developer other than its original author. Clean code has Intention-Revealing names" />
+<link rel="canonical" href="http://localhost:4000/clean-code/" />
+<meta property="og:url" content="http://localhost:4000/clean-code/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:image" content="http://localhost:4000/assets/images/cleanCode.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-27T00:00:00+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/cleanCode.jpg" />
+<meta property="twitter:title" content="Clean Code" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2020-10-27T00:00:00+01:00","datePublished":"2020-10-27T00:00:00+01:00","description":"Clean code can be read and enhanced by a developer other than its original author. Clean code has Intention-Revealing names","headline":"Clean Code","image":"http://localhost:4000/assets/images/cleanCode.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/clean-code/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/clean-code/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script src="/assets/js/jquery.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+  crossorigin="anonymous"></script></head>
+
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+ 
+                <li class="nav-item">
+                <a class="nav-link" href="/recommended">Recommended</a>
+                </li>
+				
+                <li class="nav-item">
+                <a class="nav-link" href="/book">Books</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Clean Code&url=http://localhost:4000/clean-code/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/clean-code/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+         <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/clean-code/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>	
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://codersite.dev">Moises Gamio</a><a target="_blank" href="https://twitter.com/MoisesGamio" class="btn follow">Follow</a>
+                        <span class="author-description">Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors.</span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Clean Code</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+			
+			
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/cleanCode.jpg" alt="Clean Code">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>Clean code can be read and enhanced by a developer other than its original author.</p>
+
+<p>This kind of practice <a href="https://amzn.to/3rAejgU" target="_blank">Robert C Martin</a> introduced it.</p>
+
+<p>If you want to be a better programmer, you must follow these recommendations.</p>
+
+<h2 id="clean-code-has-intention-revealing-names">Clean Code has Intention-Revealing names</h2>
+
+<p>Names reveal intent. Someone who reads your code must understand the purpose of your variable, function, or class.</p>
+
+<p>Real situation:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">int</span> <span class="n">sId</span><span class="p">;</span> <span class="c1">//supplier Id</span>
+<span class="n">int</span> <span class="n">artDelPrice</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>It must be refactored to this:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">int</span> <span class="n">supplierId</span><span class="p">;</span>
+<span class="n">int</span> <span class="n">articleDeliveredPrice</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Even with external dependencies:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">Z_E2F_RS_Result</span> <span class="n">e2fResult</span><span class="p">;</span> <span class="c1">//ingredients recordset</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>It must be refactored to this:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">Z_E2F_RS_Result</span> <span class="n">ingredients</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>Imagine that we dont have the //ingredients comment in e2fResult variable. Then, further in any part of our code, when we try to process this variable, we have the following sentence:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">e2f</span> <span class="p">=</span> <span class="n">e2fResult</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>And we don’t know what does e2f means!. Well, someone suggests asking the person responsible for this code. But that guy is not at the office. Well, send it an email, and he is on holiday!.</p>
+
+<p>But if instead we adopt names which reveal intent from beginning, we could avoid these catastrophic scenarios.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">ingredient</span> <span class="p">=</span> <span class="n">ingredients</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="clean-code-tells-a-story">Clean Code tells a story</h2>
+
+<p>When we try to fix bugs, when analyzing the secuence of actions (functions, methods), we realize the code does not communicate well the logical flow of these actions. It’s a nightmare to decode the meaning of these actions.</p>
+
+<p>This will always happen because our initial design based on the initial requirements change over time. As developers, we are responsible for refactoring our code to made it a simple story that everybody can understand. For example, look at the following code:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="nc">ACMEWebServiceClient</span><span class="p">.</span><span class="nf">login</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">process</span><span class="p">.</span><span class="nf">equals</span><span class="p">(</span><span class="s">"core"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">ACMEWebServiceClient</span><span class="p">.</span><span class="nf">transfer_buyersCoreData_to_ACME</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">process</span><span class="p">.</span><span class="nf">equals</span><span class="p">(</span><span class="s">"status"</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nc">ACMEWebServiceClient</span><span class="p">.</span><span class="nf">transfer_buyersStatusChanges_to_ACME</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">process</span><span class="p">.</span><span class="nf">equals</span><span class="p">(</span><span class="s">"events"</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nc">ACMEWebServiceClient</span><span class="p">.</span><span class="nf">transfer_events_to_ACME</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="nc">ACMEServiceClient</span><span class="p">.</span><span class="nf">logout</span><span class="p">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="functions-should-do-one-thing">Functions should do one thing</h2>
+
+<p>Imagine we want to retrieve image objects from an external web service.</p>
+
+<p>Firstly, we receive image metadata that informs different values to decide if an image is valid or not, and one of these values is an image identifier to retrieve the final image object.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">String</span> <span class="nf">retrieveImageId</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="k">if</span> <span class="p">(!</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nf">equals</span><span class="p">(</span><span class="s">"Y"</span><span class="p">)</span> <span class="p">||</span> <span class="p">!</span><span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="nf">equals</span><span class="p">(</span><span class="s">"Y"</span><span class="p">))</span>
+    <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+	
+    <span class="nc">String</span> <span class="n">imageId</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+    <span class="c1">//get the first not null value as the imageId</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">imageId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="c1">//imageAIXId</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">imageId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span> <span class="c1">//imageLIXId</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">imageId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span> <span class="c1">//imageOIXId</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">imageId</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The previous code is doing more than one thing: validate and retrieve.</p>
+
+<p>Each thing should implement only one level of abstraction. Therefore we proceed to refactor it.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="n">boolean</span> <span class="nf">validateImage</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="k">if</span> <span class="p">(!</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nf">equals</span><span class="p">(</span><span class="s">"Y"</span><span class="p">)</span> <span class="p">||</span> <span class="p">!</span><span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="nf">equals</span><span class="p">(</span><span class="s">"Y"</span><span class="p">))</span>
+    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+	
+  <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">String</span> <span class="nf">retrieveImageId</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="nc">String</span> <span class="n">imageId</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+  <span class="c1">//get the first not null value as the immageId</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">imageId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="c1">//imageAIXId</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">imageId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span> <span class="c1">//imageLIXId</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">imageId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span> <span class="c1">//imageOIXId</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="n">imageId</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Here is an example of how to use these new smaller functions.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">syncronizeImages</span> <span class="p">()</span> <span class="p">{</span>
+  
+  <span class="nc">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">getImages</span><span class="p">();</span>
+  <span class="nc">Row</span><span class="p">[]</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">getRows</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nc">Row</span> <span class="n">row</span> <span class="p">:</span> <span class="n">rows</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">String</span><span class="p">[]</span> <span class="n">values</span> <span class="p">=</span> <span class="n">row</span><span class="p">.</span><span class="nf">getValues</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nf">validateImage</span><span class="p">(</span><span class="n">values</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nc">String</span> <span class="n">imageId</span> <span class="p">=</span> <span class="nf">retrieveImageId</span><span class="p">(</span><span class="n">values</span><span class="p">);</span>
+      <span class="c1">//call ULR to retrieve image object</span>
+      <span class="c1">//code omitted for brevity</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="dont-comment-bad-code-rewrite-it">Don’t comment bad code, rewrite it</h2>
+
+<p>Imagine you requested metadata from a list of articles, but the external API, for any reason, includes additional articles in its response object. Before processing their metadata, you want to check that retrieved articles are inside your temporal map of requested articles. Introduces a comment to alert your colleagues.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">syncronizeImages</span> <span class="p">()</span> <span class="p">{</span>
+
+  <span class="nc">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">getImages</span><span class="p">(</span><span class="n">mapOfArticles</span><span class="p">);</span>
+  <span class="nc">Row</span><span class="p">[]</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">getRows</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nc">Row</span> <span class="n">row</span> <span class="p">:</span> <span class="n">rows</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">String</span><span class="p">[]</span> <span class="n">values</span> <span class="p">=</span> <span class="n">row</span><span class="p">.</span><span class="nf">getValues</span><span class="p">();</span>
+    <span class="nc">String</span> <span class="n">articleId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    
+    <span class="c1">//only requested articles</span>
+    <span class="k">if</span> <span class="p">(!</span><span class="n">mapOfArticles</span><span class="p">.</span><span class="nf">containsKey</span><span class="p">(</span><span class="n">articleId</span><span class="p">))</span>
+      <span class="k">continue</span><span class="p">;</span>
+	  
+    <span class="c1">//code omitted for brevity</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>You can avoid this extra unnecessary comment if you express in your code what you want to communicate by renaming the map variable name.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">syncronizeImages</span> <span class="p">()</span> <span class="p">{</span>
+
+  <span class="nc">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">getImages</span><span class="p">(</span><span class="n">mapOfRequestedArticles</span><span class="p">);</span>
+  <span class="nc">Row</span><span class="p">[]</span> <span class="n">rows</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">getRows</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nc">Row</span> <span class="n">row</span> <span class="p">:</span> <span class="n">rows</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">String</span><span class="p">[]</span> <span class="n">values</span> <span class="p">=</span> <span class="n">row</span><span class="p">.</span><span class="nf">getValues</span><span class="p">();</span>
+    <span class="nc">String</span> <span class="n">articleId</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    
+    <span class="k">if</span> <span class="p">(!</span><span class="n">mapOfRequestedArticles</span><span class="p">.</span><span class="nf">containsKey</span><span class="p">(</span><span class="n">articleId</span><span class="p">))</span>
+      <span class="k">continue</span><span class="p">;</span>
+	  
+    <span class="c1">//code omitted for brevity</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Now, your code is more expressive.</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="choose-simplicity-over-complexity">Choose simplicity over complexity</h2>
+
+<p>As developers, sometimes we use ternary conditional operators that take less space, but when we introduce more variables, the code is not readable or is more difficult to evolve.</p>
+
+<p>For example, when we try to build the article’s image URL, we need to evaluate if an image is valid and if the image is not restricted; if it is restricted, we need to assess whether a partner can retrieve this image.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">articleImageURL</span> <span class="p">=</span> <span class="p">(</span><span class="n">imageId</span> <span class="p">&lt;=</span> <span class="mi">0</span> <span class="p">||</span> <span class="p">(</span><span class="n">imageIdIsRestricted</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">partnerCanSeeImage</span><span class="p">))</span> <span class="p">?</span> <span class="k">null</span> <span class="p">:</span> <span class="nc">IMAGE_URL</span> <span class="p">+</span> <span class="n">imageId</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The previous code can be refactored using nested if-else statements, which is easier to understand.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">articleImageURL</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">imageId</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">imageIdIsRestricted</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">partnerCanSeeImage</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">articleImageURL</span> <span class="p">=</span> <span class="nc">IMAGE_URL</span> <span class="p">+</span> <span class="n">imageId</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">articleImageURL</span> <span class="p">=</span> <span class="nc">IMAGE_URL</span> <span class="p">+</span> <span class="n">imageId</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Even the KISS (Keep It Simple, Stupid) principle suggests that developers should strive for simplicity and avoid unnecessary complexity. This makes code easier to understand, maintain, and debug.</p>
+
+<p>You can learn more about software design principles in my how-to guidelines.</p>
+
+<div><center>
+  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
+</center>
+
+<br /></div>
+
+<h2 id="avoid-hard-coding">Avoid hard coding</h2>
+
+<p>Hard coding is embedding data directly into the source code instead of obtaining the data from external sources.</p>
+
+<p>Sometimes we can’t avoid including conditional statements using hardcoded values because we need to implement them in a production environment immediately. There are hundreds of reasons why this happens because every company is different.</p>
+
+<p>A company wants to implement in its code validation of customers who have the right to view images from certain providers.</p>
+
+<p>The standard procedure in this company starts with a requirement to the DBA to implement a database function to retrieve a list of providers with this kind of restriction, create param classes for the developers, a period of implementation in a development environment, and its tests in a test environment, and deliver to the production environment.</p>
+
+<p>But the company is facing problems with image author property rights and does not have the resources to implement the requirement, then decides to introduce hard-coded values.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre> <span class="n">boolean</span> <span class="n">picIsRestricted</span> <span class="p">=</span> <span class="n">result</span><span class="p">.</span><span class="nf">getProviderId</span><span class="p">()</span> <span class="p">==</span> <span class="s">"530636"</span> <span class="p">||</span> <span class="n">result</span><span class="p">.</span><span class="nf">getProviderId</span><span class="p">()</span> <span class="p">==</span> <span class="s">"36507"</span><span class="p">;</span> 
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We usually forget the standard procedure to implement the solution because our code is already working. But these hard code values are required in other modules, packages, and classes and may need to validate more providers, etc., and the effort to maintain the code increase exponentially. And I think you know the rest of the history.</p>
+
+<p>You can implement a little function to retrieve external data from a text file.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">interface</span> <span class="nc">DataService</span> <span class="p">{</span>
+
+  <span class="k">public</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="nf">getRestrictedProviders</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Then, you can implement your hard-coded values in an implementation class.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">DataServiceImpl</span> <span class="n">implements</span> <span class="nc">DataService</span> <span class="p">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="k">public</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="nf">getRestrictedProviders</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+    <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">listOfRestrictedProviders</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;&gt;();</span>
+    <span class="nc">Resource</span> <span class="n">resource</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ClassPathResource</span><span class="p">(</span><span class="s">"providers.txt"</span><span class="p">);</span>
+      <span class="k">try</span> <span class="p">{</span>
+        <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">allLines</span> <span class="p">=</span> <span class="nc">Files</span><span class="p">.</span><span class="nf">readAllLines</span><span class="p">(</span><span class="nc">Paths</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">resource</span><span class="p">.</span><span class="nf">getURI</span><span class="p">()));</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nc">String</span> <span class="n">provider</span> <span class="p">:</span> <span class="n">allLines</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">listOfRestrictedProviders</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">provider</span><span class="p">);</span>
+          <span class="c1">//TODO retrieve data from a standard database function</span>
+        <span class="p">}</span>
+      <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">e</span><span class="p">.</span><span class="nf">printStackTrace</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="k">return</span> <span class="n">listOfRestrictedProviders</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>Then, you can always reuse the same validation in any place of your code.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>
+  <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">listOfRestrictedProviders</span> <span class="p">=</span> <span class="n">dataService</span><span class="p">.</span><span class="nf">getRestrictedProviders</span><span class="p">();</span>
+
+  <span class="n">boolean</span> <span class="n">picIsRestricted</span> <span class="p">=</span> <span class="n">listOfRestrictedProviders</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="nf">getProviderId</span><span class="p">());</span>
+
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The day you decide to implement the standard procedure - database function - your effort in refactoring your code will be minimal.</p>
+
+<h2 id="name-your-variables-according-to-the-context">Name your variables according to the context</h2>
+
+<p>It is usual to have an attribute that applies to two different objects. For example, an Buyer Object has an email address.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Buyer</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="n">int</span> <span class="n">buyerId</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">lastName</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">email</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We can see the same attribute in a Supplier Object.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Supplier</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="n">int</span> <span class="n">supplierId</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">contact</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">email</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>When retrieving an email from a supplier object, we may lose the context.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">email</span> <span class="p">=</span> <span class="n">supplier</span><span class="p">.</span><span class="nf">getEmail</span><span class="p">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Further in our code, we may be unsure if the email variable refers to a Supplier or a Buyer.</p>
+
+<p>I prefer to define the schemas of our Objects based on the context.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Buyer</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="n">int</span> <span class="n">buyerId</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">buyerLastName</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">buyerEmail</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We do the same for the Supplier object.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Supplier</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="n">int</span> <span class="n">supplierId</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">supplierContact</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nc">String</span> <span class="n">supplierEmail</span><span class="p">;</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The most advanced editors provide coding assistance features such as variable name suggestions as you type.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">supplierEmail</span> <span class="p">=</span> <span class="n">supplier</span><span class="p">.</span><span class="nf">getSupplierEmail</span><span class="p">();</span>
+
+<span class="nc">String</span> <span class="n">buyerEmail</span> <span class="p">=</span> <span class="n">buyer</span><span class="p">.</span><span class="nf">getBuyerEmail</span><span class="p">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Other recommendations of clean code are:</p>
+
+<ul>
+  <li>Clean Code separates levels of detail</li>
+  <li>Clean Code needs a few comments</li>
+  <li>Clean Code has small methods</li>
+</ul>
+
+<p>You can see a lot of typical algorithms implemented with Clean Code principles in the following <a href="https://amzn.to/3PiUs0w" target="_blank">link</a></p>
+
+<p><iframe style="width:100%;" height="550" src="https://www.youtube.com/embed/qf4vJrhNQn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+     crossorigin="anonymous"></script>
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2020-10-27">27 Oct 2020</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Coding-Practices">Coding Practices</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="http://localhost:4000/documenting-rest-api-openapi3/"> &laquo; Documenting a SpringBoot REST API with OpenAPI 3</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="http://localhost:4000/hot-warm-architecture-elasticsearch/">Hot-Warm Architecture in Elasticsearch 1/n &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<!--<div class="alertbar">-->
+	<div class="container text-center">
+		<span><a class="navbar-brand" href="/"><img src="/assets/images/logo.svg" height="30" alt="codersite"></a> &nbsp; Stay Connected!. Follow me to get my latest articles.</span>
+        <form action="https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;id=8d64d36cba" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+<!--</div>-->
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (9)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#design">design (3)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distribuited-systems">distribuited systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2023 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/policy">Privacy policy |</a>
+				<a href="/termsOfService">Terms of service |</a>
+				<a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+</body>
+</html>
