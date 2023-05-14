@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 14 May 2023 21:04:51 +0200</pubDate>
-    <lastBuildDate>Sun, 14 May 2023 21:04:51 +0200</lastBuildDate>
+    <pubDate>Sun, 14 May 2023 21:05:35 +0200</pubDate>
+    <lastBuildDate>Sun, 14 May 2023 21:05:35 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1237,12 +1237,12 @@
       </item>
     
       <item>
-        <title>Introduce business terminology into your variable names</title>
+        <title>How to establish an effective ubiquitous language in domain-driven design</title>
         <description>&lt;p&gt;A &lt;em&gt;Domain&lt;/em&gt; is an area of knowledge associated with a problem we are trying to solve.&lt;/p&gt;
 
 &lt;p&gt;A &lt;em&gt;Domain Model&lt;/em&gt; represents those aspects of a domain that are relevant to a particular problem.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://codercuy.com/domain-driven-design/&quot; target=&quot;_blank&quot;&gt;Domain Driven Design&lt;/a&gt; aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Domain-driven_design&quot; target=&quot;_blank&quot;&gt;Domain Driven Design&lt;/a&gt; aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1255,7 +1255,9 @@
 
 &lt;p&gt;Using bounded contexts reduces coupling between subsystems, and we can exchange data between them via explicit &lt;a href=&quot;https://codersite.dev/documenting-rest-api-openapi3/&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt;, avoiding dependencies.&lt;/p&gt;
 
-&lt;p&gt;As developers, we need to choose appropriate names for our variables that reflect the business terms used in all communication channels during the design stage of our domain models.&lt;/p&gt;
+&lt;p&gt;As developers, we must choose appropriate names for our variables that reflect the business terms used in all communication channels during the Domain modeling design stage.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ubiquitousLanguage.jpg&quot; alt=&quot;ubiquitous Language&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;case-study&quot;&gt;Case study&lt;/h2&gt;
 
@@ -1279,11 +1281,11 @@
   &lt;li&gt;Email interactions occur to clarify how to build a URL path to retrieve the final image object using the &lt;em&gt;mediaAssetID&lt;/em&gt; attribute.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/ubiquitousLanguage.jpg&quot; alt=&quot;ubiquitous Language&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;We want to introduce business terminology into our variable names&lt;/p&gt;
 
 &lt;h2 id=&quot;understand-business-concepts-before-translating-them-into-source-code&quot;&gt;Understand business concepts before translating them into source code&lt;/h2&gt;
 
-&lt;p&gt;The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain. It is a set of concepts and vocabulary shared between everyone on the team.&lt;/p&gt;
+&lt;p&gt;The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain. Ubiquitous language in software development is a set of concepts and vocabulary shared between everyone on the team.&lt;/p&gt;
 
 &lt;p&gt;Some developers can specify the following class design when your bounded context is translated into source code.&lt;/p&gt;
 
@@ -1307,7 +1309,9 @@
 
 &lt;p&gt;If we’ve been involved in requirements analysis for weeks, why not introduce the same business terminology into our variable names? &lt;a href=&quot;https://codersite.dev/clean-code/&quot; target=&quot;_blank&quot;&gt;Variable names reveal intent&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Ubiquitous language tries to introduce the influence of business communication structures on software. Whenever you can, try to introduce business terminology into your variable names.&lt;/p&gt;
+&lt;p&gt;One of the benefits of using ubiquitous language is introducing the influence of business communication structures on software. Whenever you can, try to introduce business terminology into your variable names.&lt;/p&gt;
+
+&lt;p&gt;By introducing a better name for our variables, we can establish an effective ubiquitous language in domain-driven design&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -1329,7 +1333,7 @@
 
 &lt;p&gt;You receive a task to implement a service to retrieve documents used in the shipment of goods, and you decide to call it  &lt;strong&gt;&lt;em&gt;shipping notes&lt;/em&gt;&lt;/strong&gt;. But your business doesn’t ship goods by the sea!&lt;/p&gt;
 
-&lt;p&gt;Ask always questions to your colleagues and business experts to clarify business concepts. Then you will realize that your service should implement &lt;strong&gt;&lt;em&gt;delivery notes&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Ask always questions to your colleagues and domains experts to clarify business concepts. Then you will realize that your service should implement &lt;strong&gt;&lt;em&gt;delivery notes&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;The following class design represents a fundamental concept in the domain expert’s mental model.&lt;/p&gt;
 
@@ -1343,9 +1347,11 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Use the ubiquitous language as a tool for effective communication and knowledge sharing.&lt;/p&gt;
+&lt;p&gt;Use the ubiquitous language as a tool for effective cross-team collaboration and knowledge sharing.&lt;/p&gt;
 
-&lt;p&gt;Learn more about analysis and software design with this practical guide.&lt;/p&gt;
+&lt;p&gt;Using the Ubiquitous language in agile software development and in domain modeling of microservices architecture is a common practice.&lt;/p&gt;
+
+&lt;p&gt;Learn Real-world use cases of OOP in software development with this practical guide.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
