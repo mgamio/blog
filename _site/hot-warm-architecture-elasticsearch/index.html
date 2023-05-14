@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Hot-Warm Architecture in Elasticsearch 1/n | codersite</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Hot-Warm Architecture in Elasticsearch 1/n" />
+<meta name="author" content="moises" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Hot-warm architecture is a powerful way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes." />
+<meta property="og:description" content="Hot-warm architecture is a powerful way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes." />
+<link rel="canonical" href="http://localhost:4000/hot-warm-architecture-elasticsearch/" />
+<meta property="og:url" content="http://localhost:4000/hot-warm-architecture-elasticsearch/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:image" content="http://localhost:4000/assets/images/elastic.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-26T00:00:00+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/elastic.jpg" />
+<meta property="twitter:title" content="Hot-Warm Architecture in Elasticsearch 1/n" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2021-02-26T00:00:00+01:00","datePublished":"2021-02-26T00:00:00+01:00","description":"Hot-warm architecture is a powerful way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes.","headline":"Hot-Warm Architecture in Elasticsearch 1/n","image":"http://localhost:4000/assets/images/elastic.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/hot-warm-architecture-elasticsearch/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/hot-warm-architecture-elasticsearch/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script src="/assets/js/jquery.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+  crossorigin="anonymous"></script></head>
+
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+ 
+                <li class="nav-item">
+                <a class="nav-link" href="/recommended">Recommended</a>
+                </li>
+				
+                <li class="nav-item">
+                <a class="nav-link" href="/book">Books</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Hot-Warm Architecture in Elasticsearch 1/n&url=http://localhost:4000/hot-warm-architecture-elasticsearch/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/hot-warm-architecture-elasticsearch/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+         <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/hot-warm-architecture-elasticsearch/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>	
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://codersite.dev">Moises Gamio</a><a target="_blank" href="https://twitter.com/MoisesGamio" class="btn follow">Follow</a>
+                        <span class="author-description">Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors.</span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Hot-Warm Architecture in Elasticsearch 1/n</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+			
+			
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/elastic.jpg" alt="Hot-Warm Architecture in Elasticsearch 1/n">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>Elasticsearch is a distributed real-time document store where every field is indexed and searchable.</p>
+
+<p>Hot-warm architecture is a way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes.</p>
+
+<p>In Hot nodes, You are actively querying and writing to your index.</p>
+
+<p>In Warm nodes, You are still querying your index, but it is read-only.</p>
+
+<p>In Cold nodes, You are querying your index less frequently. You can deploy it to less performant hardware.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, and more, we usually analyze our web server <em>logs</em>.
+But this task is tedious because the <em>logs</em> are distributed in a cluster that contains several web servers machines.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>We are going to install a Hot-Cold Logging Cluster on the Elasticsearch Service as shown in the following figure.</p>
+
+<p><img src="/assets/images/hot-warm-elastic.jpg" alt="hot-warm-architecture" class="img-responsive" /></p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="installation">Installation</h2>
+
+<p>We have the following IP addresses (Three Windows Servers):</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">master</span>   <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span>
+<span class="n">hotnode</span>  <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.102</span>
+<span class="n">coldnode</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.103</span></code></pre></figure>
+
+<p>Open Windows Defender Firewall and add the following rule for the three machines:</p>
+
+<p><img src="/assets/images/firewall.jpg" alt="firewall" class="img-responsive" /></p>
+
+<p>For the <em>hotnode</em> add an extra 5044 port to the rule if you want to install <em>logstash</em> in that machine.</p>
+
+<h2 id="configure-elasticsearch-cluster-settings-at-master-node">Configure Elasticsearch cluster settings at Master Node</h2>
+
+<p>Open …/elasticsearch.yml and copy the following content.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">bootstrap</span><span class="p">.</span><span class="nf">memory_lock</span><span class="p">:</span> <span class="kp">true</span>
+<span class="n">cluster</span><span class="p">.</span><span class="nf">initial_master_nodes</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
+<span class="n">cluster</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">elasticprod</span>
+<span class="n">http</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9200</span>
+<span class="n">network</span><span class="p">.</span><span class="nf">host</span><span class="p">:</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">data</span><span class="p">:</span> <span class="kp">false</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">ingest</span><span class="p">:</span> <span class="kp">false</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">master</span><span class="p">:</span> <span class="kp">true</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">max_local_storage_nodes</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
+<span class="n">path</span><span class="p">.</span><span class="nf">data</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="no">Elastic</span><span class="p">\</span><span class="no">Elasticsearch</span><span class="p">\</span><span class="n">data</span>
+<span class="n">path</span><span class="p">.</span><span class="nf">logs</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="no">Elastic</span><span class="p">\</span><span class="no">Elasticsearch</span><span class="p">\</span><span class="n">logs</span>
+<span class="n">transport</span><span class="p">.</span><span class="nf">tcp</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9300</span>
+<span class="n">xpack</span><span class="p">.</span><span class="nf">license</span><span class="p">.</span><span class="nf">self_generated</span><span class="p">.</span><span class="nf">type</span><span class="p">:</span> <span class="n">basic</span>
+<span class="n">xpack</span><span class="p">.</span><span class="nf">security</span><span class="p">.</span><span class="nf">enabled</span><span class="p">:</span> <span class="kp">false</span>
+<span class="n">discovery</span><span class="p">.</span><span class="nf">seed_hosts</span><span class="p">:</span> <span class="p">[</span><span class="s2">"110.1.0.102:9300"</span><span class="p">,</span> <span class="s2">"110.1.0.103:9300"</span><span class="p">]</span>
+<span class="n">path</span><span class="p">.</span><span class="nf">repo</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="n">repo</span></code></pre></figure>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>Check the installation with the following command:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">...</span><span class="p">\</span><span class="n">codersite</span><span class="p">.</span><span class="nf">dev</span><span class="o">&gt;</span><span class="n">curl</span> <span class="o">-</span><span class="no">XGET</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span><span class="p">:</span><span class="mi">9200</span><span class="o">/</span><span class="n">_cat</span><span class="o">/</span><span class="n">health?v</span><span class="o">=</span><span class="kp">true</span>
+<span class="n">epoch</span>      <span class="n">timestamp</span> <span class="n">cluster</span>     <span class="n">status</span> <span class="n">node</span><span class="p">.</span><span class="nf">total</span> <span class="n">node</span><span class="p">.</span><span class="nf">data</span> <span class="n">shards</span> <span class="n">pri</span> <span class="n">relo</span> <span class="n">init</span> <span class="n">unassign</span> <span class="n">pending_tasks</span> <span class="n">max_task_wait_time</span> <span class="n">active_shards_percent</span>
+<span class="mi">1611057767</span> <span class="mi">12</span><span class="p">:</span><span class="mo">02</span><span class="p">:</span><span class="mi">47</span>  <span class="n">elasticprod</span> <span class="n">green</span>           <span class="mi">1</span>         <span class="mi">0</span>      <span class="mi">0</span>   <span class="mi">0</span>    <span class="mi">0</span>    <span class="mi">0</span>        <span class="mi">0</span>             <span class="mi">0</span>                  <span class="o">-</span>                <span class="mf">100.0</span><span class="o">%</span></code></pre></figure>
+
+<h2 id="configure-elasticsearch-cluster-settings-at-hot-node">Configure Elasticsearch cluster settings at Hot Node</h2>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">bootstrap</span><span class="p">.</span><span class="nf">memory_lock</span><span class="p">:</span> <span class="kp">true</span>
+<span class="n">cluster</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">elasticprod</span>
+<span class="n">discovery</span><span class="p">.</span><span class="nf">seed_hosts</span><span class="p">:</span>
+  <span class="o">-</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span><span class="p">:</span><span class="mi">9300</span>
+  <span class="o">-</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.103</span><span class="p">:</span><span class="mi">9300</span>
+<span class="n">http</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9200</span>
+<span class="n">network</span><span class="p">.</span><span class="nf">host</span><span class="p">:</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.102</span><span class="p">:</span><span class="mi">9300</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">data</span><span class="p">:</span> <span class="kp">true</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">ingest</span><span class="p">:</span> <span class="kp">false</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">master</span><span class="p">:</span> <span class="kp">false</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">max_local_storage_nodes</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">hotnode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
+<span class="n">path</span><span class="p">.</span><span class="nf">data</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="no">Elastic</span><span class="p">\</span><span class="no">Elasticsearch</span><span class="p">\</span><span class="n">data</span>
+<span class="n">path</span><span class="p">.</span><span class="nf">logs</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="no">Elastic</span><span class="p">\</span><span class="no">Elasticsearch</span><span class="p">\</span><span class="n">logs</span>
+<span class="n">transport</span><span class="p">.</span><span class="nf">tcp</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9300</span>
+<span class="n">xpack</span><span class="p">.</span><span class="nf">license</span><span class="p">.</span><span class="nf">self_generated</span><span class="p">.</span><span class="nf">type</span><span class="p">:</span> <span class="n">basic</span>
+<span class="n">xpack</span><span class="p">.</span><span class="nf">security</span><span class="p">.</span><span class="nf">enabled</span><span class="p">:</span> <span class="kp">false</span>
+<span class="n">cluster</span><span class="p">.</span><span class="nf">initial_master_nodes</span><span class="p">:</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
+<span class="n">path</span><span class="p">.</span><span class="nf">repo</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="n">repo</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">attr</span><span class="p">.</span><span class="nf">box_type</span><span class="p">:</span> <span class="n">hot</span></code></pre></figure>
+
+<p>Check the installation with the following command:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">...</span><span class="p">\</span><span class="n">codersite</span><span class="p">.</span><span class="nf">dev</span><span class="o">&gt;</span><span class="n">curl</span> <span class="o">-</span><span class="no">XGET</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span><span class="p">:</span><span class="mi">9200</span><span class="o">/</span><span class="n">_cat</span><span class="o">/</span><span class="n">nodes</span>
+<span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span> <span class="mi">4</span> <span class="mi">66</span> <span class="mi">0</span>    <span class="n">lmr</span>      <span class="o">*</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
+<span class="mf">110.1</span><span class="o">.</span><span class="mf">0.102</span> <span class="mi">1</span> <span class="mi">60</span> <span class="mi">8</span>    <span class="n">cdhlrstw</span> <span class="o">-</span> <span class="n">hotnode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span></code></pre></figure>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="configure-elasticsearch-cluster-settings-at-cold-node">Configure Elasticsearch cluster settings at Cold Node</h2>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">bootstrap</span><span class="p">.</span><span class="nf">memory_lock</span><span class="p">:</span> <span class="kp">true</span>
+<span class="n">cluster</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">elasticprod</span>
+<span class="n">discovery</span><span class="p">.</span><span class="nf">seed_hosts</span><span class="p">:</span>
+  <span class="o">-</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span><span class="p">:</span><span class="mi">9300</span>
+  <span class="o">-</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.102</span><span class="p">:</span><span class="mi">9300</span>
+<span class="n">http</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9200</span>
+<span class="n">network</span><span class="p">.</span><span class="nf">host</span><span class="p">:</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.103</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">data</span><span class="p">:</span> <span class="kp">true</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">ingest</span><span class="p">:</span> <span class="kp">false</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">master</span><span class="p">:</span> <span class="kp">false</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">max_local_storage_nodes</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">coldnode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
+<span class="n">path</span><span class="p">.</span><span class="nf">data</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="no">Elastic</span><span class="p">\</span><span class="no">Elasticsearch</span><span class="p">\</span><span class="n">data</span>
+<span class="n">path</span><span class="p">.</span><span class="nf">logs</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="no">Elastic</span><span class="p">\</span><span class="no">Elasticsearch</span><span class="p">\</span><span class="n">logs</span>
+<span class="n">transport</span><span class="p">.</span><span class="nf">tcp</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9300</span>
+<span class="n">xpack</span><span class="p">.</span><span class="nf">license</span><span class="p">.</span><span class="nf">self_generated</span><span class="p">.</span><span class="nf">type</span><span class="p">:</span> <span class="n">basic</span>
+<span class="n">xpack</span><span class="p">.</span><span class="nf">security</span><span class="p">.</span><span class="nf">enabled</span><span class="p">:</span> <span class="kp">false</span>
+<span class="n">cluster</span><span class="p">.</span><span class="nf">initial_master_nodes</span><span class="p">:</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
+<span class="n">path</span><span class="p">.</span><span class="nf">repo</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="n">repo</span>
+<span class="n">node</span><span class="p">.</span><span class="nf">attr</span><span class="p">.</span><span class="nf">box_type</span><span class="p">:</span> <span class="n">cold</span></code></pre></figure>
+
+<p>Check the installation with the following command:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">...</span><span class="p">\</span><span class="n">codersite</span><span class="p">.</span><span class="nf">dev</span><span class="o">&gt;</span><span class="n">curl</span> <span class="o">-</span><span class="no">XGET</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span><span class="p">:</span><span class="mi">9200</span><span class="o">/</span><span class="n">_cat</span><span class="o">/</span><span class="n">nodes</span>
+<span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span> <span class="mi">5</span> <span class="mi">66</span>  <span class="mi">0</span>    <span class="n">lmr</span>      <span class="o">*</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
+<span class="mf">110.1</span><span class="o">.</span><span class="mf">0.102</span> <span class="mi">1</span> <span class="mi">60</span>  <span class="mi">0</span>    <span class="n">cdhlrstw</span> <span class="o">-</span> <span class="n">hotnode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
+<span class="mf">110.1</span><span class="o">.</span><span class="mf">0.103</span> <span class="mi">2</span> <span class="mi">66</span> <span class="mi">25</span>    <span class="n">cdhlrstw</span> <span class="o">-</span> <span class="n">coldnode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span></code></pre></figure>
+
+<p>Now you can proceed to install kibana and logstash.</p>
+
+<p>Here you can read an article which explain <a href="https://medium.com/@m.konda/just-elasticsearch-2-n-architecture-1fe4818c64aa" target="_blank">Elasticsearch</a> as simple as possible.</p>
+
+<p>If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.</p>
+
+<div><p>With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.</p>
+<center>
+  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
+</center>
+
+<br /></div>
+
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+     crossorigin="anonymous"></script>
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-02-26">26 Feb 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#distribuited-systems">distribuited systems</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="http://localhost:4000/clean-code/"> &laquo; Clean Code</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="http://localhost:4000/merge-two-sorted-lists/">Merge two Sorted Lists &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<!--<div class="alertbar">-->
+	<div class="container text-center">
+		<span><a class="navbar-brand" href="/"><img src="/assets/images/logo.svg" height="30" alt="codersite"></a> &nbsp; Stay Connected!. Follow me to get my latest articles.</span>
+        <form action="https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;id=8d64d36cba" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+<!--</div>-->
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (9)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#design">design (3)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distribuited-systems">distribuited systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2023 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/policy">Privacy policy |</a>
+				<a href="/termsOfService">Terms of service |</a>
+				<a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+</body>
+</html>
