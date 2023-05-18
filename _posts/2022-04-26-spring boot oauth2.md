@@ -38,7 +38,7 @@ OAuth defines four roles
 
 An authorization grant is a credential representing the resource owner's authorization used by the client to obtain an access token.
 
-OAuth defines four grant types.
+OAuth2 defines four grant types.
 
 - Authorization Code, for web apps that are server-side apps
 
@@ -52,7 +52,7 @@ The  Client Credentials grant type is the most appropriate for server-to-server 
 
 ### Getting Started
 
-We add the Spring Oauth dependency to our pom.xml file.
+To integrate OAuth2 in a Spring Boot application, we add the Spring Oauth dependency to our pom.xml file.
 
 ```kotlin
 <dependency>
@@ -136,7 +136,7 @@ Why does this happen? Well, we need to tell OpenAPI that configures security.
 
 ### Configure OpenAPI and Oauth2
 
-Open OpenApiConfig class and add the new code.
+To integrate OpenAPI 3 with OAuth2, open the *OpenApiConfig* class and add the new code.
 
 ```kotlin
 @Configuration
@@ -187,4 +187,4 @@ Close the pop-up and try out again to insert a book.
 
 Yes, you did it!
 
-Now, your endpoints are secured.
+Now, your endpoints are secured and protected with OAuth2.
