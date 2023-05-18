@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 14 May 2023 21:05:35 +0200</pubDate>
-    <lastBuildDate>Sun, 14 May 2023 21:05:35 +0200</lastBuildDate>
+    <pubDate>Thu, 18 May 2023 16:48:03 +0200</pubDate>
+    <lastBuildDate>Thu, 18 May 2023 16:48:03 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1826,7 +1826,7 @@
 
 &lt;p&gt;An authorization grant is a credential representing the resource owner’s authorization used by the client to obtain an access token.&lt;/p&gt;
 
-&lt;p&gt;OAuth defines four grant types.&lt;/p&gt;
+&lt;p&gt;OAuth2 defines four grant types.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1847,7 +1847,7 @@
 
 &lt;h3 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h3&gt;
 
-&lt;p&gt;We add the Spring Oauth dependency to our pom.xml file.&lt;/p&gt;
+&lt;p&gt;To integrate OAuth2 in a Spring Boot application, we add the Spring Oauth dependency to our pom.xml file.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -1965,7 +1965,7 @@
 
 &lt;h3 id=&quot;configure-openapi-andoauth2&quot;&gt;Configure OpenAPI and Oauth2&lt;/h3&gt;
 
-&lt;p&gt;Open OpenApiConfig class and add the new code.&lt;/p&gt;
+&lt;p&gt;To integrate OpenAPI 3 with OAuth2, open the &lt;em&gt;OpenApiConfig&lt;/em&gt; class and add the new code.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -2047,7 +2047,7 @@
 
 &lt;p&gt;Yes, you did it!&lt;/p&gt;
 
-&lt;p&gt;Now, your endpoints are secured.&lt;/p&gt;
+&lt;p&gt;Now, your endpoints are secured and protected with OAuth2.&lt;/p&gt;
 </description>
         <pubDate>Tue, 26 Apr 2022 00:00:00 +0200</pubDate>
         <link>http://localhost:4000/spring-boot-oauth2/</link>
