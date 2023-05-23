@@ -82,6 +82,8 @@ der Anwender (von Software, Programmen) : user
 
 Ausnahmebehandlung : exception handling
 
+der Aufruf : call
+
 der Ausdruck : printout
 
 der Ausfall : outage
