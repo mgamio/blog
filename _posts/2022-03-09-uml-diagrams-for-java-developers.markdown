@@ -93,7 +93,7 @@ It's better to include a new service called **FlyerComposerService** between the
 
 The *FlyerComposerService* class is responsible for orchestrating all calls to these three last services.
 
-### UML Class Notation
+### UML Class Diagrams
 
 A class is a template for creating objects providing initial values for state (attributes) and behavior (operations). Each attribute has a type. Each operation has a signature.
 
@@ -105,7 +105,7 @@ From the figure above:
 - The second compartment describes the attributes with its visibility, private(-) or public(+), and their types.
 - The third compartment describes the operations and their return types.
 
-The following section shows how these compartments are translated into code.
+The following code snippet shows how these compartments are translated into code.
 
 ```kotlin
 public class FlyerComposerService {
@@ -155,7 +155,7 @@ Defining and creating interfaces is an excellent approach to building software t
 
 ### The implemented code reflects the intent of the UML designer.
 
-The following figure conveys the Class diagram.
+Using UML diagrams in Java projects is an excellent tool for effective team communication. The following figure conveys the Class diagram.
 
 ![adsClassDiagram](/assets/images/adsClassDiagram.JPG "class diagram"){:class="img-responsive"}
 
@@ -184,6 +184,7 @@ public class QRServiceImpl implements QRService {
 - UML convey how to build the software without ambiguities, e.g., build first an interface instead of a class.
 - Modeling through UML yields an understanding of a system.
 - An explicit UML class diagram facilitates communication between developers.
+- UML diagrams can be used as a documentation tool for Java development teams.
 
 We will see how to implement every Spring Boot service in the following articles, so follow me!
 
