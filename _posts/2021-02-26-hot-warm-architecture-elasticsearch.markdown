@@ -8,7 +8,64 @@ image: assets/images/elastic.jpg
 comments: false
 ---
 
-Elasticsearch is a distributed real-time document store where every field is indexed and searchable.
+Elasticsearch is a distributed real-time document store where every field is indexed and searchable. It provides near real-time search and analysis for all types of data.
+
+Elasticsearch is document oriented, meaning that it stores entire objects or documents.
+
+## Fundamentals concepts
+
+The act of storing data in Elasticsearch is called *indexing*.
+
+An **index** is a collection of documents and each document is a collection of fields, which are the key-value pairs that contain your data. Every index has some properties like mappings, settings, and aliases.
+
+In Elasticsearch, a document belongs to a type, and those types live inside an index. We can draw a parallel to a traditional relational database:
+
+Relational DB ⇒ Databases ⇒ Tables ⇒ Rows ⇒ Columns
+
+Elasticsearch ⇒ Indices ⇒ Types ⇒ Documents ⇒ Fields
+
+In Elasticsearch, the term document has a specific meaning. It refers to the top-level, or root object that is serialized into JSON and stored in Elasticsearch under a unique ID.
+
+Elasticsearch lets you insert documents without a predefined schema (in RDBMS you need to define tables in advance).
+
+**Inverted index**
+
+Relational databases add an index, such as a B-tree index, to specific columns in order to improve the speed of data retrieval. Elasticsearch use a structure called an inverted index for exactly the same purpose.
+
+By default, every field in a document is indexed (has an inverted index) and thus is searchable – FullText search. A field without an inverted index is not searchable.
+
+An inverted index consists of a list of all the unique words that appear in any document, and for each word, a list of the documents in which it appears
+
+For example, your billing and ordering applications print the following message to the log file of their respective application servers.
+
+
+```kotlin
+[11.01.21 06:12:20:099 MESZ] J2CA0045E: Connection not available while invoking method queueRequest for resource jdbc/xxxxxx
+```
+
+Also, you have an image service that suddenly throws and prints to another application server the following error:
+
+```kotlin
+[28.01.21 17:47:48:647 MESZ] java.lang.Exception: I/O Exception: https://server/imageService
+```
+
+Once these documents are indexed into Elasticsearch, the following figure shows an inverted index data structure.
+
+![inverted-index](/assets/images/invertedIndex.jpg){:class="img-responsive"}
+
+**Mapping**
+
+In order to be able to treat date fields as dates, numeric fields as numbers, and string fields as full-text or exact-value strings, Elasticsearch needs to know what type of data each field contains. This information is contained in the mapping.
+
+**Shards**
+
+Shards are the physical instances of [Apache Lucene](https://lucene.apache.org/){:target="_blank"}, shards take care of the physical storage and retrieval of our data.
+
+**Nodes and Cluster**
+
+A node is a running instance of Elasticsearch, while a cluster consists of one or more nodes with the same cluster.name that are working together to share their data and workload.
+
+**Hot-warm architecture**
 
 Hot-warm architecture is a way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes. 
 
