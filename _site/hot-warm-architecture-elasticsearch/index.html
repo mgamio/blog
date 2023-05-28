@@ -216,7 +216,63 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>Elasticsearch is a distributed real-time document store where every field is indexed and searchable.</p>
+                <p>Elasticsearch is a distributed real-time document store where every field is indexed and searchable. It provides near real-time search and analysis for all types of data.</p>
+
+<p>Elasticsearch is document oriented, meaning that it stores entire objects or documents.</p>
+
+<h2 id="fundamentals-concepts">Fundamentals concepts</h2>
+
+<p>The act of storing data in Elasticsearch is called <em>indexing</em>.</p>
+
+<p>An <strong>index</strong> is a collection of documents and each document is a collection of fields, which are the key-value pairs that contain your data. Every index has some properties like mappings, settings, and aliases.</p>
+
+<p>In Elasticsearch, a document belongs to a type, and those types live inside an index. We can draw a parallel to a traditional relational database:</p>
+
+<p>Relational DB ⇒ Databases ⇒ Tables ⇒ Rows ⇒ Columns</p>
+
+<p>Elasticsearch ⇒ Indices ⇒ Types ⇒ Documents ⇒ Fields</p>
+
+<p>In Elasticsearch, the term document has a specific meaning. It refers to the top-level, or root object that is serialized into JSON and stored in Elasticsearch under a unique ID.</p>
+
+<p>Elasticsearch lets you insert documents without a predefined schema (in RDBMS you need to define tables in advance).</p>
+
+<p><strong>Inverted index</strong></p>
+
+<p>Relational databases add an index, such as a B-tree index, to specific columns in order to improve the speed of data retrieval. Elasticsearch use a structure called an inverted index for exactly the same purpose.</p>
+
+<p>By default, every field in a document is indexed (has an inverted index) and thus is searchable – FullText search. A field without an inverted index is not searchable.</p>
+
+<p>An inverted index consists of a list of all the unique words that appear in any document, and for each word, a list of the documents in which it appears</p>
+
+<p>For example, your billing and ordering applications print the following message to the log file of their respective application servers.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="na">[11.01.21 06:12:20:099 MESZ]</span> <span class="nc">J2CA0045E</span><span class="p">:</span> <span class="nc">Connection</span> <span class="n">not</span> <span class="n">available</span> <span class="k">while</span> <span class="n">invoking</span> <span class="n">method</span> <span class="n">queueRequest</span> <span class="k">for</span> <span class="n">resource</span> <span class="n">jdbc</span><span class="p">/</span><span class="n">xxxxxx</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Also, you have an image service that suddenly throws and prints to another application server the following error:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="na">[28.01.21 17:47:48:647 MESZ]</span> <span class="n">java</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="nc">Exception</span><span class="p">:</span> <span class="nc">I</span><span class="p">/</span><span class="nc">O</span> <span class="nc">Exception</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="c1">//server/imageService</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Once these documents are indexed into Elasticsearch, the following figure shows an inverted index data structure.</p>
+
+<p><img src="/assets/images/invertedIndex.jpg" alt="inverted-index" class="img-responsive" /></p>
+
+<p><strong>Mapping</strong></p>
+
+<p>In order to be able to treat date fields as dates, numeric fields as numbers, and string fields as full-text or exact-value strings, Elasticsearch needs to know what type of data each field contains. This information is contained in the mapping.</p>
+
+<p><strong>Shards</strong></p>
+
+<p>Shards are the physical instances of <a href="https://lucene.apache.org/" target="_blank">Apache Lucene</a>, shards take care of the physical storage and retrieval of our data.</p>
+
+<p><strong>Nodes and Cluster</strong></p>
+
+<p>A node is a running instance of Elasticsearch, while a cluster consists of one or more nodes with the same cluster.name that are working together to share their data and workload.</p>
+
+<p><strong>Hot-warm architecture</strong></p>
 
 <p>Hot-warm architecture is a way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes.</p>
 
