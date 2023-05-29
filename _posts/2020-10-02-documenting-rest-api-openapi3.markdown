@@ -433,4 +433,13 @@ Once you receive the [technical specifications in UML](https://codersite.dev/uml
 
 Documenting an API facilitates interaction between internal development teams that build different web services for the same product.
 
+Please donate to maintain and improve this website if you find this content valuable.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
+
 Let's now see how to integrate [OAuth2](https://codersite.dev/spring-boot-oauth2/){:target="_blank"} to protect our endpoints.
