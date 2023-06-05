@@ -75,10 +75,16 @@ In Warm nodes, You are still querying your index, but it is read-only.
 
 In Cold nodes, You are querying your index less frequently. You can deploy it to less performant hardware.
 
+## JVM Logs
+
+The JVM logs are created by redirecting the System.out and System.err streams of the JVM to independent log files. The System.out log is used to monitor the health of the running application server. The System.err log contains exception stack trace information for problem analysis.
+
 ## Problem
 
-When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, and more, we usually analyze our web server *logs*.
-But this task is tedious because the *logs* are distributed in a cluster that contains several web servers machines.
+When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, connection pooling problems, and more, we usually analyze our application server *logs*.
+But this task is tedious because the *log files* are distributed in a cluster that contains several application servers with their applications. Depending on each application server product, rotating policies for regenerating a *log file* cause historical records to be lost.
+
+![logFileRotation](/assets/images/logFileRotation.jpg){:class="img-responsive"}
 
 ## Solution
 
@@ -89,6 +95,8 @@ We are going to install a Hot-Cold Logging Cluster on the Elasticsearch Service 
 <div>
 {%- include inArticleAds.html -%}
 </div>
+
+Logs come from multiple sources, such as software applications installed on various application servers.
 
 ## Installation
 
@@ -222,9 +230,34 @@ Please donate to maintain and improve this website if you find this content valu
 </form>
 <br/>
 
-Now you can proceed to install kibana and logstash.
+Before we define Index Templates and configure our Index Lifecycle Policies, we must install the Kibana product.
 
-Here you can read an article which explain [Elasticsearch](https://medium.com/@m.konda/just-elasticsearch-2-n-architecture-1fe4818c64aa){:target="_blank"} as simple as possible.
+## Installation and configuration of Kibana
+
+Kibana enables to us navigate through our data (log files)
+
+We have installed kibana using a zip package.
+
+Check that the following lines are included and activated in C:\<kibana-folder>\config\kibana.yml file.
+
+{% highlight ruby %}
+server.port: 9340
+server.host: "110.1.0.104"
+elasticsearch.hosts: "110.1.0.101:9200"
+{% endhighlight %}
+
+To run kibana, execute the following command:
+
+{% highlight ruby %}
+C:\<kibana-folder>\bin>kibana.bat
+{% endhighlight %}
+
+From our local workstations we can access kibana in our browsers using the following url:
+
+{% highlight ruby %}
+http://110.1.0.104:9340/
+{% endhighlight %}
+
 
 If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.
 

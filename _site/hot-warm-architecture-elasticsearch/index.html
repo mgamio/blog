@@ -282,10 +282,16 @@
 
 <p>In Cold nodes, You are querying your index less frequently. You can deploy it to less performant hardware.</p>
 
+<h2 id="jvm-logs">JVM Logs</h2>
+
+<p>The JVM logs are created by redirecting the System.out and System.err streams of the JVM to independent log files. The System.out log is used to monitor the health of the running application server. The System.err log contains exception stack trace information for problem analysis.</p>
+
 <h2 id="problem">Problem</h2>
 
-<p>When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, and more, we usually analyze our web server <em>logs</em>.
-But this task is tedious because the <em>logs</em> are distributed in a cluster that contains several web servers machines.</p>
+<p>When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, connection pooling problems, and more, we usually analyze our application server <em>logs</em>.
+But this task is tedious because the <em>log files</em> are distributed in a cluster that contains several application servers with their applications. Depending on each application server product, rotating policies for regenerating a <em>log file</em> cause historical records to be lost.</p>
+
+<p><img src="/assets/images/logFileRotation.jpg" alt="logFileRotation" class="img-responsive" /></p>
 
 <h2 id="solution">Solution</h2>
 
@@ -299,6 +305,8 @@ But this task is tedious because the <em>logs</em> are distributed in a cluster 
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 <br /></div>
+
+<p>Logs come from multiple sources, such as software applications installed on various application servers.</p>
 
 <h2 id="installation">Installation</h2>
 
@@ -425,9 +433,27 @@ But this task is tedious because the <em>logs</em> are distributed in a cluster 
 </form>
 <p><br /></p>
 
-<p>Now you can proceed to install kibana and logstash.</p>
+<p>Before we define Index Templates and configure our Index Lifecycle Policies, we must install the Kibana product.</p>
 
-<p>Here you can read an article which explain <a href="https://medium.com/@m.konda/just-elasticsearch-2-n-architecture-1fe4818c64aa" target="_blank">Elasticsearch</a> as simple as possible.</p>
+<h2 id="installation-and-configuration-of-kibana">Installation and configuration of Kibana</h2>
+
+<p>Kibana enables to us navigate through our data (log files)</p>
+
+<p>We have installed kibana using a zip package.</p>
+
+<p>Check that the following lines are included and activated in C:&lt;kibana-folder&gt;\config\kibana.yml file.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">server</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9340</span>
+<span class="n">server</span><span class="p">.</span><span class="nf">host</span><span class="p">:</span> <span class="s2">"110.1.0.104"</span>
+<span class="n">elasticsearch</span><span class="p">.</span><span class="nf">hosts</span><span class="p">:</span> <span class="s2">"110.1.0.101:9200"</span></code></pre></figure>
+
+<p>To run kibana, execute the following command:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">&lt;</span><span class="n">kibana</span><span class="o">-</span><span class="n">folder</span><span class="o">&gt;</span><span class="p">\</span><span class="n">bin</span><span class="o">&gt;</span><span class="n">kibana</span><span class="p">.</span><span class="nf">bat</span></code></pre></figure>
+
+<p>From our local workstations we can access kibana in our browsers using the following url:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="mf">110.1</span><span class="o">.</span><span class="mf">0.104</span><span class="p">:</span><span class="mi">9340</span><span class="o">/</span></code></pre></figure>
 
 <p>If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.</p>
 
