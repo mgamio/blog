@@ -84,7 +84,7 @@ The JVM logs are created by redirecting the System.out and System.err streams of
 When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, connection pooling problems, and more, we usually analyze our application server *logs*.
 But this task is tedious because the *log files* are distributed in a cluster that contains several application servers with their applications. Depending on each application server product, rotating policies for regenerating a *log file* cause historical records to be lost.
 
-![logFileRotation](/assets/images/logFileRotation.jpg){:class="img-responsive"}
+![logFileRotation](/assets/images/logFileRotation.JPG){:class="img-responsive"}
 
 ## Solution
 
