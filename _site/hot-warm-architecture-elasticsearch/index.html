@@ -264,6 +264,10 @@
 
 <p>In order to be able to treat date fields as dates, numeric fields as numbers, and string fields as full-text or exact-value strings, Elasticsearch needs to know what type of data each field contains. This information is contained in the mapping.</p>
 
+<p><strong>Index Templates</strong></p>
+
+<p>When you create an index template, you tell Elasticsearch which settings and mappings an index should have when it is created.</p>
+
 <p><strong>Shards</strong></p>
 
 <p>Shards are the physical instances of <a href="https://lucene.apache.org/" target="_blank">Apache Lucene</a>, shards take care of the physical storage and retrieval of our data.</p>
@@ -441,7 +445,9 @@ But this task is tedious because the <em>log files</em> are distributed in a clu
 
 <p>We have installed kibana using a zip package.</p>
 
-<p>Check that the following lines are included and activated in C:&lt;kibana-folder&gt;\config\kibana.yml file.</p>
+<p>Check that the following lines are included and activated in:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">&lt;</span><span class="n">kibana</span><span class="o">-</span><span class="n">folder</span><span class="o">&gt;</span><span class="p">\</span><span class="n">config</span><span class="p">\</span><span class="n">kibana</span><span class="p">.</span><span class="nf">yml</span> <span class="n">file</span></code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">server</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9340</span>
 <span class="n">server</span><span class="p">.</span><span class="nf">host</span><span class="p">:</span> <span class="s2">"110.1.0.104"</span>
@@ -454,6 +460,83 @@ But this task is tedious because the <em>log files</em> are distributed in a clu
 <p>From our local workstations we can access kibana in our browsers using the following url:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="mf">110.1</span><span class="o">.</span><span class="mf">0.104</span><span class="p">:</span><span class="mi">9340</span><span class="o">/</span></code></pre></figure>
+
+<p><strong>Creting index templates</strong></p>
+
+<p>We must create and configure our index templates prior to index creation.</p>
+
+<p>From <strong>Stack Management</strong> -&gt; <strong>Index Management</strong> -&gt; <strong>Index Templates</strong>, we create a new index template for our billing application log files.</p>
+
+<p><img src="/assets/images/billingTemplate.jpg" alt="billing-template" class="img-responsive" /></p>
+
+<p>The following snippet code is the final template for new indices whose names match the <strong>billing</strong>* index pattern. Every time Elasticsearch receive a log file, it transforms it into an index by applying the following 
+settings:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span>
+  <span class="s2">"template"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"settings"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"index"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"lifecycle"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"billing_policy"</span>
+        <span class="p">},</span>
+        <span class="s2">"number_of_replicas"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>
+        <span class="s2">"routing"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"allocation"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"require"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"box_type"</span><span class="p">:</span> <span class="s2">"hot"</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">"mappings"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"properties"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"was_date"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"date"</span><span class="p">,</span>
+          <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"dd.MM.yy HH:mm:ss:SSS"</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">"aliases"</span><span class="p">:</span> <span class="p">{}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The <em>routing</em> attribute lets you see which <em>data tier</em> the new indices are allocated to. In our Hot-warm architecture, this will be the Hot Node (<em>box_type</em> attribute).</p>
+
+<p>The snippet code also defines a <em>lifecycle</em> to automate when and how to transition an index through our nodes.</p>
+
+<p><strong>ILM: Manage the index lifecycle</strong></p>
+
+<p>We can create and apply Index Lifecycle Management (ILM) policies to automatically manage our indices following our retention requirements.</p>
+
+<p>We create a billing policy that defines how to move your data through the following phases.</p>
+
+<p><img src="/assets/images/hotPhase.jpg" alt="hot-phase" class="img-responsive" /></p>
+
+<p>We want to move our data index to the <strong>Cold Node</strong> after 30 days from the index’s rollover.</p>
+
+<p><img src="/assets/images/coldPhase.jpg" alt="cold-phase" class="img-responsive" /></p>
+
+<p>If we want to configure a <strong>Delete phase</strong>, we must enable the “Delete data after this phase” label.</p>
+
+<p>In this Cold phase, we also need to select the node attribute we defined for the Cold Node.</p>
+
+<p><img src="/assets/images/dataAllocation.jpg" alt="data-allocation" class="img-responsive" /></p>
+
+<p>Finally, to save space on our machines, we define a <strong>Delete phase</strong> to delete our data index after 60 days from the index’s rollover.</p>
+
+<p><img src="/assets/images/deletePhase.jpg" alt="delete-phase" class="img-responsive" /></p>
+
+<p>Now our index templates and lifecycle policies are ready. Let’s now move on to the <em>sources</em> where the log files come from to Elasticsearch.</p>
+
+<p>Please donate if you find this content valuable.</p>
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<p><br /></p>
 
 <p>If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.</p>
 
