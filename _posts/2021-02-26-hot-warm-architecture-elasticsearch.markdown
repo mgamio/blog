@@ -57,6 +57,10 @@ Once these documents are indexed into Elasticsearch, the following figure shows 
 
 In order to be able to treat date fields as dates, numeric fields as numbers, and string fields as full-text or exact-value strings, Elasticsearch needs to know what type of data each field contains. This information is contained in the mapping.
 
+**Index Templates**
+
+When you create an index template, you tell Elasticsearch which settings and mappings an index should have when it is created.
+
 **Shards**
 
 Shards are the physical instances of [Apache Lucene](https://lucene.apache.org/){:target="_blank"}, shards take care of the physical storage and retrieval of our data.
@@ -238,7 +242,11 @@ Kibana enables to us navigate through our data (log files)
 
 We have installed kibana using a zip package.
 
-Check that the following lines are included and activated in C:\<kibana-folder>\config\kibana.yml file.
+Check that the following lines are included and activated in:
+
+{% highlight ruby %}
+C:\<kibana-folder>\config\kibana.yml file
+{% endhighlight %}
 
 {% highlight ruby %}
 server.port: 9340
@@ -258,6 +266,84 @@ From our local workstations we can access kibana in our browsers using the follo
 http://110.1.0.104:9340/
 {% endhighlight %}
 
+**Creting index templates**
+
+We must create and configure our index templates prior to index creation.
+
+From **Stack Management** -> **Index Management** -> **Index Templates**, we create a new index template for our billing application log files.
+
+![billing-template](/assets/images/billingTemplate.jpg){:class="img-responsive"}
+
+The following snippet code is the final template for new indices whose names match the **billing*** index pattern. Every time Elasticsearch receive a log file, it transforms it into an index by applying the following 
+settings:
+
+{% highlight ruby %}
+{
+  "template": {
+    "settings": {
+      "index": {
+        "lifecycle": {
+          "name": "billing_policy"
+        },
+        "number_of_replicas": "0",
+        "routing": {
+          "allocation": {
+            "require": {
+              "box_type": "hot"
+            }
+          }
+        }
+      }
+    },
+    "mappings": {
+      "properties": {
+        "was_date": {
+          "type": "date",
+          "format": "dd.MM.yy HH:mm:ss:SSS"
+        }
+      }
+    },
+    "aliases": {}
+  }
+}
+{% endhighlight %}
+
+The *routing* attribute lets you see which *data tier* the new indices are allocated to. In our Hot-warm architecture, this will be the Hot Node (*box_type* attribute).
+
+The snippet code also defines a *lifecycle* to automate when and how to transition an index through our nodes.
+
+**ILM: Manage the index lifecycle**
+
+We can create and apply Index Lifecycle Management (ILM) policies to automatically manage our indices following our retention requirements.
+
+We create a billing policy that defines how to move your data through the following phases.
+
+![hot-phase](/assets/images/hotPhase.jpg){:class="img-responsive"}
+
+We want to move our data index to the **Cold Node** after 30 days from the index's rollover.
+
+![cold-phase](/assets/images/coldPhase.jpg){:class="img-responsive"}
+
+If we want to configure a **Delete phase**, we must enable the "Delete data after this phase" label.
+
+In this Cold phase, we also need to select the node attribute we defined for the Cold Node.
+
+![data-allocation](/assets/images/dataAllocation.jpg){:class="img-responsive"}
+
+Finally, to save space on our machines, we define a **Delete phase** to delete our data index after 60 days from the index’s rollover.
+
+![delete-phase](/assets/images/deletePhase.jpg){:class="img-responsive"}
+
+Now our index templates and lifecycle policies are ready. Let's now move on to the *sources* where the log files come from to Elasticsearch.
+
+Please donate if you find this content valuable.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
 
 If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.
 
