@@ -12,8 +12,8 @@
 <meta property="og:title" content="SOLID principles: The Open-Closed Principle (Part II)" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand" />
-<meta property="og:description" content="SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand" />
+<meta name="description" content="SOLID principles tell us how to arrange our functions into classes. Software design principles" />
+<meta property="og:description" content="SOLID principles tell us how to arrange our functions into classes. Software design principles" />
 <link rel="canonical" href="http://localhost:4000/open-closed-principle/" />
 <meta property="og:url" content="http://localhost:4000/open-closed-principle/" />
 <meta property="og:site_name" content="codersite" />
@@ -24,7 +24,7 @@
 <meta property="twitter:image" content="http://localhost:4000/assets/images/openClosedPrinciple.jpg" />
 <meta property="twitter:title" content="SOLID principles: The Open-Closed Principle (Part II)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-01-06T00:00:00+01:00","datePublished":"2022-01-06T00:00:00+01:00","description":"SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand","headline":"SOLID principles: The Open-Closed Principle (Part II)","image":"http://localhost:4000/assets/images/openClosedPrinciple.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/open-closed-principle/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/open-closed-principle/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-01-06T00:00:00+01:00","datePublished":"2022-01-06T00:00:00+01:00","description":"SOLID principles tell us how to arrange our functions into classes. Software design principles","headline":"SOLID principles: The Open-Closed Principle (Part II)","image":"http://localhost:4000/assets/images/openClosedPrinciple.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/open-closed-principle/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/open-closed-principle/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -232,9 +232,9 @@
 
 <p>But there are situations we change one of our classes, and we realize that we need to adapt all its depending classes.</p>
 
-<h2 id="when-we-cannot-visualize-future-requirements">When we cannot visualize future requirements</h2>
+<h2 id="explaining-the-open-closed-principle-with-code-examples">Explaining the Open-Closed Principle with code examples</h2>
 
-<p>For instance, imagine designing and implementing a rate limit algorithm to control the number of requests allowed for every endpoint in a <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">REST API</a>.</p>
+<p>For instance, imagine designing and implementing a <a href="https://codersite.dev/rate-limit/" target="_blank">rate limit</a> algorithm to control the number of requests allowed for every endpoint in a <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">REST API</a>.</p>
 
 <p>The RateLimit class implements an interceptor - <em>HandlerInterceptor</em> - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.</p>
 
@@ -332,7 +332,7 @@
 
 <p>Even if the code is not well designed or does not follow well object-oriented principles, it could not be easy to extend a class to introduce new functionalities.</p>
 
-<p>The team decides to implement the open-closed principle to support future changes for this scenario. But they need to refactor the code by adopting polymorphism and aggregation.</p>
+<p>The team wants to implement the open-closed principle to support future changes for this scenario. But they need to adopt Refactoring techniques to promote the Open-Closed Principle. For this scenario: polymorphism and aggregation.</p>
 
 <h3 id="polymorphism">Polymorphism</h3>
 
@@ -355,7 +355,7 @@
 
 <p>Read more about <a href="https://codersite.dev/understanding-oop-concepts/" target="_blank">Object-Oriented Programming concepts</a></p>
 
-<h2 id="enabling-the-open-closed-principle">Enabling the Open-Closed Principle</h2>
+<h2 id="achieving-extensibility-with-the-open-closed-principle">Achieving extensibility with the Open-Closed Principle</h2>
 
 <p>Firstly,  and thinking abstractly, you should create an interface and define a contract that will include all required functionalities.</p>
 
@@ -487,6 +487,10 @@
 <p>Calling to <em>getAPIPlans</em> is now fixed (closed for modification). If we want it to behave differently, we implement it in a new class (open for extension) that will follow the contracts defined in our interface.</p>
 
 <p>Our new DBData dependency is instantiated in our RateLimit class thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.</p>
+
+<p>Applying these Refactoring techniques, the Open-Closed Principle enhances software maintainability.</p>
+
+<p><strong>Do you want to know more about software design Principles?</strong></p>
 
 <div><p>With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.</p>
 <center>
