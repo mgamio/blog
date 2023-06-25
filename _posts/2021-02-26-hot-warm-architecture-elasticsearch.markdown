@@ -57,6 +57,10 @@ Once these documents are indexed into Elasticsearch, the following figure shows 
 
 In order to be able to treat date fields as dates, numeric fields as numbers, and string fields as full-text or exact-value strings, Elasticsearch needs to know what type of data each field contains. This information is contained in the mapping.
 
+**Index Templates**
+
+When you create an index template, you tell Elasticsearch which settings and mappings an index should have when it is created.
+
 **Shards**
 
 Shards are the physical instances of [Apache Lucene](https://lucene.apache.org/){:target="_blank"}, shards take care of the physical storage and retrieval of our data.
@@ -75,10 +79,16 @@ In Warm nodes, You are still querying your index, but it is read-only.
 
 In Cold nodes, You are querying your index less frequently. You can deploy it to less performant hardware.
 
+## JVM Logs
+
+The JVM logs are created by redirecting the System.out and System.err streams of the JVM to independent log files. The System.out log is used to monitor the health of the running application server. The System.err log contains exception stack trace information for problem analysis.
+
 ## Problem
 
-When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, and more, we usually analyze our web server *logs*.
-But this task is tedious because the *logs* are distributed in a cluster that contains several web servers machines.
+When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, connection pooling problems, and more, we usually analyze our application server *logs*.
+But this task is tedious because the *log files* are distributed in a cluster that contains several application servers with their applications. Depending on each application server product, rotating policies for regenerating a *log file* cause historical records to be lost.
+
+![logFileRotation](/assets/images/logFileRotation.JPG){:class="img-responsive"}
 
 ## Solution
 
@@ -89,6 +99,8 @@ We are going to install a Hot-Cold Logging Cluster on the Elasticsearch Service 
 <div>
 {%- include inArticleAds.html -%}
 </div>
+
+Logs come from multiple sources, such as software applications installed on various application servers.
 
 ## Installation
 
@@ -222,9 +234,116 @@ Please donate to maintain and improve this website if you find this content valu
 </form>
 <br/>
 
-Now you can proceed to install kibana and logstash.
+Before we define Index Templates and configure our Index Lifecycle Policies, we must install the Kibana product.
 
-Here you can read an article which explain [Elasticsearch](https://medium.com/@m.konda/just-elasticsearch-2-n-architecture-1fe4818c64aa){:target="_blank"} as simple as possible.
+## Installation and configuration of Kibana
+
+Kibana enables to us navigate through our data (log files)
+
+We have installed kibana using a zip package.
+
+Check that the following lines are included and activated in:
+
+{% highlight ruby %}
+C:\<kibana-folder>\config\kibana.yml file
+{% endhighlight %}
+
+{% highlight ruby %}
+server.port: 9340
+server.host: "110.1.0.104"
+elasticsearch.hosts: "110.1.0.101:9200"
+{% endhighlight %}
+
+To run kibana, execute the following command:
+
+{% highlight ruby %}
+C:\<kibana-folder>\bin>kibana.bat
+{% endhighlight %}
+
+From our local workstations we can access kibana in our browsers using the following url:
+
+{% highlight ruby %}
+http://110.1.0.104:9340/
+{% endhighlight %}
+
+**Creting index templates**
+
+We must create and configure our index templates prior to index creation.
+
+From **Stack Management** -> **Index Management** -> **Index Templates**, we create a new index template for our billing application log files.
+
+![billing-template](/assets/images/billingTemplate.jpg){:class="img-responsive"}
+
+The following snippet code is the final template for new indices whose names match the **billing*** index pattern. Every time Elasticsearch receive a log file, it transforms it into an index by applying the following 
+settings:
+
+{% highlight ruby %}
+{
+  "template": {
+    "settings": {
+      "index": {
+        "lifecycle": {
+          "name": "billing_policy"
+        },
+        "number_of_replicas": "0",
+        "routing": {
+          "allocation": {
+            "require": {
+              "box_type": "hot"
+            }
+          }
+        }
+      }
+    },
+    "mappings": {
+      "properties": {
+        "was_date": {
+          "type": "date",
+          "format": "dd.MM.yy HH:mm:ss:SSS"
+        }
+      }
+    },
+    "aliases": {}
+  }
+}
+{% endhighlight %}
+
+The *routing* attribute lets you see which *data tier* the new indices are allocated to. In our Hot-warm architecture, this will be the Hot Node (*box_type* attribute).
+
+The snippet code also defines a *lifecycle* to automate when and how to transition an index through our nodes.
+
+**ILM: Manage the index lifecycle**
+
+We can create and apply Index Lifecycle Management (ILM) policies to automatically manage our indices following our retention requirements.
+
+We create a billing policy that defines how to move your data through the following phases.
+
+![hot-phase](/assets/images/hotPhase.jpg){:class="img-responsive"}
+
+We want to move our data index to the **Cold Node** after 30 days from the index's rollover.
+
+![cold-phase](/assets/images/coldPhase.jpg){:class="img-responsive"}
+
+If we want to configure a **Delete phase**, we must enable the "Delete data after this phase" label.
+
+In this Cold phase, we also need to select the node attribute we defined for the Cold Node.
+
+![data-allocation](/assets/images/dataAllocation.jpg){:class="img-responsive"}
+
+Finally, to save space on our machines, we define a **Delete phase** to delete our data index after 60 days from the index’s rollover.
+
+![delete-phase](/assets/images/deletePhase.jpg){:class="img-responsive"}
+
+Now our index templates and lifecycle policies are ready. Let's now move on to the *sources* where the log files come from to Elasticsearch.
+
+Please donate if you find this content valuable.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
 
 If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.
 
