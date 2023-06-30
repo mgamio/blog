@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "SOLID principles: The Open-Closed Principle (Part II)"
-description: "SOLID principles tell us how to arrange our functions into classes. When it is well applied, our software infrastructure will be easier to understand"
+description: "SOLID principles tell us how to arrange our functions into classes. Software design principles"
 author: moises
 categories: [ design ]
 image: assets/images/openClosedPrinciple.jpg
@@ -22,9 +22,9 @@ After looking at the [Single Responsibility Principle](https://codersite.dev/sol
 
 But there are situations we change one of our classes, and we realize that we need to adapt all its depending classes.
 
-## When we cannot visualize future requirements
+## Explaining the Open-Closed Principle with code examples
 
-For instance, imagine designing and implementing a rate limit algorithm to control the number of requests allowed for every endpoint in a [REST API](https://codersite.dev/documenting-rest-api-openapi3/){:target="_blank"}.
+For instance, imagine designing and implementing a [rate limit](https://codersite.dev/rate-limit/){:target="_blank"} algorithm to control the number of requests allowed for every endpoint in a [REST API](https://codersite.dev/documenting-rest-api-openapi3/){:target="_blank"}.
 
 The RateLimit class implements an interceptor - *HandlerInterceptor* - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.
 
@@ -89,7 +89,7 @@ That is the meaning of the principle; you can not touch the code that is already
 
 Even if the code is not well designed or does not follow well object-oriented principles, it could not be easy to extend a class to introduce new functionalities.
 
-The team decides to implement the open-closed principle to support future changes for this scenario. But they need to refactor the code by adopting polymorphism and aggregation.
+The team wants to implement the open-closed principle to support future changes for this scenario. But they need to adopt Refactoring techniques to promote the Open-Closed Principle. For this scenario: polymorphism and aggregation.
 
 ### Polymorphism
 
@@ -109,7 +109,7 @@ The following diagram shows the goal of our design.
 
 Read more about [Object-Oriented Programming concepts](https://codersite.dev/understanding-oop-concepts/){:target="_blank"}
 
-## Enabling the Open-Closed Principle
+## Achieving extensibility with the Open-Closed Principle
 
 Firstly,  and thinking abstractly, you should create an interface and define a contract that will include all required functionalities.
 
@@ -193,6 +193,10 @@ Even if, instead of implementing the *HandlerInterceptor* interface, we implemen
 Calling to *getAPIPlans* is now fixed (closed for modification). If we want it to behave differently, we implement it in a new class (open for extension) that will follow the contracts defined in our interface.
 
 Our new DBData dependency is instantiated in our RateLimit class thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.
+
+Applying these Refactoring techniques, the Open-Closed Principle enhances software maintainability.
+
+**Do you want to know more about software design Principles?**
 
 <div>
 {%- include softwareDesign.html -%}
