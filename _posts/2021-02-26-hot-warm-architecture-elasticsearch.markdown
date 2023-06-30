@@ -240,7 +240,7 @@ Before we define Index Templates and configure our Index Lifecycle Policies, we 
 
 Kibana enables to us navigate through our data (log files)
 
-We have installed kibana using a zip package.
+We have installed kibana using a [zip](https://www.elastic.co/downloads/kibana){:target="_blank"} package.
 
 Check that the following lines are included and activated in:
 
@@ -336,6 +336,88 @@ Finally, to save space on our machines, we define a **Delete phase** to delete o
 
 Now our index templates and lifecycle policies are ready. Let's now move on to the *sources* where the log files come from to Elasticsearch.
 
+> Dependency is the key problem in software development. -- <cite>Software Design, The Art of managing dependencies and Abstractions.</cite>
+
+<div>
+{%- include softwareDesign.html -%}
+</div>
+
+## Using Logstash to Extract, Transform, and Load Data
+
+Logstash allow us to collect data (log files) from different sources (application servers), and can be enriched, transformed, filtered and moved to elasticsearch.
+
+We have installed logstash using a [zip](https://www.elastic.co/downloads/logstash){:target="_blank"} package.
+
+Logstash will be the receiver for log data from sources such as Beats Agents installed on the Java application servers.
+
+We need to create a *pipeline* (config file) in which we define an *input* (collect data), a *filter* (data transformation), and an *output* (load data into elastic).
+
+![logstash-pipeline](/assets/images/logstashPipeline.jpg){:class="img-responsive"}
+
+Before we create the Logstash pipeline, we'll configure Filebeat to send *log* lines to Logstash.
+
+### Configuring Filebeat to Send Log Lines to Logstash
+
+Filebeat is a lightweight shipper for forwarding and centralizing log data. Installed as an agent (service) on our Java application servers, Filebeat monitors the log files, collects log events, and forwards them to Logstash for indexing.
+
+We have installed Filebeat with Windows [MSI](https://www.elastic.co/downloads/beats/filebeat){:target="_blank"} Installer, establishing it as a Windows service.
+
+Open the *filebeat.yml* file in your Filebeat installation directory and replace the content with the following lines. Make sure the paths point to the application server log files.
+
+{% highlight ruby %}
+filebeat.inputs:
+- type: log
+  paths:
+    - /path/to/logs/billingServer/SystemOut.log
+output.logstash:
+  hosts: ["110.1.0.102:5044"]
+  ilm.enabled: true
+{% endhighlight %}
+
+The log files that Filebeat processes are redirected - output - to the machine where we will install Logstash.
+
+On Windows machines, the absolute path to the log files looks like the following line:
+
+{% highlight ruby %}
+  paths:
+    - "C:\\path\\to\\logs\\billingServer\\SystemOut.log"
+{% endhighlight %}
+
+At the application servers machines (data source), run Filebeat with the following command:
+
+{% highlight ruby %}
+sudo ./filebeat -e -c filebeat.yml -d "publish"
+{% endhighlight %}
+
+Filebeat will attempt to connect Logstash on port 5044
+
+### Configuring Logstash for Filebeat Input
+
+Next, we create a primary Logstash configuration pipeline that uses the Beats input plugin to receive events from the application servers and an output section to write to Elasticsearch.
+
+{% highlight ruby %}
+input {
+  beats {
+    port => 5044
+  }
+}
+# The filter part of this file is commented out to indicate that it is optional.
+# filter {
+#
+# }
+output {
+  stdout { codec => rubydebug }
+  elasticsearch {
+    hosts => [ "110.1.0.101:9200" ] 
+    index => "billing-%{[@metadata][version]}"
+    ilm_policy => "billing_policy"
+    action => "create"
+  }
+}
+{% endhighlight %}
+
+
+
 Please donate if you find this content valuable.
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
@@ -346,7 +428,3 @@ Please donate if you find this content valuable.
 <br/>
 
 If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.
-
-<div>
-{%- include softwareDesign.html -%}
-</div>

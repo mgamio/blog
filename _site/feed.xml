@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 13 Jun 2023 15:35:04 +0200</pubDate>
-    <lastBuildDate>Tue, 13 Jun 2023 15:35:04 +0200</lastBuildDate>
+    <pubDate>Fri, 30 Jun 2023 13:25:53 +0200</pubDate>
+    <lastBuildDate>Fri, 30 Jun 2023 13:25:53 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -366,7 +366,7 @@
         <guid isPermaLink="true">http://localhost:4000/rate-limit/</guid>
         
         
-        <category>algorithms</category>
+        <category>Web APIs</category>
         
       </item>
     
@@ -1085,6 +1085,8 @@
 
 &lt;p&gt;annehmen : accept&lt;/p&gt;
 
+&lt;p&gt;anpassen : customize, adapt&lt;/p&gt;
+
 &lt;p&gt;anwenden : apply&lt;/p&gt;
 
 &lt;p&gt;der Anwender (von Software, Programmen) : user&lt;/p&gt;
@@ -1099,6 +1101,8 @@
 
 &lt;p&gt;der Bericht : report&lt;/p&gt;
 
+&lt;p&gt;die Betriebsbereitschaft : readiness for service (or operation)&lt;/p&gt;
+
 &lt;p&gt;die Datei : file (computer)&lt;/p&gt;
 
 &lt;p&gt;Datei entfernen : remove file&lt;/p&gt;
@@ -1112,6 +1116,8 @@
 &lt;p&gt;die Einstellungen : settings&lt;/p&gt;
 
 &lt;p&gt;eingeben (&lt;em&gt;Daten&lt;/em&gt;) : enter&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;X&lt;/em&gt; durch &lt;em&gt;Y&lt;/em&gt; ersetzen  : replace &lt;em&gt;X&lt;/em&gt; by &lt;em&gt;Y&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;entfernen: remove&lt;/p&gt;
 
@@ -1136,6 +1142,8 @@
 &lt;p&gt;löschen : delete&lt;/p&gt;
 
 &lt;p&gt;das Quellcode : source code&lt;/p&gt;
+
+&lt;p&gt;die Schnittstelle : interface&lt;/p&gt;
 
 &lt;p&gt;starten : start&lt;/p&gt;
 

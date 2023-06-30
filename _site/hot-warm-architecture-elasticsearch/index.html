@@ -443,7 +443,7 @@ But this task is tedious because the <em>log files</em> are distributed in a clu
 
 <p>Kibana enables to us navigate through our data (log files)</p>
 
-<p>We have installed kibana using a zip package.</p>
+<p>We have installed kibana using a <a href="https://www.elastic.co/downloads/kibana" target="_blank">zip</a> package.</p>
 
 <p>Check that the following lines are included and activated in:</p>
 
@@ -529,6 +529,83 @@ settings:</p>
 
 <p>Now our index templates and lifecycle policies are ready. Let’s now move on to the <em>sources</em> where the log files come from to Elasticsearch.</p>
 
+<blockquote>
+  <p>Dependency is the key problem in software development. – <cite>Software Design, The Art of managing dependencies and Abstractions.</cite></p>
+</blockquote>
+
+<div><p>With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.</p>
+<center>
+  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
+</center>
+
+<br /></div>
+
+<h2 id="using-logstash-to-extract-transform-and-load-data">Using Logstash to Extract, Transform, and Load Data</h2>
+
+<p>Logstash allow us to collect data (log files) from different sources (application servers), and can be enriched, transformed, filtered and moved to elasticsearch.</p>
+
+<p>We have installed logstash using a <a href="https://www.elastic.co/downloads/logstash" target="_blank">zip</a> package.</p>
+
+<p>Logstash will be the receiver for log data from sources such as Beats Agents installed on the Java application servers.</p>
+
+<p>We need to create a <em>pipeline</em> (config file) in which we define an <em>input</em> (collect data), a <em>filter</em> (data transformation), and an <em>output</em> (load data into elastic).</p>
+
+<p><img src="/assets/images/logstashPipeline.jpg" alt="logstash-pipeline" class="img-responsive" /></p>
+
+<p>Before we create the Logstash pipeline, we’ll configure Filebeat to send <em>log</em> lines to Logstash.</p>
+
+<h3 id="configuring-filebeat-to-send-log-lines-to-logstash">Configuring Filebeat to Send Log Lines to Logstash</h3>
+
+<p>Filebeat is a lightweight shipper for forwarding and centralizing log data. Installed as an agent (service) on our Java application servers, Filebeat monitors the log files, collects log events, and forwards them to Logstash for indexing.</p>
+
+<p>We have installed Filebeat with Windows <a href="https://www.elastic.co/downloads/beats/filebeat" target="_blank">MSI</a> Installer, establishing it as a Windows service.</p>
+
+<p>Open the <em>filebeat.yml</em> file in your Filebeat installation directory and replace the content with the following lines. Make sure the paths point to the application server log files.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">filebeat</span><span class="p">.</span><span class="nf">inputs</span><span class="p">:</span>
+<span class="o">-</span> <span class="ss">type: </span><span class="n">log</span>
+  <span class="ss">paths:
+    </span><span class="o">-</span> <span class="sr">/path/</span><span class="n">to</span><span class="o">/</span><span class="n">logs</span><span class="o">/</span><span class="n">billingServer</span><span class="o">/</span><span class="no">SystemOut</span><span class="p">.</span><span class="nf">log</span>
+<span class="n">output</span><span class="p">.</span><span class="nf">logstash</span><span class="p">:</span>
+  <span class="ss">hosts: </span><span class="p">[</span><span class="s2">"110.1.0.102:5044"</span><span class="p">]</span>
+  <span class="n">ilm</span><span class="p">.</span><span class="nf">enabled</span><span class="p">:</span> <span class="kp">true</span></code></pre></figure>
+
+<p>The log files that Filebeat processes are redirected - output - to the machine where we will install Logstash.</p>
+
+<p>On Windows machines, the absolute path to the log files looks like the following line:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="ss">paths:
+    </span><span class="o">-</span> <span class="s2">"C:</span><span class="se">\\</span><span class="s2">path</span><span class="se">\\</span><span class="s2">to</span><span class="se">\\</span><span class="s2">logs</span><span class="se">\\</span><span class="s2">billingServer</span><span class="se">\\</span><span class="s2">SystemOut.log"</span></code></pre></figure>
+
+<p>At the application servers machines (data source), run Filebeat with the following command:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="p">.</span><span class="nf">/</span><span class="n">filebeat</span> <span class="o">-</span><span class="n">e</span> <span class="o">-</span><span class="n">c</span> <span class="n">filebeat</span><span class="p">.</span><span class="nf">yml</span> <span class="o">-</span><span class="n">d</span> <span class="s2">"publish"</span></code></pre></figure>
+
+<p>Filebeat will attempt to connect Logstash on port 5044</p>
+
+<h3 id="configuring-logstash-for-filebeat-input">Configuring Logstash for Filebeat Input</h3>
+
+<p>Next, we create a primary Logstash configuration pipeline that uses the Beats input plugin to receive events from the application servers and an output section to write to Elasticsearch.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">input</span> <span class="p">{</span>
+  <span class="n">beats</span> <span class="p">{</span>
+    <span class="n">port</span> <span class="o">=&gt;</span> <span class="mi">5044</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1"># The filter part of this file is commented out to indicate that it is optional.</span>
+<span class="c1"># filter {</span>
+<span class="c1">#</span>
+<span class="c1"># }</span>
+<span class="n">output</span> <span class="p">{</span>
+  <span class="n">stdout</span> <span class="p">{</span> <span class="n">codec</span> <span class="o">=&gt;</span> <span class="n">rubydebug</span> <span class="p">}</span>
+  <span class="n">elasticsearch</span> <span class="p">{</span>
+    <span class="n">hosts</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">"110.1.0.101:9200"</span> <span class="p">]</span> 
+    <span class="n">index</span> <span class="o">=&gt;</span> <span class="s2">"billing-%{[@metadata][version]}"</span>
+    <span class="n">ilm_policy</span> <span class="o">=&gt;</span> <span class="s2">"billing_policy"</span>
+    <span class="n">action</span> <span class="o">=&gt;</span> <span class="s2">"create"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
 <p>Please donate if you find this content valuable.</p>
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
@@ -539,13 +616,6 @@ settings:</p>
 <p><br /></p>
 
 <p>If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.</p>
-
-<div><p>With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.</p>
-<center>
-  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
-</center>
-
-<br /></div>
 
 				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
      crossorigin="anonymous"></script>
@@ -657,13 +727,13 @@ https://search.google.com/structured-data/testing-tool/u/0/
             
             
                 
-                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (9)</a>
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (8)</a>
                 
                     <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
                 
                     <a class="mt-1 mb-1" href="/categories#design">design (3)</a>
                 
-                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (4)</a>
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (5)</a>
                 
                     <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
                 
