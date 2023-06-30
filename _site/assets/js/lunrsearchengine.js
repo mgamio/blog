@@ -58,7 +58,7 @@ var documents = [{
     "id": 11,
     "url": "http://localhost:4000/robots.txt",
     "title": "",
-    "body": "      Sitemap: {{ “sitemap. xml”   absolute_url }}   "
+    "body": "      Sitemap: {{ &#8220;sitemap. xml&#8221;   absolute_url }}   "
     }, {
     "id": 12,
     "url": "http://localhost:4000/rate-limit/",
