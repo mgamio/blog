@@ -76,6 +76,8 @@ die Angabe (*Daten*) : information, data
 
 annehmen : accept
 
+anpassen : customize, adapt
+
 anwenden : apply
 
 der Anwender (von Software, Programmen) : user
@@ -90,6 +92,8 @@ der Ausfall : outage
 
 der Bericht : report
 
+die Betriebsbereitschaft : readiness for service (or operation)
+
 die Datei : file (computer)
 
 Datei entfernen : remove file
@@ -103,6 +107,8 @@ durchsuchen : browse
 die Einstellungen : settings
 
 eingeben (*Daten*) : enter
+
+*X* durch *Y* ersetzen  : replace *X* by *Y*
 
 entfernen: remove
 
@@ -127,6 +133,8 @@ installieren : install
 löschen : delete
 
 das Quellcode : source code
+
+die Schnittstelle : interface
 
 starten : start
  

@@ -3,7 +3,7 @@ layout: post
 title:  "How to implement Rate Limiting"
 description: "Hot to implement an API Rate Limiting in a backend API. Rate Limiting Algorithms"
 author: moises
-categories: [ algorithms ]
+categories: [ Web APIs ]
 image: assets/images/rateLimitAlgorithm.jpg
 comments: false
 ---
