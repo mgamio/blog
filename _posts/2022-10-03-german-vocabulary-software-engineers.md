@@ -214,6 +214,8 @@ der Zugriff : access
 
 ## Datenbank : Database
 
+die Abfrage : query
+
 Stammdaten : master data
 
 der JDBC-Treiber : JDBC driver

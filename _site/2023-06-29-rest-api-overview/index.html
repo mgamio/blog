@@ -217,7 +217,7 @@
                 <!-- End Toc -->
                 <p>APIs (Application Programming Interfaces) enable communication and data exchange between systems. Among the various types of APIs, <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> (Representational State Transfer) has emerged as a popular architectural style for building web services. This article will delve into the fundamental concepts of REST API, its principles, and its significance in modern web development.</p>
 
-<h2 id="whats-an-api">What’s an API?</h2>
+<h2 id="what-is-an-api">What is an API?</h2>
 
 <p>An API is an interface with defined functionalities that a software program presents to other programs and, in the case of web APIs, to the rest of the world via the Internet.</p>
 
@@ -226,6 +226,24 @@
 <h2 id="what-is-rest-api">What is REST API?</h2>
 
 <p>REST API is an architectural style that defines a set of guidelines for creating web services. It stands for Representational State Transfer and emphasizes a stateless, client-server communication model. REST APIs use HTTP (Hypertext Transfer Protocol) as the primary protocol for data transmission and rely on standard operations such as GET, POST, PUT, and DELETE to perform actions on resources.</p>
+
+<h2 id="resources">Resources</h2>
+
+<p>In REST API, a resource is the information or data exposed through the web service. Resources can be entities such as users, suppliers, articles, or any other data entity that can be uniquely identified. Each resource on the Web is typically represented by a URL (Uniform Resource Locator) or endpoint defining a globally unique address.</p>
+
+<p>In a business context, the following endpoint retrieves a representation of an array of article data under the following URL.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>GET /api/v1/articles HTTP/1.1
+Host: www.codersite.dev
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="representations">Representations</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <div><!--<div class="alertbar">-->
 	<div class="container text-center">
