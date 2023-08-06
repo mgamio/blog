@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Shopping options"
+title:  "Shopping options with a limited budget"
 description: "Shopping options under a budgeted amount"
 author: moises
 categories: [ algorithms ]
@@ -69,6 +69,8 @@ public void test_shoppingOptions() {
 }
 ```
 
+### Algorithmic approach to optimize shopping decisions
+
 We proceed to implement the algorithm that includes all possible input validations. The for-each construct helps our code be elegant and readable and there is no use of the index. See [clean code](https://codersite.dev/clean-code/){:target="_blank"} practices.
 
 ```kotlin
@@ -121,6 +123,8 @@ public class ShoppingOptions {
 {%- include inArticleAds.html -%}
 </div>
 
+### Refactoring to improve internal code
+
 A function or method should be small, making it easier to read and understand. Therefore, we refactor our code, moving all validations to a private method. The following code shows a new implementation of our algorithm.
 
 ```kotlin
@@ -164,6 +168,8 @@ public class ShoppingOptions {
 {%- include inArticleAds.html -%}
 </div>
 
+### Shopping optimization strategies
+
 This algorithm works fine when array size and values are small. But based on the constraints, imagine you are processing a priceOfShoe value of 100000 at the location priceOfShoes[101]. At that moment, the sum of priceOfJean + priceOfShoe is already greater than 10 dollars. Therefore, it does not make sense to continue processing the following possible 1000000000 items of pricesOfSkits[] and other 1000000000 items of priceOfTops[].
 
 To skip this particular iteration, we use the “continue” statement and proceed with the next iteration in the loop. The next priceOfShoe at the location priceOfShoes[102], for example.
@@ -193,6 +199,8 @@ We run the test against the previous implementation, and the second test takes 3
 <div>
 {%- include inArticleAds.html -%}
 </div>
+
+### Optimization algorithm
 
 The following listing shows an optimized solution.
 

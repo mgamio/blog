@@ -7,9 +7,9 @@
 <link rel="icon" href="/assets/images/logo.png">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Shopping options | codersite</title>
+<title>Shopping options with a limited budget | codersite</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Shopping options" />
+<meta property="og:title" content="Shopping options with a limited budget" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Shopping options under a budgeted amount" />
@@ -22,9 +22,9 @@
 <meta property="article:published_time" content="2021-12-28T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="http://localhost:4000/assets/images/shoppingOptions.jpg" />
-<meta property="twitter:title" content="Shopping options" />
+<meta property="twitter:title" content="Shopping options with a limited budget" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2021-12-28T00:00:00+01:00","datePublished":"2021-12-28T00:00:00+01:00","description":"Shopping options under a budgeted amount","headline":"Shopping options","image":"http://localhost:4000/assets/images/shoppingOptions.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/shopping-options/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/shopping-options/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2021-12-28T00:00:00+01:00","datePublished":"2021-12-28T00:00:00+01:00","description":"Shopping options under a budgeted amount","headline":"Shopping options with a limited budget","image":"http://localhost:4000/assets/images/shoppingOptions.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/shopping-options/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/shopping-options/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -148,7 +148,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Shopping options&url=http://localhost:4000/shopping-options/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Shopping options with a limited budget&url=http://localhost:4000/shopping-options/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -192,7 +192,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Shopping options</h1>
+                <h1 class="posttitle">Shopping options with a limited budget</h1>
 
             </div>
 
@@ -205,7 +205,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/shoppingOptions.jpg" alt="Shopping options">
+            <img class="featured-image img-fluid" src="/assets/images/shoppingOptions.jpg" alt="Shopping options with a limited budget">
             
 
             
@@ -286,6 +286,8 @@
           <span class="n">priceOfSkirts</span><span class="p">,</span> <span class="n">priceOfTops</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="algorithmic-approach-to-optimize-shopping-decisions">Algorithmic approach to optimize shopping decisions</h3>
 
 <p>We proceed to implement the algorithm that includes all possible input validations. The for-each construct helps our code be elegant and readable and there is no use of the index. See <a href="https://codersite.dev/clean-code/" target="_blank">clean code</a> practices.</p>
 
@@ -384,6 +386,8 @@
 </script>
 <br /></div>
 
+<h3 id="refactoring-to-improve-internal-code">Refactoring to improve internal code</h3>
+
 <p>A function or method should be small, making it easier to read and understand. Therefore, we refactor our code, moving all validations to a private method. The following code shows a new implementation of our algorithm.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -463,6 +467,8 @@
 </script>
 <br /></div>
 
+<h3 id="shopping-optimization-strategies">Shopping optimization strategies</h3>
+
 <p>This algorithm works fine when array size and values are small. But based on the constraints, imagine you are processing a priceOfShoe value of 100000 at the location priceOfShoes[101]. At that moment, the sum of priceOfJean + priceOfShoe is already greater than 10 dollars. Therefore, it does not make sense to continue processing the following possible 1000000000 items of pricesOfSkits[] and other 1000000000 items of priceOfTops[].</p>
 
 <p>To skip this particular iteration, we use the “continue” statement and proceed with the next iteration in the loop. The next priceOfShoe at the location priceOfShoes[102], for example.</p>
@@ -507,6 +513,8 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 <br /></div>
+
+<h3 id="optimization-algorithm">Optimization algorithm</h3>
 
 <p>The following listing shows an optimized solution.</p>
 
