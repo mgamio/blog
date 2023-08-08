@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Hot-Warm Architecture in Elasticsearch 1/n"
-description: "Hot-warm architecture is a powerful way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes."
+title:  "Implementing hot-warm architecture in Elasticsearch for time-series data"
+description: "Hot-warm architecture for log analytics with Elasticsearch."
 author: moises
 categories: [ distribuited systems ]
 image: assets/images/elastic.jpg
@@ -79,6 +79,8 @@ In Warm nodes, You are still querying your index, but it is read-only.
 
 In Cold nodes, You are querying your index less frequently. You can deploy it to less performant hardware.
 
+We can balance indexing and query performance in Elasticsearch with a hot-warm architecture. 
+
 ## JVM Logs
 
 The JVM logs are created by redirecting the System.out and System.err streams of the JVM to independent log files. The System.out log is used to monitor the health of the running application server. The System.err log contains exception stack trace information for problem analysis.
@@ -90,9 +92,9 @@ But this task is tedious because the *log files* are distributed in a cluster th
 
 ![logFileRotation](/assets/images/logFileRotation.JPG){:class="img-responsive"}
 
-## Solution
+## Solution : Hot-warm architecture for log analytics with Elasticsearch
 
-We are going to install a Hot-Cold Logging Cluster on the Elasticsearch Service as shown in the following figure.
+We are going to install a Hot-Warm-Cold Logging Cluster on the Elasticsearch Service as shown in the following figure.
 
 ![hot-warm-architecture](/assets/images/hot-warm-elastic.jpg){:class="img-responsive"}
 
@@ -102,7 +104,7 @@ We are going to install a Hot-Cold Logging Cluster on the Elasticsearch Service 
 
 Logs come from multiple sources, such as software applications installed on various application servers.
 
-## Installation
+## Choosing the right hardware for hot-warm architecture in Elasticsearch
 
 We have the following IP addresses (Three Windows Servers):
 {% highlight ruby %}
@@ -117,7 +119,7 @@ Open Windows Defender Firewall and add the following rule for the three machines
 
 For the *hotnode* add an extra 5044 port to the rule if you want to install *logstash* in that machine.
 
-## Configure Elasticsearch cluster settings at Master Node
+### Configure Elasticsearch cluster settings at Master Node
 
 Open .../elasticsearch.yml and copy the following content.
 
@@ -154,7 +156,7 @@ epoch      timestamp cluster     status node.total node.data shards pri relo ini
 1611057767 12:02:47  elasticprod green           1         0      0   0    0    0        0             0                  -                100.0%
 {% endhighlight %}
 
-## Configure Elasticsearch cluster settings at Hot Node
+### Configure Elasticsearch cluster settings at Hot Node
 
 {% highlight ruby %}
 bootstrap.memory_lock: true
@@ -191,7 +193,7 @@ C:\...\codersite.dev>curl -XGET http://110.1.0.101:9200/_cat/nodes
 {%- include inArticleAds.html -%}
 </div>
 
-## Configure Elasticsearch cluster settings at Cold Node
+### Configure Elasticsearch cluster settings at Cold Node
 
 {% highlight ruby %}
 bootstrap.memory_lock: true
@@ -311,6 +313,8 @@ settings:
 The *routing* attribute lets you see which *data tier* the new indices are allocated to. In our Hot-warm architecture, this will be the Hot Node (*box_type* attribute).
 
 The snippet code also defines a *lifecycle* to automate when and how to transition an index through our nodes.
+
+### Data lifecycle management in Elasticsearch
 
 **ILM: Manage the index lifecycle**
 
