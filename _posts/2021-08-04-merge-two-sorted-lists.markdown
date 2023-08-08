@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Merge two Sorted Lists"
+title:  "Merge two sorted lists algorithm"
 description: "Given two sorted lists, merge them in a new sorted list - coding interview"
 author: moises
 categories: [ algorithms ]
@@ -9,6 +9,8 @@ comments: false
 ---
 
 A merging algorithm takes two sorted lists as input and produces a single list as output, containing all the elements of the two inputs lists in sorted order.
+
+A *List* is an abstract data type that can store a list of items. Unlike traditional arrays, however, lists can be expanded and shrunk and are stored dynamically in memory.
 
 ## Problem
 
@@ -51,6 +53,8 @@ public void mergeSortedLists2() {
     SortedList.merge_sorted(sList1,sList2).toString());
 }
 ```
+
+## Merging sorted lists in a single pass
 
 Here, the implementation code:
 
