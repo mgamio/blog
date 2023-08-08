@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!DOCTYPE html> 
 <html lang="en"> 
   <head> 
@@ -26,7 +30,7 @@
     <meta property="twitter:image" content="https://www.codersite.dev/assets/images/recommendedITBooks.jpg" />
     <meta property="twitter:title" content="codersite.dev | IT books recommended" />
  
-    <title>codersite.dev | Recommended</title> 
+    <title>codersite.dev | recommended</title> 
  
     <!-- Bootstrap CSS --> 
     <link rel="stylesheet" href="recommended/css/bootstrap.min.css"> 
@@ -41,71 +45,22 @@
        color: orange;
       }
     </style>
-
+	
   </head> 
   <body> 
  
-  <div class="container">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <div class="site-logo">
-	    <a class="navbar-brand" href="../index.html"><img class="logo-icon mr-2" src="../assets/images/logo.svg" height="28" alt="logo" ></a>
-	  </div>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-	  
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		  <ul class="navbar-nav mr-auto"> 
-		    <li class="nav-item"> 
-		      <a class="nav-link" href="index.html">Home</a> 
-		    </li>
-		    <li class="nav-item"> 
-		      <a class="nav-link" href="data.html">Data</a> 
-		    </li>
-		    <li class="nav-item"> 
-		      <a class="nav-link" href="hardware.html">Hardware</a> 
-		    </li> 
-		    <li class="nav-item"> 
-		      <a class="nav-link" href="itOperations.html">IT Operations</a> 
-		    </li>
-		    <li class="nav-item"> 
-		      <a class="nav-link" href="security.html">Security</a> 
-		    </li>
-		    <!--
-			<li class="nav-item dropdown">
-			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			    Software
-			  </a>
-			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			    <a class="dropdown-item" href="programming.htmls">Programming</a>
-			    <a class="dropdown-item" href="architecture.html">Architecture</a>
-				<a class="dropdown-item" href="computerScience.html">ComputerScience</a>
-			    <div class="dropdown-divider"></div>
-			    <a class="dropdown-item" href="otherSD.html">Other</a>
-			  </div>
-		    </li>
-		    <li class="nav-item"> 
-		      <a class="nav-link" href="webMobile.html">Web</a> 
-		    </li>
-			<li class="nav-item"> 
-		      <a class="nav-link" href="other.html">Other</a> 
-		    </li>
-			-->
-		  </ul>
-          <!-- search button here !-->	  
-	  </div> 
-	</nav> 
-  </div> 
- 
-<script async src="https://cse.google.com/cse.js?cx=381503b799c1824d4">
+  
+ <script async src="https://cse.google.com/cse.js?cx=381503b799c1824d4">
 </script>
 <div class="gcse-search"></div>
 
-  <div class="container">
+<h3 class="font-weight-bold spanborder"><span>{{page.title}}</span></h3>
+
+<div class="row">
     <div class="card-body ts-product-container">
         <div class="ts-product card">
             <a target="_blank" href="https://www.amazon.de/-/en/Robert-Martin/dp/0132350882?_encoding=UTF8&qid=1666733730&sr=8-1&linkCode=sl1&tag=mkgv89-21&linkId=8658990bb29585d26f25addada3306c5&language=en_GB&ref_=as_li_ss_tl">
-			<img class="card-img-top" src="images/cleanCode.jpg"></a>
+			<img class="card-img-top" src="recommended/images/cleanCode.jpg"></a>
             <div class="ts-product-title">
                 <h3> Learn how to be a better programmer by following these coding best practices. Learn how to write good code and how to refactor bad code into good code.</h3>
             </div>
@@ -127,7 +82,7 @@
 		
 		<div class="ts-product card">
             <a target="_blank" href="https://amzn.to/3eYmJNz">
-			<img class="card-img-top" src="images/designingDataIntensiveApplications.jpg"></a>
+			<img class="card-img-top" src="recommended/images/designingDataIntensiveApplications.jpg"></a>
             <div class="ts-product-title">
                 <h3>How to design data-intensive applications that help you build more reliable, scalable, and maintainable systems.
 				</h3>
@@ -152,7 +107,7 @@
 		
 		<div class="ts-product card">
             <a target="_blank" href="https://amzn.to/3NfPAcP">
-			<img class="card-img-top" src="images/learningGo.jpg"></a>
+			<img class="card-img-top" src="recommended/images/learningGo.jpg"></a>
             <div class="ts-product-title">
                 <h3>Improve your development skills by learning "Go", the language for building the next generation of web services.
 				</h3>
@@ -175,7 +130,7 @@
 		
         <div class="ts-product card">
             <a target="_blank" href="https://amzn.to/3stlPLU">
-			<img class="card-img-top" src="images/thePragmaticProgrammer.jpg"></a>
+			<img class="card-img-top" src="recommended/images/thePragmaticProgrammer.jpg"></a>
             <div class="ts-product-title">
                 <h3>Be a pragmatic programmer, analyze the relative importance of all the factors affecting your project, and use your experience to produce appropriate software solutions.
 				</h3>			
@@ -198,7 +153,7 @@
 		
 		<div class="ts-product card">
             <a target="_blank" href="https://amzn.to/3NfB6d6">
-			<img class="card-img-top" src="images/fluentPython.jpg"></a>
+			<img class="card-img-top" src="recommended/images/fluentPython.jpg"></a>
             <div class="ts-product-title">
                 <h3>Learn how to use Python for data analytics, machine learning, and design.</h3>
             </div>
@@ -220,7 +175,7 @@
 		
         <div class="ts-product card">
             <a target="_blank" href="https://amzn.to/3SBfzwk">
-			<img class="card-img-top" src="images/softwareDesignPrinciples.jpg"></a>
+			<img class="card-img-top" src="recommended/images/softwareDesignPrinciples.jpg"></a>
             <div class="ts-product-title">
                 <h3>When Software design principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focused on reusable components.
 				</h3>
@@ -243,7 +198,7 @@
 		
 	    <div class="ts-product card">
             <a target="_blank" href="https://amzn.to/3SD72ZO">
-			<img class="card-img-top" src="images/buildingMicroservices.jpg"></a>
+			<img class="card-img-top" src="recommended/images/buildingMicroservices.jpg"></a>
             <div class="ts-product-title">
                 <h3>Become an expert in creating a microservices architecture, where your application will be a collection of small, independent, loosely coupled services..
 				</h3>
@@ -266,7 +221,7 @@
 		
         <div class="ts-product card">
             <a target="_blank" href="https://amzn.to/3gIOjPp">
-			<img class="card-img-top" src="images/topJavaChallenges.jpg"></a>
+			<img class="card-img-top" src="recommended/images/topJavaChallenges.jpg"></a>
             <div class="ts-product-title">
                 <h3>Improve your Programming Problem-solving skills by learning data structures and algorithms and be ready to negotiate your next salary.</h3>
             </div>
@@ -276,7 +231,7 @@
 			  <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
-			  <span class="text-muted"> 14 ratings</span>
+			  <span class="text-muted"> 16 ratings</span>
 			</div>
 			
             <div>
@@ -284,8 +239,8 @@
                 <span><a target="_blank" href="https://amzn.to/3gIOjPp"><button type="button" class="btn btn-info">Buy</button></a></span>
             </div>
         </div>
-		
- 
+	</div>
+ </div>
     <!-- footer //--> 
 <div class="container"> 
    <div class="row"> 
