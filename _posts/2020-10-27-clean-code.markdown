@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Clean Code"
-description: "Clean code can be read and enhanced by a developer other than its original author. Clean code has Intention-Revealing names"
+title:  "Best practices for writing Clean Code"
+description: "Software development best practices. Writing maintainable code. Clean code examples for real-world scenarios"
 author: moises
 categories: [ Coding Practices ]
 image: assets/images/cleanCode.jpg
@@ -387,11 +387,16 @@ String supplierEmail = supplier.getSupplierEmail();
 String buyerEmail = buyer.getBuyerEmail();
 ```
 
-Other recommendations of clean code are:
+Applications of clean code:
 
-* Clean Code separates levels of detail
-* Clean Code needs a few comments
-* Clean Code has small methods
+* Refactoring techniques for improving code cleanliness
+* Achieving maintainability through clean code practices
+* Clean code practices for agile software development teams
+* Code review checklist for ensuring clean code
+* Clean code in object-oriented programming
+* Clean code practices for improving software security
+* Clean code practices for improving code collaboration
+* Clean code and continuous integration/continuous deployment (CI/CD)
 
 Please donate to maintain and improve this website if you find this content valuable.
 
