@@ -5,9 +5,295 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 09 Aug 2023 15:59:42 +0200</pubDate>
-    <lastBuildDate>Wed, 09 Aug 2023 15:59:42 +0200</lastBuildDate>
+    <pubDate>Thu, 10 Aug 2023 13:45:22 +0200</pubDate>
+    <lastBuildDate>Thu, 10 Aug 2023 13:45:22 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>REST API Overview</title>
+        <description>&lt;p&gt;APIs (Application Programming Interfaces) enable communication and data exchange between systems. Among the various types of APIs, &lt;a href=&quot;https://en.wikipedia.org/wiki/Representational_state_transfer&quot; target=&quot;_blank&quot;&gt;REST&lt;/a&gt; (Representational State Transfer) has emerged as a popular architectural style for building web services. This article will delve into the fundamental concepts of REST API, its principles, its benefits in modern web developmentand, and how to design a RESTful API.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-an-api&quot;&gt;What is an API?&lt;/h2&gt;
+
+&lt;p&gt;An API is an interface with defined functionalities that a software program presents to other programs and, in the case of web APIs, to the rest of the world via the Internet.&lt;/p&gt;
+
+&lt;p&gt;APIs are the building blocks that allow interoperability between businesses on the web. Companies implement APIs to expose internal business processes and data to new customers and partners. APIs are how food data containing information about allergens are shared with hundreds of restaurant apps specializing in their presentation to final customers.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-rest-api&quot;&gt;What is REST API?&lt;/h2&gt;
+
+&lt;p&gt;REST API is an architectural style that defines a set of guidelines for creating web services. It stands for Representational State Transfer and emphasizes a stateless, client-server communication model. REST APIs use HTTP (Hypertext Transfer Protocol) as the primary protocol for data transmission and rely on standard operations such as GET, POST, PUT, and DELETE to perform actions on resources.&lt;/p&gt;
+
+&lt;p&gt;The Hypertext Transfer Protocol (HTTP) is a stateless application-level protocol for distributed, collaborative, hypertext information systems.&lt;/p&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;p&gt;In REST API, a resource is the &lt;strong&gt;information or data&lt;/strong&gt; exposed through the web service. Resources can be entities such as users, suppliers, articles, or any other data entity that can be &lt;strong&gt;uniquely identified&lt;/strong&gt;. Each resource on the Web is typically represented by a URL (Uniform Resource Locator) or endpoint defining a globally unique address. Giving something a URL turns it into a resource.&lt;/p&gt;
+
+&lt;p&gt;In a business context, the following endpoint retrieves a representation of an array of article data under the following URL.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;GET /api/v1/articles HTTP/1.1
+Host: codersite.dev
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+     (adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;
+&lt;br /&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;representations&quot;&gt;Representations&lt;/h2&gt;
+
+&lt;p&gt;We have defined an article as an HTTP resource but cannot transmit a physical article over the Internet. But as an information resource, we can send It over the Internet. The information must be helpful for the client. That’s a representation, &lt;strong&gt;a machine-readable description of the current state of a resource&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  articleID : 12121,
+  articleName : &quot;Potatoes&quot;
+  articlePrice : 12,3
+  articleDeliveryDate : 20230910
+}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The server sends (because of GET requests from the client) a representation describing the state of a resource. The client sends (through a POST, PUT, or PATCH request) a representation describing the state it would like the resource to have. That’s &lt;strong&gt;representational state transfer&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;uniform-interface&quot;&gt;Uniform Interface&lt;/h2&gt;
+
+&lt;p&gt;A fundamental principle of REST API is the uniform interface, which establishes a standardized way of interacting with resources. It encompasses several constraints, including:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Identification of resources: Resources should be uniquely identified by URIs.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Stateless communication&lt;/strong&gt;: Each request from the client to the server should contain all the necessary information to process the request without relying on the server’s previous state.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Manipulation of resources through representations: Resources can be accessed and modified through representations, such as JSON or XML.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Self-descriptive messages: Requests and responses should include sufficient metadata to describe the meaning and format of the data.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Hypermedia as the engine of application state (HATEOAS): The API should provide links to related resources, allowing clients to navigate the application’s state.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;common-http-method-properties&quot;&gt;Common HTTP Method Properties&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Safe Methods&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Request methods are considered &lt;a href=&quot;https://httpwg.org/specs/rfc9110.html#safe.methods&quot; target=&quot;_blank&quot;&gt;safe&lt;/a&gt; if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource.&lt;/p&gt;
+
+&lt;p&gt;The GET, HEAD, OPTIONS, and TRACE methods are defined to be safe.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Idempotent Methods&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A request method is considered idempotent if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.&lt;/p&gt;
+
+&lt;p&gt;The PUT, and DELETE methods are defined to be idempotent.&lt;/p&gt;
+
+&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+     (adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;
+&lt;br /&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;http-methods&quot;&gt;HTTP Methods&lt;/h2&gt;
+
+&lt;p&gt;API clients can interact with APIs by sending HTTP methods to perform actions on resources. The four commonly used HTTP methods are:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Retrieves a representation of a resource or a collection of resources.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;GET /api/v1/suppliers HTTP/1.1
+Host: codersite.dev
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  &quot;suppliers&quot; : {
+    &quot;supplier&quot; : [
+      {
+        &quot;supplierId&quot;: 1881,
+        &quot;supplierName&quot;: &quot;ACME&quot;
+        &quot;supplierCurrency&quot;: &quot;EUR&quot;
+      },
+      {
+        &quot;supplierId&quot;: 132,
+        &quot;supplierName&quot;: &quot;ROYAL&quot;
+        &quot;supplierCurrency&quot;: &quot;EUR&quot;
+      },
+      .
+      .
+    ]
+  },
+  &quot;resultCountTotal&quot; : 980
+}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Even when a GET method is defined as a &lt;em&gt;safe&lt;/em&gt; HTTP method, your application MUST ensure that it never changes the resource state.&lt;/p&gt;
+
+&lt;p&gt;The success response code to a GET request is 200 (OK).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;POST&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Creates a new resource.&lt;/p&gt;
+
+&lt;p&gt;When a client sends a POST request, it sends a representation of the resource it wants to create that corresponds with the semantics defined for the endpoint.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;POST /api/v1/buyers HTTP/1.1
+Content-Type: application/json
+Host: codersite.dev
+
+{
+  &quot;buyerName&quot; : &quot;XYZ Restaurant&quot;,
+  &quot;buyerContact&quot; : &quot;Mr Bond&quot;,
+  &quot;buyerAddress&quot; : &quot;Berliner strasse 12&quot;,
+}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you include an extra attribute in the body request not defined in the endpoint representation, you probably receive an Error from the server.&lt;/p&gt;
+
+&lt;p&gt;The success response code to a POST request is 201 (Created).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PUT&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Updates an existing resource or creates it if it doesn’t exist.&lt;/p&gt;
+
+&lt;p&gt;The client usually takes the representation from a GET request, modifies it, and sends it back as the body of a PUT request.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;PUT /api/v1/buyers/{buyerId} HTTP/1.1
+Content-Type: application/json
+Host: codersite.dev
+
+{
+  &quot;buyerName&quot; : &quot;XYZ Restaurant&quot;,
+  &quot;buyerContact&quot; : &quot;Herr Olaf&quot;,
+  &quot;buyerAddress&quot; : &quot;Berliner strasse 12&quot;,
+}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The success response code to a PUT request is 200 (OK).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DELETE&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Removes a resource from the server.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;DELETE /api/v1/buyers/{buyerId} HTTP/1.1
+Content-Type: application/json
+Host: codersite.dev
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The success response code to a DELETE request is 204 (No Content).&lt;/p&gt;
+
+&lt;h2 id=&quot;request-and-response&quot;&gt;Request and Response&lt;/h2&gt;
+
+&lt;p&gt;REST API requests and responses are typically formatted in &lt;a href=&quot;https://www.json.org/json-en.html&quot; target=&quot;_blank&quot;&gt;JSON&lt;/a&gt; (JavaScript Object Notation) or XML (eXtensible Markup Language). Requests consist of an HTTP method, headers, and, optionally, a request body containing data. Responses include an HTTP status code indicating the outcome of the request, along with the response body containing the requested resource or an error message.&lt;/p&gt;
+
+&lt;h2 id=&quot;benefits-of-rest-api&quot;&gt;Benefits of REST API&lt;/h2&gt;
+
+&lt;p&gt;REST APIs offer several advantages that contribute to their widespread adoption in modern web development:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Scalability: REST API’s stateless nature allows for horizontal scalability, where multiple servers can handle requests independently, improving performance and accommodating a growing user base.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Interoperability: REST APIs leverage standardized HTTP methods and formats, enabling communication between different systems regardless of their underlying technologies.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Simplicity and ease of use: REST APIs have a straightforward design, making them easy to understand, implement, and consume. Developers can quickly grasp the concepts and start building applications around the exposed resources.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Flexibility: REST APIs support various data formats and can be used with different client applications, including web browsers, mobile devices, and third-party services.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div&gt;&lt;!--&lt;div class=&quot;alertbar&quot;&gt;--&gt;
+	&lt;div class=&quot;container text-center&quot;&gt;
+		&lt;span&gt;&lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;img src=&quot;/assets/images/logo.svg&quot; height=&quot;30&quot; alt=&quot;codersite&quot; /&gt;&lt;/a&gt; &amp;nbsp; Stay Connected!. Follow me to get my latest articles.&lt;/span&gt;
+        &lt;form action=&quot;https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;amp;id=8d64d36cba&quot; method=&quot;post&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;wj-contact-form validate&quot; target=&quot;_blank&quot; novalidate=&quot;&quot;&gt;
+            &lt;div class=&quot;mc-field-group&quot;&gt;
+            &lt;input type=&quot;email&quot; placeholder=&quot;Email&quot; name=&quot;EMAIL&quot; class=&quot;required email&quot; id=&quot;mce-EMAIL&quot; autocomplete=&quot;on&quot; required=&quot;&quot; /&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; class=&quot;heart&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+	&lt;/div&gt;
+&lt;!--&lt;/div&gt;--&gt;&lt;/div&gt;
+</description>
+        <pubDate>Thu, 29 Jun 2023 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/rest-api-overview/</link>
+        <guid isPermaLink="true">http://localhost:4000/rest-api-overview/</guid>
+        
+        
+        <category>Web APIs</category>
+        
+      </item>
     
       <item>
         <title>How to implement Rate Limiting</title>
@@ -1790,289 +2076,6 @@
         <pubDate>Wed, 11 May 2022 00:00:00 +0200</pubDate>
         <link>http://localhost:4000/ssl-handshake-failure/</link>
         <guid isPermaLink="true">http://localhost:4000/ssl-handshake-failure/</guid>
-        
-        
-        <category>Web APIs</category>
-        
-      </item>
-    
-      <item>
-        <title>Spring Boot, OpenAPI3, and OAuth2</title>
-        <description>&lt;p&gt;This tutorial will show how to integrate OAuth2 with Spring Security in a Spring Boot application with OpenAPI 3.&lt;/p&gt;
-
-&lt;p&gt;The Spring Boot application I am going to use is based on my previous article: &lt;a href=&quot;https://codersite.dev/documenting-rest-api-openapi3/&quot; target=&quot;_blank&quot;&gt;Documenting a SpringBoot REST API with OpenAPI 3&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;oauth&quot;&gt;OAuth&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749&quot; target=&quot;_blank&quot;&gt;OAuth&lt;/a&gt; is an authorization framework many companies use to secure access to their protected resources. It performs this by using access tokens.&lt;/p&gt;
-
-&lt;p&gt;The token represents a delegated right of access on behalf of the resource owner.&lt;/p&gt;
-
-&lt;h2 id=&quot;roles&quot;&gt;Roles&lt;/h2&gt;
-
-&lt;p&gt;OAuth defines four roles&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;The Resource Owner is the user who grants access to a protected resource.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Resource Server stores users’ data and HTTP services and responds to protected resource requests using access tokens.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The client is the application that requires access to protected resources on behalf of the resource owner and its authorization.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The authorization server is responsible for authenticating the user’s identity and giving an authorization token.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;authorization-grant&quot;&gt;Authorization grant&lt;/h2&gt;
-
-&lt;p&gt;An authorization grant is a credential representing the resource owner’s authorization used by the client to obtain an access token.&lt;/p&gt;
-
-&lt;p&gt;OAuth2 defines four grant types.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Authorization Code, for web apps that are server-side apps&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Implicit, optimized for clients implemented in a browser using a scripting language such as JavaScript&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Resource Owner Password Credentials are used when there is a high degree of trust between the resource owner and the client&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Client Credentials are used when the client is requesting access to protected resources based on an authorization previously arranged with the authorization server.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The  Client Credentials grant type is the most appropriate for server-to-server applications, such as typical B2B interactions.&lt;/p&gt;
-
-&lt;h3 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h3&gt;
-
-&lt;p&gt;To integrate OAuth2 in a Spring Boot application, we add the Spring Oauth dependency to our pom.xml file.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dependency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;security&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;oauth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;boot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;artifactId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spring-security-oauth2-autoconfigure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;artifactId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.5.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dependency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;enable-authorization-server-support&quot;&gt;Enable Authorization Server Support&lt;/h3&gt;
-
-&lt;p&gt;We open the main application class and add @EnableAuthorizationServer to enable the support for the authorization server.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nd&quot;&gt;@EnableAuthorizationServer&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@SpringBootApplication&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OpenapiApplication&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;nc&quot;&gt;SpringApplication&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;OpenapiApplication&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;p&gt;@EnableAuthorizationServer enables the client credentials grant type by default.&lt;/p&gt;
-
-&lt;h3 id=&quot;creating-clientid-and-client-secret&quot;&gt;Creating ClientId and Client Secret&lt;/h3&gt;
-
-&lt;p&gt;Open/create the resources/application.yml file and add the following properties:&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;security&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;oauth2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;client-id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;codercuy-client&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;client-secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strong-secret&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;We need to tell Spring which endpoints -resources- must be authenticated. Otherwise, all requests will skip security.&lt;/p&gt;
-
-&lt;h3 id=&quot;enable-resource-server-support&quot;&gt;Enable Resource Server Support&lt;/h3&gt;
-
-&lt;p&gt;Create a class that extends ResourceServerConfigurerAdapter and add the following code.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@EnableResourceServer&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OAuth2ResourceServer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ResourceServerConfigurerAdapter&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpSecurity&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;authorizeRequests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;antMatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/api/**&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;authenticated&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;antMatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;permitAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now, run the main application.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://localhost:8080/swagger-ui.html&quot; target=&quot;_blank&quot;&gt;http://localhost:8080/swagger-ui.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;p&gt;And try to insert a book (Try out button). In the bookAuthorization parameter, write anything (“key,” for example).&lt;/p&gt;
-
-&lt;p&gt;Then you receive an error.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/oauth2Post.jpg&quot; alt=&quot;oauth2Post&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Why does this happen? Well, we need to tell OpenAPI that configures security.&lt;/p&gt;
-
-&lt;h3 id=&quot;configure-openapi-andoauth2&quot;&gt;Configure OpenAPI and Oauth2&lt;/h3&gt;
-
-&lt;p&gt;To integrate OpenAPI 3 with OAuth2, open the &lt;em&gt;OpenApiConfig&lt;/em&gt; class and add the new code.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OpenApiConfig&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OpenAPI&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;customOpenAPI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OpenAPI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;components&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Components&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-                &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addSecuritySchemes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;spring_oauth&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SecurityScheme&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-                        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SecurityScheme&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;OAUTH2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Oauth2 flow&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OAuthFlows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-                                &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;clientCredentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OAuthFlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-                                        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;tokenUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:8080&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/oauth/token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                                        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;scopes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Scopes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-                                                &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;read&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;for read operations&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                                                &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;write&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;for write operations&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                                        &lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;security&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;asList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SecurityRequirement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;spring_oauth&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Book Application API&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;This is a sample Spring Boot RESTful service using springdoc-openapi and OpenAPI 3.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;termsOfService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;terms&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;contact&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Contact&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;codersitedev@gmail.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Developer: Moises Gamio&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;license&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;License&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;GNU&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; src=&quot;../assets/images/softwareDesign1.png&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;p&gt;From the previous code, you can see that before setting up a security requirement in OpenAPI, we need to define a new security scheme component called “spring_oauth” for example.&lt;/p&gt;
-
-&lt;p&gt;Now, rerun the main application, and we can see a new green button called Authorize. Then enter the credentials and the scope.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/oauth2authorize.jpg&quot; alt=&quot;oauth2authorize&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Close the pop-up and try out again to insert a book.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/oauth2PostOK.jpg&quot; alt=&quot;oauth2PostOK&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Yes, you did it!&lt;/p&gt;
-
-&lt;p&gt;Now, your endpoints are secured and protected with OAuth2.&lt;/p&gt;
-
-&lt;p&gt;Please donate to maintain and improve this website if you find this content valuable.&lt;/p&gt;
-
-&lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
- &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
- &lt;input type=&quot;image&quot; src=&quot;https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif&quot; border=&quot;0&quot; name=&quot;submit&quot; title=&quot;PayPal - The safer, easier way to pay online!&quot; alt=&quot;Donate with PayPal button&quot; /&gt;
- &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;https://www.paypal.com/en_DE/i/scr/pixel.gif&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;
-&lt;/form&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 26 Apr 2022 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/spring-boot-oauth2/</link>
-        <guid isPermaLink="true">http://localhost:4000/spring-boot-oauth2/</guid>
         
         
         <category>Web APIs</category>

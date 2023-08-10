@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>REST API Overview | codersite</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="REST API Overview" />
+<meta name="author" content="moises" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Key Concepts, Best Practices, and Benefits" />
+<meta property="og:description" content="Key Concepts, Best Practices, and Benefits" />
+<link rel="canonical" href="http://localhost:4000/rest-api-overview/" />
+<meta property="og:url" content="http://localhost:4000/rest-api-overview/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:image" content="http://localhost:4000/assets/images/RESTAPIOverview.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-06-29T00:00:00+02:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/RESTAPIOverview.jpg" />
+<meta property="twitter:title" content="REST API Overview" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2023-06-29T00:00:00+02:00","datePublished":"2023-06-29T00:00:00+02:00","description":"Key Concepts, Best Practices, and Benefits","headline":"REST API Overview","image":"http://localhost:4000/assets/images/RESTAPIOverview.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/rest-api-overview/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/rest-api-overview/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script src="/assets/js/jquery.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+  crossorigin="anonymous"></script></head>
+
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+ 
+                <li class="nav-item">
+                <a class="nav-link" href="/recommended.html">Recommended</a>
+                </li>
+				
+                <li class="nav-item">
+                <a class="nav-link" href="/book">Books</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=REST API Overview&url=http://localhost:4000/rest-api-overview/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/rest-api-overview/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+         <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/rest-api-overview/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>	
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://codersite.dev">Moises Gamio</a><a target="_blank" href="https://twitter.com/MoisesGamio" class="btn follow">Follow</a>
+                        <span class="author-description">Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors.</span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">REST API Overview</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+			
+			
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/RESTAPIOverview.jpg" alt="REST API Overview">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>APIs (Application Programming Interfaces) enable communication and data exchange between systems. Among the various types of APIs, <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> (Representational State Transfer) has emerged as a popular architectural style for building web services. This article will delve into the fundamental concepts of REST API, its principles, its benefits in modern web developmentand, and how to design a RESTful API.</p>
+
+<h2 id="what-is-an-api">What is an API?</h2>
+
+<p>An API is an interface with defined functionalities that a software program presents to other programs and, in the case of web APIs, to the rest of the world via the Internet.</p>
+
+<p>APIs are the building blocks that allow interoperability between businesses on the web. Companies implement APIs to expose internal business processes and data to new customers and partners. APIs are how food data containing information about allergens are shared with hundreds of restaurant apps specializing in their presentation to final customers.</p>
+
+<h2 id="what-is-rest-api">What is REST API?</h2>
+
+<p>REST API is an architectural style that defines a set of guidelines for creating web services. It stands for Representational State Transfer and emphasizes a stateless, client-server communication model. REST APIs use HTTP (Hypertext Transfer Protocol) as the primary protocol for data transmission and rely on standard operations such as GET, POST, PUT, and DELETE to perform actions on resources.</p>
+
+<p>The Hypertext Transfer Protocol (HTTP) is a stateless application-level protocol for distributed, collaborative, hypertext information systems.</p>
+
+<h2 id="resources">Resources</h2>
+
+<p>In REST API, a resource is the <strong>information or data</strong> exposed through the web service. Resources can be entities such as users, suppliers, articles, or any other data entity that can be <strong>uniquely identified</strong>. Each resource on the Web is typically represented by a URL (Uniform Resource Locator) or endpoint defining a globally unique address. Giving something a URL turns it into a resource.</p>
+
+<p>In a business context, the following endpoint retrieves a representation of an array of article data under the following URL.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>GET /api/v1/articles HTTP/1.1
+Host: codersite.dev
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="representations">Representations</h2>
+
+<p>We have defined an article as an HTTP resource but cannot transmit a physical article over the Internet. But as an information resource, we can send It over the Internet. The information must be helpful for the client. That’s a representation, <strong>a machine-readable description of the current state of a resource</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  articleID : 12121,
+  articleName : "Potatoes"
+  articlePrice : 12,3
+  articleDeliveryDate : 20230910
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The server sends (because of GET requests from the client) a representation describing the state of a resource. The client sends (through a POST, PUT, or PATCH request) a representation describing the state it would like the resource to have. That’s <strong>representational state transfer</strong>.</p>
+
+<h2 id="uniform-interface">Uniform Interface</h2>
+
+<p>A fundamental principle of REST API is the uniform interface, which establishes a standardized way of interacting with resources. It encompasses several constraints, including:</p>
+
+<ul>
+  <li>
+    <p>Identification of resources: Resources should be uniquely identified by URIs.</p>
+  </li>
+  <li>
+    <p><strong>Stateless communication</strong>: Each request from the client to the server should contain all the necessary information to process the request without relying on the server’s previous state.</p>
+  </li>
+  <li>
+    <p>Manipulation of resources through representations: Resources can be accessed and modified through representations, such as JSON or XML.</p>
+  </li>
+  <li>
+    <p>Self-descriptive messages: Requests and responses should include sufficient metadata to describe the meaning and format of the data.</p>
+  </li>
+  <li>
+    <p>Hypermedia as the engine of application state (HATEOAS): The API should provide links to related resources, allowing clients to navigate the application’s state.</p>
+  </li>
+</ul>
+
+<h2 id="common-http-method-properties">Common HTTP Method Properties</h2>
+
+<p><strong>Safe Methods</strong></p>
+
+<p>Request methods are considered <a href="https://httpwg.org/specs/rfc9110.html#safe.methods" target="_blank">safe</a> if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource.</p>
+
+<p>The GET, HEAD, OPTIONS, and TRACE methods are defined to be safe.</p>
+
+<p><strong>Idempotent Methods</strong></p>
+
+<p>A request method is considered idempotent if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.</p>
+
+<p>The PUT, and DELETE methods are defined to be idempotent.</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="http-methods">HTTP Methods</h2>
+
+<p>API clients can interact with APIs by sending HTTP methods to perform actions on resources. The four commonly used HTTP methods are:</p>
+
+<p><strong>GET</strong></p>
+
+<p>Retrieves a representation of a resource or a collection of resources.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre>GET /api/v1/suppliers HTTP/1.1
+Host: codersite.dev
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "suppliers" : {
+    "supplier" : [
+      {
+        "supplierId": 1881,
+        "supplierName": "ACME"
+        "supplierCurrency": "EUR"
+      },
+      {
+        "supplierId": 132,
+        "supplierName": "ROYAL"
+        "supplierCurrency": "EUR"
+      },
+      .
+      .
+    ]
+  },
+  "resultCountTotal" : 980
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Even when a GET method is defined as a <em>safe</em> HTTP method, your application MUST ensure that it never changes the resource state.</p>
+
+<p>The success response code to a GET request is 200 (OK).</p>
+
+<p><strong>POST</strong></p>
+
+<p>Creates a new resource.</p>
+
+<p>When a client sends a POST request, it sends a representation of the resource it wants to create that corresponds with the semantics defined for the endpoint.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>POST /api/v1/buyers HTTP/1.1
+Content-Type: application/json
+Host: codersite.dev
+
+{
+  "buyerName" : "XYZ Restaurant",
+  "buyerContact" : "Mr Bond",
+  "buyerAddress" : "Berliner strasse 12",
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>If you include an extra attribute in the body request not defined in the endpoint representation, you probably receive an Error from the server.</p>
+
+<p>The success response code to a POST request is 201 (Created).</p>
+
+<p><strong>PUT</strong></p>
+
+<p>Updates an existing resource or creates it if it doesn’t exist.</p>
+
+<p>The client usually takes the representation from a GET request, modifies it, and sends it back as the body of a PUT request.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>PUT /api/v1/buyers/{buyerId} HTTP/1.1
+Content-Type: application/json
+Host: codersite.dev
+
+{
+  "buyerName" : "XYZ Restaurant",
+  "buyerContact" : "Herr Olaf",
+  "buyerAddress" : "Berliner strasse 12",
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The success response code to a PUT request is 200 (OK).</p>
+
+<p><strong>DELETE</strong></p>
+
+<p>Removes a resource from the server.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>DELETE /api/v1/buyers/{buyerId} HTTP/1.1
+Content-Type: application/json
+Host: codersite.dev
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The success response code to a DELETE request is 204 (No Content).</p>
+
+<h2 id="request-and-response">Request and Response</h2>
+
+<p>REST API requests and responses are typically formatted in <a href="https://www.json.org/json-en.html" target="_blank">JSON</a> (JavaScript Object Notation) or XML (eXtensible Markup Language). Requests consist of an HTTP method, headers, and, optionally, a request body containing data. Responses include an HTTP status code indicating the outcome of the request, along with the response body containing the requested resource or an error message.</p>
+
+<h2 id="benefits-of-rest-api">Benefits of REST API</h2>
+
+<p>REST APIs offer several advantages that contribute to their widespread adoption in modern web development:</p>
+
+<ul>
+  <li>
+    <p>Scalability: REST API’s stateless nature allows for horizontal scalability, where multiple servers can handle requests independently, improving performance and accommodating a growing user base.</p>
+  </li>
+  <li>
+    <p>Interoperability: REST APIs leverage standardized HTTP methods and formats, enabling communication between different systems regardless of their underlying technologies.</p>
+  </li>
+  <li>
+    <p>Simplicity and ease of use: REST APIs have a straightforward design, making them easy to understand, implement, and consume. Developers can quickly grasp the concepts and start building applications around the exposed resources.</p>
+  </li>
+  <li>
+    <p>Flexibility: REST APIs support various data formats and can be used with different client applications, including web browsers, mobile devices, and third-party services.</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><!--<div class="alertbar">-->
+	<div class="container text-center">
+		<span><a class="navbar-brand" href="/"><img src="/assets/images/logo.svg" height="30" alt="codersite" /></a> &nbsp; Stay Connected!. Follow me to get my latest articles.</span>
+        <form action="https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;id=8d64d36cba" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate="">
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required="" />
+            <input type="submit" value="Subscribe" name="subscribe" class="heart" />
+            </div>
+        </form>
+	</div>
+<!--</div>--></div>
+
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+     crossorigin="anonymous"></script>
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2023-06-29">29 Jun 2023</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Web-APIs">Web APIs</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="http://localhost:4000/rate-limit/"> &laquo; How to implement Rate Limiting</a>
+            
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<!--<div class="alertbar">-->
+	<div class="container text-center">
+		<span><a class="navbar-brand" href="/"><img src="/assets/images/logo.svg" height="30" alt="codersite"></a> &nbsp; Stay Connected!. Follow me to get my latest articles.</span>
+        <form action="https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;id=8d64d36cba" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+<!--</div>-->
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (8)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#design">design (3)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (6)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distribuited-systems">distribuited systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2023 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/policy">Privacy policy |</a>
+				<a href="/termsOfService">Terms of service |</a>
+				<a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+</body>
+</html>
