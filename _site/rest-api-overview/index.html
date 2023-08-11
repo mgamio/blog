@@ -456,6 +456,173 @@ Host: codersite.dev
 
 <p>REST API requests and responses are typically formatted in <a href="https://www.json.org/json-en.html" target="_blank">JSON</a> (JavaScript Object Notation) or XML (eXtensible Markup Language). Requests consist of an HTTP method, headers, and, optionally, a request body containing data. Responses include an HTTP status code indicating the outcome of the request, along with the response body containing the requested resource or an error message.</p>
 
+<div><p>With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.</p>
+<center>
+  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
+</center>
+
+<br /></div>
+
+<h2 id="building-a-restful-web-service">Building a RESTful Web Service</h2>
+
+<p>The following diagram shows how a Restaurant (represented as a buyer) aims to place orders at suppliers to get food articles delivered.</p>
+
+<p><img src="/assets/images/shoppingCar.jpg" alt="shopping-car" class="img-responsive" /></p>
+
+<p>It is highly recommended to use the SwaggerHub editor to create a consistent API design compliant with the OpenAPI Specifications. <a href="https://swagger.io/tools/swaggerhub/" target="_blank">Create a Free Account</a>.</p>
+
+<p>While you are designing, SwaggerHub can generate documentation automatically, making it easy for both API consumers and internal users to learn and test your APIs. You can create a Client SDK for different programming languages from the Editor and generate the object model and API controllers on your server side.</p>
+
+<p>The following figure shows an example of how SwaggerHub generates the documentation.</p>
+
+<p><img src="/assets/images/buyerOperations.jpg" alt="buyer-swagger" class="img-responsive" /></p>
+
+<p>We will use the Spring portfolio to build a RESTful service.</p>
+
+<p>Following the “separation of concerns” principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (<em>BuyersApiController</em>) and managing all business logic, mappings, and the database connection to a Service class (<em>BuyersService</em>).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre>@RestController
+@Validated
+public class BuyersApiController implements BuyersApi {
+	
+  private final BuyersService buyersService;
+
+  @Autowired
+  public BuyersApiController(
+    BuyersService buyersService) {
+    this.buyersService = buyersService;
+  }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The following listing shows common operations in a REST Controller.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+</pre></td><td class="rouge-code"><pre>@Override
+@RequestMapping(value = "/api/v1/buyers", method = RequestMethod.POST)
+public ResponseEntity&lt;Buyer&gt; addBuyer(Buyer body) throws Exception {
+	
+  Buyer newBuyer = buyersService.addBuyer(body);
+		
+  return new ResponseEntity&lt;Buyer&gt;(newBuyer, HttpStatus.CREATED);
+}
+
+@Override
+@RequestMapping(value = "/api/v1/buyers/{buyerId}", method = RequestMethod.DELETE)
+public ResponseEntity&lt;Void&gt; deleteBuyer(Integer buyerId) throws Exception {
+
+  buyersService.deleteBuyer(buyerId);
+
+  return new ResponseEntity&lt;Void&gt;(HttpStatus.NO_CONTENT);
+}
+	
+@Override
+@RequestMapping(value = "/api/v1/buyers/{buyerId}", method = RequestMethod.GET)
+public ResponseEntity&lt;Buyer&gt; getBuyerById(Integer buyerId) throws Exception {
+
+  Buyer buyer = buyersService.getBuyerById(buyerId);
+		
+  if (buyer == null)
+    throw new ResourceNotFoundException("The buyerId does not exist");
+		
+  return new ResponseEntity&lt;Buyer&gt;(buyer, HttpStatus.OK);
+}
+
+@Override
+@RequestMapping(value = "/api/v1/buyers/{buyerId}", method = RequestMethod.PUT)
+public ResponseEntity&lt;Buyer&gt; updateBuyer(Integer buyerId, Buyer body) throws Exception {
+
+  Buyer updatedBuyer = buyersService.updateBuyer(buyerId, body);
+		
+  return new ResponseEntity&lt;Buyer&gt;(updatedBuyer, HttpStatus.OK);
+}
+
+@Override
+@RequestMapping(value = "/api/v1/buyers", method = RequestMethod.GET)
+public ResponseEntity&lt;List&lt;Buyer&gt;&gt; listBuyers(
+  String buyerCompanyName, 
+  String sortBy,
+  String sortOrder, 
+  Integer offset, 
+  Integer limit) throws Exception {
+
+  ListBuyersResponse response = buyersService.listBuyers(
+    buyerCompanyName, sortBy, sortOrder, offset, limit);
+
+  HttpHeaders responseHeaders = new HttpHeaders();
+  responseHeaders.set("X-TotalResultCount", String.valueOf(response.getTotalResultCount()));
+    
+  return new ResponseEntity&lt;List&lt;Buyer&gt;&gt;(response.getListBuyers(), responseHeaders, HttpStatus.OK);
+}	
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <h2 id="benefits-of-rest-api">Benefits of REST API</h2>
 
 <p>REST APIs offer several advantages that contribute to their widespread adoption in modern web development:</p>
@@ -474,10 +641,6 @@ Host: codersite.dev
     <p>Flexibility: REST APIs support various data formats and can be used with different client applications, including web browsers, mobile devices, and third-party services.</p>
   </li>
 </ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>
-</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="conclusion">Conclusion</h2>
 
