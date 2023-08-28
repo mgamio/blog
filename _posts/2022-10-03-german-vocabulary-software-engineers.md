@@ -130,6 +130,8 @@ Implementierungseinstellungen : deployment settings
 
 installieren : install
 
+Künstliche Intelligenz : Artificial intelligence
+
 löschen : delete
 
 das Quellcode : source code

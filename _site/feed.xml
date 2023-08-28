@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 10 Aug 2023 13:49:15 +0200</pubDate>
-    <lastBuildDate>Thu, 10 Aug 2023 13:49:15 +0200</lastBuildDate>
+    <pubDate>Mon, 28 Aug 2023 21:41:18 +0200</pubDate>
+    <lastBuildDate>Mon, 28 Aug 2023 21:41:18 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -251,6 +251,173 @@ Host: codersite.dev
 
 &lt;p&gt;REST API requests and responses are typically formatted in &lt;a href=&quot;https://www.json.org/json-en.html&quot; target=&quot;_blank&quot;&gt;JSON&lt;/a&gt; (JavaScript Object Notation) or XML (eXtensible Markup Language). Requests consist of an HTTP method, headers, and, optionally, a request body containing data. Responses include an HTTP status code indicating the outcome of the request, along with the response body containing the requested resource or an error message.&lt;/p&gt;
 
+&lt;div&gt;&lt;p&gt;With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.&lt;/p&gt;
+&lt;center&gt;
+  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+&lt;br /&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;building-a-restful-web-service&quot;&gt;Building a RESTful Web Service&lt;/h2&gt;
+
+&lt;p&gt;The following diagram shows how a Restaurant (represented as a buyer) aims to place orders at suppliers to get food articles delivered.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/shoppingCar.jpg&quot; alt=&quot;shopping-car&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It is highly recommended to use the SwaggerHub editor to create a consistent API design compliant with the OpenAPI Specifications. &lt;a href=&quot;https://swagger.io/tools/swaggerhub/&quot; target=&quot;_blank&quot;&gt;Create a Free Account&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;While you are designing, SwaggerHub can generate documentation automatically, making it easy for both API consumers and internal users to learn and test your APIs. You can create a Client SDK for different programming languages from the Editor and generate the object model and API controllers on your server side.&lt;/p&gt;
+
+&lt;p&gt;The following figure shows an example of how SwaggerHub generates the documentation.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/buyerOperations.jpg&quot; alt=&quot;buyer-swagger&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We will use the Spring portfolio to build a RESTful service.&lt;/p&gt;
+
+&lt;p&gt;Following the “separation of concerns” principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (&lt;em&gt;BuyersApiController&lt;/em&gt;) and managing all business logic, mappings, and the database connection to a Service class (&lt;em&gt;BuyersService&lt;/em&gt;).&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;@RestController
+@Validated
+public class BuyersApiController implements BuyersApi {
+	
+  private final BuyersService buyersService;
+
+  @Autowired
+  public BuyersApiController(
+    BuyersService buyersService) {
+    this.buyersService = buyersService;
+  }
+}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The following listing shows common operations in a REST Controller.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;@Override
+@RequestMapping(value = &quot;/api/v1/buyers&quot;, method = RequestMethod.POST)
+public ResponseEntity&amp;lt;Buyer&amp;gt; addBuyer(Buyer body) throws Exception {
+	
+  Buyer newBuyer = buyersService.addBuyer(body);
+		
+  return new ResponseEntity&amp;lt;Buyer&amp;gt;(newBuyer, HttpStatus.CREATED);
+}
+
+@Override
+@RequestMapping(value = &quot;/api/v1/buyers/{buyerId}&quot;, method = RequestMethod.DELETE)
+public ResponseEntity&amp;lt;Void&amp;gt; deleteBuyer(Integer buyerId) throws Exception {
+
+  buyersService.deleteBuyer(buyerId);
+
+  return new ResponseEntity&amp;lt;Void&amp;gt;(HttpStatus.NO_CONTENT);
+}
+	
+@Override
+@RequestMapping(value = &quot;/api/v1/buyers/{buyerId}&quot;, method = RequestMethod.GET)
+public ResponseEntity&amp;lt;Buyer&amp;gt; getBuyerById(Integer buyerId) throws Exception {
+
+  Buyer buyer = buyersService.getBuyerById(buyerId);
+		
+  if (buyer == null)
+    throw new ResourceNotFoundException(&quot;The buyerId does not exist&quot;);
+		
+  return new ResponseEntity&amp;lt;Buyer&amp;gt;(buyer, HttpStatus.OK);
+}
+
+@Override
+@RequestMapping(value = &quot;/api/v1/buyers/{buyerId}&quot;, method = RequestMethod.PUT)
+public ResponseEntity&amp;lt;Buyer&amp;gt; updateBuyer(Integer buyerId, Buyer body) throws Exception {
+
+  Buyer updatedBuyer = buyersService.updateBuyer(buyerId, body);
+		
+  return new ResponseEntity&amp;lt;Buyer&amp;gt;(updatedBuyer, HttpStatus.OK);
+}
+
+@Override
+@RequestMapping(value = &quot;/api/v1/buyers&quot;, method = RequestMethod.GET)
+public ResponseEntity&amp;lt;List&amp;lt;Buyer&amp;gt;&amp;gt; listBuyers(
+  String buyerCompanyName, 
+  String sortBy,
+  String sortOrder, 
+  Integer offset, 
+  Integer limit) throws Exception {
+
+  ListBuyersResponse response = buyersService.listBuyers(
+    buyerCompanyName, sortBy, sortOrder, offset, limit);
+
+  HttpHeaders responseHeaders = new HttpHeaders();
+  responseHeaders.set(&quot;X-TotalResultCount&quot;, String.valueOf(response.getTotalResultCount()));
+    
+  return new ResponseEntity&amp;lt;List&amp;lt;Buyer&amp;gt;&amp;gt;(response.getListBuyers(), responseHeaders, HttpStatus.OK);
+}	
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;h2 id=&quot;benefits-of-rest-api&quot;&gt;Benefits of REST API&lt;/h2&gt;
 
 &lt;p&gt;REST APIs offer several advantages that contribute to their widespread adoption in modern web development:&lt;/p&gt;
@@ -269,10 +436,6 @@ Host: codersite.dev
     &lt;p&gt;Flexibility: REST APIs support various data formats and can be used with different client applications, including web browsers, mobile devices, and third-party services.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
@@ -1428,6 +1591,8 @@ Host: codersite.dev
 &lt;p&gt;Implementierungseinstellungen : deployment settings&lt;/p&gt;
 
 &lt;p&gt;installieren : install&lt;/p&gt;
+
+&lt;p&gt;Künstliche Intelligenz : Artificial intelligence&lt;/p&gt;
 
 &lt;p&gt;löschen : delete&lt;/p&gt;
 

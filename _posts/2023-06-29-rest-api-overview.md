@@ -184,6 +184,104 @@ The success response code to a DELETE request is 204 (No Content).
 
 REST API requests and responses are typically formatted in [JSON](https://www.json.org/json-en.html){:target="_blank"} (JavaScript Object Notation) or XML (eXtensible Markup Language). Requests consist of an HTTP method, headers, and, optionally, a request body containing data. Responses include an HTTP status code indicating the outcome of the request, along with the response body containing the requested resource or an error message.
 
+<div>
+{%- include softwareDesign.html -%}
+</div>
+
+## Building a RESTful Web Service
+
+The following diagram shows how a Restaurant (represented as a buyer) aims to place orders at suppliers to get food articles delivered.
+
+![shopping-car](/assets/images/shoppingCar.jpg){:class="img-responsive"}
+
+It is highly recommended to use the SwaggerHub editor to create a consistent API design compliant with the OpenAPI Specifications. [Create a Free Account](https://swagger.io/tools/swaggerhub/){:target="_blank"}.
+
+While you are designing, SwaggerHub can generate documentation automatically, making it easy for both API consumers and internal users to learn and test your APIs. You can create a Client SDK for different programming languages from the Editor and generate the object model and API controllers on your server side.
+
+The following figure shows an example of how SwaggerHub generates the documentation.
+
+![buyer-swagger](/assets/images/buyerOperations.jpg){:class="img-responsive"}
+
+We will use the Spring portfolio to build a RESTful service.
+
+Following the "separation of concerns" principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (*BuyersApiController*) and managing all business logic, mappings, and the database connection to a Service class (*BuyersService*).
+
+```
+@RestController
+@Validated
+public class BuyersApiController implements BuyersApi {
+	
+  private final BuyersService buyersService;
+
+  @Autowired
+  public BuyersApiController(
+    BuyersService buyersService) {
+    this.buyersService = buyersService;
+  }
+}
+```
+
+The following listing shows common operations in a REST Controller.
+
+```
+@Override
+@RequestMapping(value = "/api/v1/buyers", method = RequestMethod.POST)
+public ResponseEntity<Buyer> addBuyer(Buyer body) throws Exception {
+	
+  Buyer newBuyer = buyersService.addBuyer(body);
+		
+  return new ResponseEntity<Buyer>(newBuyer, HttpStatus.CREATED);
+}
+
+@Override
+@RequestMapping(value = "/api/v1/buyers/{buyerId}", method = RequestMethod.DELETE)
+public ResponseEntity<Void> deleteBuyer(Integer buyerId) throws Exception {
+
+  buyersService.deleteBuyer(buyerId);
+
+  return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+}
+	
+@Override
+@RequestMapping(value = "/api/v1/buyers/{buyerId}", method = RequestMethod.GET)
+public ResponseEntity<Buyer> getBuyerById(Integer buyerId) throws Exception {
+
+  Buyer buyer = buyersService.getBuyerById(buyerId);
+		
+  if (buyer == null)
+    throw new ResourceNotFoundException("The buyerId does not exist");
+		
+  return new ResponseEntity<Buyer>(buyer, HttpStatus.OK);
+}
+
+@Override
+@RequestMapping(value = "/api/v1/buyers/{buyerId}", method = RequestMethod.PUT)
+public ResponseEntity<Buyer> updateBuyer(Integer buyerId, Buyer body) throws Exception {
+
+  Buyer updatedBuyer = buyersService.updateBuyer(buyerId, body);
+		
+  return new ResponseEntity<Buyer>(updatedBuyer, HttpStatus.OK);
+}
+
+@Override
+@RequestMapping(value = "/api/v1/buyers", method = RequestMethod.GET)
+public ResponseEntity<List<Buyer>> listBuyers(
+  String buyerCompanyName, 
+  String sortBy,
+  String sortOrder, 
+  Integer offset, 
+  Integer limit) throws Exception {
+
+  ListBuyersResponse response = buyersService.listBuyers(
+    buyerCompanyName, sortBy, sortOrder, offset, limit);
+
+  HttpHeaders responseHeaders = new HttpHeaders();
+  responseHeaders.set("X-TotalResultCount", String.valueOf(response.getTotalResultCount()));
+    
+  return new ResponseEntity<List<Buyer>>(response.getListBuyers(), responseHeaders, HttpStatus.OK);
+}	
+```
+
 ## Benefits of REST API
 
 REST APIs offer several advantages that contribute to their widespread adoption in modern web development:
@@ -195,12 +293,6 @@ REST APIs offer several advantages that contribute to their widespread adoption 
 - Simplicity and ease of use: REST APIs have a straightforward design, making them easy to understand, implement, and consume. Developers can quickly grasp the concepts and start building applications around the exposed resources.
 
 - Flexibility: REST APIs support various data formats and can be used with different client applications, including web browsers, mobile devices, and third-party services.
-
-
-
-```
-
-```
 
 ## Conclusion
 
