@@ -8,7 +8,7 @@ image: assets/images/RESTAPIOverview.jpg
 comments: false
 ---
 
-APIs (Application Programming Interfaces) enable communication and data exchange between systems. Among the various types of APIs, [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="_blank"} (Representational State Transfer) has emerged as a popular architectural style for building web services. This article will delve into the fundamental concepts of REST API, its principles, its benefits in modern web developmentand, and how to design a RESTful API.
+APIs (Application Programming Interfaces) enable communication and data exchange between systems. Among the various types of APIs, [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="_blank"} (Representational State Transfer) has emerged as a popular architectural style for building web services. This article will delve into the fundamental concepts of REST API, its principles, its benefits in modern web development, and how to design a RESTful API.
 
 ## What is an API?
 
