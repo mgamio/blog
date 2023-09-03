@@ -32,6 +32,7 @@ comments: false
       <li>Distributed Systems</li>
       <li>Data Structure and Algorithms</li>
 	  <li>Object-Oriented Programming</li>
+	  <li>Cloud Computing</li>
       <li>Learning new technologies</li>
     </ul>
 	
@@ -53,20 +54,20 @@ comments: false
 
       <br/>
 
-      <p>A collection of software design principles with code examples from real business scenarios.</p>
+      <p>Understand the basics of common data structures and algorithms and apply them to real questions.</p>
 
-      <a href="https://amzn.to/3AucVBA" target="_blank"><img class="card-img-top" alt="design" border="0" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>
-      
-	  <center><a target="_blank" href="https://amzn.to/3AucVBA" class="btn btn-danger">I want this</a></center>
+      <a href="https://amzn.to/3Pppk2z" target="_blank"><img class="card-img-top" alt="design" border="0" src="../assets/images/book.jpg" ></a>
+
+	  <center><a target="_blank" href="https://amzn.to/3Pppk2z" class="btn btn-danger">I want this</a></center>
 	  
       <br/>
+	  
+      <p>Software design principles are guidelines that will help you make your system design resilient to future changes.</p>
 
-	  <p>A fun t-shirt for every front-end, backend or developers who loves programming.</p>
+      <a href="https://amzn.to/3AucVBA" target="_blank"><img class="card-img-top" alt="design" border="0" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>
 
-      <a href="https://codercuy.creator-spring.com/listing/hello-world-2189?product=389&variation=100029&size=3000" target="_blank"><img class="card-img-top" alt="codercuy" border="0" src="../assets/images/codercuy.jpg" ></a>
-      
-	  <center><a target="_blank" href="https://codercuy.creator-spring.com/listing/hello-world-2189?product=389&variation=100029&size=3002" class="btn btn-danger">I want this!</a></center>
-
+	  <center><a target="_blank" href="https://amzn.to/3AucVBA" class="btn btn-danger">I want this</a></center>
+	  
     </div>
 
   </div>
