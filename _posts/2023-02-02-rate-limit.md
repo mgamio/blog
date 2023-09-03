@@ -78,7 +78,7 @@ To [design more flexible systems](https://codersite.dev/solid-principles-the-def
 {%- include softwareDesignAd2.html -%}
 </div>
 
-For more information on implementing RESTful web services, visit this [link](https://codersite.dev/documenting-rest-api-openapi3/){:target="_blank"}.
+For more information on implementing RESTful web services, visit this [link](https://codersite.dev/rest-api-overview/){:target="_blank"}.
 
 Once you deploy the API service, you can request a random quote from a Web Client like Postman.
 

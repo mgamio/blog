@@ -237,7 +237,7 @@
 
 <p>We have implemented a web client that retrieves data from a thousand articles on each request.</p>
 
-<p>We need to send 50 thousand items. We reuse the following method to send a thousand articles every time. But suddenly, the external API throws an HTTP 503 status code. To avoid our REST client aborting the process, we catch the exception and put the error into a logger, and the program continues with the following one thousand articles.</p>
+<p>We need to send 50 thousand items. We reuse the following method to send a thousand articles every time. But suddenly, the external API throws an HTTP 503 status code. To avoid our <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST</a> client aborting the process, we catch the exception and put the error into a logger, and the program continues with the following one thousand articles.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2

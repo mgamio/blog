@@ -10,7 +10,7 @@ comments: false
 
 The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.
 
-To learn more about REST see [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="_blank"}.
+To learn more about REST see [REST API Overview](https://codersite.dev/rest-api-overview/){:target="_blank"}.
 
 Prerequisites:
 

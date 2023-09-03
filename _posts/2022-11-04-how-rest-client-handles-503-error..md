@@ -27,7 +27,7 @@ A client-side company doesn't care if there is a monolithic or microservice arch
 
 We have implemented a web client that retrieves data from a thousand articles on each request.
 
-We need to send 50 thousand items. We reuse the following method to send a thousand articles every time. But suddenly, the external API throws an HTTP 503 status code. To avoid our REST client aborting the process, we catch the exception and put the error into a logger, and the program continues with the following one thousand articles.
+We need to send 50 thousand items. We reuse the following method to send a thousand articles every time. But suddenly, the external API throws an HTTP 503 status code. To avoid our [REST](https://codersite.dev/rest-api-overview/){:target="_blank"} client aborting the process, we catch the exception and put the error into a logger, and the program continues with the following one thousand articles.
 
 ```kotlin
 public Response getArticles(StringJoiner arrayOf1000Articles) throws Exception {
