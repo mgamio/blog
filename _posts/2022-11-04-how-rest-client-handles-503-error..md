@@ -90,3 +90,33 @@ public Response getArticles(StringJoiner arrayOf1000Articles) throws Exception {
 ```
 
 For simplicity and learning purposes, we assume we receive an HTTP status code of 503 within the try & catch block.
+
+You can simulate a HTTP status code 503 by calling the [httpstat.us](https://httpstat.us/){:target="_blank"} service.
+
+Call the service httpstat.us with the desired response code in the URL path.
+
+```kotlin
+$ curl -v http://httpstat.us/503
+```
+
+The response looks like this:
+
+```kotlin
+> GET /503 HTTP/1.1
+> Host: httpstat.us
+> User-Agent: curl/7.54.0
+> Accept: */*
+>
+< HTTP/1.1 503 Service Unavailable
+...
+```
+
+Understand the basics of common data structures and algorithms and apply them to real questions.
+
+<div>
+{%- include algorithmsBook.html -%}
+</div>
+	  
+
+
+
