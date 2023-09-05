@@ -16,7 +16,13 @@ An API is an interface with defined functionalities that a software program pres
 
 APIs are the building blocks that allow interoperability between businesses on the web. Companies implement APIs to expose internal business processes and data to new customers and partners. APIs are how food data containing information about allergens are shared with hundreds of restaurant apps specializing in their presentation to final customers.
 
+We must create programs (API Servers) that serve data and other programs (API Clients) that consume/manipulate that data, as shown in the following figure.
+
 ![api-mesh](/assets/images/APImesh.jpg){:class="img-responsive"}
+
+Every company can implement Servers' and Clients' APIs using different programming languages, caches, proxies, and security mechanisms. They can choose monolithic or microservices architectures deployed in several application servers or cloud providers. But how can all these heterogeneous components communicate with each other? The only answer is that they use a common language: the same semantics as the HTTP protocol.
+
+To implement efficiently API Servers or API Clients, you must understand the basic concepts of a REST API.
 
 ## What is REST API?
 
@@ -74,13 +80,13 @@ A fundamental principle of REST API is the uniform interface, which establishes 
 
 **Safe Methods**
 
-Request methods are considered [safe](https://httpwg.org/specs/rfc9110.html#safe.methods){:target="_blank"} if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource.
+A Request method is [safe](https://httpwg.org/specs/rfc9110.html#safe.methods){:target="_blank"} when it does not change the state of a resource on the API Server.
 
 The GET, HEAD, OPTIONS, and TRACE methods are defined to be safe.
 
 **Idempotent Methods**
 
-A request method is considered idempotent if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.
+A request method is idempotent when multiple identical requests have the same effect on the API Server.
 
 The PUT, and DELETE methods are defined to be idempotent.
 

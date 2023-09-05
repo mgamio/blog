@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 Sep 2023 09:22:01 +0200</pubDate>
-    <lastBuildDate>Tue, 05 Sep 2023 09:22:01 +0200</lastBuildDate>
+    <pubDate>Tue, 05 Sep 2023 11:58:47 +0200</pubDate>
+    <lastBuildDate>Tue, 05 Sep 2023 11:58:47 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -19,7 +19,13 @@
 
 &lt;p&gt;APIs are the building blocks that allow interoperability between businesses on the web. Companies implement APIs to expose internal business processes and data to new customers and partners. APIs are how food data containing information about allergens are shared with hundreds of restaurant apps specializing in their presentation to final customers.&lt;/p&gt;
 
+&lt;p&gt;We must create programs (API Servers) that serve data and other programs (API Clients) that consume/manipulate that data, as shown in the following figure.&lt;/p&gt;
+
 &lt;p&gt;&lt;img src=&quot;/assets/images/APImesh.jpg&quot; alt=&quot;api-mesh&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Every company can implement Servers’ and Clients’ APIs using different programming languages, caches, proxies, and security mechanisms. They can choose monolithic or microservices architectures deployed in several application servers or cloud providers. But how can all these heterogeneous components communicate with each other? The only answer is that they use a common language: the same semantics as the HTTP protocol.&lt;/p&gt;
+
+&lt;p&gt;To implement efficiently API Servers or API Clients, you must understand the basic concepts of a REST API.&lt;/p&gt;
 
 &lt;h2 id=&quot;what-is-rest-api&quot;&gt;What is REST API?&lt;/h2&gt;
 
@@ -96,13 +102,13 @@ Content-Type: application/json
 
 &lt;p&gt;&lt;strong&gt;Safe Methods&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Request methods are considered &lt;a href=&quot;https://httpwg.org/specs/rfc9110.html#safe.methods&quot; target=&quot;_blank&quot;&gt;safe&lt;/a&gt; if their defined semantics are essentially read-only; i.e., the client does not request, and does not expect, any state change on the origin server as a result of applying a safe method to a target resource.&lt;/p&gt;
+&lt;p&gt;A Request method is &lt;a href=&quot;https://httpwg.org/specs/rfc9110.html#safe.methods&quot; target=&quot;_blank&quot;&gt;safe&lt;/a&gt; when it does not change the state of a resource on the API Server.&lt;/p&gt;
 
 &lt;p&gt;The GET, HEAD, OPTIONS, and TRACE methods are defined to be safe.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Idempotent Methods&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;A request method is considered idempotent if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.&lt;/p&gt;
+&lt;p&gt;A request method is idempotent when multiple identical requests have the same effect on the API Server.&lt;/p&gt;
 
 &lt;p&gt;The PUT, and DELETE methods are defined to be idempotent.&lt;/p&gt;
 
