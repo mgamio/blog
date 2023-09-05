@@ -22,6 +22,8 @@ We must create programs (API Servers) that serve data and other programs (API Cl
 
 Every company can implement Servers' and Clients' APIs using different programming languages, caches, proxies, and security mechanisms. They can choose monolithic or microservices architectures deployed in several application servers or cloud providers. But how can all these heterogeneous components communicate with each other? The only answer is that they use a common language: the same semantics as the HTTP protocol.
 
+We create a kind of API program called Web Service to support this interoperable machine-to-machine interaction over a network.
+
 To implement efficiently API Servers or API Clients, you must understand the basic concepts of a REST API.
 
 ## What is REST API?

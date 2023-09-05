@@ -180,9 +180,15 @@ die Taste : key
 
 ## Sicherheit : Security
 
+absichern : secure, protect
+
 Authentifizierung : Authentication 
 
+dir Autorisierung : authorization
+
 beschränken : limit, restrict
+
+die Bedrohung : threat
 
 das Benutzerkonto : user account
 
@@ -191,6 +197,8 @@ der Cyberangriff : cyber attack
 der Datenschutz : data protection
 
 datenübernahme : data transfer
+
+fehlerhaft : bad, corrupted
 
 freischalten : authorize
 
@@ -213,6 +221,8 @@ Verwaltung von SSL-Zertifikaten und Schlüsseln : SSL certificate and key manage
 Zertifikatsverfall : certificate expiration
 
 der Zugriff : access
+
+der Zugriffscode : access code
 
 ## Datenbank : Database
 

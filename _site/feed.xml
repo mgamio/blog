@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 Sep 2023 11:58:47 +0200</pubDate>
-    <lastBuildDate>Tue, 05 Sep 2023 11:58:47 +0200</lastBuildDate>
+    <pubDate>Tue, 05 Sep 2023 16:27:12 +0200</pubDate>
+    <lastBuildDate>Tue, 05 Sep 2023 16:27:12 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -24,6 +24,8 @@
 &lt;p&gt;&lt;img src=&quot;/assets/images/APImesh.jpg&quot; alt=&quot;api-mesh&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Every company can implement Servers’ and Clients’ APIs using different programming languages, caches, proxies, and security mechanisms. They can choose monolithic or microservices architectures deployed in several application servers or cloud providers. But how can all these heterogeneous components communicate with each other? The only answer is that they use a common language: the same semantics as the HTTP protocol.&lt;/p&gt;
+
+&lt;p&gt;We create a kind of API program called Web Service to support this interoperable machine-to-machine interaction over a network.&lt;/p&gt;
 
 &lt;p&gt;To implement efficiently API Servers or API Clients, you must understand the basic concepts of a REST API.&lt;/p&gt;
 
@@ -1688,9 +1690,15 @@ public ResponseEntity&amp;lt;List&amp;lt;Buyer&amp;gt;&amp;gt; listBuyers(
 
 &lt;h2 id=&quot;sicherheit--security&quot;&gt;Sicherheit : Security&lt;/h2&gt;
 
+&lt;p&gt;absichern : secure, protect&lt;/p&gt;
+
 &lt;p&gt;Authentifizierung : Authentication&lt;/p&gt;
 
+&lt;p&gt;dir Autorisierung : authorization&lt;/p&gt;
+
 &lt;p&gt;beschränken : limit, restrict&lt;/p&gt;
+
+&lt;p&gt;die Bedrohung : threat&lt;/p&gt;
 
 &lt;p&gt;das Benutzerkonto : user account&lt;/p&gt;
 
@@ -1699,6 +1707,8 @@ public ResponseEntity&amp;lt;List&amp;lt;Buyer&amp;gt;&amp;gt; listBuyers(
 &lt;p&gt;der Datenschutz : data protection&lt;/p&gt;
 
 &lt;p&gt;datenübernahme : data transfer&lt;/p&gt;
+
+&lt;p&gt;fehlerhaft : bad, corrupted&lt;/p&gt;
 
 &lt;p&gt;freischalten : authorize&lt;/p&gt;
 
@@ -1721,6 +1731,8 @@ public ResponseEntity&amp;lt;List&amp;lt;Buyer&amp;gt;&amp;gt; listBuyers(
 &lt;p&gt;Zertifikatsverfall : certificate expiration&lt;/p&gt;
 
 &lt;p&gt;der Zugriff : access&lt;/p&gt;
+
+&lt;p&gt;der Zugriffscode : access code&lt;/p&gt;
 
 &lt;h2 id=&quot;datenbank--database&quot;&gt;Datenbank : Database&lt;/h2&gt;
 
