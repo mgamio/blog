@@ -20,7 +20,9 @@ We must create programs (API Servers) that serve data and other programs (API Cl
 
 ![api-mesh](/assets/images/APImesh.jpg){:class="img-responsive"}
 
-Every company can implement Servers' and Clients' APIs using different programming languages, caches, proxies, and security mechanisms. They can choose monolithic or microservices architectures deployed in several application servers or cloud providers. But how can all these heterogeneous components communicate with each other? The only answer is that they use a common language: the same semantics as the HTTP protocol.
+Every company can implement Servers' and Clients' APIs using different programming languages, caches, proxies, and security mechanisms. They can choose monolithic or microservices architectures deployed in several application servers or cloud providers. 
+
+But how can all these heterogeneous components communicate with each other? The only answer is that they use a common language: the same semantics as the HTTP protocol. In this context, semantic means the interpretation we give every HTTP method.
 
 We create a kind of API program called Web Service to support this interoperable machine-to-machine interaction over a network.
 
