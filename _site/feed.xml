@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 06 Sep 2023 10:14:37 +0200</pubDate>
-    <lastBuildDate>Wed, 06 Sep 2023 10:14:37 +0200</lastBuildDate>
+    <pubDate>Wed, 06 Sep 2023 12:04:17 +0200</pubDate>
+    <lastBuildDate>Wed, 06 Sep 2023 12:04:17 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -263,16 +263,11 @@ Host: codersite.dev
 
 &lt;p&gt;REST API requests and responses are typically formatted in &lt;a href=&quot;https://www.json.org/json-en.html&quot; target=&quot;_blank&quot;&gt;JSON&lt;/a&gt; (JavaScript Object Notation) or XML (eXtensible Markup Language). Requests consist of an HTTP method, headers, and, optionally, a request body containing data. Responses include an HTTP status code indicating the outcome of the request, along with the response body containing the requested resource or an error message.&lt;/p&gt;
 
-&lt;div&gt;&lt;p&gt;With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.&lt;/p&gt;
-&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
-
 &lt;h2 id=&quot;building-a-restful-web-service&quot;&gt;Building a RESTful Web Service&lt;/h2&gt;
 
-&lt;p&gt;The following diagram shows how a Restaurant (represented as a buyer) aims to place orders at suppliers to get food articles delivered.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Business requirement&lt;/strong&gt;: A company wants to implement an API to allow Restaurants (represented as a buyer) to place orders at suppliers to get food articles delivered.&lt;/p&gt;
+
+&lt;p&gt;The following figure shows a &lt;a href=&quot;https://codersite.dev/uml-diagrams-for-java-developers/&quot; target=&quot;_blank&quot;&gt;UML class diagram&lt;/a&gt; to conceptual model the application’s structure.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/shoppingCar.jpg&quot; alt=&quot;shopping-car&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
@@ -285,6 +280,8 @@ Host: codersite.dev
 &lt;p&gt;&lt;img src=&quot;/assets/images/buyerOperations.jpg&quot; alt=&quot;buyer-swagger&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We will use the Spring portfolio to build a RESTful service.&lt;/p&gt;
+
+&lt;h3 id=&quot;identification-of-software-design-principles&quot;&gt;Identification of Software Design Principles&lt;/h3&gt;
 
 &lt;p&gt;Following the “separation of concerns” principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (&lt;em&gt;BuyersApiController&lt;/em&gt;) and managing all business logic, mappings, and the database connection to a Service class (&lt;em&gt;BuyersService&lt;/em&gt;).&lt;/p&gt;
 
@@ -313,6 +310,13 @@ public class BuyersApiController implements BuyersApi {
   }
 }
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div&gt;&lt;p&gt;With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.&lt;/p&gt;
+&lt;center&gt;
+  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+&lt;br /&gt;&lt;/div&gt;
 
 &lt;p&gt;The following listing shows common operations in a REST Controller.&lt;/p&gt;
 

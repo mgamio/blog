@@ -468,16 +468,11 @@ Host: codersite.dev
 
 <p>REST API requests and responses are typically formatted in <a href="https://www.json.org/json-en.html" target="_blank">JSON</a> (JavaScript Object Notation) or XML (eXtensible Markup Language). Requests consist of an HTTP method, headers, and, optionally, a request body containing data. Responses include an HTTP status code indicating the outcome of the request, along with the response body containing the requested resource or an error message.</p>
 
-<div><p>With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.</p>
-<center>
-  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
-</center>
-
-<br /></div>
-
 <h2 id="building-a-restful-web-service">Building a RESTful Web Service</h2>
 
-<p>The following diagram shows how a Restaurant (represented as a buyer) aims to place orders at suppliers to get food articles delivered.</p>
+<p><strong>Business requirement</strong>: A company wants to implement an API to allow Restaurants (represented as a buyer) to place orders at suppliers to get food articles delivered.</p>
+
+<p>The following figure shows a <a href="https://codersite.dev/uml-diagrams-for-java-developers/" target="_blank">UML class diagram</a> to conceptual model the application’s structure.</p>
 
 <p><img src="/assets/images/shoppingCar.jpg" alt="shopping-car" class="img-responsive" /></p>
 
@@ -490,6 +485,8 @@ Host: codersite.dev
 <p><img src="/assets/images/buyerOperations.jpg" alt="buyer-swagger" class="img-responsive" /></p>
 
 <p>We will use the Spring portfolio to build a RESTful service.</p>
+
+<h3 id="identification-of-software-design-principles">Identification of Software Design Principles</h3>
 
 <p>Following the “separation of concerns” principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (<em>BuyersApiController</em>) and managing all business logic, mappings, and the database connection to a Service class (<em>BuyersService</em>).</p>
 
@@ -518,6 +515,13 @@ public class BuyersApiController implements BuyersApi {
   }
 }
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><p>With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.</p>
+<center>
+  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
+</center>
+
+<br /></div>
 
 <p>The following listing shows common operations in a REST Controller.</p>
 

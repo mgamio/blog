@@ -196,13 +196,11 @@ The success response code to a DELETE request is 204 (No Content).
 
 REST API requests and responses are typically formatted in [JSON](https://www.json.org/json-en.html){:target="_blank"} (JavaScript Object Notation) or XML (eXtensible Markup Language). Requests consist of an HTTP method, headers, and, optionally, a request body containing data. Responses include an HTTP status code indicating the outcome of the request, along with the response body containing the requested resource or an error message.
 
-<div>
-{%- include softwareDesign.html -%}
-</div>
-
 ## Building a RESTful Web Service
 
-The following diagram shows how a Restaurant (represented as a buyer) aims to place orders at suppliers to get food articles delivered.
+**Business requirement**: A company wants to implement an API to allow Restaurants (represented as a buyer) to place orders at suppliers to get food articles delivered.
+
+The following figure shows a [UML class diagram](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"} to conceptual model the application's structure.
 
 ![shopping-car](/assets/images/shoppingCar.jpg){:class="img-responsive"}
 
@@ -215,6 +213,8 @@ The following figure shows an example of how SwaggerHub generates the documentat
 ![buyer-swagger](/assets/images/buyerOperations.jpg){:class="img-responsive"}
 
 We will use the Spring portfolio to build a RESTful service.
+
+### Identification of Software Design Principles
 
 Following the "separation of concerns" principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (*BuyersApiController*) and managing all business logic, mappings, and the database connection to a Service class (*BuyersService*).
 
@@ -232,6 +232,10 @@ public class BuyersApiController implements BuyersApi {
   }
 }
 ```
+
+<div>
+{%- include softwareDesign.html -%}
+</div>
 
 The following listing shows common operations in a REST Controller.
 
