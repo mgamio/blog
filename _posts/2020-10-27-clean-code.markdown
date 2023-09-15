@@ -387,6 +387,51 @@ String supplierEmail = supplier.getSupplierEmail();
 String buyerEmail = buyer.getBuyerEmail();
 ```
 
+## Method Overloading
+
+Suppose we already have a function communicating well with an external service.
+
+We send data to subscribe to the external service for a new buyer.
+
+```kotlin  
+public int subscribe(String email, Buyer buyer) {
+  //code omitted for brevity
+}
+```
+
+This function is called from several parts of a program.
+
+```kotlin  
+subscriberId = WSClient.subscribe(email, buyer);
+}
+```
+
+Now, we want to send new buyers, but at the same time, we want to inform the external service to take action based on a specific tagged attribute.
+
+If we decide to refactor the function to accept a new argument, we need to change our program in all parts that call the function, even when they dont need to pass the new attribute.
+
+```kotlin  
+subscriberId = WSClient.subscribe(email, buyer, null);
+}
+```
+
+We can introduce a new function with the same name but with a new parameter.
+
+```kotlin  
+public int subscribe(String email, Buyer buyer, Integer tagId) {
+  //code omitted for brevity
+}
+```
+
+Only new parts of the program that need to use the new functionality call the new method.
+
+```kotlin  
+subscriberId = WSClient.subscribe(email, buyer, 102911);
+}
+```
+
+Method overloading increases the readability and reusability of the program.
+
 Applications of clean code:
 
 * Refactoring techniques for improving code cleanliness

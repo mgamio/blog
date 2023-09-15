@@ -766,6 +766,58 @@
 <span class="nc">String</span> <span class="n">buyerEmail</span> <span class="p">=</span> <span class="n">buyer</span><span class="p">.</span><span class="nf">getBuyerEmail</span><span class="p">();</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h2 id="method-overloading">Method Overloading</h2>
+
+<p>Suppose we already have a function communicating well with an external service.</p>
+
+<p>We send data to subscribe to the external service for a new buyer.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">int</span> <span class="nf">subscribe</span><span class="p">(</span><span class="nc">String</span> <span class="n">email</span><span class="p">,</span> <span class="nc">Buyer</span> <span class="n">buyer</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This function is called from several parts of a program.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">subscriberId</span> <span class="p">=</span> <span class="nc">WSClient</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">buyer</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Now, we want to send new buyers, but at the same time, we want to inform the external service to take action based on a specific tagged attribute.</p>
+
+<p>If we decide to refactor the function to accept a new argument, we need to change our program in all parts that call the function, even when they dont need to pass the new attribute.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">subscriberId</span> <span class="p">=</span> <span class="nc">WSClient</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">buyer</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We can introduce a new function with the same name but with a new parameter.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">int</span> <span class="nf">subscribe</span><span class="p">(</span><span class="nc">String</span> <span class="n">email</span><span class="p">,</span> <span class="nc">Buyer</span> <span class="n">buyer</span><span class="p">,</span> <span class="nc">Integer</span> <span class="n">tagId</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Only new parts of the program that need to use the new functionality call the new method.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">subscriberId</span> <span class="p">=</span> <span class="nc">WSClient</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">buyer</span><span class="p">,</span> <span class="mi">102911</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Method overloading increases the readability and reusability of the program.</p>
+
 <p>Applications of clean code:</p>
 
 <ul>
