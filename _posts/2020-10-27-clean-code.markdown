@@ -421,6 +421,10 @@ We can introduce a new function with the same name but with a new parameter.
 public int subscribe(String email, Buyer buyer, Integer tagId) {
   //code omitted for brevity
 }
+
+public int subscribe(String email, Buyer buyer) {
+  //code omitted for brevity
+}
 ```
 
 Only new parts of the program that need to use the new functionality call the new method.
