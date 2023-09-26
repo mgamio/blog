@@ -18,11 +18,15 @@ As part of my continuous german learning, I will update the list occasionally.
 
 die Anwendung : application
 
+die Anforderung : requirement
+
 die Bereitstellung : deployment
 
 das Betriebssystem : operating system
 
 der Codierer : coder
+
+erstellen : create
 
 die Erstellung : creation
 
@@ -73,6 +77,8 @@ analysieren : analyze
 die Anfrage : request
 
 die Angabe (*Daten*) : information, data
+
+anlegen (*Datei*) : create
 
 annehmen : accept
 
@@ -150,6 +156,10 @@ Unternehmensanwendung : Enterprise Application
 
 verlassen (*Programm*) : quit
 
+verwenden : use
+
+die Voraussetzung : prerequisite, (pre)condition
+
 weiter : next
 
 züruck : previous
@@ -161,6 +171,8 @@ zurücksetzen : reset
 der Bildschirm : screen
 
 der Drucker : printer
+
+einrichten : set up
 
 die Festplatte : hard disk HD
 
@@ -198,6 +210,8 @@ der Datenschutz : data protection
 
 datenübernahme : data transfer
 
+erzeugen (*Token*) : generate
+
 fehlerhaft : bad, corrupted
 
 freischalten : authorize
@@ -207,6 +221,8 @@ das Kennwort : password
 der Identitätsdiebstahl : identity theft
 
 passwordgeschützt : password protected
+
+setzen (*Prioritäten*) : set
 
 die Sicherheit : security
 
@@ -228,17 +244,26 @@ der Zugriffscode : access code
 
 ## Datenbank : Database
 
+abbilden : represent, depict
+
 die Abfrage : query
 
 Stammdaten : master data
 
 der JDBC-Treiber : JDBC driver
 
+zuordnen : allocate
+
 ## Networking
 
 dir Glasfaser : optical fiber
 
+herstellen : establish
+
 die Verknüpfung : link
+
+die Verbindung : connection
+
 
 
 
