@@ -92,6 +92,8 @@ Ausnahmebehandlung : exception handling
 
 der Aufruf : call
 
+aufrufen (*Programm, Datei*) : invoke
+
 der Ausdruck : printout
 
 der Ausfall : outage
