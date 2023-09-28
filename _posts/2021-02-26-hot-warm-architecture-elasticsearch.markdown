@@ -244,7 +244,7 @@ Kibana enables to us navigate through our data (log files)
 
 We have installed kibana using a [zip](https://www.elastic.co/downloads/kibana){:target="_blank"} package.
 
-Check that the following lines are included and activated in:
+Check that the following lines are included and activated in the kibana.yml file.
 
 {% highlight ruby %}
 C:\<kibana-folder>\config\kibana.yml file
@@ -268,7 +268,7 @@ From our local workstations we can access kibana in our browsers using the follo
 http://110.1.0.104:9340/
 {% endhighlight %}
 
-**Creting index templates**
+**Creating index templates**
 
 We must create and configure our index templates prior to index creation.
 
@@ -358,7 +358,7 @@ We need to create a *pipeline* (config file) in which we define an *input* (coll
 
 ![logstash-pipeline](/assets/images/logstashPipeline.jpg){:class="img-responsive"}
 
-Before we create the Logstash pipeline, we'll configure Filebeat to send *log* lines to Logstash.
+Before we create the Logstash pipeline, we’ll configure a Beat Agent called Filebeat to send log lines to Logstash.
 
 ### Configuring Filebeat to Send Log Lines to Logstash
 
@@ -387,13 +387,13 @@ On Windows machines, the absolute path to the log files looks like the following
     - "C:\\path\\to\\logs\\billingServer\\SystemOut.log"
 {% endhighlight %}
 
-At the application servers machines (data source), run Filebeat with the following command:
+At the application servers machines (data source), run Filebeat with the following command.
 
 {% highlight ruby %}
 sudo ./filebeat -e -c filebeat.yml -d "publish"
 {% endhighlight %}
 
-Filebeat will attempt to connect Logstash on port 5044
+Filebeat will attempt to connect Logstash on port 5044.
 
 ### Configuring Logstash for Filebeat Input
 
@@ -420,7 +420,13 @@ output {
 }
 {% endhighlight %}
 
+Tu run logstash, execute the following command.
 
+{% highlight ruby %}
+C:\<logstash-folder>\bin>logstash -f ..\config\billing-pipeline.conf --config.reload.automatic
+{% endhighlight %}
+
+With this minimal configuration, you can visualize your log files in Kibana.
 
 Please donate if you find this content valuable.
 
@@ -431,4 +437,239 @@ Please donate if you find this content valuable.
 </form>
 <br/>
 
-If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.
+**Customizing the filter**
+
+To use logs data from Elastic to set up a rate-limit algorithm, we need to parse it using filter plugins.
+
+We want to know how many requests for every endpoint and client arrive at our application servers by month, day, hour, minute, and second.
+
+**Grok filter**
+
+Grok combines text patterns into something that matches your logs.
+
+Grok pattern: %{*SYNTAX*:*SEMANTIC*}
+
+The *SYNTAX* is the name of the pattern that will match your text.
+
+The *SEMANTIC* is the identifier you give to the matched piece of text.
+
+For example, we can pull out fields from a server log file.
+
+{% highlight ruby %}
+55.3.244.1 [19.08.22 05:13:42 +0000] codersite.dev GET /v1/api/billings 15824 0.043
+{% endhighlight %}
+
+The filter section inside logstash pipeline looks like the following.
+
+{% highlight ruby %}
+filter {
+  grok {
+    match => { "message" => "%{IP:client} %{DATA:timestamp} %{WORD:client} %{WORD:method} %{URIPATHPARAM:endpoint} %{NUMBER:bytes} %{NUMBER:duration}" }
+  }
+  
+  grok {
+    match => ["timestamp", "%{WORD:was_dd}.%{WORD:was_MM}.%{WORD:was_yy} %{SPACE}%{WORD:was_HH}:%{WORD:was_mm}:%{WORD:was_ss}"]
+  }
+}
+{% endhighlight %}
+
+We build an aggregation that summarizes our data. The following search runs a terms aggregation on "codersite.dev" client.
+
+{% highlight ruby %}
+GET .ds-billing-index-000006/_search
+{
+  "size": 0, 
+  "query": {
+    "match": {
+      "client.keyword": "codersite.dev"
+    }
+  },
+  "aggs": {
+    "all_clients": {
+      "terms": {
+        "field": "client.keyword"
+      },
+      "aggs": {
+        "all_endpoints": {
+          "terms": {
+            "field": "endpoint.keyword"
+          },
+          "aggs": {
+            "all_was_years": {
+              "terms": {
+                "field": "was_yy.keyword"
+              },
+              "aggs": {
+                "all_was_months": {
+                  "terms": {
+                    "field": "was_MM.keyword"
+                  },
+                  "aggs": {
+                    "all_was_days": {
+                      "terms": {
+                        "field": "was_dd.keyword"
+                      },
+                      "aggs": {
+                        "all_was_hours": {
+                          "terms": {
+                            "field": "was_HH.keyword"
+                          },
+                          "aggs": {
+                            "all_was_minutes": {
+                              "terms": {
+                                "field": "was_mm.keyword"
+                              }         
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+{% endhighlight %}
+
+Aggregation results are in the response’s aggregations object.
+
+{% highlight ruby %}
+{
+  "took" : 1253,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 10000,
+      "relation" : "gte"
+    },
+    "max_score" : null,
+    "hits" : [ ]
+  },
+  "aggregations" : {
+    "all_clients" : {
+      "doc_count_error_upper_bound" : 0,
+      "sum_other_doc_count" : 0,
+      "buckets" : [
+        {
+          "key" : "codersite.dev",
+          "doc_count" : 2310409,
+          "all_endpoints" : {
+            "doc_count_error_upper_bound" : 0,
+            "sum_other_doc_count" : 0,
+            "buckets" : [
+              {
+                "key" : "/v1/api/billings",
+                "doc_count" : 2309966,
+                "all_was_years" : {
+                  "doc_count_error_upper_bound" : 0,
+                  "sum_other_doc_count" : 0,
+                  "buckets" : [
+                    {
+                      "key" : "23",
+                      "doc_count" : 2309966,
+                      "all_was_months" : {
+                        "doc_count_error_upper_bound" : 0,
+                        "sum_other_doc_count" : 0,
+                        "buckets" : [
+                          {
+                            "key" : "09",
+                            "doc_count" : 1516918,
+                            "all_was_days" : {
+                              "doc_count_error_upper_bound" : 0,
+                              "sum_other_doc_count" : 712935,
+                              "buckets" : [
+                                {
+                                  "key" : "13",
+                                  "doc_count" : 80457,
+                                  "all_was_hours" : {
+                                    "doc_count_error_upper_bound" : 0,
+                                    "sum_other_doc_count" : 0,
+                                    "buckets" : [
+                                      {
+                                        "key" : "06",
+                                        "doc_count" : 10061,
+                                        "all_was_minutes" : {
+                                          "doc_count_error_upper_bound" : 0,
+                                          "sum_other_doc_count" : 1146,
+                                          "buckets" : [
+                                            {
+                                              "key" : "17",
+                                              "doc_count" : 939
+                                            },
+                                            {
+                                              "key" : "18",
+                                              "doc_count" : 916
+                                            },
+                                            {
+                                              "key" : "26",
+                                              "doc_count" : 840
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      {
+                                        "key" : "21",
+                                        "doc_count" : 10061,
+                                        "all_was_minutes" : {
+                                          "doc_count_error_upper_bound" : 0,
+                                          "sum_other_doc_count" : 1461,
+                                          "buckets" : [
+                                            {
+                                              "key" : "18",
+                                              "doc_count" : 889
+                                            },
+                                            {
+                                              "key" : "19",
+                                              "doc_count" : 882
+                                            }
+										  ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}									
+{% endhighlight %}
+
+From the buckets per minute, we can see codersite.dev client sends an average of 893 requests per minute.
+
+Based on these accurate statistics and analyses, you know how to limit the number of requests allowed per client + endpoint. In this way, you can protect your software infrastructure from possible attacks or overuse of hardware resources.
+
+Learn [here](https://codersite.dev/rate-limit/){:target="_blank"} how to implement a RateLimit algorithm.
+
+Now that you have centralized all server logs in only one cluster, you can monitor or diagnose possible errors. Kibana will inform you about all application servers' errors in one unified report.
+
+Please donate if you find this content valuable.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>

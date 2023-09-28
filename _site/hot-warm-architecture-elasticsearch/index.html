@@ -447,7 +447,7 @@ But this task is tedious because the <em>log files</em> are distributed in a clu
 
 <p>We have installed kibana using a <a href="https://www.elastic.co/downloads/kibana" target="_blank">zip</a> package.</p>
 
-<p>Check that the following lines are included and activated in:</p>
+<p>Check that the following lines are included and activated in the kibana.yml file.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">&lt;</span><span class="n">kibana</span><span class="o">-</span><span class="n">folder</span><span class="o">&gt;</span><span class="p">\</span><span class="n">config</span><span class="p">\</span><span class="n">kibana</span><span class="p">.</span><span class="nf">yml</span> <span class="n">file</span></code></pre></figure>
 
@@ -463,7 +463,7 @@ But this task is tedious because the <em>log files</em> are distributed in a clu
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="mf">110.1</span><span class="o">.</span><span class="mf">0.104</span><span class="p">:</span><span class="mi">9340</span><span class="o">/</span></code></pre></figure>
 
-<p><strong>Creting index templates</strong></p>
+<p><strong>Creating index templates</strong></p>
 
 <p>We must create and configure our index templates prior to index creation.</p>
 
@@ -556,7 +556,7 @@ settings:</p>
 
 <p><img src="/assets/images/logstashPipeline.jpg" alt="logstash-pipeline" class="img-responsive" /></p>
 
-<p>Before we create the Logstash pipeline, we’ll configure Filebeat to send <em>log</em> lines to Logstash.</p>
+<p>Before we create the Logstash pipeline, we’ll configure a Beat Agent called Filebeat to send log lines to Logstash.</p>
 
 <h3 id="configuring-filebeat-to-send-log-lines-to-logstash">Configuring Filebeat to Send Log Lines to Logstash</h3>
 
@@ -581,11 +581,11 @@ settings:</p>
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="ss">paths:
     </span><span class="o">-</span> <span class="s2">"C:</span><span class="se">\\</span><span class="s2">path</span><span class="se">\\</span><span class="s2">to</span><span class="se">\\</span><span class="s2">logs</span><span class="se">\\</span><span class="s2">billingServer</span><span class="se">\\</span><span class="s2">SystemOut.log"</span></code></pre></figure>
 
-<p>At the application servers machines (data source), run Filebeat with the following command:</p>
+<p>At the application servers machines (data source), run Filebeat with the following command.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="p">.</span><span class="nf">/</span><span class="n">filebeat</span> <span class="o">-</span><span class="n">e</span> <span class="o">-</span><span class="n">c</span> <span class="n">filebeat</span><span class="p">.</span><span class="nf">yml</span> <span class="o">-</span><span class="n">d</span> <span class="s2">"publish"</span></code></pre></figure>
 
-<p>Filebeat will attempt to connect Logstash on port 5044</p>
+<p>Filebeat will attempt to connect Logstash on port 5044.</p>
 
 <h3 id="configuring-logstash-for-filebeat-input">Configuring Logstash for Filebeat Input</h3>
 
@@ -610,6 +610,12 @@ settings:</p>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
+<p>Tu run logstash, execute the following command.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">&lt;</span><span class="n">logstash</span><span class="o">-</span><span class="n">folder</span><span class="o">&gt;</span><span class="p">\</span><span class="n">bin</span><span class="o">&gt;</span><span class="n">logstash</span> <span class="o">-</span><span class="n">f</span> <span class="o">..</span><span class="p">\</span><span class="n">config</span><span class="p">\</span><span class="n">billing</span><span class="o">-</span><span class="n">pipeline</span><span class="p">.</span><span class="nf">conf</span> <span class="o">--</span><span class="n">config</span><span class="p">.</span><span class="nf">reload</span><span class="p">.</span><span class="nf">automatic</span></code></pre></figure>
+
+<p>With this minimal configuration, you can visualize your log files in Kibana.</p>
+
 <p>Please donate if you find this content valuable.</p>
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
@@ -619,7 +625,234 @@ settings:</p>
 </form>
 <p><br /></p>
 
-<p>If you want to know how to exploit logs data from elastic to set up a rate-limit algorithm, follow me, I will explain it in a near-future article!.</p>
+<p><strong>Customizing the filter</strong></p>
+
+<p>To use logs data from Elastic to set up a rate-limit algorithm, we need to parse it using filter plugins.</p>
+
+<p>We want to know how many requests for every endpoint and client arrive at our application servers by month, day, hour, minute, and second.</p>
+
+<p><strong>Grok filter</strong></p>
+
+<p>Grok combines text patterns into something that matches your logs.</p>
+
+<p>Grok pattern: %{<em>SYNTAX</em>:<em>SEMANTIC</em>}</p>
+
+<p>The <em>SYNTAX</em> is the name of the pattern that will match your text.</p>
+
+<p>The <em>SEMANTIC</em> is the identifier you give to the matched piece of text.</p>
+
+<p>For example, we can pull out fields from a server log file.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mf">55.3</span><span class="o">.</span><span class="mf">244.1</span> <span class="p">[</span><span class="mf">19.08</span><span class="o">.</span><span class="mi">22</span> <span class="mo">05</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mi">42</span> <span class="o">+</span><span class="mo">0000</span><span class="p">]</span> <span class="n">codersite</span><span class="p">.</span><span class="nf">dev</span> <span class="no">GET</span> <span class="sr">/v1/</span><span class="n">api</span><span class="o">/</span><span class="n">billings</span> <span class="mi">15824</span> <span class="mf">0.043</span></code></pre></figure>
+
+<p>The filter section inside logstash pipeline looks like the following.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">filter</span> <span class="p">{</span>
+  <span class="n">grok</span> <span class="p">{</span>
+    <span class="n">match</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s2">"message"</span> <span class="o">=&gt;</span> <span class="s2">"%{IP:client} %{DATA:timestamp} %{WORD:client} %{WORD:method} %{URIPATHPARAM:endpoint} %{NUMBER:bytes} %{NUMBER:duration}"</span> <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="n">grok</span> <span class="p">{</span>
+    <span class="n">match</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"timestamp"</span><span class="p">,</span> <span class="s2">"%{WORD:was_dd}.%{WORD:was_MM}.%{WORD:was_yy} %{SPACE}%{WORD:was_HH}:%{WORD:was_mm}:%{WORD:was_ss}"</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>We build an aggregation that summarizes our data. The following search runs a terms aggregation on “codersite.dev” client.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">GET</span> <span class="p">.</span><span class="nf">ds</span><span class="o">-</span><span class="n">billing</span><span class="o">-</span><span class="n">index</span><span class="o">-</span><span class="mo">000006</span><span class="o">/</span><span class="n">_search</span>
+<span class="p">{</span>
+  <span class="s2">"size"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+  <span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"match"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"client.keyword"</span><span class="p">:</span> <span class="s2">"codersite.dev"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"all_clients"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"client.keyword"</span>
+      <span class="p">},</span>
+      <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"all_endpoints"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"endpoint.keyword"</span>
+          <span class="p">},</span>
+          <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"all_was_years"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"was_yy.keyword"</span>
+              <span class="p">},</span>
+              <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"all_was_months"</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"was_MM.keyword"</span>
+                  <span class="p">},</span>
+                  <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"all_was_days"</span><span class="p">:</span> <span class="p">{</span>
+                      <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"was_dd.keyword"</span>
+                      <span class="p">},</span>
+                      <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"all_was_hours"</span><span class="p">:</span> <span class="p">{</span>
+                          <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"was_HH.keyword"</span>
+                          <span class="p">},</span>
+                          <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">"all_was_minutes"</span><span class="p">:</span> <span class="p">{</span>
+                              <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"was_mm.keyword"</span>
+                              <span class="p">}</span>         
+                            <span class="p">}</span>
+                          <span class="p">}</span>
+                        <span class="p">}</span>
+                      <span class="p">}</span>
+                    <span class="p">}</span>
+                  <span class="p">}</span>
+                <span class="p">}</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Aggregation results are in the response’s aggregations object.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span>
+  <span class="s2">"took"</span> <span class="p">:</span> <span class="mi">1253</span><span class="p">,</span>
+  <span class="s2">"timed_out"</span> <span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"_shards"</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"total"</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"successful"</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"skipped"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"failed"</span> <span class="p">:</span> <span class="mi">0</span>
+  <span class="p">},</span>
+  <span class="s2">"hits"</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"total"</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"value"</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+      <span class="s2">"relation"</span> <span class="p">:</span> <span class="s2">"gte"</span>
+    <span class="p">},</span>
+    <span class="s2">"max_score"</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"hits"</span> <span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">"aggregations"</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"all_clients"</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"codersite.dev"</span><span class="p">,</span>
+          <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">2310409</span><span class="p">,</span>
+          <span class="s2">"all_endpoints"</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"/v1/api/billings"</span><span class="p">,</span>
+                <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">2309966</span><span class="p">,</span>
+                <span class="s2">"all_was_years"</span> <span class="p">:</span> <span class="p">{</span>
+                  <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                  <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                  <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                      <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"23"</span><span class="p">,</span>
+                      <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">2309966</span><span class="p">,</span>
+                      <span class="s2">"all_was_months"</span> <span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
+                          <span class="p">{</span>
+                            <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"09"</span><span class="p">,</span>
+                            <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">1516918</span><span class="p">,</span>
+                            <span class="s2">"all_was_days"</span> <span class="p">:</span> <span class="p">{</span>
+                              <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                              <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">712935</span><span class="p">,</span>
+                              <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span>
+                                  <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"13"</span><span class="p">,</span>
+                                  <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">80457</span><span class="p">,</span>
+                                  <span class="s2">"all_was_hours"</span> <span class="p">:</span> <span class="p">{</span>
+                                    <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                                    <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                                    <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
+                                      <span class="p">{</span>
+                                        <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"06"</span><span class="p">,</span>
+                                        <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">10061</span><span class="p">,</span>
+                                        <span class="s2">"all_was_minutes"</span> <span class="p">:</span> <span class="p">{</span>
+                                          <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                                          <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">1146</span><span class="p">,</span>
+                                          <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
+                                            <span class="p">{</span>
+                                              <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"17"</span><span class="p">,</span>
+                                              <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">939</span>
+                                            <span class="p">},</span>
+                                            <span class="p">{</span>
+                                              <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"18"</span><span class="p">,</span>
+                                              <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">916</span>
+                                            <span class="p">},</span>
+                                            <span class="p">{</span>
+                                              <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"26"</span><span class="p">,</span>
+                                              <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">840</span>
+                                            <span class="p">}</span>
+                                          <span class="p">]</span>
+                                        <span class="p">}</span>
+                                      <span class="p">},</span>
+                                      <span class="p">{</span>
+                                        <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"21"</span><span class="p">,</span>
+                                        <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">10061</span><span class="p">,</span>
+                                        <span class="s2">"all_was_minutes"</span> <span class="p">:</span> <span class="p">{</span>
+                                          <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                                          <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">1461</span><span class="p">,</span>
+                                          <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
+                                            <span class="p">{</span>
+                                              <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"18"</span><span class="p">,</span>
+                                              <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">889</span>
+                                            <span class="p">},</span>
+                                            <span class="p">{</span>
+                                              <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"19"</span><span class="p">,</span>
+                                              <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">882</span>
+                                            <span class="p">}</span>
+										  <span class="p">]</span>
+                                        <span class="p">}</span>
+                                      <span class="p">}</span>
+                                    <span class="p">]</span>
+                                  <span class="p">}</span>
+                                <span class="p">}</span>
+                              <span class="p">]</span>
+                            <span class="p">}</span>
+                          <span class="p">}</span>
+                        <span class="p">]</span>
+                      <span class="p">}</span>
+                    <span class="p">}</span>
+                  <span class="p">]</span>
+                <span class="p">}</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>									</code></pre></figure>
+
+<p>From the buckets per minute, we can see codersite.dev client sends an average of 893 requests per minute.</p>
+
+<p>Based on these accurate statistics and analyses, you know how to limit the number of requests allowed per client + endpoint. In this way, you can protect your software infrastructure from possible attacks or overuse of hardware resources.</p>
+
+<p>Learn <a href="https://codersite.dev/rate-limit/" target="_blank">here</a> how to implement a RateLimit algorithm.</p>
+
+<p>Now that you have centralized all server logs in only one cluster, you can monitor or diagnose possible errors. Kibana will inform you about all application servers’ errors in one unified report.</p>
+
+<p>Please donate if you find this content valuable.</p>
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<p><br /></p>
 
 				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
      crossorigin="anonymous"></script>
