@@ -295,9 +295,11 @@
 <h2 id="problem">Problem</h2>
 
 <p>When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, connection pooling problems, and more, we usually analyze our application server <em>logs</em>.
-But this task is tedious because the <em>log files</em> are distributed in a cluster that contains several application servers with their applications. Depending on each application server product, rotating policies for regenerating a <em>log file</em> cause historical records to be lost.</p>
+But this task is tedious because the <em>log files</em> are distributed in a cluster that contains several application servers with their applications. Depending on each application server product, rotating policies for regenerating a <em>log file</em> cause historical records to be lost - data retention period.</p>
 
 <p><img src="/assets/images/logFileRotation.JPG" alt="logFileRotation" class="img-responsive" /></p>
+
+<p>If every business area has its cluster, the licenses and number of application servers are exponential.</p>
 
 <h2 id="solution--hot-warm-architecture-for-log-analytics-with-elasticsearch">Solution : Hot-warm architecture for log analytics with Elasticsearch</h2>
 

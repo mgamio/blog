@@ -88,9 +88,11 @@ The JVM logs are created by redirecting the System.out and System.err streams of
 ## Problem
 
 When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, connection pooling problems, and more, we usually analyze our application server *logs*.
-But this task is tedious because the *log files* are distributed in a cluster that contains several application servers with their applications. Depending on each application server product, rotating policies for regenerating a *log file* cause historical records to be lost.
+But this task is tedious because the *log files* are distributed in a cluster that contains several application servers with their applications. Depending on each application server product, rotating policies for regenerating a *log file* cause historical records to be lost - data retention period.
 
 ![logFileRotation](/assets/images/logFileRotation.JPG){:class="img-responsive"}
+
+If every business area has its cluster, the licenses and number of application servers are exponential.
 
 ## Solution : Hot-warm architecture for log analytics with Elasticsearch
 

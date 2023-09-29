@@ -230,6 +230,9 @@
   <li>
     <p>Limiting Concurrent Requests.</p>
   </li>
+  <li>
+    <p>Rate limiting is one of the solutions to prevent “Unrestricted Resource Consumption” <a href="https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/" target="_blank">API4:2023</a>.</p>
+  </li>
 </ul>
 
 <h2 id="token-bucket-algorithm">Token-bucket algorithm</h2>
@@ -545,6 +548,8 @@
 <p>Offering valuable content through your API can also motivate external developers or companies to pay more for leveraging the API. When they exceed the ten requests by default, they subscribe to plans.</p>
 
 <p>Depending on how your software infrastructure is built, you can define plans with access to all API endpoints or a clientId+endpoint combination for example.</p>
+
+<p>If you dont know the actual request consumption from your users, you can install Elasticsearch and monitor the number of requests per minute daily. Read <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">here</a>.</p>
 
 <p>You can use these ideas when trying to implement rate limiting with Redis or with AWS.</p>
 

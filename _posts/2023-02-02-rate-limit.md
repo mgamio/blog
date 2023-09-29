@@ -18,6 +18,8 @@ A [rate-limiting](https://cloud.google.com/architecture/rate-limiting-strategies
 
 - Limiting Concurrent Requests.
 
+- Rate limiting is one of the solutions to prevent "Unrestricted Resource Consumption" [API4:2023](https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/){:target="_blank"}.
+
 ## Token-bucket algorithm
 
 The [token-bucket](https://en.wikipedia.org/wiki/Token_bucket){:target="_blank"} algorithm is explained with the analogy of a bucket with finite capacity, into which tokens are added at a fixed rate. But it can’t fill up infinitely. If a token arrives when the bucket is complete, it’s discarded. On every request, ***n*** number of tokens are removed from the bucket. The request is rejected if there are fewer than ***n*** tokens in the bucket.
@@ -236,6 +238,8 @@ After you send ten requests, the eleventh request is rejected, and the web clien
 Offering valuable content through your API can also motivate external developers or companies to pay more for leveraging the API. When they exceed the ten requests by default, they subscribe to plans.
 
 Depending on how your software infrastructure is built, you can define plans with access to all API endpoints or a clientId+endpoint combination for example.
+
+If you dont know the actual request consumption from your users, you can install Elasticsearch and monitor the number of requests per minute daily. Read [here](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}.
 
 You can use these ideas when trying to implement rate limiting with Redis or with AWS.
 
