@@ -5,15 +5,15 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Oct 2023 18:39:57 +0200</pubDate>
-    <lastBuildDate>Sun, 01 Oct 2023 18:39:57 +0200</lastBuildDate>
+    <pubDate>Mon, 02 Oct 2023 17:44:31 +0200</pubDate>
+    <lastBuildDate>Mon, 02 Oct 2023 17:44:31 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
         <title>Building a REST API Client</title>
         <description>&lt;p&gt;This guide walks you through creating a client application that consumes a &lt;a href=&quot;https://codersite.dev/rest-api-overview/&quot; target=&quot;_blank&quot;&gt;RESTful&lt;/a&gt; web service.&lt;/p&gt;
 
-&lt;p&gt;We will build a custom client code to test the &lt;a href=&quot;https://codersite.dev/rate-limit/&quot; target=&quot;_blank&quot;&gt;rate-limiting&lt;/a&gt; algorithm implemented at a API Server.&lt;/p&gt;
+&lt;p&gt;We will build a custom client code to test the &lt;a href=&quot;https://codersite.dev/rate-limit/&quot; target=&quot;_blank&quot;&gt;rate-limiting&lt;/a&gt; algorithm implemented at an API Server.&lt;/p&gt;
 
 &lt;p&gt;Client application uses Spring’s RestTemplate, a synchronous client to perform HTTP requests.&lt;/p&gt;
 
@@ -215,6 +215,8 @@
 
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With this test, you can simultaneously send thousands of requests to all your API endpoints. You can monitor your thread pool at the application server and see how the rate limit algorithm refuses all requests that exceed the rate limit quote.&lt;/p&gt;
 
 &lt;p&gt;Please donate if you find this content valuable.&lt;/p&gt;
 

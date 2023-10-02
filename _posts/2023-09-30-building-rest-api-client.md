@@ -10,7 +10,7 @@ comments: false
 
 This guide walks you through creating a client application that consumes a [RESTful](https://codersite.dev/rest-api-overview/){:target="_blank"} web service.
 
-We will build a custom client code to test the [rate-limiting](https://codersite.dev/rate-limit/){:target="_blank"} algorithm implemented at a API Server.
+We will build a custom client code to test the [rate-limiting](https://codersite.dev/rate-limit/){:target="_blank"} algorithm implemented at an API Server.
 
 Client application uses Spring’s RestTemplate, a synchronous client to perform HTTP requests.
 
@@ -126,6 +126,8 @@ public class RESTFulParallelClientsTest {
 
 }
 ```
+
+With this test, you can simultaneously send thousands of requests to all your API endpoints. You can monitor your thread pool at the application server and see how the rate limit algorithm refuses all requests that exceed the rate limit quote.
 
 Please donate if you find this content valuable.
 
