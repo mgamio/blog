@@ -218,7 +218,7 @@
                 <!-- End Toc -->
                 <p>This guide walks you through creating a client application that consumes a <a href="https://codersite.dev/rest-api-overview/" target="_blank">RESTful</a> web service.</p>
 
-<p>We will build a custom client code to test the <a href="https://codersite.dev/rate-limit/" target="_blank">rate-limiting</a> algorithm implemented at a API Server.</p>
+<p>We will build a custom client code to test the <a href="https://codersite.dev/rate-limit/" target="_blank">rate-limiting</a> algorithm implemented at an API Server.</p>
 
 <p>Client application uses Spring’s RestTemplate, a synchronous client to perform HTTP requests.</p>
 
@@ -420,6 +420,15 @@
 
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+<p>Suppose the API Server set up a limit of 90 requests per minute for the buyer’s endpoint. Then, request number 91 is refused, and the client receives an HTTP Error code of 429.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="mi">16</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mf">42.454</span> <span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="nc">INFO</span> <span class="nc">RESTFulParallelClientsTest</span> <span class="p">-</span> <span class="n">https</span><span class="p">:</span><span class="c1">//api_host/v1/buyers Client request nro: 91</span>
+<span class="mi">16</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mf">42.542</span> <span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="nc">INFO</span> <span class="nc">RESTFulParallelClientsTest</span> <span class="p">-</span> <span class="mi">429</span> <span class="p">{</span><span class="s">"title"</span><span class="p">:</span><span class="s">"Too many request"</span><span class="p">,</span><span class="s">"status"</span><span class="p">:</span><span class="mi">429</span><span class="p">,</span><span class="s">"detail"</span><span class="p">:</span><span class="s">"X-Rate-Limit-Retry-After-Seconds: 37"</span><span class="p">,</span><span class="s">"path"</span><span class="p">:</span><span class="s">"/v1/buyers client: codersite.dev"</span><span class="p">,</span> <span class="s">"timeStamp"</span><span class="p">:</span><span class="mi">1696428642515</span><span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>With this test, you can simultaneously send thousands of requests to all your API endpoints. You can monitor your thread pool at the application server and see how the rate limit algorithm refuses all requests that exceed the rate limit quote.</p>
 
 <p>Please donate if you find this content valuable.</p>
 
