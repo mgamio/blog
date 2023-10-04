@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 04 Oct 2023 17:03:10 +0200</pubDate>
-    <lastBuildDate>Wed, 04 Oct 2023 17:03:10 +0200</lastBuildDate>
+    <pubDate>Wed, 04 Oct 2023 17:27:02 +0200</pubDate>
+    <lastBuildDate>Wed, 04 Oct 2023 17:27:02 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -713,6 +713,88 @@ public ResponseEntity&amp;lt;List&amp;lt;Buyer&amp;gt;&amp;gt; listBuyers(
       </item>
     
       <item>
+        <title>Best Startup Ideas to Make Money</title>
+        <description>&lt;p&gt;There are many ideas that could be suitable for starting a successful startup, and the ideal one will depend on various factors such as your interests, skills, market demand, and resources available. However, here are some general ideas that could be worth considering:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Solve a problem: Identify a problem that people face and create a solution that meets their needs. This could be anything from a new app that simplifies a complicated task, to a product that makes everyday life easier.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Disrupt an industry: Look for an industry that could use some innovation and find a way to disrupt it. This could mean using technology to automate or streamline processes, or creating a new business model that challenges traditional ways of doing things.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Focus on a niche market: Identify a niche market with specific needs or preferences, and create a product or service that caters to those needs. This could be anything from a vegan meal delivery service to a website that connects remote workers with each other.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Market demand: It’s important to make sure there is actually a market for your product or service before investing too much time and money into it. Conduct market research to ensure that there is a demand for what you are offering.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Capitalize on a trend: Keep an eye on trends and capitalize on them before they become saturated. This could be anything from a new social media platform to a product that capitalizes on the latest wellness trend.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Create something new: Use your creativity and innovation to create something new that has never been done before. This could be anything from a new form of entertainment to a product that changes the way we live.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Passion: Starting a successful startup can be a long and challenging process, so it’s important to choose an idea that you are truly passionate about and committed to seeing through to fruition.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Remember that a successful startup is not just about having a great idea, but also executing it well, building a solid team, and creating a sustainable business model. The best startup ideas often come from a combination of creativity, innovation, and market research, so take your time to research and brainstorm before committing to an idea.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 25 Mar 2023 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/best-startup-ideas-to-make-money/</link>
+        <guid isPermaLink="true">http://localhost:4000/best-startup-ideas-to-make-money/</guid>
+        
+        
+        <category>startup</category>
+        
+      </item>
+    
+      <item>
+        <title>What are the Software Design Principles</title>
+        <description>&lt;p&gt;Software design principles are guidelines and best practices that help software developers create high-quality, maintainable, and efficient software. Here are some commonly recognized software design principles:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;SOLID: SOLID stands for Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion. These five principles help developers create software that is modular, extensible, and easy to maintain.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;DRY (Don’t Repeat Yourself): The DRY principle states that code should not be repeated unnecessarily. Instead, developers should use abstractions, modularization, and other techniques to reduce repetition and make code more maintainable.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;KISS (Keep It Simple, Stupid): The KISS principle suggests that developers should strive for simplicity and avoid unnecessary complexity. This makes code easier to understand, maintain, and debug.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;YAGNI (You Ain’t Gonna Need It): The YAGNI principle encourages developers to avoid writing code that may be needed in the future but is not necessary at present. This reduces complexity and saves time and effort.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Separation of Concerns: This principle suggests that different concerns, such as user interface, data storage, and business logic, should be separated and handled independently. This makes code more modular, easier to maintain, and less prone to errors.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Composition over Inheritance: This principle suggests that developers should prefer composition over inheritance when designing software. This makes code more flexible and extensible and reduces code duplication.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Law of Demeter (LoD): The Law of Demeter suggests that objects should only communicate with their immediate neighbors and not with objects further down the chain. This reduces coupling and makes code more maintainable.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Design Patterns: Design patterns are proven solutions to common software design problems. Developers can use design patterns to create software that is modular, flexible, and reusable.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These principles are not exhaustive, and there may be other principles that are relevant to specific types of software. However, these principles provide a solid foundation for creating high-quality, maintainable, and efficient software.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 22 Feb 2023 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/software-design-principles/</link>
+        <guid isPermaLink="true">http://localhost:4000/software-design-principles/</guid>
+        
+        
+        <category>design</category>
+        
+      </item>
+    
+      <item>
         <title>How to implement Rate Limiting</title>
         <description>&lt;p&gt;A &lt;a href=&quot;https://cloud.google.com/architecture/rate-limiting-strategies-techniques&quot; target=&quot;_blank&quot;&gt;rate-limiting&lt;/a&gt; system controls the rate of traffic sent or received on a network interface. APIs will use rate-limiting techniques to control how many times application Clients are allowed to call an API endpoint during a given time interval - Request Limiting. Traffic is allowed up to one specified rate, whereas traffic that exceeds that rate is denied – HTTP code 429.&lt;/p&gt;
 
@@ -1075,6 +1157,45 @@ public ResponseEntity&amp;lt;List&amp;lt;Buyer&amp;gt;&amp;gt; listBuyers(
         
         
         <category>Web APIs</category>
+        
+      </item>
+    
+      <item>
+        <title>What are the Soft Skills in Software Development</title>
+        <description>&lt;p&gt;Soft skills are the personal attributes that enable individuals to interact effectively and harmoniously with others. In software development, having strong soft skills is just as important as technical skills. Here are some examples of soft skills that are valuable in software development:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Communication: Good communication skills are essential for effective collaboration between developers, project managers, and other stakeholders. This includes the ability to communicate technical information clearly and concisely, as well as the ability to listen actively and ask questions.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Problem-solving: In software development, problems are inevitable. A developer with strong problem-solving skills can quickly identify issues and develop effective solutions.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Teamwork: Successful software development requires a collaborative effort. Team players can work effectively with others, understand their role within a team, and are willing to lend a hand when needed.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Adaptability: The ability to adapt to new technologies, processes, and challenges is crucial in software development, where change is a constant.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Time management: Meeting deadlines is crucial in software development. Strong time management skills enable developers to prioritize tasks effectively and deliver projects on time.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Attention to detail: Paying attention to details can help developers catch errors, bugs, and other issues before they become bigger problems.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Creativity: Creativity can help developers find innovative solutions to complex problems, and come up with new and better ways to approach development challenges.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These are just a few examples of soft skills that can be valuable in software development. Having a strong combination of technical and soft skills can help developers excel in their careers and contribute to successful software projects.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 22 Jan 2023 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/soft-skills-software-development/</link>
+        <guid isPermaLink="true">http://localhost:4000/soft-skills-software-development/</guid>
+        
+        
+        <category>design</category>
         
       </item>
     
@@ -1752,627 +1873,6 @@ public ResponseEntity&amp;lt;List&amp;lt;Buyer&amp;gt;&amp;gt; listBuyers(
         
         
         <category>Web Performance</category>
-        
-      </item>
-    
-      <item>
-        <title>German vocabulary for Software Engineers</title>
-        <description>&lt;p&gt;A helpful vocabulary with the most common words when working as a software developer in Germany.&lt;/p&gt;
-
-&lt;p&gt;I have worked in Berlin for eight años and would like to share this vocabulary with the most common words used in my software meetings, documents, emails, and coding tasks.&lt;/p&gt;
-
-&lt;p&gt;As part of my continuous german learning, I will update the list occasionally.&lt;/p&gt;
-
-&lt;h2 id=&quot;softwareentwicklung--software-development&quot;&gt;Softwareentwicklung : software development&lt;/h2&gt;
-
-&lt;p&gt;die Anwendung : application&lt;/p&gt;
-
-&lt;p&gt;die Anforderung : requirement&lt;/p&gt;
-
-&lt;p&gt;die Bereitstellung : deployment&lt;/p&gt;
-
-&lt;p&gt;das Betriebssystem : operating system&lt;/p&gt;
-
-&lt;p&gt;der Codierer : coder&lt;/p&gt;
-
-&lt;p&gt;erstellen : create&lt;/p&gt;
-
-&lt;p&gt;die Erstellung : creation&lt;/p&gt;
-
-&lt;p&gt;die Entwicklung : development&lt;/p&gt;
-
-&lt;p&gt;die Gestaltung : design&lt;/p&gt;
-
-&lt;p&gt;Internet der Dinge (IoT) : Internet of Things&lt;/p&gt;
-
-&lt;p&gt;IT-Lösung : IT-solution&lt;/p&gt;
-
-&lt;p&gt;das Konzept: plan. It is a document that describes a plan to carry out a project.&lt;/p&gt;
-
-&lt;p&gt;Loop-Anweisung : LOOP statement&lt;/p&gt;
-
-&lt;p&gt;der Programmierer : programmer&lt;/p&gt;
-
-&lt;p&gt;Programmiersprache : programming language&lt;/p&gt;
-
-&lt;p&gt;die Qualitätssicherung : quality assurance&lt;/p&gt;
-
-&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;p&gt;die Softwarearchitektur : software architecture&lt;/p&gt;
-
-&lt;p&gt;der Softwareentwickler : software developer&lt;/p&gt;
-
-&lt;p&gt;der Softwareentwurf : software design&lt;/p&gt;
-
-&lt;p&gt;die Umgebung : environment&lt;/p&gt;
-
-&lt;p&gt;die Umsetzung : implementation&lt;/p&gt;
-
-&lt;p&gt;die Unterstützung : support&lt;/p&gt;
-
-&lt;h2 id=&quot;anwendungen--applications&quot;&gt;Anwendungen : Applications&lt;/h2&gt;
-
-&lt;p&gt;abbrechen : cancel&lt;/p&gt;
-
-&lt;p&gt;aktualisieren : update&lt;/p&gt;
-
-&lt;p&gt;Allgemeine Eigenschaften : general properties&lt;/p&gt;
-
-&lt;p&gt;analysieren : analyze&lt;/p&gt;
-
-&lt;p&gt;die Anfrage : request&lt;/p&gt;
-
-&lt;p&gt;die Angabe (&lt;em&gt;Daten&lt;/em&gt;) : information, data&lt;/p&gt;
-
-&lt;p&gt;anlegen (&lt;em&gt;Datei&lt;/em&gt;) : create&lt;/p&gt;
-
-&lt;p&gt;annehmen : accept&lt;/p&gt;
-
-&lt;p&gt;anpassen : customize, adapt&lt;/p&gt;
-
-&lt;p&gt;anwenden : apply&lt;/p&gt;
-
-&lt;p&gt;der Anwender (von Software, Programmen) : user&lt;/p&gt;
-
-&lt;p&gt;Ausnahmebehandlung : exception handling&lt;/p&gt;
-
-&lt;p&gt;der Aufruf : call&lt;/p&gt;
-
-&lt;p&gt;aufrufen (&lt;em&gt;Programm, Datei&lt;/em&gt;) : invoke&lt;/p&gt;
-
-&lt;p&gt;der Ausdruck : printout&lt;/p&gt;
-
-&lt;p&gt;der Ausfall : outage&lt;/p&gt;
-
-&lt;p&gt;der Bericht : report&lt;/p&gt;
-
-&lt;p&gt;die Betriebsbereitschaft : readiness for service (or operation)&lt;/p&gt;
-
-&lt;p&gt;die Datei : file (computer)&lt;/p&gt;
-
-&lt;p&gt;Datei entfernen : remove file&lt;/p&gt;
-
-&lt;p&gt;die Datenlast : data load&lt;/p&gt;
-
-&lt;p&gt;deinstallieren : uninstall&lt;/p&gt;
-
-&lt;p&gt;durchsuchen : browse&lt;/p&gt;
-
-&lt;p&gt;die Einstellungen : settings&lt;/p&gt;
-
-&lt;p&gt;eingeben (&lt;em&gt;Daten&lt;/em&gt;) : enter&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;X&lt;/em&gt; durch &lt;em&gt;Y&lt;/em&gt; ersetzen  : replace &lt;em&gt;X&lt;/em&gt; by &lt;em&gt;Y&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;entfernen: remove&lt;/p&gt;
-
-&lt;p&gt;exportieren : export&lt;/p&gt;
-
-&lt;p&gt;der Fehler : error&lt;/p&gt;
-
-&lt;p&gt;Fehler (&lt;em&gt;Programmierfehler&lt;/em&gt;) : bug&lt;/p&gt;
-
-&lt;p&gt;fertigstellen (&lt;em&gt;Installation&lt;/em&gt;) : finish&lt;/p&gt;
-
-&lt;p&gt;herunterladen : download&lt;/p&gt;
-
-&lt;p&gt;hinzufügen : add&lt;/p&gt;
-
-&lt;p&gt;hochladen (&lt;em&gt;Daten, Programm&lt;/em&gt;) : upload&lt;/p&gt;
-
-&lt;p&gt;Implementierungseinstellungen : deployment settings&lt;/p&gt;
-
-&lt;p&gt;installieren : install&lt;/p&gt;
-
-&lt;p&gt;Künstliche Intelligenz : Artificial intelligence&lt;/p&gt;
-
-&lt;p&gt;löschen : delete&lt;/p&gt;
-
-&lt;p&gt;das Quellcode : source code&lt;/p&gt;
-
-&lt;p&gt;die Schnittstelle : interface&lt;/p&gt;
-
-&lt;p&gt;starten : start&lt;/p&gt;
-
-&lt;p&gt;stoppen : stop&lt;/p&gt;
-
-&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;p&gt;Unternehmensanwendung : Enterprise Application&lt;/p&gt;
-
-&lt;p&gt;verlassen (&lt;em&gt;Programm&lt;/em&gt;) : quit&lt;/p&gt;
-
-&lt;p&gt;verwenden : use&lt;/p&gt;
-
-&lt;p&gt;die Voraussetzung : prerequisite, (pre)condition&lt;/p&gt;
-
-&lt;p&gt;weiter : next&lt;/p&gt;
-
-&lt;p&gt;züruck : previous&lt;/p&gt;
-
-&lt;p&gt;zurücksetzen : reset&lt;/p&gt;
-
-&lt;h2 id=&quot;am-computer&quot;&gt;Am Computer&lt;/h2&gt;
-
-&lt;p&gt;der Bildschirm : screen&lt;/p&gt;
-
-&lt;p&gt;der Drucker : printer&lt;/p&gt;
-
-&lt;p&gt;einrichten : set up&lt;/p&gt;
-
-&lt;p&gt;die Festplatte : hard disk HD&lt;/p&gt;
-
-&lt;p&gt;das Gerät : device&lt;/p&gt;
-
-&lt;p&gt;das Kabel : cable&lt;/p&gt;
-
-&lt;p&gt;der Lautsprecher : speaker&lt;/p&gt;
-
-&lt;p&gt;die Maus : mouse&lt;/p&gt;
-
-&lt;p&gt;der Monitor : monitor&lt;/p&gt;
-
-&lt;p&gt;die Tastatur : keyboard&lt;/p&gt;
-
-&lt;p&gt;die Taste : key&lt;/p&gt;
-
-&lt;h2 id=&quot;sicherheit--security&quot;&gt;Sicherheit : Security&lt;/h2&gt;
-
-&lt;p&gt;absichern : secure, protect&lt;/p&gt;
-
-&lt;p&gt;Authentifizierung : Authentication&lt;/p&gt;
-
-&lt;p&gt;dir Autorisierung : authorization&lt;/p&gt;
-
-&lt;p&gt;beschränken : limit, restrict&lt;/p&gt;
-
-&lt;p&gt;die Bedrohung : threat&lt;/p&gt;
-
-&lt;p&gt;das Benutzerkonto : user account&lt;/p&gt;
-
-&lt;p&gt;der Cyberangriff : cyber attack&lt;/p&gt;
-
-&lt;p&gt;der Datenschutz : data protection&lt;/p&gt;
-
-&lt;p&gt;datenübernahme : data transfer&lt;/p&gt;
-
-&lt;p&gt;erzeugen (&lt;em&gt;Token&lt;/em&gt;) : generate&lt;/p&gt;
-
-&lt;p&gt;fehlerhaft : bad, corrupted&lt;/p&gt;
-
-&lt;p&gt;freischalten : authorize&lt;/p&gt;
-
-&lt;p&gt;das Kennwort : password&lt;/p&gt;
-
-&lt;p&gt;der Identitätsdiebstahl : identity theft&lt;/p&gt;
-
-&lt;p&gt;passwordgeschützt : password protected&lt;/p&gt;
-
-&lt;p&gt;setzen (&lt;em&gt;Prioritäten&lt;/em&gt;) : set&lt;/p&gt;
-
-&lt;p&gt;die Sicherheit : security&lt;/p&gt;
-
-&lt;p&gt;Sicherheitsprüfung : security auditing&lt;/p&gt;
-
-&lt;p&gt;der Schlüssel : cipher &lt;em&gt;key to secret code&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;die Sitzung : session&lt;/p&gt;
-
-&lt;p&gt;Verwaltungssicherheit : Administrative security&lt;/p&gt;
-
-&lt;p&gt;Verwaltung von SSL-Zertifikaten und Schlüsseln : SSL certificate and key management&lt;/p&gt;
-
-&lt;p&gt;Zertifikatsverfall : certificate expiration&lt;/p&gt;
-
-&lt;p&gt;der Zugriff : access&lt;/p&gt;
-
-&lt;p&gt;der Zugriffscode : access code&lt;/p&gt;
-
-&lt;h2 id=&quot;datenbank--database&quot;&gt;Datenbank : Database&lt;/h2&gt;
-
-&lt;p&gt;abbilden : represent, depict&lt;/p&gt;
-
-&lt;p&gt;die Abfrage : query&lt;/p&gt;
-
-&lt;p&gt;Stammdaten : master data&lt;/p&gt;
-
-&lt;p&gt;der JDBC-Treiber : JDBC driver&lt;/p&gt;
-
-&lt;p&gt;zuordnen : allocate&lt;/p&gt;
-
-&lt;h2 id=&quot;networking&quot;&gt;Networking&lt;/h2&gt;
-
-&lt;p&gt;dir Glasfaser : optical fiber&lt;/p&gt;
-
-&lt;p&gt;herstellen : establish&lt;/p&gt;
-
-&lt;p&gt;die Verknüpfung : link&lt;/p&gt;
-
-&lt;p&gt;die Verbindung : connection&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 03 Oct 2022 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/german-vocabulary-software-engineers/</link>
-        <guid isPermaLink="true">http://localhost:4000/german-vocabulary-software-engineers/</guid>
-        
-        
-        <category>Language</category>
-        
-      </item>
-    
-      <item>
-        <title>How to establish an effective ubiquitous language in domain-driven design</title>
-        <description>&lt;p&gt;A &lt;em&gt;Domain&lt;/em&gt; is an area of knowledge associated with a problem we are trying to solve.&lt;/p&gt;
-
-&lt;p&gt;A &lt;em&gt;Domain Model&lt;/em&gt; represents those aspects of a domain that are relevant to a particular problem.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Domain-driven_design&quot; target=&quot;_blank&quot;&gt;Domain Driven Design&lt;/a&gt; aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;em&gt;Bounded Context&lt;/em&gt; is a subsystem that defines a specific responsibility with an explicit boundary. For example, in a shopping application, we build specific components to support the &lt;em&gt;Sales Context&lt;/em&gt; and others to support the &lt;em&gt;Buyer Context&lt;/em&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The &lt;em&gt;Ubiquitous Language&lt;/em&gt; reflects a language spoken among team members working in the Bounded Context.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Using bounded contexts reduces coupling between subsystems, and we can exchange data between them via explicit &lt;a href=&quot;https://codersite.dev/documenting-rest-api-openapi3/&quot; target=&quot;_blank&quot;&gt;API&lt;/a&gt;, avoiding dependencies.&lt;/p&gt;
-
-&lt;p&gt;As developers, we must choose appropriate names for our variables that reflect the business terms used in all communication channels during the Domain modeling design stage.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/ubiquitousLanguage.jpg&quot; alt=&quot;ubiquitous Language&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;case-study&quot;&gt;Case study&lt;/h2&gt;
-
-&lt;p&gt;Business-to-business (B2B) is a business conducted between one company and another.&lt;/p&gt;
-
-&lt;p&gt;A leading company implements an e-commerce portal to sell t-shirt products from various vendors and manufacturers.&lt;/p&gt;
-
-&lt;p&gt;A vendor wants to avoid duplication of effort to manually upload images on both sides and asks the lead company to use an internal API to update their product images.&lt;/p&gt;
-
-&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;p&gt;During the integration process, business experts and developers are in constant communication to clarify requirements. For example.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The vendor communicates to the development team that its internal API describes a &lt;em&gt;mediaAssetID&lt;/em&gt; attribute to uniquely identify an image object in its domain.&lt;/li&gt;
-  &lt;li&gt;Email interactions occur to clarify how to build a URL path to retrieve the final image object using the &lt;em&gt;mediaAssetID&lt;/em&gt; attribute.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We want to introduce business terminology into our variable names&lt;/p&gt;
-
-&lt;h2 id=&quot;understand-business-concepts-before-translating-them-into-source-code&quot;&gt;Understand business concepts before translating them into source code&lt;/h2&gt;
-
-&lt;p&gt;The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain. Ubiquitous language in software development is a set of concepts and vocabulary shared between everyone on the team.&lt;/p&gt;
-
-&lt;p&gt;Some developers can specify the following class design when your bounded context is translated into source code.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Product&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imageURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  
-  &lt;span class=&quot;c1&quot;&gt;//code omitted for brevity&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The &lt;em&gt;imageId&lt;/em&gt; attribute is a good name, but other business domains may already use it. We, as developers, sometimes disconnect from business and look for variable names that usually follow conventions, standards, programming languages, framework recommendations, or technical terms.&lt;/p&gt;
-
-&lt;p&gt;If we’ve been involved in requirements analysis for weeks, why not introduce the same business terminology into our variable names? &lt;a href=&quot;https://codersite.dev/clean-code/&quot; target=&quot;_blank&quot;&gt;Variable names reveal intent&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;One of the benefits of using ubiquitous language is introducing the influence of business communication structures on software. Whenever you can, try to introduce business terminology into your variable names.&lt;/p&gt;
-
-&lt;p&gt;By introducing a better name for our variables, we can establish an effective ubiquitous language in domain-driven design&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Product&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mediaAssetID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mediaAssetURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  
-  &lt;span class=&quot;c1&quot;&gt;//code omitted for brevity&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;never-assume-and-ask-questions-to-clarify-ambiguous-and-synonyms-terms&quot;&gt;Never assume and ask questions to clarify ambiguous and synonyms terms&lt;/h2&gt;
-
-&lt;p&gt;You receive a task to implement a service to retrieve documents used in the shipment of goods, and you decide to call it  &lt;strong&gt;&lt;em&gt;shipping notes&lt;/em&gt;&lt;/strong&gt;. But your business doesn’t ship goods by the sea!&lt;/p&gt;
-
-&lt;p&gt;Ask always questions to your colleagues and domains experts to clarify business concepts. Then you will realize that your service should implement &lt;strong&gt;&lt;em&gt;delivery notes&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following class design represents a fundamental concept in the domain expert’s mental model.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DeliveryNoteService&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;c1&quot;&gt;//code omitted for brevity&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Use the ubiquitous language as a tool for effective cross-team collaboration and knowledge sharing.&lt;/p&gt;
-
-&lt;p&gt;Using the Ubiquitous language in agile software development and in domain modeling of microservices architecture is a common practice.&lt;/p&gt;
-
-&lt;p&gt;Learn Real-world use cases of OOP in software development with this practical guide.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 27 Aug 2022 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/the-ubiquitous-language/</link>
-        <guid isPermaLink="true">http://localhost:4000/the-ubiquitous-language/</guid>
-        
-        
-        <category>Domain-Driven Design</category>
-        
-      </item>
-    
-      <item>
-        <title>Understanding OOP concepts</title>
-        <description>&lt;p&gt;Understanding OOP concepts give you a solid foundation for making critical decisions about object-oriented software design.&lt;/p&gt;
-
-&lt;h2 id=&quot;class&quot;&gt;Class&lt;/h2&gt;
-
-&lt;p&gt;A class is a template or prototype that describes what an object will be. It defines its attributes(data) and behavior(methods). We must design a class before creating an object.&lt;/p&gt;
-
-&lt;h2 id=&quot;object&quot;&gt;Object&lt;/h2&gt;
-
-&lt;p&gt;An object is an instance of a class. When we create an object, we create real-world entities such as cars, bicycles, or dogs with their own attributes and own behaviors.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/carClass.jpg&quot; alt=&quot;class and object&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We instantiate an object via the &lt;em&gt;new&lt;/em&gt; keyword in the Java programming language. When you design a class follow the &lt;a href=&quot;https://codersite.dev/solid-principles-the-definitive-guide/&quot; target=&quot;_blank&quot;&gt;Single Responsibility Principle (SRP)&lt;/a&gt;.&lt;/p&gt;
-
-&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;abstraction-in-oop&quot;&gt;Abstraction in OOP&lt;/h2&gt;
-
-&lt;p&gt;Abstraction allows an object telling to its users what an application does instead of how it does it. You can see the essential buttons on your TV remote control, but you don’t care what happens behind when you press one of these buttons. In Java, we create abstractions via Interfaces and Abstract classes.&lt;/p&gt;
-
-&lt;h2 id=&quot;encapsulation-in-oop-and-data-hiding&quot;&gt;Encapsulation in OOP and Data Hiding&lt;/h2&gt;
-
-&lt;p&gt;Restricting access to specific attributes and methods is called &lt;em&gt;data hiding&lt;/em&gt;. Objects should not manipulate the data of other objects.&lt;/p&gt;
-
-&lt;p&gt;Encapsulation is the action of combining the data and methods in the same entity. In this way, we control access to the data in the object.&lt;/p&gt;
-
-&lt;h2 id=&quot;inheritance-in-oop&quot;&gt;Inheritance in OOP&lt;/h2&gt;
-
-&lt;p&gt;Inheritance is a process in which a class inherits the attributes and methods of another class.&lt;/p&gt;
-
-&lt;p&gt;Class inheritance in OOP provides the ability to create new classes with new functionalities while maintaining the functionalities inherited. In this way, it promotes code reusability.&lt;/p&gt;
-
-&lt;p&gt;This relationship is an &lt;em&gt;is-a&lt;/em&gt; relationship because when a subclass inherits from a superclass, it can do anything that the superclass can do.&lt;/p&gt;
-
-&lt;p&gt;In Java, we create inheritance between classes via the &lt;em&gt;extends&lt;/em&gt; keyword.&lt;/p&gt;
-
-&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;polymorphism-in-oop&quot;&gt;Polymorphism in OOP&lt;/h2&gt;
-
-&lt;p&gt;Polymorphism in OOP means many shapes and is coupled to inheritance. For example, a Shape class defines a &lt;em&gt;draw&lt;/em&gt; method, but Square and Circle’s subclasses will implement it differently.&lt;/p&gt;
-
-&lt;h2 id=&quot;composition-in-oop&quot;&gt;Composition in OOP&lt;/h2&gt;
-
-&lt;p&gt;The composition in OOP provides a mechanism for building classes from other classes. In Java, we usually create a class with instance variables that references one or more objects of other classes.&lt;/p&gt;
-
-&lt;p&gt;The benefit of separating one class from another one is the &lt;em&gt;Reuse&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;For example, in a shopping context, we need a list of requested &lt;em&gt;items&lt;/em&gt; and an &lt;em&gt;address&lt;/em&gt; where to deliver the &lt;em&gt;order&lt;/em&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Order&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clientId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;orderItems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Address&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shippingAddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  
-  &lt;span class=&quot;c1&quot;&gt;//code omitted for brevity&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;We build an &lt;em&gt;Item&lt;/em&gt; class including an &lt;em&gt;Article&lt;/em&gt; class.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Item&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Article&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;article&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;quantity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  
-  &lt;span class=&quot;c1&quot;&gt;//code omitted for brevity&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And the &lt;em&gt;Article&lt;/em&gt; class includes enough attributes to support the shopping business.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Article&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deliveryPrice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  
-  &lt;span class=&quot;c1&quot;&gt;//code omitted for brevity&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Even we can reuse the &lt;em&gt;Article&lt;/em&gt; class to support a &lt;em&gt;Search&lt;/em&gt; request.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SearchResponse&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Article&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;articles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  
-  &lt;span class=&quot;c1&quot;&gt;//code omitted for brevity&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; src=&quot;../assets/images/softwareDesign1.png&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;p&gt;What happens if the business wants to introduce articles in a country where some articles are forbidden to trade?.&lt;/p&gt;
-
-&lt;p&gt;We can not add a new attribute called &lt;em&gt;tradable&lt;/em&gt; to the Article class because we will never use it in normal countries.&lt;/p&gt;
-
-&lt;p&gt;Here, we can use the other technique to build new classes: &lt;strong&gt;inheritance&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/tradableArticle.png&quot; alt=&quot;class and object&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now, we can support the new requirement for the new country.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SearchResponse&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;TradableArticle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;articles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  
-  &lt;span class=&quot;c1&quot;&gt;//code omitted for brevity&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;We can reuse our classes even out of context. For example, in a Bank context, we need an &lt;em&gt;address&lt;/em&gt; to contact a &lt;em&gt;customer&lt;/em&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Customer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;customerId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lastName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Address&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  
-  &lt;span class=&quot;c1&quot;&gt;//code omitted for brevity&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;We use the term &lt;em&gt;has-a&lt;/em&gt; to describe composition relationships. An order &lt;em&gt;has-a(n)&lt;/em&gt; address. A customer &lt;em&gt;has-a(n)&lt;/em&gt; address.&lt;/p&gt;
-
-&lt;h2 id=&quot;advantages-of-object-oriented-programming&quot;&gt;Advantages of object-oriented programming&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Your program focuses on data, not on functions. You create a program using objects, not functions.&lt;/li&gt;
-  &lt;li&gt;You define methods to control the access to its data.&lt;/li&gt;
-  &lt;li&gt;Objects communicate through methods - messages&lt;/li&gt;
-  &lt;li&gt;The application adapts to new changes.&lt;/li&gt;
-  &lt;li&gt;Objects have unique responsibilities.&lt;/li&gt;
-  &lt;li&gt;You don’t define global data. Every object contains its data.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Understanding OOP concepts in Java or Python OOP concepts makes your system design resilient to future changes.&lt;/p&gt;
-
-&lt;p&gt;Learn how to use these concepts in &lt;a href=&quot;https://codersite.dev/open-closed-principle/&quot; target=&quot;_blank&quot;&gt;SOLID design principles&lt;/a&gt;.&lt;/p&gt;
-
-&lt;div&gt;&lt;p&gt;With this practical guide, learn to manage dependencies and abstractions to reduce complexity in your software design process.&lt;/p&gt;
-&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
-</description>
-        <pubDate>Fri, 20 May 2022 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/understanding-oop-concepts/</link>
-        <guid isPermaLink="true">http://localhost:4000/understanding-oop-concepts/</guid>
-        
-        
-        <category>Object-Oriented</category>
         
       </item>
     
