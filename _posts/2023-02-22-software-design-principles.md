@@ -5,6 +5,7 @@ description: "What are the Software Design Principles, SOLID"
 author: moises
 categories: [ design ]
 image: assets/images/softwareDesignPrinciples.jpg
+comments: false
 ---
 
 Software design principles are guidelines and best practices that help software developers create high-quality, maintainable, and efficient software. Here are some commonly recognized software design principles:
@@ -26,3 +27,7 @@ Software design principles are guidelines and best practices that help software 
 - Design Patterns: Design patterns are proven solutions to common software design problems. Developers can use design patterns to create software that is modular, flexible, and reusable.
 
 These principles are not exhaustive, and there may be other principles that are relevant to specific types of software. However, these principles provide a solid foundation for creating high-quality, maintainable, and efficient software.
+
+<div>
+{%- include softwareDesign.html -%}
+</div>

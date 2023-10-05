@@ -5,6 +5,7 @@ description: "Best Startup Ideas to Make Money"
 author: moises
 categories: [ startup ]
 image: assets/images/startupIdeas.jpg
+comments: false
 ---
 
 There are many ideas that could be suitable for starting a successful startup, and the ideal one will depend on various factors such as your interests, skills, market demand, and resources available. However, here are some general ideas that could be worth considering:

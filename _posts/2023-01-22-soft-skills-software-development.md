@@ -5,6 +5,7 @@ description: "Soft Skills in Software Development"
 author: moises
 categories: [ design ]
 image: assets/images/softSkills.jpg
+comments: false
 ---
 
 Soft skills are the personal attributes that enable individuals to interact effectively and harmoniously with others. In software development, having strong soft skills is just as important as technical skills. Here are some examples of soft skills that are valuable in software development:
@@ -24,3 +25,9 @@ Soft skills are the personal attributes that enable individuals to interact effe
 - Creativity: Creativity can help developers find innovative solutions to complex problems, and come up with new and better ways to approach development challenges.
 
 These are just a few examples of soft skills that can be valuable in software development. Having a strong combination of technical and soft skills can help developers excel in their careers and contribute to successful software projects.
+
+> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+
+<div>
+{%- include softwareDesignAd1.html -%}
+</div>
