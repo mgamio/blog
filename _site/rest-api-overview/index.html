@@ -490,6 +490,10 @@ Host: codersite.dev
 
 <p>Following the “separation of concerns” principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (<em>BuyersApiController</em>) and managing all business logic, mappings, and the database connection to a Service class (<em>BuyersService</em>).</p>
 
+<p><em>@RestController</em> annotation tells that this Class describes endpoints that should be made available over the web to handle all HTTP requests.</p>
+
+<p>We inject the <em>BuyersService</em> dependency class into the BuyersApiController class using its constructor method.</p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3

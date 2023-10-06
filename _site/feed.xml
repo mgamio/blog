@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Oct 2023 09:30:36 +0200</pubDate>
-    <lastBuildDate>Thu, 05 Oct 2023 09:30:36 +0200</lastBuildDate>
+    <pubDate>Fri, 06 Oct 2023 10:37:17 +0200</pubDate>
+    <lastBuildDate>Fri, 06 Oct 2023 10:37:17 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -518,6 +518,10 @@ Host: codersite.dev
 &lt;h3 id=&quot;identification-of-software-design-principles&quot;&gt;Identification of Software Design Principles&lt;/h3&gt;
 
 &lt;p&gt;Following the “separation of concerns” principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (&lt;em&gt;BuyersApiController&lt;/em&gt;) and managing all business logic, mappings, and the database connection to a Service class (&lt;em&gt;BuyersService&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;@RestController&lt;/em&gt; annotation tells that this Class describes endpoints that should be made available over the web to handle all HTTP requests.&lt;/p&gt;
+
+&lt;p&gt;We inject the &lt;em&gt;BuyersService&lt;/em&gt; dependency class into the BuyersApiController class using its constructor method.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2

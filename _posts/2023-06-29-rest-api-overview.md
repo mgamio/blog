@@ -218,6 +218,10 @@ We will use the Spring portfolio to build a RESTful service.
 
 Following the "separation of concerns" principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (*BuyersApiController*) and managing all business logic, mappings, and the database connection to a Service class (*BuyersService*).
 
+*@RestController* annotation tells that this Class describes endpoints that should be made available over the web to handle all HTTP requests.
+
+We inject the *BuyersService* dependency class into the BuyersApiController class using its constructor method.
+
 ```
 @RestController
 @Validated
