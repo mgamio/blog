@@ -98,6 +98,8 @@ der Ausdruck : printout
 
 der Ausfall : outage
 
+ausliefern : deploy
+
 der Bericht : report
 
 die Betriebsbereitschaft : readiness for service (or operation)
@@ -250,7 +252,11 @@ abbilden : represent, depict
 
 die Abfrage : query
 
+das Austauschformat : interchange format
+
 Stammdaten : master data
+
+die Textdatei : text file
 
 der JDBC-Treiber : JDBC driver
 
