@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 Oct 2023 11:55:30 +0200</pubDate>
-    <lastBuildDate>Tue, 10 Oct 2023 11:55:30 +0200</lastBuildDate>
+    <pubDate>Wed, 11 Oct 2023 11:25:32 +0200</pubDate>
+    <lastBuildDate>Wed, 11 Oct 2023 11:25:32 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -336,20 +336,6 @@ Content-Type: application/json
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;common-http-method-properties&quot;&gt;Common HTTP Method Properties&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Safe Methods&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;A Request method is &lt;a href=&quot;https://httpwg.org/specs/rfc9110.html#safe.methods&quot; target=&quot;_blank&quot;&gt;safe&lt;/a&gt; when it does not change the state of a resource on the API Server.&lt;/p&gt;
-
-&lt;p&gt;The GET, HEAD, OPTIONS, and TRACE methods are defined to be safe.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Idempotent Methods&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;A request method is idempotent when multiple identical requests have the same effect on the API Server.&lt;/p&gt;
-
-&lt;p&gt;The PUT, and DELETE methods are defined to be idempotent.&lt;/p&gt;
-
 &lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
 &lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
 &lt;script&gt;
@@ -493,9 +479,52 @@ Host: codersite.dev
 
 &lt;p&gt;The success response code to a DELETE request is 204 (No Content).&lt;/p&gt;
 
+&lt;h2 id=&quot;common-http-method-properties&quot;&gt;Common HTTP Method Properties&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Safe Methods&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A Request method is &lt;a href=&quot;https://httpwg.org/specs/rfc9110.html#safe.methods&quot; target=&quot;_blank&quot;&gt;safe&lt;/a&gt; when it does not change the state of a resource on the API Server.&lt;/p&gt;
+
+&lt;p&gt;The GET, HEAD, OPTIONS, and TRACE methods are defined to be safe.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Idempotent Methods&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A request method is idempotent when multiple identical requests have the same effect on the API Server.&lt;/p&gt;
+
+&lt;p&gt;The PUT, and DELETE methods are defined to be idempotent.&lt;/p&gt;
+
 &lt;h2 id=&quot;request-and-response&quot;&gt;Request and Response&lt;/h2&gt;
 
 &lt;p&gt;REST API requests and responses are typically formatted in &lt;a href=&quot;https://www.json.org/json-en.html&quot; target=&quot;_blank&quot;&gt;JSON&lt;/a&gt; (JavaScript Object Notation) or XML (eXtensible Markup Language). Requests consist of an HTTP method, headers, and, optionally, a request body containing data. Responses include an HTTP status code indicating the outcome of the request, along with the response body containing the requested resource or an error message.&lt;/p&gt;
+
+&lt;p&gt;Common error HTTP status codes include:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;400 Bad Request. This means that client-request input is not well-formed. The response body will include an error providing further information.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;401 Unauthorized. Missing or incorrect authentication credentials.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;403 Forbidden. This means the user is authenticated, but it’s not allowed to access a resource.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;404 Not Found. The requested resource could not be found but may be available in the future.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;405 Method Not Allowed. Indicates that the method received in the request-line is known by the origin server but not supported by the target resource.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;406 Not Acceptable. Returned when an invalid format is specified in the request&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;429 Too Many Requests. Indicates the user has sent too many requests in a given amount of time (“rate limiting”).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;500 Internal Server Error. Something is broken.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;building-a-restful-web-service&quot;&gt;Building a RESTful Web Service&lt;/h2&gt;
 
@@ -505,6 +534,15 @@ Host: codersite.dev
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/shoppingCar.jpg&quot; alt=&quot;shopping-car&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
+&lt;p&gt;We use API endpoints and HTTP methods to define and implement the specific functional requirements.&lt;/p&gt;
+
+&lt;p&gt;We should use the nouns representing the entity with the endpoint we’re retrieving or manipulating as the pathname&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;GET /buyers
+A list of accessible buyers is given
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;It is highly recommended to use the SwaggerHub editor to create a consistent API design compliant with the OpenAPI Specifications. &lt;a href=&quot;https://swagger.io/tools/swaggerhub/&quot; target=&quot;_blank&quot;&gt;Create a Free Account&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;While you are designing, SwaggerHub can generate documentation automatically, making it easy for both API consumers and internal users to learn and test your APIs. You can create a Client SDK for different programming languages from the Editor and generate the object model and API controllers on your server side.&lt;/p&gt;
@@ -515,7 +553,7 @@ Host: codersite.dev
 
 &lt;p&gt;We will use the Spring portfolio to build a RESTful service.&lt;/p&gt;
 
-&lt;h3 id=&quot;identification-of-software-design-principles&quot;&gt;Identification of Software Design Principles&lt;/h3&gt;
+&lt;h3 id=&quot;separation-of-rest-controllers-and-business-logic&quot;&gt;Separation of REST controllers and business logic&lt;/h3&gt;
 
 &lt;p&gt;Following the “separation of concerns” principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (&lt;em&gt;BuyersApiController&lt;/em&gt;) and managing all business logic, mappings, and the database connection to a Service class (&lt;em&gt;BuyersService&lt;/em&gt;).&lt;/p&gt;
 

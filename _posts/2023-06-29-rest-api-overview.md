@@ -80,20 +80,6 @@ A fundamental principle of REST API is the uniform interface, which establishes 
 
 - Hypermedia as the engine of application state (HATEOAS): The API should provide links to related resources, allowing clients to navigate the application's state.
 
-## Common HTTP Method Properties
-
-**Safe Methods**
-
-A Request method is [safe](https://httpwg.org/specs/rfc9110.html#safe.methods){:target="_blank"} when it does not change the state of a resource on the API Server.
-
-The GET, HEAD, OPTIONS, and TRACE methods are defined to be safe.
-
-**Idempotent Methods**
-
-A request method is idempotent when multiple identical requests have the same effect on the API Server.
-
-The PUT, and DELETE methods are defined to be idempotent.
-
 <div>
 {%- include inArticleAds.html -%}
 </div>
@@ -192,9 +178,41 @@ Host: codersite.dev
 
 The success response code to a DELETE request is 204 (No Content).
 
+## Common HTTP Method Properties
+
+**Safe Methods**
+
+A Request method is [safe](https://httpwg.org/specs/rfc9110.html#safe.methods){:target="_blank"} when it does not change the state of a resource on the API Server.
+
+The GET, HEAD, OPTIONS, and TRACE methods are defined to be safe.
+
+**Idempotent Methods**
+
+A request method is idempotent when multiple identical requests have the same effect on the API Server.
+
+The PUT, and DELETE methods are defined to be idempotent.
+
 ## Request and Response
 
 REST API requests and responses are typically formatted in [JSON](https://www.json.org/json-en.html){:target="_blank"} (JavaScript Object Notation) or XML (eXtensible Markup Language). Requests consist of an HTTP method, headers, and, optionally, a request body containing data. Responses include an HTTP status code indicating the outcome of the request, along with the response body containing the requested resource or an error message.
+
+Common error HTTP status codes include:
+
+- 400 Bad Request. This means that client-request input is not well-formed. The response body will include an error providing further information.
+
+- 401 Unauthorized. Missing or incorrect authentication credentials.
+
+- 403 Forbidden. This means the user is authenticated, but it's not allowed to access a resource.
+
+- 404 Not Found. The requested resource could not be found but may be available in the future.
+
+- 405 Method Not Allowed. Indicates that the method received in the request-line is known by the origin server but not supported by the target resource.
+
+- 406 Not Acceptable. Returned when an invalid format is specified in the request
+
+- 429 Too Many Requests. Indicates the user has sent too many requests in a given amount of time ("rate limiting").
+
+- 500 Internal Server Error. Something is broken.
 
 ## Building a RESTful Web Service
 
@@ -204,6 +222,14 @@ The following figure shows a [UML class diagram](https://codersite.dev/uml-diagr
 
 ![shopping-car](/assets/images/shoppingCar.jpg){:class="img-responsive"}
 
+We use API endpoints and HTTP methods to define and implement the specific functional requirements. 
+
+We should use the nouns representing the entity with the endpoint we're retrieving or manipulating as the pathname
+
+```
+GET /buyers
+A list of accessible buyers is given
+```
 It is highly recommended to use the SwaggerHub editor to create a consistent API design compliant with the OpenAPI Specifications. [Create a Free Account](https://swagger.io/tools/swaggerhub/){:target="_blank"}.
 
 While you are designing, SwaggerHub can generate documentation automatically, making it easy for both API consumers and internal users to learn and test your APIs. You can create a Client SDK for different programming languages from the Editor and generate the object model and API controllers on your server side.
@@ -214,7 +240,7 @@ The following figure shows an example of how SwaggerHub generates the documentat
 
 We will use the Spring portfolio to build a RESTful service.
 
-### Identification of Software Design Principles
+### Separation of REST controllers and business logic
 
 Following the "separation of concerns" principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (*BuyersApiController*) and managing all business logic, mappings, and the database connection to a Service class (*BuyersService*).
 
