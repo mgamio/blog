@@ -12,8 +12,8 @@
 <meta property="og:title" content="Documenting a SpringBoot REST API with OpenAPI 3" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The main idea for documenting your back-end RESTful APIs with openAPIi 3 to communicate to third-party developers what your endpoints are doing" />
-<meta property="og:description" content="The main idea for documenting your back-end RESTful APIs with openAPIi 3 to communicate to third-party developers what your endpoints are doing" />
+<meta name="description" content="The main idea for documenting your back-end RESTful APIs with openAPI 3 to communicate to third-party developers what your endpoints are doing" />
+<meta property="og:description" content="The main idea for documenting your back-end RESTful APIs with openAPI 3 to communicate to third-party developers what your endpoints are doing" />
 <link rel="canonical" href="http://localhost:4000/documenting-rest-api-openapi3/" />
 <meta property="og:url" content="http://localhost:4000/documenting-rest-api-openapi3/" />
 <meta property="og:site_name" content="codersite" />
@@ -24,7 +24,7 @@
 <meta property="twitter:image" content="http://localhost:4000/assets/images/apiDocumentation.jpg" />
 <meta property="twitter:title" content="Documenting a SpringBoot REST API with OpenAPI 3" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2020-10-02T00:00:00+02:00","datePublished":"2020-10-02T00:00:00+02:00","description":"The main idea for documenting your back-end RESTful APIs with openAPIi 3 to communicate to third-party developers what your endpoints are doing","headline":"Documenting a SpringBoot REST API with OpenAPI 3","image":"http://localhost:4000/assets/images/apiDocumentation.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/documenting-rest-api-openapi3/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/documenting-rest-api-openapi3/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2020-10-02T00:00:00+02:00","datePublished":"2020-10-02T00:00:00+02:00","description":"The main idea for documenting your back-end RESTful APIs with openAPI 3 to communicate to third-party developers what your endpoints are doing","headline":"Documenting a SpringBoot REST API with OpenAPI 3","image":"http://localhost:4000/assets/images/apiDocumentation.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/documenting-rest-api-openapi3/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/documenting-rest-api-openapi3/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -218,7 +218,9 @@
                 <!-- End Toc -->
                 <p>The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.</p>
 
-<p>To learn more about REST see <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST API Overview</a>.</p>
+<p>To learn more about REST API design, see <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST API Overview</a>.</p>
+
+<p>In this tutorial, we are going to write clear and concise API documentation using OpenAPI 3.</p>
 
 <p>Prerequisites:</p>
 
@@ -362,7 +364,7 @@
 <span class="p">&lt;/</span><span class="n">project</span><span class="p">&gt;</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>To generate automatically the API documentation, we add the <a href="https://springdoc.org/" target="_blank">springdoc-openapi-ui</a> dependency to our pom.xml file.</p>
+<p>To generate the API documentation with OpenAPI 3, we add the <a href="https://springdoc.org/" target="_blank">springdoc-openapi-ui</a> dependency to our pom.xml file.</p>
 
 <div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -804,6 +806,8 @@
 
 <h3 id="7-configure-openapi--openapiconfigjava">7. Configure openApi – OpenApiConfig.java</h3>
 
+<p>The <em>OpenAPI</em> class is the root document object that describes an API or elements of an API</p>
+
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -925,7 +929,7 @@
 
 <p>Once you receive the <a href="https://codersite.dev/uml-diagrams-for-java-developers/" target="_blank">technical specifications in UML</a>, you need to decide whether to take the Design First approach or the Code First approach.</p>
 
-<p>Documenting an API facilitates interaction between internal development teams that build different web services for the same product.</p>
+<p>Documenting API endpoints with OpenAPI 3 facilitates interaction between internal development teams that build different web services for the same product.</p>
 
 <p>Please donate to maintain and improve this website if you find this content valuable.</p>
 

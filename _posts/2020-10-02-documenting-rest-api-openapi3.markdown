@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Documenting a SpringBoot REST API with OpenAPI 3"
-description: "The main idea for documenting your back-end RESTful APIs with openAPIi 3 to communicate to third-party developers what your endpoints are doing"
+description: "The main idea for documenting your back-end RESTful APIs with openAPI 3 to communicate to third-party developers what your endpoints are doing"
 author: moises
 categories: [ Web APIs ]
 image: assets/images/apiDocumentation.jpg
@@ -10,7 +10,9 @@ comments: false
 
 The main idea for documenting our back-end RESTful APIs is to communicate to third-party developers what our endpoints are doing.
 
-To learn more about REST see [REST API Overview](https://codersite.dev/rest-api-overview/){:target="_blank"}.
+To learn more about REST API design, see [REST API Overview](https://codersite.dev/rest-api-overview/){:target="_blank"}.
+
+In this tutorial, we are going to write clear and concise API documentation using OpenAPI 3.
 
 Prerequisites:
 
@@ -93,7 +95,7 @@ Below, you can see the pom.xml to use:
 </project>
 ```
 
-To generate automatically the API documentation, we add the [springdoc-openapi-ui](https://springdoc.org/){:target="_blank"} dependency to our pom.xml file.
+To generate the API documentation with OpenAPI 3, we add the [springdoc-openapi-ui](https://springdoc.org/){:target="_blank"} dependency to our pom.xml file.
 
 <div>
 {%- include inArticleAds.html -%}
@@ -344,6 +346,8 @@ public class BookApiController implements BookApi {
 
 ### 7. Configure openApi – OpenApiConfig.java
 
+The *OpenAPI* class is the root document object that describes an API or elements of an API
+
 ```kotlin
 package com.openapi.config;
 import io.swagger.v3.oas.models.info.Info;
@@ -431,7 +435,7 @@ Most of the companies usually follow a [Design-First API](https://swagger.io/blo
 
 Once you receive the [technical specifications in UML](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"}, you need to decide whether to take the Design First approach or the Code First approach.
 
-Documenting an API facilitates interaction between internal development teams that build different web services for the same product.
+Documenting API endpoints with OpenAPI 3 facilitates interaction between internal development teams that build different web services for the same product.
 
 Please donate to maintain and improve this website if you find this content valuable.
 
