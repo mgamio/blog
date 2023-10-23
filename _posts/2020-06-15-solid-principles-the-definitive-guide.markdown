@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SOLID principles: The Definitive Guide (Part I)"
-description: "SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated"
+description: "Implementing the Single Responsibility Principle in a microservices architecture"
 author: moises
 categories: [ design ]
 image: assets/images/solid.jpg
@@ -10,9 +10,11 @@ comments: false
 
 SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.
 
+SOLID is an acronym that stands for five principles of software design: **S**ingle Responsibility, **O**pen-Closed, **L**iskov Substitution, **I**nterface Segregation, and **D**ependency Inversion.
+
 Robert C. Martin introduced it. [Clean Architecture](https://amzn.to/3g9xXyS){:target="_blank"}.
 
-When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.
+When SOLID principles are applied correctly, your software infrastructure will tolerate changes, be easier to understand, and focus on reusable components by reducing complexity, coupling, and dependency.
 
 Let’s start with the first principle.
 
@@ -114,7 +116,7 @@ In conclusion, once you identify classes that have too many responsibilities, us
 
 Use this principle as a tool when translating [business software requirements into technical specifications](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"}. Programmers must understand these design decisions before programming.
 
-Now that you've learned the Single Responsibility principle, it's time to learn the [Open-closed principle](https://codersite.dev/open-closed-principle/){:target="_blank"} to avoid future software maintenance costs.
+Now that you've learned the Single Responsibility principle, it's time to learn the [Open-closed principle](https://codersite.dev/open-closed-principle/){:target="_blank"} to design flexible systems and avoid future software maintenance costs.
 
 <div>
 {%- include softwareDesign.html -%}
