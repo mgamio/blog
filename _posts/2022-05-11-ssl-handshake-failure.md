@@ -17,7 +17,7 @@ A summary of the steps in the SSL handshake:
 - Exchange and validate digital certificates to authenticate each other.
 - Generate a shared secret key using asymmetric encryption techniques.
 
-For more information about cryptographic algorithms and digital certificates, refer [here](https://www.ibm.com/docs/en/ibm-mq/7.5?topic=mechanisms-cryptographic-security-protocols-tls-ssl){:target="_blank"}.
+For more information about cryptographic algorithms and digital certificates, refer [here](https://www.ibm.com/docs/en/ibm-mq/9.3?topic=overview-cryptographic-security-protocols-tls){:target="_blank"}.
 
 ## SSL handshake failure during API integration
 
