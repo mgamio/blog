@@ -59,7 +59,7 @@ public void constant(List<string> list, String item) {
 ```
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include adsCosmoCoding.html -%}
 </div>
 
 In a best-case scenario, an *add* method takes O(1) time. The worst-case scenario takes O(n).
