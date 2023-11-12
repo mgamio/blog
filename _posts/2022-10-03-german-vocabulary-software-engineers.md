@@ -236,6 +236,8 @@ der Schlüssel : cipher *key to secret code*
 
 die Sitzung : session
 
+die Verschlüsselung : encryption
+
 Verwaltungssicherheit : Administrative security
 
 Verwaltung von SSL-Zertifikaten und Schlüsseln : SSL certificate and key management
