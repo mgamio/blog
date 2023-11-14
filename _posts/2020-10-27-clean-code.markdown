@@ -243,10 +243,10 @@ if (imageId > 0) {
 
 Even the KISS (Keep It Simple, Stupid) principle suggests that developers should strive for simplicity and avoid unnecessary complexity. This makes code easier to understand, maintain, and debug.
 
-You can learn more about software design principles in my how-to guidelines.
+> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
 
 <div>
-{%- include softwareDesignAd2.html -%}
+{%- include softwareDesign.html -%}
 </div>
 
 ## Avoid hard coding

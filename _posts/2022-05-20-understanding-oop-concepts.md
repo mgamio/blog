@@ -162,6 +162,8 @@ Understanding OOP concepts in Java or Python OOP concepts makes your system desi
 
 Learn how to use these concepts in [SOLID design principles](https://codersite.dev/open-closed-principle/){:target="_blank"}.
 
+> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+
 <div>
 {%- include softwareDesign.html -%}
 </div>

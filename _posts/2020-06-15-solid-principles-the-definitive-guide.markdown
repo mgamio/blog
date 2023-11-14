@@ -118,6 +118,8 @@ Use this principle as a tool when translating [business software requirements in
 
 Now that you've learned the Single Responsibility principle, it's time to learn the [Open-closed principle](https://codersite.dev/open-closed-principle/){:target="_blank"} to design flexible systems and avoid future software maintenance costs.
 
+> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+
 <div>
 {%- include softwareDesign.html -%}
 </div>

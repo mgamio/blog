@@ -74,10 +74,10 @@ public class QuoteController {
 }
 ```
 
-To [design more flexible systems](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}, follow my practical guidelines for managing dependencies:
+> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
 
 <div>
-{%- include softwareDesignAd2.html -%}
+{%- include softwareDesign.html -%}
 </div>
 
 For more information on implementing RESTful web services, visit this [link](https://codersite.dev/rest-api-overview/){:target="_blank"}.

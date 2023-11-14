@@ -123,8 +123,10 @@ public void productsNotOrderedByValue () {
 }
 ```
 
+> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+
 <div>
-{%- include inArticleAds.html -%}
+{%- include softwareDesign.html -%}
 </div>
 
 We realize that we need to order the array by value because we want the most valuable products, so its time to refactor our algorithm. What we need to do is to sort our input array.

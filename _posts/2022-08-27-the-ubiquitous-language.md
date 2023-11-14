@@ -96,6 +96,8 @@ Use the ubiquitous language as a tool for effective cross-team collaboration and
 
 Using the Ubiquitous language in agile software development and in domain modeling of microservices architecture is a common practice.
 
-Learn Real-world use cases of OOP in software development with this practical guide.
+> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
 
-<a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>
+<div>
+{%- include softwareDesign.html -%}
+</div>

@@ -269,8 +269,10 @@ public interface BookApi {
 }
 ```
 
+> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+
 <div>
-{%- include inArticleAds.html -%}
+{%- include softwareDesign.html -%}
 </div>
 
 ### 6. Create Spring Rest Controller Implementation – BookApiController.java
