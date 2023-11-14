@@ -152,7 +152,7 @@ public static <T extends Comparable<T>> boolean search(T target, T[] array) {
 ```
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include javaInterviewAds1.html -%}
 </div>
 
 ## The complexity of an algorithm

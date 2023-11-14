@@ -101,7 +101,7 @@ We create an Abstract Data Type called a Graph to define the behavior of our new
 We need a stack data structure so we can remember the visited vertices. A stack follows the last-in, first-out (LIFO) principle, i.e., the city inserted at last is the first city to come out of the stack.
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include javaInterviewAds1.html -%}
 </div>
 
 We define an *arrayOfVertex[]* array to store new Vertices(cities) added to the Graph.

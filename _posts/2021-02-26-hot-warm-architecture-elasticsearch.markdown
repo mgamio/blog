@@ -538,6 +538,10 @@ GET .ds-billing-index-000006/_search
 }
 {% endhighlight %}
 
+<div>
+{%- include javaInterviewAds1.html -%}
+</div>
+
 Aggregation results are in the response’s aggregations object.
 
 {% highlight ruby %}

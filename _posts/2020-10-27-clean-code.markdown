@@ -458,4 +458,8 @@ Please donate to maintain and improve this website if you find this content valu
 
 You can see a lot of typical algorithms implemented with Clean Code principles in the following [link](https://amzn.to/3PiUs0w){:target="_blank"}
 
+<div>
+{%- include javaInterviewAds1.html -%}
+</div>
+
 <p><iframe style="width:100%;" height="550" src="https://www.youtube.com/embed/qf4vJrhNQn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>

@@ -21,7 +21,7 @@ Application server refers to the process that provides the functions required to
 A cluster is a group of servers that are managed together. For example, in the WebSphere Application Server, all application servers processes are running the same set of enterprise applications, and the workload capacity is distributed between these servers.
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include javaInterviewAds1.html -%}
 </div>
 
 The benefits of building a cluster are:

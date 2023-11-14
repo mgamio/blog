@@ -394,7 +394,7 @@ public class OpenapiApplication {
 ```
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include javaInterviewAds1.html -%}
 </div>
 
 @SpringBootApplication add the following functionalities:

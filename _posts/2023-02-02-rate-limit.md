@@ -212,7 +212,7 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponse respons
 The magic of this library is in the *isConsumed()* method. After asking the bucket to consume a token from the basket, we test whether the token was consumed. If true, the limit was not exceeded, and the API allows the client to consume the endpoint. Otherwise, the limit was exceeded, and we rejected the request, returning an HTTP error code of 429 to the client.
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include javaInterviewAds1.html -%}
 </div>
 
 We need to register our *RateLimitInterceptor* class by extending the *WebMvcConfigurerAdapter* class.

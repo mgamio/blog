@@ -81,7 +81,7 @@ A fundamental principle of REST API is the uniform interface, which establishes 
 - Hypermedia as the engine of application state (HATEOAS): The API should provide links to related resources, allowing clients to navigate the application's state.
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include javaInterviewAds1.html -%}
 </div>
 
 ## HTTP Methods
