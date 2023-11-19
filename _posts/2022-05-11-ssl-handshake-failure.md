@@ -77,7 +77,7 @@ For example, the Cipher Suite SSL_RSA_WITH_RC4_128_MD5 includes:
 - The MD5 MAC algorithm
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include javaInterviewAds1.html -%}
 </div>
 
 ## How to interpret SSL handshake failure logs

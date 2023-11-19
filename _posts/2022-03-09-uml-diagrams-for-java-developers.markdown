@@ -50,7 +50,7 @@ These areas of interest in the software are:
 **Context -> Containers -> Components -> Code** - UML Notation
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include javaInterviewAds1.html -%}
 </div>
 
 ### Context diagram
