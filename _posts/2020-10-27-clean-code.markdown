@@ -436,6 +436,24 @@ subscriberId = WSClient.subscribe(email, buyer, 102911);
 
 Method overloading increases the readability and reusability of the program.
 
+## Avoid Too Many Arguments In Functions
+
+Sometimes, we write functions containing more than three arguments, like this function:
+
+```kotlin
+public boolean validateAddress(String street, int number, String postalCode, String city, String country) {
+  //code omitted for brevity
+}
+```
+
+As all these arguments belong to an Address concept, we can pass an Object as an argument.
+
+```kotlin
+public boolean validateAddress(Address address) {
+  //code omitted for brevity
+}
+```
+ 
 Applications of clean code:
 
 * Refactoring techniques for improving code cleanliness

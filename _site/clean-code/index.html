@@ -829,6 +829,28 @@
 
 <p>Method overloading increases the readability and reusability of the program.</p>
 
+<h2 id="avoid-too-many-arguments-in-functions">Avoid Too Many Arguments In Functions</h2>
+
+<p>Sometimes, we write functions containing more than three arguments, like this function:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">boolean</span> <span class="nf">validateAddress</span><span class="p">(</span><span class="nc">String</span> <span class="n">street</span><span class="p">,</span> <span class="n">int</span> <span class="n">number</span><span class="p">,</span> <span class="nc">String</span> <span class="n">postalCode</span><span class="p">,</span> <span class="nc">String</span> <span class="n">city</span><span class="p">,</span> <span class="nc">String</span> <span class="n">country</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>As all these arguments belong to an Address concept, we can pass an Object as an argument.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">boolean</span> <span class="nf">validateAddress</span><span class="p">(</span><span class="nc">Address</span> <span class="n">address</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <p>Applications of clean code:</p>
 
 <ul>
