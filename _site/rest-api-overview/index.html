@@ -680,6 +680,66 @@ public ResponseEntity&lt;List&lt;Buyer&gt;&gt; listBuyers(
 }	
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h2 id="include-loggers">Include Loggers</h2>
+
+<p>Redirect the requests to the server logs. If you must fix any error your clients reported, you can always reproduce the original request and debug it in your backends.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>@Override
+@RequestMapping(value = "/api/v1/buyers/{buyerId}", method = RequestMethod.DELETE)
+public ResponseEntity&lt;Void&gt; deleteBuyer(Integer buyerId) throws Exception {
+
+  logger.info(request.getMethod() + UtilitiesService.REQUESTED_PARAMETERS + utilitiesService.getRequestURLWithQueryParam(request));
+
+  buyersService.deleteBuyer(buyerId);
+
+  return new ResponseEntity&lt;Void&gt;(HttpStatus.NO_CONTENT);
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We include a new dependency in your Api Controller:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre>public class UtilitiesServiceImpl implements UtilitiesService {
+
+@Override
+public String getRequestURLWithQueryParam(HttpServletRequest request) {
+
+  StringBuffer requestURL = request.getRequestURL();
+    if (request.getQueryString() != null) {
+      requestURL.append('?').append(request.getQueryString());
+    }
+    return requestURL.toString();
+  }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Even you can create statistics of how many requests by endpoint arrive per minute by implementing a <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">hot-warm architecture in Elasticsearch</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>[12/4/23 15:48:27:888 CET] 00000121 SystemOut     INFO 19484 BuyersApiController : DELETE_REQUESTED_PARAMETERS: https://yourapidomain/api/v1/buyers/12345
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <h2 id="benefits-of-rest-api">Benefits of REST API</h2>
 
 <p>REST APIs offer several advantages that contribute to their widespread adoption in modern web development:</p>
@@ -831,7 +891,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
                 
                     <a class="mt-1 mb-1" href="/categories#design">design (5)</a>
                 
-                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (7)</a>
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (8)</a>
                 
                     <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
                 

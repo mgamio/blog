@@ -328,6 +328,46 @@ public ResponseEntity<List<Buyer>> listBuyers(
 }	
 ```
 
+## Include Loggers
+
+Redirect the requests to the server logs. If you must fix any error your clients reported, you can always reproduce the original request and debug it in your backends.
+
+```
+@Override
+@RequestMapping(value = "/api/v1/buyers/{buyerId}", method = RequestMethod.DELETE)
+public ResponseEntity<Void> deleteBuyer(Integer buyerId) throws Exception {
+
+  logger.info(request.getMethod() + UtilitiesService.REQUESTED_PARAMETERS + utilitiesService.getRequestURLWithQueryParam(request));
+
+  buyersService.deleteBuyer(buyerId);
+
+  return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+}
+```
+
+We include a new dependency in your Api Controller:
+
+```
+public class UtilitiesServiceImpl implements UtilitiesService {
+
+@Override
+public String getRequestURLWithQueryParam(HttpServletRequest request) {
+
+  StringBuffer requestURL = request.getRequestURL();
+    if (request.getQueryString() != null) {
+      requestURL.append('?').append(request.getQueryString());
+    }
+    return requestURL.toString();
+  }
+}
+```
+	
+Even you can create statistics of how many requests by endpoint arrive per minute by implementing a [hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}.
+
+```
+[12/4/23 15:48:27:888 CET] 00000121 SystemOut     INFO 19484 BuyersApiController : DELETE_REQUESTED_PARAMETERS: https://yourapidomain/api/v1/buyers/12345
+```
+
 ## Benefits of REST API
 
 REST APIs offer several advantages that contribute to their widespread adoption in modern web development:

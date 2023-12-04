@@ -5,9 +5,65 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Nov 2023 16:42:42 +0100</pubDate>
-    <lastBuildDate>Sat, 25 Nov 2023 16:42:42 +0100</lastBuildDate>
+    <pubDate>Mon, 04 Dec 2023 16:39:38 +0100</pubDate>
+    <lastBuildDate>Mon, 04 Dec 2023 16:39:38 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>How to apply SOLID principles to Services</title>
+        <description>&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Describe the project to implement and enfasize that in every step we need to take into account the importance of solid design principles and refactoring techniques&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Include a diagram showing lines that connect API controllers, service layers, backends, and data stores&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Focus in the implementation of services that support API controllers , Buyers and Orders&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Describe how to apply SRP, OCP, ISP principles to design the services through interfaces&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Introduce duplicate code when we translate and build Order objects at the ordersByBuyer and listOrders, both contains duplicated code to build a list of orders from the backend classes&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Explain the ineficiencie of duplicated code, , identify the responsible service to serve buildOrder, and refactor the code, showing in detail every step&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Explain the introduction of dependency injection in Buyer class (depends on order), show code in springboot&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Show the final diagram between Buyer and Order&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Final conclusions, build a selling argument to promote Book!&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Please donate if you find this content valuable.&lt;/p&gt;
+
+&lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
+ &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
+ &lt;input type=&quot;image&quot; src=&quot;https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif&quot; border=&quot;0&quot; name=&quot;submit&quot; title=&quot;PayPal - The safer, easier way to pay online!&quot; alt=&quot;Donate with PayPal button&quot; /&gt;
+ &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;https://www.paypal.com/en_DE/i/scr/pixel.gif&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;
+&lt;/form&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div&gt;&lt;center&gt;
+  &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; src=&quot;../assets/images/adsJavaInterview1.jpg&quot; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+&lt;br /&gt;&lt;/div&gt;
+</description>
+        <pubDate>Sun, 03 Dec 2023 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/how-to-apply-solid-principles-to-services/</link>
+        <guid isPermaLink="true">http://localhost:4000/how-to-apply-solid-principles-to-services/</guid>
+        
+        
+        <category>Web APIs</category>
+        
+      </item>
     
       <item>
         <title>Building a REST API Client</title>
@@ -713,6 +769,66 @@ public ResponseEntity&amp;lt;List&amp;lt;Buyer&amp;gt;&amp;gt; listBuyers(
     
   return new ResponseEntity&amp;lt;List&amp;lt;Buyer&amp;gt;&amp;gt;(response.getListBuyers(), responseHeaders, HttpStatus.OK);
 }	
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;include-loggers&quot;&gt;Include Loggers&lt;/h2&gt;
+
+&lt;p&gt;Redirect the requests to the server logs. If you must fix any error your clients reported, you can always reproduce the original request and debug it in your backends.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;@Override
+@RequestMapping(value = &quot;/api/v1/buyers/{buyerId}&quot;, method = RequestMethod.DELETE)
+public ResponseEntity&amp;lt;Void&amp;gt; deleteBuyer(Integer buyerId) throws Exception {
+
+  logger.info(request.getMethod() + UtilitiesService.REQUESTED_PARAMETERS + utilitiesService.getRequestURLWithQueryParam(request));
+
+  buyersService.deleteBuyer(buyerId);
+
+  return new ResponseEntity&amp;lt;Void&amp;gt;(HttpStatus.NO_CONTENT);
+}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We include a new dependency in your Api Controller:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;public class UtilitiesServiceImpl implements UtilitiesService {
+
+@Override
+public String getRequestURLWithQueryParam(HttpServletRequest request) {
+
+  StringBuffer requestURL = request.getRequestURL();
+    if (request.getQueryString() != null) {
+      requestURL.append('?').append(request.getQueryString());
+    }
+    return requestURL.toString();
+  }
+}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Even you can create statistics of how many requests by endpoint arrive per minute by implementing a &lt;a href=&quot;https://codersite.dev/hot-warm-architecture-elasticsearch/&quot; target=&quot;_blank&quot;&gt;hot-warm architecture in Elasticsearch&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;[12/4/23 15:48:27:888 CET] 00000121 SystemOut     INFO 19484 BuyersApiController : DELETE_REQUESTED_PARAMETERS: https://yourapidomain/api/v1/buyers/12345
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;benefits-of-rest-api&quot;&gt;Benefits of REST API&lt;/h2&gt;
@@ -1843,105 +1959,6 @@ public ResponseEntity&amp;lt;List&amp;lt;Buyer&amp;gt;&amp;gt; listBuyers(
         
         
         <category>Web APIs</category>
-        
-      </item>
-    
-      <item>
-        <title>File Access Denied in a Cluster with Load Balancing</title>
-        <description>&lt;p&gt;Load balancing is a process that routes network traffic to a group of backend servers, also known as a server pool. A load balancer is responsible for &lt;a href=&quot;https://codersite.dev/hot-warm-architecture-elasticsearch/&quot; target=&quot;_blank&quot;&gt;distributing incoming requests&lt;/a&gt; to a collection of application servers.&lt;/p&gt;
-
-&lt;p&gt;Load balancers help solve problems of server performance, high availability and scalability in distributed systems.&lt;/p&gt;
-
-&lt;h2 id=&quot;application-server&quot;&gt;Application Server&lt;/h2&gt;
-
-&lt;p&gt;Application server refers to the process that provides the functions required to support and host user applications. For example, in Websphere, an application server runs Java language-based applications.&lt;/p&gt;
-
-&lt;h2 id=&quot;clustering&quot;&gt;Clustering&lt;/h2&gt;
-
-&lt;p&gt;A cluster is a group of servers that are managed together. For example, in the WebSphere Application Server, all application servers processes are running the same set of enterprise applications, and the workload capacity is distributed between these servers.&lt;/p&gt;
-
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; src=&quot;../assets/images/adsJavaInterview1.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;p&gt;The benefits of building a cluster are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;em&gt;Scalability&lt;/em&gt; enables enterprise applications to handle an increase in load volumes properly and achieve better throughput by using more infrastructure resources.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;em&gt;High availability&lt;/em&gt; means enterprise applications can continue to process work and avoid impacts in the occurrence of failure of one or several components.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;when-a-cluster-shares-a-file-server&quot;&gt;When a Cluster shares a File Server&lt;/h2&gt;
-
-&lt;p&gt;We want to deploy a Java WebClient to retrieve image objects from an external API and store it in an internal file server.&lt;/p&gt;
-
-&lt;p&gt;The Java WebClient is deployed in a cluster with two application servers.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/loadBalancingFileServer.jpg&quot; alt=&quot;loadBalancing and FileServer.&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The cluster uses a load balancer to delegate a specific task to one of its servers in a randomized order. A load-balancing algorithm is a load balancer’s logic to distribute network traffic between servers.&lt;/p&gt;
-
-&lt;p&gt;The first time a user requests the execution of the Java WebClient, the load balancer delegates the task to the first application server, for example.&lt;/p&gt;
-
-&lt;p&gt;The Java WebClient stores some image files in a directory, and the &lt;em&gt;AppServer1&lt;/em&gt; server owns those files.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nc&quot;&gt;U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imagesFromApi&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;jpg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;owner&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppServer1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imagesFromApi&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;jpg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;owner&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppServer1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;One week after, the Java WebClient is requested again, but it needs to execute the following code to delete an image file on the internal file server if the same image was deleted on the external API.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deleteFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nc&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;OUTPUT_FILE_LOCATION&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Exception in deleteFile &quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;But this second time, the load balancer delegates the execution of the task to the second application server - &lt;em&gt;AppServer2&lt;/em&gt;. Then, the java client throws an error.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nc&quot;&gt;Access&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;denied&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The Java WebClient cannot delete files that another user created.&lt;/p&gt;
-
-&lt;p&gt;We cannot change the permissions of a file from within a Java program as we can on Linux systems - &lt;em&gt;chmod&lt;/em&gt; command.&lt;/p&gt;
-
-&lt;h2 id=&quot;possible-solutions&quot;&gt;Possible Solutions&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Configure only one user account on application servers and give it full access control - hardware configuration.&lt;/li&gt;
-  &lt;li&gt;Deploy the Java WebClient in only one server.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Now any application server in the cluster can create or delete any file on the file server.&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 05 Oct 2022 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/load-balancing-clustering/</link>
-        <guid isPermaLink="true">http://localhost:4000/load-balancing-clustering/</guid>
-        
-        
-        <category>Web Performance</category>
         
       </item>
     
