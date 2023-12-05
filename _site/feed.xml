@@ -5,9 +5,144 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 04 Dec 2023 16:43:12 +0100</pubDate>
-    <lastBuildDate>Mon, 04 Dec 2023 16:43:12 +0100</lastBuildDate>
+    <pubDate>Tue, 05 Dec 2023 14:48:18 +0100</pubDate>
+    <lastBuildDate>Tue, 05 Dec 2023 14:48:18 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>Optimize Java App Performance</title>
+        <description>&lt;p&gt;When dealing with a monolithic Java application under heavy concurrent load that leads to issues like too many opened data pools or system failures, several strategies can be employed to address the problem. Here are some recommendations:&lt;/p&gt;
+
+&lt;p&gt;1.-Optimize Database Connection Handling:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Use connection pooling to efficiently manage database connections.&lt;/li&gt;
+  &lt;li&gt;Tune the connection pool settings to handle the expected concurrent load.&lt;/li&gt;
+  &lt;li&gt;Ensure that connections are being released properly after usage to prevent connection leaks.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2.-Implement Caching:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Introduce caching mechanisms to reduce the load on the database and improve response times.&lt;/li&gt;
+  &lt;li&gt;Cache frequently accessed data or query results to serve subsequent requests without hitting the database.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3.-Load Balancing:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Deploy &lt;a href=&quot;https://codersite.dev/load-balancing-clustering/&quot; target=&quot;_blank&quot;&gt;load balancing&lt;/a&gt; to distribute incoming requests across multiple instances of the application.&lt;/li&gt;
+  &lt;li&gt;This helps in scaling horizontally by adding more servers to handle increased load.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;4.-Scale Horizontally:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Consider deploying the application on multiple servers or instances to distribute the load.&lt;/li&gt;
+  &lt;li&gt;Use a load balancer to evenly distribute requests among the different instances.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;5.-Asynchronous Processing:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Identify tasks that can be performed asynchronously and offload them to background processes or message queues.&lt;/li&gt;
+  &lt;li&gt;This helps in freeing up resources to handle more incoming requests.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;6.-Optimize Code and Queries:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Perform code and database query optimizations to make them more efficient.&lt;/li&gt;
+  &lt;li&gt;Identify and eliminate bottlenecks in the code and database interactions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;7.-Monitoring and Profiling:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Implement monitoring and profiling tools to identify performance bottlenecks and areas for improvement.&lt;/li&gt;
+  &lt;li&gt;Analyze logs, metrics, and performance data to make informed decisions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;8.-Vertical Scaling:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Consider upgrading hardware resources (CPU, RAM) on the existing server to handle increased load.&lt;/li&gt;
+  &lt;li&gt;This is known as vertical scaling and can be a temporary solution while you work on horizontal scaling.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;9.-Fault Tolerance and Resilience:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Enhance the application’s fault tolerance by implementing mechanisms such as retry policies and circuit breakers.&lt;/li&gt;
+  &lt;li&gt;Ensure the application can gracefully handle failures and recover without affecting the user experience.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;10.-Modularization and Microservices:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If appropriate, consider breaking down the monolith into microservices to enable independent scaling of different components.&lt;/li&gt;
+  &lt;li&gt;Microservices architecture allows you to scale individual services based on their &lt;a href=&quot;https://codersite.dev/uml-diagrams-for-java-developers/&quot; target=&quot;_blank&quot;&gt;specific requirements&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;11.-Resource Cleanup and Management:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ensure proper resource cleanup after each request to prevent resource leaks.&lt;/li&gt;
+  &lt;li&gt;Monitor and manage system resources effectively to avoid exhaustion.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;12.-Review and &lt;a href=&quot;https://codersite.dev/clean-code/&quot; target=&quot;_blank&quot;&gt;Refactor Code&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Conduct a thorough code review to identify areas that can be refactored for better performance.&lt;/li&gt;
+  &lt;li&gt;Consider rewriting or optimizing critical sections of the code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;13.-Review Third-Party Dependencies:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Evaluate and update third-party libraries and dependencies. Outdated or inefficient libraries can contribute to performance issues.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;14.-Tune Java Virtual Machine (JVM) Settings:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Adjust JVM settings, such as heap size and garbage collection parameters, to optimize memory management and overall performance.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;15.-Implement Rate Limiting:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Introduce &lt;a href=&quot;https://codersite.dev/rate-limit/&quot; target=&quot;_blank&quot;&gt;rate limiting&lt;/a&gt; to prevent abuse or excessive usage from a single client, protecting your application from overload.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;16.-Consider Cloud Services:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Explore cloud services that offer scalable infrastructure solutions.&lt;/li&gt;
+  &lt;li&gt;Cloud platforms often provide tools for easy scalability, load balancing, and resource management.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Remember that the appropriate solution may depend on the specific characteristics and requirements of your application. It’s often beneficial to combine multiple strategies for a comprehensive approach to scalability and performance optimization. Regularly monitor the application’s performance and make adjustments as needed.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Any software design is generally a matter of opinion. There is no definitive Guide. – &lt;cite&gt;codersite.dev&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div&gt;&lt;center&gt;
+  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; src=&quot;../assets/images/softwareDesign1.png&quot; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+&lt;br /&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 05 Dec 2023 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/optimize-java-app-performance/</link>
+        <guid isPermaLink="true">http://localhost:4000/optimize-java-app-performance/</guid>
+        
+        
+        <category>design</category>
+        
+      </item>
     
       <item>
         <title>Building a REST API Client</title>
@@ -1903,105 +2038,6 @@ public String getRequestURLWithQueryParam(HttpServletRequest request) {
         
         
         <category>Web APIs</category>
-        
-      </item>
-    
-      <item>
-        <title>File Access Denied in a Cluster with Load Balancing</title>
-        <description>&lt;p&gt;Load balancing is a process that routes network traffic to a group of backend servers, also known as a server pool. A load balancer is responsible for &lt;a href=&quot;https://codersite.dev/hot-warm-architecture-elasticsearch/&quot; target=&quot;_blank&quot;&gt;distributing incoming requests&lt;/a&gt; to a collection of application servers.&lt;/p&gt;
-
-&lt;p&gt;Load balancers help solve problems of server performance, high availability and scalability in distributed systems.&lt;/p&gt;
-
-&lt;h2 id=&quot;application-server&quot;&gt;Application Server&lt;/h2&gt;
-
-&lt;p&gt;Application server refers to the process that provides the functions required to support and host user applications. For example, in Websphere, an application server runs Java language-based applications.&lt;/p&gt;
-
-&lt;h2 id=&quot;clustering&quot;&gt;Clustering&lt;/h2&gt;
-
-&lt;p&gt;A cluster is a group of servers that are managed together. For example, in the WebSphere Application Server, all application servers processes are running the same set of enterprise applications, and the workload capacity is distributed between these servers.&lt;/p&gt;
-
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; src=&quot;../assets/images/adsJavaInterview1.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;p&gt;The benefits of building a cluster are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;em&gt;Scalability&lt;/em&gt; enables enterprise applications to handle an increase in load volumes properly and achieve better throughput by using more infrastructure resources.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;em&gt;High availability&lt;/em&gt; means enterprise applications can continue to process work and avoid impacts in the occurrence of failure of one or several components.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;when-a-cluster-shares-a-file-server&quot;&gt;When a Cluster shares a File Server&lt;/h2&gt;
-
-&lt;p&gt;We want to deploy a Java WebClient to retrieve image objects from an external API and store it in an internal file server.&lt;/p&gt;
-
-&lt;p&gt;The Java WebClient is deployed in a cluster with two application servers.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/loadBalancingFileServer.jpg&quot; alt=&quot;loadBalancing and FileServer.&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The cluster uses a load balancer to delegate a specific task to one of its servers in a randomized order. A load-balancing algorithm is a load balancer’s logic to distribute network traffic between servers.&lt;/p&gt;
-
-&lt;p&gt;The first time a user requests the execution of the Java WebClient, the load balancer delegates the task to the first application server, for example.&lt;/p&gt;
-
-&lt;p&gt;The Java WebClient stores some image files in a directory, and the &lt;em&gt;AppServer1&lt;/em&gt; server owns those files.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nc&quot;&gt;U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imagesFromApi&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;jpg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;owner&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppServer1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imagesFromApi&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;jpg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;owner&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppServer1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;One week after, the Java WebClient is requested again, but it needs to execute the following code to delete an image file on the internal file server if the same image was deleted on the external API.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deleteFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nc&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;OUTPUT_FILE_LOCATION&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Exception in deleteFile &quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;But this second time, the load balancer delegates the execution of the task to the second application server - &lt;em&gt;AppServer2&lt;/em&gt;. Then, the java client throws an error.&lt;/p&gt;
-
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nc&quot;&gt;Access&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;denied&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The Java WebClient cannot delete files that another user created.&lt;/p&gt;
-
-&lt;p&gt;We cannot change the permissions of a file from within a Java program as we can on Linux systems - &lt;em&gt;chmod&lt;/em&gt; command.&lt;/p&gt;
-
-&lt;h2 id=&quot;possible-solutions&quot;&gt;Possible Solutions&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Configure only one user account on application servers and give it full access control - hardware configuration.&lt;/li&gt;
-  &lt;li&gt;Deploy the Java WebClient in only one server.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Now any application server in the cluster can create or delete any file on the file server.&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 05 Oct 2022 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/load-balancing-clustering/</link>
-        <guid isPermaLink="true">http://localhost:4000/load-balancing-clustering/</guid>
-        
-        
-        <category>Web Performance</category>
         
       </item>
     
