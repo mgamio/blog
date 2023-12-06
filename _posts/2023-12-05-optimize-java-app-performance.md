@@ -46,6 +46,10 @@ When dealing with a monolithic Java application under heavy concurrent load that
 - Implement monitoring and profiling tools to identify performance bottlenecks and areas for improvement.
 - Analyze logs, metrics, and performance data to make informed decisions.
 
+<div>
+{%- include javaInterviewAds1.html -%}
+</div>
+
 8.-Vertical Scaling:
 
 - Consider upgrading hardware resources (CPU, RAM) on the existing server to handle increased load.

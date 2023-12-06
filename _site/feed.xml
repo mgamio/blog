@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 Dec 2023 14:48:18 +0100</pubDate>
-    <lastBuildDate>Tue, 05 Dec 2023 14:48:18 +0100</lastBuildDate>
+    <pubDate>Wed, 06 Dec 2023 11:32:45 +0100</pubDate>
+    <lastBuildDate>Wed, 06 Dec 2023 11:32:45 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -62,6 +62,12 @@
   &lt;li&gt;Implement monitoring and profiling tools to identify performance bottlenecks and areas for improvement.&lt;/li&gt;
   &lt;li&gt;Analyze logs, metrics, and performance data to make informed decisions.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;div&gt;&lt;center&gt;
+  &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; src=&quot;../assets/images/adsJavaInterview1.jpg&quot; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+&lt;br /&gt;&lt;/div&gt;
 
 &lt;p&gt;8.-Vertical Scaling:&lt;/p&gt;
 
