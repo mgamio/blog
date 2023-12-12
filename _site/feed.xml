@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 07 Dec 2023 16:07:15 +0100</pubDate>
-    <lastBuildDate>Thu, 07 Dec 2023 16:07:15 +0100</lastBuildDate>
+    <pubDate>Tue, 12 Dec 2023 09:06:59 +0100</pubDate>
+    <lastBuildDate>Tue, 12 Dec 2023 09:06:59 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1030,7 +1030,7 @@ public String getRequestURLWithQueryParam(HttpServletRequest request) {
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;SOLID: SOLID stands for Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion. These five principles help developers create software that is modular, extensible, and easy to maintain.&lt;/p&gt;
+    &lt;p&gt;SOLID: SOLID stands for &lt;a href=&quot;https://codersite.dev/solid-principles-the-definitive-guide/&quot; target=&quot;_blank&quot;&gt;Single Responsibility&lt;/a&gt;, Open-Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion. These five principles help developers create software that is modular, extensible, and easy to maintain.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;DRY (Don’t Repeat Yourself): The DRY principle states that code should not be repeated unnecessarily. Instead, developers should use abstractions, modularization, and other techniques to reduce repetition and make code more maintainable.&lt;/p&gt;

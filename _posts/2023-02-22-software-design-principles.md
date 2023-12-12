@@ -10,7 +10,7 @@ comments: false
 
 Software design principles are guidelines and best practices that help software developers create high-quality, maintainable, and efficient software. Here are some commonly recognized software design principles:
 
-- SOLID: SOLID stands for Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion. These five principles help developers create software that is modular, extensible, and easy to maintain.
+- SOLID: SOLID stands for [Single Responsibility](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}, Open-Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion. These five principles help developers create software that is modular, extensible, and easy to maintain.
 
 - DRY (Don't Repeat Yourself): The DRY principle states that code should not be repeated unnecessarily. Instead, developers should use abstractions, modularization, and other techniques to reduce repetition and make code more maintainable.
 
