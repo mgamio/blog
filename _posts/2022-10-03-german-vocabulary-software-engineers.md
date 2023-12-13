@@ -256,6 +256,8 @@ die Abfrage : query
 
 das Austauschformat : interchange format
 
+der Datenaustausch : data exchange
+
 Stammdaten : master data
 
 die Textdatei : text file
