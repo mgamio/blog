@@ -63,7 +63,7 @@ var documents = [{
     "id": 12,
     "url": "http://localhost:4000/robots.txt",
     "title": "",
-    "body": "      Sitemap: {{ “sitemap. xml”   absolute_url }}   "
+    "body": "      Sitemap: {{ &#8220;sitemap. xml&#8221;   absolute_url }}   "
     }, {
     "id": 13,
     "url": "http://localhost:4000/data-structures-foundation-efficient-programming/",
