@@ -240,12 +240,77 @@
   <li>Arrays: Store data elements in contiguous memory locations, offering efficient random access.</li>
 </ul>
 
+<p>To create an array of integers, you could write:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">int</span><span class="p">[]</span> <span class="n">myNum</span> <span class="p">=</span> <span class="p">{</span><span class="mi">15</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">42</span><span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>To create an array of strings that represent objects, you could write:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span><span class="p">[]</span> <span class="n">objects</span> <span class="p">=</span> <span class="p">{</span><span class="s">"Bicycle"</span><span class="p">,</span> <span class="s">"Trophy"</span><span class="p">,</span> <span class="s">"Umbrella"</span><span class="p">,</span> <span class="s">"Guitar"</span><span class="p">,</span> <span class="s">"Hat"</span><span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>When you go to the bank for a Consultation, you receive a waiting ticket with a printed image. What you see in the display is an Array. Or rather, an array-based Queue.</p>
+
+<p><img src="/assets/images/arrayBank.jpg" alt="arrays" class="img-responsive" /></p>
+
+<p>But the most probable is that these images come from an array of bytes.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="n">byte</span><span class="p">[][]</span> <span class="n">images</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>When your turn arrives, it is because the program retrieved an element from the array.</p>
+
+<p><img src="/assets/images/arrayElementBank.jpg" alt="arrayElement" class="img-responsive" /></p>
+
+<p>See more about arrays:</p>
+
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gG54dRfuUeE?si=roTC57WsLBGG9Elf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 
 <ul>
-  <li>
-    <p>Linked Lists: Consist of nodes linked together, allowing for insertion and deletion operations without affecting other elements.</p>
-  </li>
+  <li>Linked Lists: Consist of nodes linked together, allowing for insertion and deletion operations without affecting other elements.</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="nn">java.util.LinkedList;</span>
+
+<span class="k">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="n">static</span> <span class="n">void</span> <span class="nf">main</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">LinkedList</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">objects</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">LinkedList</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;();</span>
+    <span class="n">objects</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"Guitar"</span><span class="p">);</span>
+    <span class="n">objects</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"Bicycle"</span><span class="p">);</span>
+    <span class="n">objects</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"Radio"</span><span class="p">);</span>
+    
+    <span class="c1">// Use addFirst() to add the item to the beginning</span>
+    <span class="n">objects</span><span class="p">.</span><span class="nf">addFirst</span><span class="p">(</span><span class="s">"Book"</span><span class="p">);</span>
+    <span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">objects</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The output:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="na">[Book, Guitar, Bicycle, Radio]</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
   <li>
     <p>Stacks: Treat data as a linear structure where items are added and removed from the top.</p>
   </li>
@@ -256,7 +321,7 @@
     <p>Hash Tables: Efficiently store and retrieve data using keys and values.</p>
   </li>
   <li>
-    <p>Trees: Hierarchical structures that organize data in a tree-like pattern.</p>
+    <p><a href="https://codersite.dev/tree-data-structure-binary-search-tree/" target="_blank">Trees</a>: Hierarchical structures that organize data in a tree-like pattern.</p>
   </li>
 </ul>
 

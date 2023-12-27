@@ -20,9 +20,60 @@ A wide array of data structures exists, each tailored to handle different types 
 
 - Arrays: Store data elements in contiguous memory locations, offering efficient random access.
 
+To create an array of integers, you could write:
+
+```kotlin
+int[] myNum = {15, 22, 7, 42};
+```
+
+To create an array of strings that represent objects, you could write:
+
+```kotlin
+String[] objects = {"Bicycle", "Trophy", "Umbrella", "Guitar", "Hat"};
+```
+
+When you go to the bank for a Consultation, you receive a waiting ticket with a printed image. What you see in the display is an Array. Or rather, an array-based Queue.
+
+![arrays](/assets/images/arrayBank.jpg){:class="img-responsive"}
+
+But the most probable is that these images come from an array of bytes.
+
+```kotlin
+private byte[][] images;
+```
+
+When your turn arrives, it is because the program retrieved an element from the array.
+
+![arrayElement](/assets/images/arrayElementBank.jpg){:class="img-responsive"}
+
+See more about arrays:
+
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gG54dRfuUeE?si=roTC57WsLBGG9Elf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - Linked Lists: Consist of nodes linked together, allowing for insertion and deletion operations without affecting other elements.
+
+```kotlin
+import java.util.LinkedList;
+
+public class Main {
+  public static void main(String[] args) {
+    LinkedList<String> objects = new LinkedList<String>();
+    objects.add("Guitar");
+    objects.add("Bicycle");
+    objects.add("Radio");
+    
+    // Use addFirst() to add the item to the beginning
+    objects.addFirst("Book");
+    System.out.println(objects);
+  }
+}
+```
+
+The output:
+
+```kotlin
+[Book, Guitar, Bicycle, Radio]
+```
 
 - Stacks: Treat data as a linear structure where items are added and removed from the top.
 
@@ -30,7 +81,7 @@ A wide array of data structures exists, each tailored to handle different types 
 
 - Hash Tables: Efficiently store and retrieve data using keys and values.
 
-- Trees: Hierarchical structures that organize data in a tree-like pattern.
+- [Trees](https://codersite.dev/tree-data-structure-binary-search-tree/){:target="_blank"}: Hierarchical structures that organize data in a tree-like pattern.
 
 <div>
 {%- include javaInterviewAds1.html -%}
