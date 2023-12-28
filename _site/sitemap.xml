@@ -26,6 +26,11 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://codersite.dev/book</loc>
+  <lastmod>2022-02-17T21:30:41+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://codersite.dev/open-closed-principle/</loc>
   <lastmod>2022-02-17T21:30:45+00:00</lastmod>
   <priority>0.80</priority>
