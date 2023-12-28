@@ -77,7 +77,7 @@ public class OpenapiApplication {
 ```
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include primeVideo.html -%}
 </div>
 
 @EnableAuthorizationServer enables the client credentials grant type by default.
@@ -123,7 +123,7 @@ Now, run the main application.
 <a href="http://localhost:8080/swagger-ui.html" target="_blank">http://localhost:8080/swagger-ui.html</a>
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include dsaAdvDalle.html -%}
 </div>
 
 And try to insert a book (Try out button). In the bookAuthorization parameter, write anything ("key," for example).
