@@ -18,12 +18,18 @@ A data structure is a specialized format for organizing, storing, and managing d
 
 A wide array of data structures exists, each tailored to handle different types of data and operations. Some of the most common data structures include:
 
-- Arrays: Store data elements in contiguous memory locations, offering efficient random access.
+-- **Arrays**: Store data elements in contiguous memory locations, offering efficient random access.
 
-To create an array of integers, you could write:
+We usually declare a variable to store a specific value.
 
 ```kotlin
-int[] myNum = {15, 22, 7, 42};
+int num = 15;
+```
+
+Arrays are used to store multiple values in a single variable. To create an array of integers, you could write:
+
+```kotlin
+int[] myNums = {15, 22, 7, 42};
 ```
 
 To create an array of strings that represent objects, you could write:
@@ -50,12 +56,14 @@ See more about arrays:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gG54dRfuUeE?si=roTC57WsLBGG9Elf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-- Linked Lists: Consist of nodes linked together, allowing for insertion and deletion operations without affecting other elements.
+-- **Linked Lists**: Consist of nodes linked together, allowing for insertion and deletion operations without affecting other elements.
+
+Here’s an example of how to use the LinkedList class:
 
 ```kotlin
 import java.util.LinkedList;
 
-public class Main {
+public class LinkedListUseCase {
   public static void main(String[] args) {
     LinkedList<String> objects = new LinkedList<String>();
     objects.add("Guitar");
@@ -75,13 +83,78 @@ The output:
 [Book, Guitar, Bicycle, Radio]
 ```
 
-- Stacks: Treat data as a linear structure where items are added and removed from the top.
+-- **Stacks**: Treat data as a linear structure where items are added and removed from the top.
 
-- Queues: Treat data as a linear structure where items are added to the rear and removed from the front.
+-- **Queues**: Treat data as a linear structure where items are added to the rear and removed from the front.
 
-- Hash Tables: Efficiently store and retrieve data using keys and values.
+![queue](/assets/images/queueDef.jpg){:class="img-responsive"}
 
-- [Trees](https://codersite.dev/tree-data-structure-binary-search-tree/){:target="_blank"}: Hierarchical structures that organize data in a tree-like pattern.
+<div>
+{%- include primeVideo.html -%}
+</div>
+
+-- **Hash Tables**: Efficiently store and retrieve data using keys and values.
+
+Here’s an example of how to use the Hashtable class:
+
+```kotlin
+import java.util.Enumeration;
+import java.util.Hashtable;
+ 
+public class HashTableUseCase {
+
+  public static void main(String[] args) {
+
+    Hashtable<Integer, String> articles = new Hashtable<>();
+
+    // Adding elements to the hashtable
+    articles.put(1, "link_article1");
+    articles.put(2, "link_article2");
+    articles.put(3, "link_article3");
+
+    // Getting values from the hashtable
+    String articleLink = articles.get(1);
+    System.out.println("Link to article: " + articleLink);
+
+    // Removing elements from the hashtable
+    articles.remove(2);
+
+    // Enumerating the elements of the hashtable
+    Enumeration<Integer> keys = articles.keys();
+    while (keys.hasMoreElements()) {
+      Integer key = keys.nextElement();
+      System.out.println("Key: " + key + ", Value: " + articles.get(key));
+    }
+  }
+}
+```
+
+Output:
+
+```kotlin
+Link to article: link_article1
+Key: 3, Value: link_article3
+Key: 1, Value: link_article1
+```
+
+-- [Trees](https://codersite.dev/tree-data-structure-binary-search-tree/){:target="_blank"}: Hierarchical structures that organize data in a tree-like pattern.
+
+-- [Graphs](https://codersite.dev/graphs-depth-first-search/){:target="_blank"}: Graph is a non-linear data structure consisting of nodes (vertices) and edges.
+
+When you solve a problem, it is a common practice to build a new data structure - Abstract Data Type - that combines all previous data structures.
+
+For example, you can build a queue data structure using only two internal stacks.
+
+```kotlin
+public class QueueViaStacks<T> {
+  Stack<T> inbox;
+  Stack<T> outbox;
+  
+  //code omitted for brevity
+}
+```
+ 
+You can see the real implementation in the following link:
 
 <div>
 {%- include javaInterviewAds1.html -%}
