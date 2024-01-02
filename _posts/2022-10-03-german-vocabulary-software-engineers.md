@@ -258,6 +258,8 @@ das Austauschformat : interchange format
 
 der Datenaustausch : data exchange
 
+das Feld : field
+
 Stammdaten : master data
 
 die Textdatei : text file
