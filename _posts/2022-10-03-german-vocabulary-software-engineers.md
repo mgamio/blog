@@ -84,6 +84,8 @@ annehmen : accept
 
 anpassen : customize, adapt
 
+die Anpassung : customization, adaptation
+
 anwenden : apply
 
 der Anwender (von Software, Programmen) : user
@@ -163,6 +165,8 @@ verlassen (*Programm*) : quit
 verwenden : use
 
 die Voraussetzung : prerequisite, (pre)condition
+
+die Vorgehensweise : procedure
 
 weiter : next
 
@@ -254,17 +258,31 @@ abbilden : represent, depict
 
 die Abfrage : query
 
+die Anreicherung : enrichment 
+
 das Austauschformat : interchange format
+
+die Darstellung : representation, rendering
 
 der Datenaustausch : data exchange
 
 das Feld : field
 
+der JDBC-Treiber : JDBC driver
+
+das Pflichtfeld : mandatory field
+
+die Rückgabe : return
+
 Stammdaten : master data
 
 die Textdatei : text file
 
-der JDBC-Treiber : JDBC driver
+die Überprüfung : verification, check
+
+umbenennen : rename
+
+der Wert : value
 
 zuordnen : allocate
 
