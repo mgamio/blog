@@ -94,7 +94,7 @@ Ausnahmebehandlung : exception handling
 
 der Aufruf : call
 
-aufrufen (*Programm, Datei*) : invoke
+aufrufen (*Programm, Datei*) : invoke, call
 
 der Ausdruck : printout
 
@@ -265,6 +265,8 @@ das Austauschformat : interchange format
 die Darstellung : representation, rendering
 
 der Datenaustausch : data exchange
+
+das Ergebnis : result
 
 das Feld : field
 
