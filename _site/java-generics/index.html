@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Understanding the Basics of Generics in Java | codersite</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Understanding the Basics of Generics in Java" />
+<meta name="author" content="moises" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Generics in Java provide a powerful and flexible way to create classes, interfaces, and methods that can work with different data types while ensuring type safety" />
+<meta property="og:description" content="Generics in Java provide a powerful and flexible way to create classes, interfaces, and methods that can work with different data types while ensuring type safety" />
+<link rel="canonical" href="http://localhost:4000/java-generics/" />
+<meta property="og:url" content="http://localhost:4000/java-generics/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:image" content="http://localhost:4000/assets/images/javaGenerics.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-05T00:00:00+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/javaGenerics.jpg" />
+<meta property="twitter:title" content="Understanding the Basics of Generics in Java" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2024-01-05T00:00:00+01:00","datePublished":"2024-01-05T00:00:00+01:00","description":"Generics in Java provide a powerful and flexible way to create classes, interfaces, and methods that can work with different data types while ensuring type safety","headline":"Understanding the Basics of Generics in Java","image":"http://localhost:4000/assets/images/javaGenerics.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/java-generics/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/java-generics/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script src="/assets/js/jquery.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+  crossorigin="anonymous"></script></head>
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+ 
+                <li class="nav-item">
+                <a class="nav-link" href="/recommended.html">Recommended</a>
+                </li>
+				
+                <li class="nav-item">
+                <a class="nav-link" href="/book">Books</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Understanding the Basics of Generics in Java&url=http://localhost:4000/java-generics/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/java-generics/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+         <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/java-generics/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>	
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://codersite.dev">Moises Gamio</a>
+						
+						<a target="_blank" href="https://twitter.com/MoisesGamio" class="btn follow">Follow</a>
+                        <span class="author-description">Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors.</span>
+						
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Understanding the Basics of Generics in Java</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+			
+			
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/javaGenerics.jpg" alt="Understanding the Basics of Generics in Java">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>Generics in Java provide a powerful and <em>flexible</em> way to create classes, interfaces, and methods <em>that can work with different data types</em> while ensuring type safety. Introduced in Java 5, generics allow you to write code that is more <em>reusable</em> and less error-prone. In this article, we will explore the basics of generics in Java and understand how they contribute to writing robust and maintainable code.</p>
+
+<h2 id="boxing-and-unboxing">Boxing and Unboxing</h2>
+
+<p>Every data type in Java is either a reference type or a primitive type. The following table shows the eight primitive data types and their corresponding reference type.</p>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>Primitive</th>
+      <th> </th>
+      <th>Reference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>byte</td>
+      <td> </td>
+      <td>Byte</td>
+    </tr>
+    <tr>
+      <td>short</td>
+      <td> </td>
+      <td>Short</td>
+    </tr>
+    <tr>
+      <td>int</td>
+      <td> </td>
+      <td>Integer</td>
+    </tr>
+    <tr>
+      <td>long</td>
+      <td> </td>
+      <td>Long</td>
+    </tr>
+    <tr>
+      <td>float</td>
+      <td> </td>
+      <td>Float</td>
+    </tr>
+    <tr>
+      <td>double</td>
+      <td> </td>
+      <td>Double</td>
+    </tr>
+    <tr>
+      <td>boolean</td>
+      <td> </td>
+      <td>Boolean</td>
+    </tr>
+    <tr>
+      <td>char</td>
+      <td> </td>
+      <td>Character</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p><strong>Boxing</strong> happens when a primitive type is converted to the corresponding reference type.
+Conversion of the reference type to the corresponding primitive type is called <strong>Unboxing</strong>.</p>
+<h2 id="what-are-generics">What are Generics?</h2>
+
+<p>Generics in Java enable you to create classes, interfaces, and methods that can operate on any data type without sacrificing type safety.</p>
+
+<p>The type safety feature of Java simply means the language only allows you to perform the operations allowed by a data type.</p>
+
+<p>Prior to the introduction of generics, classes and methods would often use Object as a generic data type, leading to potential runtime errors and decreased code readability.</p>
+
+<p>Generics introduce the concept of <strong>parameterized types</strong>, allowing you to specify the type of data (reference type) a class or method can work with. This provides compile-time type checking, reducing the likelihood of runtime errors and making your code more robust.</p>
+
+<p>Here is how to do it in Java with generics.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">//Boxing to a Wrapper class is automatically inserted - cast</span>
+<span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">ints</span> <span class="p">=</span> <span class="nc">Arrays</span><span class="p">.</span><span class="nf">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+
+<span class="n">int</span> <span class="n">s</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">//Unboxing to a primitive type is automatically inserted</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">n</span> <span class="p">:</span> <span class="n">ints</span><span class="p">)</span> <span class="p">{</span> 
+  <span class="n">s</span> <span class="p">+=</span> <span class="n">n</span><span class="p">;</span> 
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Here is how to do the same using <em>cast</em> in Java before generics:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="n">int</span> <span class="n">int1</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">int</span> <span class="n">int2</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">int</span> <span class="n">int3</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="nc">List</span> <span class="n">ints</span> <span class="p">=</span> <span class="nc">Arrays</span><span class="p">.</span><span class="nf">asList</span><span class="p">(</span><span class="n">new</span> <span class="nc">Integer</span><span class="p">[]{(</span><span class="nc">Integer</span><span class="p">)</span><span class="n">int1</span><span class="p">,</span> <span class="p">(</span><span class="nc">Integer</span><span class="p">)</span><span class="n">int2</span><span class="p">,</span> <span class="p">(</span><span class="nc">Integer</span><span class="p">)</span><span class="n">int3</span><span class="p">});</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><em>Cast-iron guarantee</em>: the implicit <em>casts</em> added by the compilation of generics <strong>never fail</strong>.</p>
+
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="the-generic-class">The Generic Class</h2>
+
+<p>Let’s start with a basic example of a generic class. Consider a simple <strong>Box</strong> class that can hold any type of object:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Box</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nc">T</span> <span class="n">value</span><span class="p">;</span>
+
+  <span class="k">public</span> <span class="nc">Box</span><span class="p">(</span><span class="nc">T</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="n">value</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">public</span> <span class="nc">T</span> <span class="nf">getValue</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>In this example, the class <strong>Box</strong> is parameterized with a type variable <strong>T</strong>. The type variable is a placeholder for the actual data type that will be specified when an instance of the class is created. You can create a <strong>Box</strong> for different types, such as Box«Integer», Box«String», or any other class or interface.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nc">Box</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">integerBox</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">Box</span><span class="p">&lt;&gt;(</span><span class="mi">42</span><span class="p">);</span>
+<span class="nc">Box</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">stringBox</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">Box</span><span class="p">&lt;&gt;(</span><span class="s">"Hello, Generics!"</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="the-generic-method">The Generic Method</h2>
+
+<p>Generics are not limited to classes; you can also use them in methods. Let’s look at an example of a generic method that compares two values:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">GenericMethodExample</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="n">boolean</span> <span class="nf">isEqual</span><span class="p">(</span><span class="nc">T</span> <span class="n">value1</span><span class="p">,</span> <span class="nc">T</span> <span class="n">value2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">value1</span><span class="p">.</span><span class="nf">equals</span><span class="p">(</span><span class="n">value2</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>A method that declares a new type variable <strong>T</strong> at the beginning of the method signature is called a generic method.</p>
+
+<p>In this example, the method <strong>isEqual</strong> is parameterized with a type variable <strong>T</strong>. This allows the method to accept any data type for comparison. You can call the method with different types, and the compiler will perform type checking:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">GenericMethodExample</span> <span class="n">example</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">GenericMethodExample</span><span class="p">();</span>
+<span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">example</span><span class="p">.</span><span class="nf">isEqual</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">42</span><span class="p">));</span> <span class="c1">// true</span>
+<span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">example</span><span class="p">.</span><span class="nf">isEqual</span><span class="p">(</span><span class="s">"hello"</span><span class="p">,</span> <span class="s">"world"</span><span class="p">));</span> <span class="c1">// false</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><center>
+  <a href="https://amzn.to/4aZes3T" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" src="../assets/images/effectiveJava.jpg" /></a>
+</center>
+
+<br /></div>
+
+<h2 id="subtyping-and-the-substitution-principle">Subtyping and the Substitution Principle</h2>
+
+<p>In Java, one type is a <em>subtype</em> of another if they are related by an extends clause. Subtyping is transitive.</p>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Integer</td>
+      <td>-</td>
+      <td>is a subtype of</td>
+      <td>-</td>
+      <td>Number</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td>-</td>
+      <td>is a subtype of</td>
+      <td>-</td>
+      <td>Number</td>
+    </tr>
+    <tr>
+      <td>ArrayList«E»</td>
+      <td>-</td>
+      <td>is a subtype of</td>
+      <td>-</td>
+      <td>List«E»</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p><strong>Substitution Principle</strong>: <em>wherever a value of type T is expected, you can provide instead a value of a subtype of T.</em></p>
+
+<p>Consider the following <strong>add</strong> method, which takes a parameterized type of <strong>E</strong>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">interface</span> <span class="nc">Collection</span><span class="p">&lt;</span><span class="nc">E</span><span class="p">&gt;</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="n">boolean</span> <span class="nf">add</span><span class="p">(</span><span class="nc">E</span> <span class="n">el</span><span class="p">);</span>
+  <span class="o">..</span><span class="p">.</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>According to the Substitution Principle, we may add an integer or a double to a collection of numbers, because <em>Integer</em> and <em>Double</em> are subtypes of <em>Number</em>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="p">&lt;</span><span class="nc">Number</span><span class="p">&gt;</span> <span class="n">nums</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;&gt;();</span>
+<span class="n">nums</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+<span class="n">nums</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mf">0.35</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The Liskov substitution principle is one of the five <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">SOLID principles</a>.</p>
+
+<h2 id="wildcards-in-generics">Wildcards in Generics</h2>
+
+<p>Wildcards in generics provide additional flexibility when working with generic types. There are two main wildcard types: <strong><code class="language-plaintext highlighter-rouge">? extends T</code></strong> and <strong><code class="language-plaintext highlighter-rouge">? super T</code></strong>.</p>
+
+<p>The <strong><code class="language-plaintext highlighter-rouge">? extends T</code></strong> wildcard denotes an unknown subtype of type T. It is used when you want to work with a collection of objects of a specific type or any of its subtypes.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">processList</span><span class="p">(</span><span class="nc">List</span><span class="p">&lt;?</span> <span class="err">extends</span> <span class="nc">Number</span><span class="p">&gt;</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//Process the list of Numbers or its subtypes</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>If a structure contains elements with a type of the form <strong><code class="language-plaintext highlighter-rouge">? extends T</code></strong>, we can get elements out of the structure, but we cannot put elements into the structure. To put elements into the structure, we need a wildcard with <code class="language-plaintext highlighter-rouge">super</code>.</p>
+
+<p>The <strong><code class="language-plaintext highlighter-rouge">? super T</code></strong> wildcard denotes an unknown supertype of type T. It is used when you want to work with a collection of objects of a specific type or any of its supertypes.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">addNumbers</span><span class="p">(</span><span class="nc">List</span><span class="p">&lt;?</span> <span class="err">super</span> <span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//Add integers to the list or its supertypes</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><center>
+  <a href="https://amzn.to/3Pppk2z" target="_blank"><img style="border:1px solid black;" alt="codersite" border="0" src="../assets/images/bookImage.jpg" /></a>
+</center>
+
+<br /></div>
+
+<h2 id="the-get-and-put-principle">The Get and Put Principle</h2>
+
+<p><em>The Get and Put Principle: use an extends wildcard when you only get elements out of a structure, use a super wildcard when you only put elements into a structure.</em></p>
+
+<p>Here is a method, that copies the elements from a source list into a destination list.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">static</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="n">void</span> <span class="nf">copy</span><span class="p">(</span><span class="nc">List</span><span class="p">&lt;?</span> <span class="err">super</span> <span class="nc">T</span><span class="p">&gt;</span> <span class="n">dst</span><span class="p">,</span> <span class="nc">List</span><span class="p">&lt;?</span> <span class="err">extends</span> <span class="nc">T</span><span class="p">&gt;</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">src</span><span class="p">.</span><span class="nf">size</span><span class="p">();</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+    <span class="n">dst</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">src</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The destination list may have elements of any type that is a <em>supertype</em> of <strong>T</strong>,  and the source list may have elements of any type that is a <em>subtype</em> of <strong>T</strong>.</p>
+
+<h2 id="type-erasure">Type Erasure</h2>
+
+<p>Under the hood, Java uses a process called type erasure to implement generics. This means that generic type information is mostly removed at compile time, and the JVM works with raw types. Type erasure allows for backward compatibility with code written before the introduction of generics.</p>
+
+<p>While type erasure simplifies the integration of generics into the existing Java codebase, it also has some implications. For example, you cannot directly check the type of a generic object at runtime using <strong>instanceof</strong> due to type erasure.</p>
+
+<p>The following code:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">list</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;();</span>
+<span class="n">list</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"Hallo"</span><span class="p">);</span>
+<span class="nc">String</span> <span class="n">x</span> <span class="p">=</span> <span class="n">list</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>It’s compiled into:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span> <span class="n">list</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">();</span>
+<span class="n">list</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"Hallo"</span><span class="p">);</span>
+<span class="nc">String</span> <span class="n">x</span> <span class="p">=</span> <span class="p">(</span><span class="nc">String</span><span class="p">)</span> <span class="n">list</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="in-conclusion">In Conclusion</h2>
+
+<p>Generics in Java provide a powerful mechanism for writing flexible and type-safe code. By parameterizing classes and methods with type variables, you can create reusable components that work with different data types without sacrificing type safety. Wildcards further enhance the flexibility of generics, allowing you to work with unknown subtypes or supertypes.</p>
+
+<p>Understanding generics is crucial for Java developers, as they are widely used in collections, frameworks, and various libraries. By incorporating generics into your code, you can improve its readability, maintainability, and safety.</p>
+
+
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
+     crossorigin="anonymous"></script>
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2024-01-05">05 Jan 2024</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#programming">programming</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="http://localhost:4000/java-functional-programming/"> &laquo; An Introduction to Functional Programming in Java</a>
+            
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<!--<div class="alertbar">-->
+	<div class="container text-center">
+		<span><a class="navbar-brand" href="/"><img src="/assets/images/logo.svg" height="30" alt="codersite"></a> &nbsp; Stay Connected!. Follow me to get my latest articles.</span>
+        <form action="https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;id=8d64d36cba" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+<!--</div>-->
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (7)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#design">design (6)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (7)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distribuited-systems">distribuited systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#startup">startup (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#data-structures">data structures (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#programming">programming (2)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2024 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/policy">Privacy policy |</a>
+				<a href="/termsOfService">Terms of service |</a>
+				<a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+</body>
+</html>

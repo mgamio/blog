@@ -32,6 +32,8 @@ die Erstellung : creation
 
 die Entwicklung : development
 
+die Geschäftslogik : business logic
+
 die Gestaltung : design
 
 Internet der Dinge (IoT) : Internet of Things
