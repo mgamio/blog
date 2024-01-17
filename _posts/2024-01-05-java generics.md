@@ -118,6 +118,8 @@ System.out.println(example.isEqual(42, 42)); // true
 System.out.println(example.isEqual("hello", "world")); // false
 ```
 
+In Effective Java, Joshua Bloch tells you how to maximize the benefits of Generics:
+
 <div>
 {%- include effectiveJava.html -%}
 </div>
