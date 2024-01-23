@@ -12,7 +12,7 @@ Breaking down a large web development project into tasks is essential for effect
 1.-Define Project Objectives:
 
 - Clearly understand the project's goals and objectives.
-- Identify the desired outcomes and functionalities.
+- Identify the desired outcomes and functionalities. In this point, for example, when your current backend infrastructure cannot support the required functionalities. Then, you could face new developments or reformulate your requirements.
 
 2.-Create a Project Scope:
 
@@ -46,7 +46,7 @@ Breaking down a large web development project into tasks is essential for effect
 
 8.-Estimate Time and Resources:
 
-- Estimate the time and resources required for each task.
+- Estimate the time and resources required for each task. Sometimes, a lack of enough human resources - developers - impacts your estimations.
 - Consider the skills needed for each task and allocate resources accordingly.
 
 <div>

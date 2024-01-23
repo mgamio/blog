@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 23 Jan 2024 08:39:25 +0100</pubDate>
-    <lastBuildDate>Tue, 23 Jan 2024 08:39:25 +0100</lastBuildDate>
+    <pubDate>Tue, 23 Jan 2024 17:37:08 +0100</pubDate>
+    <lastBuildDate>Tue, 23 Jan 2024 17:37:08 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -923,7 +923,7 @@ Conversion of the reference type to the corresponding primitive type is called &
 
 &lt;ul&gt;
   &lt;li&gt;Clearly understand the project’s goals and objectives.&lt;/li&gt;
-  &lt;li&gt;Identify the desired outcomes and functionalities.&lt;/li&gt;
+  &lt;li&gt;Identify the desired outcomes and functionalities. In this point, for example, when your current backend infrastructure cannot support the required functionalities. Then, you could face new developments or reformulate your requirements.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;2.-Create a Project Scope:&lt;/p&gt;
@@ -971,7 +971,7 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;p&gt;8.-Estimate Time and Resources:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Estimate the time and resources required for each task.&lt;/li&gt;
+  &lt;li&gt;Estimate the time and resources required for each task. Sometimes, a lack of enough human resources - developers - impacts your estimations.&lt;/li&gt;
   &lt;li&gt;Consider the skills needed for each task and allocate resources accordingly.&lt;/li&gt;
 &lt;/ul&gt;
 
