@@ -740,6 +740,26 @@ public String getRequestURLWithQueryParam(HttpServletRequest request) {
 </pre></td><td class="rouge-code"><pre>[12/4/23 15:48:27:888 CET] 00000121 SystemOut     INFO 19484 BuyersApiController : DELETE_REQUESTED_PARAMETERS: https://yourapidomain/api/v1/buyers/12345
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h2 id="when-the-api-strategy-is-not-aligned-with-the-it-infrastructure">When the API Strategy is not aligned with the IT infrastructure</h2>
+
+<p>In most business scenarios, companies decide to externalize part of their current functionalities by developing APIs to obtain new potential clients.</p>
+
+<p>For example, one requirement is to retrieve an assortment by a unique ID. You, as an API designer, create the following endpoint:</p>
+
+<p><img src="/assets/images/assortmentEndpoint1.jpg" alt="assortment1-endpoint" class="img-responsive" /></p>
+
+<p>It seems logical to retrieve a unique resource by using a unique ID parameter. But your IT department says you need additional parameters to retrieve an assortment entity because that’s how your business model works.</p>
+
+<p>Then you add the following required parameters (queries):</p>
+
+<p><img src="/assets/images/assortmentEndpoint2.jpg" alt="assortment2-rest-endpoint" class="img-responsive" /></p>
+
+<p>If we know and follow the relationships between our business entities, we can redesign the endpoint to a final version:</p>
+
+<p><img src="/assets/images/assortmentEndpoint3.jpg" alt="assortment3-rest-spring" class="img-responsive" /></p>
+
+<p>It is up to you to give a better developer experience when your API documentation is understandable and easy to navigate.</p>
+
 <h2 id="benefits-of-rest-api">Benefits of REST API</h2>
 
 <p>REST APIs offer several advantages that contribute to their widespread adoption in modern web development:</p>

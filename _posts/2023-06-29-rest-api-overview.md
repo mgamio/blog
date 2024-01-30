@@ -368,6 +368,26 @@ Even you can create statistics of how many requests by endpoint arrive per minut
 [12/4/23 15:48:27:888 CET] 00000121 SystemOut     INFO 19484 BuyersApiController : DELETE_REQUESTED_PARAMETERS: https://yourapidomain/api/v1/buyers/12345
 ```
 
+## When the API Strategy is not aligned with the IT infrastructure
+
+In most business scenarios, companies decide to externalize part of their current functionalities by developing APIs to obtain new potential clients.
+
+For example, one requirement is to retrieve an assortment by a unique ID. You, as an API designer, create the following endpoint:
+
+![assortment1-endpoint](/assets/images/assortmentEndpoint1.jpg){:class="img-responsive"}
+
+It seems logical to retrieve a unique resource by using a unique ID parameter. But your IT department says you need additional parameters to retrieve an assortment entity because that's how your business model works.
+
+Then you add the following required parameters (queries):
+
+![assortment2-rest-endpoint](/assets/images/assortmentEndpoint2.jpg){:class="img-responsive"}
+
+If we know and follow the relationships between our business entities, we can redesign the endpoint to a final version:
+
+![assortment3-rest-spring](/assets/images/assortmentEndpoint3.jpg){:class="img-responsive"}
+
+It is up to you to give a better developer experience when your API documentation is understandable and easy to navigate.
+
 ## Benefits of REST API
 
 REST APIs offer several advantages that contribute to their widespread adoption in modern web development:

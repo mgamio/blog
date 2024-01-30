@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 25 Jan 2024 09:28:51 +0100</pubDate>
-    <lastBuildDate>Thu, 25 Jan 2024 09:28:51 +0100</lastBuildDate>
+    <pubDate>Tue, 30 Jan 2024 16:31:16 +0100</pubDate>
+    <lastBuildDate>Tue, 30 Jan 2024 16:31:16 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1807,6 +1807,26 @@ public String getRequestURLWithQueryParam(HttpServletRequest request) {
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;[12/4/23 15:48:27:888 CET] 00000121 SystemOut     INFO 19484 BuyersApiController : DELETE_REQUESTED_PARAMETERS: https://yourapidomain/api/v1/buyers/12345
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;when-the-api-strategy-is-not-aligned-with-the-it-infrastructure&quot;&gt;When the API Strategy is not aligned with the IT infrastructure&lt;/h2&gt;
+
+&lt;p&gt;In most business scenarios, companies decide to externalize part of their current functionalities by developing APIs to obtain new potential clients.&lt;/p&gt;
+
+&lt;p&gt;For example, one requirement is to retrieve an assortment by a unique ID. You, as an API designer, create the following endpoint:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/assortmentEndpoint1.jpg&quot; alt=&quot;assortment1-endpoint&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It seems logical to retrieve a unique resource by using a unique ID parameter. But your IT department says you need additional parameters to retrieve an assortment entity because that’s how your business model works.&lt;/p&gt;
+
+&lt;p&gt;Then you add the following required parameters (queries):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/assortmentEndpoint2.jpg&quot; alt=&quot;assortment2-rest-endpoint&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If we know and follow the relationships between our business entities, we can redesign the endpoint to a final version:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/assortmentEndpoint3.jpg&quot; alt=&quot;assortment3-rest-spring&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It is up to you to give a better developer experience when your API documentation is understandable and easy to navigate.&lt;/p&gt;
 
 &lt;h2 id=&quot;benefits-of-rest-api&quot;&gt;Benefits of REST API&lt;/h2&gt;
 
