@@ -278,6 +278,8 @@ das Pflichtfeld : mandatory field
 
 die Rückgabe : return
 
+sortieren : sort
+
 Stammdaten : master data
 
 die Textdatei : text file
