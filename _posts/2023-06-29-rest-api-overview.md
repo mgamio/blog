@@ -218,7 +218,7 @@ Common error HTTP status codes include:
 
 **Business requirement**: A company wants to implement an API to allow Restaurants (represented as a buyer) to place orders at suppliers to get food articles delivered.
 
-The following figure shows a [UML class diagram](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"} to conceptual model the application's structure.
+The following figure shows an [Aggregation/Composition diagram](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"} that describes a class that references one or more objects of other classes. This allows you to model a *has-a* association between objects.
 
 ![shopping-car](/assets/images/shoppingCar.jpg){:class="img-responsive"}
 
@@ -387,6 +387,28 @@ If we know and follow the relationships between our business entities, we can re
 ![assortment3-rest-spring](/assets/images/assortmentEndpoint3.jpg){:class="img-responsive"}
 
 It is up to you to give a better developer experience when your API documentation is understandable and easy to navigate.
+
+## Designing an Endpoint from aggregation/composition relationships
+
+Once you build a class design of your business model, think about in ***entities*** and ***relationships*** to create functional endpoints.
+
+For example, from the following figure we can interpret that the **Buyer** entity includes one or more instances of the **BuyingList** entity.
+
+![shopping-car-navigation](/assets/images/shoppingCarNavigation.jpg){:class="img-responsive"}
+
+Then, we can connect them by using the following relationship:
+
+```
+GET /api/v2/buyers/{buyerId}/buyingLists
+```
+
+Additionally, the **BuyingList** entity includes one or more instances of the **Article** entity.
+
+To navigate until the Article entity we can build the following endpoint:
+
+```
+GET /api/v2/buyers/{buyerId}/buyingLists/{buyingListId}/articles
+```
 
 ## Benefits of REST API
 

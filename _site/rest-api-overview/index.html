@@ -500,7 +500,7 @@ Host: codersite.dev
 
 <p><strong>Business requirement</strong>: A company wants to implement an API to allow Restaurants (represented as a buyer) to place orders at suppliers to get food articles delivered.</p>
 
-<p>The following figure shows a <a href="https://codersite.dev/uml-diagrams-for-java-developers/" target="_blank">UML class diagram</a> to conceptual model the application’s structure.</p>
+<p>The following figure shows an <a href="https://codersite.dev/uml-diagrams-for-java-developers/" target="_blank">Aggregation/Composition diagram</a> that describes a class that references one or more objects of other classes. This allows you to model a <em>has-a</em> association between objects.</p>
 
 <p><img src="/assets/images/shoppingCar.jpg" alt="shopping-car" class="img-responsive" /></p>
 
@@ -759,6 +759,28 @@ public String getRequestURLWithQueryParam(HttpServletRequest request) {
 <p><img src="/assets/images/assortmentEndpoint3.jpg" alt="assortment3-rest-spring" class="img-responsive" /></p>
 
 <p>It is up to you to give a better developer experience when your API documentation is understandable and easy to navigate.</p>
+
+<h2 id="designing-an-endpoint-from-aggregationcomposition-relationships">Designing an Endpoint from aggregation/composition relationships</h2>
+
+<p>Once you build a class design of your business model, think about in <strong><em>entities</em></strong> and <strong><em>relationships</em></strong> to create functional endpoints.</p>
+
+<p>For example, from the following figure we can interpret that the <strong>Buyer</strong> entity includes one or more instances of the <strong>BuyingList</strong> entity.</p>
+
+<p><img src="/assets/images/shoppingCarNavigation.jpg" alt="shopping-car-navigation" class="img-responsive" /></p>
+
+<p>Then, we can connect them by using the following relationship:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>GET /api/v2/buyers/{buyerId}/buyingLists
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Additionally, the <strong>BuyingList</strong> entity includes one or more instances of the <strong>Article</strong> entity.</p>
+
+<p>To navigate until the Article entity we can build the following endpoint:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>GET /api/v2/buyers/{buyerId}/buyingLists/{buyingListId}/articles
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="benefits-of-rest-api">Benefits of REST API</h2>
 
