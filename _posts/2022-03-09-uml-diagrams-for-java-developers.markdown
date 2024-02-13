@@ -179,6 +179,52 @@ public class QRServiceImpl implements QRService {
 }
 ```
 
+### Relationships among Objects
+
+Objects contribute to the behavior of a system by collaborating with one another. An object communicates with another object to use the results of operations provided by that object.
+
+Association, Aggregation, and Composition are terms that represent relationships among objects. They are fundamental concepts of Object Oriented Programming.
+
+### Association
+
+An association draws a solid line connecting two classes. It could be named by a verb (using role names) that reflects the business problem domain we are modeling. The following diagram shows two classes that need to communicate with each other.
+
+![umlAssociation](/assets/images/umlAssociation.jpg "UML association relationship"){:class="img-responsive"}
+
+### Aggregation
+
+Aggregation is a particular association type representing a *has-a* relationship and is displayed as a solid line with an unfilled diamond at the association end.
+
+A child class object can exist without the parent class object. In the following diagram, if you delete the Buyer class (parent), the Supplier class (child) still exists.
+
+![umlAggregation](/assets/images/umlAggregation.jpg "UML aggregation relationship"){:class="img-responsive"}
+
+### Composition
+
+Composition is a particular type of aggregation where parts are destroyed when the whole is destroyed. The relationship is displayed as a solid line with a filled diamond at the association end.
+
+A child class object cannot exist without the parent class object. In the following diagram, if you delete the Order class (parent), the Address class (child) does not exist separate to a Order.
+
+![umlComposition](/assets/images/umlComposition.jpg "UML composition relationship"){:class="img-responsive"}
+
+### Applications of Aggregation/Composition diagrams
+
+We can use aggregation/composition diagrams to design API endpoints. For example, the following figure shows the relationships among different business model objects.
+
+![umlCompositionAggregation](/assets/images/shoppingCar.jpg "UML business model"){:class="img-responsive"}
+
+To get orders placed by a specific buyer:
+
+```kotlin
+GET /api/v2/buyers/{buyerId}/orders
+```
+
+To get all articles included in an assortment that belongs to a specific buyer:
+
+```kotlin
+GET /api/v2/buyers/{buyerId}/assortments/{assortmentId}/articles
+```
+
 ### Conclusions
 
 - UML convey how to build the software without ambiguities, e.g., build first an interface instead of a class.

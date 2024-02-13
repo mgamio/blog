@@ -432,6 +432,52 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h3 id="relationships-among-objects">Relationships among Objects</h3>
+
+<p>Objects contribute to the behavior of a system by collaborating with one another. An object communicates with another object to use the results of operations provided by that object.</p>
+
+<p>Association, Aggregation, and Composition are terms that represent relationships among objects. They are fundamental concepts of Object Oriented Programming.</p>
+
+<h3 id="association">Association</h3>
+
+<p>An association draws a solid line connecting two classes. It could be named by a verb (using role names) that reflects the business problem domain we are modeling. The following diagram shows two classes that need to communicate with each other.</p>
+
+<p><img src="/assets/images/umlAssociation.jpg" alt="umlAssociation" title="UML association relationship" class="img-responsive" /></p>
+
+<h3 id="aggregation">Aggregation</h3>
+
+<p>Aggregation is a particular association type representing a <em>has-a</em> relationship and is displayed as a solid line with an unfilled diamond at the association end.</p>
+
+<p>A child class object can exist without the parent class object. In the following diagram, if you delete the Buyer class (parent), the Supplier class (child) still exists.</p>
+
+<p><img src="/assets/images/umlAggregation.jpg" alt="umlAggregation" title="UML aggregation relationship" class="img-responsive" /></p>
+
+<h3 id="composition">Composition</h3>
+
+<p>Composition is a particular type of aggregation where parts are destroyed when the whole is destroyed. The relationship is displayed as a solid line with a filled diamond at the association end.</p>
+
+<p>A child class object cannot exist without the parent class object. In the following diagram, if you delete the Order class (parent), the Address class (child) does not exist separate to a Order.</p>
+
+<p><img src="/assets/images/umlComposition.jpg" alt="umlComposition" title="UML composition relationship" class="img-responsive" /></p>
+
+<h3 id="applications-of-aggregationcomposition-diagrams">Applications of Aggregation/Composition diagrams</h3>
+
+<p>We can use aggregation/composition diagrams to design API endpoints. For example, the following figure shows the relationships among different business model objects.</p>
+
+<p><img src="/assets/images/shoppingCar.jpg" alt="umlCompositionAggregation" title="UML business model" class="img-responsive" /></p>
+
+<p>To get orders placed by a specific buyer:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">GET</span> <span class="p">/</span><span class="n">api</span><span class="p">/</span><span class="n">v2</span><span class="p">/</span><span class="n">buyers</span><span class="p">/{</span><span class="n">buyerId</span><span class="p">}/</span><span class="n">orders</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>To get all articles included in an assortment that belongs to a specific buyer:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">GET</span> <span class="p">/</span><span class="n">api</span><span class="p">/</span><span class="n">v2</span><span class="p">/</span><span class="n">buyers</span><span class="p">/{</span><span class="n">buyerId</span><span class="p">}/</span><span class="n">assortments</span><span class="p">/{</span><span class="n">assortmentId</span><span class="p">}/</span><span class="n">articles</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <h3 id="conclusions">Conclusions</h3>
 
 <ul>
