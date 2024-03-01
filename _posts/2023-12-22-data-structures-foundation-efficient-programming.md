@@ -52,9 +52,10 @@ When your turn arrives, it is because the program retrieved an element from the 
 
 ![arrayElement](/assets/images/arrayElementBank.jpg){:class="img-responsive"}
 
-See more about arrays:
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gG54dRfuUeE?si=roTC57WsLBGG9Elf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+> You should use an array when you need to store a fixed number of elements that are of the same type and size. -- <cite>codersite.dev</cite>
+
+
 
 -- **Linked Lists**: Consist of nodes linked together, allowing for insertion and deletion operations without affecting other elements.
 
@@ -82,6 +83,14 @@ The output:
 ```kotlin
 [Book, Guitar, Bicycle, Radio]
 ```
+
+Scenario:
+
+- In a digital music service, Use a linked list to create a playlist to add or remove dynamically your favorite songs. If you have an array, inserting or deleting songs in the middle of the playlist would require shifting all the subsequent elements in the array, which is a time-consuming operation.
+
+- In an e-commerce application, use a linked list to create a shopping list to hold frequently requested items.
+
+- You might use a linked list to implement a stack, a queue, or a hash table.
 
 -- **Stacks**: Treat data as a linear structure where items are added and removed from the top.
 
@@ -171,6 +180,10 @@ Data structures play a crucial role in computer science for several reasons:
 - Problem-Solving Efficiency: Data structures provide efficient solutions to various computational problems, such as sorting, searching, and graph algorithms.
 
 - Software Scalability: Data structures are crucial for developing scalable software applications that can handle increasing data volumes and usage.
+
+See more about arrays:
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gG54dRfuUeE?si=roTC57WsLBGG9Elf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Applications of Data Structures
 

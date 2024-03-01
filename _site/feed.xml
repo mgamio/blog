@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 13 Feb 2024 13:59:04 +0100</pubDate>
-    <lastBuildDate>Tue, 13 Feb 2024 13:59:04 +0100</lastBuildDate>
+    <pubDate>Fri, 01 Mar 2024 21:05:05 +0100</pubDate>
+    <lastBuildDate>Fri, 01 Mar 2024 21:05:05 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -526,9 +526,9 @@ Conversion of the reference type to the corresponding primitive type is called &
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/arrayElementBank.jpg&quot; alt=&quot;arrayElement&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;See more about arrays:&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/gG54dRfuUeE?si=roTC57WsLBGG9Elf&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;You should use an array when you need to store a fixed number of elements that are of the same type and size. – &lt;cite&gt;codersite.dev&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;– &lt;strong&gt;Linked Lists&lt;/strong&gt;: Consist of nodes linked together, allowing for insertion and deletion operations without affecting other elements.&lt;/p&gt;
 
@@ -569,6 +569,20 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;na&quot;&gt;[Book, Guitar, Bicycle, Radio]&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Scenario:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;In a digital music service, Use a linked list to create a playlist to add or remove dynamically your favorite songs. If you have an array, inserting or deleting songs in the middle of the playlist would require shifting all the subsequent elements in the array, which is a time-consuming operation.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In an e-commerce application, use a linked list to create a shopping list to hold frequently requested items.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You might use a linked list to implement a stack, a queue, or a hash table.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;– &lt;strong&gt;Stacks&lt;/strong&gt;: Treat data as a linear structure where items are added and removed from the top.&lt;/p&gt;
 
@@ -704,6 +718,10 @@ Conversion of the reference type to the corresponding primitive type is called &
     &lt;p&gt;Software Scalability: Data structures are crucial for developing scalable software applications that can handle increasing data volumes and usage.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;See more about arrays:&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/gG54dRfuUeE?si=roTC57WsLBGG9Elf&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h2 id=&quot;applications-of-data-structures&quot;&gt;Applications of Data Structures&lt;/h2&gt;
 
