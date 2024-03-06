@@ -12,7 +12,7 @@ In the realm of computer science, data structures serve as the cornerstone of ef
 
 ## Defining Data Structures
 
-A data structure is a specialized format for organizing, storing, and managing data. It encompasses the arrangement of data elements in memory, the relationships between them, and the operations that can be performed on them. Data structures are designed to optimize specific aspects of data manipulation, such as searching, sorting, insertion, and deletion.
+A data structure is a specialized format for organizing, storing, and managing data. It encompasses the arrangement of data elements in memory, the relationships between them, and the operations that can be performed on them. **Data structures are designed to optimize specific aspects of data manipulation**, such as searching, sorting, insertion, and deletion.
 
 ## Types of Data Structures
 
@@ -102,6 +102,8 @@ Scenario:
 {%- include primeVideo.html -%}
 </div>
 
+As a senior application developer, you should be willing to take on complex or unfamiliar tasks, such as **working with legacy code**. For example, to instantiate a Hashtable class.
+
 -- **Hash Tables**: Efficiently store and retrieve data using keys and values.
 
 Here’s an example of how to use the Hashtable class:
@@ -144,6 +146,49 @@ Output:
 Link to article: link_article1
 Key: 3, Value: link_article3
 Key: 1, Value: link_article1
+```
+
+For non-threaded applications and better performance, use *Hashmap*. If synchronization becomes an issue, you may also use *ConcurrentHashMap*. Here is the same previous code but using a *Hashmap*.
+
+
+```kotlin
+import java.util.HashMap;
+import java.util.Map;
+
+public class HashMapUseCase {
+
+  public static void main(String[] args) {
+
+    Map<Integer, String> articles = new HashMap<>();
+
+    // Adding elements to the hashMap
+    articles.put(1, "link_article1");
+    articles.put(2, "link_article2");
+    articles.put(3, "link_article3");
+
+    // Getting values from the hashMap
+    String articleLink = articles.get(1);
+    System.out.println("Link to article: " + articleLink);
+
+    // Removing elements from the hashMap
+    articles.remove(2);
+
+    // Iterating the elements of the hashMap
+    for (Map.Entry<Integer, String> entry : articles.entrySet()) {
+      Integer key = entry.getKey();
+      System.out.println("Key: " + key + ", Value: " + entry.getValue());
+    }
+
+  }
+}
+```
+
+Iterating the elements of the hashMap using [lambda](https://codersite.dev/java-functional-programming/){:target="_blank"}:
+
+```kotlin    
+    articles.forEach((key, value) -> {
+      System.out.println("Key: " + key + ", Value: " + value);
+    });
 ```
 
 -- [Trees](https://codersite.dev/tree-data-structure-binary-search-tree/){:target="_blank"}: Hierarchical structures that organize data in a tree-like pattern.

@@ -217,7 +217,7 @@
 
 <h2 id="defining-data-structures">Defining Data Structures</h2>
 
-<p>A data structure is a specialized format for organizing, storing, and managing data. It encompasses the arrangement of data elements in memory, the relationships between them, and the operations that can be performed on them. Data structures are designed to optimize specific aspects of data manipulation, such as searching, sorting, insertion, and deletion.</p>
+<p>A data structure is a specialized format for organizing, storing, and managing data. It encompasses the arrangement of data elements in memory, the relationships between them, and the operations that can be performed on them. <strong>Data structures are designed to optimize specific aspects of data manipulation</strong>, such as searching, sorting, insertion, and deletion.</p>
 
 <h2 id="types-of-data-structures">Types of Data Structures</h2>
 
@@ -327,6 +327,8 @@
 
 <br /></div>
 
+<p>As a senior application developer, you should be willing to take on complex or unfamiliar tasks, such as <strong>working with legacy code</strong>. For example, to instantiate a Hashtable class.</p>
+
 <p>– <strong>Hash Tables</strong>: Efficiently store and retrieve data using keys and values.</p>
 
 <p>Here’s an example of how to use the Hashtable class:</p>
@@ -399,6 +401,78 @@
 </pre></td><td class="rouge-code"><pre><span class="nc">Link</span> <span class="n">to</span> <span class="n">article</span><span class="p">:</span> <span class="n">link_article1</span>
 <span class="nc">Key</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nc">Value</span><span class="p">:</span> <span class="n">link_article3</span>
 <span class="nc">Key</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nc">Value</span><span class="p">:</span> <span class="n">link_article1</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>For non-threaded applications and better performance, use <em>Hashmap</em>. If synchronization becomes an issue, you may also use <em>ConcurrentHashMap</em>. Here is the same previous code but using a <em>Hashmap</em>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="nn">java.util.HashMap;</span>
+<span class="k">import</span> <span class="nn">java.util.Map;</span>
+
+<span class="k">public</span> <span class="kd">class</span> <span class="nc">HashMapUseCase</span> <span class="p">{</span>
+
+  <span class="k">public</span> <span class="n">static</span> <span class="n">void</span> <span class="nf">main</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">,</span> <span class="nc">String</span><span class="p">&gt;</span> <span class="n">articles</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">HashMap</span><span class="p">&lt;&gt;();</span>
+
+    <span class="c1">// Adding elements to the hashMap</span>
+    <span class="n">articles</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">"link_article1"</span><span class="p">);</span>
+    <span class="n">articles</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">"link_article2"</span><span class="p">);</span>
+    <span class="n">articles</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">"link_article3"</span><span class="p">);</span>
+
+    <span class="c1">// Getting values from the hashMap</span>
+    <span class="nc">String</span> <span class="n">articleLink</span> <span class="p">=</span> <span class="n">articles</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"Link to article: "</span> <span class="p">+</span> <span class="n">articleLink</span><span class="p">);</span>
+
+    <span class="c1">// Removing elements from the hashMap</span>
+    <span class="n">articles</span><span class="p">.</span><span class="nf">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+    <span class="c1">// Iterating the elements of the hashMap</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nc">Map</span><span class="p">.</span><span class="nc">Entry</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">,</span> <span class="nc">String</span><span class="p">&gt;</span> <span class="n">entry</span> <span class="p">:</span> <span class="n">articles</span><span class="p">.</span><span class="nf">entrySet</span><span class="p">())</span> <span class="p">{</span>
+      <span class="nc">Integer</span> <span class="n">key</span> <span class="p">=</span> <span class="n">entry</span><span class="p">.</span><span class="nf">getKey</span><span class="p">();</span>
+      <span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"Key: "</span> <span class="p">+</span> <span class="n">key</span> <span class="p">+</span> <span class="s">", Value: "</span> <span class="p">+</span> <span class="n">entry</span><span class="p">.</span><span class="nf">getValue</span><span class="p">());</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Iterating the elements of the hashMap using <a href="https://codersite.dev/java-functional-programming/" target="_blank">lambda</a>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>    <span class="n">articles</span><span class="p">.</span><span class="nf">forEach</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">{</span>
+      <span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"Key: "</span> <span class="p">+</span> <span class="n">key</span> <span class="p">+</span> <span class="s">", Value: "</span> <span class="p">+</span> <span class="n">value</span><span class="p">);</span>
+    <span class="p">});</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>– <a href="https://codersite.dev/tree-data-structure-binary-search-tree/" target="_blank">Trees</a>: Hierarchical structures that organize data in a tree-like pattern.</p>

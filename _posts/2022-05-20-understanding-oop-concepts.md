@@ -10,7 +10,7 @@ hidden: false
 comments: false
 ---
 
-Understanding OOP concepts give you a solid foundation for making critical decisions about object-oriented software design.
+Understanding OOP concepts gives you a solid foundation for making critical decisions about object-oriented software design.
 
 ## Class
 
