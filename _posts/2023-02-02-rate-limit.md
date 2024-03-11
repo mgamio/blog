@@ -241,13 +241,15 @@ Depending on how your software infrastructure is built, you can define plans wit
 
 If you dont know the actual request consumption from your users, you can install Elasticsearch and monitor the number of requests per minute daily. Read [here](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}.
 
+When [designing web APIs](https://codersite.dev/rest-api-overview/){:target="_blank"}, consider implementing a rate-limiting algorithm to control the load on the system.
+
 You can use these ideas when trying to implement rate limiting with Redis or with AWS.
 
 You can download the code from the following link
 
 [Rate limit](https://github.com/mgamio/rateLimit.git){:target="_blank"}
 
-In my next post, we will build an automated web client with random data to test the rate limit algorithm. Follow me!
+In my next post, we will build an automated [REST API Client](https://codersite.dev/building-rest-api-client/){:target="_blank"} with random data to test the rate limit algorithm. Follow me!
 
 <div>
 {%- include mailchimp.html -%}
