@@ -111,6 +111,7 @@ By implementing a combination of these strategies, you can effectively manage co
 
 Remember that the appropriate solution may depend on the specific characteristics and requirements of your application. It's often beneficial to combine multiple strategies for a comprehensive approach to scalability and performance optimization. Regularly monitor the application's performance and make adjustments as needed.
 
+[Learn Java for free with 🤖 Travis](https://aigents.co/learn){:target="_blank"}
 
 > Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
 
