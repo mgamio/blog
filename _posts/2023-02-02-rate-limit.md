@@ -26,7 +26,7 @@ The [token-bucket](https://en.wikipedia.org/wiki/Token_bucket){:target="_blank"}
 
 When we have somebody that takes out tokens, we also need somebody that puts tokens into the bucket. The *refiller* periodically creates new tokens and puts them into the bucket.
 
-![rate-Limit-Refiller](/assets/images/rateLimitRefiller.jpg){:class="img-responsive"}
+![rate-Limit-Refiller](/assets/images/rateLimitRefiller.jpg "rate-Limit-Refiller"){:class="img-responsive"}
 
 ## About Bucket4j
 
@@ -84,7 +84,7 @@ For more information on implementing RESTful web services, visit this [link](htt
 
 Once you deploy the API service, you can request a random quote from a Web Client like Postman.
 
-![rate-Limit-random](/assets/images/randomQuotePostman.jpg){:class="img-responsive"}
+![rate-Limit-random](/assets/images/randomQuotePostman.jpg "random quote API"){:class="img-responsive"}
 
 But in reality, web Clients are automated, especially in B2B integrations, where developers on the client side send hundreds or thousands of requests per minute to analyze random data during the implementation stage.
 
@@ -212,7 +212,7 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponse respons
 The magic of this library is in the *isConsumed()* method. After asking the bucket to consume a token from the basket, we test whether the token was consumed. If true, the limit was not exceeded, and the API allows the client to consume the endpoint. Otherwise, the limit was exceeded, and we rejected the request, returning an HTTP error code of 429 to the client.
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 We need to register our *RateLimitInterceptor* class by extending the *WebMvcConfigurerAdapter* class.
@@ -233,7 +233,7 @@ public class InterceptorConfig extends WebMvcConfigurerAdapter {
 
 After you send ten requests, the eleventh request is rejected, and the web client must wait for around 7 seconds, as shown in the following example.
 
-![rate-Limit-random](/assets/images/randomQuotePostmanRateLimit.jpg){:class="img-responsive"}
+![rate-Limit-random](/assets/images/randomQuotePostmanRateLimit.jpg "rate-Limit-random"){:class="img-responsive"}
 
 Offering valuable content through your API can also motivate external developers or companies to pay more for leveraging the API. When they exceed the ten requests by default, they subscribe to plans.
 

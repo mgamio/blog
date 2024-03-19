@@ -48,7 +48,7 @@ When dealing with a monolithic Java application under heavy concurrent load that
 - Analyze logs, metrics, and performance data to make informed decisions.
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 8.-Vertical Scaling:

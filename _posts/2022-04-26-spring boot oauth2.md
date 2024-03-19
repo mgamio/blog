@@ -130,7 +130,7 @@ And try to insert a book (Try out button). In the bookAuthorization parameter, w
 
 Then you receive an error.
 
-![oauth2Post](/assets/images/oauth2Post.jpg){:class="img-responsive"}
+![oauth2Post](/assets/images/oauth2Post.jpg "unauthorized error"){:class="img-responsive"}
 
 Why does this happen? Well, we need to tell OpenAPI that configures security.
 
@@ -179,11 +179,11 @@ From the previous code, you can see that before setting up a security requiremen
 
 Now, rerun the main application, and we can see a new green button called Authorize. Then enter the credentials and the scope.
 
-![oauth2authorize](/assets/images/oauth2authorize.jpg){:class="img-responsive"}
+![oauth2authorize](/assets/images/oauth2authorize.jpg "oauth2 authorize"){:class="img-responsive"}
 
 Close the pop-up and try out again to insert a book.
 
-![oauth2PostOK](/assets/images/oauth2PostOK.jpg){:class="img-responsive"}
+![oauth2PostOK](/assets/images/oauth2PostOK.jpg "oauth2 Post OK"){:class="img-responsive"}
 
 Yes, you did it!
 

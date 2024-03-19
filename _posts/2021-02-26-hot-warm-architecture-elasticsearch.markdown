@@ -51,7 +51,7 @@ Also, you have an image service that suddenly throws and prints to another appli
 
 Once these documents are indexed into Elasticsearch, the following figure shows an inverted index data structure.
 
-![inverted-index](/assets/images/invertedIndex.jpg){:class="img-responsive"}
+![inverted-index](/assets/images/invertedIndex.jpg "inverted-index"){:class="img-responsive"}
 
 **Mapping**
 
@@ -90,7 +90,7 @@ The JVM logs are created by redirecting the System.out and System.err streams of
 When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, connection pooling problems, and more, we usually analyze our application server *logs*.
 But this task is tedious because the *log files* are distributed in a cluster that contains several application servers with their applications. Depending on each application server product, rotating policies for regenerating a *log file* cause historical records to be lost - data retention period.
 
-![logFileRotation](/assets/images/logFileRotation.JPG){:class="img-responsive"}
+![logFileRotation](/assets/images/logFileRotation.JPG "log File Rotation"){:class="img-responsive"}
 
 If every business area has its cluster, the licenses and number of application servers are exponential.
 
@@ -98,7 +98,7 @@ If every business area has its cluster, the licenses and number of application s
 
 We are going to install a Hot-Warm-Cold Logging Cluster on the Elasticsearch Service as shown in the following figure.
 
-![hot-warm-architecture](/assets/images/hot-warm-elastic.jpg){:class="img-responsive"}
+![hot-warm-architecture](/assets/images/hot-warm-elastic.jpg "elastic hot-warm-architecture"){:class="img-responsive"}
 
 <div>
 {%- include inArticleAds.html -%}
@@ -117,7 +117,7 @@ coldnode 110.1.0.103
 
 Open Windows Defender Firewall and add the following rule for the three machines:
 
-![firewall](/assets/images/firewall.jpg){:class="img-responsive"}
+![firewall](/assets/images/firewall.jpg "Windows Defender Firewall"){:class="img-responsive"}
 
 For the *hotnode* add an extra 5044 port to the rule if you want to install *logstash* in that machine.
 
@@ -276,7 +276,7 @@ We must create and configure our index templates prior to index creation.
 
 From **Stack Management** -> **Index Management** -> **Index Templates**, we create a new index template for our billing application log files.
 
-![billing-template](/assets/images/billingTemplate.jpg){:class="img-responsive"}
+![billing-template](/assets/images/billingTemplate.jpg "kibana template"){:class="img-responsive"}
 
 The following snippet code is the final template for new indices whose names match the **billing*** index pattern. Every time Elasticsearch receive a log file, it transforms it into an index by applying the following 
 settings:
@@ -324,21 +324,21 @@ We can create and apply Index Lifecycle Management (ILM) policies to automatical
 
 We create a billing policy that defines how to move your data through the following phases.
 
-![hot-phase](/assets/images/hotPhase.jpg){:class="img-responsive"}
+![hot-phase](/assets/images/hotPhase.jpg "elastic hot-phase"){:class="img-responsive"}
 
 We want to move our data index to the **Cold Node** after 30 days from the index's rollover.
 
-![cold-phase](/assets/images/coldPhase.jpg){:class="img-responsive"}
+![cold-phase](/assets/images/coldPhase.jpg "elastic cold-phase"){:class="img-responsive"}
 
 If we want to configure a **Delete phase**, we must enable the "Delete data after this phase" label.
 
 In this Cold phase, we also need to select the node attribute we defined for the Cold Node.
 
-![data-allocation](/assets/images/dataAllocation.jpg){:class="img-responsive"}
+![data-allocation](/assets/images/dataAllocation.jpg ""elastic data-allocation"){:class="img-responsive"}
 
 Finally, to save space on our machines, we define a **Delete phase** to delete our data index after 60 days from the index’s rollover.
 
-![delete-phase](/assets/images/deletePhase.jpg){:class="img-responsive"}
+![delete-phase](/assets/images/deletePhase.jpg "elastic delete-phase"){:class="img-responsive"}
 
 Now our index templates and lifecycle policies are ready. Let's now move on to the *sources* where the log files come from to Elasticsearch.
 
@@ -358,7 +358,7 @@ Logstash will be the receiver for log data from sources such as Beats Agents ins
 
 We need to create a *pipeline* (config file) in which we define an *input* (collect data), a *filter* (data transformation), and an *output* (load data into elastic).
 
-![logstash-pipeline](/assets/images/logstashPipeline.jpg){:class="img-responsive"}
+![logstash-pipeline](/assets/images/logstashPipeline.jpg "elastic logstash-pipeline"){:class="img-responsive"}
 
 Before we create the Logstash pipeline, we’ll configure a Beat Agent called Filebeat to send log lines to Logstash.
 
@@ -539,7 +539,7 @@ GET .ds-billing-index-000006/_search
 {% endhighlight %}
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 Aggregation results are in the response’s aggregations object.

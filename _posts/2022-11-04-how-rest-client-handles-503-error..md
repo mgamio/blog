@@ -23,7 +23,7 @@ Business-to-business ([B2B](https://codersite.dev/the-ubiquitous-language/){:tar
 
 A client-side company doesn't care if there is a monolithic or microservice architecture on the server side.
 
-![webClient](/assets/images/webClient.png){:class="img-responsive"}
+![webClient](/assets/images/webClient.png "web Client"){:class="img-responsive"}
 
 We have implemented a web client that retrieves data from a thousand articles on each request.
 

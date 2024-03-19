@@ -30,7 +30,7 @@ Fill a basket with the most valuable goods under a given budget to optimize onli
 
 Imagine that we have a budget of 4 US$ and we want to buy the most valuable snacks from the following table:
 
-![basket](/assets/images/basket.jpg){:class="img-responsive"}
+![basket](/assets/images/basket.jpg "snacks table"){:class="img-responsive"}
 
 But who decides if a product is more valuable than another one? Well, this depends on every business. It could be an estimation based on quantitative or qualitative analysis. For instance, for our solution, we choose a quantitative approach based on which product gives us *more grams per every dollar invested*.
 
@@ -193,7 +193,7 @@ The test is expecting a result of 590 which corresponds to the final price of 3,
 ```
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 But here we realize the exists another combination of products which give us the most valuable products: 230+230+75+30+28 = 593 which corresponds to the final price of 3,44US$. 

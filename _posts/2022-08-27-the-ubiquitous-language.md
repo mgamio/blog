@@ -22,7 +22,7 @@ Using bounded contexts reduces coupling between subsystems, and we can exchange 
 
 As developers, we must choose appropriate names for our variables that reflect the business terms used in all communication channels during the Domain modeling design stage.
 
-![ubiquitous Language](/assets/images/ubiquitousLanguage.jpg){:class="img-responsive"}
+![ubiquitous Language](/assets/images/ubiquitousLanguage.jpg "bounded context"){:class="img-responsive"}
 
 ## Case study
 

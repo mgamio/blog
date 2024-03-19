@@ -101,7 +101,7 @@ Aggregation defines a HAS-A relationship between two classes. Their objects have
 
 The following diagram shows the goal of our design.
 
-![rateLimit](/assets/images/rateLimit.jpg){:class="img-responsive"}
+![rateLimit](/assets/images/rateLimit.jpg "rateLimit"){:class="img-responsive"}
 
 <div>
 {%- include inArticleAds.html -%}

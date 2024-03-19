@@ -20,7 +20,7 @@ A class is a template or prototype that describes what an object will be. It def
 
 An object is an instance of a class. When we create an object, we create real-world entities such as cars, bicycles, or dogs with their own attributes and own behaviors.
 
-![class and object](/assets/images/carClass.jpg){:class="img-responsive"}
+![class and object](/assets/images/carClass.jpg "class and object"){:class="img-responsive"}
 
 We instantiate an object via the *new* keyword in the Java programming language. When you design a class follow the [Single Responsibility Principle (SRP)](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}.
 
@@ -121,7 +121,7 @@ We can not add a new attribute called *tradable* to the Article class because we
 
 Here, we can use the other technique to build new classes: **inheritance**.
 
-![class and object](/assets/images/tradableArticle.png){:class="img-responsive"}
+![inheritance](/assets/images/tradableArticle.png "inheritance"){:class="img-responsive"}
 
 Now, we can support the new requirement for the new country.
 
@@ -176,7 +176,7 @@ Object-oriented programming (OOP) is a programming paradigm that uses objects an
 - Testability: OOP code is often easier to test since objects can be isolated and tested independently, leading to more comprehensive and efficient testing strategies.
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 - [Code Understandability](https://codersite.dev/clean-code/){:target="_blank"}: OOP promotes a closer alignment between code and real-world concepts, making the codebase more understandable to developers, even those who didn't write the original code.

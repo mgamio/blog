@@ -102,5 +102,5 @@ public class AssembleParts {
 Similar questions you can find in my [book](https://amzn.to/3FxeKSb){:target="_blank"} about algorithms and data structures. Learn how to apply common algorithms to the practical problems.
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>

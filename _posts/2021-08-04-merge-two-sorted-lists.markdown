@@ -16,7 +16,7 @@ A *List* is an abstract data type that can store a list of items. Unlike traditi
 
 Given two sorted lists, merge them in a new sorted list. 
 
-![merge-two-sorted-lists](/assets/images/mergeSortedLists.jpg){:class="img-responsive"}
+![merge-two-sorted-lists](/assets/images/mergeSortedLists.jpg "Merge two sorted lists"){:class="img-responsive"}
 
 ## Solution
 

@@ -21,7 +21,7 @@ Application server refers to the process that provides the functions required to
 A cluster is a group of servers that are managed together. For example, in the WebSphere Application Server, all application servers processes are running the same set of enterprise applications, and the workload capacity is distributed between these servers.
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 The benefits of building a cluster are:
@@ -36,7 +36,7 @@ We want to deploy a Java WebClient to retrieve image objects from an external AP
 
 The Java WebClient is deployed in a cluster with two application servers.
 
-![loadBalancing and FileServer.](/assets/images/loadBalancingFileServer.jpg){:class="img-responsive"}
+![loadBalancing and FileServer.](/assets/images/loadBalancingFileServer.jpg "load Balancing"){:class="img-responsive"}
 
 The cluster uses a load balancer to delegate a specific task to one of its servers in a randomized order. A load-balancing algorithm is a load balancer's logic to distribute network traffic between servers.
 

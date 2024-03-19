@@ -18,7 +18,7 @@ APIs are the building blocks that allow interoperability between businesses on t
 
 We must create programs (API Servers) that serve data and other programs (API Clients) that consume/manipulate that data, as shown in the following figure.
 
-![api-mesh](/assets/images/APImesh.jpg){:class="img-responsive"}
+![api-mesh](/assets/images/APImesh.jpg "api mesh"){:class="img-responsive"}
 
 Every company can implement Servers' and Clients' APIs using different programming languages, caches, proxies, and security mechanisms. They can choose monolithic or microservices architectures deployed in several application servers or cloud providers. 
 
@@ -81,7 +81,7 @@ A fundamental principle of REST API is the uniform interface, which establishes 
 - Hypermedia as the engine of application state (HATEOAS): The API should provide links to related resources, allowing clients to navigate the application's state.
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 ## HTTP Methods
@@ -220,7 +220,7 @@ Common error HTTP status codes include:
 
 The following figure shows an [Aggregation/Composition diagram](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"} that describes a class that references one or more objects of other classes. This allows you to model a *has-a* association between objects.
 
-![shopping-car](/assets/images/shoppingCar.jpg){:class="img-responsive"}
+![shopping-car](/assets/images/shoppingCar.jpg "Aggregation/Composition diagram"){:class="img-responsive"}
 
 We use API endpoints and HTTP methods to define and implement the specific functional requirements. 
 
@@ -236,7 +236,7 @@ While you are designing, SwaggerHub can generate documentation automatically, ma
 
 The following figure shows an example of how SwaggerHub generates the documentation.
 
-![buyer-swagger](/assets/images/buyerOperations.jpg){:class="img-responsive"}
+![buyer-swagger](/assets/images/buyerOperations.jpg "SwaggerHub"){:class="img-responsive"}
 
 We will use the Spring portfolio to build a RESTful service.
 
@@ -374,17 +374,17 @@ In most business scenarios, companies decide to externalize part of their curren
 
 For example, one requirement is to retrieve an assortment by a unique ID. You, as an API designer, create the following endpoint:
 
-![assortment1-endpoint](/assets/images/assortmentEndpoint1.jpg){:class="img-responsive"}
+![assortment1-endpoint](/assets/images/assortmentEndpoint1.jpg "assortments-endpoint"){:class="img-responsive"}
 
 It seems logical to retrieve a unique resource by using a unique ID parameter. But your IT department says you need additional parameters to retrieve an assortment entity because that's how your business model works.
 
 Then you add the following required parameters (queries):
 
-![assortment2-rest-endpoint](/assets/images/assortmentEndpoint2.jpg){:class="img-responsive"}
+![assortment2-rest-endpoint](/assets/images/assortmentEndpoint2.jpg "assortments-endpoint"){:class="img-responsive"}
 
 If we know and follow the relationships between our business entities, we can redesign the endpoint to a final version:
 
-![assortment3-rest-spring](/assets/images/assortmentEndpoint3.jpg){:class="img-responsive"}
+![assortment3-rest-spring](/assets/images/assortmentEndpoint3.jpg "assortments-endpoint-redesigned"){:class="img-responsive"}
 
 It is up to you to give a better developer experience when your API documentation is understandable and easy to navigate.
 
@@ -394,7 +394,7 @@ Once you build a class design of your business model, think about in ***entities
 
 For example, from the following figure we can interpret that the **Buyer** entity includes one or more instances of the **BuyingList** entity.
 
-![shopping-car-navigation](/assets/images/shoppingCarNavigation.jpg){:class="img-responsive"}
+![shopping-car-navigation](/assets/images/shoppingCarNavigation.jpg "aggregation/composition relationships"){:class="img-responsive"}
 
 Then, we can connect them by using the following relationship:
 

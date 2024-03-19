@@ -25,7 +25,7 @@ Prerequisites:
 
 Go to [spring initializr](https://start.spring.io/){:target="_blank"} and add the following dependencies:
 
-![spring initializr](/assets/images/start.spring.io.jpg){:class="img-responsive"}
+![spring initializr](/assets/images/start.spring.io.jpg "spring initializr"){:class="img-responsive"}
 
 Once you generate the JAR maven project, open it in your favorite IDE.
 
@@ -394,7 +394,7 @@ public class OpenapiApplication {
 ```
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 @SpringBootApplication add the following functionalities:
@@ -425,7 +425,7 @@ Then, when we run our application, we can see the online documentation at:
 
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html){:target="_blank"}
 
-![openapi3](/assets/images/openapi-3.jpg){:class="img-responsive"}
+![openapi3](/assets/images/openapi-3.jpg "openapi 3"){:class="img-responsive"}
 
 OpenAPI includes a “Try it out” button, which can be used to actually try out the API, not just read its documentation.
 

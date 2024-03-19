@@ -44,7 +44,7 @@ The order of growth is related to how the runtime of an algorithm increases when
 
 Big O Notation: **Common order-of-growth classifications**:
 
-![order-of-growth](/assets/images/order-of-growth.jpg){:class="img-responsive"}
+![order-of-growth](/assets/images/order-of-growth.jpg "order-of-growth classifications"){:class="img-responsive"}
 
 ## Big O Notation: examples
 
@@ -152,7 +152,7 @@ public static <T extends Comparable<T>> boolean search(T target, T[] array) {
 ```
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 ## The complexity of an algorithm
@@ -207,11 +207,11 @@ Big O Notation describes how many steps are required relative to the number of d
 
 For instance, for all amounts of data, O(N) will be faster than O(N<sup>2</sup>) as shown in the following figure:
 
-![bigONotation-1](/assets/images/bigONotation-1.jpg){:class="img-responsive"}
+![bigONotation-1](/assets/images/bigONotation-1.jpg "Big O Notation"){:class="img-responsive"}
 
 Now, if we compare O(100N) with O(N<sup>2</sup>), we can see that O(N<sup>2</sup>) is faster than O(100N) for some amounts of data as shown in the following figure:
 
-![bigONotation-2](/assets/images/bigONotation-2.jpg){:class="img-responsive"}
+![bigONotation-2](/assets/images/bigONotation-2.jpg "Big O Notation ignores constants"){:class="img-responsive"}
 
 But after an intersection point, O(100N) becomes faster and remains faster (in terms of the "number of steps") for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, the value of 100 is irrelevant and O(100N) is written as O(N). The fewer steps, the faster the algorithm.
 

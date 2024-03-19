@@ -18,7 +18,7 @@ A tree is a data structure that consists of nodes connected by edges.
 
 A Binary tree can have two children: a left node and a right node. Every Node contains two elements: a key used to identify the data stored by the Node and a value that is the data contained in the Node. The following figure shows the binary tree terminology.
 
-![binaryTree](/assets/images/binaryTree.jpg){:class="img-responsive"}
+![binaryTree](/assets/images/binaryTree.jpg "binary tree"){:class="img-responsive"}
 
 ### Binary search tree ###
 
@@ -77,7 +77,7 @@ public class NodeP {
 ```
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 We create a new abstract data type called TreeP to define the behavior of our Binary Search Tree, which includes a NodeP root variable for the first element to be inserted.

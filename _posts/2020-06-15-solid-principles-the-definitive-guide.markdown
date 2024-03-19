@@ -56,7 +56,7 @@ This scenario is a clear example of how this Class design violates the Single Re
 
 The following figure shows the Class with different responsibilities:
 
-![Class with different responsibilities](/assets/images/payment1.jpg){:class="img-responsive"}
+![ClassWithDifferentResponsibilities](/assets/images/payment1.jpg "Class with different responsibilities"){:class="img-responsive"}
 
 ## The solution: Create a Class with only one responsibility
 
@@ -102,7 +102,7 @@ public class Payment {
 
 Finally, new changes to the MAX_DAYS variable will only depend on the requirements of every team separately. The following figure shows the Classes for different actors, without conflicts.
 
-![Class for different actors](/assets/images/payment2b.jpeg){:class="img-responsive"}
+![ClassesForDifferentActors](/assets/images/payment2b.jpeg "Classes for different actors"){:class="img-responsive"}
 
 Therefore, the Payment Class is only responsible for supporting to the Payments team, and the Card Class is solely responsible for supporting the Cards team.
 

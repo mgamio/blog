@@ -18,7 +18,7 @@ Graph theory was first proposed by Leonhard Euler when solved the [Seven Bridges
 
 To describe terms related to Graphs, we use the following Graph, which models ***Hyperloop*** transport to be installed in Germany, for instance.
 
-![dfs1](/assets/images/graphTerminology.jpg){:class="img-responsive"}
+![graph](/assets/images/graphTerminology.jpg "graph Terminology"){:class="img-responsive"}
 
 A Graph shows only the relationships between the *vertices* and the *edges*. Therefore, the most important here is to understand, which edges are connected to which vertex. Moreover, we can also say that Graph models connections between objects.
 
@@ -62,7 +62,7 @@ One of the questions that a graph can answer is: which cities can be reached fro
 
 Depth-First Search (DFS) is an algorithm for traversing or searching for in a Graph. The algorithm starts at the root node (selecting some arbitrary city as the root node) and explores as far as possible along each path. The following Graph shows the sequence of cities followed by the DFS algorithm, if we choose Berlin as the root node, for instance.
 
-![dfsSequence](/assets/images/dfsSequence.jpg){:class="img-responsive"}
+![dfsSequence](/assets/images/dfsSequence.jpg "Depth-First Search"){:class="img-responsive"}
 
 ### Implementing Graphs Algorithm ###
 
@@ -90,7 +90,7 @@ To define, that two vertices are connected (through edges), we have two approach
 
 In a graph of N vertices, we create a two-dimensional array of NxN. An edge between two vertices (cities) indicates a connection (two adjacent nodes) and is represented by 1. No connections are represented by 0.
 
-![dfsMatrix](/assets/images/dfsMatrix.jpg){:class="img-responsive"}
+![dfsMatrix](/assets/images/dfsMatrix.jpg "DFS Adjacency Matrix"){:class="img-responsive"}
 
 The table above says, Leipzig is adjacent to Berlin, Dresden, and Nürnberg, for instance.
 
@@ -101,7 +101,7 @@ We create an Abstract Data Type called a Graph to define the behavior of our new
 We need a stack data structure so we can remember the visited vertices. A stack follows the last-in, first-out (LIFO) principle, i.e., the city inserted at last is the first city to come out of the stack.
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 We define an *arrayOfVertex[]* array to store new Vertices(cities) added to the Graph.

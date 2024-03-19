@@ -145,5 +145,5 @@ Please donate if you find this content valuable.
 <br/>
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>

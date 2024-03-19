@@ -50,7 +50,7 @@ These areas of interest in the software are:
 **Context -> Containers -> Components -> Code** - UML Notation
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 ### Context diagram
@@ -211,7 +211,7 @@ A child class object cannot exist without the parent class object. In the follow
 
 We can use aggregation/composition diagrams to design API endpoints. For example, the following figure shows the relationships among different business model objects.
 
-![umlCompositionAggregation](/assets/images/shoppingCar.jpg "UML business model"){:class="img-responsive"}
+![umlCompositionAggregation](/assets/images/shoppingCar.jpg "aggregation/composition diagrams to design API endpoints"){:class="img-responsive"}
 
 To get orders placed by a specific buyer:
 

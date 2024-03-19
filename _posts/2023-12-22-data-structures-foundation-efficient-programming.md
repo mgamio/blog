@@ -211,7 +211,7 @@ public class QueueViaStacks<T> {
 You can see the real implementation in the following link:
 
 <div>
-{%- include javaInterviewAds1.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 ## Significance of Data Structures
