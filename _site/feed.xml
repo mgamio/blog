@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 Mar 2024 17:38:48 +0100</pubDate>
-    <lastBuildDate>Tue, 19 Mar 2024 17:38:48 +0100</lastBuildDate>
+    <pubDate>Wed, 20 Mar 2024 09:46:46 +0100</pubDate>
+    <lastBuildDate>Wed, 20 Mar 2024 09:46:46 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -197,7 +197,7 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;p&gt;In Effective Java, Joshua Bloch tells you how to maximize the benefits of Generics:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/4aZes3T&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; src=&quot;../assets/images/effectiveJava.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://amzn.to/4aZes3T&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/effectiveJava.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -298,7 +298,7 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3Pppk2z&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; src=&quot;../assets/images/bookImage.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://amzn.to/3Pppk2z&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/bookImage.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -514,7 +514,7 @@ Conversion of the reference type to the corresponding primitive type is called &
 
 &lt;p&gt;When you go to the bank for a Consultation, you receive a waiting ticket with a printed image. What you see in the display is an Array. Or rather, an array-based Queue.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/arrayBank.jpg&quot; alt=&quot;arrays&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/arrayBank.jpg&quot; alt=&quot;arrays&quot; title=&quot;array-based Queue&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;But the most probable is that these images come from an array of bytes.&lt;/p&gt;
 
@@ -524,7 +524,7 @@ Conversion of the reference type to the corresponding primitive type is called &
 
 &lt;p&gt;When your turn arrives, it is because the program retrieved an element from the array.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/arrayElementBank.jpg&quot; alt=&quot;arrayElement&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/arrayElementBank.jpg&quot; alt=&quot;arrayElement&quot; title=&quot;array Element&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;You should use an array when you need to store a fixed number of elements that are of the same type and size. – &lt;cite&gt;codersite.dev&lt;/cite&gt;&lt;/p&gt;
@@ -588,7 +588,7 @@ Conversion of the reference type to the corresponding primitive type is called &
 
 &lt;p&gt;– &lt;strong&gt;Queues&lt;/strong&gt;: Treat data as a linear structure where items are added to the rear and removed from the front.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/queueDef.jpg&quot; alt=&quot;queue&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/queueDef.jpg&quot; alt=&quot;queue&quot; title=&quot;queue&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
   &lt;a href=&quot;https://amzn.to/48f6JwQ&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/primeVideo.jpg&quot; /&gt;&lt;/a&gt;
@@ -828,7 +828,7 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; src=&quot;../assets/images/softwareDesign1.png&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/softwareDesign1.png&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -995,7 +995,7 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; border=&quot;0&quot; src=&quot;../assets/images/softwareDesign1.png&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/softwareDesign1.png&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;

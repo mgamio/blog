@@ -40,7 +40,7 @@ String[] objects = {"Bicycle", "Trophy", "Umbrella", "Guitar", "Hat"};
 
 When you go to the bank for a Consultation, you receive a waiting ticket with a printed image. What you see in the display is an Array. Or rather, an array-based Queue.
 
-![arrays](/assets/images/arrayBank.jpg){:class="img-responsive"}
+![arrays](/assets/images/arrayBank.jpg "array-based Queue"){:class="img-responsive"}
 
 But the most probable is that these images come from an array of bytes.
 
@@ -50,7 +50,7 @@ private byte[][] images;
 
 When your turn arrives, it is because the program retrieved an element from the array.
 
-![arrayElement](/assets/images/arrayElementBank.jpg){:class="img-responsive"}
+![arrayElement](/assets/images/arrayElementBank.jpg "array Element"){:class="img-responsive"}
 
 
 > You should use an array when you need to store a fixed number of elements that are of the same type and size. -- <cite>codersite.dev</cite>
@@ -96,7 +96,7 @@ Scenario:
 
 -- **Queues**: Treat data as a linear structure where items are added to the rear and removed from the front.
 
-![queue](/assets/images/queueDef.jpg){:class="img-responsive"}
+![queue](/assets/images/queueDef.jpg "queue"){:class="img-responsive"}
 
 <div>
 {%- include primeVideo.html -%}
