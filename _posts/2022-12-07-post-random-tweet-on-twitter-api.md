@@ -10,13 +10,15 @@ comments: false
 
 The [Twitter API](https://developer.twitter.com/en/docs/twitter-api){:target="_blank"} enables developers programmatically posting tweets.
 
+We will use Spring Boot to build a Client App that posts tweets periodically.
+
 *@Scheduled* is a Spring annotation that marks a method to be scheduled.
 
 To execute *@Scheduled* annotations, we add an *@EnableScheduling* annotation on the main class.
 
 A *cron job* is a Linux job scheduler that sets up tasks periodically that run at a fixed date or interval.
 
-A *cron* attribute - as in Unix-based systems - enables the method to be executed at a specified date/time.
+A *cron* attribute - as in Unix-based systems - enables the *@Scheduled* method to be executed at a specified date/time.
 
 ```kotlin
 @Scheduled(cron = "0 0 0/3 1/1 * ?")
@@ -100,6 +102,8 @@ For example, if we post every three hours, eight posts are in one day. Well, we 
 
 As developers, we need to understand the inner workings of data structures to support the behavior - method - we want to implement. Could an array, linked list, queue, or stack satisfy our requirement?
 
+If we can publish only eight articles daily, then our data structure should allow us to store only eight elements. Once we have filled our data structure, there will be no space for the following article. Then, we must be able to remove the oldest article (in this case, the first one) and insert the newest article (in the last position). The Queue data structure supports our requirement.
+
 A [Queue](https://amzn.to/3FxeKSb){:target="_blank"} is an abstract data type, which includes a collection of objects that follow the first-in, first-out (FIFO) principle, i.e., the element inserted at first is the first element to come out of the list.
 
 A MAX_ARTICLES variable defines your frame time. You can increase or decrease it according to the number of your articles.
@@ -120,6 +124,8 @@ The *remove* method deletes the oldest element from the queue (remember *the ele
 </div>
 
 The new method executes (**do**) the following instructions **while** a new random number is not found.
+
+The new random number represents an article that is included in our *articlesMap* variable.
 
 ```kotlin
 private Article getRandomArticle() {
@@ -180,5 +186,29 @@ Once you deploy the Tweet scheduling to any cloud provider, its log files show t
 
 With the help of this Twitter bot, you can now focus on writing more articles. Look at it in action on my [Twitter](https://twitter.com/MoisesGamio){:target="_blank"} account!.
 
-Similar questions you can find in my [book](https://amzn.to/3FxeKSb){:target="_blank"} about algorithms and the inner workings of Data Structures. Learn how to apply common algorithms to practical problems.
+## When finding a random number is exponential
+
+When you have written more than 100 articles, finding a new random number that is not still included in the *queue* variable could be difficult.
+
+![queueRandomNumber](/assets/images/queueRandomNumber.jpg "inheritance"){:class="img-responsive"}
+
+When the *queue* has space for only three more elements, the following validation could be exponential when trying to find a new random number between 100 possible articles.
+
+```kotlin
+int newNumber = getRandomNumber(1, articlesMap.size());
+if (!queue.contains(newNumber)) {
+```
+
+Next few days we will how to redesign our algorithm to avoid this exponential issue.
+
+Please donate to maintain and improve this website if you find this content valuable.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
+
+Similar problems you can find in my [book](https://amzn.to/3FxeKSb){:target="_blank"} about algorithms and the inner workings of Data Structures. Learn how to apply common algorithms to practical problems.
 
