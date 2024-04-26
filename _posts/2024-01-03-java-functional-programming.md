@@ -45,6 +45,10 @@ Function<Function<Integer, Integer>, Integer> applyTwice = f -> f.apply(f.apply(
 int result = applyTwice.apply(square); // Result: 16
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ### 4. Lambda Expressions:
 Lambda expressions provide a concise way to express instances of single-method interfaces (functional interfaces) using the syntax **(parameters) -> expression**. They are a cornerstone of functional programming in Java.
 
