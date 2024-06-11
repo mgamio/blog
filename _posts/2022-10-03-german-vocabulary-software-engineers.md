@@ -32,6 +32,8 @@ die Erstellung : creation
 
 die Entwicklung : development
 
+die Weiterentwicklung : further development (additional to what already exists)
+
 die Geschäftslogik : business logic
 
 die Gestaltung : design
