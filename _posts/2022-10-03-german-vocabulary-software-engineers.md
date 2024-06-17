@@ -10,7 +10,7 @@ comments: false
 
 A helpful vocabulary with the most common words when working as a software developer in Germany.
 
-I have worked in Berlin for eight años and would like to share this vocabulary with the most common words used in my software meetings, documents, emails, and coding tasks. 
+I have worked in Berlin for ten años and would like to share this vocabulary with the most common words used in my software meetings, documents, emails, and coding tasks. 
 
 As part of my continuous german learning, I will update the list occasionally.
 
@@ -190,6 +190,8 @@ die Festplatte : hard disk HD
 
 das Gerät : device
 
+der Hauptspeicher : main memory
+
 das Kabel : cable
 
 der Lautsprecher : speaker
@@ -262,7 +264,11 @@ abbilden : represent, depict
 
 die Abfrage : query
 
+die Änderung : change
+
 die Anreicherung : enrichment 
+
+der Aufbau : structure
 
 das Austauschformat : interchange format
 
@@ -270,17 +276,25 @@ die Darstellung : representation, rendering
 
 der Datenaustausch : data exchange
 
+der Datensatz : data record
+
 das Ergebnis : result
+
+die Erzeugung : creation
 
 das Feld : field
 
 der JDBC-Treiber : JDBC driver
+
+die Löschung : deletion
 
 das Pflichtfeld : mandatory field
 
 die Rückgabe : return
 
 sortieren : sort
+
+die Spalte : column
 
 Stammdaten : master data
 
