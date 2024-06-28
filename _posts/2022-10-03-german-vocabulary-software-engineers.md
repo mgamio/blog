@@ -318,7 +318,11 @@ die Verknüpfung : link
 
 die Verbindung : connection
 
+## File System
 
+das Verzeichnis : directory
+
+der Ordner : folder
 
 
 
