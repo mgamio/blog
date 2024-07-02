@@ -22,7 +22,7 @@ We must create programs (API Servers) that serve data and other programs (API Cl
 
 Every company can implement Servers' and Clients' APIs using different programming languages, caches, proxies, and security mechanisms. They can choose monolithic or microservices architectures deployed in several application servers or cloud providers. 
 
-But how can all these heterogeneous components communicate with each other? The only answer is that they use a common language: the same semantics as the HTTP protocol. In this context, semantic means the interpretation we give every HTTP method.
+But how can all these heterogeneous components communicate with each other? The only answer is that they use a common language: the same semantics as the [HTTP](https://en.wikipedia.org/wiki/HTTP){:target="_blank"} protocol. In this context, semantic means the interpretation we give every HTTP method.
 
 We create a kind of API program called Web Service to support this interoperable machine-to-machine interaction over a network.
 
@@ -32,13 +32,13 @@ To implement efficiently API Servers or API Clients, you must understand the bas
 
 REST API is an architectural style that defines a set of guidelines for creating web services. It stands for Representational State Transfer and emphasizes a stateless, client-server communication model. REST APIs use HTTP (Hypertext Transfer Protocol) as the primary protocol for data transmission and rely on standard operations such as GET, POST, PUT, and DELETE to perform actions on resources.
 
-The Hypertext Transfer Protocol (HTTP) is a stateless application-level protocol for distributed, collaborative, hypertext information systems.
+The Hypertext Transfer Protocol (HTTP) is a stateless application-level protocol for distributed, collaborative, hypertext information systems. Stateless in this context means a receiver must not retain the session state from previous requests. 
 
 ## Resources
 
-In REST API, a resource is the **information or data** exposed through the web service. Resources can be entities such as users, suppliers, articles, or any other data entity that can be **uniquely identified**. Each resource on the Web is typically represented by a URL (Uniform Resource Locator) or endpoint defining a globally unique address. Giving something a URL turns it into a resource.
+In REST API, a resource is the **information or data** exposed through the web service. Resources can be entities such as users, suppliers, articles, or any other data entity that can be **uniquely identified**. Each resource on the Web is typically represented by a [URL](https://en.wikipedia.org/wiki/URL){:target="_blank"} (Uniform Resource Locator) or endpoint defining a globally unique address. Giving something a URL turns it into a resource.
 
-In a business context, the following endpoint retrieves a representation of an array of article data under the following URL.
+In a business context, the following endpoint retrieves a **representation** of an array of article data under the following URL.
 
 ```
 GET /api/v1/articles HTTP/1.1
