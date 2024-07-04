@@ -106,6 +106,8 @@ der Ausfall : outage
 
 ausliefern : deploy
 
+bauen : build
+
 der Bericht : report
 
 die Betriebsbereitschaft : readiness for service (or operation)
