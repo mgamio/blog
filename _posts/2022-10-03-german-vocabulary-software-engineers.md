@@ -10,7 +10,7 @@ comments: false
 
 A helpful vocabulary with the most common words when working as a software developer in Germany.
 
-I have worked in Berlin for ten años and would like to share this vocabulary with the most common words used in my software meetings, documents, emails, and coding tasks. 
+I have worked in Berlin for ten years and would like to share this vocabulary with the most common words used in my software meetings, documents, emails, and coding tasks. 
 
 As part of my continuous german learning, I will update the list occasionally.
 
