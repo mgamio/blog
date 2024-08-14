@@ -160,7 +160,7 @@ Then we can see our two test cases were successful.
 
 **Assumption #3 – Given an array of products, we need to obtain the most valuable products from all possible combinations of the products**
 
-Imagine the following escenario:
+Imagine the following scenario:
 
 ```kotlin
 double[][] myProducts = new double[][] {
