@@ -203,7 +203,7 @@ A child class object can exist without the parent class object. In the following
 
 Composition is a particular type of aggregation where parts are destroyed when the whole is destroyed. The relationship is displayed as a solid line with a filled diamond at the association end.
 
-A child class object cannot exist without the parent class object. In the following diagram, if you delete the Order class (parent), the Address class (child) does not exist separate to a Order.
+A child class object cannot exist without the parent class object. In the following diagram, if you delete the Order class (parent), the Address class (child) is also deleted.
 
 ![umlComposition](/assets/images/umlComposition.jpg "UML composition relationship"){:class="img-responsive"}
 
