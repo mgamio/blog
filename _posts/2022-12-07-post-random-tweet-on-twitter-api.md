@@ -195,11 +195,85 @@ When you have written more than 100 articles, finding a new random number that i
 When the *queue* has space for only three more elements, the following validation could be exponential when trying to find a new random number between 100 possible articles.
 
 ```kotlin
-int newNumber = getRandomNumber(1, articlesMap.size());
-if (!queue.contains(newNumber)) {
+  boolean newNumberFound = false;
+  do {
+    int newNumber = getRandomNumber(1, articlesMap.size());
+    if (!queue.contains(newNumber)) {
+      //code omitted for brevity
+    }
+  } while (newNumberFound == false);
 ```
 
-Next few days we will how to redesign our algorithm to avoid this exponential issue.
+To avoid this exponential issue we redesign our algorithm.
+
+We define and initialize an array of Integers in the constructor of the class.
+
+```kotlin
+public class Scheduler {
+
+  private static final Logger logger = LoggerFactory.getLogger(Scheduler.class);
+
+  @Autowired
+  private final DataService dataService;
+  
+  @Autowired
+  private TwitterService twitterService;
+  
+  private Map<Integer, Article> articlesMap;
+
+  private List<Integer> listOfArticlePositions = new ArrayList<>();
+
+  public Scheduler(TwitterService twitterService,
+    DataService dataService) throws Exception {
+  
+    this.twitterService = twitterService;
+    this.articlesMap = dataService.getAllArticlesMetadata();
+  
+    for (int i = 0; i < articlesMap.size(); i++) {
+      listOfArticlePositions.add(i);
+    }
+  }
+
+}
+```	
+
+Inside the getRandomArticle() method we introduce our new getNewRandomNumber() method.
+
+```kotlin
+  private Article getRandomArticle() {
+    Article article = null;
+    boolean newNumberFound = false;
+    do {
+      this.newNumber = getNewRandomNumber();
+      if (!queue.contains(this.newNumber)) {
+        newNumberFound = true;
+        article = articlesMap.get(this.newNumber);
+      }
+    } while (newNumberFound == false);
+
+    return article;
+  }
+```
+
+Once we have the new randomNumber, immediately it is removed from the list of integers. So, this new randomNumber will not be considered as our next Article next time.
+
+```kotlin
+  private int getNewRandomNumber() {
+    int newRandomNumber = 0;
+    int index = (int) (Math.random() * listOfArticlePositions.size());
+    newRandomNumber = listOfArticlePositions.get(index);
+    listOfArticlePositions.remove(index);
+
+    if (listOfArticlePositions.size() <= 0) {
+      logger.info("Refilling listOfArticlePositions ...");
+      for (int i = 0; i < articlesMyBooksAffiliates.size(); i++) {
+        listOfArticlePositions.add(i);
+      }
+    }
+
+    return newRandomNumber;
+  }
+```
 
 Please donate to maintain and improve this website if you find this content valuable.
 
