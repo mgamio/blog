@@ -316,6 +316,8 @@ dir Glasfaser : optical fiber
 
 herstellen : establish
 
+optische Faser : optical fiber
+
 die Verknüpfung : link
 
 die Verbindung : connection
