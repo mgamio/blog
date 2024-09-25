@@ -77,6 +77,8 @@ public class Product {
 }
 ```
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Domain-Driven Design: Tackling Complexity in the Heart of Software <a href="https://t.co/UJcmA5FpLo">https://t.co/UJcmA5FpLo</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839044643658330294?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ## Never assume and ask questions to clarify ambiguous and synonyms terms
 
 You receive a task to implement a service to retrieve documents used in the shipment of goods, and you decide to call it  ***shipping notes***. But your business doesn't ship goods by the sea! 

@@ -66,6 +66,8 @@ When dealing with a monolithic Java application under heavy concurrent load that
 - Implement circuit breakers to monitor the health of external services or APIs that your application relies on. If a service becomes unavailable or unresponsive, the circuit breaker can temporarily disable requests to that service, preventing cascading failures and ensuring application stability.
 - Ensure the application can gracefully handle failures and recover without affecting the user experience.
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Effective Java <a href="https://t.co/pDuEXrHFUG">https://t.co/pDuEXrHFUG</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839041551248535984?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 11.-Implement Autoscalers:
 
 - Employ auto-scaling mechanisms to automatically adjust the number of application servers based on real-time demand. This ensures that the system has sufficient resources to handle the current load while avoiding resource wastage when traffic is low.

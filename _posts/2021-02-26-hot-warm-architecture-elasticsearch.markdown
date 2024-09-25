@@ -191,9 +191,7 @@ C:\...\codersite.dev>curl -XGET http://110.1.0.101:9200/_cat/nodes
 110.1.0.102 1 60 8    cdhlrstw - hotnode.codersite.dev
 {% endhighlight %}
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Elasticsearch: The Definitive Guide: A Distributed Real-Time Search and Analytics Engine <a href="https://t.co/jMzY0hKid8">https://t.co/jMzY0hKid8</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839042597014352063?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ### Configure Elasticsearch cluster settings at Cold Node
 
