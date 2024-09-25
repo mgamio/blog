@@ -317,6 +317,8 @@ Then, you can always reuse the same validation in any place of your code.
 
 The day you decide to implement the standard procedure - database function - your effort in refactoring your code will be minimal.
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin) <a href="https://t.co/ARf0FUDzRw">https://t.co/ARf0FUDzRw</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1838935023786905637?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ## Name your variables according to the context
 
 It is usual to have an attribute that applies to two different objects. For example, an Buyer Object has an email address.
