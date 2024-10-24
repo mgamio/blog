@@ -29,7 +29,7 @@ We want to log all OAuth2 token requests from a new Rest API (successful and uns
 
 The authorization grant that the API uses is [Resource Owner Password Credentials](https://codersite.dev/spring-boot-oauth2/){:target="_blank"}.
 
-![oauthToken](/assets/images/springOAuthToken.jpg "spring OAuth Token"){:class="img-responsive"}
+![oauthToken](/assets/images/springOAuthToken.jpg "springOAuth"){:class="img-responsive"}
 
 We are going to enable **Auditing** to catch authentication and authorization events that the Spring Boot Actuator publishes by default such as  *“authentication success”*, *“failure”* and *“access denied”* exceptions.
 
