@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 24 Oct 2024 14:22:57 +0200</pubDate>
-    <lastBuildDate>Thu, 24 Oct 2024 14:22:57 +0200</lastBuildDate>
+    <pubDate>Thu, 24 Oct 2024 14:25:57 +0200</pubDate>
+    <lastBuildDate>Thu, 24 Oct 2024 14:25:57 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -37,7 +37,7 @@
 
 &lt;p&gt;The authorization grant that the API uses is &lt;a href=&quot;https://codersite.dev/spring-boot-oauth2/&quot; target=&quot;_blank&quot;&gt;Resource Owner Password Credentials&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/springOAuthToken.jpg&quot; alt=&quot;arrays&quot; title=&quot;spring OAuth Token&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/springOAuthToken.jpg&quot; alt=&quot;oauthToken&quot; title=&quot;spring OAuth Token&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We are going to enable &lt;strong&gt;Auditing&lt;/strong&gt; to catch authentication and authorization events that the Spring Boot Actuator publishes by default such as  &lt;em&gt;“authentication success”&lt;/em&gt;, &lt;em&gt;“failure”&lt;/em&gt; and &lt;em&gt;“access denied”&lt;/em&gt; exceptions.&lt;/p&gt;
 
