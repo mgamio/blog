@@ -26,7 +26,7 @@ das Betriebssystem : operating system
 
 der Codierer : coder
 
-erstellen : create
+erstellen : to create, to build
 
 die Erstellung : creation
 
@@ -45,6 +45,8 @@ IT-Lösung : IT-solution
 das Konzept: plan. It is a document that describes a plan to carry out a project. 
 
 Loop-Anweisung : LOOP statement
+
+pflegen : to maintain
 
 der Programmierer : programmer
 
@@ -70,27 +72,27 @@ die Unterstützung : support
 
 ## Anwendungen : Applications
 
-abbrechen : cancel
+abbrechen : to cancel
 
-aktualisieren : update
+aktualisieren : to update
 
 Allgemeine Eigenschaften : general properties
 
-analysieren : analyze
+analysieren : to analyze
 
 die Anfrage : request
 
 die Angabe (*Daten*) : information, data
 
-anlegen (*Datei*) : create
+anlegen (*Datei*) : to create
 
-annehmen : accept
+annehmen : to accept
 
-anpassen : customize, adapt
+anpassen : to customize, to adapt
 
 die Anpassung : customization, adaptation
 
-anwenden : apply
+anwenden : to apply
 
 der Anwender (von Software, Programmen) : user
 
@@ -98,15 +100,15 @@ Ausnahmebehandlung : exception handling
 
 der Aufruf : call
 
-aufrufen (*Programm, Datei*) : invoke, call
+aufrufen (*Programm, Datei*) : to invoke, to call
 
 der Ausdruck : printout
 
 der Ausfall : outage
 
-ausliefern : deploy
+ausliefern : to deploy
 
-bauen : build
+bauen : to build
 
 der Bericht : report
 
@@ -118,19 +120,19 @@ Datei entfernen : remove file
 
 die Datenlast : data load
 
-deinstallieren : uninstall
+deinstallieren : to uninstall
 
-durchsuchen : browse
+durchsuchen : to browse
 
 die Einstellungen : settings
 
-eingeben (*Daten*) : enter
+eingeben (*Daten*) : to enter
 
 *X* durch *Y* ersetzen  : replace *X* by *Y*
 
-entfernen: remove
+entfernen: to remove
 
-exportieren : export
+exportieren : to export
 
 der Fehler : error
 
@@ -138,27 +140,27 @@ Fehler (*Programmierfehler*) : bug
 
 fertigstellen (*Installation*) : finish
 
-herunterladen : download
+herunterladen : to download
 
-hinzufügen : add
+hinzufügen : to add
 
-hochladen (*Daten, Programm*) : upload
+hochladen (*Daten, Programm*) : to upload
 
 Implementierungseinstellungen : deployment settings
 
-installieren : install
+installieren : to install
 
 Künstliche Intelligenz : Artificial intelligence
 
-löschen : delete
+löschen : to delete
 
 das Quellcode : source code
 
 die Schnittstelle : interface
 
-starten : start
+starten : to start
  
-stoppen : stop
+stoppen : to stop
 
 <div>
 {%- include inArticleAds.html -%}
@@ -166,9 +168,9 @@ stoppen : stop
 
 Unternehmensanwendung : Enterprise Application
 
-verlassen (*Programm*) : quit
+verlassen (*Programm*) : to quit
 
-verwenden : use
+verwenden : to use
 
 die Voraussetzung : prerequisite, (pre)condition
 
@@ -178,7 +180,7 @@ weiter : next
 
 züruck : previous
 
-zurücksetzen : reset
+zurücksetzen : to reset
 
 ## Am Computer
 
@@ -186,7 +188,7 @@ der Bildschirm : screen
 
 der Drucker : printer
 
-einrichten : set up
+einrichten : to set up
 
 die Festplatte : hard disk HD
 
@@ -202,19 +204,21 @@ die Maus : mouse
 
 der Monitor : monitor
 
+der Speicherplatz : disk space
+
 die Tastatur : keyboard
 
 die Taste : key
 
 ## Sicherheit : Security
 
-absichern : secure, protect
+absichern : to secure, to protect
 
 Authentifizierung : Authentication 
 
 dir Autorisierung : authorization
 
-beschränken : limit, restrict
+beschränken : to limit, to restrict
 
 die Bedrohung : threat
 
@@ -226,11 +230,11 @@ der Datenschutz : data protection
 
 datenübernahme : data transfer
 
-erzeugen (*Token*) : generate
+erzeugen (*Token*) : to generate
 
 fehlerhaft : bad, corrupted
 
-freischalten : authorize
+freischalten : to authorize
 
 das Kennwort : password
 
@@ -238,7 +242,7 @@ der Identitätsdiebstahl : identity theft
 
 passwordgeschützt : password protected
 
-setzen (*Prioritäten*) : set
+setzen (*Prioritäten*) : to set
 
 die Sicherheit : security
 
@@ -262,7 +266,7 @@ der Zugriffscode : access code
 
 ## Datenbank : Database
 
-abbilden : represent, depict
+abbilden : to represent, to depict
 
 die Abfrage : query
 
@@ -294,7 +298,7 @@ das Pflichtfeld : mandatory field
 
 die Rückgabe : return
 
-sortieren : sort
+sortieren : to sort
 
 die Spalte : column
 
@@ -304,17 +308,17 @@ die Textdatei : text file
 
 die Überprüfung : verification, check
 
-umbenennen : rename
+umbenennen : to rename
 
 der Wert : value
 
-zuordnen : allocate
+zuordnen : to allocate
 
 ## Networking
 
 dir Glasfaser : optical fiber
 
-herstellen : establish
+herstellen : to establish
 
 optische Faser : optical fiber
 
@@ -327,7 +331,3 @@ die Verbindung : connection
 das Verzeichnis : directory
 
 der Ordner : folder
-
-
-
-
