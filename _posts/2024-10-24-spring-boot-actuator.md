@@ -31,7 +31,7 @@ The authorization grant that the API uses is [Resource Owner Password Credential
 
 ![oauthToken](/assets/images/springOAuthToken.jpg "springOAuth"){:class="img-responsive"}
 
-We are going to enable **Auditing** to catch authentication and authorization events that the Spring Boot Actuator publishes by default such as  *“authentication success”*, *“failure”* and *“access denied”* exceptions.
+We are going to enable **Auditing** to catch authentication and authorization events that the Spring Boot [Actuator](https://docs.spring.io/spring-boot/reference/actuator/auditing.html){:target="_blank"} publishes by default such as  *“authentication success”*, *“failure”* and *“access denied”* exceptions.
 
 We define a bean with a listener method.
 

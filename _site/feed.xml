@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 24 Oct 2024 14:38:29 +0200</pubDate>
-    <lastBuildDate>Thu, 24 Oct 2024 14:38:29 +0200</lastBuildDate>
+    <pubDate>Tue, 29 Oct 2024 08:58:59 +0100</pubDate>
+    <lastBuildDate>Tue, 29 Oct 2024 08:58:59 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -39,7 +39,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/springOAuthToken.jpg&quot; alt=&quot;oauthToken&quot; title=&quot;springOAuth&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;We are going to enable &lt;strong&gt;Auditing&lt;/strong&gt; to catch authentication and authorization events that the Spring Boot Actuator publishes by default such as  &lt;em&gt;“authentication success”&lt;/em&gt;, &lt;em&gt;“failure”&lt;/em&gt; and &lt;em&gt;“access denied”&lt;/em&gt; exceptions.&lt;/p&gt;
+&lt;p&gt;We are going to enable &lt;strong&gt;Auditing&lt;/strong&gt; to catch authentication and authorization events that the Spring Boot &lt;a href=&quot;https://docs.spring.io/spring-boot/reference/actuator/auditing.html&quot; target=&quot;_blank&quot;&gt;Actuator&lt;/a&gt; publishes by default such as  &lt;em&gt;“authentication success”&lt;/em&gt;, &lt;em&gt;“failure”&lt;/em&gt; and &lt;em&gt;“access denied”&lt;/em&gt; exceptions.&lt;/p&gt;
 
 &lt;p&gt;We define a bean with a listener method.&lt;/p&gt;
 
