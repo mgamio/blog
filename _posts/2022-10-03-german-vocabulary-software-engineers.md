@@ -54,9 +54,7 @@ Programmiersprache : programming language
 
 die Qualitätssicherung : quality assurance
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems <a href="https://t.co/4JrCpcqCf1">https://t.co/4JrCpcqCf1</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1853492602999374037?ref_src=twsrc%5Etfw">November 4, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 die Softwarearchitektur : software architecture
 
@@ -111,6 +109,8 @@ ausliefern : to deploy
 bauen : to build
 
 der Bericht : report
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hands-On Large Language Models: Language Understanding and Generation <a href="https://t.co/z6VtM8ZAYk">https://t.co/z6VtM8ZAYk</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1853498735352754419?ref_src=twsrc%5Etfw">November 4, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 die Betriebsbereitschaft : readiness for service (or operation)
 
@@ -231,6 +231,8 @@ der Datenschutz : data protection
 datenübernahme : data transfer
 
 erzeugen (*Token*) : to generate
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Python Crash Course, 3rd Edition: A Hands-On, Project-Based Introduction to Programming <a href="https://t.co/lYvqIazOHI">https://t.co/lYvqIazOHI</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1853499792330002569?ref_src=twsrc%5Etfw">November 4, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 fehlerhaft : bad, corrupted
 
