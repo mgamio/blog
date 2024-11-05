@@ -12,7 +12,7 @@ We will create an [API Client](https://codersite.dev/building-rest-api-client/){
 
 You can find the API specification in the following link.
 
-[Order API](https://app.swaggerhub.com/apis/MGAMIO/selly-order_api/3.0.0){:target="_blank"}.
+[Order API](https://app.swaggerhub.com/apis-docs/MGAMIO/selly-order_api/3.0.0){:target="_blank"}.
 
 ## Test Program
 
