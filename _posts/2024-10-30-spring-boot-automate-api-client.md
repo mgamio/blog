@@ -40,9 +40,7 @@ Rest template that is able to make [OAuth2](https://codersite.dev/spring-boot-oa
 
 We define a boolean variable to control when an article is found.
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Mastering API Architecture: Design, Operate, and Evolve Api-Based Systems <a href="https://t.co/aMS6zALy4Y">https://t.co/aMS6zALy4Y</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1853702456821055859?ref_src=twsrc%5Etfw">November 5, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Here the program code.
 
