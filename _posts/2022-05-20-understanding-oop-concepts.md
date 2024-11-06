@@ -48,13 +48,11 @@ This relationship is an *is-a* relationship because when a subclass inherits fro
 
 In Java, we create inheritance between classes via the *extends* keyword.
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 ## Polymorphism in OOP
 
 Polymorphism in OOP means many shapes and is coupled to inheritance. For example, a Shape class defines a *draw* method, but Square and Circle's subclasses will implement it differently.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Design Patterns. Elements of Reusable Object-Oriented Software. <a href="https://t.co/RJcUOhkvAN">https://t.co/RJcUOhkvAN</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1854196799399174643?ref_src=twsrc%5Etfw">November 6, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Composition in OOP
 
@@ -111,9 +109,7 @@ public class SearchResponse {
 }
 ```
 
-<div>
-{%- include softwareDesignAd1.html -%}
-</div>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Domain-Driven Design: Tackling Complexity in the Heart of Software <a href="https://t.co/FiM4YDejgK">https://t.co/FiM4YDejgK</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1854197712763212146?ref_src=twsrc%5Etfw">November 6, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 What happens if the business wants to introduce articles in a country where some articles are forbidden to trade?.
 
