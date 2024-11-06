@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 Nov 2024 10:49:06 +0100</pubDate>
-    <lastBuildDate>Tue, 05 Nov 2024 10:49:06 +0100</lastBuildDate>
+    <pubDate>Wed, 06 Nov 2024 13:09:15 +0100</pubDate>
+    <lastBuildDate>Wed, 06 Nov 2024 13:09:15 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -575,6 +575,9 @@
 &lt;span class=&quot;nc&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;The&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;does&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;OCP Oracle Certified Professional Java SE 17 Developer Study Guide: Exam 1Z0-829 (Sybex Study Guide) &lt;a href=&quot;https://t.co/ceY24NWehn&quot;&gt;https://t.co/ceY24NWehn&lt;/a&gt; via &lt;a href=&quot;https://twitter.com/amazon?ref_src=twsrc%5Etfw&quot;&gt;@amazon&lt;/a&gt;&lt;/p&gt;&amp;mdash; Moises Gamio (@MoisesGamio) &lt;a href=&quot;https://twitter.com/MoisesGamio/status/1841830210989171119?ref_src=twsrc%5Etfw&quot;&gt;October 3, 2024&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
 &lt;p&gt;4- Assuming the following class compiles, how many variables defined in the class or method are in scope on the line marked on line 14?&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
@@ -628,9 +631,6 @@
 &lt;span class=&quot;nc&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;
 &lt;span class=&quot;nc&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;None&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;above&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;OCP Oracle Certified Professional Java SE 17 Developer Study Guide: Exam 1Z0-829 (Sybex Study Guide) &lt;a href=&quot;https://t.co/ceY24NWehn&quot;&gt;https://t.co/ceY24NWehn&lt;/a&gt; via &lt;a href=&quot;https://twitter.com/amazon?ref_src=twsrc%5Etfw&quot;&gt;@amazon&lt;/a&gt;&lt;/p&gt;&amp;mdash; Moises Gamio (@MoisesGamio) &lt;a href=&quot;https://twitter.com/MoisesGamio/status/1841830210989171119?ref_src=twsrc%5Etfw&quot;&gt;October 3, 2024&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;5- Which are true about this code? (Choose all that apply.)&lt;/p&gt;
 
@@ -738,6 +738,9 @@
 &lt;span class=&quot;nc&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Does&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;The Complete Coding Interview Guide in Java: An effective guide for aspiring Java developers to ace their programming interviews &lt;a href=&quot;https://t.co/lvxREZoNyH&quot;&gt;https://t.co/lvxREZoNyH&lt;/a&gt; via &lt;a href=&quot;https://twitter.com/amazon?ref_src=twsrc%5Etfw&quot;&gt;@amazon&lt;/a&gt;&lt;/p&gt;&amp;mdash; Moises Gamio (@MoisesGamio) &lt;a href=&quot;https://twitter.com/MoisesGamio/status/1854132844869619804?ref_src=twsrc%5Etfw&quot;&gt;November 6, 2024&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
 &lt;p&gt;8- Which statements about the following class are correct? (Choose all that apply.)&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
@@ -779,13 +782,6 @@
 &lt;span class=&quot;nc&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;The&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prints&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
 &lt;span class=&quot;nc&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;The&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prints&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;
-&lt;br /&gt;&lt;/div&gt;
 
 &lt;p&gt;9- Which of the following statements about garbage collection are correct? (Choose all that apply.)&lt;/p&gt;
 
@@ -863,6 +859,13 @@
 &lt;span class=&quot;nc&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;The&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;program&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prints&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;49.0&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+     (adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;
+&lt;br /&gt;&lt;/div&gt;
+
 &lt;h2 id=&quot;answers-to-the-questions&quot;&gt;Answers to the Questions&lt;/h2&gt;
 
 &lt;p&gt;1- D, E. Option E is the canonical main() method signature. You need to memorize it. Option D is an alternate form with the redundant final. Option A is incorrect because the main() method must be public. Options B and F are incorrect because the main() method must have a void return type. Option C is incorrect because the main() method must be static.&lt;/p&gt;
@@ -873,14 +876,14 @@
 
 &lt;p&gt;4- F.  To solve this problem, you need to trace the braces {} and see when variables go in and out of scope. The variables on lines 2 and 7 are only in scope for a single line block. The variable on line 12 is only in scope for the for loop. None of these are in scope on line 14. By contrast, the three instance variables on lines 3 and 4 are available in all instance methods. Additionally, the variables on lines 6, 9, and 10 are available since the method and while loop are still in scope. This is a total of 7 variables, which is option F.&lt;/p&gt;
 
+&lt;p&gt;5- C, E.  The first thing to recognize is that this is a text block and the code inside the “”” is just text. Options A and B are incorrect because the numForks and numKnives variables are not used. This is convenient since numKnives is not initialized and would not compile if it were referenced. Option C is correct as it is matching text. Option D is incorrect because the text block does not have a trailing blank line. Finally, option E is also an answer since “ # knives is indented.&lt;/p&gt;
+
 &lt;div&gt;&lt;p&gt;Here’s a Quick Guide to Elevate Your Projects with Proven Software Design Tactics!.&lt;/p&gt;
 &lt;center&gt;
   &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
-
-&lt;p&gt;5- C, E.  The first thing to recognize is that this is a text block and the code inside the “”” is just text. Options A and B are incorrect because the numForks and numKnives variables are not used. This is convenient since numKnives is not initialized and would not compile if it were referenced. Option C is correct as it is matching text. Option D is incorrect because the text block does not have a trailing blank line. Finally, option E is also an answer since “ # knives is indented.&lt;/p&gt;
 
 &lt;p&gt;6- E.  Options C and D are incorrect because local variables don’t have default values. Option A is incorrect because float should have a decimal point. Option B is incorrect because primitives do not default to null. Option E is correct and option F incorrect because reference types in class variables default to null.&lt;/p&gt;
 

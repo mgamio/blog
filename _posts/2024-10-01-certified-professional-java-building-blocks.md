@@ -69,6 +69,8 @@ F. Garbage collection might or might not run.
 G. The code does not compile
 ```
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">OCP Oracle Certified Professional Java SE 17 Developer Study Guide: Exam 1Z0-829 (Sybex Study Guide) <a href="https://t.co/ceY24NWehn">https://t.co/ceY24NWehn</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1841830210989171119?ref_src=twsrc%5Etfw">October 3, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 4- Assuming the following class compiles, how many variables defined in the class or method are in scope on the line marked on line 14?
 
 ```kotlin
@@ -98,8 +100,6 @@ E. 6
 F. 7
 G. None of the above
 ```
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">OCP Oracle Certified Professional Java SE 17 Developer Study Guide: Exam 1Z0-829 (Sybex Study Guide) <a href="https://t.co/ceY24NWehn">https://t.co/ceY24NWehn</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1841830210989171119?ref_src=twsrc%5Etfw">October 3, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 5- Which are true about this code? (Choose all that apply.)
 
@@ -163,6 +163,8 @@ E. 4
 F. Does not compile
 ```
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The Complete Coding Interview Guide in Java: An effective guide for aspiring Java developers to ace their programming interviews <a href="https://t.co/lvxREZoNyH">https://t.co/lvxREZoNyH</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1854132844869619804?ref_src=twsrc%5Etfw">November 6, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 8- Which statements about the following class are correct? (Choose all that apply.)
 
 ```kotlin
@@ -186,10 +188,6 @@ F. The code prints 2.0.
 G. The code prints 2.
 H. The code prints 3.
 ```
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 9- Which of the following statements about garbage collection are correct? (Choose all that apply.)
 
@@ -235,6 +233,10 @@ G. The program prints 50.0 on line 11.
 H. The program prints 49.0 on line 11.
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 ## Answers to the Questions
 
 1- D, E. Option E is the canonical main() method signature. You need to memorize it. Option D is an alternate form with the redundant final. Option A is incorrect because the main() method must be public. Options B and F are incorrect because the main() method must have a void return type. Option C is incorrect because the main() method must be static.
@@ -245,11 +247,11 @@ H. The program prints 49.0 on line 11.
 
 4- F.  To solve this problem, you need to trace the braces {} and see when variables go in and out of scope. The variables on lines 2 and 7 are only in scope for a single line block. The variable on line 12 is only in scope for the for loop. None of these are in scope on line 14. By contrast, the three instance variables on lines 3 and 4 are available in all instance methods. Additionally, the variables on lines 6, 9, and 10 are available since the method and while loop are still in scope. This is a total of 7 variables, which is option F.
 
+5- C, E.  The first thing to recognize is that this is a text block and the code inside the """ is just text. Options A and B are incorrect because the numForks and numKnives variables are not used. This is convenient since numKnives is not initialized and would not compile if it were referenced. Option C is correct as it is matching text. Option D is incorrect because the text block does not have a trailing blank line. Finally, option E is also an answer since " # knives is indented.
+
 <div>
 {%- include softwareDesign.html -%}
 </div>
-
-5- C, E.  The first thing to recognize is that this is a text block and the code inside the """ is just text. Options A and B are incorrect because the numForks and numKnives variables are not used. This is convenient since numKnives is not initialized and would not compile if it were referenced. Option C is correct as it is matching text. Option D is incorrect because the text block does not have a trailing blank line. Finally, option E is also an answer since " # knives is indented.
 
 6- E.  Options C and D are incorrect because local variables don't have default values. Option A is incorrect because float should have a decimal point. Option B is incorrect because primitives do not default to null. Option E is correct and option F incorrect because reference types in class variables default to null.
 
