@@ -145,15 +145,17 @@ public class Customer {
 
 We use the term *has-a* to describe composition relationships. An order *has-a(n)* address. A customer *has-a(n)* address.
 
+More about these techniques and examples in the following link:
+
+<div>
+{%- include softwareDesignAd1.html -%}
+</div>
+
 ## Advantages of object-oriented programming
 
 Object-oriented programming (OOP) is a programming paradigm that uses objects and classes to structure code. It offers several advantages, which have contributed to its popularity and widespread use in software development:
 
 - Focuses on data: You create a program using objects focused on data. You don't define global data. Every object contains its data.
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
 
 - Modularity: OOP promotes modularity by encapsulating objects and their behaviors within classes. This allows developers to break down a complex system into smaller, manageable parts, making it easier to understand, maintain, and debug.
 
@@ -167,13 +169,13 @@ Object-oriented programming (OOP) is a programming paradigm that uses objects an
 
 - Organization: OOP provides a natural way to organize code, making it more intuitive for developers to work collaboratively on large projects. Classes and objects mirror the structure of the problem domain, making it easier to map real-world concepts to code.
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 - Maintainability: OOP code tends to be more maintainable because of its modular and organized nature. Changes and updates can be made to specific classes or objects without affecting the entire system, reducing the risk of introducing unintended side effects.
 
 - Testability: OOP code is often easier to test since objects can be isolated and tested independently, leading to more comprehensive and efficient testing strategies.
-
-<div>
-{%- include jediJavaInterviewAds.html -%}
-</div>
 
 - [Code Understandability](https://codersite.dev/clean-code/){:target="_blank"}: OOP promotes a closer alignment between code and real-world concepts, making the codebase more understandable to developers, even those who didn't write the original code.
 
@@ -189,8 +191,10 @@ While OOP offers numerous advantages, it's important to note that it may not alw
 
 Learn how to use these concepts in [SOLID design principles](https://codersite.dev/open-closed-principle/){:target="_blank"}.
 
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
+
 > Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
 
-<div>
-{%- include softwareDesign.html -%}
-</div>
+
