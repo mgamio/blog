@@ -40,7 +40,9 @@ Both terms depend on the input size, the number of items in the input. Both term
 
 ## Order of growth
 
-The order of growth is related to how the runtime of an algorithm increases when the size of the input increases without limit and tells us how efficient the algorithm is. Therefore, we can compare the relative performance of alternative algorithms.
+The order of growth is related to how the runtime of an algorithm increases when the size of the input increases without limit and tells us how efficient the algorithm is. 
+
+In essence, Big O notation provides a worst-case scenario for an algorithm's performance, allowing developers to compare different algorithms and choose the most efficient one for large inputs.
 
 Big O Notation: **Common order-of-growth classifications**:
 
@@ -48,9 +50,9 @@ Big O Notation: **Common order-of-growth classifications**:
 
 ## Big O Notation: examples
 
-**O(1) – Constant**
+**O(1) – Constant Time Complexity**
 
-It does not matter if the input contains 1000 or 1 million items, the code always executes in one step.
+The runtime does not change with the size of the input. It does not matter if the input contains 1000 or 1 million items, the code always executes in one step.
 
 ```kotlin
 public void constant(List<string> list, String item) {
@@ -64,25 +66,31 @@ public void constant(List<string> list, String item) {
 
 In a best-case scenario, an *add* method takes O(1) time. The worst-case scenario takes O(n).
 
-**O(N) – linear**
+**O(N) – Linear Time Complexity**
 
-An algorithm runs in O(N) time if the number of steps depends on the number of items included in the input.
+An algorithm runs in O(N) time if the number of steps depends on the number of items included in the input. The runtime grows linearly with the size of the input.
+
+Example: Iterating through an array or a list.
 
 ```kotlin
 public int sum(int[] numbers) {
   int sum =0;
   for (int i =0; i<numbers.length; i++) {
-    sum+=numbers[i];
+    sum+=numbers[i]; // Iterating through each element
   }
   return sum;
 }
 ```
 
+In this example, if *numbers* has *n* elements, the loop executes *n* times, so the time complexity is **O(n)**.
+
 The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons. You can visit [find the smallest number with the same number of digits](https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/){:target="_blank"}, for instance. Moreover, the simpler and more intuitive an algorithm is, the more useful and efficient it will be.
 
-**O(N<sup>2</sup>) – quadratic**
+**O(N<sup>2</sup>) – Quadratic Time Complexity**
 
-If an algorithm includes two loops nested in its code, we could say that it’s running in quadratic time O(N<sup>2</sup>). For instance, when a 2D matrix is initialized in a tic-tac-toe game.
+If an algorithm includes two loops nested in its code, we could say that it’s running in quadratic time O(N<sup>2</sup>). The runtime grows quadratically with the size of the input.
+
+Example: When a 2D matrix is initialized in a tic-tac-toe game.
 
 ```kotlin
 private String [][] board;
@@ -97,13 +105,26 @@ public void initializeBoard(int size) {
 }
 ```
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
+Example: Nested loops iterating over the same collection
 
-**O(N<sup>3</sup>) – Cubic**
+```kotlin
+int[] arr = {1, 2, 3, 4, 5};
+for (int i = 0; i < arr.length; i++) {
+  for (int j = 0; j < arr.length; j++) {
+    System.out.println(arr[i] + " " + arr[j]); // Nested loop
+  }
+}
+```
 
-When the code includes at the most three nested loops, then the algorithm runs in Cubic time. For example: given N integers, how many triples sum to exactly zero?. One approach (not the best) is to use three nested loops.
+Here, if *arr* has *n* elements, the outer and inner loops both run *n* times, resulting in n * n = n<sup>2</sup>, so the complexity is O(N<sup>2</sup>).
+ 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Pragmatic Programmer, The: Your journey to mastery, 20th Anniversary Edition <a href="https://t.co/MwIRotEMY4">https://t.co/MwIRotEMY4</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1854934060444905847?ref_src=twsrc%5Etfw">November 8, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+**O(N<sup>3</sup>) – Cubic Time Complexity**
+
+When the code includes at the most three nested loops, then the algorithm runs in Cubic time.
+
+Example: Given N integers, how many triples sum to exactly zero?. One approach (not the best) is to use three nested loops.
 
 ```kotlin
 public int countThreeSum(int[] numbers) {
@@ -119,41 +140,51 @@ public int countThreeSum(int[] numbers) {
 }
 ```
 
-**O(LogN) – logarithmic**
+**O(LogN) – Logarithmic Time Complexity**
 
-This kind of algorithm produces a growth curve that peaks at the beginning and slowly flattens out as the size of the input increase.
+This kind of algorithm produces a growth curve that peaks at the beginning and slowly flattens out as the size of the input increase. The runtime grows logarithmically with the input size.
 
-Log28 = 3
-
-Log216 = 4
-
-Log232 = 5
-
-**Analysis of searching algorithms**
-
-The binary search uses at most LogN key compares to search in a sorted array of size N. With 8 elements take 3 comparisons, with 16 elements takes 4 comparisons, with 32 elements takes 5 comparisons, and so on.
+Example: Binary search on a sorted array.
 
 ```kotlin
-public static <T extends Comparable<T>> boolean search(T target, T[] array) {
-  int min = 0;
-  int max = array.length - 1;
-  while (min <= max) {
-    int mid = (min + max) / 2;
-    if (target.compareTo(array[mid]) < 0) {
-      max = mid - 1;
-    } else if (target.compareTo(array[mid]) > 0) {
-      min = mid + 1;
+int binarySearch(int[] arr, int target) {
+  int left = 0;
+  int right = arr.length - 1;
+  while (left <= right) {
+    int mid = left + (right - left) / 2;
+    if (arr[mid] == target) {
+        return mid;
+    } else if (arr[mid] < target) {
+        left = mid + 1;
     } else {
-      return true;
+        right = mid - 1;
     }
   }
-  return false;
+  return -1; // Element not found
 }
 ```
+
+Log<sub>2</sub>8 = 3
+
+Log<sub>2</sub>16 = 4
+
+Log<sub>2</sub>32 = 5
+
+The [binary search](https://codersite.dev/tree-data-structure-binary-search-tree/){:target="_blank"} uses at most LogN key compares to search in a sorted array of size N. With 8 elements, it takes three comparisons, with 16 elements takes four comparisons, with 32 elements takes five comparisons, and so on.
+
+In this example, with each iteration, the search space is halved. This results in a time complexity of O(LogN).
+
+You can read more common Big O notations such as Linearithmic Time Complexity (O(n log n)), Exponential Time Complexity (O(2<sup>n</sup>)), and many more in the following link:
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
+
+**Summary of Big O Complexity Types:**
+
+![bigOComplexityTypes](/assets/images/bigOComplexityTypes.jpg "Big O Complexity Types"){:class="img-responsive"}
+
+Big O notation is essential to understand the scalability and efficiency of algorithms, especially for large datasets or performance-critical applications.
 
 ## The complexity of an algorithm
 
