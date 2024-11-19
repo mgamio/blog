@@ -16,6 +16,10 @@ An API is an interface with defined functionalities that a software program pres
 
 APIs are the building blocks that allow interoperability between businesses on the web. Companies implement APIs to expose internal business processes and data to new customers and partners. APIs are how food data containing information about allergens are shared with hundreds of restaurant apps specializing in their presentation to final customers.
 
+APIs are also called Contracts, because they are assumed to be unbreakable.
+
+The party offering up its services through an API is called the **provider** and the one requesting these services is the **consumer**.
+ 
 We must create programs (API Servers) that serve data and other programs (API Clients) that consume/manipulate that data, as shown in the following figure.
 
 ![api-mesh](/assets/images/APImesh.jpg "api mesh"){:class="img-responsive"}
