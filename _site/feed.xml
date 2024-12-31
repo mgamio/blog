@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 19 Dec 2024 15:32:24 +0100</pubDate>
-    <lastBuildDate>Thu, 19 Dec 2024 15:32:24 +0100</lastBuildDate>
+    <pubDate>Tue, 31 Dec 2024 14:37:06 +0100</pubDate>
+    <lastBuildDate>Tue, 31 Dec 2024 14:37:06 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -25,13 +25,13 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/articlesEndpoint.jpg&quot; alt=&quot;articlesEndpoint&quot; title=&quot;springOAuth&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Once the program localize at least on article navigating throuhg these entities, we build an order, send the request and abort the program.&lt;/p&gt;
+&lt;p&gt;Once the program localizes at least one article navigating through these entities, we build an order, send the request, and abort the program.&lt;/p&gt;
 
 &lt;h3 id=&quot;what-we-need-to-use-in-the-program&quot;&gt;What we need to use in the Program&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;continue statement&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;The continue statement is used when we want to skip a particular condition and continue the rest execution. Java continue statement is used for all type of loops but it is generally used in for, while, and do-while loops.&lt;/p&gt;
+&lt;p&gt;The continue statement is used when we want to skip a particular condition and continue the rest of the execution. The Java continue statement is used for all types of loops, but it is generally used in for, while, and do-while loops.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;break keyword&lt;/strong&gt;&lt;/p&gt;
 
@@ -46,7 +46,7 @@
 &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Mastering API Architecture: Design, Operate, and Evolve Api-Based Systems &lt;a href=&quot;https://t.co/aMS6zALy4Y&quot;&gt;https://t.co/aMS6zALy4Y&lt;/a&gt; via &lt;a href=&quot;https://twitter.com/amazon?ref_src=twsrc%5Etfw&quot;&gt;@amazon&lt;/a&gt;&lt;/p&gt;&amp;mdash; Moises Gamio (@MoisesGamio) &lt;a href=&quot;https://twitter.com/MoisesGamio/status/1853702456821055859?ref_src=twsrc%5Etfw&quot;&gt;November 5, 2024&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;Here the program code.&lt;/p&gt;
+&lt;p&gt;Here is the program code.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2

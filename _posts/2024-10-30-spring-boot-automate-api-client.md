@@ -22,13 +22,13 @@ We proceed in that way because they are required parameters:
 
 ![articlesEndpoint](/assets/images/articlesEndpoint.jpg "springOAuth"){:class="img-responsive"}
 
-Once the program localize at least on article navigating throuhg these entities, we build an order, send the request and abort the program.
+Once the program localizes at least one article navigating through these entities, we build an order, send the request, and abort the program.
 
 ### What we need to use in the Program
 
 **continue statement**
 
-The continue statement is used when we want to skip a particular condition and continue the rest execution. Java continue statement is used for all type of loops but it is generally used in for, while, and do-while loops.
+The continue statement is used when we want to skip a particular condition and continue the rest of the execution. The Java continue statement is used for all types of loops, but it is generally used in for, while, and do-while loops.
 
 **break keyword**
 
@@ -42,7 +42,7 @@ We define a boolean variable to control when an article is found.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Mastering API Architecture: Design, Operate, and Evolve Api-Based Systems <a href="https://t.co/aMS6zALy4Y">https://t.co/aMS6zALy4Y</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1853702456821055859?ref_src=twsrc%5Etfw">November 5, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Here the program code.
+Here is the program code.
 
 ```kotlin
 public final class CreateOrderRandomTest {
