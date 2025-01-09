@@ -261,4 +261,4 @@ Please donate to maintain and improve this website if you find this content valu
 </form>
 <br/>
 
-Preparing to discuss algorithms analysis in your following programming interview requires practicing and studying different algorithms, and you can find it in this [link](https://amzn.to/3HrGXrF){:target="_blank"} with many explanation details.
+Preparing to discuss algorithms analysis in your following programming interview requires practicing and studying different algorithms, and you can find it in [Cracking the Coding Interview](https://amzn.to/3HrGXrF){:target="_blank"} with many explanation details.

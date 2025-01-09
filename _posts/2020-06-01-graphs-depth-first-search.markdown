@@ -42,7 +42,7 @@ A graph is connected if exists at least one path from every vertex to every othe
 
 A graph is directed when the edges have a direction. In the figure above we have an undirected graph because the hyperloop can usually go either way. From Berlin to Leipzig is the same as from Leipzig to Berlin.
 
-A [tree]({% post_url 2020-05-12-tree-data-structure-binary-search-tree %}){:target="_blank"} is an undirected graph, as long as any two vertices are connected by exactly one path.
+A [tree data structure]({% post_url 2020-05-12-tree-data-structure-binary-search-tree %}){:target="_blank"} is an undirected graph, as long as any two vertices are connected by exactly one path.
 
 Graphs are called a weighted graph when edges are given weight. For instance, the distance between cities can be weighted in how fast they are connected. The edges may contain value/cost as well.
 
@@ -96,7 +96,7 @@ The table above says, Leipzig is adjacent to Berlin, Dresden, and Nürnberg, for
 
 **Create and Initialize an Abstract Data Type**
 
-We create an Abstract Data Type called a Graph to define the behavior of our new data structure.
+We create an Abstract Data Type called a Graph to define the behavior of our new [data structure](https://codersite.dev/data-structures-foundation-efficient-programming/){:target="_blank"}.
 
 We need a stack data structure so we can remember the visited vertices. A stack follows the last-in, first-out (LIFO) principle, i.e., the city inserted at last is the first city to come out of the stack.
 
@@ -280,4 +280,13 @@ We can change the entry city and see different traversing paths
 Hannover Dortmund Frankfurt Stuttgart Magdeburg Berlin Leipzig Dresden Nürnberg München Rostock Bremen 
 ```
 
-You can see as well the *Breadth-First Search* (BFS) algorithm by using an Adjacency List based on a LinkedList data structure in the following [link](https://amzn.to/35bIlAY){:target="_blank"}
+You can see as well the *Breadth-First Search* (BFS) algorithm by using an Adjacency List based on a LinkedList data structure in [Cracking the Coding Interview](https://amzn.to/3Lst26n){:target="_blank"}
+
+Please donate to maintain and improve this website if you find this content valuable.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>

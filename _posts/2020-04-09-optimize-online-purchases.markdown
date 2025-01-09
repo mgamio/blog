@@ -240,4 +240,4 @@ for (int idx=0; idx<numIterations; idx++){
 }
 ```
 
-You can see the complete solution explained in detail and all test cases in this [link](https://amzn.to/3Lst26n){:target="_blank"}
+You can see the complete solution explained in detail and all test cases in [Cracking the Coding Interview](https://amzn.to/3Lst26n){:target="_blank"}

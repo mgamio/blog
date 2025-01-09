@@ -12,7 +12,7 @@ Tree data structures are non-linear data structures, and they allow us to implem
 
 ## Tree ###
 
-A tree is a data structure that consists of nodes connected by edges.
+A tree is a [data structure](https://codersite.dev/data-structures-foundation-efficient-programming/){:target="_blank"} that consists of nodes connected by edges.
 
 ### Binary tree ###
 
@@ -225,4 +225,4 @@ public class TreePerformance {
 }
 ```
 
-Understanding the inner workings of common data structures and algorithms is a must for Java developers. [Learn more](https://amzn.to/3PiUs0w){:target="_blank"}
+Understanding the inner workings of common data structures and algorithms is a must for Java developers. [Cracking the Coding Interview](https://amzn.to/3Lst26n){:target="_blank"}

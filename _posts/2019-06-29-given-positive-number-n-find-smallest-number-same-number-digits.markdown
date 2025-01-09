@@ -10,7 +10,13 @@ comments: false
 
 Write a method that, given an original number N, returns the smallest number with the same number of digits.
 
-For instance, given N=4751, the method returns 1000. Given N=100, the method should return 100. Given N=1, the method should return 0.
+For instance, 
+
+Given N=4751, the method returns 1000. 
+
+Given N=100, the method should return 100. 
+
+Given N=1, the method should return 0.
 
 Maybe the first idea comes to our minds could be to iterate from the given original number and decrease one by one, and in every iteration to check if every new number contains one digit less than the original number, if the answer is true, then the previous one is the smallest number.
 
@@ -105,7 +111,7 @@ public class NumberUtils {
 
 The main idea in [Analysis of Algorithms](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"} is always to improve the algorithm performance by reducing the number of steps and comparisons. The simpler and more intuitive an algorithm is, the more useful and efficient it will be.
 
-Similar questions you can find in my [book](https://amzn.to/3FxeKSb){:target="_blank"} about algorithms and data structures. Learn how to apply common algorithms to the practical problems.
+Similar questions you can find in my book about algorithms and [data structures](https://codersite.dev/data-structures-foundation-efficient-programming/){:target="_blank"}. Learn how to apply common algorithms to the practical problems.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}

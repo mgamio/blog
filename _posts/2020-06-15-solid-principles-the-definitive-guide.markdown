@@ -12,7 +12,7 @@ SOLID principles tell you how to arrange your functions into classes and how tho
 
 SOLID is an acronym that stands for five principles of software design: **S**ingle Responsibility, **O**pen-Closed, **L**iskov Substitution, **I**nterface Segregation, and **D**ependency Inversion.
 
-Robert C. Martin introduced it. [Clean Architecture](https://amzn.to/3g9xXyS){:target="_blank"}.
+Robert C. Martin introduced it.
 
 When SOLID principles are applied correctly, your software infrastructure will tolerate changes, be easier to understand, and focus on reusable components by reducing complexity, coupling, and dependency.
 
@@ -114,7 +114,7 @@ Also, when new features arrive, then we need to distinct in which Class to inclu
 
 In conclusion, once you identify classes that have too many responsibilities, use this refactoring technique to create smaller classes with single responsibilities and focused only on one business actor.
 
-Use this principle as a tool when translating [business software requirements into technical specifications](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"}. Programmers must understand these design decisions before programming.
+Use this [software design principle](https://amzn.to/3PvNE1Q){:target="_blank"} as a tool when translating [business software requirements into technical specifications](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"}. Programmers must understand these design decisions before programming.
 
 Now that you've learned the Single Responsibility principle, it's time to learn the [Open-closed principle](https://codersite.dev/open-closed-principle/){:target="_blank"} to design flexible systems and avoid future software maintenance costs.
 
@@ -123,3 +123,12 @@ Now that you've learned the Single Responsibility principle, it's time to learn 
 <div>
 {%- include softwareDesign.html -%}
 </div>
+
+Please donate to maintain and improve this website if you find this content valuable.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
