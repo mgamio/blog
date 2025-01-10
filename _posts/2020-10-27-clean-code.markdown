@@ -10,7 +10,7 @@ comments: false
 
 Clean code can be read and enhanced by a developer other than its original author. 
 
-This kind of practice [Robert C Martin](https://amzn.to/3rAejgU){:target="_blank"} introduced it.
+This kind of practice [Robert C Martin](https://amzn.to/40axCiH){:target="_blank"} introduced it.
 
 If you want to be a better programmer, you must follow these recommendations.
 
@@ -48,15 +48,17 @@ private Z_E2F_RS_Result ingredients;
 {%- include inArticleAds.html -%}
 </div>
 
-Imagine that we dont have the //ingredients comment in e2fResult variable. Then, further in any part of our code, when we try to process this variable, we have the following sentence:
+Imagine that we dont have the *//ingredients* comment in *e2fResult* variable. Then, further in any part of our code, when we try to process this variable, we have the following sentence:
 
 ```kotlin
 e2f = e2fResult[i];
 ```
 
-And we don’t know what does e2f means!. Well, someone suggests asking the person responsible for this code. But that guy is not at the office. Well, send it an email, and he is on holiday!.
+And we don’t know what does *e2f* means!. Well, someone suggests asking the person responsible for this code. But that guy is not at the office. Well, send it an email, and he is on holiday!.
 
 But if instead we adopt names which reveal intent from beginning, we could avoid these catastrophic scenarios.
+
+Refactored code:
 
 ```kotlin
 ingredient = ingredients[i];
@@ -476,7 +478,7 @@ Please donate to maintain and improve this website if you find this content valu
 </form>
 <br/>
 
-You can see a lot of typical algorithms implemented with Clean Code principles in the following [link](https://amzn.to/3PiUs0w){:target="_blank"}
+You can see a lot of typical algorithms implemented with Clean Code principles in [Cracking the coding interview](https://amzn.to/3PiUs0w){:target="_blank"}
 
 <div>
 {%- include jediJavaInterviewAds.html -%}

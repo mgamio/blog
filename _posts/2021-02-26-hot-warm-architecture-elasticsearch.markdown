@@ -53,6 +53,8 @@ Once these documents are indexed into Elasticsearch, the following figure shows 
 
 ![inverted-index](/assets/images/invertedIndex.jpg "inverted-index"){:class="img-responsive"}
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin) <a href="https://t.co/ARf0FUDzRw">https://t.co/ARf0FUDzRw</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1838935023786905637?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 **Mapping**
 
 In order to be able to treat date fields as dates, numeric fields as numbers, and string fields as full-text or exact-value strings, Elasticsearch needs to know what type of data each field contains. This information is contained in the mapping.
@@ -80,6 +82,10 @@ In Warm nodes, You are still querying your index, but it is read-only.
 In Cold nodes, You are querying your index less frequently. You can deploy it to less performant hardware.
 
 We can balance indexing and query performance in Elasticsearch with a hot-warm architecture. 
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 ## JVM Logs
 
@@ -665,7 +671,7 @@ From the buckets per minute, we can see codersite.dev client sends an average of
 
 Based on these accurate statistics and analyses, you know how to limit the number of requests allowed per client + endpoint. In this way, you can protect your software infrastructure from possible attacks or overuse of hardware resources.
 
-Learn [here](https://codersite.dev/rate-limit/){:target="_blank"} how to implement a RateLimit algorithm.
+Learn [How to implement Rate Limiting](https://codersite.dev/rate-limit/){:target="_blank"} algorithm.
 
 Now that you have centralized all server logs in only one cluster, you can monitor or diagnose possible errors. Kibana will inform you about all application servers' errors in one unified report.
 

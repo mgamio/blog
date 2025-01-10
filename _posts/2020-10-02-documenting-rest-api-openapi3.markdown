@@ -127,7 +127,7 @@ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 
 JPA stands for Java Persistence API and is a Java specification about how to handle relational data.
 
-Even when Spring Data provides a standard programming model for different databases, switching from a SQL database to a [NoSQL database](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"} is impossible without touching the source code.
+Even when Spring Data provides a standard programming model for different databases, switching from a SQL database to a NoSQL database is impossible without touching the source code.
 
 @Entity annotation describes the Book data that will be stored by Spring Data and makes our Book object ready for storage in a JPA-based relational data store.
 
@@ -448,4 +448,4 @@ Please donate to maintain and improve this website if you find this content valu
 </form>
 <br/>
 
-Let's now see how to integrate [OAuth2](https://codersite.dev/spring-boot-oauth2/){:target="_blank"} to protect our endpoints.
+Let's now see how to integrate [Spring Boot, OpenAPI3, and OAuth2](https://codersite.dev/spring-boot-oauth2/){:target="_blank"} to protect our endpoints.
