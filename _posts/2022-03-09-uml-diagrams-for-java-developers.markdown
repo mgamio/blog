@@ -8,7 +8,7 @@ image: assets/images/umlDiagrams.jpg
 comments: false
 ---
 
-The **U**nified **M**odeling **L**anguage is a graphical notation for modeling systems and conveying User software requirements. All developers must understand this notation before starting programming.
+The [**U**nified **M**odeling **L**anguage](https://amzn.to/4akBIcN){:target="_blank"} is a graphical notation for modeling systems and conveying User software requirements. All developers must understand this notation before starting programming.
 
 UML is not only pretty pictures. Instead, they communicate the software design decisions to programmers.
 
@@ -73,7 +73,7 @@ We need a Form on the front end and an API application on the back end for our w
 
 ### Component diagram
 
-As system analysts, we delegate **responsibilities** to software elements called *components* or *services* that execute sub-tasks with specific technologies to achieve the user software requirements. Read the [Single Responsibility Principle](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}.
+As system analysts, we delegate **responsibilities** to software elements called *components* or *services* that execute sub-tasks with specific technologies to achieve the user software requirements. Read the *Single Responsibility Principle* in [SOLID principles](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}.
 
 The API application interacts with the user requests. Then, delegates the following subtasks to different services.
 
@@ -147,7 +147,7 @@ At the **FlyerComposerService** class above, we can see how is declared the depe
 
 Realization is a relationship where one class realizes or implements the specification defined in another class (usually an interface).
 
-Defining and creating interfaces is an excellent approach to building software to is extendable. Read the [Open-Closed Principle](https://codersite.dev/open-closed-principle/){:target="_blank"}.
+Defining and creating interfaces is an excellent approach to building software to is extendable. Read [The Open-Closed Principle](https://codersite.dev/open-closed-principle/){:target="_blank"}.
 
 <div>
 {%- include inArticleAds.html -%}
@@ -183,7 +183,7 @@ public class QRServiceImpl implements QRService {
 
 Objects contribute to the behavior of a system by collaborating with one another. An object communicates with another object to use the results of operations provided by that object.
 
-Association, Aggregation, and Composition are terms that represent relationships among objects. They are fundamental concepts of Object Oriented Programming.
+Association, Aggregation, and Composition are terms that represent relationships among objects. [Understanding OOP concepts](https://codersite.dev/understanding-oop-concepts/){:target="_blank"} gives you a solid foundation for making critical decisions about object-oriented software design.
 
 ### Association
 
@@ -209,7 +209,7 @@ A child class object cannot exist without the parent class object. In the follow
 
 ### Applications of Aggregation/Composition diagrams
 
-We can use aggregation/composition diagrams to design API endpoints. For example, the following figure shows the relationships among different business model objects.
+We can use aggregation/composition diagrams to design [REST API](https://codersite.dev/rest-api-overview/){:target="_blank"} endpoints. For example, the following figure shows the relationships among different business model objects.
 
 ![umlCompositionAggregation](/assets/images/shoppingCar.jpg "aggregation/composition diagrams to design API endpoints"){:class="img-responsive"}
 
@@ -237,3 +237,12 @@ We will see how to implement every Spring Boot service in the following articles
 <div>
 {%- include softwareDesign.html -%}
 </div>
+
+Please donate to maintain and improve this website if you find this content valuable.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>

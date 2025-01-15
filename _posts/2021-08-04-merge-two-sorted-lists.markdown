@@ -20,7 +20,7 @@ Given two sorted lists, merge them in a new sorted list.
 
 ## Solution
 
-We can join the two lists into a new list and apply a sort algorithm such as bubble sort, insertion, or quicksort. What we are going to do is to implement a new algorithm with a [NlogN]({% post_url 2020-06-22-big-o-notation-analysis-of-algorithms %}){:target="_blank"} performance.
+What we are going to do is implement a new algorithm that follows a Logarithmic Time Complexity, NlogN (see [Big O Notation]({% post_url 2020-06-22-big-o-notation-analysis-of-algorithms %}){:target="_blank"}).
 
 - We define a new List to add all elements from the other two lists in a sorted way.
 - We define two indexes that point to every element in every list
@@ -83,3 +83,12 @@ public class SortedList {
 ```
 
 The previous algorithm is missing how to proceed when one of the lists still contains elements not compared. Keep reading [here](https://amzn.to/3wdwVry){:target="_blank"}
+
+Please donate to maintain and improve this website if you find this content valuable.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>

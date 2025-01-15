@@ -235,7 +235,7 @@
 
 <p>When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.</p>
 
-<p>After looking at the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Single Responsibility Principle</a>, let’s continue with the second principle.</p>
+<p>After reviewing the <em>Single Responsibility Principle</em> included in the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">SOLID principles</a>, let’s proceed to the second principle.</p>
 
 <h2 id="solid-principles-the-open-closed-principle-ocp">SOLID principles: The Open-Closed Principle (OCP)</h2>
 
@@ -243,13 +243,13 @@
   <p>… “a module, class, or function should be open for extension but closed for modification.“</p>
 </blockquote>
 
-<p><a href="https://amzn.to/3eSkKXx" target="_blank">Bertrand Meyer</a> coined the principle, suggesting that we should build software to be extendable without touching its current code implementation.</p>
+<p><a href="https://amzn.to/40ehLzP" target="_blank">Bertrand Meyer</a> coined the principle, suggesting that we should build software to be extendable without touching its current code implementation.</p>
 
 <p>But there are situations we change one of our classes, and we realize that we need to adapt all its depending classes.</p>
 
 <h2 id="explaining-the-open-closed-principle-with-code-examples">Explaining the Open-Closed Principle with code examples</h2>
 
-<p>For instance, imagine designing and implementing a <a href="https://codersite.dev/rate-limit/" target="_blank">rate limit</a> algorithm to control the number of requests allowed for every endpoint in a <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">REST API</a>.</p>
+<p>For instance, imagine that we are assigned the task of <a href="https://codersite.dev/rate-limit/" target="_blank">How to implement Rate Limiting</a> algorithm to control the number of requests allowed for every endpoint in a <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST API</a>.</p>
 
 <p>The RateLimit class implements an interceptor - <em>HandlerInterceptor</em> - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.</p>
 
@@ -345,7 +345,7 @@
 </script>
 <br /></div>
 
-<p>Even if the code is not well designed or does not follow well object-oriented principles, it could not be easy to extend a class to introduce new functionalities.</p>
+<p>Even if the code is not well designed or does not follow <a href="https://codersite.dev/understanding-oop-concepts/" target="_blank">object-oriented programming concepts</a>, it could not be easy to extend a class to introduce new functionalities.</p>
 
 <p>The team wants to implement the open-closed principle to support future changes for this scenario. But they need to adopt Refactoring techniques to promote the Open-Closed Principle. For this scenario: polymorphism and aggregation.</p>
 
@@ -361,14 +361,16 @@
 
 <p><img src="/assets/images/rateLimit.jpg" alt="rateLimit" title="rateLimit" class="img-responsive" /></p>
 
-<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
+<p>Please donate to maintain and improve this website if you find this content valuable.</p>
 
-<p>Read more about <a href="https://codersite.dev/understanding-oop-concepts/" target="_blank">Object-Oriented Programming concepts</a></p>
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<p><br /></p>
+
+<p>Read more about <a href="https://codersite.dev/understanding-oop-concepts/" target="_blank">Understanding OOP concepts</a>.</p>
 
 <h2 id="achieving-extensibility-with-the-open-closed-principle">Achieving extensibility with the Open-Closed Principle</h2>
 
@@ -495,7 +497,7 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>If later we decided to retrieve the parameters from a <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">NoSQL database</a>, we would no longer have to touch the code, create a new class that implements <em>getAPIPlans</em>, and instantiate this new class in RateLimit.</p>
+<p>If later we decided to retrieve the parameters from a NoSQL database such as <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">Elasticsearch</a>, we would no longer have to touch the code, create a new class that implements <em>getAPIPlans</em>, and instantiate this new class in RateLimit.</p>
 
 <p>Even if, instead of implementing the <em>HandlerInterceptor</em> interface, we implement a <em>Filter</em> to design our Rate Limit algorithm, we can reuse the DataService interface as one of its dependencies.</p>
 
@@ -505,7 +507,7 @@
 
 <p>Applying these Refactoring techniques, the Open-Closed Principle enhances software maintainability.</p>
 
-<p><strong>Do you want to know more about software design Principles?</strong></p>
+<p><strong>Do you want to know more about Software Design Principles?</strong></p>
 
 <div><p>Here’s a Quick Guide to Elevate Your Projects with Proven Software Design Tactics!.</p>
 <center>

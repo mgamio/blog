@@ -12,19 +12,19 @@ SOLID principles tell you how to arrange your functions into classes and how tho
 
 When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.
 
-After looking at the [Single Responsibility Principle](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}, let’s continue with the second principle.
+After reviewing the *Single Responsibility Principle* included in the [SOLID principles](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}, let’s proceed to the second principle.
 
 ## SOLID principles: The Open-Closed Principle (OCP)
 
 > … “a module, class, or function should be open for extension but closed for modification.“
 
-[Bertrand Meyer](https://amzn.to/3eSkKXx){:target="_blank"} coined the principle, suggesting that we should build software to be extendable without touching its current code implementation.
+[Bertrand Meyer](https://amzn.to/40ehLzP){:target="_blank"} coined the principle, suggesting that we should build software to be extendable without touching its current code implementation.
 
 But there are situations we change one of our classes, and we realize that we need to adapt all its depending classes.
 
 ## Explaining the Open-Closed Principle with code examples
 
-For instance, imagine designing and implementing a [rate limit](https://codersite.dev/rate-limit/){:target="_blank"} algorithm to control the number of requests allowed for every endpoint in a [REST API](https://codersite.dev/documenting-rest-api-openapi3/){:target="_blank"}.
+For instance, imagine that we are assigned the task of [How to implement Rate Limiting](https://codersite.dev/rate-limit/){:target="_blank"} algorithm to control the number of requests allowed for every endpoint in a [REST API](https://codersite.dev/rest-api-overview/){:target="_blank"}.
 
 The RateLimit class implements an interceptor - *HandlerInterceptor* - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.
 
@@ -87,7 +87,7 @@ That is the meaning of the principle; you can not touch the code that is already
 {%- include inArticleAds.html -%}
 </div>
 
-Even if the code is not well designed or does not follow well object-oriented principles, it could not be easy to extend a class to introduce new functionalities.
+Even if the code is not well designed or does not follow [object-oriented programming concepts](https://codersite.dev/understanding-oop-concepts/){:target="_blank"}, it could not be easy to extend a class to introduce new functionalities.
 
 The team wants to implement the open-closed principle to support future changes for this scenario. But they need to adopt Refactoring techniques to promote the Open-Closed Principle. For this scenario: polymorphism and aggregation.
 
@@ -103,11 +103,16 @@ The following diagram shows the goal of our design.
 
 ![rateLimit](/assets/images/rateLimit.jpg "rateLimit"){:class="img-responsive"}
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
+Please donate to maintain and improve this website if you find this content valuable.
 
-Read more about [Object-Oriented Programming concepts](https://codersite.dev/understanding-oop-concepts/){:target="_blank"}
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
+
+Read more about [Understanding OOP concepts](https://codersite.dev/understanding-oop-concepts/){:target="_blank"}.
 
 ## Achieving extensibility with the Open-Closed Principle
 
@@ -186,7 +191,7 @@ public class RateLimit implements HandlerInterceptor {
 }
 ```
 
-If later we decided to retrieve the parameters from a [NoSQL database](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}, we would no longer have to touch the code, create a new class that implements *getAPIPlans*, and instantiate this new class in RateLimit.
+If later we decided to retrieve the parameters from a NoSQL database such as [Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}, we would no longer have to touch the code, create a new class that implements *getAPIPlans*, and instantiate this new class in RateLimit.
 
 Even if, instead of implementing the *HandlerInterceptor* interface, we implement a *Filter* to design our Rate Limit algorithm, we can reuse the DataService interface as one of its dependencies.
 
@@ -196,7 +201,7 @@ Our new DBData dependency is instantiated in our RateLimit class thanks to the m
 
 Applying these Refactoring techniques, the Open-Closed Principle enhances software maintainability.
 
-**Do you want to know more about software design Principles?**
+**Do you want to know more about Software Design Principles?**
 
 <div>
 {%- include softwareDesign.html -%}
