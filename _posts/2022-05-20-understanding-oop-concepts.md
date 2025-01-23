@@ -22,7 +22,7 @@ An object is an instance of a class. When we create an object, we create real-wo
 
 ![class and object](/assets/images/carClass.jpg "class and object"){:class="img-responsive"}
 
-We instantiate an object via the *new* keyword in the Java programming language. When you design a class follow the [Single Responsibility Principle (SRP)](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}.
+We instantiate an object via the *new* keyword in the Java programming language. When you design a class follow the [SOLID principles](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}.
 
 <div>
 {%- include inArticleAds.html -%}
@@ -177,7 +177,7 @@ Object-oriented programming (OOP) is a programming paradigm that uses objects an
 
 - Testability: OOP code is often easier to test since objects can be isolated and tested independently, leading to more comprehensive and efficient testing strategies.
 
-- [Code Understandability](https://codersite.dev/clean-code/){:target="_blank"}: OOP promotes a closer alignment between code and real-world concepts, making the codebase more understandable to developers, even those who didn't write the original code.
+- [Best practices for writing Clean Code](https://codersite.dev/clean-code/){:target="_blank"}: OOP promotes a closer alignment between code and real-world concepts, making the codebase more understandable to developers, even those who didn't write the original code.
 
 - Support for Large-Scale Development: OOP is well-suited for large-scale software development projects. Its inherent structure and organization facilitate teamwork, reduce development time, and enhance project manageability.
 
@@ -189,12 +189,22 @@ Understanding OOP concepts in Java or Python OOP concepts makes your system desi
 
 While OOP offers numerous advantages, it's important to note that it may not always be the best choice for every project or problem. The choice of programming paradigm should align with the specific requirements, constraints, and goals of the software being developed.
 
-Learn how to use these concepts in [SOLID design principles](https://codersite.dev/open-closed-principle/){:target="_blank"}.
+Learn how to use these concepts in [Software Design Principles](https://amzn.to/42mIqx7){:target="_blank"}.
+
+> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
 
-> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
+
 
 

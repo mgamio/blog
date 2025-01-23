@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to establish an effective ubiquitous language in domain-driven design"
+title:  "Domain-Driven Design - How to establish an effective ubiquitous language"
 description: "Domain Driven Design aims to build strategic software based on domain models. Domain modeling in microservices architecture"
 author: moises
 categories: [ Domain-Driven Design ]
@@ -18,7 +18,7 @@ A *Domain Model* represents those aspects of a domain that are relevant to a par
 
 - The *Ubiquitous Language* reflects a language spoken among team members working in the Bounded Context.
 
-Using bounded contexts reduces coupling between subsystems, and we can exchange data between them via explicit [API](https://codersite.dev/documenting-rest-api-openapi3/){:target="_blank"}, avoiding dependencies.
+Using bounded contexts reduces coupling between subsystems, and we can exchange data between them via explicit [REST API](https://codersite.dev/rest-api-overview/){:target="_blank"}, avoiding dependencies.
 
 As developers, we must choose appropriate names for our variables that reflect the business terms used in all communication channels during the Domain modeling design stage.
 
@@ -61,7 +61,7 @@ public class Product {
 
 The *imageId* attribute is a good name, but other business domains may already use it. We, as developers, sometimes disconnect from business and look for variable names that usually follow conventions, standards, programming languages, framework recommendations, or technical terms.
 
-If we've been involved in requirements analysis for weeks, why not introduce the same business terminology into our variable names? [Variable names reveal intent](https://codersite.dev/clean-code/){:target="_blank"}. 
+If we've been involved in requirements analysis for weeks, why not introduce the same business terminology into our variable **names**? See how *variable names* reveal intent in [Best practices for writing Clean Code](https://codersite.dev/clean-code/){:target="_blank"}. 
 
 One of the benefits of using ubiquitous language is introducing the influence of business communication structures on software. Whenever you can, try to introduce business terminology into your variable names.
 
@@ -103,3 +103,13 @@ Using the Ubiquitous language in agile software development and in domain modeli
 <div>
 {%- include softwareDesign.html -%}
 </div>
+
+Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
+

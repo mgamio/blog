@@ -8,9 +8,9 @@ image: assets/images/loadBalancing.jpg
 comments: false
 ---
 
-Load balancing is a process that routes network traffic to a group of backend servers, also known as a server pool. A load balancer is responsible for [distributing incoming requests](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"} to a collection of application servers.
+Load balancing is a process that routes network traffic to a group of backend servers, also known as a server pool. A load balancer is responsible for distributing incoming requests to a collection of application servers.
 
-Load balancers help solve problems of server performance, high availability and scalability in distributed systems.
+Load balancers help solve problems of server performance, high availability and scalability in distributed systems. See [Optimize Java App Performance](https://codersite.dev/optimize-java-app-performance/){:target="_blank"}.
 
 ## Application Server
 
@@ -32,7 +32,7 @@ The benefits of building a cluster are:
 
 ## When a Cluster shares a File Server
 
-We want to deploy a Java WebClient to retrieve image objects from an external API and store it in an internal file server.
+We want to deploy a Java WebClient to retrieve image objects from an external [REST API](https://codersite.dev/rest-api-overview/){:target="_blank"} and store it in an internal file server.
 
 The Java WebClient is deployed in a cluster with two application servers.
 
