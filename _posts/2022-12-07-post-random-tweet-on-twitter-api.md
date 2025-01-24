@@ -58,10 +58,13 @@ private Map<Integer, Article> articlesMap;
 .
 .
 .
+List<String> allLines = Files.readAllLines(Paths.get(resource.getURI()));
 int n = 1;
 for (String line: allLines) {
+  String[] attributes = line.split(";");
   Article article = new Article();
   //code omitted for brevity
+  
   articlesMap.put(n++, article);
 }	  
 ```
@@ -100,7 +103,7 @@ What we want is to post no duplicate articles in a time frame.
 
 For example, if we post every three hours, eight posts are in one day. Well, we want to show eight no-duplicate tweets for our users throughout the day.
 
-As developers, we need to understand the inner workings of data structures to support the behavior - method - we want to implement. Could an array, linked list, queue, or stack satisfy our requirement?
+As developers, we need to understand the inner workings of [Data Structures](https://codersite.dev/data-structures-foundation-efficient-programming/){:target="_blank"} to support the behavior - method - we want to implement. Could an array, linked list, queue, or stack satisfy our requirement?
 
 If we can publish only eight articles daily, then our data structure should allow us to store only eight elements. Once we have filled our data structure, there will be no space for the following article. Then, we must be able to remove the oldest article (in this case, the first one) and insert the newest article (in the last position). The Queue data structure supports our requirement.
 
@@ -275,7 +278,7 @@ Once we have the new randomNumber, immediately it is removed from the list of in
   }
 ```
 
-Please donate to maintain and improve this website if you find this content valuable.
+Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
  <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />

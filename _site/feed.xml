@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 23 Jan 2025 19:12:01 +0100</pubDate>
-    <lastBuildDate>Thu, 23 Jan 2025 19:12:01 +0100</lastBuildDate>
+    <pubDate>Fri, 24 Jan 2025 21:35:50 +0100</pubDate>
+    <lastBuildDate>Fri, 24 Jan 2025 21:35:50 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>

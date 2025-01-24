@@ -19,7 +19,7 @@ In any case, the server will relieve itself after some delay.
 
 ## A REST client cannot control what happens on the server side
 
-Business-to-business ([B2B](https://codersite.dev/the-ubiquitous-language/){:target="_blank"}) is a typical scenario where one business acts as a client and the other acts as a server.
+Business-to-business ([B2B](https://en.wikipedia.org/wiki/Business-to-business){:target="_blank"}) is a typical scenario where one business acts as a client and the other acts as a server.
 
 A client-side company doesn't care if there is a monolithic or microservice architecture on the server side.
 
@@ -57,7 +57,7 @@ What this 503 error suggests is a retry action from our REST client to deal with
 
 ## How does the REST Client automate a retry action?
 
-As developers, we need to anticipate and automate retrying the request with a certain number of attempts. If the server error persists, we need to inform our users about the failed request's content.
+As developers, we need to anticipate and automate retrying the request with a certain number of attempts (MAX_TRIALS). If the server error persists, we need to inform our users about the failed request's content.
 
 The following code implementation handles 503 Service Unavailable Error.
 
@@ -111,12 +111,27 @@ The response looks like this:
 ...
 ```
 
-Understand the basics of common data structures and algorithms and apply them to real questions.
+When you need to analyze several server logs in a distributed system, read the article [Implementing hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}.
+
+## Best Practices for Handling 503 Errors
+
+- Respect the Retry-After Header: If the server includes this header, wait before retrying.
+- Implement Exponential Backoff: Retry after increasing delays (e.g., 1s, 2s, 4s).
+- Set a Maximum Retry Limit: Avoid infinite loops; define a max retry count.
+- Log Errors for Debugging: Persistent 503 errors may indicate a backend issue.
+- Fallback Mechanisms: Consider alternative servers or cached responses.
+
+Jobs in the tech industry are expected to grow exponentially in the next few years. If you plan to enter the job market soon, you must know that companies will evaluate your problem-solving skills based on data structures and algorithms, and you will need to face a complex problem on a blackboard.
 
 <div>
 {%- include algorithmsBook.html -%}
 </div>
-	  
 
+Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.
 
-
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>

@@ -76,7 +76,7 @@ You get the number of parts if you ask the size() method of the list. So in that
 
 Validate your input data and check if the *numOfParts* value equals the list size.
 
-If you are facing a face-to-face interview, always ask the interviewer about the variables in case of doubt. [Never assume and ask questions](https://codersite.dev/the-ubiquitous-language/){:target="_blank"}, this way you show that you will be a good team player in future projects.
+If you are facing a face-to-face interview, always ask the interviewer about the variables in case of doubt. Never assume and ask questions, this way you show that you will be a good team player in future projects.
 
 Our final algorithm for the Assembly optimization.
 
@@ -99,8 +99,17 @@ public class AssembleParts {
 }
 ```
 
-Similar questions you can find in my [book](https://amzn.to/3FxeKSb){:target="_blank"} about algorithms and data structures. Learn how to apply common algorithms to the practical problems.
+Similar questions you can find in my [book](https://amzn.to/3FxeKSb){:target="_blank"} about algorithms and data structures. Learn how to apply common algorithms to practical problems.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
+
+Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>

@@ -295,14 +295,20 @@
 8
 9
 10
+11
+12
+13
 </pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">,</span> <span class="nc">Article</span><span class="p">&gt;</span> <span class="n">articlesMap</span><span class="p">;</span>
 <span class="p">.</span>
 <span class="p">.</span>
 <span class="p">.</span>
+<span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">allLines</span> <span class="p">=</span> <span class="nc">Files</span><span class="p">.</span><span class="nf">readAllLines</span><span class="p">(</span><span class="nc">Paths</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">resource</span><span class="p">.</span><span class="nf">getURI</span><span class="p">()));</span>
 <span class="n">int</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="k">for</span> <span class="p">(</span><span class="nc">String</span> <span class="n">line</span><span class="p">:</span> <span class="n">allLines</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">String</span><span class="p">[]</span> <span class="n">attributes</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">";"</span><span class="p">);</span>
   <span class="nc">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">Article</span><span class="p">();</span>
   <span class="c1">//code omitted for brevity</span>
+  
   <span class="n">articlesMap</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">n</span><span class="p">++,</span> <span class="n">article</span><span class="p">);</span>
 <span class="p">}</span>	  
 </pre></td></tr></tbody></table></code></pre></div></div>
@@ -354,7 +360,7 @@
 
 <p>For example, if we post every three hours, eight posts are in one day. Well, we want to show eight no-duplicate tweets for our users throughout the day.</p>
 
-<p>As developers, we need to understand the inner workings of data structures to support the behavior - method - we want to implement. Could an array, linked list, queue, or stack satisfy our requirement?</p>
+<p>As developers, we need to understand the inner workings of <a href="https://codersite.dev/data-structures-foundation-efficient-programming/" target="_blank">Data Structures</a> to support the behavior - method - we want to implement. Could an array, linked list, queue, or stack satisfy our requirement?</p>
 
 <p>If we can publish only eight articles daily, then our data structure should allow us to store only eight elements. Once we have filled our data structure, there will be no space for the following article. Then, we must be able to remove the oldest article (in this case, the first one) and insert the newest article (in the last position). The Queue data structure supports our requirement.</p>
 
@@ -629,7 +635,7 @@
   <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Please donate to maintain and improve this website if you find this content valuable.</p>
+<p>Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.</p>
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
  <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
