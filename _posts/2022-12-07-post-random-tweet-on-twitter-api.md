@@ -289,3 +289,6 @@ Please donate if you can. Every contribution helps, and your donation can help m
 
 Similar problems you can find in my [book](https://amzn.to/3FxeKSb){:target="_blank"} about algorithms and the inner workings of Data Structures. Learn how to apply common algorithms to practical problems.
 
+<div>
+{%- include mailchimp.html -%}
+</div>

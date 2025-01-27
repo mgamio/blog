@@ -113,3 +113,6 @@ Please donate if you can. Every contribution helps, and your donation can help m
 </form>
 <br/>
 
+<div>
+{%- include mailchimp.html -%}
+</div>

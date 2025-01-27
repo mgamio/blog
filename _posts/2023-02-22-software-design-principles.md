@@ -10,7 +10,7 @@ comments: false
 
 Software design principles are guidelines and best practices that help software developers create high-quality, maintainable, and efficient software. Here are some commonly recognized software design principles:
 
-- SOLID: SOLID stands for [Single Responsibility](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}, Open-Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion. These five principles help developers create software that is modular, extensible, and easy to maintain.
+- [SOLID Principles](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}: SOLID stands for Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion. These five principles help developers create software that is modular, extensible, and easy to maintain.
 
 - DRY (Don't Repeat Yourself): The DRY principle states that code should not be repeated unnecessarily. Instead, developers should use abstractions, modularization, and other techniques to reduce repetition and make code more maintainable.
 
@@ -22,7 +22,7 @@ Software design principles are guidelines and best practices that help software 
 
 - Composition over Inheritance: This principle suggests that developers should prefer composition over inheritance when designing software. This makes code more flexible and extensible and reduces code duplication.
 
-- Law of Demeter (LoD): The Law of Demeter suggests that objects should only communicate with their immediate neighbors and not with objects further down the chain. This reduces coupling and makes code more maintainable.
+- [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter){:target="_blank"} (LoD): The Law of Demeter suggests that objects should only communicate with their immediate neighbors and not with objects further down the chain. This reduces coupling and makes code more maintainable.
 
 - Design Patterns: Design patterns are proven solutions to common software design problems. Developers can use design patterns to create software that is modular, flexible, and reusable.
 
@@ -30,4 +30,17 @@ These principles are not exhaustive, and there may be other principles that are 
 
 <div>
 {%- include softwareDesign.html -%}
+</div>
+
+Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
+
+<div>
+{%- include mailchimp.html -%}
 </div>

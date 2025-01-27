@@ -80,9 +80,9 @@ public class QuoteController {
 {%- include softwareDesign.html -%}
 </div>
 
-For more information on implementing RESTful web services, visit this [link](https://codersite.dev/rest-api-overview/){:target="_blank"}.
+[REST API](https://codersite.dev/rest-api-overview/){:target="_blank"} is an architectural style that defines a set of guidelines for creating web services.
 
-Once you deploy the API service, you can request a random quote from a Web Client like Postman.
+Once you deploy the API service, you can request a random quote from a [REST API Client](https://codersite.dev/building-rest-api-client/){:target="_blank"} like Postman.
 
 ![rate-Limit-random](/assets/images/randomQuotePostman.jpg "random quote API"){:class="img-responsive"}
 
@@ -239,17 +239,26 @@ Offering valuable content through your API can also motivate external developers
 
 Depending on how your software infrastructure is built, you can define plans with access to all API endpoints or a clientId+endpoint combination for example.
 
-If you dont know the actual request consumption from your users, you can install Elasticsearch and monitor the number of requests per minute daily. Read [here](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}.
+If you dont know the actual request consumption from your users, you can [implement hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"} and monitor the number of requests per minute daily.
 
-When [designing web APIs](https://codersite.dev/rest-api-overview/){:target="_blank"}, consider implementing a rate-limiting algorithm to control the load on the system.
+When designing web APIs, consider implementing a rate-limiting algorithm to control the load on the system.
 
 You can use these ideas when trying to implement rate limiting with Redis or with AWS.
 
 You can download the code from the following link
 
-[Rate limit](https://github.com/mgamio/rateLimit.git){:target="_blank"}
+[https://github.com/mgamio/rateLimit](https://github.com/mgamio/rateLimit.git){:target="_blank"}
 
 In my next post, we will build an automated [REST API Client](https://codersite.dev/building-rest-api-client/){:target="_blank"} with random data to test the rate limit algorithm. Follow me!
+
+Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
 
 <div>
 {%- include mailchimp.html -%}

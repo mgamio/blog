@@ -51,7 +51,7 @@ A great developer is not just one who writes good code but one who can communica
 {%- include softwareDesignAd1.html -%}
 </div>
 
-Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.
+Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
  <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
@@ -59,3 +59,7 @@ Please donate if you can. Every contribution helps, and your donation can help m
  <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
 </form>
 <br/>
+
+<div>
+{%- include mailchimp.html -%}
+</div>
