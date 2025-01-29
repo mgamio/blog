@@ -7,13 +7,13 @@
 <link rel="icon" href="/assets/images/logo.png">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>REST API Overview | codersite</title>
+<title>RESTful API Tutorial | codersite</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="REST API Overview" />
+<meta property="og:title" content="RESTful API Tutorial" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Key Concepts, Best Practices, and Benefits" />
-<meta property="og:description" content="Key Concepts, Best Practices, and Benefits" />
+<meta name="description" content="REST API, Key Concepts, Best Practices, and Benefits" />
+<meta property="og:description" content="REST API, Key Concepts, Best Practices, and Benefits" />
 <link rel="canonical" href="http://localhost:4000/rest-api-overview/" />
 <meta property="og:url" content="http://localhost:4000/rest-api-overview/" />
 <meta property="og:site_name" content="codersite" />
@@ -22,9 +22,9 @@
 <meta property="article:published_time" content="2023-06-29T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="http://localhost:4000/assets/images/RESTAPIOverview.jpg" />
-<meta property="twitter:title" content="REST API Overview" />
+<meta property="twitter:title" content="RESTful API Tutorial" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2023-06-29T00:00:00+02:00","datePublished":"2023-06-29T00:00:00+02:00","description":"Key Concepts, Best Practices, and Benefits","headline":"REST API Overview","image":"http://localhost:4000/assets/images/RESTAPIOverview.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/rest-api-overview/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/rest-api-overview/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2023-06-29T00:00:00+02:00","datePublished":"2023-06-29T00:00:00+02:00","description":"REST API, Key Concepts, Best Practices, and Benefits","headline":"RESTful API Tutorial","image":"http://localhost:4000/assets/images/RESTAPIOverview.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/rest-api-overview/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/rest-api-overview/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -160,7 +160,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=REST API Overview&url=http://localhost:4000/rest-api-overview/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=RESTful API Tutorial&url=http://localhost:4000/rest-api-overview/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -207,7 +207,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">REST API Overview</h1>
+                <h1 class="posttitle">RESTful API Tutorial</h1>
 
             </div>
 
@@ -220,7 +220,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/RESTAPIOverview.jpg" alt="REST API Overview">
+            <img class="featured-image img-fluid" src="/assets/images/RESTAPIOverview.jpg" alt="RESTful API Tutorial">
             
 
             
@@ -231,13 +231,21 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>APIs (Application Programming Interfaces) enable communication and data exchange between systems. Among the various types of APIs, <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> (Representational State Transfer) has emerged as a popular architectural style for building web services. This article will delve into the fundamental concepts of REST API, its principles, its benefits in modern web development, and how to design a RESTful API.</p>
+                <p>In the world of web development, APIs (Application Programming Interfaces) play a vital role in enabling communication and data exchange between different systems. Among the various types of APIs, <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> (Representational State Transfer) has emerged as a popular architectural style for building web services.</p>
+
+<p>This article will delve into the fundamental concepts of REST API, its principles, its benefits in modern web development, and how to design a RESTful API.</p>
+
+<h2 id="what-is-restful-api">What is RESTful API?</h2>
+
+<p>RESTful API is an interface that two computer systems use to exchange information over the Internet securely. Most enterprise applications must communicate with other internal and third-party applications to perform various tasks. For example, to retrieve food product information.</p>
 
 <h2 id="what-is-an-api">What is an API?</h2>
 
 <p>An API is an interface with defined functionalities that a software program presents to other programs and, in the case of web APIs, to the rest of the world via the Internet.</p>
 
-<p>APIs are the building blocks that allow interoperability between businesses on the web. Companies implement APIs to expose internal business processes and data to new customers and partners. APIs are how food data containing information about allergens are shared with hundreds of restaurant apps specializing in their presentation to final customers.</p>
+<p>APIs are the building blocks that allow interoperability between businesses on the web. Companies implement APIs to expose internal business processes and data to new customers and partners.</p>
+
+<p>APIs are how food data containing information about allergens are shared with hundreds of restaurant apps specializing in their presentation to final customers.</p>
 
 <p>APIs are also called Contracts, because they are assumed to be unbreakable.</p>
 
@@ -253,13 +261,31 @@
 
 <p>We create a kind of API program called Web Service to support this interoperable machine-to-machine interaction over a network.</p>
 
+<p>API Servers (providers) -&gt; provides <strong>Resources</strong> (contains information)</p>
+
+<p>API Clients (consumers) -&gt; requests <strong>Resources</strong></p>
+
 <p>To implement efficiently API Servers or API Clients, you must understand the basic concepts of a REST API.</p>
 
-<h2 id="what-is-rest-api">What is REST API?</h2>
+<h2 id="what-is-rest">What is REST?</h2>
 
-<p>REST API is an architectural style that defines a set of guidelines for creating web services. It stands for Representational State Transfer and emphasizes a stateless, client-server communication model. REST APIs use HTTP (Hypertext Transfer Protocol) as the primary protocol for data transmission and rely on standard operations such as GET, POST, PUT, and DELETE to perform actions on resources.</p>
+<p>REST is an architectural style that defines a set of guidelines for creating web services. It stands for Representational State Transfer and emphasizes a stateless, client-server communication model.</p>
+
+<p>It allows communication between a client (such as a web browser or mobile app) and a server over the HTTP protocol.</p>
+
+<p>REST APIs use HTTP (Hypertext Transfer Protocol) as the primary protocol for data transmission and rely on standard operations such as GET, POST, PUT, and DELETE to perform actions on resources.</p>
 
 <p>The Hypertext Transfer Protocol (HTTP) is a stateless application-level protocol for distributed, collaborative, hypertext information systems. Stateless in this context means a receiver must not retain the session state from previous requests.</p>
+
+<blockquote>
+  <p>RESTful APIs are widely used in web and mobile applications due to their simplicity, efficiency, and scalability. They provide a structured way to interact with a system’s data and services using standard web technologies. – <cite><a href="https://amzn.to/3PSGWmP" target="_blank">Restful Web APIs</a></cite></p>
+</blockquote>
+
+<div><center>
+  <a href="https://amzn.to/3CFqq6t" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../assets/images/restfulWebApis.jpg" /></a>
+</center>
+
+<br /></div>
 
 <h2 id="resources">Resources</h2>
 
@@ -273,14 +299,7 @@
 Host: codersite.dev
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
-
-<h2 id="representations">Representations</h2>
+<h3 id="representations">Representations</h3>
 
 <p>We have defined an article as an HTTP resource but cannot transmit a physical article over the Internet. But as an information resource, we can send It over the Internet. The information must be helpful for the client. That’s a representation, <strong>a machine-readable description of the current state of a resource</strong>.</p>
 
@@ -304,7 +323,14 @@ Content-Type: application/json
 
 <p>The server sends (because of GET requests from the client) a representation describing the state of a resource. The client sends (through a POST, PUT, or PATCH request) a representation describing the state it would like the resource to have. That’s <strong>representational state transfer</strong>.</p>
 
-<h2 id="uniform-interface">Uniform Interface</h2>
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h3 id="uniform-interface">Uniform Interface</h3>
 
 <p>A fundamental principle of REST API is the uniform interface, which establishes a standardized way of interacting with resources. It encompasses several constraints, including:</p>
 
@@ -326,13 +352,7 @@ Content-Type: application/json
   </li>
 </ul>
 
-<div><center>
-  <a href="https://amzn.to/3QYUK0v" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="../assets/images/adsJavaInterview1.jpg" /></a>
-</center>
-
-<br /></div>
-
-<h2 id="http-methods">HTTP Methods</h2>
+<h3 id="http-methods">HTTP Methods</h3>
 
 <p>API clients can interact with APIs by sending HTTP methods to perform actions on resources. The four commonly used HTTP methods are:</p>
 
@@ -395,6 +415,12 @@ Content-Type: application/json
 <p>Even when a GET method is defined as a <em>safe</em> HTTP method, your application MUST ensure that it never changes the resource state.</p>
 
 <p>The success response code to a GET request is 200 (OK).</p>
+
+<div><center>
+  <a href="https://amzn.to/3QYUK0v" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="../assets/images/adsJavaInterview1.jpg" /></a>
+</center>
+
+<br /></div>
 
 <p><strong>POST</strong></p>
 
@@ -468,7 +494,10 @@ Host: codersite.dev
 
 <p>The success response code to a DELETE request is 204 (No Content).</p>
 
-<h2 id="common-http-method-properties">Common HTTP Method Properties</h2>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">As an application developer, you look at the real world and model it in terms of objects or data structures, and APIs that manipulate those data structures. -Designing Data-Intensive Applications <a href="https://t.co/tmKXmtxf09">https://t.co/tmKXmtxf09</a> via <a href="https://twitter.com/MoisesGamio?ref_src=twsrc%5Etfw">@MoisesGamio</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1882501803138257286?ref_src=twsrc%5Etfw">January 23, 2025</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h3 id="common-http-method-properties">Common HTTP Method Properties</h3>
 
 <p><strong>Safe Methods</strong></p>
 
@@ -519,7 +548,7 @@ Host: codersite.dev
 
 <p><strong>Business requirement</strong>: A company wants to implement an API to allow Restaurants (represented as a buyer) to place orders at suppliers to get food articles delivered.</p>
 
-<p>The following figure shows an <a href="https://codersite.dev/uml-diagrams-for-java-developers/" target="_blank">Aggregation/Composition diagram</a> that describes a class that references one or more objects of other classes. This allows you to model a <em>has-a</em> association between objects.</p>
+<p>The following figure shows an Aggregation/Composition <a href="https://codersite.dev/uml-diagrams-for-java-developers/" target="_blank">UML Diagram</a> that describes a class that references one or more objects of other classes. This allows you to model a <em>has-a</em> association between objects.</p>
 
 <p><img src="/assets/images/shoppingCar.jpg" alt="shopping-car" title="Aggregation/Composition diagram" class="img-responsive" /></p>
 
@@ -534,7 +563,9 @@ A list of accessible buyers is given
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>It is highly recommended to use the SwaggerHub editor to create a consistent API design compliant with the OpenAPI Specifications. <a href="https://swagger.io/tools/swaggerhub/" target="_blank">Create a Free Account</a>.</p>
 
-<p>While you are designing, SwaggerHub can generate documentation automatically, making it easy for both API consumers and internal users to learn and test your APIs. You can create a Client SDK for different programming languages from the Editor and generate the object model and API controllers on your server side.</p>
+<p>While you are designing, SwaggerHub can generate documentation automatically, making it easy for both API consumers and internal users to learn and test your APIs.</p>
+
+<p>You can create a Client SDK for different programming languages from the Editor and generate the object model and API controllers on your server side.</p>
 
 <p>The following figure shows an example of how SwaggerHub generates the documentation.</p>
 
@@ -576,9 +607,12 @@ public class BuyersApiController implements BuyersApi {
 }
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div><p>Here’s a Quick Guide to Elevate Your Projects with Proven Software Design Tactics!.</p>
-<center>
-  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
+<blockquote>
+  <p>Software design principles provide guidelines to handle the design process’s complexity, prepare your code when changes arise, and minimize the impact of introducing bugs. – <cite><a href="https://amzn.to/3Csx3sR" target="_blank">Software Design Principles</a></cite></p>
+</blockquote>
+
+<div><center>
+  <a href="https://amzn.to/3Csx3sR" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
 </center>
 
 <br /></div>
@@ -699,6 +733,16 @@ public ResponseEntity&lt;List&lt;Buyer&gt;&gt; listBuyers(
 }	
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<blockquote>
+  <p>Master essential best practices for deploying and managing applications on Amazon Web Services, the leading cloud computing platform, offers customers APIs for on-demand access to computing services. – <cite><a href="https://amzn.to/40zUXLa" target="_blank">An in-depth guide to AWS</a></cite></p>
+</blockquote>
+
+<div><center>
+  <a href="https://amzn.to/40zUXLa" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../assets/images/amazonWebServicesInAction.jpg" /></a>
+</center>
+
+<br /></div>
+
 <h2 id="include-loggers">Include Loggers</h2>
 
 <p>Redirect the requests to the server logs. If you must fix any error your clients reported, you can always reproduce the original request and debug it in your backends.</p>
@@ -753,7 +797,7 @@ public String getRequestURLWithQueryParam(HttpServletRequest request) {
 }
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Even you can create statistics of how many requests by endpoint arrive per minute by implementing a <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">hot-warm architecture in Elasticsearch</a>.</p>
+<p>Even you can create statistics of how many requests by endpoint arrive per minute by <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">implementing a hot-warm architecture in Elasticsearch</a>.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>[12/4/23 15:48:27:888 CET] 00000121 SystemOut     INFO 19484 BuyersApiController : DELETE_REQUESTED_PARAMETERS: https://yourapidomain/api/v1/buyers/12345
@@ -823,6 +867,15 @@ public String getRequestURLWithQueryParam(HttpServletRequest request) {
 <h2 id="conclusion">Conclusion</h2>
 
 <p>REST API concepts provide a foundation for building scalable, interoperable, and easily consumable web services. Understanding the principles of REST, such as resources, uniform interface, HTTP methods, and request/response formats, is crucial for designing and consuming RESTful APIs effectively.</p>
+
+<p>Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!</p>
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<p><br /></p>
 
 <div><!--<div class="alertbar">-->
 	<div class="container text-center">

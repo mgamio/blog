@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 29 Jan 2025 11:34:29 +0100</pubDate>
-    <lastBuildDate>Wed, 29 Jan 2025 11:34:29 +0100</lastBuildDate>
+    <pubDate>Wed, 29 Jan 2025 18:39:45 +0100</pubDate>
+    <lastBuildDate>Wed, 29 Jan 2025 18:39:45 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -878,9 +878,8 @@
 
 &lt;p&gt;5- C, E.  The first thing to recognize is that this is a text block and the code inside the “”” is just text. Options A and B are incorrect because the numForks and numKnives variables are not used. This is convenient since numKnives is not initialized and would not compile if it were referenced. Option C is correct as it is matching text. Option D is incorrect because the text block does not have a trailing blank line. Finally, option E is also an answer since “ # knives is indented.&lt;/p&gt;
 
-&lt;div&gt;&lt;p&gt;Here’s a Quick Guide to Elevate Your Projects with Proven Software Design Tactics!.&lt;/p&gt;
-&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;
+&lt;div&gt;&lt;center&gt;
+  &lt;a href=&quot;https://amzn.to/3Csx3sR&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -2161,9 +2160,8 @@ Conversion of the reference type to the corresponding primitive type is called &
   &lt;li&gt;Consider the skills needed for each task and allocate resources accordingly.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div&gt;&lt;p&gt;Here’s a Quick Guide to Elevate Your Projects with Proven Software Design Tactics!.&lt;/p&gt;
-&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;
+&lt;div&gt;&lt;center&gt;
+  &lt;a href=&quot;https://amzn.to/3Csx3sR&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;

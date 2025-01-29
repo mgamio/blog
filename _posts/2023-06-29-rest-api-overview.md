@@ -1,20 +1,28 @@
 ---
 layout: post
-title:  "REST API Overview"
-description: "Key Concepts, Best Practices, and Benefits"
+title:  "RESTful API Tutorial"
+description: "REST API, Key Concepts, Best Practices, and Benefits"
 author: moises
 categories: [ Web APIs ]
 image: assets/images/RESTAPIOverview.jpg
 comments: false
 ---
 
-APIs (Application Programming Interfaces) enable communication and data exchange between systems. Among the various types of APIs, [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="_blank"} (Representational State Transfer) has emerged as a popular architectural style for building web services. This article will delve into the fundamental concepts of REST API, its principles, its benefits in modern web development, and how to design a RESTful API.
+In the world of web development, APIs (Application Programming Interfaces) play a vital role in enabling communication and data exchange between different systems. Among the various types of APIs, [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="_blank"} (Representational State Transfer) has emerged as a popular architectural style for building web services. 
+
+This article will delve into the fundamental concepts of REST API, its principles, its benefits in modern web development, and how to design a RESTful API.
+
+## What is RESTful API?
+
+RESTful API is an interface that two computer systems use to exchange information over the Internet securely. Most enterprise applications must communicate with other internal and third-party applications to perform various tasks. For example, to retrieve food product information.
 
 ## What is an API?
 
 An API is an interface with defined functionalities that a software program presents to other programs and, in the case of web APIs, to the rest of the world via the Internet.
 
-APIs are the building blocks that allow interoperability between businesses on the web. Companies implement APIs to expose internal business processes and data to new customers and partners. APIs are how food data containing information about allergens are shared with hundreds of restaurant apps specializing in their presentation to final customers.
+APIs are the building blocks that allow interoperability between businesses on the web. Companies implement APIs to expose internal business processes and data to new customers and partners. 
+
+APIs are how food data containing information about allergens are shared with hundreds of restaurant apps specializing in their presentation to final customers.
 
 APIs are also called Contracts, because they are assumed to be unbreakable.
 
@@ -30,13 +38,27 @@ But how can all these heterogeneous components communicate with each other? The 
 
 We create a kind of API program called Web Service to support this interoperable machine-to-machine interaction over a network.
 
+API Servers (providers) -> provides **Resources** (contains information)
+
+API Clients (consumers) -> requests **Resources**
+
 To implement efficiently API Servers or API Clients, you must understand the basic concepts of a REST API.
 
-## What is REST API?
+## What is REST?
 
-REST API is an architectural style that defines a set of guidelines for creating web services. It stands for Representational State Transfer and emphasizes a stateless, client-server communication model. REST APIs use HTTP (Hypertext Transfer Protocol) as the primary protocol for data transmission and rely on standard operations such as GET, POST, PUT, and DELETE to perform actions on resources.
+REST is an architectural style that defines a set of guidelines for creating web services. It stands for Representational State Transfer and emphasizes a stateless, client-server communication model. 
+
+It allows communication between a client (such as a web browser or mobile app) and a server over the HTTP protocol.
+
+REST APIs use HTTP (Hypertext Transfer Protocol) as the primary protocol for data transmission and rely on standard operations such as GET, POST, PUT, and DELETE to perform actions on resources.
 
 The Hypertext Transfer Protocol (HTTP) is a stateless application-level protocol for distributed, collaborative, hypertext information systems. Stateless in this context means a receiver must not retain the session state from previous requests. 
+
+> RESTful APIs are widely used in web and mobile applications due to their simplicity, efficiency, and scalability. They provide a structured way to interact with a system’s data and services using standard web technologies. -- <cite>[Restful Web APIs](https://amzn.to/3PSGWmP){:target="_blank"}</cite>
+
+<div>
+{%- include restfulWebApis.html -%}
+</div>
 
 ## Resources
 
@@ -49,11 +71,7 @@ GET /api/v1/articles HTTP/1.1
 Host: codersite.dev
 ```
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
-## Representations
+### Representations
 
 We have defined an article as an HTTP resource but cannot transmit a physical article over the Internet. But as an information resource, we can send It over the Internet. The information must be helpful for the client. That’s a representation, **a machine-readable description of the current state of a resource**.
 
@@ -70,7 +88,11 @@ Content-Type: application/json
 
 The server sends (because of GET requests from the client) a representation describing the state of a resource. The client sends (through a POST, PUT, or PATCH request) a representation describing the state it would like the resource to have. That’s **representational state transfer**.
 
-## Uniform Interface
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
+### Uniform Interface
 
 A fundamental principle of REST API is the uniform interface, which establishes a standardized way of interacting with resources. It encompasses several constraints, including:
 
@@ -84,11 +106,7 @@ A fundamental principle of REST API is the uniform interface, which establishes 
 
 - Hypermedia as the engine of application state (HATEOAS): The API should provide links to related resources, allowing clients to navigate the application's state.
 
-<div>
-{%- include jediJavaInterviewAds.html -%}
-</div>
-
-## HTTP Methods
+### HTTP Methods
 
 API clients can interact with APIs by sending HTTP methods to perform actions on resources. The four commonly used HTTP methods are:
 
@@ -127,6 +145,10 @@ Content-Type: application/json
 Even when a GET method is defined as a *safe* HTTP method, your application MUST ensure that it never changes the resource state.
 
 The success response code to a GET request is 200 (OK).
+
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
 
 **POST**
 
@@ -182,7 +204,9 @@ Host: codersite.dev
 
 The success response code to a DELETE request is 204 (No Content).
 
-## Common HTTP Method Properties
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">As an application developer, you look at the real world and model it in terms of objects or data structures, and APIs that manipulate those data structures. -Designing Data-Intensive Applications <a href="https://t.co/tmKXmtxf09">https://t.co/tmKXmtxf09</a> via <a href="https://twitter.com/MoisesGamio?ref_src=twsrc%5Etfw">@MoisesGamio</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1882501803138257286?ref_src=twsrc%5Etfw">January 23, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+### Common HTTP Method Properties
 
 **Safe Methods**
 
@@ -222,7 +246,7 @@ Common error HTTP status codes include:
 
 **Business requirement**: A company wants to implement an API to allow Restaurants (represented as a buyer) to place orders at suppliers to get food articles delivered.
 
-The following figure shows an [Aggregation/Composition diagram](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"} that describes a class that references one or more objects of other classes. This allows you to model a *has-a* association between objects.
+The following figure shows an Aggregation/Composition [UML Diagram](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"} that describes a class that references one or more objects of other classes. This allows you to model a *has-a* association between objects.
 
 ![shopping-car](/assets/images/shoppingCar.jpg "Aggregation/Composition diagram"){:class="img-responsive"}
 
@@ -236,7 +260,9 @@ A list of accessible buyers is given
 ```
 It is highly recommended to use the SwaggerHub editor to create a consistent API design compliant with the OpenAPI Specifications. [Create a Free Account](https://swagger.io/tools/swaggerhub/){:target="_blank"}.
 
-While you are designing, SwaggerHub can generate documentation automatically, making it easy for both API consumers and internal users to learn and test your APIs. You can create a Client SDK for different programming languages from the Editor and generate the object model and API controllers on your server side.
+While you are designing, SwaggerHub can generate documentation automatically, making it easy for both API consumers and internal users to learn and test your APIs. 
+
+You can create a Client SDK for different programming languages from the Editor and generate the object model and API controllers on your server side.
 
 The following figure shows an example of how SwaggerHub generates the documentation.
 
@@ -266,6 +292,8 @@ public class BuyersApiController implements BuyersApi {
   }
 }
 ```
+
+> Software design principles provide guidelines to handle the design process's complexity, prepare your code when changes arise, and minimize the impact of introducing bugs. -- <cite>[Software Design Principles](https://amzn.to/3Csx3sR){:target="_blank"}</cite>
 
 <div>
 {%- include softwareDesign.html -%}
@@ -332,6 +360,12 @@ public ResponseEntity<List<Buyer>> listBuyers(
 }	
 ```
 
+> Master essential best practices for deploying and managing applications on Amazon Web Services, the leading cloud computing platform, offers customers APIs for on-demand access to computing services. -- <cite>[An in-depth guide to AWS](https://amzn.to/40zUXLa){:target="_blank"}</cite>
+
+<div>
+{%- include amazonWebServicesInAction.html -%}
+</div>
+
 ## Include Loggers
 
 Redirect the requests to the server logs. If you must fix any error your clients reported, you can always reproduce the original request and debug it in your backends.
@@ -366,7 +400,7 @@ public String getRequestURLWithQueryParam(HttpServletRequest request) {
 }
 ```
 	
-Even you can create statistics of how many requests by endpoint arrive per minute by implementing a [hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}.
+Even you can create statistics of how many requests by endpoint arrive per minute by [implementing a hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}.
 
 ```
 [12/4/23 15:48:27:888 CET] 00000121 SystemOut     INFO 19484 BuyersApiController : DELETE_REQUESTED_PARAMETERS: https://yourapidomain/api/v1/buyers/12345
@@ -429,6 +463,15 @@ REST APIs offer several advantages that contribute to their widespread adoption 
 ## Conclusion
 
 REST API concepts provide a foundation for building scalable, interoperable, and easily consumable web services. Understanding the principles of REST, such as resources, uniform interface, HTTP methods, and request/response formats, is crucial for designing and consuming RESTful APIs effectively. 
+
+Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
 
 <div>
 {%- include mailchimp.html -%}

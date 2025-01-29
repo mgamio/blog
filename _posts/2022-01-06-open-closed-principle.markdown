@@ -203,6 +203,8 @@ Applying these Refactoring techniques, the Open-Closed Principle enhances softwa
 
 **Do you want to know more about Software Design Principles?**
 
+> Here’s a Quick Guide to Elevate Your Projects with Proven Software Design Tactics!. -- <cite>[Software Design Principles](https://amzn.to/3EdhXI5){:target="_blank"}</cite>
+
 <div>
 {%- include softwareDesign.html -%}
 </div>

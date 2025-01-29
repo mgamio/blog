@@ -120,6 +120,8 @@ Now that you've learned the Single Responsibility principle, it's time to learn 
 
 > Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
 
+Here’s a Quick Guide to Elevate Your Projects with Proven Software Design Tactics!.
+
 <div>
 {%- include softwareDesign.html -%}
 </div>
