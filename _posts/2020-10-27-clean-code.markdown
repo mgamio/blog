@@ -64,30 +64,6 @@ Refactored code:
 ingredient = ingredients[i];
 ```
 
-## Clean Code tells a story
-
-When we try to fix bugs, when analyzing the secuence of actions (functions, methods), we realize the code does not communicate well the logical flow of these actions. It’s a nightmare to decode the meaning of these actions.
-
-This will always happen because our initial design based on the initial requirements change over time. As developers, we are responsible for refactoring our code to made it a simple story that everybody can understand. For example, look at the following code:
-
-```kotlin
-ACMEWebServiceClient.login();
-if (process.equals("core") {
-    ACMEWebServiceClient.transfer_buyersCoreData_to_ACME();
-}
-if (process.equals("status")) {
-    ACMEWebServiceClient.transfer_buyersStatusChanges_to_ACME();
-}
-if (process.equals("events")) {
-    ACMEWebServiceClient.transfer_events_to_ACME();
-}
-ACMEServiceClient.logout();
-```
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 ## Functions should do one thing
 
 Imagine we want to retrieve image objects from an external web service. 
@@ -456,6 +432,26 @@ As all these arguments belong to an Address concept, we can pass an Object as an
 public boolean validateAddress(Address address) {
   //code omitted for brevity
 }
+```
+
+## Clean Code tells a story
+
+When we try to fix bugs, when analyzing the secuence of actions (functions, methods), we realize the code does not communicate well the logical flow of these actions. It’s a nightmare to decode the meaning of these actions.
+
+This will always happen because our initial design based on the initial requirements change over time. As developers, we are responsible for refactoring our code to made it a simple story that everybody can understand. For example, look at the following code:
+
+```kotlin
+ACMEWebServiceClient.login();
+if (process.equals("core") {
+    ACMEWebServiceClient.transfer_buyersCoreData_to_ACME();
+}
+if (process.equals("status")) {
+    ACMEWebServiceClient.transfer_buyersStatusChanges_to_ACME();
+}
+if (process.equals("events")) {
+    ACMEWebServiceClient.transfer_events_to_ACME();
+}
+ACMEServiceClient.logout();
 ```
  
 Applications of clean code:
