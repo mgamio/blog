@@ -12,7 +12,7 @@ comments: false
             <h1 class="post-title">Impressum</h1>
             <p>codersite is run by Moises Gamio</p>
 			<br/>
-			<p>Address: Romain-rolland Str 13089 Berlin, Germany</p>
+			<p>Address: Berlin, Germany</p>
 			<p>Email: codersitedev@gmail.com</p>
 			<p>Tax number: 32/300/01607</p>
         </div>
