@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 06 Feb 2025 17:34:51 +0100</pubDate>
-    <lastBuildDate>Thu, 06 Feb 2025 17:34:51 +0100</lastBuildDate>
+    <pubDate>Fri, 07 Feb 2025 16:28:51 +0100</pubDate>
+    <lastBuildDate>Fri, 07 Feb 2025 16:28:51 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -2228,9 +2228,9 @@ Conversion of the reference type to the corresponding primitive type is called &
     
       <item>
         <title>Building a REST API Client</title>
-        <description>&lt;p&gt;This guide walks you through creating a client application that consumes a &lt;a href=&quot;https://codersite.dev/rest-api-overview/&quot; target=&quot;_blank&quot;&gt;RESTful&lt;/a&gt; web service.&lt;/p&gt;
+        <description>&lt;p&gt;This guide walks you through creating a client application that consumes a &lt;a href=&quot;https://codersite.dev/rest-api-overview/&quot; target=&quot;_blank&quot;&gt;RESTful&lt;/a&gt; web service (API Server).&lt;/p&gt;
 
-&lt;p&gt;We will build a custom client code to test the &lt;a href=&quot;https://codersite.dev/rate-limit/&quot; target=&quot;_blank&quot;&gt;rate-limiting&lt;/a&gt; algorithm implemented at an API Server.&lt;/p&gt;
+&lt;p&gt;We will build a custom client code to test the &lt;a href=&quot;https://codersite.dev/rate-limit/&quot; target=&quot;_blank&quot;&gt;Rate Limiting&lt;/a&gt; algorithm implemented at an API Server.&lt;/p&gt;
 
 &lt;p&gt;Client application uses Spring’s RestTemplate, a synchronous client to perform HTTP requests.&lt;/p&gt;
 
@@ -2381,6 +2381,8 @@ Conversion of the reference type to the corresponding primitive type is called &
 
 &lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html&quot; target=&quot;_blank&quot;&gt;ForkJoinPool&lt;/a&gt; class is an &lt;em&gt;ExecutorService&lt;/em&gt; that helps speed up parallel processing by attempting to use all available processor cores.&lt;/p&gt;
 
+&lt;p&gt;The &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Callable&lt;/strong&gt;&lt;/a&gt; interface is similar to &lt;em&gt;Runnable&lt;/em&gt;, in that both are designed for classes whose instances are potentially executed by another thread. A &lt;em&gt;Runnable&lt;/em&gt;, however, does not return a result and cannot throw a checked exception.&lt;/p&gt;
+
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
@@ -2442,7 +2444,15 @@ Conversion of the reference type to the corresponding primitive type is called &
 
 &lt;p&gt;With this test, you can simultaneously send thousands of requests to all your API endpoints. You can monitor your thread pool at the application server and see how the rate limit algorithm refuses all requests that exceed the rate limit quote.&lt;/p&gt;
 
-&lt;p&gt;Please donate if you find this content valuable.&lt;/p&gt;
+&lt;p&gt;You can design test scenarios where external clients interact with API endpoints. Then, you can detect how well the code and database functions support the functionalities behind your endpoints, especially on critical business days such as Black Fridays.&lt;/p&gt;
+
+&lt;div&gt;&lt;center&gt;
+  &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/adsJavaInterview1.jpg&quot; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+&lt;br /&gt;&lt;/div&gt;
+
+&lt;p&gt;Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!&lt;/p&gt;
 
 &lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
  &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
@@ -2451,11 +2461,18 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;/form&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/adsJavaInterview1.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
+&lt;div&gt;&lt;!--&lt;div class=&quot;alertbar&quot;&gt;--&gt;
+	&lt;div class=&quot;container text-center&quot;&gt;
+		&lt;span&gt;&lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;img src=&quot;/assets/images/logo.svg&quot; height=&quot;30&quot; alt=&quot;codersite&quot; /&gt;&lt;/a&gt; &amp;nbsp; Stay Connected!. Follow me to get my latest articles.&lt;/span&gt;
+        &lt;form action=&quot;https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;amp;id=8d64d36cba&quot; method=&quot;post&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;wj-contact-form validate&quot; target=&quot;_blank&quot; novalidate=&quot;&quot;&gt;
+            &lt;div class=&quot;mc-field-group&quot;&gt;
+            &lt;input type=&quot;email&quot; placeholder=&quot;Email&quot; name=&quot;EMAIL&quot; class=&quot;required email&quot; id=&quot;mce-EMAIL&quot; autocomplete=&quot;on&quot; required=&quot;&quot; /&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; class=&quot;heart&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+	&lt;/div&gt;
+&lt;!--&lt;/div&gt;--&gt;&lt;/div&gt;
 
-&lt;br /&gt;&lt;/div&gt;
 </description>
         <pubDate>Sat, 30 Sep 2023 00:00:00 +0200</pubDate>
         <link>http://localhost:4000/building-rest-api-client/</link>

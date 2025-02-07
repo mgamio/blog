@@ -8,9 +8,9 @@ image: assets/images/restApiClient.jpg
 comments: false
 ---
 
-This guide walks you through creating a client application that consumes a [RESTful](https://codersite.dev/rest-api-overview/){:target="_blank"} web service.
+This guide walks you through creating a client application that consumes a [RESTful](https://codersite.dev/rest-api-overview/){:target="_blank"} web service (API Server).
 
-We will build a custom client code to test the [rate-limiting](https://codersite.dev/rate-limit/){:target="_blank"} algorithm implemented at an API Server.
+We will build a custom client code to test the [Rate Limiting](https://codersite.dev/rate-limit/){:target="_blank"} algorithm implemented at an API Server.
 
 Client application uses Spring’s RestTemplate, a synchronous client to perform HTTP requests.
 
@@ -99,6 +99,8 @@ We will simulate a more realistic scenario where client requests arrive concurre
 
 [ForkJoinPool](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html){:target="_blank"} class is an *ExecutorService* that helps speed up parallel processing by attempting to use all available processor cores.
 
+The [**Callable**](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html){:target="_blank"} interface is similar to *Runnable*, in that both are designed for classes whose instances are potentially executed by another thread. A *Runnable*, however, does not return a result and cannot throw a checked exception.
+
 ```kotlin
 public class RESTFulParallelClientsTest {
 
@@ -135,7 +137,13 @@ Suppose the API Server set up a limit of 90 requests per minute for the buyer's 
 
 With this test, you can simultaneously send thousands of requests to all your API endpoints. You can monitor your thread pool at the application server and see how the rate limit algorithm refuses all requests that exceed the rate limit quote.
 
-Please donate if you find this content valuable.
+You can design test scenarios where external clients interact with API endpoints. Then, you can detect how well the code and database functions support the functionalities behind your endpoints, especially on critical business days such as Black Fridays.
+
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
+
+Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
  <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
@@ -145,5 +153,6 @@ Please donate if you find this content valuable.
 <br/>
 
 <div>
-{%- include jediJavaInterviewAds.html -%}
+{%- include mailchimp.html -%}
 </div>
+
