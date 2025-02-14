@@ -38,7 +38,7 @@ To create an array of strings that represent objects, you could write:
 String[] objects = {"Bicycle", "Trophy", "Umbrella", "Guitar", "Hat"};
 ```
 
-When you go to the bank for a Consultation, you receive a waiting ticket with a printed image. What you see in the display is an Array. Or rather, an array-based Queue.
+When you go to the bank for a Consultation, you receive a waiting ticket with a printed image. What you see in the display is an Array of images. Or rather, an array-based Queue.
 
 ![arrays](/assets/images/arrayBank.jpg "array-based Queue"){:class="img-responsive"}
 
@@ -53,9 +53,11 @@ When your turn arrives, it is because the program retrieved an element from the 
 ![arrayElement](/assets/images/arrayElementBank.jpg "array Element"){:class="img-responsive"}
 
 
-> You should use an array when you need to store a fixed number of elements that are of the same type and size. -- <cite>codersite.dev</cite>
+> You should use an array when you need to store a fixed number of elements that are of the same type and size.
 
-
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
 -- **Linked Lists**: Consist of nodes linked together, allowing for insertion and deletion operations without affecting other elements.
 
@@ -98,59 +100,13 @@ Scenario:
 
 ![queue](/assets/images/queueDef.jpg "queue"){:class="img-responsive"}
 
-<div>
-{%- include primeVideo.html -%}
-</div>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Introduction to Algorithms, fourth edition <a href="https://t.co/d6ThijT6Za">https://t.co/d6ThijT6Za</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839040190213431745?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-As a senior application developer, you should be willing to take on complex or unfamiliar tasks, such as **working with legacy code**. For example, to instantiate a Hashtable class.
+> As a senior application developer, you should be willing to take on complex or unfamiliar tasks, such as **working with legacy code**.
 
 -- **Hash Tables**: Efficiently store and retrieve data using keys and values.
 
-Here’s an example of how to use the Hashtable class:
-
-```kotlin
-import java.util.Enumeration;
-import java.util.Hashtable;
- 
-public class HashTableUseCase {
-
-  public static void main(String[] args) {
-
-    Hashtable<Integer, String> articles = new Hashtable<>();
-
-    // Adding elements to the hashtable
-    articles.put(1, "link_article1");
-    articles.put(2, "link_article2");
-    articles.put(3, "link_article3");
-
-    // Getting values from the hashtable
-    String articleLink = articles.get(1);
-    System.out.println("Link to article: " + articleLink);
-
-    // Removing elements from the hashtable
-    articles.remove(2);
-
-    // Enumerating the elements of the hashtable
-    Enumeration<Integer> keys = articles.keys();
-    while (keys.hasMoreElements()) {
-      Integer key = keys.nextElement();
-      System.out.println("Key: " + key + ", Value: " + articles.get(key));
-    }
-  }
-}
-```
-
-Output:
-
-```kotlin
-Link to article: link_article1
-Key: 3, Value: link_article3
-Key: 1, Value: link_article1
-```
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems <a href="https://t.co/8x6quR4S8E">https://t.co/8x6quR4S8E</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839043588828610679?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-For non-threaded applications and better performance, use *Hashmap*. If synchronization becomes an issue, you may also use *ConcurrentHashMap*. Here is the same previous code but using a *Hashmap*.
+Hash table based implementation of the Map interface:
 
 ```kotlin
 import java.util.HashMap;
@@ -184,13 +140,25 @@ public class HashMapUseCase {
 }
 ```
 
-Iterating the elements of the hashMap using [lambda](https://codersite.dev/java-functional-programming/){:target="_blank"}:
+Iterating the elements of the hashMap using lambda: (See [Functional Programming](https://codersite.dev/java-functional-programming/){:target="_blank"})
 
 ```kotlin    
     articles.forEach((key, value) -> {
       System.out.println("Key: " + key + ", Value: " + value);
     });
 ```
+
+Output:
+
+```kotlin
+Link to article: link_article1
+Key: 3, Value: link_article3
+Key: 1, Value: link_article1
+```
+
+For non-threaded applications and better performance, use *Hashmap*. If synchronization becomes an issue, you may also use *ConcurrentHashMap*.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems <a href="https://t.co/8x6quR4S8E">https://t.co/8x6quR4S8E</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839043588828610679?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 -- [Trees](https://codersite.dev/tree-data-structure-binary-search-tree/){:target="_blank"}: Hierarchical structures that organize data in a tree-like pattern.
 
@@ -253,4 +221,17 @@ Data structures are fundamental building blocks in the field of computer science
 
 <div>
 {%- include softwareDesignAd1.html -%}
+</div>
+
+Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
+
+<div>
+{%- include mailchimp.html -%}
 </div>

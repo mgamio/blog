@@ -22,7 +22,7 @@ Breaking down a large web development project into tasks is essential for effect
 3.-Identify Deliverables:
 
 - List all the deliverables that need to be produced.
-- This could include design documents, codebase, user documentation, etc.
+- This could include [UML Diagrams](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"} as design documents, codebase, user documentation, etc.
 
 4.-Break Down the Project into Phases:
 
@@ -49,6 +49,8 @@ Breaking down a large web development project into tasks is essential for effect
 - Estimate the time and resources required for each task. Sometimes, a lack of enough human resources - developers - impacts your estimations.
 - Consider the skills needed for each task and allocate resources accordingly.
 
+> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+
 <div>
 {%- include softwareDesign.html -%}
 </div>
@@ -65,7 +67,7 @@ Breaking down a large web development project into tasks is essential for effect
 
 11.-Use Project Management Tools:
 
-- Utilize project management tools like Jira, Trello, or Asana to create and manage tasks.
+- Utilize project management tools like [Jira](https://www.atlassian.com/software/jira){:target="_blank"}, Trello, or Asana to create and manage tasks.
 - These tools can help with collaboration, tracking progress, and managing workflows.
 
 12.-Iterative Development:
@@ -89,3 +91,16 @@ Breaking down a large web development project into tasks is essential for effect
 - Communicate the plan to the development team, stakeholders, and any relevant parties.
 
 Breaking down a large web development project into tasks requires a combination of careful planning, collaboration, and flexibility. Regularly reassess and adjust the task breakdown as the project progresses to ensure its success.
+
+Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
+
+<div>
+{%- include mailchimp.html -%}
+</div>
