@@ -223,7 +223,7 @@ Data structures are fundamental building blocks in the field of computer science
 {%- include softwareDesignAd1.html -%}
 </div>
 
-Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
+Please support me as a writer. Your donation will help add more articles to this website. Thank you!
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
  <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
