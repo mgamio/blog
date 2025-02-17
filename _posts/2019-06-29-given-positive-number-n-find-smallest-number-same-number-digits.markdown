@@ -117,4 +117,15 @@ Similar questions you can find in my book about algorithms and [data structures]
 {%- include jediJavaInterviewAds.html -%}
 </div>
 
-<iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=DE&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=mkgv89-21&language=en_GB&marketplace=amazon&region=DE&placement=B086JCK6C4&asins=B086JCK6C4&linkId=78e646bc8bd99599b961d3e15b102848&show_border=true&link_opens_in_new_window=true"></iframe>
+Please support me as a writer. Your donation will help add more articles to this website. Thank you!
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
+
+<div>
+{%- include mailchimp.html -%}
+</div>

@@ -282,7 +282,7 @@ Hannover Dortmund Frankfurt Stuttgart Magdeburg Berlin Leipzig Dresden Nürnberg
 
 You can see as well the *Breadth-First Search* (BFS) algorithm by using an Adjacency List based on a LinkedList data structure in [Cracking the Coding Interview](https://amzn.to/3Lst26n){:target="_blank"}
 
-Please donate to maintain and improve this website if you find this content valuable.
+Please support me as a writer to maintain and improve this website if you find this content valuable. Thank you!
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
  <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
@@ -290,3 +290,7 @@ Please donate to maintain and improve this website if you find this content valu
  <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
 </form>
 <br/>
+
+<div>
+{%- include mailchimp.html -%}
+</div>
