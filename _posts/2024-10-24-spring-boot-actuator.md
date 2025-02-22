@@ -103,3 +103,7 @@ Please donate to maintain and improve this website if you find this content valu
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
+
+<div>
+{%- include mailchimp.html -%}
+</div>

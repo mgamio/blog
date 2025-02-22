@@ -10,8 +10,6 @@ comments: false
 
 Java enums, bit flags, and bitwise operations are powerful features that can greatly enhance the functionality and efficiency of your code. Understanding how to leverage these features effectively can lead to cleaner, more concise code and improved performance. In this article, we'll explore what Java enums are, how to use them, and how to combine them with bit flags and bitwise operations for advanced functionality.
 
-
-
 ## Understanding Java Enum Types
 
 Java enums are a special type of class used to represent a fixed set of constants. They allow you to define a clear and concise set of values that a variable can take. Enums provide type safety, meaning that the compiler can catch errors such as assigning an incorrect value to an enum variable at compile time rather than runtime.
@@ -90,7 +88,7 @@ By combining enums with bit flags and bitwise operations, you can create powerfu
 
 For example, A client application sends data to an external API Server that involves different internal sub-processes, which could generate errors and warnings.
 
-The Client application should be able to handle all of these potential errors and warnings simultaneously after submitting a single request.
+The [Client application](https://codersite.dev/building-rest-api-client/){:target="_blank"} should be able to handle all of these potential errors and warnings simultaneously after submitting a single request.
 
 Here's an example demonstrating how to use enums with bit flags and bitwise operations:
 
@@ -121,4 +119,17 @@ Java enums, bit flags, and bitwise operations are powerful features that can be 
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
+</div>
+
+Please support me as a writer. Your donation will help add more articles to this website. Thank you!
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
+
+<div>
+{%- include mailchimp.html -%}
 </div>

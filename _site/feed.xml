@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 17 Feb 2025 17:20:30 +0100</pubDate>
-    <lastBuildDate>Mon, 17 Feb 2025 17:20:30 +0100</lastBuildDate>
+    <pubDate>Sat, 22 Feb 2025 23:02:41 +0100</pubDate>
+    <lastBuildDate>Sat, 22 Feb 2025 23:02:41 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -463,6 +463,18 @@
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
+
+&lt;div&gt;&lt;!--&lt;div class=&quot;alertbar&quot;&gt;--&gt;
+	&lt;div class=&quot;container text-center&quot;&gt;
+		&lt;span&gt;&lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;img src=&quot;/assets/images/logo.svg&quot; height=&quot;30&quot; alt=&quot;codersite&quot; /&gt;&lt;/a&gt; &amp;nbsp; Stay Connected!. Follow me to get my latest articles.&lt;/span&gt;
+        &lt;form action=&quot;https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;amp;id=8d64d36cba&quot; method=&quot;post&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;wj-contact-form validate&quot; target=&quot;_blank&quot; novalidate=&quot;&quot;&gt;
+            &lt;div class=&quot;mc-field-group&quot;&gt;
+            &lt;input type=&quot;email&quot; placeholder=&quot;Email&quot; name=&quot;EMAIL&quot; class=&quot;required email&quot; id=&quot;mce-EMAIL&quot; autocomplete=&quot;on&quot; required=&quot;&quot; /&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; class=&quot;heart&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+	&lt;/div&gt;
+&lt;!--&lt;/div&gt;--&gt;&lt;/div&gt;
 </description>
         <pubDate>Thu, 24 Oct 2024 00:00:00 +0200</pubDate>
         <link>http://localhost:4000/spring-boot-actuator/</link>
@@ -899,6 +911,27 @@
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
+
+&lt;p&gt;Please support me as a writer. Your donation will help add more articles to this website. Thank you!&lt;/p&gt;
+
+&lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
+ &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
+ &lt;input type=&quot;image&quot; src=&quot;https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif&quot; border=&quot;0&quot; name=&quot;submit&quot; title=&quot;PayPal - The safer, easier way to pay online!&quot; alt=&quot;Donate with PayPal button&quot; /&gt;
+ &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;https://www.paypal.com/en_DE/i/scr/pixel.gif&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;
+&lt;/form&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div&gt;&lt;!--&lt;div class=&quot;alertbar&quot;&gt;--&gt;
+	&lt;div class=&quot;container text-center&quot;&gt;
+		&lt;span&gt;&lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;img src=&quot;/assets/images/logo.svg&quot; height=&quot;30&quot; alt=&quot;codersite&quot; /&gt;&lt;/a&gt; &amp;nbsp; Stay Connected!. Follow me to get my latest articles.&lt;/span&gt;
+        &lt;form action=&quot;https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;amp;id=8d64d36cba&quot; method=&quot;post&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;wj-contact-form validate&quot; target=&quot;_blank&quot; novalidate=&quot;&quot;&gt;
+            &lt;div class=&quot;mc-field-group&quot;&gt;
+            &lt;input type=&quot;email&quot; placeholder=&quot;Email&quot; name=&quot;EMAIL&quot; class=&quot;required email&quot; id=&quot;mce-EMAIL&quot; autocomplete=&quot;on&quot; required=&quot;&quot; /&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; class=&quot;heart&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+	&lt;/div&gt;
+&lt;!--&lt;/div&gt;--&gt;&lt;/div&gt;
 </description>
         <pubDate>Tue, 01 Oct 2024 00:00:00 +0200</pubDate>
         <link>http://localhost:4000/certified-professional-java-building-blocks/</link>
@@ -1030,7 +1063,7 @@
 
 &lt;p&gt;For example, A client application sends data to an external API Server that involves different internal sub-processes, which could generate errors and warnings.&lt;/p&gt;
 
-&lt;p&gt;The Client application should be able to handle all of these potential errors and warnings simultaneously after submitting a single request.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://codersite.dev/building-rest-api-client/&quot; target=&quot;_blank&quot;&gt;Client application&lt;/a&gt; should be able to handle all of these potential errors and warnings simultaneously after submitting a single request.&lt;/p&gt;
 
 &lt;p&gt;Here’s an example demonstrating how to use enums with bit flags and bitwise operations:&lt;/p&gt;
 
@@ -1077,6 +1110,27 @@
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
+
+&lt;p&gt;Please support me as a writer. Your donation will help add more articles to this website. Thank you!&lt;/p&gt;
+
+&lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
+ &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
+ &lt;input type=&quot;image&quot; src=&quot;https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif&quot; border=&quot;0&quot; name=&quot;submit&quot; title=&quot;PayPal - The safer, easier way to pay online!&quot; alt=&quot;Donate with PayPal button&quot; /&gt;
+ &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;https://www.paypal.com/en_DE/i/scr/pixel.gif&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;
+&lt;/form&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div&gt;&lt;!--&lt;div class=&quot;alertbar&quot;&gt;--&gt;
+	&lt;div class=&quot;container text-center&quot;&gt;
+		&lt;span&gt;&lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;img src=&quot;/assets/images/logo.svg&quot; height=&quot;30&quot; alt=&quot;codersite&quot; /&gt;&lt;/a&gt; &amp;nbsp; Stay Connected!. Follow me to get my latest articles.&lt;/span&gt;
+        &lt;form action=&quot;https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;amp;id=8d64d36cba&quot; method=&quot;post&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;wj-contact-form validate&quot; target=&quot;_blank&quot; novalidate=&quot;&quot;&gt;
+            &lt;div class=&quot;mc-field-group&quot;&gt;
+            &lt;input type=&quot;email&quot; placeholder=&quot;Email&quot; name=&quot;EMAIL&quot; class=&quot;required email&quot; id=&quot;mce-EMAIL&quot; autocomplete=&quot;on&quot; required=&quot;&quot; /&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; class=&quot;heart&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+	&lt;/div&gt;
+&lt;!--&lt;/div&gt;--&gt;&lt;/div&gt;
 </description>
         <pubDate>Fri, 05 Apr 2024 00:00:00 +0200</pubDate>
         <link>http://localhost:4000/enum-flags-bitwise-operators/</link>
@@ -1433,6 +1487,26 @@ Conversion of the reference type to the corresponding primitive type is called &
 
 &lt;p&gt;Understanding generics is crucial for Java developers, as they are widely used in collections, frameworks, and various libraries. By incorporating generics into your code, you can improve its readability, maintainability, and safety.&lt;/p&gt;
 
+&lt;p&gt;Please support me as a writer. Your donation will help add more articles to this website. Thank you!&lt;/p&gt;
+
+&lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
+ &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
+ &lt;input type=&quot;image&quot; src=&quot;https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif&quot; border=&quot;0&quot; name=&quot;submit&quot; title=&quot;PayPal - The safer, easier way to pay online!&quot; alt=&quot;Donate with PayPal button&quot; /&gt;
+ &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;https://www.paypal.com/en_DE/i/scr/pixel.gif&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;
+&lt;/form&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div&gt;&lt;!--&lt;div class=&quot;alertbar&quot;&gt;--&gt;
+	&lt;div class=&quot;container text-center&quot;&gt;
+		&lt;span&gt;&lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;img src=&quot;/assets/images/logo.svg&quot; height=&quot;30&quot; alt=&quot;codersite&quot; /&gt;&lt;/a&gt; &amp;nbsp; Stay Connected!. Follow me to get my latest articles.&lt;/span&gt;
+        &lt;form action=&quot;https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;amp;id=8d64d36cba&quot; method=&quot;post&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;wj-contact-form validate&quot; target=&quot;_blank&quot; novalidate=&quot;&quot;&gt;
+            &lt;div class=&quot;mc-field-group&quot;&gt;
+            &lt;input type=&quot;email&quot; placeholder=&quot;Email&quot; name=&quot;EMAIL&quot; class=&quot;required email&quot; id=&quot;mce-EMAIL&quot; autocomplete=&quot;on&quot; required=&quot;&quot; /&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; class=&quot;heart&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+	&lt;/div&gt;
+&lt;!--&lt;/div&gt;--&gt;&lt;/div&gt;
 </description>
         <pubDate>Fri, 05 Jan 2024 00:00:00 +0100</pubDate>
         <link>http://localhost:4000/java-generics/</link>
@@ -1520,7 +1594,7 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;5-streams&quot;&gt;5. Streams:&lt;/h3&gt;
-&lt;p&gt;Java introduced the Stream API to perform functional-style operations on sequences of elements. Streams enable concise and expressive code for operations like filtering, mapping, and reducing.&lt;/p&gt;
+&lt;p&gt;Java introduced the &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html&quot; target=&quot;_blank&quot;&gt;Stream API&lt;/a&gt; to perform functional-style operations on sequences of elements. Streams enable concise and expressive code for operations like filtering, mapping, and reducing.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -1552,9 +1626,30 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;p&gt;Pure functions and the ability to treat functions as first-class citizens enhance testability. Unit testing becomes more straightforward when functions are isolated and stateless.&lt;/p&gt;
 
 &lt;h2 id=&quot;challenges-and-considerations&quot;&gt;Challenges and Considerations&lt;/h2&gt;
-&lt;p&gt;While functional programming brings many advantages, it may not always be the best fit for every situation. Learning a new paradigm and applying it effectively requires time and practice. Additionally, not all problems are well-suited for a functional approach, and sometimes a hybrid of functional and object-oriented programming is the most pragmatic solution.&lt;/p&gt;
+&lt;p&gt;While functional programming brings many advantages, it may not always be the best fit for every situation. Learning a new paradigm and applying it effectively requires time and practice. Additionally, not all problems are well-suited for a functional approach, and sometimes a hybrid of functional and &lt;a href=&quot;https://codersite.dev/understanding-oop-concepts/&quot; target=&quot;_blank&quot;&gt;object-oriented programming&lt;/a&gt; is the most pragmatic solution.&lt;/p&gt;
 
 &lt;p&gt;In conclusion, Java has embraced functional programming concepts over the years, providing developers with powerful tools to write cleaner, more maintainable, and parallelizable code. By incorporating these concepts into your Java development, you can take advantage of the benefits of functional programming while building robust and scalable applications.&lt;/p&gt;
+
+&lt;p&gt;Please support me as a writer. Your donation will help add more articles to this website. Thank you!&lt;/p&gt;
+
+&lt;form action=&quot;https://www.paypal.com/donate&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
+ &lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;UF4T364RTPPMJ&quot; /&gt;
+ &lt;input type=&quot;image&quot; src=&quot;https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif&quot; border=&quot;0&quot; name=&quot;submit&quot; title=&quot;PayPal - The safer, easier way to pay online!&quot; alt=&quot;Donate with PayPal button&quot; /&gt;
+ &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;https://www.paypal.com/en_DE/i/scr/pixel.gif&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;
+&lt;/form&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div&gt;&lt;!--&lt;div class=&quot;alertbar&quot;&gt;--&gt;
+	&lt;div class=&quot;container text-center&quot;&gt;
+		&lt;span&gt;&lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;img src=&quot;/assets/images/logo.svg&quot; height=&quot;30&quot; alt=&quot;codersite&quot; /&gt;&lt;/a&gt; &amp;nbsp; Stay Connected!. Follow me to get my latest articles.&lt;/span&gt;
+        &lt;form action=&quot;https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c489e82aab00e64&amp;amp;id=8d64d36cba&quot; method=&quot;post&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;wj-contact-form validate&quot; target=&quot;_blank&quot; novalidate=&quot;&quot;&gt;
+            &lt;div class=&quot;mc-field-group&quot;&gt;
+            &lt;input type=&quot;email&quot; placeholder=&quot;Email&quot; name=&quot;EMAIL&quot; class=&quot;required email&quot; id=&quot;mce-EMAIL&quot; autocomplete=&quot;on&quot; required=&quot;&quot; /&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; class=&quot;heart&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+	&lt;/div&gt;
+&lt;!--&lt;/div&gt;--&gt;&lt;/div&gt;
 </description>
         <pubDate>Wed, 03 Jan 2024 00:00:00 +0100</pubDate>
         <link>http://localhost:4000/java-functional-programming/</link>
