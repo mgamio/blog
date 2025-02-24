@@ -27,7 +27,7 @@ To enable these  Production-ready Features, you need to add a dependency on the 
 
 We want to log all OAuth2 token requests from a new Rest API (successful and unsuccessful).
 
-The authorization grant that the API uses is [Resource Owner Password Credentials](https://codersite.dev/spring-boot-oauth2/){:target="_blank"}.
+The authorization grant that the API uses is Resource Owner Password Credentials. See [How to implement Spring Boot Security OAuth2](https://codersite.dev/spring-boot-oauth2/){:target="_blank"}.
 
 ![oauthToken](/assets/images/springOAuthToken.jpg "springOAuth"){:class="img-responsive"}
 
@@ -91,7 +91,9 @@ When the authentication process is not successful you can see in your console:
 LoginAttemptsLogger   : Login Attempt in /cloud/oauth/token Principal : codersite - AUTHENTICATION_FAILURE
 ```
 
-Please donate to maintain and improve this website if you find this content valuable.
+See [Implementing hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"} to analyze application server logs.
+
+Please support me as a writer. Your donation will help add more articles to this website. Thank you!
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
  <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
@@ -101,9 +103,11 @@ Please donate to maintain and improve this website if you find this content valu
 <br/>
 
 <div>
-{%- include jediJavaInterviewAds.html -%}
+{%- include mailchimp.html -%}
 </div>
 
+<br/>
+
 <div>
-{%- include mailchimp.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>

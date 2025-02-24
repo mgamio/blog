@@ -174,7 +174,7 @@ public final class CreateOrderRandomTest {
 }
 ```
 
-Please donate to maintain and improve this website if you find this content valuable.
+Please support me as a writer. Your donation will help add more articles to this website. Thank you!
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
  <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
