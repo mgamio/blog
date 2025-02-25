@@ -677,7 +677,7 @@ Now that you have centralized all server logs in only one cluster, you can monit
 
 Here is an example:
 
-![kibana Logs](/assets/images/kibanaLogs.jpg "kibana Logs"){:class="img-responsive"}
+![kibana Logs](/assets/images/kibanaLogs.JPG "kibana Logs"){:class="img-responsive"}
 
 
 Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
