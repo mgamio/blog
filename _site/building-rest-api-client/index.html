@@ -233,13 +233,13 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>This guide walks you through creating a client application that consumes a <a href="https://codersite.dev/rest-api-overview/" target="_blank">RESTful</a> web service (API Server).</p>
+                <p>This guide walks you through creating a client application that simultaneously consumes different endpoints from a <a href="https://codersite.dev/rest-api-overview/" target="_blank">RESTful</a> web service (API Server).</p>
 
-<p>We will build a custom client code to test the <a href="https://codersite.dev/rate-limit/" target="_blank">Rate Limiting</a> algorithm implemented at an API Server.</p>
+<p>We will build two different sub-tasks inside the client code to test the <a href="https://codersite.dev/rate-limit/" target="_blank">Rate Limiting</a> algorithm implemented at the API Server.</p>
 
 <p>Client application uses Spring’s RestTemplate, a synchronous client to perform HTTP requests.</p>
 
-<p>We want to implement several calls to different endpoints. We create an interface with only one method.</p>
+<p>To simulate multiple simultaneous calls to different endpoints, we first create an interface with a single method.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -261,7 +261,7 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>First, we consume data from the Supplier endpoint. So, we implement the above method.</p>
+<p>Secondly, we implement the <em>callEndpoint</em> method to simulate a scenario where external clients request data from a Supplier endpoint, for example.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -325,7 +325,14 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Secondly, we retrieve data from the Buyer endpoint. So, we need a new custom implementation for the <em>callEndpoint</em> method.</p>
+<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<p>Then, in the same way we implement a second sub-task to retrieve data from a Buyer endpoint.</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -375,18 +382,17 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
+<p>Note that our <em>callEndpoint</em> method does not return a value, because what we want is to display the rate limit error in our log files.</p>
 
-<p>We will simulate a more realistic scenario where client requests arrive concurrently to the API Server.</p>
+<p>Finally, to simulate concurrent API Calls from multiple endpoints simultaneously, we need an Executor service.</p>
 
 <p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html" target="_blank">ForkJoinPool</a> class is an <em>ExecutorService</em> that helps speed up parallel processing by attempting to use all available processor cores.</p>
 
 <p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html" target="_blank"><strong>Callable</strong></a> interface is similar to <em>Runnable</em>, in that both are designed for classes whose instances are potentially executed by another thread. A <em>Runnable</em>, however, does not return a result and cannot throw a checked exception.</p>
+
+<p>One advantage of callable is that we can split heavy tasks into smaller parallel ones.</p>
+
+<p>Here is the final code:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -420,16 +426,16 @@
     <span class="nc">IClientAPI</span> <span class="n">iClientAPI_suppliers</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">GetSuppliers</span><span class="p">(</span><span class="s">"&lt;here_clientId&gt;"</span><span class="p">,</span><span class="s">"&lt;here_secret&gt;"</span><span class="p">);</span>
     <span class="nc">IClientAPI</span> <span class="n">iClientAPI_buyers</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">GetBuyers</span><span class="p">(</span><span class="s">"&lt;here_other_clientId&gt;"</span><span class="p">,</span><span class="s">"&lt;here_other_secret&gt;"</span><span class="p">);</span>
 
-    <span class="nc">Callable</span><span class="p">&lt;</span><span class="nc">Void</span><span class="p">&gt;</span> <span class="n">runnableTask1</span> <span class="p">=</span> <span class="nf">runnableTask</span><span class="p">(</span><span class="n">iClientAPI_suppliers</span><span class="p">);</span>
-    <span class="nc">Callable</span><span class="p">&lt;</span><span class="nc">Void</span><span class="p">&gt;</span> <span class="n">runnableTask2</span> <span class="p">=</span> <span class="nf">runnableTask</span><span class="p">(</span><span class="n">iClientAPI_buyers</span><span class="p">);</span>
+    <span class="nc">Callable</span><span class="p">&lt;</span><span class="nc">Void</span><span class="p">&gt;</span> <span class="n">callableTask1</span> <span class="p">=</span> <span class="nf">callableTask</span><span class="p">(</span><span class="n">iClientAPI_suppliers</span><span class="p">);</span>
+    <span class="nc">Callable</span><span class="p">&lt;</span><span class="nc">Void</span><span class="p">&gt;</span> <span class="n">callableTask2</span> <span class="p">=</span> <span class="nf">callableTask</span><span class="p">(</span><span class="n">iClientAPI_buyers</span><span class="p">);</span>
 		
     <span class="nc">ForkJoinPool</span><span class="p">.</span><span class="nf">commonPool</span><span class="p">().</span><span class="nf">invokeAll</span><span class="p">(</span><span class="nf">asList</span><span class="p">(</span>
-      <span class="n">runnableTask1</span>
-     <span class="p">,</span><span class="n">runnableTask2</span>
+      <span class="n">callableTask1</span>
+     <span class="p">,</span><span class="n">callableTask2</span>
      <span class="p">));</span>
   <span class="p">}</span>
 
-  <span class="k">private</span> <span class="n">static</span> <span class="nc">Callable</span><span class="p">&lt;</span><span class="nc">Void</span><span class="p">&gt;</span> <span class="nf">runnableTask</span><span class="p">(</span><span class="nc">IClientAPI</span> <span class="n">iClientAPI</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="n">static</span> <span class="nc">Callable</span><span class="p">&lt;</span><span class="nc">Void</span><span class="p">&gt;</span> <span class="nf">callableTask</span><span class="p">(</span><span class="nc">IClientAPI</span> <span class="n">iClientAPI</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="k">return</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="p">{</span>
       <span class="n">iClientAPI</span><span class="p">.</span><span class="nf">callEndpoint</span><span class="p">();</span>
@@ -447,7 +453,7 @@
 <span class="mi">16</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mf">42.542</span> <span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="nc">INFO</span> <span class="nc">RESTFulParallelClientsTest</span> <span class="p">-</span> <span class="mi">429</span> <span class="p">{</span><span class="s">"title"</span><span class="p">:</span><span class="s">"Too many request"</span><span class="p">,</span><span class="s">"status"</span><span class="p">:</span><span class="mi">429</span><span class="p">,</span><span class="s">"detail"</span><span class="p">:</span><span class="s">"X-Rate-Limit-Retry-After-Seconds: 37"</span><span class="p">,</span><span class="s">"path"</span><span class="p">:</span><span class="s">"/v1/buyers client: codersite.dev"</span><span class="p">,</span> <span class="s">"timeStamp"</span><span class="p">:</span><span class="mi">1696428642515</span><span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>With this test, you can simultaneously send thousands of requests to all your API endpoints. You can monitor your thread pool at the application server and see how the rate limit algorithm refuses all requests that exceed the rate limit quote.</p>
+<p>With this client code, you can simultaneously send thousands of requests to all your API endpoints. You can monitor your thread pool at the application server and see how the rate limit algorithm refuses all requests that exceed the rate limit quote.</p>
 
 <p>You can design test scenarios where external clients interact with API endpoints. Then, you can detect how well the code and database functions support the functionalities behind your endpoints, especially on critical business days such as Black Fridays.</p>
 

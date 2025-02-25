@@ -8,13 +8,13 @@ image: assets/images/restApiClient.jpg
 comments: false
 ---
 
-This guide walks you through creating a client application that consumes a [RESTful](https://codersite.dev/rest-api-overview/){:target="_blank"} web service (API Server).
+This guide walks you through creating a client application that simultaneously consumes different endpoints from a [RESTful](https://codersite.dev/rest-api-overview/){:target="_blank"} web service (API Server).
 
-We will build a custom client code to test the [Rate Limiting](https://codersite.dev/rate-limit/){:target="_blank"} algorithm implemented at an API Server.
+We will build two different sub-tasks inside the client code to test the [Rate Limiting](https://codersite.dev/rate-limit/){:target="_blank"} algorithm implemented at the API Server.
 
 Client application uses Spring’s RestTemplate, a synchronous client to perform HTTP requests.
 
-We want to implement several calls to different endpoints. We create an interface with only one method.
+To simulate multiple simultaneous calls to different endpoints, we first create an interface with a single method.
 
 ```kotlin
 public interface IClientAPI {
@@ -28,7 +28,7 @@ public interface IClientAPI {
 }
 ```
 
-First, we consume data from the Supplier endpoint. So, we implement the above method.
+Secondly, we implement the *callEndpoint* method to simulate a scenario where external clients request data from a Supplier endpoint, for example.
 
 ```kotlin
 public final class GetSuppliers implements IClientAPI {
@@ -63,7 +63,11 @@ public final class GetSuppliers implements IClientAPI {
 }
 ```
 
-Secondly, we retrieve data from the Buyer endpoint. So, we need a new custom implementation for the *callEndpoint* method.
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
+Then, in the same way we implement a second sub-task to retrieve data from a Buyer endpoint.
 
 ```kotlin
 public final class GetBuyers implements IClientAPI {
@@ -91,15 +95,17 @@ public final class GetBuyers implements IClientAPI {
 }
 ```
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
+Note that our *callEndpoint* method does not return a value, because what we want is to display the rate limit error in our log files.
 
-We will simulate a more realistic scenario where client requests arrive concurrently to the API Server.
+Finally, to simulate concurrent API Calls from multiple endpoints simultaneously, we need an Executor service.
 
 [ForkJoinPool](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html){:target="_blank"} class is an *ExecutorService* that helps speed up parallel processing by attempting to use all available processor cores.
 
 The [**Callable**](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html){:target="_blank"} interface is similar to *Runnable*, in that both are designed for classes whose instances are potentially executed by another thread. A *Runnable*, however, does not return a result and cannot throw a checked exception.
+
+One advantage of callable is that we can split heavy tasks into smaller parallel ones.
+
+Here is the final code:
 
 ```kotlin
 public class RESTFulParallelClientsTest {
@@ -109,16 +115,16 @@ public class RESTFulParallelClientsTest {
     IClientAPI iClientAPI_suppliers = new GetSuppliers("<here_clientId>","<here_secret>");
     IClientAPI iClientAPI_buyers = new GetBuyers("<here_other_clientId>","<here_other_secret>");
 
-    Callable<Void> runnableTask1 = runnableTask(iClientAPI_suppliers);
-    Callable<Void> runnableTask2 = runnableTask(iClientAPI_buyers);
+    Callable<Void> callableTask1 = callableTask(iClientAPI_suppliers);
+    Callable<Void> callableTask2 = callableTask(iClientAPI_buyers);
 		
     ForkJoinPool.commonPool().invokeAll(asList(
-      runnableTask1
-     ,runnableTask2
+      callableTask1
+     ,callableTask2
      ));
   }
 
-  private static Callable<Void> runnableTask(IClientAPI iClientAPI) {
+  private static Callable<Void> callableTask(IClientAPI iClientAPI) {
 
     return () -> {
       iClientAPI.callEndpoint();
@@ -135,7 +141,7 @@ Suppose the API Server set up a limit of 90 requests per minute for the buyer's 
 16:10:42.542 [main] INFO RESTFulParallelClientsTest - 429 {"title":"Too many request","status":429,"detail":"X-Rate-Limit-Retry-After-Seconds: 37","path":"/v1/buyers client: codersite.dev", "timeStamp":1696428642515}
 ```
 
-With this test, you can simultaneously send thousands of requests to all your API endpoints. You can monitor your thread pool at the application server and see how the rate limit algorithm refuses all requests that exceed the rate limit quote.
+With this client code, you can simultaneously send thousands of requests to all your API endpoints. You can monitor your thread pool at the application server and see how the rate limit algorithm refuses all requests that exceed the rate limit quote.
 
 You can design test scenarios where external clients interact with API endpoints. Then, you can detect how well the code and database functions support the functionalities behind your endpoints, especially on critical business days such as Black Fridays.
 

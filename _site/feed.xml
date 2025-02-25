@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 24 Feb 2025 17:57:19 +0100</pubDate>
-    <lastBuildDate>Mon, 24 Feb 2025 17:57:19 +0100</lastBuildDate>
+    <pubDate>Tue, 25 Feb 2025 12:40:16 +0100</pubDate>
+    <lastBuildDate>Tue, 25 Feb 2025 12:40:16 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -2344,13 +2344,13 @@ Conversion of the reference type to the corresponding primitive type is called &
     
       <item>
         <title>Building a REST API Client</title>
-        <description>&lt;p&gt;This guide walks you through creating a client application that consumes a &lt;a href=&quot;https://codersite.dev/rest-api-overview/&quot; target=&quot;_blank&quot;&gt;RESTful&lt;/a&gt; web service (API Server).&lt;/p&gt;
+        <description>&lt;p&gt;This guide walks you through creating a client application that simultaneously consumes different endpoints from a &lt;a href=&quot;https://codersite.dev/rest-api-overview/&quot; target=&quot;_blank&quot;&gt;RESTful&lt;/a&gt; web service (API Server).&lt;/p&gt;
 
-&lt;p&gt;We will build a custom client code to test the &lt;a href=&quot;https://codersite.dev/rate-limit/&quot; target=&quot;_blank&quot;&gt;Rate Limiting&lt;/a&gt; algorithm implemented at an API Server.&lt;/p&gt;
+&lt;p&gt;We will build two different sub-tasks inside the client code to test the &lt;a href=&quot;https://codersite.dev/rate-limit/&quot; target=&quot;_blank&quot;&gt;Rate Limiting&lt;/a&gt; algorithm implemented at the API Server.&lt;/p&gt;
 
 &lt;p&gt;Client application uses Spring’s RestTemplate, a synchronous client to perform HTTP requests.&lt;/p&gt;
 
-&lt;p&gt;We want to implement several calls to different endpoints. We create an interface with only one method.&lt;/p&gt;
+&lt;p&gt;To simulate multiple simultaneous calls to different endpoints, we first create an interface with a single method.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -2372,7 +2372,7 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;First, we consume data from the Supplier endpoint. So, we implement the above method.&lt;/p&gt;
+&lt;p&gt;Secondly, we implement the &lt;em&gt;callEndpoint&lt;/em&gt; method to simulate a scenario where external clients request data from a Supplier endpoint, for example.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -2436,7 +2436,14 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Secondly, we retrieve data from the Buyer endpoint. So, we need a new custom implementation for the &lt;em&gt;callEndpoint&lt;/em&gt; method.&lt;/p&gt;
+&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+     (adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;
+&lt;br /&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, in the same way we implement a second sub-task to retrieve data from a Buyer endpoint.&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -2486,18 +2493,17 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div&gt;&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;
-&lt;br /&gt;&lt;/div&gt;
+&lt;p&gt;Note that our &lt;em&gt;callEndpoint&lt;/em&gt; method does not return a value, because what we want is to display the rate limit error in our log files.&lt;/p&gt;
 
-&lt;p&gt;We will simulate a more realistic scenario where client requests arrive concurrently to the API Server.&lt;/p&gt;
+&lt;p&gt;Finally, to simulate concurrent API Calls from multiple endpoints simultaneously, we need an Executor service.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html&quot; target=&quot;_blank&quot;&gt;ForkJoinPool&lt;/a&gt; class is an &lt;em&gt;ExecutorService&lt;/em&gt; that helps speed up parallel processing by attempting to use all available processor cores.&lt;/p&gt;
 
 &lt;p&gt;The &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Callable&lt;/strong&gt;&lt;/a&gt; interface is similar to &lt;em&gt;Runnable&lt;/em&gt;, in that both are designed for classes whose instances are potentially executed by another thread. A &lt;em&gt;Runnable&lt;/em&gt;, however, does not return a result and cannot throw a checked exception.&lt;/p&gt;
+
+&lt;p&gt;One advantage of callable is that we can split heavy tasks into smaller parallel ones.&lt;/p&gt;
+
+&lt;p&gt;Here is the final code:&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -2531,16 +2537,16 @@ Conversion of the reference type to the corresponding primitive type is called &
     &lt;span class=&quot;nc&quot;&gt;IClientAPI&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iClientAPI_suppliers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GetSuppliers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;here_clientId&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;here_secret&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;nc&quot;&gt;IClientAPI&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iClientAPI_buyers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GetBuyers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;here_other_clientId&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;here_other_secret&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
-    &lt;span class=&quot;nc&quot;&gt;Callable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;runnableTask1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;runnableTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iClientAPI_suppliers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nc&quot;&gt;Callable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;runnableTask2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;runnableTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iClientAPI_buyers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;Callable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;callableTask1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;callableTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iClientAPI_suppliers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;Callable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;callableTask2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;callableTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iClientAPI_buyers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 		
     &lt;span class=&quot;nc&quot;&gt;ForkJoinPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;commonPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;invokeAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;asList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;runnableTask1&lt;/span&gt;
-     &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;runnableTask2&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;callableTask1&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;callableTask2&lt;/span&gt;
      &lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Callable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;runnableTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IClientAPI&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iClientAPI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Callable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;callableTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IClientAPI&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iClientAPI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;iClientAPI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;callEndpoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
@@ -2558,7 +2564,7 @@ Conversion of the reference type to the corresponding primitive type is called &
 &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;42.542&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;INFO&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RESTFulParallelClientsTest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;429&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Too many request&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;429&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;detail&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;X-Rate-Limit-Retry-After-Seconds: 37&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;path&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/v1/buyers client: codersite.dev&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;timeStamp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1696428642515&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;With this test, you can simultaneously send thousands of requests to all your API endpoints. You can monitor your thread pool at the application server and see how the rate limit algorithm refuses all requests that exceed the rate limit quote.&lt;/p&gt;
+&lt;p&gt;With this client code, you can simultaneously send thousands of requests to all your API endpoints. You can monitor your thread pool at the application server and see how the rate limit algorithm refuses all requests that exceed the rate limit quote.&lt;/p&gt;
 
 &lt;p&gt;You can design test scenarios where external clients interact with API endpoints. Then, you can detect how well the code and database functions support the functionalities behind your endpoints, especially on critical business days such as Black Fridays.&lt;/p&gt;
 
