@@ -675,7 +675,12 @@ Learn [How to implement Rate Limiting](https://codersite.dev/rate-limit/){:targe
 
 Now that you have centralized all server logs in only one cluster, you can monitor or diagnose possible errors. Kibana will inform you about all application servers' errors in one unified report.
 
-Please donate if you find this content valuable.
+Here is an example:
+
+![kibana Logs](/assets/images/kibanaLogs.jpg "kibana Logs"){:class="img-responsive"}
+
+
+Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
  <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
