@@ -84,7 +84,11 @@ public class SortedList {
 
 The previous algorithm is missing how to proceed when one of the lists still contains elements not compared. Keep reading [here](https://amzn.to/3wdwVry){:target="_blank"}
 
-Please donate to maintain and improve this website if you find this content valuable.
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
+
+Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
  <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
@@ -92,3 +96,7 @@ Please donate to maintain and improve this website if you find this content valu
  <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
 </form>
 <br/>
+
+<div>
+{%- include mailchimp.html -%}
+</div>
