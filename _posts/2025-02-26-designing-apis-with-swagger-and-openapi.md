@@ -130,7 +130,7 @@ Someone who reads your API specification must understand the purpose of your par
 
 As you write the specification, documentation is automatically generated.
 
-![swaggerEditor](/assets/images/swaggerEditor.jpg "swagger Editor"){:class="img-responsive"}
+![swaggerEditor](/assets/images/swaggerEditor.JPG "swagger Editor"){:class="img-responsive"}
 
 You can use the [OpenAPI Map](https://openapi-map.apihandyman.io/){:target="_blank"} as a visual tool to navigate this specification.
 
@@ -161,7 +161,7 @@ Here is an extract of what we expect from *getSimpleInterest* operation:
 
 We have created a reference to a SimpleInterestResponse Object.
 
-![swaggerObjectResponse](/assets/images/swaggerObjectResponse.jpg "swagger Object Response"){:class="img-responsive"}
+![swaggerObjectResponse](/assets/images/swaggerObjectResponse.JPG "swagger Object Response"){:class="img-responsive"}
 
 You can execute the "Try Out" button and see an example:
 
