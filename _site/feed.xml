@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 28 Feb 2025 17:16:50 +0100</pubDate>
-    <lastBuildDate>Fri, 28 Feb 2025 17:16:50 +0100</lastBuildDate>
+    <pubDate>Mon, 03 Mar 2025 11:18:58 +0100</pubDate>
+    <lastBuildDate>Mon, 03 Mar 2025 11:18:58 +0100</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -217,7 +217,7 @@
 
 &lt;p&gt;We have created a reference to a SimpleInterestResponse Object.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerObjectResponse.jpg&quot; alt=&quot;swaggerObjectResponse&quot; title=&quot;swagger Object Response&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerObjectResponse.JPG&quot; alt=&quot;swaggerObjectResponse&quot; title=&quot;swagger Object Response&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can execute the “Try Out” button and see an example:&lt;/p&gt;
 
