@@ -41,6 +41,10 @@ Prior to the introduction of generics, classes and methods would often use Objec
 
 Generics introduce the concept of **parameterized types**, allowing you to specify the type of data (reference type) a class or method can work with. This provides compile-time type checking, reducing the likelihood of runtime errors and making your code more robust.
 
+<div>
+{%- include designingDataIntensiveApplications.html -%}
+</div>
+
 Here is how to do it in Java with generics.
 
 ```kotlin
@@ -67,10 +71,6 @@ List ints = Arrays.asList(new Integer[]{(Integer)int1, (Integer)int2, (Integer)i
 
 *Cast-iron guarantee*: the implicit *casts* added by the compilation of generics **never fail**.
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
 ## The Generic Class
 
 Let's start with a basic example of a generic class. Consider a simple **Box** class that can hold any type of object:
@@ -89,10 +89,15 @@ public class Box<T> {
 }
 ```
 
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
 In this example, the class **Box** is parameterized with a type variable **T**. The type variable is a placeholder for the actual data type that will be specified when an instance of the class is created. You can create a **Box** for different types, such as Box<<Integer>>, Box<<String>>, or any other class or interface.
 
 ```kotlin
 Box<Integer> integerBox = new Box<>(42);
+Box<Article> articleBox = new Box<>(article);
 Box<String> stringBox = new Box<>("Hello, Generics!");
 ```
 
