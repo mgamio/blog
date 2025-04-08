@@ -169,6 +169,14 @@ You can execute the "Try Out" button and see an example:
 
 Here you can see the API specification: [apifinance/v1](https://app.swaggerhub.com/apis/MGAMIO/apifinance/v1){:target="_blank"}
 
+## Notes
+
+- The OpenAPI Specification will be the official reference point to understand the final requirements from your users.
+
+- From the OpenAPI Specification, you proceed to design and implement all software components required.
+
+- Any changes to your implementation code must be updated in the OpenAPI Specification and vice versa.
+
 But what we need is a real implementation of this API specification. In my next article, I will explain the Codegen utility to export this specification to Java code.
 
 <div>
