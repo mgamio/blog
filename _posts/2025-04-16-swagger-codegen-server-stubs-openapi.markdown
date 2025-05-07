@@ -1,0 +1,128 @@
+---
+layout: post
+title:  "Swagger Codegen: Moving from design to API development"
+description: "Swagger Codegen can simplify your build process by generating server stubs and client SDKs for any API, defined with the OpenAPI"
+author: moises
+categories: [ Web APIs ]
+image: assets/images/swaggerCodegen.jpg
+comments: false
+---
+
+Swagger Codegen can simplify your build process by generating server stubs and client SDKs for any API, defined with the OpenAPI.
+
+Once you have learned how to [design APIs with Swagger and OpenAPI](https://codersite.dev/designing-apis-with-swagger-and-openapi/){:target="_blank"}, we will proceed to generate the stub code for a [RESTful web service](https://codersite.dev/rest-api-overview/){:target="_blank"} with Spring.
+
+In programming, a stub is an incomplete method. It already has the interface of the final method, but it doesn’t yet perform the full functionality. Instead, it returns “mock” or “dummy” data. 
+
+## Generating the backend
+
+1. Open your OpenAPI file ([apifinance/v1](https://app.swaggerhub.com/apis/MGAMIO/apifinance/v1){:target="_blank"}) in Swagger Editor.
+
+2. Click **Codegen** -> **Server Stub** in the menu bar. Swagger Editor will show you the backend technologies for which it can build code.
+
+3. Click **spring**. Within seconds, your browser will prompt you to download a zip file.
+
+4. Save the file on your drive.
+
+5. Extract the zip file into a directory.
+
+6. Open the directory in a code editor or IDE, such as Intellij IDEA.
+
+By default swagger codegen creates a springBoot project with Maven. Let's see the project structure:
+
+![swaggerSpringBoot](/assets/images/swaggerSpringBoot.JPG "swagger SpringBoot"){:class="img-responsive"}
+
+The underlying library integrating swagger to SpringBoot is [springdoc-openapi](https://github.com/springdoc/springdoc-openapi){:target="_blank"}.
+
+<div>
+{%- include designingAPIsWithSwaggerAndOpenAPI.html -%}
+</div>
+
+We typically use a backend composed of controllers and services in many projects.
+
+The *TimeValueOfMoneyApiController* class that implements *TimeValueOfMoneyApi* interface contains dummy data - NOT_IMPLEMENTED.
+
+```kotlin
+public class TimeValueOfMoneyApiController implements TimeValueOfMoneyApi {
+
+  private static final Logger log = LoggerFactory.getLogger(TimeValueOfMoneyApiController.class);
+
+  private final ObjectMapper objectMapper;
+
+  private final HttpServletRequest request;
+
+  @org.springframework.beans.factory.annotation.Autowired
+  public TimeValueOfMoneyApiController(ObjectMapper objectMapper, HttpServletRequest request) {
+    this.objectMapper = objectMapper;
+    this.request = request;
+  }
+
+  public ResponseEntity<SimpleInterestResponse> getSimpleInterest(
+    BigDecimal principal,
+    BigDecimal interestRate,
+    BigDecimal time,
+    String unitOfTime,
+    BigDecimal yearCountConvention) {
+    String accept = request.getHeader("Accept");
+    if (accept != null && accept.contains("application/json")) {
+      try {
+        return new ResponseEntity<SimpleInterestResponse>(
+        objectMapper.readValue("{\n  \"simpleInterest\" : 0\n}",
+        SimpleInterestResponse.class), HttpStatus.NOT_IMPLEMENTED);
+      } catch (IOException e) {
+        log.error("Couldn't serialize response for content type application/json", e);
+        return new ResponseEntity<SimpleInterestResponse>(HttpStatus.INTERNAL_SERVER_ERROR);
+      }
+    }
+    return new ResponseEntity<SimpleInterestResponse>(HttpStatus.NOT_IMPLEMENTED);
+  }
+}
+```
+
+The functionality of the application resides in services that the controllers can call as needed, but at the moment are not implemented.
+
+Let's run the **main** method of the *Swagger2SpringBoot* class. The Apache Tomcat WebServer is embedded.
+
+```kotlin
+INFO 20364 --- [           main] io.swagger.Swagger2SpringBoot            : Starting Swagger2SpringBoot
+INFO 20364 --- [           main] io.swagger.Swagger2SpringBoot            : No active profile set, falling back to default profiles: default
+INFO 20364 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+INFO 20364 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+INFO 20364 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+INFO 20364 --- [           main] o.a.c.c.C.[.[.[/MGAMIO/apifinance/v1]    : Initializing Spring embedded WebApplicationContext
+INFO 20364 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6680 ms
+INFO 20364 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+INFO 20364 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/MGAMIO/apifinance/v1'
+INFO 20364 --- [           main] io.swagger.Swagger2SpringBoot            : Started Swagger2SpringBoot in 11.265 seconds (JVM running for 12.701)
+INFO 20364 --- [nio-8080-exec-2] o.a.c.c.C.[.[.[/MGAMIO/apifinance/v1]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO 20364 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+INFO 20364 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 19 ms
+INFO 20364 --- [nio-8080-exec-3] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 2071 ms
+```
+
+<div>
+{%- include softwareDesign.html -%}
+</div>
+
+You can view the api documentation in swagger-ui by pointing to:
+
+http://localhost:8080/MGAMIO/apifinance/v1
+
+![swaggerSpringBootDeployed](/assets/images/swaggerSpringBootDeployed.JPG "swagger SpringBoot Deployed"){:class="img-responsive"}
+
+## Summary
+
+Swagger Codegen takes an OpenAPI definition and converts it into client-side or server-side code in various languages. In the case of server-side code generation, the generated code constitutes a complete application with a framework based on controllers and services. It contains snippets with mock data, so it can execute immediately. The blanks need to be filled with the application's business logic, such as retrieving data from a database.
+
+Please support me as a writer. Your donation will help add more articles to this website. Thank you!
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+ <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
+ <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+ <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+<br/>
+
+<div>
+{%- include mailchimp.html -%}
+</div>
