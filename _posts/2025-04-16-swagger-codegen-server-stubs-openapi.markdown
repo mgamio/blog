@@ -16,7 +16,7 @@ In programming, a stub is an incomplete method. It already has the interface of 
 
 ## Generating the backend
 
-1. Open your OpenAPI file ([apifinance/v1](https://app.swaggerhub.com/apis/MGAMIO/apifinance/v1){:target="_blank"}) in Swagger Editor.
+1. Open your OpenAPI file ([apifinance](https://github.com/mgamio/openapi/blob/main/ch01/apifinance.yaml){:target="_blank"}) in [Swagger Editor](https://swagger.io/tools/swagger-editor/){:target="_blank"}.
 
 2. Click **Codegen** -> **Server Stub** in the menu bar. Swagger Editor will show you the backend technologies for which it can build code.
 
@@ -109,6 +109,10 @@ You can view the api documentation in swagger-ui by pointing to:
 http://localhost:8080/MGAMIO/apifinance/v1
 
 ![swaggerSpringBootDeployed](/assets/images/swaggerSpringBootDeployed.JPG "swagger SpringBoot Deployed"){:class="img-responsive"}
+
+Here is the exported code from codegen:
+
+[codegen github](https://github.com/mgamio/openapi/tree/9dbe77c86407a76dd1e11a267d262eb2a729b977/ch01/spring-server-generated){:target="_blank"}
 
 ## Summary
 

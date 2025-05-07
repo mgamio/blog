@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 07 May 2025 12:52:37 +0200</pubDate>
-    <lastBuildDate>Wed, 07 May 2025 12:52:37 +0200</lastBuildDate>
+    <pubDate>Wed, 07 May 2025 15:14:01 +0200</pubDate>
+    <lastBuildDate>Wed, 07 May 2025 15:14:01 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -21,7 +21,7 @@
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;Open your OpenAPI file (&lt;a href=&quot;https://app.swaggerhub.com/apis/MGAMIO/apifinance/v1&quot; target=&quot;_blank&quot;&gt;apifinance/v1&lt;/a&gt;) in Swagger Editor.&lt;/p&gt;
+    &lt;p&gt;Open your OpenAPI file (&lt;a href=&quot;https://github.com/mgamio/openapi/blob/main/ch01/apifinance.yaml&quot; target=&quot;_blank&quot;&gt;apifinance&lt;/a&gt;) in &lt;a href=&quot;https://swagger.io/tools/swagger-editor/&quot; target=&quot;_blank&quot;&gt;Swagger Editor&lt;/a&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Click &lt;strong&gt;Codegen&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Server Stub&lt;/strong&gt; in the menu bar. Swagger Editor will show you the backend technologies for which it can build code.&lt;/p&gt;
@@ -171,6 +171,10 @@
 &lt;p&gt;http://localhost:8080/MGAMIO/apifinance/v1&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/swaggerSpringBootDeployed.JPG&quot; alt=&quot;swaggerSpringBootDeployed&quot; title=&quot;swagger SpringBoot Deployed&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is the exported code from codegen:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/mgamio/openapi/tree/9dbe77c86407a76dd1e11a267d262eb2a729b977/ch01/spring-server-generated&quot; target=&quot;_blank&quot;&gt;codegen github&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 
