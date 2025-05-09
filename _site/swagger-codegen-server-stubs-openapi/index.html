@@ -398,6 +398,28 @@
 
 <p><a href="https://github.com/mgamio/openapi/tree/9dbe77c86407a76dd1e11a267d262eb2a729b977/ch01/spring-server-generated" target="_blank">codegen github</a></p>
 
+<h2 id="using-swagger-codegen-project">Using Swagger Codegen project</h2>
+
+<p>At the moment to write this article is not possible to use codegen from Swagger Editor anymore. You need to upgrade your license.</p>
+
+<p>But we can generate the stub code with swagger codegen open project</p>
+
+<ol>
+  <li>
+    <p>git clone https://github.com/swagger-api/swagger-codegen</p>
+  </li>
+  <li>
+    <p>cd swagger-codegen</p>
+  </li>
+  <li>
+    <p>mvn clean package (at least maven vesion 3.7)</p>
+  </li>
+</ol>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="mi">4</span><span class="p">.</span> <span class="n">java</span> <span class="p">-</span><span class="n">jar</span> <span class="n">modules</span><span class="p">/</span><span class="n">swagger-codegen-cli</span><span class="p">/</span><span class="n">target</span><span class="p">/</span><span class="n">swagger-codegen-cli</span><span class="p">.</span><span class="n">jar</span> <span class="n">generate</span> <span class="p">-</span><span class="n">i</span> <span class="n">https</span><span class="p">:</span><span class="c1">//petstore.swagger.io/v2/swagger.json -l spring -o samples/server/petstore/springboot</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <h2 id="summary">Summary</h2>
 
 <p>Swagger Codegen takes an OpenAPI definition and converts it into client-side or server-side code in various languages. In the case of server-side code generation, the generated code constitutes a complete application with a framework based on controllers and services. It contains snippets with mock data, so it can execute immediately. The blanks need to be filled with the application’s business logic, such as retrieving data from a database.</p>

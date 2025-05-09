@@ -114,6 +114,22 @@ Here is the exported code from codegen:
 
 [codegen github](https://github.com/mgamio/openapi/tree/9dbe77c86407a76dd1e11a267d262eb2a729b977/ch01/spring-server-generated){:target="_blank"}
 
+## Using Swagger Codegen project
+
+At the moment to write this article is not possible to use codegen from Swagger Editor anymore. You need to upgrade your license.
+
+But we can generate the stub code with swagger codegen open project
+
+1. git clone https://github.com/swagger-api/swagger-codegen
+
+2. cd swagger-codegen
+
+3. mvn clean package (at least maven vesion 3.7)
+
+```kotlin
+4. java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate -i https://petstore.swagger.io/v2/swagger.json -l spring -o samples/server/petstore/springboot
+```
+
 ## Summary
 
 Swagger Codegen takes an OpenAPI definition and converts it into client-side or server-side code in various languages. In the case of server-side code generation, the generated code constitutes a complete application with a framework based on controllers and services. It contains snippets with mock data, so it can execute immediately. The blanks need to be filled with the application's business logic, such as retrieving data from a database.
