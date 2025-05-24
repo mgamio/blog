@@ -18,7 +18,7 @@ A **HashMap** is a data structure that stores key-value pairs, enabling efficien
 
 We have an [RESTful API](https://codersite.dev/rest-api-overview/){:target="_blank"} endpoint to retrieve a list of orders placed by a given buyer.
 
-![getOrdersByBuyer](/assets/images/getOrdersByBuyer.jpg "get Orders By Buyer"){:class="img-responsive"}
+![getOrdersByBuyer](/assets/images/getOrdersByBuyer.JPG "get Orders By Buyer"){:class="img-responsive"}
 
 The response includes different kind of addresses per order as you see in the following schema:
 
