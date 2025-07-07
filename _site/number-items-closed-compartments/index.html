@@ -306,15 +306,10 @@
   <li>For each (start, end) pair, return the number of ‘*’ characters that are inside closed compartments — i.e., between matched ‘|’ characters.</li>
 </ul>
 
-<h3 id="key-observations">Key Observations</h3>
+<h3 id="key-observation">Key Observation</h3>
 
 <ul>
-  <li>
-    <p>Items outside of compartment boundaries (not between ‘|’s) do not count.</p>
-  </li>
-  <li>
-    <p>Each query should look only inside the specified substring.</p>
-  </li>
+  <li>Items outside of compartment boundaries (not between ‘|’s) do not count.</li>
 </ul>
 
 <h2 id="brute-force-algorithm">Brute Force Algorithm</h2>
@@ -418,6 +413,8 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Each query looks only inside the specified substring, but doing this for every query from scratch could be too slow (O(n × q)), or even quadratic O(n<sup>2</sup>). See <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Big O Notation</a>.</p>
 
 <blockquote>
   <p>The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons.. – <cite>codersite.dev</cite></p>

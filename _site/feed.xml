@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 05 Jul 2025 20:04:52 +0200</pubDate>
-    <lastBuildDate>Sat, 05 Jul 2025 20:04:52 +0200</lastBuildDate>
+    <pubDate>Tue, 08 Jul 2025 01:10:17 +0200</pubDate>
+    <lastBuildDate>Tue, 08 Jul 2025 01:10:17 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -84,15 +84,10 @@
   &lt;li&gt;For each (start, end) pair, return the number of ‘*’ characters that are inside closed compartments — i.e., between matched ‘|’ characters.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;key-observations&quot;&gt;Key Observations&lt;/h3&gt;
+&lt;h3 id=&quot;key-observation&quot;&gt;Key Observation&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Items outside of compartment boundaries (not between ‘|’s) do not count.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Each query should look only inside the specified substring.&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Items outside of compartment boundaries (not between ‘|’s) do not count.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;brute-force-algorithm&quot;&gt;Brute Force Algorithm&lt;/h2&gt;
@@ -196,6 +191,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Each query looks only inside the specified substring, but doing this for every query from scratch could be too slow (O(n × q)), or even quadratic O(n&lt;sup&gt;2&lt;/sup&gt;). See &lt;a href=&quot;https://codersite.dev/big-o-notation-analysis-of-algorithms/&quot; target=&quot;_blank&quot;&gt;Big O Notation&lt;/a&gt;.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons.. – &lt;cite&gt;codersite.dev&lt;/cite&gt;&lt;/p&gt;

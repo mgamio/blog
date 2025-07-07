@@ -63,11 +63,9 @@ Goal:
 - For each (start, end) pair, return the number of '\*' characters that are inside closed compartments — i.e., between matched '\|' characters.
 
 
-### Key Observations
+### Key Observation
 
 - Items outside of compartment boundaries (not between '\|'s) do not count.
-
-- Each query should look only inside the specified substring.
 
 
 ## Brute Force Algorithm
@@ -128,6 +126,8 @@ public class ACMEInventory {
   }
 }
 ```
+
+Each query looks only inside the specified substring, but doing this for every query from scratch could be too slow (O(n × q)), or even quadratic O(n<sup>2</sup>). See [Big O Notation](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"}.
 
 > The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons.. -- <cite>codersite.dev</cite>
 
