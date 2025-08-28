@@ -12,13 +12,13 @@ In this series of articles, we will follow a real API project from concept to pr
 
 The [OpenAPI Specification](https://www.openapis.org/){:target="_blank"} (OAS) enables business knowledge transfer from API provider to API consumer. It is an open standard for describing your APIs, allowing you to provide an API specification encoded in a JSON or YAML document.
 
-This allows customers and developers to understand how an [RESTful API](https://codersite.dev/rest-api-overview/){:target="_blank"} works, how a sequence of APIs work together, generate client code, generate server stub, create tests, apply design standards, what are the expected results, and much, much more.
+This allows customers and developers to understand how a [RESTful API](https://codersite.dev/rest-api-overview/){:target="_blank"} works, how a sequence of APIs work together, generate client code, generate server stub, create tests, apply design standards, what are the expected results, and much, much more.
 
-[SwaggerHub](https://swagger.io/tools/swaggerhub/){:target="_blank"} is an online platform where you can design your APIs – be it public APIs, internal private APIs or microservices. The core principle behind SwaggerHub is Design First, Code Later.
+[SwaggerHub](https://swagger.io/tools/swaggerhub/){:target="_blank"} is an online platform where you can design your APIs – be it public APIs, internal private APIs, or microservices. The core principle behind SwaggerHub is Design First, Code Later.
 
 **Design-First Approach**. A design-first approach means planning your APIs in detail before any code is written.
 
-Using SwaggerHub you can design fast and generate documentation automatically with the OpenAPI specification.
+Using SwaggerHub, you can design fast and generate documentation automatically with the OpenAPI specification.
 
 ## Requirement
 
@@ -32,7 +32,7 @@ APIs should be designed from the perspective of the consumer and consider the re
 
 ## Getting Started with OpenAPI Specification
 
-Once you have created a Free Account in the [Swagger editor](https://swagger.io/api-hub/){:target="_blank"}, sign in on the tool and choose "Create API".
+Once you have created a Free Account in the [Swagger editor](https://swagger.io/api-hub/){:target="_blank"}, sign in to the tool and choose "Create API".
 
 ![swaggerCreateAPI](/assets/images/swaggerCreateAPI.jpg "swagger OpenAPI"){:class="img-responsive"}
 
@@ -52,7 +52,7 @@ By default, it includes the following minimal fields:
 
 **info**: Provides metadata about the API (such as title, description, version, and contact information).
 
-**paths**: Holds the relative paths to the individual endpoints and their parameters and all possible server responses.
+**paths**: Holds the relative paths to the individual endpoints and their parameters, and all possible server responses.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
@@ -140,7 +140,7 @@ You can use the [OpenAPI Map](https://openapi-map.apihandyman.io/){:target="_bla
 
 **content**: A map containing descriptions of potential response payloads.
 
-Here is an extract of what we expect from *getSimpleInterest* operation:
+Here is an extract of what we expect from the *getSimpleInterest* operation:
 
 ```kotlin
       responses:

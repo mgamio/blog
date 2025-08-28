@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Jul 2025 01:10:17 +0200</pubDate>
-    <lastBuildDate>Tue, 08 Jul 2025 01:10:17 +0200</lastBuildDate>
+    <pubDate>Thu, 28 Aug 2025 19:53:36 +0200</pubDate>
+    <lastBuildDate>Thu, 28 Aug 2025 19:53:36 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -1303,13 +1303,13 @@
 
 &lt;p&gt;The &lt;a href=&quot;https://www.openapis.org/&quot; target=&quot;_blank&quot;&gt;OpenAPI Specification&lt;/a&gt; (OAS) enables business knowledge transfer from API provider to API consumer. It is an open standard for describing your APIs, allowing you to provide an API specification encoded in a JSON or YAML document.&lt;/p&gt;
 
-&lt;p&gt;This allows customers and developers to understand how an &lt;a href=&quot;https://codersite.dev/rest-api-overview/&quot; target=&quot;_blank&quot;&gt;RESTful API&lt;/a&gt; works, how a sequence of APIs work together, generate client code, generate server stub, create tests, apply design standards, what are the expected results, and much, much more.&lt;/p&gt;
+&lt;p&gt;This allows customers and developers to understand how a &lt;a href=&quot;https://codersite.dev/rest-api-overview/&quot; target=&quot;_blank&quot;&gt;RESTful API&lt;/a&gt; works, how a sequence of APIs work together, generate client code, generate server stub, create tests, apply design standards, what are the expected results, and much, much more.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://swagger.io/tools/swaggerhub/&quot; target=&quot;_blank&quot;&gt;SwaggerHub&lt;/a&gt; is an online platform where you can design your APIs – be it public APIs, internal private APIs or microservices. The core principle behind SwaggerHub is Design First, Code Later.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://swagger.io/tools/swaggerhub/&quot; target=&quot;_blank&quot;&gt;SwaggerHub&lt;/a&gt; is an online platform where you can design your APIs – be it public APIs, internal private APIs, or microservices. The core principle behind SwaggerHub is Design First, Code Later.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Design-First Approach&lt;/strong&gt;. A design-first approach means planning your APIs in detail before any code is written.&lt;/p&gt;
 
-&lt;p&gt;Using SwaggerHub you can design fast and generate documentation automatically with the OpenAPI specification.&lt;/p&gt;
+&lt;p&gt;Using SwaggerHub, you can design fast and generate documentation automatically with the OpenAPI specification.&lt;/p&gt;
 
 &lt;h2 id=&quot;requirement&quot;&gt;Requirement&lt;/h2&gt;
 
@@ -1325,7 +1325,7 @@
 
 &lt;h2 id=&quot;getting-started-with-openapi-specification&quot;&gt;Getting Started with OpenAPI Specification&lt;/h2&gt;
 
-&lt;p&gt;Once you have created a Free Account in the &lt;a href=&quot;https://swagger.io/api-hub/&quot; target=&quot;_blank&quot;&gt;Swagger editor&lt;/a&gt;, sign in on the tool and choose “Create API”.&lt;/p&gt;
+&lt;p&gt;Once you have created a Free Account in the &lt;a href=&quot;https://swagger.io/api-hub/&quot; target=&quot;_blank&quot;&gt;Swagger editor&lt;/a&gt;, sign in to the tool and choose “Create API”.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/swaggerCreateAPI.jpg&quot; alt=&quot;swaggerCreateAPI&quot; title=&quot;swagger OpenAPI&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
@@ -1345,7 +1345,7 @@
 
 &lt;p&gt;&lt;strong&gt;info&lt;/strong&gt;: Provides metadata about the API (such as title, description, version, and contact information).&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;paths&lt;/strong&gt;: Holds the relative paths to the individual endpoints and their parameters and all possible server responses.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;paths&lt;/strong&gt;: Holds the relative paths to the individual endpoints and their parameters, and all possible server responses.&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
   &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/adsJavaInterview1.jpg&quot; /&gt;&lt;/a&gt;
@@ -1471,7 +1471,7 @@
 
 &lt;p&gt;&lt;strong&gt;content&lt;/strong&gt;: A map containing descriptions of potential response payloads.&lt;/p&gt;
 
-&lt;p&gt;Here is an extract of what we expect from &lt;em&gt;getSimpleInterest&lt;/em&gt; operation:&lt;/p&gt;
+&lt;p&gt;Here is an extract of what we expect from the &lt;em&gt;getSimpleInterest&lt;/em&gt; operation:&lt;/p&gt;
 
 &lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
