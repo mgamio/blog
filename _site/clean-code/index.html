@@ -865,7 +865,43 @@
 <span class="nc">ACMEServiceClient</span><span class="p">.</span><span class="nf">logout</span><span class="p">();</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Applications of clean code:</p>
+<h2 id="include-constants-to-avoid-deprecated-libraries">Include Constants to avoid deprecated libraries</h2>
+
+<p>We have the following scenario: we migrate an XYZ application to a new application server, and suddenly we realize that a library belonging to our current application server is no longer supported.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="nn">org.apache.axis.transport.http.HTTPConstants;</span>
+
+<span class="c1">// We try to manipulate a request</span>
+<span class="nc">HttpServletRequest</span> <span class="n">httpServletRequest</span> <span class="p">=</span> <span class="p">(</span><span class="nc">HttpServletRequest</span><span class="p">)</span><span class="n">context</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="nc">HTTPConstants</span><span class="p">.</span><span class="nc">MC_HTTP_SERVLETREQUEST</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We put a lot of effort into finding a compatible version of the org.apache.axis library.</p>
+
+<p>We realized that our code only uses this MC_HTTP_SERVLETREQUEST constant from the whole library, and it also returns the following value:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="s">"transport.http.servletRequest"</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Well, an easy solution is to declare a local constant for the project.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">static</span> <span class="k">final</span> <span class="nc">String</span> <span class="nc">HTTPConstants_MC_HTTP_SERVLETREQUEST</span> <span class="p">=</span> <span class="s">"transport.http.servletRequest"</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Then, we can refactor our original code:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">HttpServletRequest</span> <span class="n">httpServletRequest</span> <span class="p">=</span> <span class="p">(</span><span class="nc">HttpServletRequest</span><span class="p">)</span><span class="n">context</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="nc">HTTPConstants_MC_HTTP_SERVLETREQUEST</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>And we can remove the old library from the project.</p>
+
+<p><strong>Applications of clean code</strong>:</p>
 
 <ul>
   <li>Refactoring techniques for improving code cleanliness</li>

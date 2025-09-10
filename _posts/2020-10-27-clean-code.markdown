@@ -454,7 +454,40 @@ if (process.equals("events")) {
 ACMEServiceClient.logout();
 ```
  
-Applications of clean code:
+## Include Constants to avoid deprecated libraries
+
+We have the following scenario: we migrate an XYZ application to a new application server, and suddenly we realize that a library belonging to our current application server is no longer supported.
+
+```kotlin
+import org.apache.axis.transport.http.HTTPConstants;
+
+// We try to manipulate a request
+HttpServletRequest httpServletRequest = (HttpServletRequest)context.get(HTTPConstants.MC_HTTP_SERVLETREQUEST);
+```
+
+We put a lot of effort into finding a compatible version of the org.apache.axis library.
+
+We realized that our code only uses this MC_HTTP_SERVLETREQUEST constant from the whole library, and it also returns the following value:
+
+```kotlin
+"transport.http.servletRequest"
+```
+
+Well, an easy solution is to declare a local constant for the project.
+
+```kotlin
+public static final String HTTPConstants_MC_HTTP_SERVLETREQUEST = "transport.http.servletRequest";
+```
+
+Then, we can refactor our original code:
+
+```kotlin
+HttpServletRequest httpServletRequest = (HttpServletRequest)context.get(HTTPConstants_MC_HTTP_SERVLETREQUEST);
+```
+
+And we can remove the old library from the project.
+
+**Applications of clean code**:
 
 * Refactoring techniques for improving code cleanliness
 * Achieving maintainability through clean code practices
