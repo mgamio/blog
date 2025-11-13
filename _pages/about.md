@@ -55,7 +55,7 @@ comments: false
 
       <a href="https://amzn.to/3Pppk2z" target="_blank"><img class="card-img-top" alt="design" border="0" src="../assets/images/book.jpg" ></a>
 
-      <p>“Stop losing interviews because you can’t master algorithms: learn to solve problems like top engineers do.”</p>
+      <p>Stop losing interviews because you can’t master algorithms: learn to solve problems like top engineers do.</p>
 
 	  <center><a target="_blank" href="https://amzn.to/3Pppk2z" class="btn btn-danger">I want this</a></center>
 
@@ -63,7 +63,7 @@ comments: false
 
       <a href="https://amzn.to/3AucVBA" target="_blank"><img class="card-img-top" alt="design" border="0" src="../assets/images/SoftwareDesignPortadaJPG.jpg" ></a>
 
-      <p>“Real-world examples, diagrams, and explanations that make complex systems simple.”</p>
+      <p>Real-world examples, diagrams, and explanations that make complex systems simple.</p>
 	  <center><a target="_blank" href="https://amzn.to/3AucVBA" class="btn btn-danger">I want this</a></center>
 
     </div>
