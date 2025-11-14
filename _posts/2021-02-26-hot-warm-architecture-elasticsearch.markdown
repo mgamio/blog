@@ -682,9 +682,11 @@ Here is an example:
 
 Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 
-<form action="https://www.paypal.com/donate" method="post" target="_top">
- <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
- <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
- <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
-</form>
-<br/>
+<iframe
+    src="https://www.paypal.com/giving/campaigns?campaign_id=SR3NH5R4FNH8Q"
+    title="PayPal donate campaign card"
+    frameborder="0"
+    width=382
+    height=550
+    scrolling="no"
+></iframe>
