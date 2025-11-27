@@ -434,6 +434,44 @@ public boolean validateAddress(Address address) {
 }
 ```
 
+## Destructure objects and arrays
+
+When you define a function that accepts an array as a parameter, and then decode every element ...
+
+```kotlin
+public ListOrdersResponse listOrders(String[] values) throws Exception {
+  Integer buyerId = Integer.valueOf(values[0]);
+  Integer supplierId = Integer.valueOf(values[1]);
+  LocalDate orderDateFrom = LocalDate.parse(values[2]);
+  LocalDate orderDateTo = LocalDate.parse(values[3]);
+  String sortBy = values[4];
+  String sortOrder = values[5];
+  Integer offset = Integer.valueOf(values[6]);
+  Integer limit = Integer.valueOf(values[7]);
+  
+  //code omitted for brevity
+}
+```
+
+Extract values directly into variables for easier access and more readable parameter handling.
+
+```kotlin
+public ListOrdersResponse listOrders(
+  Integer buyerId,
+  Integer supplierId, 
+  LocalDate orderDateFrom, 
+  LocalDate orderDateTo,
+  String sortBy, 
+  String sortOrder, 
+  Integer offset, 
+  Integer limit) throws Exception {
+  
+  //code omitted for brevity  
+}
+```
+
+			
+
 ## Clean Code tells a story
 
 When we try to fix bugs, when analyzing the secuence of actions (functions, methods), we realize the code does not communicate well the logical flow of these actions. It’s a nightmare to decode the meaning of these actions.

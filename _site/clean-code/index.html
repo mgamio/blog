@@ -835,6 +835,64 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h2 id="destructure-objects-and-arrays">Destructure objects and arrays</h2>
+
+<p>When you define a function that accepts an array as a parameter, and then decode every element …</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="nc">ListOrdersResponse</span> <span class="nf">listOrders</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">values</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+  <span class="nc">Integer</span> <span class="n">buyerId</span> <span class="p">=</span> <span class="nc">Integer</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+  <span class="nc">Integer</span> <span class="n">supplierId</span> <span class="p">=</span> <span class="nc">Integer</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+  <span class="nc">LocalDate</span> <span class="n">orderDateFrom</span> <span class="p">=</span> <span class="nc">LocalDate</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+  <span class="nc">LocalDate</span> <span class="n">orderDateTo</span> <span class="p">=</span> <span class="nc">LocalDate</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+  <span class="nc">String</span> <span class="n">sortBy</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+  <span class="nc">String</span> <span class="n">sortOrder</span> <span class="p">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+  <span class="nc">Integer</span> <span class="n">offset</span> <span class="p">=</span> <span class="nc">Integer</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">]);</span>
+  <span class="nc">Integer</span> <span class="n">limit</span> <span class="p">=</span> <span class="nc">Integer</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">7</span><span class="p">]);</span>
+  
+  <span class="c1">//code omitted for brevity</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Extract values directly into variables for easier access and more readable parameter handling.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="nc">ListOrdersResponse</span> <span class="nf">listOrders</span><span class="p">(</span>
+  <span class="nc">Integer</span> <span class="n">buyerId</span><span class="p">,</span>
+  <span class="nc">Integer</span> <span class="n">supplierId</span><span class="p">,</span> 
+  <span class="nc">LocalDate</span> <span class="n">orderDateFrom</span><span class="p">,</span> 
+  <span class="nc">LocalDate</span> <span class="n">orderDateTo</span><span class="p">,</span>
+  <span class="nc">String</span> <span class="n">sortBy</span><span class="p">,</span> 
+  <span class="nc">String</span> <span class="n">sortOrder</span><span class="p">,</span> 
+  <span class="nc">Integer</span> <span class="n">offset</span><span class="p">,</span> 
+  <span class="nc">Integer</span> <span class="n">limit</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
+  
+  <span class="c1">//code omitted for brevity  </span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <h2 id="clean-code-tells-a-story">Clean Code tells a story</h2>
 
 <p>When we try to fix bugs, when analyzing the secuence of actions (functions, methods), we realize the code does not communicate well the logical flow of these actions. It’s a nightmare to decode the meaning of these actions.</p>
