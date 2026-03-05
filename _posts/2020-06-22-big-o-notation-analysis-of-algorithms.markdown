@@ -35,7 +35,7 @@ Both terms depend on the input size, the number of items in the input. Both term
 - Worst-case analysis or Big O Notation O(n): Gives us an upper bound on the runtime for any input. It gives us a kind of guarantee that the algorithm will never take any longer with a new input size.
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include codeInterview.html -%}
 </div>
 
 ## Order of growth
@@ -176,8 +176,10 @@ In this example, with each iteration, the search space is halved. This results i
 
 You can read more common Big O notations such as Linearithmic Time Complexity (O(n log n)), Exponential Time Complexity (O(2<sup>n</sup>)), and many more in the following link:
 
+> Invest in your future: master algorithms today, land the job tomorrow.!
+
 <div>
-{%- include jediJavaInterviewAds.html -%}
+{%- include codeInterview.html -%}
 </div>
 
 **Summary of Big O Complexity Types:**
