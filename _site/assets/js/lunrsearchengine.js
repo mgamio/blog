@@ -78,7 +78,7 @@ var documents = [{
     "id": 15,
     "url": "http://localhost:4000/robots.txt",
     "title": "",
-    "body": "      Sitemap: {{ &#8220;sitemap. xml&#8221;   absolute_url }}   "
+    "body": "      Sitemap: {{ “sitemap. xml”   absolute_url }}   "
     }, {
     "id": 16,
     "url": "http://localhost:4000/gradle-building-restful-web-service/",
