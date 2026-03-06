@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Code Interview</title>
+  
+    
+
+<!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master Data Structures & Algorithms — And Ace Your Coding Interviews"/>
+    <meta name="author" content="Moises Gamio">
+	<meta property="og:title" content="The Code Interview" />
+	<meta property="og:type" content="image/jpeg" />
+	<meta property="og:url" content="https://www.codersite.dev/book" />    
+	<meta property="og:image" content="https://www.codersite.dev/book/assets/images/codeInterview.png" />
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="https://www.codersite.dev/book/assets/images/codeInterview.png" />
+    <meta property="twitter:title" content="Book" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <script defer src="assets/fontawesome/js/all.min.js"></script>
+  <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --gray-100: #f3f4f6;
+      --gray-600: #4b5563;
+      --gray-900: #111827;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--gray-900);
+      background: #fff;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      text-align: center;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+    .btn-lg { font-size: 1.25rem; padding: 1.25rem 3rem; }
+
+    /* Header */
+    header {
+      background: linear-gradient(to bottom, #f8fafc, #e0e7ff);
+      padding: 4rem 0 6rem;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: -4rem;
+      background: white;
+      padding: 4rem;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+    .book-cover img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 1rem;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    }
+
+    /* Features */
+    .features {
+      padding: 6rem 0;
+      background: var(--gray-100);
+      text-align: center;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .feature-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    /* Audience */
+    .audience {
+      padding: 5rem 0;
+      background: var(--card);
+      border-radius: 1.5rem;
+      margin: 3rem auto;
+      max-width: 900px;
+    }
+    .audience h2 {
+      text-align: center;
+      font-size: 2.6rem;
+      margin-bottom: 2rem;
+    }
+    .audience ul {
+      list-style: none;
+      padding: 0;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .audience li {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      padding-left: 2.2rem;
+      position: relative;
+    }
+    .audience li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+	
+    /* Testimonials */
+    .testimonials {
+      padding: 6rem 0;
+      background: white;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .testimonial {
+      background: var(--gray-100);
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+
+    /* Pricing */
+    .pricing {
+      padding: 6rem 0;
+      text-align: center;
+      background: linear-gradient(to bottom, #eef2ff, white);
+    }
+    .price {
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: #9ca3af;
+      font-size: 1.5rem;
+    }
+
+    /* FAQ */
+    .faq {
+      padding: 6rem 0;
+      background: var(--gray-100);
+    }
+    .faq-item {
+      margin-bottom: 1.5rem;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--gray-900);
+      color: white;
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; text-align: center; padding: 3rem 1rem; }
+      .book-cover img { max-width: 300px; }
+    }
+
+    /* (All previous styles unchanged – only adding testimonial-specific ones) */
+    .testimonials {
+      padding: 8rem 0;
+      background: white;
+      text-align: center;
+    }
+    .testimonials h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+    .testimonials p.subtitle {
+      font-size: 1.25rem;
+      color: var(--gray-600);
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    .testimonial {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    .testimonial::before {
+      content: "“";
+      font-family: Georgia, serif;
+      font-size: 8rem;
+      color: #e0e7ff;
+      position: absolute;
+      top: -30px;
+      left: 20px;
+      opacity: 0.6;
+    }
+    .testimonial-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .testimonial-author img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .author-info h4 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    .author-info p {
+      margin: 0;
+      color: var(--gray-600);
+      font-size: 0.95rem;
+    }
+    .stars {
+      color: #fbbf24;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="badge">Limited-Time Launch Offer – 60% OFF</div>
+      <h1 style="font-size: 3.5rem; margin: 0;">Master Data Structures & Algorithms — And Ace Your Coding Interviews</h1>
+      <p style="font-size: 1.5rem; margin: 1.5rem 0; color: var(--gray-600);">
+        Stop guessing. Start solving like a top engineer.
+      </p>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <div>
+      <h2 style="font-size: 2.5rem;">Crack the Coding Interview</h2>
+	  <p>
+	  Struggling with algorithm questions? Feeling overwhelmed by trees, graphs, and dynamic programming? This book is your complete roadmap to ace technical interviews with confidence. Designed specifically for software engineers preparing for coding interviews, it breaks down complex concepts into clear, practical strategies you can apply immediately.
+	  </p>
+	  <p>
+	  Inside, you’ll learn how top engineers approach problem-solving, optimize time and space complexity, and recognize patterns that appear again and again in real interviews. With step-by-step solutions, real-world examples, and carefully selected practice problems, you won’t just memorize answers — you’ll learn how to think like an interviewer expects. Whether you're aiming for FAANG, startups, or your next career upgrade, this book gives you the competitive edge you need.
+	  </p>
+	  <p>
+	  Your Career Upgrade Starts Here. Every interview is an opportunity — but only if you’re prepared.
+	  </p>
+      <p style="margin: 2rem 0;">
+        <a href="https://amzn.to/4b2b6hl" class="btn btn-primary btn-lg" target="_blank">Buy Now – Only 29$</a>
+      </p>      
+	  <p>This book is your practical, no-fluff guide to mastering the exact skills interviewers test in technical coding interviews.</p>
+    </div>
+    <div class="book-cover">
+	  <a target="_blank" href="https://amzn.to/4b2b6hl">
+	    <img class="img-fluid" src="assets/images/codeInterview.png" alt="The Code Interview">
+	  </a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2 style="font-size: 2.5rem;">What You'll Master</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Master core data structures: </h3>
+          <p>Arrays, Linked Lists, Stacks, Queues, Trees, Graphs, Hash Maps, Heaps — explained clearly and applied to real interview problems.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Crack Any Coding Interview Question</h3>
+          <p>Learn proven problem-solving frameworks used by FAANG and top tech engineers.</p>
+        </div>
+		<div class="feature-card">
+          <h3>Understand Algorithm Patterns That Actually Matter</h3>
+          <p>Two Pointers, Sliding Window, Binary Search, Recursion, Backtracking, Greedy Algorithms, and Dynamic Programming.</p>
+        </div>
+		<div class="feature-card">
+          <h3>Optimize Like a Professional Engineer</h3>
+          <p>Master Big-O analysis, time and space trade-offs, and performance optimization techniques recruiters expect.</p>
+        </div>
+		<div class="feature-card">
+          <h3>Solve Real Interview Problems Step by Step</h3>
+          <p>Walk through 50 real coding challenges with detailed explanations — not just final answers.</p>
+        </div>
+		<div class="feature-card">
+          <h3>Build Interview Confidence Under Pressure</h3>
+          <p>Learn how to think out loud, structure your approach, and communicate your solution clearly.</p>
+        </div>
+		<div class="feature-card">
+          <h3>Turn Skills Into Job Offers</h3>
+          <p>Prepare smarter, avoid common mistakes, and stand out from other candidates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <div class="container">
+      <h2 style="text-align:center; font-size: 2.8rem;">Get a Free Sample copy!</h2>
+	  <h3>It will give you an overview of what you will get in the entire book.</h3>
+	  <a class="btn btn-primary btn-lg" href="/assets/files/sample.pdf" target="_blank">Download a Sample PDF</a>
+    </div>
+  </section>
+
+  <section class="audience container">
+    <h2>Who This Book Is For</h2>
+    <ul>
+      <li>Software developers preparing for coding interviews</li>
+      <li>Computer science students and self-taught programmers</li>
+      <li>Engineers aiming for FAANG or high-paying tech roles</li>
+      <li>Anyone serious about leveling up their problem-solving skills</li>
+    </ul>
+  </section>
+  
+  <section class="testimonials container">
+    <h2 style="text-align:center; font-size: 2.8rem;">What Engineers Are Saying</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>“A MUST read for any Java Developer! Succinct and super informative!. The author tries his best to keep the explanation as succinct as possible at the same time providing the code snippets and explanations including pictorial representation of problem-solutions!”</p>
+        <strong>— MKonda, Development Tech Lead at EBRD</strong>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>“This is an excellent source material for anyone looking to gain an advantage in landing that competitive job. I truly found the real life examples so helpful, that I recommended this book to my developer friends”</p>
+        <strong>— Business Development, Project Manager</strong>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>“Los ejemplos son muy exactos y bien definidos, los algoritmos van desde básicos hasta muy complejos y están muy bien explicados por el autor.”</p>
+        <strong>— Amazon Customer</strong>
+      </div>
+    </div>
+  </section>
+		
+  <section class="pricing">
+    <div class="container">
+      <h3>Jobs in the tech industry are growing exponentially.</h3>
+	  <h2 style="text-align:center; font-size: 2.8rem;">Invest in your future: master algorithms today, land the job tomorrow.!</h2>
+	  
+	  <a class="btn btn-primary btn-lg" href="https://amzn.to/4b2b6hl" target="_blank">Buy Now</a>
+    </div>
+  </section>
+		
+  <section class="pricing">
+    <div class="container">
+	  <div>
+		  <img src="assets/images/profiles/author.jpg" alt="image" width="200" height="200">
+	  </div>
+      <h2 style="font-size: 2.5rem;">About the Author</h2>
+	  <div class="author-bio single-col-max mx-auto">
+			    <p>Moises Gamio has been working 25 years as a Software Engineer for several companies from different economic sectors such as Government, Financial, Industrial, Educative, Consulting, Retail, and Research. He has been using several technological tools such as Java, C, Cobol, C#, Visual Basic, PHP, Python, and JScript, in operating systems such as Windows, Linux, Unix, and RISC 6000, in databases such as SQL Server, Oracle, MySQL, DB2, and Lotus Notes. His tasks are related to Software Development, Stages of Analysis, Design, Testing, and Deployment in On-premise and Cloud computing environments.</p>
+			    <p>For eight years, he worked as a System Analyst for the Bank Sector. Since 2014, he has been a software engineer implementing web services for a B2B company in Berlin, Germany.</p>
+			    <div class="author-links text-center pt-4">
+			        <h5>Follow Author</h5>
+				    <ul class="social-list list-unstyled">				
+					    <li class="list-inline-item"><a href="https://medium.com/@mkgv89" target="_blank"><i class="fab fa-medium"></i></a></li>
+					    <li class="list-inline-item"><a href="http://www.twitter.com/MoisesGamio" target="_blank"><i class="fab fa-twitter"></i></a></li>
+					    <li class="list-inline-item"><a href="https://github.com/mgamio" target="_blank"><i class="fab fa-github-alt"></i></a></li> 
+			            <li class="list-inline-item"><a href="https://www.facebook.com/codersite.dev" target="_blank"><i class="fab fa-facebook"></i></a></li>            
+			            <li class="list-inline-item"><a href="https://www.linkedin.com/groups/12626056/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+			        </ul><!--//social-list-->
+			    </div><!--//author-links-->
+			    
+		    </div><!--//author-bio-->
+				
+    </div>
+  </section>
+  
+  <footer>
+    <div class="container">
+      <p>2026 Moises Gamio / codersite.dev. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/plugins/jquery-3.4.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    <script src="assets/plugins/jquery.scrollTo.min.js"></script>  
+    <script src="assets/plugins/back-to-top.js"></script>  
+    
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

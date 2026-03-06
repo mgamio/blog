@@ -8,10 +8,9 @@ source "https://rubygems.org"
 #
 
 # If you have any plugins, put them here!
-gem 'wdm', '>= 0.2.0' if Gem.win_platform?
+
 gem "csv"
 gem "base64"
-gem 'bigdecimal'
 gem "webrick"
 group :jekyll_plugins do
     gem 'jekyll-feed'
