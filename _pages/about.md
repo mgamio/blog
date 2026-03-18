@@ -52,7 +52,7 @@ comments: false
   <div class="col-md-3">
 
     <div class="sticky-top sticky-top-80">
-
+<!--
       <a href="https://amzn.to/4r5w9FR" target="_blank"><img class="card-img-top" alt="design" border="0" src="../recommended/images/codeInterview.jpg" ></a>
 
       <p>Master Data Structures & Algorithms — And Ace Your Coding Interviews</p>
@@ -60,12 +60,12 @@ comments: false
 	  <center><a target="_blank" href="https://amzn.to/4r5w9FR" class="btn btn-danger">I want this</a></center>
 
       <br/>
-	  
-      <a href="https://amzn.to/3Pppk2z" target="_blank"><img class="card-img-top" alt="design" border="0" src="../assets/images/book.jpg" ></a>
+	-->  
+      <a href="https://amzn.to/3Nwp1om" target="_blank"><img class="card-img-top" alt="design" border="0" src="../assets/images/book.jpg" ></a>
 
       <p>Stop losing interviews because you can’t master algorithms: learn to solve problems like top engineers do.</p>
 
-	  <center><a target="_blank" href="https://amzn.to/3Pppk2z" class="btn btn-danger">I want this</a></center>
+	  <center><a target="_blank" href="https://amzn.to/3Nwp1om" class="btn btn-danger">I want this</a></center>
 
       <br/>
 
