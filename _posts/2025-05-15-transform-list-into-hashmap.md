@@ -147,9 +147,9 @@ HashMap<Integer, List<Address>> hashMapOfAddressesByOrderId = new HashMap<>();
 We implement an algorithm to transform a List into a HashMap.
 
 ```kotlin
-private HashMap<BigDecimal, List<Address>> transformListToHashMap(Address[] listOfAddresses) {
+private HashMap<Integer, List<Address>> transformListToHashMap(Address[] listOfAddresses) {
 
-  HashMap<BigDecimal, List<Address>> hashMapOfAddressesByOrderId = new HashMap<>();
+  HashMap<Integer, List<Address>> hashMapOfAddressesByOrderId = new HashMap<>();
 		
   for (Address address : listOfAddresses) {
     List<Address> listOfAddressesInHashMap = hashMapOfAddressesByOrderId.get(address.getOrderId());
