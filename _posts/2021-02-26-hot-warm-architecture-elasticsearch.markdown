@@ -84,7 +84,7 @@ In Cold nodes, You are querying your index less frequently. You can deploy it to
 We can balance indexing and query performance in Elasticsearch with a hot-warm architecture. 
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include softwareDesign.html -%}
 </div>
 
 ## JVM Logs
@@ -98,16 +98,18 @@ But this task is tedious because the *log files* are distributed in a cluster th
 
 ![logFileRotation](/assets/images/logFileRotation.JPG "log File Rotation"){:class="img-responsive"}
 
-If every business area has its cluster, the licenses and number of application servers are exponential.
+If every business area has different cluster, the licenses and number of application servers are exponential.
 
 ## Solution : Hot-warm architecture for log analytics with Elasticsearch
+
+To centralize, increase the availability of this log data, and improve error analysis, we implement Elasticsearch.
 
 We are going to install a Hot-Warm-Cold Logging Cluster on the Elasticsearch Service as shown in the following figure.
 
 ![hot-warm-architecture](/assets/images/hot-warm-elastic.jpg "elastic hot-warm-architecture"){:class="img-responsive"}
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 Logs come from multiple sources, such as software applications installed on various application servers.
