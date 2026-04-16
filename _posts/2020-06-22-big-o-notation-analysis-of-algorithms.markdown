@@ -34,6 +34,8 @@ Both terms depend on the input size, the number of items in the input. Both term
 
 - Worst-case analysis or Big O Notation O(n): Gives us an upper bound on the runtime for any input. It gives us a kind of guarantee that the algorithm will never take any longer with a new input size.
 
+> Get the Job Offer, Not Just Algorithm Knowledge
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
