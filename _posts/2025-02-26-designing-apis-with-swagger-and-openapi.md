@@ -54,6 +54,8 @@ By default, it includes the following minimal fields:
 
 **paths**: Holds the relative paths to the individual endpoints and their parameters, and all possible server responses.
 
+> The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
@@ -179,15 +181,17 @@ Here you can see the API specification: [apifinance/v1](https://app.swaggerhub.c
 
 But what we need is a real implementation of this API specification. In my next article, I will explain the Codegen utility to export this specification to Java code.
 
+> Master Data Structures & Algorithms — And Ace Your Coding Interviews
+
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
+
 <div>
 {%- include mailchimp.html -%}
 </div>
 
 <br/>
-
-<div>
-{%- include jediJavaInterviewAds.html -%}
-</div>
 
 Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 

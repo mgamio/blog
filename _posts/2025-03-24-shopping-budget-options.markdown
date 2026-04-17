@@ -273,7 +273,9 @@ This approach optimizes the computation by:
 
 * Overall complexity: **O(NM + M² log(NM))**, which is manageable for constraints up to 10³.
 
-See the complete solution in the following [link](https://amzn.to/4iGQXQq){:target="_blank"}.
+See the complete solution in this [link](https://amzn.to/4iGQXQq){:target="_blank"}.
+
+> Practice like the job depends on it. Because it does.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}

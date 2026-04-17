@@ -100,6 +100,8 @@ INFO 20364 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Comp
 INFO 20364 --- [nio-8080-exec-3] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 2071 ms
 ```
 
+> Don’t just code—design. Your next promotion or job offer depends on it
+
 <div>
 {%- include softwareDesign.html -%}
 </div>
@@ -133,6 +135,12 @@ But we can generate the stub code with swagger codegen open project
 ## Summary
 
 Swagger Codegen takes an OpenAPI definition and converts it into client-side or server-side code in various languages. In the case of server-side code generation, the generated code constitutes a complete application with a framework based on controllers and services. It contains snippets with mock data, so it can execute immediately. The blanks need to be filled with the application's business logic, such as retrieving data from a database.
+
+> Stop losing interviews because you can’t master algorithms: learn to solve problems like top engineers do
+
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
 
 Please support me as a writer. Your donation will help add more articles to this website. Thank you!
 

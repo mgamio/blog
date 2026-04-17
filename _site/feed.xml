@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 16 Apr 2026 17:58:25 +0200</pubDate>
-    <lastBuildDate>Thu, 16 Apr 2026 17:58:25 +0200</lastBuildDate>
+    <pubDate>Fri, 17 Apr 2026 16:54:50 +0200</pubDate>
+    <lastBuildDate>Fri, 17 Apr 2026 16:54:50 +0200</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -248,17 +248,21 @@
 
 &lt;p&gt;You can also fork the project from &lt;a href=&quot;https://github.com/mgamio/apifinance/tree/apifinance-implement-simpleInterest&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt; and open it in your IDE or other editor.&lt;/p&gt;
 
-&lt;p&gt;Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!&lt;/p&gt;
+&lt;p&gt;You can also buy my little book about &lt;a href=&quot;https://codersite.dev/data-structures-foundation-efficient-programming/&quot; target=&quot;_blank&quot;&gt;Data structures&lt;/a&gt; and &lt;a href=&quot;https://codersite.dev/big-o-notation-analysis-of-algorithms/&quot; target=&quot;_blank&quot;&gt;Algorithms&lt;/a&gt;.&lt;/p&gt;
 
-&lt;iframe src=&quot;https://www.paypal.com/giving/campaigns?campaign_id=SR3NH5R4FNH8Q&quot; title=&quot;PayPal donate campaign card&quot; frameborder=&quot;0&quot; width=&quot;382&quot; height=&quot;550&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;You can also buy my little book about &lt;a href=&quot;https://codersite.dev/data-structures-foundation-efficient-programming/&quot; target=&quot;_blank&quot;&gt;Data structures&lt;/a&gt; and &lt;a href=&quot;https://codersite.dev/big-o-notation-analysis-of-algorithms/&quot; target=&quot;_blank&quot;&gt;Algorithms&lt;/a&gt;. As a Java Developer, one is expected to attend interviews every now and then and I am pretty sure this book will be a handy guide.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;As a Java Developer, one is expected to attend interviews every now and then and I am pretty sure this book will be a handy guide.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
   &lt;a href=&quot;https://amzn.to/47TMo31&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/codingInterview2ndEdition.png&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
+
+&lt;p&gt;Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!&lt;/p&gt;
+
+&lt;iframe src=&quot;https://www.paypal.com/giving/campaigns?campaign_id=SR3NH5R4FNH8Q&quot; title=&quot;PayPal donate campaign card&quot; frameborder=&quot;0&quot; width=&quot;382&quot; height=&quot;550&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
 
 </description>
         <pubDate>Wed, 24 Sep 2025 00:00:00 +0200</pubDate>
@@ -467,6 +471,10 @@
 
 &lt;p&gt;The complete solution in &lt;a href=&quot;https://amzn.to/3HrGXrF&quot; target=&quot;_blank&quot;&gt;Cracking the Coding Interview&lt;/a&gt;.&lt;/p&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;div&gt;&lt;center&gt;
   &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/codingInterview2ndEdition.png&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
@@ -567,6 +575,10 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Real-world examples, diagrams, and explanations that make complex systems simple - &lt;a href=&quot;https://amzn.to/4dTTUhs&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Software Design Principles: A Practical Guide&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
   &lt;a href=&quot;https://amzn.to/3q7otGe&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/softwareDesign1.png&quot; /&gt;&lt;/a&gt;
@@ -1027,6 +1039,10 @@
 &lt;span class=&quot;nc&quot;&gt;INFO&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20364&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nio-8080-exec-3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;springdoc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AbstractOpenApiResource&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Init&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;duration&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;springdoc-openapi&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2071&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;Don’t just code—design. Your next promotion or job offer depends on it&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;div&gt;&lt;center&gt;
   &lt;a href=&quot;https://amzn.to/3Csx3sR&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPortadaJPG.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
@@ -1068,6 +1084,16 @@
 &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 
 &lt;p&gt;Swagger Codegen takes an OpenAPI definition and converts it into client-side or server-side code in various languages. In the case of server-side code generation, the generated code constitutes a complete application with a framework based on controllers and services. It contains snippets with mock data, so it can execute immediately. The blanks need to be filled with the application’s business logic, such as retrieving data from a database.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Stop losing interviews because you can’t master algorithms: learn to solve problems like top engineers do&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div&gt;&lt;center&gt;
+  &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/codingInterview2ndEdition.png&quot; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+&lt;br /&gt;&lt;/div&gt;
 
 &lt;p&gt;Please support me as a writer. Your donation will help add more articles to this website. Thank you!&lt;/p&gt;
 
@@ -1520,7 +1546,11 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;See the complete solution in the following &lt;a href=&quot;https://amzn.to/4iGQXQq&quot; target=&quot;_blank&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See the complete solution in this &lt;a href=&quot;https://amzn.to/4iGQXQq&quot; target=&quot;_blank&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Practice like the job depends on it. Because it does.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
   &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/codingInterview2ndEdition.png&quot; /&gt;&lt;/a&gt;
@@ -1607,6 +1637,10 @@
 &lt;p&gt;&lt;strong&gt;info&lt;/strong&gt;: Provides metadata about the API (such as title, description, version, and contact information).&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;paths&lt;/strong&gt;: Holds the relative paths to the individual endpoints and their parameters, and all possible server responses.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
   &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/codingInterview2ndEdition.png&quot; /&gt;&lt;/a&gt;
@@ -1790,6 +1824,16 @@
 
 &lt;p&gt;But what we need is a real implementation of this API specification. In my next article, I will explain the Codegen utility to export this specification to Java code.&lt;/p&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;Master Data Structures &amp;amp; Algorithms — And Ace Your Coding Interviews&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div&gt;&lt;center&gt;
+  &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/codingInterview2ndEdition.png&quot; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+&lt;br /&gt;&lt;/div&gt;
+
 &lt;div&gt;&lt;!--&lt;div class=&quot;alertbar&quot;&gt;--&gt;
 	&lt;div class=&quot;container text-center&quot;&gt;
 		&lt;span&gt;&lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;img src=&quot;/assets/images/logo.svg&quot; height=&quot;30&quot; alt=&quot;codersite&quot; /&gt;&lt;/a&gt; &amp;nbsp; Stay Connected!. Follow me to get my latest articles.&lt;/span&gt;
@@ -1803,12 +1847,6 @@
 &lt;!--&lt;/div&gt;--&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3QYUK0v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/codingInterview2ndEdition.png&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
 
 &lt;p&gt;Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!&lt;/p&gt;
 

@@ -139,6 +139,8 @@ We can define a sum[] array that stores at index i the number of items '*' withi
 
 The complete solution in [Cracking the Coding Interview](https://amzn.to/3HrGXrF){:target="_blank"}.
 
+> The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>

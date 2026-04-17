@@ -162,6 +162,14 @@ Well, we arrive to the magic of programming. Here is where we use all our creati
 
 You can also fork the project from [Github](https://github.com/mgamio/apifinance/tree/apifinance-implement-simpleInterest){:target="_blank"} and open it in your IDE or other editor.
 
+You can also buy my little book about [Data structures](https://codersite.dev/data-structures-foundation-efficient-programming/){:target="_blank"} and [Algorithms](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"}.
+
+> As a Java Developer, one is expected to attend interviews every now and then and I am pretty sure this book will be a handy guide.
+
+<div>
+{%- include crackCodingInterviewCallToAction1.html -%}
+</div>
+
 Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 
 <iframe
@@ -172,11 +180,5 @@ Please support me as a writer. Every contribution helps, and your donation can h
     height=550
     scrolling="no"
 ></iframe>
-
-You can also buy my little book about [Data structures](https://codersite.dev/data-structures-foundation-efficient-programming/){:target="_blank"} and [Algorithms](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"}. As a Java Developer, one is expected to attend interviews every now and then and I am pretty sure this book will be a handy guide.
-
-<div>
-{%- include crackCodingInterviewCallToAction1.html -%}
-</div>
 
 

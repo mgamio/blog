@@ -54,6 +54,8 @@ The response includes different kind of addresses per order as you see in the fo
 ]
 ```
 
+> Real-world examples, diagrams, and explanations that make complex systems simple - [**Software Design Principles: A Practical Guide**](https://amzn.to/4dTTUhs){:target="_blank"}
+
 <div>
 {%- include softwareDesignAd1.html -%}
 </div>
