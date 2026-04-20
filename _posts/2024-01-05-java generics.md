@@ -41,8 +41,10 @@ Prior to the introduction of generics, classes and methods would often use Objec
 
 Generics introduce the concept of **parameterized types**, allowing you to specify the type of data (reference type) a class or method can work with. This provides compile-time type checking, reducing the likelihood of runtime errors and making your code more robust.
 
+> Upgrade your thinking. Start designing systems that scale.
+
 <div>
-{%- include designingDataIntensiveApplications.html -%}
+{%- include softwareDesign.html -%}
 </div>
 
 Here is how to do it in Java with generics.
@@ -185,6 +187,8 @@ public void addNumbers(List<? super Integer> numbers) {
   //Add integers to the list or its supertypes
 }
 ```
+
+> Understand algorithm patterns that appear in real interviews
 
 <div>
 {%- include algorithmsBook.html -%}

@@ -40,7 +40,11 @@ Rest template that is able to make [OAuth2](https://codersite.dev/spring-boot-oa
 
 We define a boolean variable to control when an article is found.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Mastering API Architecture: Design, Operate, and Evolve Api-Based Systems <a href="https://t.co/aMS6zALy4Y">https://t.co/aMS6zALy4Y</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1853702456821055859?ref_src=twsrc%5Etfw">November 5, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> Go from writing code to designing systems that scale to millions of users
+
+<div>
+{%- include softwareDesignAd1.html -%}
+</div>
 
 Here is the program code.
 
@@ -174,6 +178,12 @@ public final class CreateOrderRandomTest {
 }
 ```
 
+> Based on actual questions from startups and big tech companies
+
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
+
 Please support me as a writer. Your donation will help add more articles to this website. Thank you!
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
@@ -183,6 +193,4 @@ Please support me as a writer. Your donation will help add more articles to this
 </form>
 <br/>
 
-<div>
-{%- include jediJavaInterviewAds.html -%}
-</div>
+

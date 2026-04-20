@@ -117,6 +117,8 @@ In this example, we combine the ISSUES_ORDERPOSITION and PRICE_DIFFERS_WARNING i
 
 Java enums, bit flags, and bitwise operations are powerful features that can be combined to create expressive, efficient, and type-safe code. By leveraging enums to define a set of constants, bit flags to represent multiple states efficiently, and bitwise operations to manipulate these states, you can build robust and flexible Java applications. Mastering these concepts will enable you to write cleaner, more concise code and unlock new possibilities in your Java development projects.
 
+> The Interview Prep Book Written From the Hot Seat
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>

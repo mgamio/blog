@@ -93,6 +93,12 @@ LoginAttemptsLogger   : Login Attempt in /cloud/oauth/token Principal : codersit
 
 See [Implementing hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"} to analyze application server logs.
 
+> Arrays, graphs, recursion, dynamic programming — all in one book, all in Java.
+
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
+
 Please support me as a writer. Your donation will help add more articles to this website. Thank you!
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
@@ -108,6 +114,4 @@ Please support me as a writer. Your donation will help add more articles to this
 
 <br/>
 
-<div>
-{%- include jediJavaInterviewAds.html -%}
-</div>
+

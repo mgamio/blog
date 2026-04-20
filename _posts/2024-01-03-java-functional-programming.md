@@ -93,6 +93,12 @@ While functional programming brings many advantages, it may not always be the be
 
 In conclusion, Java has embraced functional programming concepts over the years, providing developers with powerful tools to write cleaner, more maintainable, and parallelizable code. By incorporating these concepts into your Java development, you can take advantage of the benefits of functional programming while building robust and scalable applications.
 
+> Six Years of FAANG Interviews, Decoded.
+
+<div>
+{%- include algorithmsBook.html -%}
+</div>
+
 Please support me as a writer. Your donation will help add more articles to this website. Thank you!
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">

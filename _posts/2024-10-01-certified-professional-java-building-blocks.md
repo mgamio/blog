@@ -233,8 +233,10 @@ G. The program prints 50.0 on line 11.
 H. The program prints 49.0 on line 11.
 ```
 
+> Real-world examples, diagrams, and explanations that make complex systems simple.
+
 <div>
-{%- include inArticleAds.html -%}
+{%- include softwareDesign.html -%}
 </div>
 
 ## Answers to the Questions
@@ -250,7 +252,7 @@ H. The program prints 49.0 on line 11.
 5- C, E.  The first thing to recognize is that this is a text block and the code inside the """ is just text. Options A and B are incorrect because the numForks and numKnives variables are not used. This is convenient since numKnives is not initialized and would not compile if it were referenced. Option C is correct as it is matching text. Option D is incorrect because the text block does not have a trailing blank line. Finally, option E is also an answer since " # knives is indented.
 
 <div>
-{%- include softwareDesign.html -%}
+{%- include inArticleAds.html -%}
 </div>
 
 6- E.  Options C and D are incorrect because local variables don't have default values. Option A is incorrect because float should have a decimal point. Option B is incorrect because primitives do not default to null. Option E is correct and option F incorrect because reference types in class variables default to null.
@@ -262,6 +264,8 @@ H. The program prints 49.0 on line 11.
 9- C, E, F.  In Java, there are no guarantees about when garbage collection will run. The JVM is free to ignore calls to System.gc(). For this reason, options A, B, and D are incorrect. Option C is correct as the purpose of garbage collection is to reclaim used memory. Option E is also correct that an object may never be garbage collected, such as if the program ends before garbage collection runs. Option F is correct and is the primary means by which garbage collection algorithms determine whether an object is eligible for garbage collection. Finally, option G is incorrect as marking a variable final means it is constant within its own scope. For example, a local variable marked final will be eligible for garbage collection after the method ends, assuming there are no other references to the object that exist outside the method.
 
 10- A, D.  The first compiler error is on line 3. The variable temp is declared as a float, but the assigned value is 50.0, which is a double without the F/f postfix. Since a double doesn't fit inside a float, line 3 does not compile. Next, depth is declared inside the for loop and only has scope inside this loop. Therefore, reading the value on line 10 triggers a compiler error. For these reasons, options A and D are the correct answers.
+
+> 50+ Java challenges based on real interview questions — solved and explained step by step.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
