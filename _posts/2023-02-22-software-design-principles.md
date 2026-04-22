@@ -28,6 +28,8 @@ Software design principles are guidelines and best practices that help software 
 
 These principles are not exhaustive, and there may be other principles that are relevant to specific types of software. However, these principles provide a solid foundation for creating high-quality, maintainable, and efficient software.
 
+> Every great career in tech is built on great design. Start building yours today.
+
 <div>
 {%- include softwareDesign.html -%}
 </div>

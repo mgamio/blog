@@ -145,7 +145,7 @@ public class Customer {
 
 We use the term *has-a* to describe composition relationships. An order *has-a(n)* address. A customer *has-a(n)* address.
 
-More about these techniques and examples in the following link:
+> Software design is the art of managing dependencies and abstractions to create software that is scalable, maintainable, and efficient. This book will teach you how to design software that can handle millions of users.
 
 <div>
 {%- include softwareDesignAd1.html -%}
@@ -191,7 +191,7 @@ While OOP offers numerous advantages, it's important to note that it may not alw
 
 Learn how to use these concepts in [Software Design Principles](https://amzn.to/42mIqx7){:target="_blank"}.
 
-> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+> Java devs: this is your cheat code for tech interviews.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}

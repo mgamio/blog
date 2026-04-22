@@ -74,7 +74,7 @@ public class QuoteController {
 }
 ```
 
-> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+> Not another theory book — every principle is backed by before/after Java code examples.
 
 <div>
 {%- include softwareDesign.html -%}
@@ -210,6 +210,8 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponse respons
 ```
 
 The magic of this library is in the *isConsumed()* method. After asking the bucket to consume a token from the basket, we test whether the token was consumed. If true, the limit was not exceeded, and the API allows the client to consume the endpoint. Otherwise, the limit was exceeded, and we rejected the request, returning an HTTP error code of 429 to the client.
+
+> Master Data Structures & Algorithms — And Ace Your Coding Interviews
 
 <div>
 {%- include jediJavaInterviewAds.html -%}

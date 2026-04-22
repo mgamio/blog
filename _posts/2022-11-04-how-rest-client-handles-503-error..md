@@ -123,6 +123,8 @@ When you need to analyze several server logs in a distributed system, read the a
 
 Jobs in the tech industry are expected to grow exponentially in the next few years. If you plan to enter the job market soon, you must know that companies will evaluate your problem-solving skills based on data structures and algorithms, and you will need to face a complex problem on a blackboard.
 
+> 50+ Java challenges based on real interview questions — solved and explained step by step.
+
 <div>
 {%- include algorithmsBook.html -%}
 </div>

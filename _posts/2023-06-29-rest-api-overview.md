@@ -146,6 +146,8 @@ Even when a GET method is defined as a *safe* HTTP method, your application MUST
 
 The success response code to a GET request is 200 (OK).
 
+> Real FAANG Interview Questions. Real Explanations. Real Results.
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>

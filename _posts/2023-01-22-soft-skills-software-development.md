@@ -45,7 +45,7 @@ These are just a few examples of soft skills that can be valuable in software de
 
 A great developer is not just one who writes good code but one who can communicate, adapt, and solve problems effectively.
 
-> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+> The book that will make you a better software designer, and a more valuable developer.
 
 <div>
 {%- include softwareDesignAd1.html -%}

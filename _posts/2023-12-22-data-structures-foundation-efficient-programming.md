@@ -177,7 +177,9 @@ public class QueueViaStacks<T> {
 }
 ```
  
-You can see the real implementation in the following link:
+You can see the real implementation in this [link](https://amzn.to/4d3tTdx){:target="_blank"}
+
+> Your next job offer starts with one book.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}

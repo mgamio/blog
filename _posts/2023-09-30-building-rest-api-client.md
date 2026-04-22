@@ -63,8 +63,10 @@ public final class GetSuppliers implements IClientAPI {
 }
 ```
 
+> From monoliths to microservices, learn how to design software that can evolve with your business needs.
+
 <div>
-{%- include inArticleAds.html -%}
+{%- include softwareDesign.html -%}
 </div>
 
 Then, in the same way we implement a second sub-task to retrieve data from a Buyer endpoint.
@@ -144,6 +146,8 @@ Suppose the API Server set up a limit of 90 requests per minute for the buyer's 
 With this client code, you can simultaneously send thousands of requests to all your API endpoints. You can monitor your thread pool at the application server and see how the rate limit algorithm refuses all requests that exceed the rate limit quote.
 
 You can design test scenarios where external clients interact with API endpoints. Then, you can detect how well the code and database functions support the functionalities behind your endpoints, especially on critical business days such as Black Fridays.
+
+> Practice With Questions That Companies Actually Ask
 
 <div>
 {%- include jediJavaInterviewAds.html -%}

@@ -101,6 +101,8 @@ public class AssembleParts {
 
 Similar questions you can find in my [book](https://amzn.to/3FxeKSb){:target="_blank"} about algorithms and data structures. Learn how to apply common algorithms to practical problems.
 
+> As a Java Developer, one is expected to attend interviews every now and then and I am pretty sure this book will be a handy guide.
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>

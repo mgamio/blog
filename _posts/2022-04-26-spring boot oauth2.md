@@ -122,6 +122,8 @@ Now, run the main application.
 
 <a href="http://localhost:8080/swagger-ui.html" target="_blank">http://localhost:8080/swagger-ui.html</a>
 
+> Battle-Tested by the Toughest Interviewers in Tech
+
 <div>
 {%- include dsaAdvDalle.html -%}
 </div>
@@ -170,6 +172,8 @@ public class OpenApiConfig {
   }
 }
 ```
+
+> Discover how to design software that can handle the demands of modern applications and user expectations.
 
 <div>
 {%- include softwareDesignAd1.html -%}

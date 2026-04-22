@@ -110,7 +110,11 @@ bauen : to build
 
 der Bericht : report
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hands-On Large Language Models: Language Understanding and Generation <a href="https://t.co/z6VtM8ZAYk">https://t.co/z6VtM8ZAYk</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1853498735352754419?ref_src=twsrc%5Etfw">November 4, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> From Big O to Binary Trees — every answer you need.
+
+<div>
+{%- include algorithmsBook.html -%}
+</div>
 
 die Betriebsbereitschaft : readiness for service (or operation)
 
@@ -162,8 +166,10 @@ starten : to start
  
 stoppen : to stop
 
+> Understand the trade-offs and best practices for designing software that can scale to millions of users.
+
 <div>
-{%- include inArticleAds.html -%}
+{%- include softwareDesignAd1.html -%}
 </div>
 
 Unternehmensanwendung : Enterprise Application

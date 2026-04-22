@@ -77,8 +77,10 @@ private int getRandomNumber(int min, int max) {
 }
 ```
 
+> The more your team understands design principles, the less time you spend fixing bugs.
+
 <div>
-{%- include inArticleAds.html -%}
+{%- include softwareDesignAd1.html -%}
 </div>
 
 The following code snippet shows a method executed every three hours to retrieve a random article and send it to the Twitter API as a scheduled tweet.
@@ -208,6 +210,12 @@ When the *queue* has space for only three more elements, the following validatio
 ```
 
 To avoid this exponential issue we redesign our algorithm.
+
+> Arrays, graphs, recursion, dynamic programming — all in one book, all in Java.
+
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
 
 We define and initialize an array of Integers in the constructor of the class.
 

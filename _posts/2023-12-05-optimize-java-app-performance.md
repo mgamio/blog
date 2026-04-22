@@ -117,7 +117,7 @@ Remember that the appropriate solution may depend on the specific characteristic
 
 [Learn Java for free with 🤖 Travis](https://aigents.co/learn){:target="_blank"}
 
-> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+> Software design is the art of managing dependencies and abstractions to create software that is scalable, maintainable, and efficient. This book will teach you how to design software that can handle millions of users
 
 <div>
 {%- include softwareDesignAd1.html -%}

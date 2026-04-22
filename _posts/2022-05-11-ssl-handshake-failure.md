@@ -76,6 +76,8 @@ For example, the Cipher Suite SSL_RSA_WITH_RC4_128_MD5 includes:
 - The RC4 encryption algorithm, using a 128-bit key
 - The MD5 MAC algorithm
 
+> Confidence in interviews is built, not born.
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
