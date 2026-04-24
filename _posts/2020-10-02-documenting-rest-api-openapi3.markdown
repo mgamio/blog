@@ -393,6 +393,8 @@ public class OpenapiApplication {
 }
 ```
 
+> Built by a software engineer who sat on both sides of the table.
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>

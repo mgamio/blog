@@ -113,6 +113,8 @@ The main idea in [Analysis of Algorithms](https://codersite.dev/big-o-notation-a
 
 Similar questions you can find in my book about algorithms and [data structures](https://codersite.dev/data-structures-foundation-efficient-programming/){:target="_blank"}. Learn how to apply common algorithms to the practical problems.
 
+> One Book Instead of Scattered Resources.
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>

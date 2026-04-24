@@ -190,8 +190,10 @@ public void syncronizeImages () {
 
 Now, your code is more expressive.
 
+> The more prepared you are, the better your chances of negotiating your next salary.
+
 <div>
-{%- include inArticleAds.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 ## Choose simplicity over complexity
@@ -546,6 +548,8 @@ Please donate to maintain and improve this website if you find this content valu
 <br/>
 
 You can see a lot of typical algorithms implemented with Clean Code principles in [Cracking the coding interview](https://amzn.to/3PiUs0w){:target="_blank"}
+
+> From Big O to Binary Trees — every answer you need.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}

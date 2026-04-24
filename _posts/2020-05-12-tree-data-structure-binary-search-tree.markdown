@@ -76,6 +76,8 @@ public class NodeP {
 }
 ```
 
+> Increase your software development income by leveling up your problem solving skills using algorithms and data structures.
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
@@ -184,8 +186,10 @@ public NodeP find(String gtin) {
 }
 ```
 
+> Don't try to achieve all SOLID principles from the beginning. Software design is an iterative process. At each iteration, only introduce a new design principle into your code if necessary. When changes are required, the refactoring process will be minimal.
+
 <div>
-{%- include inArticleAds.html -%}
+{%- include softwareDesign.html -%}
 </div>
 
 This Binary Search Tree works well when the data is inserted in random order. Therefore, when the values to be inserted are already *ordered*, a binary tree becomes unbalanced. With an unbalanced tree, we can not find data quickly.

@@ -84,6 +84,8 @@ public class SortedList {
 
 The previous algorithm is missing how to proceed when one of the lists still contains elements not compared. Keep reading [here](https://amzn.to/3wdwVry){:target="_blank"}
 
+> Learn From Someone's $300K+ Mistake So You Don't Make It.
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>

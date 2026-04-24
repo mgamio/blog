@@ -49,6 +49,8 @@ These areas of interest in the software are:
 
 **Context -> Containers -> Components -> Code** - UML Notation
 
+> FAANG Interview Slots Are Limited—Your Preparation Shouldn't Be.
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
@@ -233,6 +235,8 @@ GET /api/v2/buyers/{buyerId}/assortments/{assortmentId}/articles
 - UML diagrams can be used as a documentation tool for Java development teams.
 
 We will see how to implement every Spring Boot service in the following articles, so follow me!
+
+> Master the art of software design and build systems that are scalable, maintainable, and efficient.
 
 <div>
 {%- include softwareDesign.html -%}

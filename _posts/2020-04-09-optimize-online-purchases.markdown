@@ -192,6 +192,8 @@ The test is expecting a result of 590 which corresponds to the final price of 3,
 [6.0, 4.86, 14.0]
 ```
 
+> Questions Used to Hire Thousands of Engineers.
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>

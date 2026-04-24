@@ -22,8 +22,10 @@ To describe terms related to Graphs, we use the following Graph, which models **
 
 A Graph shows only the relationships between the *vertices* and the *edges*. Therefore, the most important here is to understand, which edges are connected to which vertex. Moreover, we can also say that Graph models connections between objects.
 
+> Real-world examples, diagrams, and explanations that make complex systems simple.
+
 <div>
-{%- include inArticleAds.html -%}
+{%- include softwareDesign.html -%}
 </div>
 
 **Adjacency**
@@ -99,6 +101,8 @@ The table above says, Leipzig is adjacent to Berlin, Dresden, and Nürnberg, for
 We create an Abstract Data Type called a Graph to define the behavior of our new [data structure](https://codersite.dev/data-structures-foundation-efficient-programming/){:target="_blank"}.
 
 We need a stack data structure so we can remember the visited vertices. A stack follows the last-in, first-out (LIFO) principle, i.e., the city inserted at last is the first city to come out of the stack.
+
+> Six Years of Interview Evolution, Documented.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}

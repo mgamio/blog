@@ -83,8 +83,10 @@ Then weeks later, your team decides that must be retrieved parameters from a dat
 
 That is the meaning of the principle; you can not touch the code that is already implemented and working for a long time. Suppose the code is too complex to understand, not well documented, and includes a lot of dependencies. In that case, we have a lot of probabilities to introduce a bug or break some functionalities that we cannot visualize. Unless it is a bug that we have to fix, we should never modify the existing code.
 
+> The Book I Wish I Had When I Started Preparing
+
 <div>
-{%- include inArticleAds.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 Even if the code is not well designed or does not follow [object-oriented programming concepts](https://codersite.dev/understanding-oop-concepts/){:target="_blank"}, it could not be easy to extend a class to introduce new functionalities.

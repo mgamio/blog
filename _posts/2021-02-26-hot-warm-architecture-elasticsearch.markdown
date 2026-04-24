@@ -83,6 +83,8 @@ In Cold nodes, You are querying your index less frequently. You can deploy it to
 
 We can balance indexing and query performance in Elasticsearch with a hot-warm architecture. 
 
+> Learn how to design software that can handle millions of users without breaking a sweat.
+
 <div>
 {%- include softwareDesign.html -%}
 </div>
@@ -107,6 +109,8 @@ To centralize, increase the availability of this log data, and improve error ana
 We are going to install a Hot-Warm-Cold Logging Cluster on the Elasticsearch Service as shown in the following figure.
 
 ![hot-warm-architecture](/assets/images/hot-warm-elastic.jpg "elastic hot-warm-architecture"){:class="img-responsive"}
+
+> Arrays, graphs, recursion, dynamic programming — all in one book, all in Java.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
@@ -543,6 +547,8 @@ GET .ds-billing-index-000006/_search
   }
 }
 {% endhighlight %}
+
+> The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
