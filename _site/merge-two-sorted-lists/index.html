@@ -149,14 +149,18 @@
 ================================================== --><!-- nothing --><!-- Content
 ================================================== -->
 <div class="main-content">
-    <!-- Begin Article
+    <!-- Reading progress bar -->
+<div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+<!-- Begin Article
 ================================================== -->
 <div class="container">
     <div class="row">
 
         <!-- Post Share -->
         <div class="col-md-2 pl-0">
-            <div class="share sticky-top sticky-top-offset">
+            <div class="post-share-sticky">
+                <div class="share sticky-top sticky-top-offset">
     <p>
         Share
     </p>
@@ -182,6 +186,7 @@
     
 </div>
 
+            </div>
         </div>
 
         <!-- Post -->
@@ -210,6 +215,16 @@
 
                 <!-- Post Title -->
                 <h1 class="posttitle">Merge two sorted lists algorithm</h1>
+
+                <!-- Post meta: published date · reading time (· updated, if any) -->
+                
+                
+                <p class="post-meta-line">
+                    <time datetime="2021-08-04T00:00:00+02:00" itemprop="datePublished">Aug 4, 2021</time>
+                    <span class="meta-sep">·</span>
+                    <span class="meta-reading-time">4 min read</span>
+                    
+                </p>
 
             </div>
 
@@ -396,14 +411,6 @@
             <!-- Rating -->
             
 
-            <!-- Post Date -->
-            <p>
-            <small>
-                <span class="post-date"><time class="post-date" datetime="2021-08-04">04 Aug 2021</time></span>           
-                
-                </small>
-            </p>
-
             <!-- Post Categories -->
             <div class="after-post-cats">
                 <ul class="tags mb-4">
@@ -427,16 +434,21 @@
             <!-- End Tags -->
 
             <!-- Prev/Next -->
-            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            <nav class="PageNavigation post-nav-cards" aria-label="Post navigation">
             
-            <a class="prev d-block col-md-6" href="http://localhost:4000/hot-warm-architecture-elasticsearch/"> &laquo; Implementing hot-warm architecture in Elasticsearch for time-series data</a>
+                <a class="nav-item-card prev" href="http://localhost:4000/hot-warm-architecture-elasticsearch/" rel="prev">
+                    <span class="nav-label">&laquo; Previous</span>
+                    <span class="nav-title">Implementing hot-warm architecture in Elasticsearch for time-series data</span>
+                </a>
             
             
-            <a class="next d-block col-md-6 text-lg-right" href="http://localhost:4000/open-closed-principle/">SOLID principles: The Open-Closed Principle (Part II) &raquo; </a>
+                <a class="nav-item-card next" href="http://localhost:4000/open-closed-principle/" rel="next">
+                    <span class="nav-label">Next &raquo;</span>
+                    <span class="nav-title">SOLID principles: The Open-Closed Principle (Part II)</span>
+                </a>
             
-            <div class="clearfix"></div>
-            </div>
-            <!-- End Categories -->
+            </nav>
+            <!-- End Prev/Next -->
 
         </div>
         <!-- End Post -->
@@ -456,6 +468,68 @@
 https://search.google.com/structured-data/testing-tool/u/0/
 ================================================== -->
 
+
+<!-- Reading progress bar -->
+<script>
+(function () {
+    var bar = document.getElementById('readingProgress');
+    var article = document.querySelector('.article-post');
+    if (!bar || !article) return;
+    var ticking = false;
+    function update() {
+        var rect = article.getBoundingClientRect();
+        var winH = window.innerHeight || document.documentElement.clientHeight;
+        var total = article.offsetHeight - winH;
+        var read = Math.max(0, -rect.top);
+        var pct = total > 0 ? Math.min(100, (read / total) * 100) : 0;
+        bar.style.width = pct + '%';
+        ticking = false;
+    }
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(update);
+            ticking = true;
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+})();
+</script>
+
+<!-- Copy-to-clipboard buttons on code blocks -->
+<script>
+(function () {
+    var blocks = document.querySelectorAll('.article-post .highlight');
+    if (!blocks.length || !navigator.clipboard) return;
+    blocks.forEach(function (block) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'code-copy-btn';
+        btn.setAttribute('aria-label', 'Copy code to clipboard');
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function () {
+            var source = block.querySelector('.rouge-code')
+                || block.querySelector('td.code')
+                || block.querySelector('pre');
+            if (!source) return;
+            var text = (source.innerText || source.textContent || '').replace(/\n+$/, '');
+            navigator.clipboard.writeText(text).then(function () {
+                btn.textContent = 'Copied';
+                btn.classList.add('copied');
+                setTimeout(function () {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 1500);
+            }).catch(function () {
+                btn.textContent = 'Error';
+                setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+            });
+        });
+        block.appendChild(btn);
+    });
+})();
+</script>
 </div>
 
 

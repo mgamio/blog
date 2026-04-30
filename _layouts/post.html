@@ -5,6 +5,9 @@ archive: false
 post_class: post-template
 ---
 
+<!-- Reading progress bar -->
+<div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
 <!-- Begin Article
 ================================================== -->
 <div class="container">
@@ -12,7 +15,9 @@ post_class: post-template
 
         <!-- Post Share -->
         <div class="col-md-2 pl-0">
-            {% include share.html %}
+            <div class="post-share-sticky">
+                {% include share.html %}
+            </div>
         </div>
 
         <!-- Post -->
@@ -43,6 +48,19 @@ post_class: post-template
 
                 <!-- Post Title -->
                 <h1 class="posttitle">{{ page.title }}</h1>
+
+                <!-- Post meta: published date · reading time (· updated, if any) -->
+                {% assign words = content | number_of_words %}
+                {% assign reading_time = words | divided_by: 200 | plus: 1 %}
+                <p class="post-meta-line">
+                    <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+                    <span class="meta-sep">·</span>
+                    <span class="meta-reading-time">{{ reading_time }} min read</span>
+                    {% if page.last_modified_at %}
+                    <span class="meta-sep">·</span>
+                    <span class="meta-updated">Updated <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time></span>
+                    {% endif %}
+                </p>
 
             </div>
 
@@ -87,16 +105,6 @@ post_class: post-template
             </div>
             {% endif %}
 
-            <!-- Post Date -->
-            <p>
-            <small>
-                <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>           
-                {% if page.last_modified_at %}
-                (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
-                {% endif %}
-                </small>
-            </p>
-
             <!-- Post Categories -->
             <div class="after-post-cats">
                 <ul class="tags mb-4">
@@ -124,16 +132,21 @@ post_class: post-template
             <!-- End Tags -->
 
             <!-- Prev/Next -->
-            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            <nav class="PageNavigation post-nav-cards" aria-label="Post navigation">
             {% if page.previous.url %}
-            <a class="prev d-block col-md-6" href="{{page.previous.url | absolute_url}}"> &laquo; {{page.previous.title}}</a>
+                <a class="nav-item-card prev" href="{{ page.previous.url | absolute_url }}" rel="prev">
+                    <span class="nav-label">&laquo; Previous</span>
+                    <span class="nav-title">{{ page.previous.title }}</span>
+                </a>
             {% endif %}
             {% if page.next.url %}
-            <a class="next d-block col-md-6 text-lg-right" href="{{page.next.url | absolute_url}}">{{page.next.title}} &raquo; </a>
+                <a class="nav-item-card next" href="{{ page.next.url | absolute_url }}" rel="next">
+                    <span class="nav-label">Next &raquo;</span>
+                    <span class="nav-title">{{ page.next.title }}</span>
+                </a>
             {% endif %}
-            <div class="clearfix"></div>
-            </div>
-            <!-- End Categories -->
+            </nav>
+            <!-- End Prev/Next -->
 
         </div>
         <!-- End Post -->
@@ -182,3 +195,65 @@ https://search.google.com/structured-data/testing-tool/u/0/
 }
 </script>
 {% endif %}
+
+<!-- Reading progress bar -->
+<script>
+(function () {
+    var bar = document.getElementById('readingProgress');
+    var article = document.querySelector('.article-post');
+    if (!bar || !article) return;
+    var ticking = false;
+    function update() {
+        var rect = article.getBoundingClientRect();
+        var winH = window.innerHeight || document.documentElement.clientHeight;
+        var total = article.offsetHeight - winH;
+        var read = Math.max(0, -rect.top);
+        var pct = total > 0 ? Math.min(100, (read / total) * 100) : 0;
+        bar.style.width = pct + '%';
+        ticking = false;
+    }
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(update);
+            ticking = true;
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+})();
+</script>
+
+<!-- Copy-to-clipboard buttons on code blocks -->
+<script>
+(function () {
+    var blocks = document.querySelectorAll('.article-post .highlight');
+    if (!blocks.length || !navigator.clipboard) return;
+    blocks.forEach(function (block) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'code-copy-btn';
+        btn.setAttribute('aria-label', 'Copy code to clipboard');
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function () {
+            var source = block.querySelector('.rouge-code')
+                || block.querySelector('td.code')
+                || block.querySelector('pre');
+            if (!source) return;
+            var text = (source.innerText || source.textContent || '').replace(/\n+$/, '');
+            navigator.clipboard.writeText(text).then(function () {
+                btn.textContent = 'Copied';
+                btn.classList.add('copied');
+                setTimeout(function () {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 1500);
+            }).catch(function () {
+                btn.textContent = 'Error';
+                setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+            });
+        });
+        block.appendChild(btn);
+    });
+})();
+</script>

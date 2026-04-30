@@ -1,108 +1,255 @@
 ---
 layout: default
 ---
-<!DOCTYPE html> 
-<html lang="en"> 
-  <head> 
-	<!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115356337-1"></script>
-    <script>
-       window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);}
-       gtag('js', new Date());
-       gtag('config', 'UA-115356337-1', { 'anonymize_ip': true });
-       gtag('config', 'UA-115356337-1');
-    </script>
-	  
-    <!-- Required meta tags always come first --> 
-    <meta charset="utf-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-    <meta http-equiv="x-ua-compatible" content="ie=edge"> 
-	<meta name="description" content="IT books recommended">
-    <meta name="author" content="Moises Gamio">
-	<meta property="og:title" content="codersite.dev | IT books recommended" />
-	<meta property="og:type" content="image/jpeg" />
-	<meta property="og:url" content="https://codersite.dev/recommended" />    
-	<meta property="og:image" content="https://www.codersite.dev/assets/images/recommendedITBooks.jpg" />
-    <link rel="shortcut icon" href="favicon.ico"> 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:image" content="https://www.codersite.dev/assets/images/recommendedITBooks.jpg" />
-    <meta property="twitter:title" content="codersite.dev | IT books recommended" />
- 
-    <title>codersite.dev | Recommended</title> 
- 
-    <!-- Bootstrap CSS --> 
-    <link rel="stylesheet" href="../recommended/css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="../recommended/css/theme.css">
-    
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	
-  </head> 
-  <body> 
- 
-  
- 
 
-<div class="container">
-  </br>
-  <blockquote class="blockquote">
-    <p>Your code will change. Your principles shouldn't.</p>
-	<p>Your next job offer starts with one book.</p>
-    <p> – codersite.dev</p>
-  </blockquote>
-</div>
+<style>
+.books-landing {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1rem 0 3rem;
+}
 
-  <div class="container">
-    <div class="card-body ts-product-container">
-        <!--
-		<div class="ts-product card">
-            <a target="_blank" href="https://amzn.to/409i1R8">
-			<img class="card-img-top" src="../recommended/images/codeInterview.jpg"></a>
-            <div class="ts-product-title">
-                <h3>Master core data structures: Arrays, Linked Lists, Stacks, Queues, Trees, Graphs, Hash Maps, Heaps — explained clearly and applied to real interview problems.  Invest in your future: master algorithms today, land the job tomorrow.!</h3>
-            </div>
-            <div>
-                <a target="_blank" href="{{ site.baseurl }}/book/codeInterview.html" class="card-subtitle mb-2 text-muted" style="margin-right:20px">More Info</a>
-                <span><a target="_blank" href="https://amzn.to/409i1R8"><button type="button" class="btn btn-info">Buy</button></a></span>
+.books-hero {
+    text-align: center;
+    padding: 2rem 1rem 2.5rem;
+}
+
+.books-hero h1 {
+    font-family: Righteous, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.books-hero .lead-tagline {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 540px;
+    border-left: 3px solid #00ab6b;
+    padding: 0.25rem 0 0.25rem 1rem;
+    text-align: left;
+}
+
+.books-hero .lead-tagline p {
+    margin-bottom: 0.4rem;
+}
+
+.books-hero .lead-tagline p:last-child {
+    margin-bottom: 0;
+    color: rgba(0, 0, 0, 0.45);
+    font-style: normal;
+    font-size: 0.92rem;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #e1e4e8;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.75rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.book-card:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 171, 107, 0.4);
+    transform: translateY(-2px);
+}
+
+.book-card-cover {
+    flex: 0 0 auto;
+    background: #fafbfc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.book-card-cover img {
+    max-width: 100%;
+    max-height: 280px;
+    height: auto;
+    width: auto;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.book-card-body {
+    padding: 1.5rem 1.75rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-card-title {
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    margin: 0 0 0.85rem;
+    color: rgba(0, 0, 0, 0.88);
+}
+
+.book-card-desc {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 1.4rem;
+    flex: 1;
+}
+
+.book-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.book-card-actions .btn-buy {
+    display: inline-block;
+    background: #00ab6b;
+    color: #fff;
+    border: 1px solid #00ab6b;
+    border-radius: 999em;
+    padding: 0.5rem 1.4rem;
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.book-card-actions .btn-buy:hover {
+    background: #038252;
+    border-color: #038252;
+    color: #fff;
+    text-decoration: none;
+}
+
+.book-card-actions .btn-info-link {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 0.92rem;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.3);
+    padding-bottom: 1px;
+}
+
+.book-card-actions .btn-info-link:hover {
+    color: #00ab6b;
+    border-bottom-color: #00ab6b;
+    text-decoration: none;
+}
+
+.books-disclosure {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #eee;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 0.82rem;
+}
+
+@media (min-width: 768px) {
+    .book-card {
+        flex-direction: row;
+    }
+
+    .book-card-cover {
+        flex: 0 0 38%;
+        max-width: 38%;
+        padding: 2rem 1.75rem;
+    }
+
+    .book-card-cover img {
+        max-height: 320px;
+    }
+
+    .book-card-body {
+        padding: 2rem 2rem 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .books-hero h1 {
+        font-size: 1.9rem;
+    }
+
+    .book-card-body {
+        padding: 1.25rem 1.25rem 1.5rem;
+    }
+
+    .book-card-title {
+        font-size: 1.2rem;
+    }
+}
+</style>
+
+<section class="books-landing">
+
+    <header class="books-hero">
+        <h1>Books that level up your craft</h1>
+        <blockquote class="lead-tagline">
+            <p>Your code will change. Your principles shouldn't.</p>
+            <p>Your next job offer starts with one book.</p>
+            <p>– codersite.dev</p>
+        </blockquote>
+    </header>
+
+    <!--
+    <article class="book-card">
+        <div class="book-card-cover">
+            <a target="_blank" rel="noopener" href="https://amzn.to/409i1R8">
+                <img src="{{ site.baseurl }}/recommended/images/codeInterview.jpg" alt="Master core data structures">
+            </a>
+        </div>
+        <div class="book-card-body">
+            <h2 class="book-card-title">Master Core Data Structures</h2>
+            <p class="book-card-desc">Master core data structures: Arrays, Linked Lists, Stacks, Queues, Trees, Graphs, Hash Maps, Heaps — explained clearly and applied to real interview problems. Invest in your future: master algorithms today, land the job tomorrow.</p>
+            <div class="book-card-actions">
+                <a target="_blank" rel="noopener" href="https://amzn.to/409i1R8" class="btn-buy">Buy on Amazon</a>
+                <a target="_blank" href="{{ site.baseurl }}/book/codeInterview.html" class="btn-info-link">More info</a>
             </div>
         </div>
-        -->
-        <div class="ts-product card">
-            <a target="_blank" href="https://amzn.to/3SBfzwk">
-			<img class="card-img-top" src="../recommended/images/softwareDesignPrinciples.jpg"></a>
-            <div class="ts-product-title">
-                <h3>When Software design principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focused on reusable components. Jobs in the tech industry are growing exponentially.</h3>
-            </div>
-            <div>
-                <a target="_blank" href="{{ site.baseurl }}/book/softwareDesignPrinciples.html" class="card-subtitle mb-2 text-muted" style="margin-right:20px">More Info</a>
-                <span><a target="_blank" href="https://amzn.to/3SBfzwk"><button type="button" class="btn btn-info">Buy</button></a></span>
+    </article>
+    -->
+
+    <article class="book-card">
+        <div class="book-card-cover">
+            <a target="_blank" rel="noopener" href="https://amzn.to/3SBfzwk">
+                <img src="{{ site.baseurl }}/recommended/images/softwareDesignPrinciples.jpg" alt="Software Design Principles">
+            </a>
+        </div>
+        <div class="book-card-body">
+            <h2 class="book-card-title">Software Design Principles</h2>
+            <p class="book-card-desc">When Software design principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focused on reusable components. Jobs in the tech industry are growing exponentially.</p>
+            <div class="book-card-actions">
+                <a target="_blank" rel="noopener" href="https://amzn.to/3SBfzwk" class="btn-buy">Buy on Amazon</a>
+                <a target="_blank" href="{{ site.baseurl }}/book/softwareDesignPrinciples.html" class="btn-info-link">More info</a>
             </div>
         </div>
+    </article>
 
-		<div class="ts-product card">
-            <a target="_blank" href="https://amzn.to/3gIOjPp">
-			<img class="card-img-top" src="../recommended/images/codingInterview2ndEdition.jpg"></a>
-            <div class="ts-product-title">
-                <h3>The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.</h3>
-            </div>
-            <div>
-                <a target="_blank" href="{{ site.baseurl }}/book/landing_cracking.html" class="card-subtitle mb-2 text-muted" style="margin-right:20px">More Info</a>
-                <span><a target="_blank" href="https://amzn.to/3gIOjPp"><button type="button" class="btn btn-info">Buy</button></a></span>
+    <article class="book-card">
+        <div class="book-card-cover">
+            <a target="_blank" rel="noopener" href="https://amzn.to/3gIOjPp">
+                <img src="{{ site.baseurl }}/recommended/images/codingInterview2ndEdition.jpg" alt="Cracking the Coding Interview">
+            </a>
+        </div>
+        <div class="book-card-body">
+            <h2 class="book-card-title">Cracking the Coding Interview – Top Java Challenges</h2>
+            <p class="book-card-desc">The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.</p>
+            <div class="book-card-actions">
+                <a target="_blank" rel="noopener" href="https://amzn.to/3gIOjPp" class="btn-buy">Buy on Amazon</a>
+                <a target="_blank" href="{{ site.baseurl }}/book/landing_cracking.html" class="btn-info-link">More info</a>
             </div>
         </div>
+    </article>
 
-    <!-- footer //--> 
-<div class="container"> 
-   <div class="row"> 
-      <div class="col-lg-12"> 
-         
-      </div> 
-   </div> 
-</div> 
- 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <footer class="books-disclosure">
+        <p>As an Amazon Associate I earn from qualifying purchases.</p>
+    </footer>
 
-  </body> 
-</html>
+</section>
