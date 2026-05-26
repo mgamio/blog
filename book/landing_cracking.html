@@ -552,6 +552,9 @@
 <span class="kw">public class</span> <span class="type">StringUtils</span> {
 
   <span class="kw">public static boolean</span> <span class="fn">isPalindrome</span>(<span class="type">String</span> text) {
+    <span class="kw">if</span> (text == <span class="kw">null</span>)
+      <span class="kw">return false</span>;
+
     <span class="kw">final int</span> length = text.<span class="fn">length</span>();
 
     <span class="kw">for</span> (<span class="kw">int</span> idx = <span class="num">0</span>; idx &lt; length / <span class="num">2</span>; idx++) {
