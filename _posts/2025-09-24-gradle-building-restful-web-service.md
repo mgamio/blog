@@ -180,5 +180,3 @@ Please support me as a writer. Every contribution helps, and your donation can h
     height=550
     scrolling="no"
 ></iframe>
-
-

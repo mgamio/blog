@@ -554,5 +554,3 @@ You can see a lot of typical algorithms implemented with Clean Code principles i
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
-
-<p><iframe style="width:100%;" height="550" src="https://www.youtube.com/embed/qf4vJrhNQn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>

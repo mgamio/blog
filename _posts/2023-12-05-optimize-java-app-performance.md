@@ -131,7 +131,3 @@ Please support me as a writer. Every contribution helps, and your donation can h
  <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
 </form>
 <br/>
-
-<div>
-{%- include mailchimp.html -%}
-</div>

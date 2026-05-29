@@ -192,5 +192,3 @@ Please support me as a writer. Your donation will help add more articles to this
  <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
 </form>
 <br/>
-
-

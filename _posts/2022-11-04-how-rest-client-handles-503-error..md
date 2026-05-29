@@ -137,7 +137,3 @@ Please donate if you can. Every contribution helps, and your donation can help m
  <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
 </form>
 <br/>
-
-<div>
-{%- include mailchimp.html -%}
-</div>

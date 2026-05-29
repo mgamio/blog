@@ -187,10 +187,6 @@ But what we need is a real implementation of this API specification. In my next 
 {%- include jediJavaInterviewAds.html -%}
 </div>
 
-<div>
-{%- include mailchimp.html -%}
-</div>
-
 <br/>
 
 Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
@@ -201,7 +197,3 @@ Please support me as a writer. Every contribution helps, and your donation can h
  <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
 </form>
 <br/>
-
-
-
-
