@@ -27,10 +27,7 @@
   {%- include google-tag.html -%}
 {%- endif -%}
 
-{% if page.layout == 'post' or page.layout == "default" or page.layout == "tags" or page.layout == "categories" %}
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
-  crossorigin="anonymous"></script>
-{%- endif -%}
+<!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -215,6 +212,40 @@
   });
 </script>
 -->
+
+<!-- deferred-thirdparty: load GA4 gtag.js + AdSense on first interaction or 3s after load,
+     whichever comes first. Keeps third-party JS off the critical path (FCP/LCP/TBT);
+     gtag()/adsbygoogle commands queued earlier run as soon as the libraries arrive. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadScript(src, crossorigin) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = src;
+    if (crossorigin) { s.crossOrigin = 'anonymous'; }
+    document.head.appendChild(s);
+  }
+  function loadDeferred() {
+    if (loaded) { return; }
+    loaded = true;
+    {%- if jekyll.environment == 'production' and site.google_analytics %}
+    loadScript('https://www.googletagmanager.com/gtag/js?id=G-R4CM8DTM8S', false);
+    {%- endif %}
+    {%- if page.layout == 'post' or page.layout == "default" or page.layout == "tags" or page.layout == "categories" %}
+    loadScript('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042', true);
+    {%- endif %}
+  }
+  var evts = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+  evts.forEach(function (e) { window.addEventListener(e, loadDeferred, { passive: true, once: true }); });
+  // Fallback so visitors who never interact are still measured and served ads.
+  if (document.readyState === 'complete') {
+    setTimeout(loadDeferred, 3000);
+  } else {
+    window.addEventListener('load', function () { setTimeout(loadDeferred, 3000); });
+  }
+})();
+</script>
 
 </body>
 </html>
