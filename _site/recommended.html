@@ -37,7 +37,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<script src="/assets/js/jquery.min.js"></script><script>
+<script src="/assets/js/jquery.min.js"></script><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -461,20 +463,24 @@
         <button type="button" class="rec-featured-nav next" id="recFeaturedNext" aria-label="Next picks">&rsaquo;</button>
 
         <div class="rec-featured-strip" id="recFeaturedStrip">
-            <a class="rec-featured-card" href="https://amzn.to/4loZGt5" target="_blank" rel="noopener nofollow sponsored" aria-label="AI Agents — Shop on Amazon">
-                <div class="rec-cover"><img src="/recommended/images/AIAgents.jpg" alt="AI Agents" loading="lazy"></div>
+            <!--US-->
+			<a class="rec-featured-card" href="https://amzn.to/3R4cnP7" target="_blank" rel="noopener nofollow sponsored" aria-label="Agentic Spec-Driven Development — Shop on Amazon">
+                <div class="rec-cover"><img src="/recommended/images/AgenticSpecDrivenDev.webp" alt="Agentic Spec-Driven Development" loading="lazy"></div>
                 <div class="rec-buy">Shop on Amazon →</div>
             </a>
-            <a class="rec-featured-card" href="https://amzn.to/4hB5s7I" target="_blank" rel="noopener nofollow sponsored" aria-label="Cracking the Coding Interview — Shop on Amazon">
-                <div class="rec-cover"><img src="/recommended/images/codingInterview2ndEdition.png" alt="Cracking the Coding Interview" loading="lazy"></div>
+            <!--US-->
+            <a class="rec-featured-card" href="https://amzn.to/4b5YExW" target="_blank" rel="noopener nofollow sponsored" aria-label="Claude AI for Beginners Bible — Shop on Amazon">
+                <div class="rec-cover"><img src="/recommended/images/claudeAIForBeginners.webp" alt="Claude AI for Beginners Bible" loading="lazy"></div>
                 <div class="rec-buy">Shop on Amazon →</div>
             </a>
-            <a class="rec-featured-card" href="https://amzn.to/409oU4Q" target="_blank" rel="noopener nofollow sponsored" aria-label="Investing For Programmers — Shop on Amazon">
-                <div class="rec-cover"><img src="/recommended/images/investingForProgrammers.jpg" alt="Investing For Programmers" loading="lazy"></div>
+            <!--US-->
+            <a class="rec-featured-card" href="https://amzn.to/3SuOFvM" target="_blank" rel="noopener nofollow sponsored" aria-label="The Agentic AI Bible — Shop on Amazon">
+                <div class="rec-cover"><img src="/recommended/images/TheAgenticBible.webp" alt="The Agentic AI Bible" loading="lazy"></div>
                 <div class="rec-buy">Shop on Amazon →</div>
             </a>
-            <a class="rec-featured-card" href="https://amzn.to/4loYDcD" target="_blank" rel="noopener nofollow sponsored" aria-label="Galaxy Tab A11 — Shop on Amazon">
-                <div class="rec-cover"><img src="/recommended/images/galaxyTabA11.jpg" alt="Galaxy Tab A11" loading="lazy"></div>
+            <!--US-->
+            <a class="rec-featured-card" href="https://amzn.to/3StmjlF" target="_blank" rel="noopener nofollow sponsored" aria-label="Refactoring: Improving the Design of Existing Code — Shop on Amazon">
+                <div class="rec-cover"><img src="/recommended/images/refactoring.jpg" alt="Refactoring: Improving the Design of Existing Code" loading="lazy"></div>
                 <div class="rec-buy">Shop on Amazon →</div>
             </a>
         </div>
@@ -490,6 +496,11 @@
             <img src="/recommended/images/AIAgents.jpg" alt="AI Agents" loading="lazy">
             <span class="rec-card-overlay"><span>Shop on Amazon →</span></span>
         </a>
+        <!--US-->
+		<a class="rec-card" href="https://amzn.to/4eFSoOm" target="_blank" rel="noopener nofollow sponsored" aria-label="Domain-Driven Design — Shop on Amazon">
+            <img src="/recommended/images/domainDrivenDesign.jpg" alt="Domain-Driven Design" loading="lazy">
+            <span class="rec-card-overlay"><span>Shop on Amazon →</span></span>
+        </a>
         <a class="rec-card" href="https://amzn.to/4hB5s7I" target="_blank" rel="noopener nofollow sponsored" aria-label="Cracking the Coding Interview — Shop on Amazon">
             <img src="/recommended/images/codingInterview2ndEdition.png" alt="Cracking the Coding Interview" loading="lazy">
             <span class="rec-card-overlay"><span>Shop on Amazon →</span></span>
@@ -498,8 +509,9 @@
             <img src="/recommended/images/investingForProgrammers.jpg" alt="Investing For Programmers" loading="lazy">
             <span class="rec-card-overlay"><span>Shop on Amazon →</span></span>
         </a>
-        <a class="rec-card" href="https://amzn.to/4loYDcD" target="_blank" rel="noopener nofollow sponsored" aria-label="Galaxy Tab A11 — Shop on Amazon">
-            <img src="/recommended/images/galaxyTabA11.jpg" alt="Galaxy Tab A11" loading="lazy">
+		<!--US-->
+        <a class="rec-card" href="https://amzn.to/4gJx2SS" target="_blank" rel="noopener nofollow sponsored" aria-label="A Philosophy of Software Design — Shop on Amazon">
+            <img src="/recommended/images/APhilosophyofSoftwareDesign.jpg" alt="A Philosophy of Software Design" loading="lazy">
             <span class="rec-card-overlay"><span>Shop on Amazon →</span></span>
         </a>
         <a class="rec-card" href="https://amzn.to/3CsRaar" target="_blank" rel="noopener nofollow sponsored" aria-label="Amazon Web Services in Action — Shop on Amazon">
@@ -734,6 +746,34 @@
   });
 </script>
 -->
+
+<!-- deferred-thirdparty: load GA4 gtag.js + AdSense on first interaction or 3s after load,
+     whichever comes first. Keeps third-party JS off the critical path (FCP/LCP/TBT);
+     gtag()/adsbygoogle commands queued earlier run as soon as the libraries arrive. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadScript(src, crossorigin) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = src;
+    if (crossorigin) { s.crossOrigin = 'anonymous'; }
+    document.head.appendChild(s);
+  }
+  function loadDeferred() {
+    if (loaded) { return; }
+    loaded = true;
+  }
+  var evts = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+  evts.forEach(function (e) { window.addEventListener(e, loadDeferred, { passive: true, once: true }); });
+  // Fallback so visitors who never interact are still measured and served ads.
+  if (document.readyState === 'complete') {
+    setTimeout(loadDeferred, 3000);
+  } else {
+    window.addEventListener('load', function () { setTimeout(loadDeferred, 3000); });
+  }
+})();
+</script>
 
 </body>
 </html>

@@ -37,7 +37,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<script src="/assets/js/jquery.min.js"></script><script>
+<script src="/assets/js/jquery.min.js"></script><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -163,7 +165,7 @@
                 
 
                     
-                        <img class="img-fluid" src="/assets/images/inventoryItems.jpg" alt="ACME Inventory - number of items in closed compartments"> 
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/inventoryItems.jpg" alt="ACME Inventory - number of items in closed compartments">
                     
 
                 
@@ -209,7 +211,7 @@
                 
 
                     
-                        <img class="img-fluid" src="/assets/images/shoppingOptions.jpg" alt="Shopping options with a limited budget"> 
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/shoppingOptions.jpg" alt="Shopping options with a limited budget">
                     
 
                 
@@ -255,7 +257,7 @@
                 
 
                     
-                        <img class="img-fluid" src="/assets/images/postInTwitterAPI.jpg" alt="How to Post a Random Tweet using Twitter API"> 
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/postInTwitterAPI.jpg" alt="How to Post a Random Tweet using Twitter API">
                     
 
                 
@@ -302,7 +304,7 @@
                 
 
                     
-                        <img class="img-fluid" src="/assets/images/assembleParts.jpg" alt="Assemble Parts in Minimum Time"> 
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/assembleParts.jpg" alt="Assemble Parts in Minimum Time">
                     
 
                 
@@ -348,7 +350,7 @@
                 
 
                     
-                        <img class="img-fluid" src="/assets/images/merge.jpg" alt="Merge two sorted lists algorithm"> 
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/merge.jpg" alt="Merge two sorted lists algorithm">
                     
 
                 
@@ -395,7 +397,7 @@
                 
 
                     
-                        <img class="img-fluid" src="/assets/images/algorithm.jpg" alt="Big O Notation and Analysis of Algorithms - coding interview"> 
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/algorithm.jpg" alt="Big O Notation and Analysis of Algorithms - coding interview">
                     
 
                 
@@ -441,7 +443,7 @@
                 
 
                     
-                        <img class="img-fluid" src="/assets/images/dfsAlgorithm.jpg" alt="Graphs: Depth-First Search"> 
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/dfsAlgorithm.jpg" alt="Graphs: Depth-First Search">
                     
 
                 
@@ -488,7 +490,7 @@
                 
 
                     
-                        <img class="img-fluid" src="/assets/images/binarySearchTree.jpg" alt="Tree data structure: Binary Search Tree"> 
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/binarySearchTree.jpg" alt="Tree data structure: Binary Search Tree">
                     
 
                 
@@ -535,7 +537,7 @@
                 
 
                     
-                        <img class="img-fluid" src="/assets/images/smallestNumber.jpg" alt="Given N, find the smallest number with the same digits"> 
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/smallestNumber.jpg" alt="Given N, find the smallest number with the same digits">
                     
 
                 
@@ -675,6 +677,34 @@
   });
 </script>
 -->
+
+<!-- deferred-thirdparty: load GA4 gtag.js + AdSense on first interaction or 3s after load,
+     whichever comes first. Keeps third-party JS off the critical path (FCP/LCP/TBT);
+     gtag()/adsbygoogle commands queued earlier run as soon as the libraries arrive. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadScript(src, crossorigin) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = src;
+    if (crossorigin) { s.crossOrigin = 'anonymous'; }
+    document.head.appendChild(s);
+  }
+  function loadDeferred() {
+    if (loaded) { return; }
+    loaded = true;
+  }
+  var evts = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+  evts.forEach(function (e) { window.addEventListener(e, loadDeferred, { passive: true, once: true }); });
+  // Fallback so visitors who never interact are still measured and served ads.
+  if (document.readyState === 'complete') {
+    setTimeout(loadDeferred, 3000);
+  } else {
+    window.addEventListener('load', function () { setTimeout(loadDeferred, 3000); });
+  }
+})();
+</script>
 
 </body>
 </html>

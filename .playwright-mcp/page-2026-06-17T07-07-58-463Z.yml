@@ -1,0 +1,255 @@
+- generic [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "codersite" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "codersite" [ref=e5]
+      - button "Toggle navigation" [ref=e6] [cursor=pointer]
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - heading "Improve your Programming Problem-solving skills with Examples" [level=1] [ref=e11]
+        - paragraph [ref=e12]: This blog site shares knowledge and business case studies and helps developers be better software engineers.
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - heading "Featured Articles" [level=2] [ref=e16]:
+            - generic [ref=e17]: Featured Articles
+          - generic [ref=e18]:
+            - generic [ref=e21]:
+              - link [ref=e25] [cursor=pointer]:
+                - /url: /understanding-oop-concepts/
+                - img [ref=e26]
+              - generic [ref=e29]:
+                - generic [ref=e30]:
+                  - heading "Understanding OOP concepts" [level=2] [ref=e31]:
+                    - link "Understanding OOP concepts" [ref=e32] [cursor=pointer]:
+                      - /url: /understanding-oop-concepts/
+                  - heading "Understanding OOP concepts gives you a solid foundation for making critical decisions about object-oriented software design." [level=4] [ref=e33]
+                - generic [ref=e35]:
+                  - img "Moises Gamio" [ref=e37]
+                  - generic [ref=e38]:
+                    - link "Moises Gamio" [ref=e40] [cursor=pointer]:
+                      - /url: https://codersite.dev
+                    - generic [ref=e41]: 20 May 2022
+                  - link "Read Story" [ref=e43] [cursor=pointer]:
+                    - /url: //understanding-oop-concepts/
+                    - img [ref=e44]
+            - generic [ref=e48]:
+              - link [ref=e52] [cursor=pointer]:
+                - /url: /big-o-notation-analysis-of-algorithms/
+                - img [ref=e53]
+              - generic [ref=e56]:
+                - generic [ref=e57]:
+                  - heading "Big O Notation and Analysis of Algorithms - coding interview" [level=2] [ref=e58]:
+                    - link "Big O Notation and Analysis of Algorithms - coding interview" [ref=e59] [cursor=pointer]:
+                      - /url: /big-o-notation-analysis-of-algorithms/
+                  - heading "Big O Notation is a mathematical notation that helps us analyze how complex an algorithm is in terms of time and space. When we build..." [level=4] [ref=e60]
+                - generic [ref=e62]:
+                  - img "Moises Gamio" [ref=e64]
+                  - generic [ref=e65]:
+                    - link "Moises Gamio" [ref=e67] [cursor=pointer]:
+                      - /url: https://codersite.dev
+                    - generic [ref=e68]: 22 Jun 2020
+                  - link "Read Story" [ref=e70] [cursor=pointer]:
+                    - /url: //big-o-notation-analysis-of-algorithms/
+                    - img [ref=e71]
+        - generic [ref=e73]:
+          - heading "All Articles" [level=2] [ref=e75]:
+            - generic [ref=e76]: All Articles
+          - generic [ref=e77]:
+            - generic [ref=e79]:
+              - link "Building a RESTful Web Service with Gradle and Openapi" [ref=e81] [cursor=pointer]:
+                - /url: /gradle-building-restful-web-service/
+                - img "Building a RESTful Web Service with Gradle and Openapi" [ref=e82]
+              - generic [ref=e83]:
+                - heading "Building a RESTful Web Service with Gradle and Openapi" [level=2] [ref=e84]:
+                  - link "Building a RESTful Web Service with Gradle and Openapi" [ref=e85] [cursor=pointer]:
+                    - /url: /gradle-building-restful-web-service/
+                - heading "This guide walks you through the process of creating a RESTful web service with Gradle, Spring and Openapi." [level=4] [ref=e86]
+              - generic [ref=e88]:
+                - img "Moises Gamio" [ref=e90]
+                - generic [ref=e91]:
+                  - link "Moises Gamio" [ref=e93] [cursor=pointer]:
+                    - /url: https://codersite.dev
+                  - generic [ref=e94]: 24 Sep 2025
+                - link "Read Story" [ref=e96] [cursor=pointer]:
+                  - /url: /gradle-building-restful-web-service/
+                  - img [ref=e97]
+            - generic [ref=e100]:
+              - link "ACME Inventory - number of items in closed compartments" [ref=e102] [cursor=pointer]:
+                - /url: /number-items-closed-compartments/
+                - img "ACME Inventory - number of items in closed compartments" [ref=e103]
+              - generic [ref=e104]:
+                - heading "ACME Inventory - number of items in closed compartments" [level=2] [ref=e105]:
+                  - link "ACME Inventory - number of items in closed compartments" [ref=e106] [cursor=pointer]:
+                    - /url: /number-items-closed-compartments/
+                - heading "ACME Corporation would like to know how much inventory exists in their closed inventory compartments. Given a string s consisting of items as ‘*’ and closed compartments as an open..." [level=4] [ref=e107]
+              - generic [ref=e109]:
+                - img "Moises Gamio" [ref=e111]
+                - generic [ref=e112]:
+                  - link "Moises Gamio" [ref=e114] [cursor=pointer]:
+                    - /url: https://codersite.dev
+                  - generic [ref=e115]: 03 Jul 2025
+                - link "Read Story" [ref=e117] [cursor=pointer]:
+                  - /url: /number-items-closed-compartments/
+                  - img [ref=e118]
+            - generic [ref=e121]:
+              - 'link "Problem-Solving Efficiency: Hashmap provides efficient solutions for searching" [ref=e123] [cursor=pointer]':
+                - /url: /transform-list-into-hashmap/
+                - 'img "Problem-Solving Efficiency: Hashmap provides efficient solutions for searching" [ref=e124]'
+              - generic [ref=e125]:
+                - 'heading "Problem-Solving Efficiency: Hashmap provides efficient solutions for searching" [level=2] [ref=e126]':
+                  - 'link "Problem-Solving Efficiency: Hashmap provides efficient solutions for searching" [ref=e127] [cursor=pointer]':
+                    - /url: /transform-list-into-hashmap/
+                - heading "In this article, I am going to demonstrate the importance of knowing in detail every data structure to support business requirements in an efficient manner." [level=4] [ref=e128]
+              - generic [ref=e130]:
+                - img "Moises Gamio" [ref=e132]
+                - generic [ref=e133]:
+                  - link "Moises Gamio" [ref=e135] [cursor=pointer]:
+                    - /url: https://codersite.dev
+                  - generic [ref=e136]: 15 May 2025
+                - link "Read Story" [ref=e138] [cursor=pointer]:
+                  - /url: /transform-list-into-hashmap/
+                  - img [ref=e139]
+            - generic [ref=e142]:
+              - 'link "Swagger Codegen: Moving from design to API development" [ref=e144] [cursor=pointer]':
+                - /url: /swagger-codegen-server-stubs-openapi/
+                - 'img "Swagger Codegen: Moving from design to API development" [ref=e145]'
+              - generic [ref=e146]:
+                - 'heading "Swagger Codegen: Moving from design to API development" [level=2] [ref=e147]':
+                  - 'link "Swagger Codegen: Moving from design to API development" [ref=e148] [cursor=pointer]':
+                    - /url: /swagger-codegen-server-stubs-openapi/
+                - heading "Swagger Codegen can simplify your build process by generating server stubs and client SDKs for any API, defined with the OpenAPI." [level=4] [ref=e149]
+              - generic [ref=e151]:
+                - img "Moises Gamio" [ref=e153]
+                - generic [ref=e154]:
+                  - link "Moises Gamio" [ref=e156] [cursor=pointer]:
+                    - /url: https://codersite.dev
+                  - generic [ref=e157]: 16 Apr 2025
+                - link "Read Story" [ref=e159] [cursor=pointer]:
+                  - /url: /swagger-codegen-server-stubs-openapi/
+                  - img [ref=e160]
+            - generic [ref=e163]:
+              - link "Shopping options with a limited budget" [ref=e165] [cursor=pointer]:
+                - /url: /shopping-budget-options/
+                - img "Shopping options with a limited budget" [ref=e166]
+              - generic [ref=e167]:
+                - heading "Shopping options with a limited budget" [level=2] [ref=e168]:
+                  - link "Shopping options with a limited budget" [ref=e169] [cursor=pointer]:
+                    - /url: /shopping-budget-options/
+                - 'heading "A shopper wants to buy one item from each category: pants, sneakers, a skirt, and a t-shirt. Each category has multiple price options, and the shopper must stay within a..." [level=4] [ref=e170]'
+              - generic [ref=e172]:
+                - img "Moises Gamio" [ref=e174]
+                - generic [ref=e175]:
+                  - link "Moises Gamio" [ref=e177] [cursor=pointer]:
+                    - /url: https://codersite.dev
+                  - generic [ref=e178]: 24 Mar 2025
+                - link "Read Story" [ref=e180] [cursor=pointer]:
+                  - /url: /shopping-budget-options/
+                  - img [ref=e181]
+            - generic [ref=e184]:
+              - link "Designing APIs with Swagger and OpenAPI" [ref=e186] [cursor=pointer]:
+                - /url: /designing-apis-with-swagger-and-openapi/
+                - img "Designing APIs with Swagger and OpenAPI" [ref=e187]
+              - generic [ref=e188]:
+                - heading "Designing APIs with Swagger and OpenAPI" [level=2] [ref=e189]:
+                  - link "Designing APIs with Swagger and OpenAPI" [ref=e190] [cursor=pointer]:
+                    - /url: /designing-apis-with-swagger-and-openapi/
+                - heading "In this series of articles, we will follow a real API project from concept to production, and learn hands-on how to describe and design APIs using OpenAPI in the Swagger..." [level=4] [ref=e191]
+              - generic [ref=e193]:
+                - img "Moises Gamio" [ref=e195]
+                - generic [ref=e196]:
+                  - link "Moises Gamio" [ref=e198] [cursor=pointer]:
+                    - /url: https://codersite.dev
+                  - generic [ref=e199]: 26 Feb 2025
+                - link "Read Story" [ref=e201] [cursor=pointer]:
+                  - /url: /designing-apis-with-swagger-and-openapi/
+                  - img [ref=e202]
+        - generic [ref=e204]:
+          - generic [ref=e206]: 
+          - navigation [ref=e207]:
+            - generic [ref=e208]:
+              - text: « Prev 1
+              - link "2" [ref=e209] [cursor=pointer]:
+                - /url: /page2/
+              - link "3" [ref=e210] [cursor=pointer]:
+                - /url: /page3/
+              - link "4" [ref=e211] [cursor=pointer]:
+                - /url: /page4/
+              - link "5" [ref=e212] [cursor=pointer]:
+                - /url: /page5/
+              - link "6" [ref=e213] [cursor=pointer]:
+                - /url: /page6/
+              - link "7" [ref=e214] [cursor=pointer]:
+                - /url: /page7/
+              - link "Next »" [ref=e215] [cursor=pointer]:
+                - /url: /page2/
+    - generic [ref=e217]:
+      - heading "Explore →" [level=2] [ref=e220]
+      - generic [ref=e221]:
+        - link "algorithms (9)" [ref=e222] [cursor=pointer]:
+          - /url: /categories#algorithms
+        - link "test-driven development (1)" [ref=e223] [cursor=pointer]:
+          - /url: /categories#test-driven-development
+        - link "design (6)" [ref=e224] [cursor=pointer]:
+          - /url: /categories#design
+        - link "Web APIs (10)" [ref=e225] [cursor=pointer]:
+          - /url: /categories#Web-APIs
+        - link "Coding Practices (1)" [ref=e226] [cursor=pointer]:
+          - /url: /categories#Coding-Practices
+        - link "distribuited systems (1)" [ref=e227] [cursor=pointer]:
+          - /url: /categories#distribuited-systems
+        - link "Object-Oriented (1)" [ref=e228] [cursor=pointer]:
+          - /url: /categories#Object-Oriented
+        - link "Domain-Driven Design (1)" [ref=e229] [cursor=pointer]:
+          - /url: /categories#Domain-Driven-Design
+        - link "Language (1)" [ref=e230] [cursor=pointer]:
+          - /url: /categories#Language
+        - link "Web Performance (1)" [ref=e231] [cursor=pointer]:
+          - /url: /categories#Web-Performance
+        - link "startup (1)" [ref=e232] [cursor=pointer]:
+          - /url: /categories#startup
+        - link "Project (1)" [ref=e233] [cursor=pointer]:
+          - /url: /categories#Project
+        - link "data structures (2)" [ref=e234] [cursor=pointer]:
+          - /url: /categories#data-structures
+        - link "programming (6)" [ref=e235] [cursor=pointer]:
+          - /url: /categories#programming
+    - contentinfo [ref=e236]:
+      - generic [ref=e238]:
+        - generic [ref=e239]: Copyright © 2026 codersite
+        - generic [ref=e240]:
+          - link "Privacy policy |" [ref=e241] [cursor=pointer]:
+            - /url: /policy
+          - link "Terms of service |" [ref=e242] [cursor=pointer]:
+            - /url: /termsOfService
+          - link "Impressum" [ref=e243] [cursor=pointer]:
+            - /url: /impressum
+  - dialog "Diese Website bittet um die Einwilligung, Ihre Daten zu verwenden" [active] [ref=e247]:
+    - generic [ref=e249]:
+      - generic [ref=e250]:
+        - paragraph [ref=e252]: Herzlich willkommen
+        - heading "Diese Website bittet um die Einwilligung, Ihre Daten zu verwenden" [level=1] [ref=e253]
+      - list [ref=e255]:
+        - listitem [ref=e256]:
+          - img [ref=e259]
+          - generic [ref=e261]: Personalisierte Werbung und Inhalte, Messung von Werbeleistung und der Performance von Inhalten, Zielgruppenforschung sowie Entwicklung und Verbesserung von Angeboten
+        - listitem [ref=e262]:
+          - img [ref=e265]
+          - generic [ref=e267]: Speichern von oder Zugriff auf Informationen auf einem Endgerät
+      - button "Weitere Informationen" [ref=e268] [cursor=pointer]:
+        - img [ref=e271]
+        - generic [ref=e273]: Weitere Informationen
+      - generic [ref=e274]:
+        - paragraph [ref=e275]:
+          - text: 210 Partner werden Ihre personenbezogenen Daten verarbeiten und dürfen Informationen von Ihrem Gerät (Cookies, eindeutige Kennungen und andere Gerätedaten) speichern und darauf zugreifen. Die Informationen von Ihrem Gerät können mit den Partnern geteilt oder speziell von dieser Website verwendet werden. Wir und unsere Partner dürfen genaue Daten zur Standortbestimmung verwenden.
+          - button "Liste der Partner" [ref=e276] [cursor=pointer]
+        - paragraph [ref=e277]: Einige Anbieter nutzen Ihre personenbezogenen Daten möglicherweise auf Grundlage ihres berechtigten Interesses. Dagegen können Sie unten über den Button zum Verwalten Ihrer Optionen Einspruch erheben. Unten auf dieser Seite oder im Menü der Website finden Sie einen Link, über den Sie die Einwilligung in die Datenschutz- und Cookie-Einstellungen verwalten oder widerrufen können.
+    - generic [ref=e278]:
+      - generic [ref=e280]:
+        - button "Einwilligen" [ref=e281] [cursor=pointer]:
+          - paragraph [ref=e283]: Einwilligen
+        - button "Nicht einwilligen" [ref=e284] [cursor=pointer]:
+          - paragraph [ref=e286]: Nicht einwilligen
+      - button "Optionen verwalten" [ref=e287] [cursor=pointer]:
+        - paragraph [ref=e288]: Optionen verwalten

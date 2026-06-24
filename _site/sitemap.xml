@@ -1,273 +1,290 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>https://codersite.dev/</loc>
-  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
-  <priority>1.00</priority>
+<loc>http://localhost:4000/given-positive-number-n-find-smallest-number-same-number-digits/</loc>
+<lastmod>2019-06-29T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev</loc>
-  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
-  <priority>1.00</priority>
+<loc>http://localhost:4000/optimize-online-purchases/</loc>
+<lastmod>2020-04-09T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/about</loc>
-  <lastmod>2024-12-16T15:10:44+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/tree-data-structure-binary-search-tree/</loc>
+<lastmod>2020-05-12T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/categories</loc>
-  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/graphs-depth-first-search/</loc>
+<lastmod>2020-06-01T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/book/</loc>
-  <lastmod>2022-02-17T21:30:41+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/solid-principles-the-definitive-guide/</loc>
+<lastmod>2020-06-15T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/book</loc>
-  <lastmod>2022-02-17T21:30:41+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/big-o-notation-analysis-of-algorithms/</loc>
+<lastmod>2020-06-22T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/open-closed-principle/</loc>
-  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/documenting-rest-api-openapi3/</loc>
+<lastmod>2020-10-02T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/merge-two-sorted-lists/</loc>
-  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/clean-code/</loc>
+<lastmod>2020-10-27T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/hot-warm-architecture-elasticsearch/</loc>
-  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/hot-warm-architecture-elasticsearch/</loc>
+<lastmod>2021-02-26T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/clean-code/</loc>
-  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/merge-two-sorted-lists/</loc>
+<lastmod>2021-08-04T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/documenting-rest-api-openapi3/</loc>
-  <lastmod>2025-09-10T21:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/open-closed-principle/</loc>
+<lastmod>2022-01-06T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/big-o-notation-analysis-of-algorithms/</loc>
-  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/uml-diagrams-for-java-developers/</loc>
+<lastmod>2022-03-09T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/solid-principles-the-definitive-guide/</loc>
-  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/spring-boot-oauth2/</loc>
+<lastmod>2022-04-26T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/graphs-depth-first-search/</loc>
-  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/ssl-handshake-failure/</loc>
+<lastmod>2022-05-11T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/tree-data-structure-binary-search-tree/</loc>
-  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/understanding-oop-concepts/</loc>
+<lastmod>2022-05-20T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/optimize-online-purchases/</loc>
-  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/the-ubiquitous-language/</loc>
+<lastmod>2022-08-27T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/</loc>
-  <lastmod>2022-02-17T21:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/german-vocabulary-software-engineers/</loc>
+<lastmod>2022-10-03T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/policy.html</loc>
-  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/load-balancing-clustering/</loc>
+<lastmod>2022-10-05T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/termsOfService.html</loc>
-  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/how-rest-client-handles-503-error/</loc>
+<lastmod>2022-11-04T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/impressum.html</loc>
-  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/assemble-parts-in-minimum.time/</loc>
+<lastmod>2022-11-12T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/index.html</loc>
-  <lastmod>2022-02-17T21:30:44+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>http://localhost:4000/post-random-tweet-on-twitter-api/</loc>
+<lastmod>2022-12-07T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/assets/files/sample.pdf</loc>
-  <lastmod>2022-02-17T21:30:41+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>http://localhost:4000/soft-skills-software-development/</loc>
+<lastmod>2023-01-22T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/uml-diagrams-for-java-developers/</loc>
-  <lastmod>2022-03-09T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/rate-limit/</loc>
+<lastmod>2023-02-02T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/spring-boot-oauth2/</loc>
-  <lastmod>2022-05-08T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/software-design-principles/</loc>
+<lastmod>2023-02-22T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/understanding-oop-concepts/</loc>
-  <lastmod>2022-05-20T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/best-startup-ideas-to-make-money/</loc>
+<lastmod>2023-03-25T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/the-ubiquitous-language/</loc>
-  <lastmod>2022-09-15T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/rest-api-overview/</loc>
+<lastmod>2023-06-29T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/load-balancing-clustering/</loc>
-  <lastmod>2022-10-05T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/building-rest-api-client/</loc>
+<lastmod>2023-09-30T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/german-vocabulary-software-engineers/</loc>
-  <lastmod>2022-10-12T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/web-dev-project-breakdown/</loc>
+<lastmod>2023-11-11T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/recommended.html</loc>
-  <lastmod>2022-10-26T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/optimize-java-app-performance/</loc>
+<lastmod>2023-12-05T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/how-rest-client-handles-503-error</loc>
-  <lastmod>2022-11-06T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/data-structures-foundation-efficient-programming/</loc>
+<lastmod>2023-12-22T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/assemble-parts-in-minimum.time/</loc>
-  <lastmod>2022-11-06T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/java-functional-programming/</loc>
+<lastmod>2024-01-03T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/post-random-tweet-on-twitter-api/</loc>
-  <lastmod>2022-12-10T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/java-generics/</loc>
+<lastmod>2024-01-05T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/rate-limit/</loc>
-  <lastmod>2023-08-10T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/enum-flags-bitwise-operators/</loc>
+<lastmod>2024-04-05T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/rest-api-overview/</loc>
-  <lastmod>2023-08-11T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/certified-professional-java-building-blocks/</loc>
+<lastmod>2024-10-01T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/building-rest-api-client/</loc>
-  <lastmod>2023-10-01T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/spring-boot-actuator/</loc>
+<lastmod>2024-10-24T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/best-startup-ideas-to-make-money/</loc>
-  <lastmod>2023-05-01T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/spring-boot-automate-api-client/</loc>
+<lastmod>2024-10-30T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/software-design-principles/</loc>
-  <lastmod>2023-02-01T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/designing-apis-with-swagger-and-openapi/</loc>
+<lastmod>2025-02-26T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/soft-skills-software-development/</loc>
-  <lastmod>2023-01-01T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/shopping-budget-options/</loc>
+<lastmod>2025-03-24T00:00:00+01:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/web-dev-project-breakdown/</loc>
-  <lastmod>2023-11-29T13:12:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/swagger-codegen-server-stubs-openapi/</loc>
+<lastmod>2025-04-16T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/optimize-java-app-performance/</loc>
-  <lastmod>2023-12-05T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/transform-list-into-hashmap/</loc>
+<lastmod>2025-05-15T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/data-structures-foundation-efficient-programming/</loc>
-  <lastmod>2023-12-22T13:30:45+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/number-items-closed-compartments/</loc>
+<lastmod>2025-07-03T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/java-functional-programming/</loc>
-  <lastmod>2023-11-29T13:12:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/gradle-building-restful-web-service/</loc>
+<lastmod>2025-09-24T00:00:00+02:00</lastmod>
 </url>
 <url>
-  <loc>https://codersite.dev/java-generics/</loc>
-  <lastmod>2024-01-16T13:12:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/about</loc>
 </url>
 <url>
-  <loc>https://codersite.dev/enum-flags-bitwise-operators/</loc>
-  <lastmod>2024-04-26T13:12:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/books.html</loc>
 </url>
 <url>
-  <loc>https://codersite.dev/certified-professional-java-building-blocks/</loc>
-  <lastmod>2024-10-03T13:12:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/categories</loc>
 </url>
 <url>
-  <loc>https://codersite.dev/spring-boot-actuator/</loc>
-  <lastmod>2024-10-24T13:12:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/impressum</loc>
 </url>
 <url>
-  <loc>https://codersite.dev/spring-boot-automate-api-client/</loc>
-  <lastmod>2024-10-31T13:12:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/</loc>
 </url>
 <url>
-  <loc>https://codersite.dev/book/softwareDesignPrinciples.html</loc>
-  <lastmod>2025-01-04T14:31:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/policy</loc>
 </url>
 <url>
-  <loc>https://codersite.dev/shopping-budget-options/</loc>
-  <lastmod>2025-03-24T14:31:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/recommended.html</loc>
 </url>
 <url>
-  <loc>https://codersite.dev/swagger-codegen-server-stubs-openapi/</loc>
-  <lastmod>2025-04-16T14:31:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/tags</loc>
 </url>
 <url>
-  <loc>https://codersite.dev/transform-list-into-hashmap/</loc>
-  <lastmod>2025-05-24T14:31:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/termsOfService</loc>
 </url>
 <url>
-  <loc>https://codersite.dev/number-items-closed-compartments/</loc>
-  <lastmod>2025-07-05T14:31:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/category/algorithms/</loc>
 </url>
 <url>
-  <loc>https://codersite.dev/gradle-building-restful-web-service/</loc>
-  <lastmod>2025-09-24T14:31:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/category/test-driven-development/</loc>
 </url>
 <url>
-  <loc>https://codersite.dev/book/landing_cracking.html</loc>
-  <lastmod>2026-04-29T14:31:02+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>http://localhost:4000/category/design/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/web-apis/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/coding-practices/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/distribuited-systems/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/object-oriented/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/domain-driven-design/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/language/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/web-performance/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/startup/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/project/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/data-structures/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/programming/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page2/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page3/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page4/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page5/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page6/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page7/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/assets/files/sample.pdf</loc>
+<lastmod>2024-09-04T10:54:54+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/assets/files/sdpSample.pdf</loc>
+<lastmod>2025-01-04T14:21:11+01:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/book/amazon/</loc>
+<lastmod>2024-11-22T00:16:36+01:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/book/codeInterview.html</loc>
+<lastmod>2026-03-12T13:20:08+01:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/book/</loc>
+<lastmod>2026-04-29T16:52:27+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/book/javaInterview.html</loc>
+<lastmod>2026-03-27T11:45:19+01:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/book/landing_cracking.html</loc>
+<lastmod>2026-06-12T14:20:35+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/book/softwareDesignPrinciples.html</loc>
+<lastmod>2025-01-23T19:12:01+01:00</lastmod>
 </url>
 </urlset>

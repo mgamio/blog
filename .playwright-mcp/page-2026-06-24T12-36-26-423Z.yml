@@ -1,0 +1,89 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - button "Zurück" [ref=e7] [cursor=pointer]:
+            - img [ref=e8]
+          - heading "Test für Rich-Suchergebnisse" [level=1] [ref=e11]
+        - button [ref=e15] [cursor=pointer]:
+          - generic [ref=e18]: 
+        - generic [ref=e20]:
+          - button "Google-Apps" [ref=e24] [cursor=pointer]:
+            - img [ref=e25]
+          - link "Anmelden" [ref=e28] [cursor=pointer]:
+            - /url: https://accounts.google.com/ServiceLogin?service=sitemaps&passive=1209600&continue=https://search.google.com/test/rich-results/result/r%252Farticles?id%3DBmpbvpTnDoLPqLMihgBMCQ&followup=https://search.google.com/test/rich-results/result/r%252Farticles?id%3DBmpbvpTnDoLPqLMihgBMCQ&ec=GAZA1AI
+    - generic [ref=e32]:
+      - generic [ref=e36]:
+        - generic [ref=e37]: 
+        - textbox "URL zum Testen eingeben" [ref=e41]: https://codersite.dev/understanding-oop-concepts/
+        - button "Diese URL noch einmal testen" [ref=e42] [cursor=pointer]:
+          - generic [ref=e45]: 
+        - button "User-Agent-Optionen" [ref=e47] [cursor=pointer]:
+          - generic [ref=e50]: 
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - navigation "Navigationspfade" [ref=e58]:
+            - link "Testergebnisse" [ref=e60] [cursor=pointer]:
+              - /url: ./test/rich-results/result?id=BmpbvpTnDoLPqLMihgBMCQ
+            - generic [ref=e61]: 
+            - heading "Artikel" [level=1] [ref=e64]
+          - button "Freigeben" [ref=e68] [cursor=pointer]:
+            - generic [ref=e72]:
+              - generic [ref=e73]: 
+              - generic [ref=e74]: Freigeben
+        - generic [ref=e83]:
+          - generic [ref=e85]:
+            - generic [ref=e87]:
+              - generic [ref=e88]:
+                - generic [ref=e89]: check_circle
+                - generic [ref=e90]:
+                  - generic [ref=e91]: 2 gültige Elemente erkannt
+                  - generic [ref=e92]:
+                    - text: Für gültige Elemente sind Rich-Suchergebnisse in der Google Suche möglich.
+                    - link "Weitere Informationen" [ref=e94] [cursor=pointer]:
+                      - /url: https://support.google.com/webmasters/answer/9012289#enhancements
+              - generic [ref=e96]:
+                - button "Getestete Seite anzeigen" [ref=e100] [cursor=pointer]:
+                  - generic [ref=e105]: Getestete Seite anzeigen
+                - button "Vorschau Ihrer URL in der Google Suche ansehen" [disabled] [ref=e109]:
+                  - generic [ref=e114]: Vorschau der Ergebnisse anzeigen
+            - generic [ref=e115]: Details
+            - generic [ref=e117]:
+              - generic [ref=e118]:
+                - generic [ref=e119]: Crawling
+                - button "Erfolgreich gecrawlt am 24.06.2026, 14:34:26" [ref=e123] [cursor=pointer]:
+                  - generic [ref=e124]:
+                    - generic [ref=e125]:
+                      - generic [ref=e126]: check_circle
+                      - generic [ref=e127]: Erfolgreich gecrawlt am 24.06.2026, 14:34:26
+                    - generic [ref=e130]: 
+              - generic [ref=e131]:
+                - generic [ref=e132]: Erkannte Elemente
+                - generic [ref=e133]:
+                  - button "Understanding OOP concepts" [ref=e137] [cursor=pointer]:
+                    - generic [ref=e138]:
+                      - generic [ref=e139]:
+                        - generic [ref=e140]: check_circle
+                        - generic [ref=e142]: Understanding OOP concepts
+                      - generic [ref=e145]: 
+                  - button "Understanding OOP concepts 1 nicht kritisches Problem null" [ref=e149] [cursor=pointer]:
+                    - generic [ref=e150]:
+                      - generic [ref=e151]:
+                        - generic [ref=e152]: check_circle
+                        - generic [ref=e153]:
+                          - generic [ref=e154]: Understanding OOP concepts
+                          - generic [ref=e155]:
+                            - generic [ref=e158]: 1 nicht kritisches Problem
+                            - button "null" [ref=e161]:
+                              - generic [ref=e162]: 
+                      - generic [ref=e165]: 
+          - generic [ref=e168]:
+            - link "Datenschutz" [ref=e169] [cursor=pointer]:
+              - /url: https://myaccount.google.com/privacypolicy?hl=de
+            - link "Nutzungsbedingungen" [ref=e170] [cursor=pointer]:
+              - /url: https://myaccount.google.com/termsofservice?hl=de
+  - iframe [ref=e173]:
+    - generic [ref=f5e6]:
+      - text: geschützt durch
+      - strong [ref=f5e7]: reCAPTCHA

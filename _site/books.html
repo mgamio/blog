@@ -37,7 +37,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<script src="/assets/js/jquery.min.js"></script><script>
+<script src="/assets/js/jquery.min.js"></script><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -339,23 +341,21 @@
         </blockquote>
     </header>
 
-    <!--
     <article class="book-card">
         <div class="book-card-cover">
-            <a target="_blank" rel="noopener" href="https://amzn.to/409i1R8">
-                <img src="/recommended/images/codeInterview.jpg" alt="Master core data structures">
+            <a target="_blank" rel="noopener" href="https://amzn.to/3gIOjPp">
+                <img src="/recommended/images/codingInterview2ndEdition.png" alt="Cracking the Coding Interview">
             </a>
         </div>
         <div class="book-card-body">
-            <h2 class="book-card-title">Master Core Data Structures</h2>
-            <p class="book-card-desc">Master core data structures: Arrays, Linked Lists, Stacks, Queues, Trees, Graphs, Hash Maps, Heaps — explained clearly and applied to real interview problems. Invest in your future: master algorithms today, land the job tomorrow.</p>
+            <h2 class="book-card-title">Cracking the Coding Interview – Top Java Challenges</h2>
+            <p class="book-card-desc">The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.</p>
             <div class="book-card-actions">
-                <a target="_blank" rel="noopener" href="https://amzn.to/409i1R8" class="btn-buy">Buy on Amazon</a>
-                <a target="_blank" href="/book/codeInterview.html" class="btn-info-link">More info</a>
+                <a target="_blank" rel="noopener" href="https://amzn.to/3gIOjPp" class="btn-buy">Buy on Amazon</a>
+                <a target="_blank" href="/book/landing_cracking.html" class="btn-info-link">More info</a>
             </div>
         </div>
     </article>
-    -->
 
     <article class="book-card">
         <div class="book-card-cover">
@@ -369,22 +369,6 @@
             <div class="book-card-actions">
                 <a target="_blank" rel="noopener" href="https://amzn.to/3SBfzwk" class="btn-buy">Buy on Amazon</a>
                 <a target="_blank" href="/book/softwareDesignPrinciples.html" class="btn-info-link">More info</a>
-            </div>
-        </div>
-    </article>
-
-    <article class="book-card">
-        <div class="book-card-cover">
-            <a target="_blank" rel="noopener" href="https://amzn.to/3gIOjPp">
-                <img src="/recommended/images/codingInterview2ndEdition.png" alt="Cracking the Coding Interview">
-            </a>
-        </div>
-        <div class="book-card-body">
-            <h2 class="book-card-title">Cracking the Coding Interview – Top Java Challenges</h2>
-            <p class="book-card-desc">The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.</p>
-            <div class="book-card-actions">
-                <a target="_blank" rel="noopener" href="https://amzn.to/3gIOjPp" class="btn-buy">Buy on Amazon</a>
-                <a target="_blank" href="/book/landing_cracking.html" class="btn-info-link">More info</a>
             </div>
         </div>
     </article>
@@ -495,6 +479,34 @@
   });
 </script>
 -->
+
+<!-- deferred-thirdparty: load GA4 gtag.js + AdSense on first interaction or 3s after load,
+     whichever comes first. Keeps third-party JS off the critical path (FCP/LCP/TBT);
+     gtag()/adsbygoogle commands queued earlier run as soon as the libraries arrive. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadScript(src, crossorigin) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = src;
+    if (crossorigin) { s.crossOrigin = 'anonymous'; }
+    document.head.appendChild(s);
+  }
+  function loadDeferred() {
+    if (loaded) { return; }
+    loaded = true;
+  }
+  var evts = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+  evts.forEach(function (e) { window.addEventListener(e, loadDeferred, { passive: true, once: true }); });
+  // Fallback so visitors who never interact are still measured and served ads.
+  if (document.readyState === 'complete') {
+    setTimeout(loadDeferred, 3000);
+  } else {
+    window.addEventListener('load', function () { setTimeout(loadDeferred, 3000); });
+  }
+})();
+</script>
 
 </body>
 </html>

@@ -1,0 +1,160 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - button "Zurück" [ref=e138] [cursor=pointer]:
+            - img [ref=e139]
+          - heading "Test für Rich-Suchergebnisse" [level=1] [ref=e141]
+        - button [ref=e12] [cursor=pointer]:
+          - generic [ref=e15]: 
+        - generic [ref=e17]:
+          - button "Google-Apps" [ref=e142] [cursor=pointer]:
+            - img [ref=e22]
+          - link "Anmelden" [ref=e143] [cursor=pointer]:
+            - /url: https://accounts.google.com/ServiceLogin?service=sitemaps&passive=1209600&continue=https%3A%2F%2Fsearch.google.com%2Ftest%2Frich-results%2Fresult%2Fr%252Farticles%3Fid%3DBmpbvpTnDoLPqLMihgBMCQ&followup=https%3A%2F%2Fsearch.google.com%2Ftest%2Frich-results%2Fresult%2Fr%252Farticles%3Fid%3DBmpbvpTnDoLPqLMihgBMCQ&ec=GAZA1AI
+    - generic [ref=e146]:
+      - generic [ref=e150]:
+        - generic [ref=e151]: 
+        - textbox "URL zum Testen eingeben" [ref=e155]: https://codersite.dev/understanding-oop-concepts/
+        - button "Diese URL noch einmal testen" [ref=e156] [cursor=pointer]:
+          - generic [ref=e159]: 
+        - button "User-Agent-Optionen" [ref=e161] [cursor=pointer]:
+          - generic [ref=e164]: 
+      - generic [ref=e169]:
+        - generic [ref=e170]:
+          - navigation "Navigationspfade" [ref=e172]:
+            - link "Testergebnisse" [ref=e174] [cursor=pointer]:
+              - /url: ./test/rich-results/result?id=BmpbvpTnDoLPqLMihgBMCQ
+            - generic [ref=e175]: 
+            - heading "Artikel" [level=1] [ref=e178]
+          - button "Freigeben" [ref=e182] [cursor=pointer]:
+            - generic [ref=e186]:
+              - generic [ref=e187]: 
+              - generic [ref=e188]: Freigeben
+        - generic [ref=e197]:
+          - generic [ref=e199]:
+            - generic [ref=e201]:
+              - generic [ref=e202]:
+                - generic [ref=e203]: check_circle
+                - generic [ref=e204]:
+                  - generic [ref=e205]: 2 gültige Elemente erkannt
+                  - generic [ref=e206]:
+                    - text: Für gültige Elemente sind Rich-Suchergebnisse in der Google Suche möglich.
+                    - link "Weitere Informationen" [ref=e208] [cursor=pointer]:
+                      - /url: https://support.google.com/webmasters/answer/9012289#enhancements
+              - generic [ref=e210]:
+                - button "Getestete Seite anzeigen" [ref=e214] [cursor=pointer]:
+                  - generic [ref=e219]: Getestete Seite anzeigen
+                - button "Vorschau Ihrer URL in der Google Suche ansehen" [disabled] [ref=e223]:
+                  - generic [ref=e228]: Vorschau der Ergebnisse anzeigen
+            - generic [ref=e229]: Details
+            - generic [ref=e231]:
+              - generic [ref=e232]:
+                - generic [ref=e233]: Crawling
+                - button "Erfolgreich gecrawlt am 24.06.2026, 14:34:26" [ref=e237] [cursor=pointer]:
+                  - generic [ref=e238]:
+                    - generic [ref=e239]:
+                      - generic [ref=e240]: check_circle
+                      - generic [ref=e241]: Erfolgreich gecrawlt am 24.06.2026, 14:34:26
+                    - generic [ref=e244]: 
+              - generic [ref=e245]:
+                - generic [ref=e246]: Erkannte Elemente
+                - generic [ref=e247]:
+                  - generic [ref=e250]:
+                    - button "Understanding OOP concepts" [expanded] [active] [ref=e251] [cursor=pointer]:
+                      - generic [ref=e252]:
+                        - generic [ref=e253]:
+                          - generic [ref=e254]: check_circle
+                          - generic [ref=e256]: Understanding OOP concepts
+                        - generic [ref=e259]: 
+                    - generic [ref=e263]:
+                      - button "type BlogPosting" [ref=e265] [cursor=pointer]:
+                        - generic [ref=e270]:
+                          - generic [ref=e272]: type
+                          - generic [ref=e274]: BlogPosting
+                      - button "mainEntityOfPage" [ref=e276] [cursor=pointer]:
+                        - generic [ref=e283]: mainEntityOfPage
+                      - button "type WebPage" [ref=e285] [cursor=pointer]:
+                        - generic [ref=e290]:
+                          - generic [ref=e292]: type
+                          - generic [ref=e294]: WebPage
+                      - button "id https://codersite.dev/understanding-oop-concepts/" [ref=e296] [cursor=pointer]:
+                        - generic [ref=e301]:
+                          - generic [ref=e303]: id
+                          - generic [ref=e305]: https://codersite.dev/understanding-oop-concepts/
+                      - button "headline Understanding OOP concepts" [ref=e307] [cursor=pointer]:
+                        - generic [ref=e312]:
+                          - generic [ref=e314]: headline
+                          - generic [ref=e316]: Understanding OOP concepts
+                      - button "description Object-oriented concepts give you a solid foundation for making critical design decisions." [ref=e318] [cursor=pointer]:
+                        - generic [ref=e323]:
+                          - generic [ref=e325]: description
+                          - generic [ref=e327]: Object-oriented concepts give you a solid foundation for making critical design decisions.
+                      - button "image https://codersite.dev/assets/images/oop.jpg" [ref=e329] [cursor=pointer]:
+                        - generic [ref=e334]:
+                          - generic [ref=e336]: image
+                          - generic [ref=e338]: https://codersite.dev/assets/images/oop.jpg
+                      - button "datePublished 2022-05-20T00:00:00Z" [ref=e340] [cursor=pointer]:
+                        - generic [ref=e345]:
+                          - generic [ref=e347]: datePublished
+                          - generic [ref=e349]: 2022-05-20T00:00:00Z
+                      - button "dateModified 2022-05-20T00:00:00Z" [ref=e351] [cursor=pointer]:
+                        - generic [ref=e356]:
+                          - generic [ref=e358]: dateModified
+                          - generic [ref=e360]: 2022-05-20T00:00:00Z
+                      - button "author" [ref=e362] [cursor=pointer]:
+                        - generic [ref=e369]: author
+                      - button "type Person" [ref=e371] [cursor=pointer]:
+                        - generic [ref=e376]:
+                          - generic [ref=e378]: type
+                          - generic [ref=e380]: Person
+                      - button "name Moises Gamio" [ref=e382] [cursor=pointer]:
+                        - generic [ref=e387]:
+                          - generic [ref=e389]: name
+                          - generic [ref=e391]: Moises Gamio
+                      - button "url https://codersite.dev/" [ref=e393] [cursor=pointer]:
+                        - generic [ref=e398]:
+                          - generic [ref=e400]: url
+                          - generic [ref=e402]: https://codersite.dev/
+                      - button "publisher" [ref=e404] [cursor=pointer]:
+                        - generic [ref=e411]: publisher
+                      - button "type Organization" [ref=e413] [cursor=pointer]:
+                        - generic [ref=e418]:
+                          - generic [ref=e420]: type
+                          - generic [ref=e422]: Organization
+                      - button "name codersite" [ref=e424] [cursor=pointer]:
+                        - generic [ref=e429]:
+                          - generic [ref=e431]: name
+                          - generic [ref=e433]: codersite
+                      - button "logo" [ref=e435] [cursor=pointer]:
+                        - generic [ref=e442]: logo
+                      - button "type ImageObject" [ref=e444] [cursor=pointer]:
+                        - generic [ref=e449]:
+                          - generic [ref=e451]: type
+                          - generic [ref=e453]: ImageObject
+                      - button "url https://codersite.dev/assets/images/logo.png" [ref=e455] [cursor=pointer]:
+                        - generic [ref=e460]:
+                          - generic [ref=e462]: url
+                          - generic [ref=e464]: https://codersite.dev/assets/images/logo.png
+                  - button "Understanding OOP concepts 1 nicht kritisches Problem null" [ref=e468] [cursor=pointer]:
+                    - generic [ref=e469]:
+                      - generic [ref=e470]:
+                        - generic [ref=e471]: check_circle
+                        - generic [ref=e472]:
+                          - generic [ref=e473]: Understanding OOP concepts
+                          - generic [ref=e474]:
+                            - generic [ref=e477]: 1 nicht kritisches Problem
+                            - button "null" [ref=e480]:
+                              - generic [ref=e481]: 
+                      - generic [ref=e484]: 
+          - generic [ref=e487]:
+            - link "Datenschutz" [ref=e488] [cursor=pointer]:
+              - /url: https://myaccount.google.com/privacypolicy?hl=de
+            - link "Nutzungsbedingungen" [ref=e489] [cursor=pointer]:
+              - /url: https://myaccount.google.com/termsofservice?hl=de
+  - iframe [ref=e110]:
+    - generic [ref=f1e6]:
+      - text: geschützt durch
+      - strong [ref=f1e7]: reCAPTCHA
+  - generic [ref=e490]: Test für Rich-Suchergebnisse – Google Search Console

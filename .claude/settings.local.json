@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_playwright_playwright__browser_console_messages",
+      "Bash(curl -sS -m 20 https://codersite.dev/robots.txt)",
+      "Bash(curl -sS -m 20 -o /dev/null -w \"%{http_code} size=%{size_download}\\\\n\" https://codersite.dev/sitemap.xml)",
+      "Bash(curl -sS -m 20 https://codersite.dev/sitemap.xml)"
+    ]
+  }
+}

@@ -41,9 +41,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<script src="/assets/js/jquery.min.js"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
-  crossorigin="anonymous"></script><script>
+<script src="/assets/js/jquery.min.js"></script><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -293,7 +293,7 @@
 <span class="p">&lt;/</span><span class="n">dependency</span><span class="p">&gt;</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
@@ -360,7 +360,7 @@
 
 <p>We should implement a Rate Limiting Algorithm to protect our software infrastructure from unintentional requests that exceed the regular consumption of our web services.</p>
 
-<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
@@ -449,7 +449,7 @@
 
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042" crossorigin="anonymous"></script>
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
@@ -607,8 +607,7 @@
 </form>
 <p><br /></p>
 
-				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042"
-     crossorigin="anonymous"></script>
+				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -681,6 +680,61 @@
 https://search.google.com/structured-data/testing-tool/u/0/
 ================================================== -->
 
+
+<!-- BlogPosting + BreadcrumbList structured data (rich results).
+     All string values pass through | jsonify so quotes/newlines are escaped safely. --><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:4000/rate-limit/"
+  },
+  "headline": "How to implement Rate Limiting",
+  "description": "Hot to implement an API Rate Limiting in a backend API. Rate Limiting Algorithms",
+  "image": "http://localhost:4000/assets/images/rateLimitAlgorithm.jpg",
+  "datePublished": "2023-02-02T00:00:00+01:00",
+  "dateModified": "2023-02-02T00:00:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Moises Gamio",
+    "url": "https://codersite.dev"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "codersite",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:4000/assets/images/logo.png"
+    }
+  }
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "http://localhost:4000/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Web APIs",
+      "item": "http://localhost:4000/categories#Web-APIs"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to implement Rate Limiting",
+      "item": "http://localhost:4000/rate-limit/"
+    }
+  ]
+}
+</script>
 
 <!-- Reading progress bar -->
 <script>
@@ -845,6 +899,35 @@ https://search.google.com/structured-data/testing-tool/u/0/
   });
 </script>
 -->
+
+<!-- deferred-thirdparty: load GA4 gtag.js + AdSense on first interaction or 3s after load,
+     whichever comes first. Keeps third-party JS off the critical path (FCP/LCP/TBT);
+     gtag()/adsbygoogle commands queued earlier run as soon as the libraries arrive. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadScript(src, crossorigin) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = src;
+    if (crossorigin) { s.crossOrigin = 'anonymous'; }
+    document.head.appendChild(s);
+  }
+  function loadDeferred() {
+    if (loaded) { return; }
+    loaded = true;
+    loadScript('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042', true);
+  }
+  var evts = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+  evts.forEach(function (e) { window.addEventListener(e, loadDeferred, { passive: true, once: true }); });
+  // Fallback so visitors who never interact are still measured and served ads.
+  if (document.readyState === 'complete') {
+    setTimeout(loadDeferred, 3000);
+  } else {
+    window.addEventListener('load', function () { setTimeout(loadDeferred, 3000); });
+  }
+})();
+</script>
 
 </body>
 </html>
