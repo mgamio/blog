@@ -28,6 +28,8 @@ comments: false
 .social-row a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,.05); transition: background .15s ease, transform .15s ease; }
 .social-row a:hover { background: rgba(0,0,0,.1); transform: translateY(-2px); }
 .social-row a img, .social-row a svg { width: 24px; height: 24px; }
+.books-heading { font-weight: 700; margin-bottom: .25rem; }
+.books-intro { font-size: .9rem; color: rgba(0,0,0,.5); margin-bottom: 1.25rem; }
 .book-card { margin-bottom: 2rem; }
 .book-card img { width: 100%; border-radius: 6px; box-shadow: 0 6px 18px rgba(0,0,0,.15); margin-bottom: .75rem; }
 .book-card p { font-size: .92rem; color: rgba(0,0,0,.65); }
@@ -131,20 +133,23 @@ comments: false
 
   </div>
 
-  <!-- Sidebar: books -->
+  <!-- Sidebar: my books -->
   <div class="col-lg-4">
     <div class="sticky-top sticky-top-80">
 
+      <h4 class="books-heading">My books</h4>
+      <p class="books-intro">Everything I've learned over the years, distilled into two practical guides.</p>
+
       <div class="book-card">
-        <a href="https://amzn.to/3Nwp1om" target="_blank" rel="noopener"><img alt="Cracking the Coding Interview book cover" src="{{ site.baseurl }}/recommended/images/codingInterview2ndEdition.png"></a>
-        <p>Stop losing interviews because you can't master algorithms: learn to solve problems like top engineers do.</p>
-        <div class="text-center"><a target="_blank" rel="noopener" href="https://amzn.to/3Nwp1om" class="btn btn-danger">I want this</a></div>
+        <a href="https://amzn.to/3Nwp1om" target="_blank" rel="noopener"><img alt="Top Java Challenges: Cracking the Coding Interview — book by Moisés Gamio" src="{{ site.baseurl }}/recommended/images/codingInterview2ndEdition.png"></a>
+        <p>My collection of real Java interview challenges. Stop losing interviews because you can't master algorithms — learn to solve problems the way top engineers do.</p>
+        <div class="text-center"><a target="_blank" rel="noopener" href="https://amzn.to/3Nwp1om" class="btn btn-danger">Get it on Amazon</a></div>
       </div>
 
       <div class="book-card">
-        <a href="https://amzn.to/3AucVBA" target="_blank" rel="noopener"><img alt="Software Design Principles book cover" src="{{ site.baseurl }}/assets/images/SoftwareDesignPortadaJPG.jpg"></a>
-        <p>Real-world examples, diagrams, and explanations that make complex systems simple.</p>
-        <div class="text-center"><a target="_blank" rel="noopener" href="https://amzn.to/3AucVBA" class="btn btn-danger">I want this</a></div>
+        <a href="https://amzn.to/3AucVBA" target="_blank" rel="noopener"><img alt="Software Design Principles: A Practical Guide — book by Moisés Gamio" src="{{ site.baseurl }}/assets/images/SoftwareDesignPortadaJPG.jpg"></a>
+        <p>My practical guide to software design — real-world examples, diagrams, and clear explanations that make complex systems simple.</p>
+        <div class="text-center"><a target="_blank" rel="noopener" href="https://amzn.to/3AucVBA" class="btn btn-danger">Get it on Amazon</a></div>
       </div>
 
     </div>
