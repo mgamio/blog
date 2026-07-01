@@ -1,0 +1,156 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "codersite" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "codersite" [ref=e5]
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "Blog" [ref=e9] [cursor=pointer]:
+            - /url: /index.html
+        - listitem [ref=e10]:
+          - link "About" [ref=e11] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e12]:
+          - link "Recommended" [ref=e13] [cursor=pointer]:
+            - /url: /recommended.html
+        - listitem [ref=e14]:
+          - link "Books" [ref=e15] [cursor=pointer]:
+            - /url: /books.html
+        - textbox "Type and enter..." [ref=e17]
+        - generic [ref=e18]:
+          - list
+  - generic [ref=e19]:
+    - generic [ref=e22]:
+      - heading "About me" [level=2] [ref=e24]:
+        - generic [ref=e25]: About me
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - img "Moisés Gamio, software engineer" [ref=e32]
+            - generic [ref=e33]:
+              - generic [ref=e34]: Software Engineer · Berlin, Germany
+              - heading "Hi, I'm Moisés Gamio." [level=3] [ref=e35]
+              - paragraph [ref=e36]:
+                - text: For more than two decades I've built software for companies across very different worlds — from banks and government to retail and research. I created
+                - strong [ref=e37]: codersite.dev
+                - text: to share what I've learned and to make complex computer science and software design easy to understand.
+          - generic [ref=e38]:
+            - generic [ref=e39]:
+              - generic [ref=e40]: 20+
+              - text: Years as a software engineer
+            - generic [ref=e41]:
+              - generic [ref=e42]: "7"
+              - text: Industries served
+            - generic [ref=e43]:
+              - generic [ref=e44]: "2014"
+              - text: Building in Berlin since
+          - generic [ref=e45]:
+            - heading "My journey" [level=4] [ref=e46]
+            - paragraph [ref=e47]: I was born in Lima, Peru, where I studied for five years and earned a degree in Systems Engineering. Over my career I've worked across the Government, Financial, Industrial, Education, Consulting, Retail, and Research sectors — covering every stage of the software lifecycle, from analysis and design to testing and deployment, in both on-premise and cloud environments.
+            - paragraph [ref=e48]: For eight years I worked as a Systems Analyst in the banking sector. Since 2014 I've been a software engineer at a B2B company in Berlin, Germany. Along the way I've programmed in a wide range of languages, which keeps me pragmatic about choosing the right tool for the job.
+          - generic [ref=e49]:
+            - heading "What I write about" [level=4] [ref=e50]
+            - paragraph [ref=e51]: "On the blog I focus on the fundamentals that make us better engineers — the topics I'm most passionate about:"
+            - list [ref=e52]:
+              - listitem [ref=e53]:
+                - generic [ref=e54]: Clean Code
+              - listitem [ref=e55]:
+                - generic [ref=e56]: Software Design
+              - listitem [ref=e57]:
+                - generic [ref=e58]: Software Architecture
+              - listitem [ref=e59]:
+                - generic [ref=e60]: Object-Oriented Programming
+              - listitem [ref=e61]:
+                - generic [ref=e62]: Data Structures & Algorithms
+              - listitem [ref=e63]:
+                - generic [ref=e64]: RESTful Web Services
+              - listitem [ref=e65]:
+                - generic [ref=e66]: Spring Framework
+              - listitem [ref=e67]:
+                - generic [ref=e68]: Automated Testing
+              - listitem [ref=e69]:
+                - generic [ref=e70]: Distributed Systems
+              - listitem [ref=e71]:
+                - generic [ref=e72]: Cloud Computing
+          - generic [ref=e73]:
+            - heading "Languages I've worked with" [level=4] [ref=e74]
+            - list [ref=e75]:
+              - listitem [ref=e76]:
+                - generic [ref=e77]: Java
+              - listitem [ref=e78]:
+                - generic [ref=e79]: Python
+              - listitem [ref=e80]:
+                - generic [ref=e81]: C#
+              - listitem [ref=e82]:
+                - generic [ref=e83]: C
+              - listitem [ref=e84]:
+                - generic [ref=e85]: PHP
+              - listitem [ref=e86]:
+                - generic [ref=e87]: PL/SQL
+              - listitem [ref=e88]:
+                - generic [ref=e89]: Visual Basic
+              - listitem [ref=e90]:
+                - generic [ref=e91]: Prolog
+              - listitem [ref=e92]:
+                - generic [ref=e93]: COBOL
+              - listitem [ref=e94]:
+                - generic [ref=e95]: JScript
+          - generic [ref=e96]:
+            - heading "Let's connect" [level=4] [ref=e97]
+            - paragraph [ref=e98]: "I'm always happy to talk shop. Find me here:"
+            - generic [ref=e99]:
+              - link "LinkedIn" [ref=e100] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/moises-gamio-b4370210/
+                - img [ref=e101]
+              - link "GitHub" [ref=e103] [cursor=pointer]:
+                - /url: https://github.com/mgamio
+                - img "GitHub" [ref=e104]
+              - link "Medium" [ref=e105] [cursor=pointer]:
+                - /url: https://medium.com/@mkgv89
+                - img "Medium" [ref=e106]
+              - link "X / Twitter" [ref=e107] [cursor=pointer]:
+                - /url: http://www.twitter.com/MoisesGamio
+                - img "X / Twitter" [ref=e108]
+              - link "Facebook" [ref=e109] [cursor=pointer]:
+                - /url: https://www.facebook.com/codersite.dev
+                - img "Facebook" [ref=e110]
+          - generic [ref=e111]:
+            - heading "Support my work" [level=4] [ref=e112]
+            - paragraph [ref=e113]: codersite.dev is a labour of love. If an article has helped you, please consider supporting the blog — every contribution, no matter how small, helps me add more content. Thank you!
+            - iframe [ref=e114]:
+              - generic [active] [ref=f1e1]:
+                - generic [ref=f1e7]:
+                  - img [ref=f1e8]
+                  - generic [ref=f1e10]: Create more real business case studies
+                  - generic [ref=f1e11]:
+                    - progressbar [ref=f1e12]
+                    - generic [ref=f1e13]: 0 €von 5.000 € gesammelt
+                  - generic [ref=f1e14]: Please help us meet our goal. We’re raising money to create more business case studies to improve your Problem-solving skills.
+                  - button "Spenden" [ref=f1e16] [cursor=pointer]
+                - alert [ref=f1e17]
+        - generic [ref=e116]:
+          - generic [ref=e117]:
+            - link "Cracking the Coding Interview book cover" [ref=e118] [cursor=pointer]:
+              - /url: https://amzn.to/3Nwp1om
+              - img "Cracking the Coding Interview book cover" [ref=e119]
+            - paragraph [ref=e120]: "Stop losing interviews because you can't master algorithms: learn to solve problems like top engineers do."
+            - link "I want this" [ref=e122] [cursor=pointer]:
+              - /url: https://amzn.to/3Nwp1om
+          - generic [ref=e123]:
+            - link "Software Design Principles book cover" [ref=e124] [cursor=pointer]:
+              - /url: https://amzn.to/3AucVBA
+              - img "Software Design Principles book cover" [ref=e125]
+            - paragraph [ref=e126]: Real-world examples, diagrams, and explanations that make complex systems simple.
+            - link "I want this" [ref=e128] [cursor=pointer]:
+              - /url: https://amzn.to/3AucVBA
+    - contentinfo [ref=e129]:
+      - generic [ref=e131]:
+        - generic [ref=e132]: Copyright © 2026 codersite
+        - generic [ref=e133]:
+          - link "Privacy policy |" [ref=e134] [cursor=pointer]:
+            - /url: /policy
+          - link "Terms of service |" [ref=e135] [cursor=pointer]:
+            - /url: /termsOfService
+          - link "Impressum" [ref=e136] [cursor=pointer]:
+            - /url: /impressum

@@ -123,7 +123,7 @@ comments: false
     <div class="about-section">
       <h4>Support my work</h4>
       <p>codersite.dev is a labour of love. If an article has helped you, please consider supporting the blog — every contribution, no matter how small, helps me add more content. Thank you!</p>
-      <a class="coffee-btn" href="https://www.paypal.com/giving/campaigns?campaign_id=SR3NH5R4FNH8Q" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+      <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
     </div>
 
   </div>
