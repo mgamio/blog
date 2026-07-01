@@ -172,11 +172,4 @@ You can also buy my little book about [Data structures](https://codersite.dev/da
 
 Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 
-<iframe
-    src="https://www.paypal.com/giving/campaigns?campaign_id=SR3NH5R4FNH8Q"
-    title="PayPal donate campaign card"
-    frameborder="0"
-    width=382
-    height=550
-    scrolling="no"
-></iframe>
+{% include buymeacoffee.html %}

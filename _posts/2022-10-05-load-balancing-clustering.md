@@ -82,9 +82,5 @@ Now any application server in the cluster can create or delete any file on the f
 
 Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.
 
-<form action="https://www.paypal.com/donate" method="post" target="_top">
- <input type="hidden" name="hosted_button_id" value="UF4T364RTPPMJ" />
- <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
- <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
-</form>
+{% include buymeacoffee.html %}
 <br/>
