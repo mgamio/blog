@@ -28,8 +28,6 @@ comments: false
 .social-row a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,.05); transition: background .15s ease, transform .15s ease; }
 .social-row a:hover { background: rgba(0,0,0,.1); transform: translateY(-2px); }
 .social-row a img, .social-row a svg { width: 24px; height: 24px; }
-.coffee-btn { display: inline-flex; align-items: center; gap: .5rem; background: #FFDD00; color: #000; font-weight: 700; padding: 12px 22px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,.12); transition: transform .15s ease, box-shadow .15s ease; }
-.coffee-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.18); color: #000; text-decoration: none; }
 .books-heading { font-weight: 700; margin-bottom: .25rem; }
 .books-intro { font-size: .9rem; color: rgba(0,0,0,.5); margin-bottom: 1.25rem; }
 .book-card { margin-bottom: 2rem; }
@@ -125,7 +123,7 @@ comments: false
     <div class="about-section">
       <h4>Support my work</h4>
       <p>codersite.dev is a labour of love. If an article has helped you, please consider supporting the blog — every contribution, no matter how small, helps me add more content. Thank you!</p>
-      <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+      {% include buymeacoffee.html %}
     </div>
 
   </div>
