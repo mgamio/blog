@@ -1,0 +1,720 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "codersite" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "codersite" [ref=e5]
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "Blog" [ref=e9] [cursor=pointer]:
+            - /url: /index.html
+        - listitem [ref=e10]:
+          - link "About" [ref=e11] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e12]:
+          - link "Recommended" [ref=e13] [cursor=pointer]:
+            - /url: /recommended.html
+        - listitem [ref=e14]:
+          - link "Books" [ref=e15] [cursor=pointer]:
+            - /url: /books.html
+        - textbox "Type and enter..." [ref=e17]
+        - generic [ref=e18]:
+          - list
+  - generic [ref=e19]:
+    - generic [ref=e23]:
+      - generic [ref=e26]:
+        - paragraph [ref=e27]: Share
+        - list [ref=e28]:
+          - listitem [ref=e29]:
+            - link "" [ref=e30] [cursor=pointer]:
+              - /url: https://twitter.com/intent/tweet?text=RESTful API Tutorial&url=https://codersite.dev/rest-api-overview/
+              - generic [ref=e31]: 
+          - listitem [ref=e32]:
+            - link "" [ref=e33] [cursor=pointer]:
+              - /url: https://facebook.com/sharer.php?u=https://codersite.dev/rest-api-overview/
+              - generic [ref=e34]: 
+          - listitem [ref=e35]:
+            - link "" [ref=e36] [cursor=pointer]:
+              - /url: https://www.linkedin.com/shareArticle?mini=true&url=https://codersite.dev/rest-api-overview/
+              - generic [ref=e37]: 
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - img "Moises Gamio" [ref=e42]
+            - generic [ref=e43]:
+              - link "Moises Gamio" [ref=e44] [cursor=pointer]:
+                - /url: https://codersite.dev
+              - link "Follow" [ref=e45] [cursor=pointer]:
+                - /url: https://twitter.com/MoisesGamio
+              - generic [ref=e46]: Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors.
+          - heading "RESTful API Tutorial" [level=1] [ref=e47]
+          - paragraph [ref=e48]:
+            - time [ref=e49]: Jun 29, 2023
+            - text: · 16 min read
+        - img "RESTful API Tutorial" [ref=e50]
+        - generic [ref=e51]:
+          - paragraph [ref=e52]:
+            - text: In the world of web development, APIs (Application
+            - link "Programming" [ref=e53] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e54]
+              - text: Programming
+            - text: Interfaces) play a vital role in enabling communication and data exchange between different systems. Among the various types of APIs,
+            - link "REST" [ref=e56] [cursor=pointer]:
+              - /url: https://en.wikipedia.org/wiki/Representational_state_transfer
+            - text: (Representational State Transfer) has emerged as a popular architectural style for building web services.
+            - link "Programming" [ref=e57] [cursor=pointer]:
+              - img [ref=e59]
+              - text: Programming
+          - paragraph [ref=e61]: This article will delve into the fundamental concepts of REST API, its principles, its benefits in modern web development, and how to design a RESTful API.
+          - heading "What is RESTful API?" [level=2] [ref=e62]
+          - paragraph [ref=e63]: RESTful API is an interface that two computer systems use to exchange information over the Internet securely. Most enterprise applications must communicate with other internal and third-party applications to perform various tasks. For example, to retrieve food product information.
+          - heading "What is an API?" [level=2] [ref=e64]
+          - paragraph [ref=e65]: An API is an interface with defined functionalities that a software program presents to other programs and, in the case of web APIs, to the rest of the world via the Internet.
+          - paragraph [ref=e66]: APIs are the building blocks that allow interoperability between businesses on the web. Companies implement APIs to expose internal business processes and data to new customers and partners.
+          - paragraph [ref=e67]:
+            - text: APIs are how food data containing information about allergens are shared with hundreds of restaurant apps specializing in their presentation to final customers.
+            - link "Computer Science" [ref=e68] [cursor=pointer]:
+              - img [ref=e70]
+              - text: Computer Science
+          - paragraph [ref=e72]: APIs are also called Contracts, because they are assumed to be unbreakable.
+          - paragraph [ref=e73]:
+            - text: The party offering up its services through an API is called the
+            - strong [ref=e74]: provider
+            - text: and the one requesting these services is the
+            - strong [ref=e75]: consumer
+            - text: .
+          - paragraph [ref=e76]: We must create programs (API Servers) that serve data and other programs (API Clients) that consume/manipulate that data, as shown in the following figure.
+          - paragraph [ref=e77]:
+            - img "api-mesh" [ref=e78]
+          - paragraph [ref=e79]:
+            - text: Every company can implement Servers’ and Clients’ APIs using different
+            - link "programming" [ref=e80] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e81]
+              - text: programming
+            - text: languages, caches, proxies, and security mechanisms. They can choose monolithic or microservices architectures deployed in several application servers or cloud providers.
+          - paragraph [ref=e83]:
+            - text: "But how can all these heterogeneous components communicate with each other? The only answer is that they use a common language: the same semantics as the"
+            - link "HTTP" [ref=e84] [cursor=pointer]:
+              - /url: https://en.wikipedia.org/wiki/HTTP
+            - text: protocol. In this context, semantic means the interpretation we give every HTTP method.
+          - paragraph [ref=e85]:
+            - text: We create a kind of API program called
+            - link "Web Service" [ref=e86] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e87]
+              - text: Web Service
+            - text: to support this interoperable machine-to-machine interaction over a network.
+          - paragraph [ref=e89]:
+            - text: API Servers (providers) -> provides
+            - strong [ref=e90]: Resources
+            - text: (contains information)
+            - link "Web Services" [ref=e91] [cursor=pointer]:
+              - img [ref=e93]
+              - text: Web Services
+          - paragraph [ref=e95]:
+            - text: API Clients (consumers) -> requests
+            - strong [ref=e96]: Resources
+          - paragraph [ref=e97]: To implement efficiently API Servers or API Clients, you must understand the basic concepts of a REST API.
+          - heading "What is REST?" [level=2] [ref=e98]
+          - paragraph [ref=e99]: REST is an architectural style that defines a set of guidelines for creating web services. It stands for Representational State Transfer and emphasizes a stateless, client-server communication model.
+          - paragraph [ref=e100]: It allows communication between a client (such as a web browser or mobile app) and a server over the HTTP protocol.
+          - paragraph [ref=e101]: REST APIs use HTTP (Hypertext Transfer Protocol) as the primary protocol for data transmission and rely on standard operations such as GET, POST, PUT, and DELETE to perform actions on resources.
+          - paragraph [ref=e102]:
+            - text: The Hypertext Transfer Protocol (HTTP) is a stateless application-level protocol for distributed, collaborative, hypertext information systems. Stateless in this context means a receiver must not retain the session state from previous requests.
+            - link "Programming" [ref=e103] [cursor=pointer]:
+              - img [ref=e105]
+              - text: Programming
+          - blockquote [ref=e107]:
+            - paragraph [ref=e108]:
+              - text: RESTful APIs are widely used in web and mobile applications due to their simplicity, efficiency, and scalability. They provide a structured way to interact with a system’s data and services using standard web technologies. –
+              - link "Restful Web APIs" [ref=e110] [cursor=pointer]:
+                - /url: https://amzn.to/3PSGWmP
+          - link "codersite" [ref=e113] [cursor=pointer]:
+            - /url: https://amzn.to/3CFqq6t
+            - img "codersite" [ref=e114]
+          - heading "Resources" [level=2] [ref=e115]
+          - paragraph [ref=e116]:
+            - text: In REST API, a resource is the
+            - strong [ref=e117]: information or data
+            - text: exposed through the web service. Resources can be entities such as users, suppliers, articles, or any other data entity that can be
+            - strong [ref=e118]: uniquely identified
+            - text: . Each resource on the Web is typically represented by a
+            - link "URL" [ref=e119] [cursor=pointer]:
+              - /url: https://en.wikipedia.org/wiki/URL
+            - text: (Uniform Resource Locator) or endpoint defining a globally unique address. Giving something a URL turns it into a resource.
+            - link "Computer Science" [ref=e120] [cursor=pointer]:
+              - img [ref=e122]
+              - text: Computer Science
+          - paragraph [ref=e124]:
+            - text: In a business context, the following endpoint retrieves a
+            - strong [ref=e125]: representation
+            - text: of an array of article data under the following URL.
+          - generic [ref=e127]:
+            - generic [ref=e128]:
+              - code [ref=e129]:
+                - table [ref=e130]:
+                  - rowgroup [ref=e131]:
+                    - 'row "1 2 GET /api/v1/articles HTTP/1.1 Host: codersite.dev" [ref=e132]':
+                      - cell "1 2" [ref=e133]:
+                        - generic [ref=e134]: 1 2
+                      - 'cell "GET /api/v1/articles HTTP/1.1 Host: codersite.dev" [ref=e135]':
+                        - generic [ref=e136]: "GET /api/v1/articles HTTP/1.1 Host: codersite.dev"
+              - button "Copy code to clipboard" [ref=e137] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e138] [cursor=pointer]: Copy
+          - heading "Representations" [level=3] [ref=e139]
+          - paragraph [ref=e140]:
+            - text: We have defined an article as an HTTP resource but cannot transmit a physical article over the Internet. But as an information resource, we can send It over the Internet. The information must be helpful for the client. That’s a representation,
+            - strong [ref=e141]: a machine-readable description of the current state of a resource
+            - text: .
+          - generic [ref=e143]:
+            - generic [ref=e144]:
+              - code [ref=e145]:
+                - table [ref=e146]:
+                  - rowgroup [ref=e147]:
+                    - 'row "1 2 3 4 5 6 7 8 HTTP/1.1 200 OK Content-Type: application/json { articleID : 12121, articleName : \"Potatoes\" articlePrice : 12,3 articleDeliveryDate : 20230910 }" [ref=e148]':
+                      - cell "1 2 3 4 5 6 7 8" [ref=e149]:
+                        - generic [ref=e150]: 1 2 3 4 5 6 7 8
+                      - 'cell "HTTP/1.1 200 OK Content-Type: application/json { articleID : 12121, articleName : \"Potatoes\" articlePrice : 12,3 articleDeliveryDate : 20230910 }" [ref=e151]':
+                        - generic [ref=e152]: "HTTP/1.1 200 OK Content-Type: application/json { articleID : 12121, articleName : \"Potatoes\" articlePrice : 12,3 articleDeliveryDate : 20230910 }"
+              - button "Copy code to clipboard" [ref=e153] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e154] [cursor=pointer]: Copy
+          - paragraph [ref=e155]:
+            - text: The server sends (because of GET requests from the client) a representation describing the state of a resource. The client sends (through a POST, PUT, or PATCH request) a representation describing the state it would like the resource to have. That’s
+            - strong [ref=e156]: representational state transfer
+            - text: .
+          - insertion [ref=e158]:
+            - generic [ref=e161]:
+              - heading "These are topics related to the article that might interest you" [level=2] [ref=e163]: Discover more
+              - link "Open Source" [ref=e164] [cursor=pointer]:
+                - generic "Open Source" [ref=e165]
+                - img [ref=e167]
+              - link "Development Tools" [ref=e169] [cursor=pointer]:
+                - generic "Development Tools" [ref=e170]
+                - img [ref=e172]
+              - link "Computer Science" [ref=e174] [cursor=pointer]:
+                - generic "Computer Science" [ref=e175]
+                - img [ref=e177]
+          - heading "Uniform Interface" [level=3] [ref=e179]
+          - paragraph [ref=e180]: "A fundamental principle of REST API is the uniform interface, which establishes a standardized way of interacting with resources. It encompasses several constraints, including:"
+          - list [ref=e181]:
+            - listitem [ref=e182]:
+              - paragraph [ref=e183]:
+                - text: "Identification of resources: Resources should be uniquely identified by URIs."
+                - link "Web Services" [ref=e184] [cursor=pointer]:
+                  - img [ref=e186]
+                  - text: Web Services
+            - listitem [ref=e188]:
+              - paragraph [ref=e189]:
+                - strong [ref=e190]: Stateless communication
+                - text: ": Each request from the client to the server should contain all the necessary information to process the request without relying on the server’s previous state."
+            - listitem [ref=e191]:
+              - paragraph [ref=e192]: "Manipulation of resources through representations: Resources can be accessed and modified through representations, such as JSON or XML."
+            - listitem [ref=e193]:
+              - paragraph [ref=e194]: "Self-descriptive messages: Requests and responses should include sufficient metadata to describe the meaning and format of the data."
+            - listitem [ref=e195]:
+              - paragraph [ref=e196]: "Hypermedia as the engine of application state (HATEOAS): The API should provide links to related resources, allowing clients to navigate the application’s state."
+          - heading "HTTP Methods" [level=3] [ref=e197]
+          - paragraph [ref=e198]: "API clients can interact with APIs by sending HTTP methods to perform actions on resources. The four commonly used HTTP methods are:"
+          - paragraph [ref=e199]:
+            - strong [ref=e200]: GET
+          - paragraph [ref=e201]:
+            - text: Retrieves a representation of a resource or a collection of resources.
+            - link "Programming" [ref=e202] [cursor=pointer]:
+              - img [ref=e204]
+              - text: Programming
+          - generic [ref=e207]:
+            - generic [ref=e208]:
+              - code [ref=e209]:
+                - table [ref=e210]:
+                  - rowgroup [ref=e211]:
+                    - 'row "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 GET /api/v1/suppliers HTTP/1.1 Host: codersite.dev HTTP/1.1 200 OK Content-Type: application/json { \"suppliers\" : { \"supplier\" : [ { \"supplierId\": 1881, \"supplierName\": \"ACME\" \"supplierCurrency\": \"EUR\" }, { \"supplierId\": 132, \"supplierName\": \"ROYAL\" \"supplierCurrency\": \"EUR\" }, . . ] }, \"resultCountTotal\" : 980 }" [ref=e212]':
+                      - cell "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25" [ref=e213]:
+                        - generic [ref=e214]: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+                      - 'cell "GET /api/v1/suppliers HTTP/1.1 Host: codersite.dev HTTP/1.1 200 OK Content-Type: application/json { \"suppliers\" : { \"supplier\" : [ { \"supplierId\": 1881, \"supplierName\": \"ACME\" \"supplierCurrency\": \"EUR\" }, { \"supplierId\": 132, \"supplierName\": \"ROYAL\" \"supplierCurrency\": \"EUR\" }, . . ] }, \"resultCountTotal\" : 980 }" [ref=e215]':
+                        - generic [ref=e216]: "GET /api/v1/suppliers HTTP/1.1 Host: codersite.dev HTTP/1.1 200 OK Content-Type: application/json { \"suppliers\" : { \"supplier\" : [ { \"supplierId\": 1881, \"supplierName\": \"ACME\" \"supplierCurrency\": \"EUR\" }, { \"supplierId\": 132, \"supplierName\": \"ROYAL\" \"supplierCurrency\": \"EUR\" }, . . ] }, \"resultCountTotal\" : 980 }"
+              - button "Copy code to clipboard" [ref=e217] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e218] [cursor=pointer]: Copy
+          - paragraph [ref=e219]:
+            - text: Even when a GET method is defined as a
+            - emphasis [ref=e220]: safe
+            - text: HTTP method, your application MUST ensure that it never changes the resource state.
+          - paragraph [ref=e221]: The success response code to a GET request is 200 (OK).
+          - blockquote [ref=e222]:
+            - paragraph [ref=e223]: Real FAANG Interview Questions. Real Explanations. Real Results.
+          - link "java interview" [ref=e226] [cursor=pointer]:
+            - /url: https://amzn.to/3QYUK0v
+            - img "java interview" [ref=e227]
+          - paragraph [ref=e228]:
+            - strong [ref=e229]: POST
+          - paragraph [ref=e230]: Creates a new resource.
+          - paragraph [ref=e231]: When a client sends a POST request, it sends a representation of the resource it wants to create that corresponds with the semantics defined for the endpoint.
+          - generic [ref=e233]:
+            - generic [ref=e234]:
+              - code [ref=e235]:
+                - table [ref=e236]:
+                  - rowgroup [ref=e237]:
+                    - 'row "1 2 3 4 5 6 7 8 9 POST /api/v1/buyers HTTP/1.1 Content-Type: application/json Host: codersite.dev { \"buyerName\" : \"XYZ Restaurant\", \"buyerContact\" : \"Mr Bond\", \"buyerAddress\" : \"Berliner strasse 12\", }" [ref=e238]':
+                      - cell "1 2 3 4 5 6 7 8 9" [ref=e239]:
+                        - generic [ref=e240]: 1 2 3 4 5 6 7 8 9
+                      - 'cell "POST /api/v1/buyers HTTP/1.1 Content-Type: application/json Host: codersite.dev { \"buyerName\" : \"XYZ Restaurant\", \"buyerContact\" : \"Mr Bond\", \"buyerAddress\" : \"Berliner strasse 12\", }" [ref=e241]':
+                        - generic [ref=e242]: "POST /api/v1/buyers HTTP/1.1 Content-Type: application/json Host: codersite.dev { \"buyerName\" : \"XYZ Restaurant\", \"buyerContact\" : \"Mr Bond\", \"buyerAddress\" : \"Berliner strasse 12\", }"
+              - button "Copy code to clipboard" [ref=e243] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e244] [cursor=pointer]: Copy
+          - paragraph [ref=e245]: If you include an extra attribute in the body request not defined in the endpoint representation, you probably receive an Error from the server.
+          - paragraph [ref=e246]: The success response code to a POST request is 201 (Created).
+          - paragraph [ref=e247]:
+            - strong [ref=e248]: PUT
+          - paragraph [ref=e249]: Updates an existing resource or creates it if it doesn’t exist.
+          - paragraph [ref=e250]: The client usually takes the representation from a GET request, modifies it, and sends it back as the body of a PUT request.
+          - generic [ref=e252]:
+            - generic [ref=e253]:
+              - code [ref=e254]:
+                - table [ref=e255]:
+                  - rowgroup [ref=e256]:
+                    - 'row "1 2 3 4 5 6 7 8 9 PUT /api/v1/buyers/{buyerId} HTTP/1.1 Content-Type: application/json Host: codersite.dev { \"buyerName\" : \"XYZ Restaurant\", \"buyerContact\" : \"Herr Olaf\", \"buyerAddress\" : \"Berliner strasse 12\", }" [ref=e257]':
+                      - cell "1 2 3 4 5 6 7 8 9" [ref=e258]:
+                        - generic [ref=e259]: 1 2 3 4 5 6 7 8 9
+                      - 'cell "PUT /api/v1/buyers/{buyerId} HTTP/1.1 Content-Type: application/json Host: codersite.dev { \"buyerName\" : \"XYZ Restaurant\", \"buyerContact\" : \"Herr Olaf\", \"buyerAddress\" : \"Berliner strasse 12\", }" [ref=e260]':
+                        - generic [ref=e261]: "PUT /api/v1/buyers/{buyerId} HTTP/1.1 Content-Type: application/json Host: codersite.dev { \"buyerName\" : \"XYZ Restaurant\", \"buyerContact\" : \"Herr Olaf\", \"buyerAddress\" : \"Berliner strasse 12\", }"
+              - button "Copy code to clipboard" [ref=e262] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e263] [cursor=pointer]: Copy
+          - paragraph [ref=e264]: The success response code to a PUT request is 200 (OK).
+          - paragraph [ref=e265]:
+            - strong [ref=e266]: DELETE
+          - paragraph [ref=e267]: Removes a resource from the server.
+          - generic [ref=e269]:
+            - generic [ref=e270]:
+              - code [ref=e271]:
+                - table [ref=e272]:
+                  - rowgroup [ref=e273]:
+                    - 'row "1 2 3 DELETE /api/v1/buyers/{buyerId} HTTP/1.1 Content-Type: application/json Host: codersite.dev" [ref=e274]':
+                      - cell "1 2 3" [ref=e275]:
+                        - generic [ref=e276]: 1 2 3
+                      - 'cell "DELETE /api/v1/buyers/{buyerId} HTTP/1.1 Content-Type: application/json Host: codersite.dev" [ref=e277]':
+                        - generic [ref=e278]: "DELETE /api/v1/buyers/{buyerId} HTTP/1.1 Content-Type: application/json Host: codersite.dev"
+              - button "Copy code to clipboard" [ref=e279] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e280] [cursor=pointer]: Copy
+          - paragraph [ref=e281]: The success response code to a DELETE request is 204 (No Content).
+          - iframe [ref=e283]:
+            - article [ref=f4e4] [cursor=pointer]:
+              - link "Visit this post on X":
+                - /url: https://x.com/MoisesGamio/status/1882501803138257286?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1882501803138257286%7Ctwgr%5E4c2e0e7ee6303e943b57db4d493337b22c9c73ba%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fcodersite.dev%2Frest-api-overview%2F
+              - generic [ref=f4e5]:
+                - link [ref=f4e14]:
+                  - /url: https://twitter.com/MoisesGamio
+                - generic [ref=f4e20]:
+                  - link "Moises Gamio" [ref=f4e21]:
+                    - /url: https://twitter.com/MoisesGamio
+                    - generic [ref=f4e24]: Moises Gamio
+                  - generic [ref=f4e25]:
+                    - link "@MoisesGamio" [ref=f4e26]:
+                      - /url: https://twitter.com/MoisesGamio
+                      - generic [ref=f4e28]: "@MoisesGamio"
+                    - generic [ref=f4e29]:
+                      - generic [ref=f4e30]: ·
+                      - link "Follow" [ref=f4e31]:
+                        - /url: https://x.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1882501803138257286%7Ctwgr%5E4c2e0e7ee6303e943b57db4d493337b22c9c73ba%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fcodersite.dev%2Frest-api-overview%2F&screen_name=MoisesGamio
+                - link "View on X" [ref=f4e32]:
+                  - /url: https://x.com/MoisesGamio/status/1882501803138257286?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1882501803138257286%7Ctwgr%5E4c2e0e7ee6303e943b57db4d493337b22c9c73ba%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fcodersite.dev%2Frest-api-overview%2F
+                  - img [ref=f4e33]
+              - generic [ref=f4e37]:
+                - text: As an application developer, you look at the real world and model it in terms of objects or data structures, and APIs that manipulate those data structures. -Designing Data-Intensive Applications
+                - link "amzn.to/3w86wNV" [ref=f4e38]:
+                  - /url: https://t.co/tmKXmtxf09
+                - text: via
+                - link "@MoisesGamio" [ref=f4e40]:
+                  - /url: https://x.com/MoisesGamio?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1882501803138257286%7Ctwgr%5E4c2e0e7ee6303e943b57db4d493337b22c9c73ba%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fcodersite.dev%2Frest-api-overview%2F
+              - 'generic "amazon.de Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable... Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems" [ref=f4e42]':
+                - link [ref=f4e44]:
+                  - /url: https://t.co/tmKXmtxf09
+                  - img [ref=f4e49]
+                - 'link "amazon.de Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable... Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems" [ref=f4e53]':
+                  - /url: https://t.co/tmKXmtxf09
+                  - generic [ref=f4e54]:
+                    - generic [ref=f4e55]: amazon.de
+                    - generic [ref=f4e56]: "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable..."
+                    - generic [ref=f4e57]: "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems"
+              - generic [ref=f4e58]:
+                - link "7:52 PM · Jan 23, 2025" [ref=f4e63]:
+                  - /url: https://x.com/MoisesGamio/status/1882501803138257286?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1882501803138257286%7Ctwgr%5E4c2e0e7ee6303e943b57db4d493337b22c9c73ba%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fcodersite.dev%2Frest-api-overview%2F
+                  - time [ref=f4e64]: 7:52 PM · Jan 23, 2025
+                - link "X Ads info and privacy" [ref=f4e65]:
+                  - /url: https://help.x.com/x-for-websites-ads-info-and-privacy
+                  - img [ref=f4e66]
+              - generic [ref=f4e69]:
+                - link "Like this post" [ref=f4e70]:
+                  - /url: https://x.com/intent/like?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1882501803138257286%7Ctwgr%5E4c2e0e7ee6303e943b57db4d493337b22c9c73ba%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fcodersite.dev%2Frest-api-overview%2F&tweet_id=1882501803138257286
+                  - img [ref=f4e72]
+                - link "Reply to this post on X" [ref=f4e75]:
+                  - /url: https://x.com/intent/tweet?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1882501803138257286%7Ctwgr%5E4c2e0e7ee6303e943b57db4d493337b22c9c73ba%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fcodersite.dev%2Frest-api-overview%2F&in_reply_to=1882501803138257286
+                  - img [ref=f4e77]
+                  - generic [ref=f4e80]: Reply
+                - button "Copy link" [ref=f4e81]:
+                  - img [ref=f4e83]
+                  - generic [ref=f4e86]: Copy link
+              - link "Read more on X" [ref=f4e88]:
+                - /url: https://x.com/explore?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1882501803138257286%7Ctwgr%5E4c2e0e7ee6303e943b57db4d493337b22c9c73ba%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fcodersite.dev%2Frest-api-overview%2F
+                - generic [ref=f4e90]: Read more on X
+          - heading "Common HTTP Method Properties" [level=3] [ref=e284]
+          - paragraph [ref=e285]:
+            - strong [ref=e286]: Safe Methods
+          - paragraph [ref=e287]:
+            - text: A Request method is
+            - link "safe" [ref=e288] [cursor=pointer]:
+              - /url: https://httpwg.org/specs/rfc9110.html#safe.methods
+            - text: when it does not change the state of a resource on the API Server.
+            - link "Programming" [ref=e289] [cursor=pointer]:
+              - img [ref=e291]
+              - text: Programming
+          - paragraph [ref=e293]: The GET, HEAD, OPTIONS, and TRACE methods are defined to be safe.
+          - paragraph [ref=e294]:
+            - strong [ref=e295]: Idempotent Methods
+          - paragraph [ref=e296]: A request method is idempotent when multiple identical requests have the same effect on the API Server.
+          - paragraph [ref=e297]: The PUT, and DELETE methods are defined to be idempotent.
+          - heading "Request and Response" [level=2] [ref=e298]
+          - paragraph [ref=e299]:
+            - text: REST API requests and responses are typically formatted in
+            - link "JSON" [ref=e300] [cursor=pointer]:
+              - /url: https://www.json.org/json-en.html
+            - text: (JavaScript Object Notation) or XML (eXtensible Markup Language). Requests consist of an HTTP method, headers, and, optionally, a request body containing data. Responses include an HTTP status code indicating the outcome of the request, along with the response body containing the requested resource or an error message.
+          - paragraph [ref=e301]: "Common error HTTP status codes include:"
+          - list [ref=e302]:
+            - listitem [ref=e303]:
+              - paragraph [ref=e304]: 400 Bad Request. This means that client-request input is not well-formed. The response body will include an error providing further information.
+            - listitem [ref=e305]:
+              - paragraph [ref=e306]: 401 Unauthorized. Missing or incorrect authentication credentials.
+            - listitem [ref=e307]:
+              - paragraph [ref=e308]: 403 Forbidden. This means the user is authenticated, but it’s not allowed to access a resource.
+            - listitem [ref=e309]:
+              - paragraph [ref=e310]: 404 Not Found. The requested resource could not be found but may be available in the future.
+            - listitem [ref=e311]:
+              - paragraph [ref=e312]: 405 Method Not Allowed. Indicates that the method received in the request-line is known by the origin server but not supported by the target resource.
+            - listitem [ref=e313]:
+              - paragraph [ref=e314]: 406 Not Acceptable. Returned when an invalid format is specified in the request
+            - listitem [ref=e315]:
+              - paragraph [ref=e316]: 429 Too Many Requests. Indicates the user has sent too many requests in a given amount of time (“rate limiting”).
+            - listitem [ref=e317]:
+              - paragraph [ref=e318]: 500 Internal Server Error. Something is broken.
+          - heading "Building a RESTful Web Service" [level=2] [ref=e319]
+          - paragraph [ref=e320]:
+            - strong [ref=e321]: Business requirement
+            - text: ": A company wants to implement an API to allow Restaurants (represented as a buyer) to place orders at suppliers to get food articles delivered."
+          - paragraph [ref=e322]:
+            - text: The following figure shows an Aggregation/Composition
+            - link "UML Diagram" [ref=e323] [cursor=pointer]:
+              - /url: https://codersite.dev/uml-diagrams-for-java-developers/
+            - text: that describes a class that references one or more objects of other classes. This allows you to model a
+            - emphasis [ref=e324]: has-a
+            - text: association between objects.
+            - link "Computer Science" [ref=e325] [cursor=pointer]:
+              - img [ref=e327]
+              - text: Computer Science
+          - paragraph [ref=e329]:
+            - img "shopping-car" [ref=e330]
+          - paragraph [ref=e331]: We use API endpoints and HTTP methods to define and implement the specific functional requirements.
+          - paragraph [ref=e332]: We should use the nouns representing the entity with the endpoint we’re retrieving or manipulating as the pathname
+          - generic [ref=e334]:
+            - generic [ref=e335]:
+              - code [ref=e336]:
+                - table [ref=e337]:
+                  - rowgroup [ref=e338]:
+                    - row "1 2 GET /buyers A list of accessible buyers is given" [ref=e339]:
+                      - cell "1 2" [ref=e340]:
+                        - generic [ref=e341]: 1 2
+                      - cell "GET /buyers A list of accessible buyers is given" [ref=e342]:
+                        - generic [ref=e343]: GET /buyers A list of accessible buyers is given
+              - button "Copy code to clipboard" [ref=e344] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e345] [cursor=pointer]: Copy
+          - paragraph [ref=e346]:
+            - text: It is highly recommended to use the SwaggerHub editor to create a consistent API design compliant with the OpenAPI Specifications.
+            - link "Create a Free Account" [ref=e347] [cursor=pointer]:
+              - /url: https://swagger.io/tools/swaggerhub/
+            - text: .
+          - paragraph [ref=e348]:
+            - text: While you are designing, SwaggerHub can generate documentation automatically, making it easy for both API consumers and internal users to learn and test your APIs.
+            - link "Web Services" [ref=e349] [cursor=pointer]:
+              - img [ref=e351]
+              - text: Web Services
+          - paragraph [ref=e353]:
+            - text: You can create a Client SDK for different
+            - link "programming" [ref=e354] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e355]
+              - text: programming
+            - text: languages from the Editor and generate the object model and API controllers on your server side.
+          - paragraph [ref=e357]: The following figure shows an example of how SwaggerHub generates the documentation.
+          - paragraph [ref=e358]:
+            - img "buyer-swagger" [ref=e359]
+          - paragraph [ref=e360]:
+            - text: We will use the Spring portfolio to build a RESTful service.
+            - link "Programming" [ref=e361] [cursor=pointer]:
+              - img [ref=e363]
+              - text: Programming
+          - heading "Separation of REST controllers and business logic" [level=3] [ref=e365]
+          - paragraph [ref=e366]:
+            - text: Following the “separation of concerns” principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (
+            - emphasis [ref=e367]: BuyersApiController
+            - text: ) and managing all business logic, mappings, and the database connection to a Service class (
+            - emphasis [ref=e368]: BuyersService
+            - text: ).
+          - paragraph [ref=e369]:
+            - emphasis [ref=e370]: "@RestController"
+            - text: annotation tells that this Class describes endpoints that should be made available over the web to handle all HTTP requests.
+          - paragraph [ref=e371]:
+            - text: We inject the
+            - emphasis [ref=e372]: BuyersService
+            - text: dependency class into the BuyersApiController class using its constructor method.
+          - generic [ref=e374]:
+            - generic [ref=e375]:
+              - code [ref=e376]:
+                - table [ref=e377]:
+                  - rowgroup [ref=e378]:
+                    - 'row "1 2 3 4 5 6 7 8 9 10 11 12 @RestController @Validated public class BuyersApiController implements BuyersApi { private final BuyersService buyersService; @Autowired public BuyersApiController( BuyersService buyersService) { this.buyersService = buyersService; } }" [ref=e379]':
+                      - cell "1 2 3 4 5 6 7 8 9 10 11 12" [ref=e380]:
+                        - generic [ref=e381]: 1 2 3 4 5 6 7 8 9 10 11 12
+                      - 'cell "@RestController @Validated public class BuyersApiController implements BuyersApi { private final BuyersService buyersService; @Autowired public BuyersApiController( BuyersService buyersService) { this.buyersService = buyersService; } }" [ref=e382]':
+                        - generic [ref=e383]: "@RestController @Validated public class BuyersApiController implements BuyersApi { private final BuyersService buyersService; @Autowired public BuyersApiController( BuyersService buyersService) { this.buyersService = buyersService; } }"
+              - button "Copy code to clipboard" [ref=e384] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e385] [cursor=pointer]: Copy
+          - blockquote [ref=e386]:
+            - paragraph [ref=e387]:
+              - text: Software design principles provide guidelines to handle the design process’s complexity, prepare your code when changes arise, and minimize the impact of introducing bugs. –
+              - link "Software Design Principles" [ref=e389] [cursor=pointer]:
+                - /url: https://amzn.to/3Csx3sR
+          - link "codersite" [ref=e392] [cursor=pointer]:
+            - /url: https://amzn.to/3Csx3sR
+            - img "codersite" [ref=e393]
+          - paragraph [ref=e394]:
+            - text: The following listing shows common operations in a REST Controller.
+            - link "Computer Science" [ref=e395] [cursor=pointer]:
+              - img [ref=e397]
+              - text: Computer Science
+          - generic [ref=e400]:
+            - generic [ref=e401]:
+              - code [ref=e402]:
+                - table [ref=e403]:
+                  - rowgroup [ref=e404]:
+                    - row [ref=e405]:
+                      - cell "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56" [ref=e406]:
+                        - generic [ref=e407]: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56
+                      - cell [ref=e408]:
+                        - generic [ref=e409]: "@Override @RequestMapping(value = \"/api/v1/buyers\", method = RequestMethod.POST) public ResponseEntity<Buyer> addBuyer(Buyer body) throws Exception { Buyer newBuyer = buyersService.addBuyer(body); return new ResponseEntity<Buyer>(newBuyer, HttpStatus.CREATED); } @Override @RequestMapping(value = \"/api/v1/buyers/{buyerId}\", method = RequestMethod.DELETE) public ResponseEntity<Void> deleteBuyer(Integer buyerId) throws Exception { buyersService.deleteBuyer(buyerId); return new ResponseEntity<Void>(HttpStatus.NO_CONTENT); } @Override @RequestMapping(value = \"/api/v1/buyers/{buyerId}\", method = RequestMethod.GET) public ResponseEntity<Buyer> getBuyerById(Integer buyerId) throws Exception { Buyer buyer = buyersService.getBuyerById(buyerId); if (buyer == null) throw new ResourceNotFoundException(\"The buyerId does not exist\"); return new ResponseEntity<Buyer>(buyer, HttpStatus.OK); } @Override @RequestMapping(value = \"/api/v1/buyers/{buyerId}\", method = RequestMethod.PUT) public ResponseEntity<Buyer> updateBuyer(Integer buyerId, Buyer body) throws Exception { Buyer updatedBuyer = buyersService.updateBuyer(buyerId, body); return new ResponseEntity<Buyer>(updatedBuyer, HttpStatus.OK); } @Override @RequestMapping(value = \"/api/v1/buyers\", method = RequestMethod.GET) public ResponseEntity<List<Buyer>> listBuyers( String buyerCompanyName, String sortBy, String sortOrder, Integer offset, Integer limit) throws Exception { ListBuyersResponse response = buyersService.listBuyers( buyerCompanyName, sortBy, sortOrder, offset, limit); HttpHeaders responseHeaders = new HttpHeaders(); responseHeaders.set(\"X-TotalResultCount\", String.valueOf(response.getTotalResultCount())); return new ResponseEntity<List<Buyer>>(response.getListBuyers(), responseHeaders, HttpStatus.OK); }"
+              - button "Copy code to clipboard" [ref=e410] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e411] [cursor=pointer]: Copy
+          - blockquote [ref=e412]:
+            - paragraph [ref=e413]:
+              - text: Master essential best practices for deploying and managing applications on Amazon Web Services, the leading cloud computing platform, offers customers APIs for on-demand access to computing services. –
+              - link "An in-depth guide to AWS" [ref=e415] [cursor=pointer]:
+                - /url: https://amzn.to/40zUXLa
+          - link "codersite" [ref=e418] [cursor=pointer]:
+            - /url: https://amzn.to/40zUXLa
+            - img "codersite" [ref=e419]
+          - heading "Include Loggers" [level=2] [ref=e420]
+          - paragraph [ref=e421]:
+            - text: Redirect the requests to the server logs. If you must fix any error your clients reported, you can always reproduce the original request and debug it in your backends.
+            - link "Programming" [ref=e422] [cursor=pointer]:
+              - img [ref=e424]
+              - text: Programming
+          - generic [ref=e427]:
+            - generic [ref=e428]:
+              - code [ref=e429]:
+                - table [ref=e430]:
+                  - rowgroup [ref=e431]:
+                    - 'row "1 2 3 4 5 6 7 8 9 10 @Override @RequestMapping(value = \"/api/v1/buyers/{buyerId}\", method = RequestMethod.DELETE) public ResponseEntity<Void> deleteBuyer(Integer buyerId) throws Exception { logger.info(request.getMethod() + UtilitiesService.REQUESTED_PARAMETERS + utilitiesService.getRequestURLWithQueryParam(request)); buyersService.deleteBuyer(buyerId); return new ResponseEntity<Void>(HttpStatus.NO_CONTENT); }" [ref=e432]':
+                      - cell "1 2 3 4 5 6 7 8 9 10" [ref=e433]:
+                        - generic [ref=e434]: 1 2 3 4 5 6 7 8 9 10
+                      - 'cell "@Override @RequestMapping(value = \"/api/v1/buyers/{buyerId}\", method = RequestMethod.DELETE) public ResponseEntity<Void> deleteBuyer(Integer buyerId) throws Exception { logger.info(request.getMethod() + UtilitiesService.REQUESTED_PARAMETERS + utilitiesService.getRequestURLWithQueryParam(request)); buyersService.deleteBuyer(buyerId); return new ResponseEntity<Void>(HttpStatus.NO_CONTENT); }" [ref=e435]':
+                        - generic [ref=e436]: "@Override @RequestMapping(value = \"/api/v1/buyers/{buyerId}\", method = RequestMethod.DELETE) public ResponseEntity<Void> deleteBuyer(Integer buyerId) throws Exception { logger.info(request.getMethod() + UtilitiesService.REQUESTED_PARAMETERS + utilitiesService.getRequestURLWithQueryParam(request)); buyersService.deleteBuyer(buyerId); return new ResponseEntity<Void>(HttpStatus.NO_CONTENT); }"
+              - button "Copy code to clipboard" [ref=e437] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e438] [cursor=pointer]: Copy
+          - paragraph [ref=e439]: "We include a new dependency in your Api Controller:"
+          - generic [ref=e441]:
+            - generic [ref=e442]:
+              - code [ref=e443]:
+                - table [ref=e444]:
+                  - rowgroup [ref=e445]:
+                    - 'row "1 2 3 4 5 6 7 8 9 10 11 12 public class UtilitiesServiceImpl implements UtilitiesService { @Override public String getRequestURLWithQueryParam(HttpServletRequest request) { StringBuffer requestURL = request.getRequestURL(); if (request.getQueryString() != null) { requestURL.append(''?'').append(request.getQueryString()); } return requestURL.toString(); } }" [ref=e446]':
+                      - cell "1 2 3 4 5 6 7 8 9 10 11 12" [ref=e447]:
+                        - generic [ref=e448]: 1 2 3 4 5 6 7 8 9 10 11 12
+                      - 'cell "public class UtilitiesServiceImpl implements UtilitiesService { @Override public String getRequestURLWithQueryParam(HttpServletRequest request) { StringBuffer requestURL = request.getRequestURL(); if (request.getQueryString() != null) { requestURL.append(''?'').append(request.getQueryString()); } return requestURL.toString(); } }" [ref=e449]':
+                        - generic [ref=e450]: "public class UtilitiesServiceImpl implements UtilitiesService { @Override public String getRequestURLWithQueryParam(HttpServletRequest request) { StringBuffer requestURL = request.getRequestURL(); if (request.getQueryString() != null) { requestURL.append('?').append(request.getQueryString()); } return requestURL.toString(); } }"
+              - button "Copy code to clipboard" [ref=e451] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e452] [cursor=pointer]: Copy
+          - paragraph [ref=e453]:
+            - text: Even you can create statistics of how many requests by endpoint arrive per minute by
+            - link "implementing a hot-warm architecture in Elasticsearch" [ref=e454] [cursor=pointer]:
+              - /url: https://codersite.dev/hot-warm-architecture-elasticsearch/
+            - text: .
+          - generic [ref=e456]:
+            - generic [ref=e457]:
+              - code [ref=e458]:
+                - table [ref=e459]:
+                  - rowgroup [ref=e460]:
+                    - 'row "1 [12/4/23 15:48:27:888 CET] 00000121 SystemOut INFO 19484 BuyersApiController : DELETE_REQUESTED_PARAMETERS: https://yourapidomain/api/v1/buyers/12345" [ref=e461]':
+                      - cell "1" [ref=e462]:
+                        - generic [ref=e463]: "1"
+                      - 'cell "[12/4/23 15:48:27:888 CET] 00000121 SystemOut INFO 19484 BuyersApiController : DELETE_REQUESTED_PARAMETERS: https://yourapidomain/api/v1/buyers/12345" [ref=e464]':
+                        - generic [ref=e465]: "[12/4/23 15:48:27:888 CET] 00000121 SystemOut INFO 19484 BuyersApiController : DELETE_REQUESTED_PARAMETERS: https://yourapidomain/api/v1/buyers/12345"
+              - button "Copy code to clipboard" [ref=e466] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e467] [cursor=pointer]: Copy
+          - heading "When the API Strategy is not aligned with the IT infrastructure" [level=2] [ref=e468]
+          - paragraph [ref=e469]: In most business scenarios, companies decide to externalize part of their current functionalities by developing APIs to obtain new potential clients.
+          - paragraph [ref=e470]: "For example, one requirement is to retrieve an assortment by a unique ID. You, as an API designer, create the following endpoint:"
+          - paragraph [ref=e471]:
+            - img "assortment1-endpoint" [ref=e472]
+          - paragraph [ref=e473]: It seems logical to retrieve a unique resource by using a unique ID parameter. But your IT department says you need additional parameters to retrieve an assortment entity because that’s how your business model works.
+          - paragraph [ref=e474]: "Then you add the following required parameters (queries):"
+          - paragraph [ref=e475]:
+            - img "assortment2-rest-endpoint" [ref=e476]
+          - paragraph [ref=e477]: "If we know and follow the relationships between our business entities, we can redesign the endpoint to a final version:"
+          - paragraph [ref=e478]:
+            - img "assortment3-rest-spring" [ref=e479]
+          - paragraph [ref=e480]:
+            - text: It is up to you to give a better developer experience when your API documentation is understandable and easy to navigate.
+            - link "Programming" [ref=e481] [cursor=pointer]:
+              - img [ref=e483]
+              - text: Programming
+          - heading "Designing an Endpoint from aggregation/composition relationships" [level=2] [ref=e485]
+          - paragraph [ref=e486]:
+            - text: Once you build a class design of your business model, think about in
+            - strong [ref=e487]:
+              - emphasis [ref=e488]: entities
+            - text: and
+            - strong [ref=e489]:
+              - emphasis [ref=e490]: relationships
+            - text: to create functional endpoints.
+          - paragraph [ref=e491]:
+            - text: For example, from the following figure we can interpret that the
+            - strong [ref=e492]: Buyer
+            - text: entity includes one or more instances of the
+            - strong [ref=e493]: BuyingList
+            - text: entity.
+          - paragraph [ref=e494]:
+            - img "shopping-car-navigation" [ref=e495]
+          - paragraph [ref=e496]: "Then, we can connect them by using the following relationship:"
+          - generic [ref=e498]:
+            - generic [ref=e499]:
+              - code [ref=e500]:
+                - table [ref=e501]:
+                  - rowgroup [ref=e502]:
+                    - 'row "1 GET /api/v2/buyers/{buyerId}/buyingLists" [ref=e503]':
+                      - cell "1" [ref=e504]:
+                        - generic [ref=e505]: "1"
+                      - 'cell "GET /api/v2/buyers/{buyerId}/buyingLists" [ref=e506]':
+                        - generic [ref=e507]: "GET /api/v2/buyers/{buyerId}/buyingLists"
+              - button "Copy code to clipboard" [ref=e508] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e509] [cursor=pointer]: Copy
+          - paragraph [ref=e510]:
+            - text: Additionally, the
+            - strong [ref=e511]: BuyingList
+            - text: entity includes one or more instances of the
+            - strong [ref=e512]: Article
+            - text: entity.
+          - paragraph [ref=e513]: "To navigate until the Article entity we can build the following endpoint:"
+          - generic [ref=e515]:
+            - generic [ref=e516]:
+              - code [ref=e517]:
+                - table [ref=e518]:
+                  - rowgroup [ref=e519]:
+                    - 'row "1 GET /api/v2/buyers/{buyerId}/buyingLists/{buyingListId}/articles" [ref=e520]':
+                      - cell "1" [ref=e521]:
+                        - generic [ref=e522]: "1"
+                      - 'cell "GET /api/v2/buyers/{buyerId}/buyingLists/{buyingListId}/articles" [ref=e523]':
+                        - generic [ref=e524]: "GET /api/v2/buyers/{buyerId}/buyingLists/{buyingListId}/articles"
+              - button "Copy code to clipboard" [ref=e525] [cursor=pointer]: Copy
+            - button "Copy code to clipboard" [ref=e526] [cursor=pointer]: Copy
+          - heading "Benefits of REST API" [level=2] [ref=e527]
+          - paragraph [ref=e528]: "REST APIs offer several advantages that contribute to their widespread adoption in modern web development:"
+          - list [ref=e529]:
+            - listitem [ref=e530]:
+              - paragraph [ref=e531]: "Scalability: REST API’s stateless nature allows for horizontal scalability, where multiple servers can handle requests independently, improving performance and accommodating a growing user base."
+            - listitem [ref=e532]:
+              - paragraph [ref=e533]: "Interoperability: REST APIs leverage standardized HTTP methods and formats, enabling communication between different systems regardless of their underlying technologies."
+            - listitem [ref=e534]:
+              - paragraph [ref=e535]: "Simplicity and ease of use: REST APIs have a straightforward design, making them easy to understand, implement, and consume. Developers can quickly grasp the concepts and start building applications around the exposed resources."
+            - listitem [ref=e536]:
+              - paragraph [ref=e537]: "Flexibility: REST APIs support various data formats and can be used with different client applications, including web browsers, mobile devices, and third-party services."
+          - heading "Conclusion" [level=2] [ref=e538]
+          - paragraph [ref=e539]: REST API concepts provide a foundation for building scalable, interoperable, and easily consumable web services. Understanding the principles of REST, such as resources, uniform interface, HTTP methods, and request/response formats, is crucial for designing and consuming RESTful APIs effectively.
+          - paragraph [ref=e540]:
+            - text: Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
+            - link "Computer Science" [ref=e541] [cursor=pointer]:
+              - img [ref=e543]
+              - text: Computer Science
+          - paragraph [ref=e545]:
+            - link "☕ Buy me a coffee" [ref=e546] [cursor=pointer]:
+              - /url: https://buymeacoffee.com/codersite
+          - paragraph [ref=e547]
+          - insertion [ref=e548]:
+            - generic [ref=e551]:
+              - heading "These are topics related to the article that might interest you" [level=2] [ref=e553]: Discover more
+              - link "Networking" [ref=e554] [cursor=pointer]:
+                - generic "Networking" [ref=e555]
+                - img [ref=e557]
+              - link "web service" [ref=e559] [cursor=pointer]:
+                - generic "web service" [ref=e560]
+                - img [ref=e562]
+              - link "Web Service" [ref=e564] [cursor=pointer]:
+                - generic "Web Service" [ref=e565]
+                - img [ref=e567]
+        - list [ref=e570]:
+          - listitem [ref=e571]:
+            - link "Web APIs" [ref=e572] [cursor=pointer]:
+              - /url: /categories#Web-APIs
+        - generic:
+          - list
+        - navigation "Post navigation" [ref=e573]:
+          - link "« Previous Best Startup Ideas to Make Money" [ref=e574] [cursor=pointer]:
+            - /url: https://codersite.dev/best-startup-ideas-to-make-money/
+            - generic [ref=e575]: « Previous
+            - generic [ref=e576]: Best Startup Ideas to Make Money
+          - link "Next » Building a REST API Client" [ref=e577] [cursor=pointer]:
+            - /url: https://codersite.dev/building-rest-api-client/
+            - generic [ref=e578]: Next »
+            - generic [ref=e579]: Building a REST API Client
+    - generic [ref=e581]:
+      - heading "Explore →" [level=2] [ref=e584]
+      - generic [ref=e585]:
+        - link "algorithms (9)" [ref=e586] [cursor=pointer]:
+          - /url: /categories#algorithms
+        - link "test-driven development (1)" [ref=e587] [cursor=pointer]:
+          - /url: /categories#test-driven-development
+        - link "design (6)" [ref=e588] [cursor=pointer]:
+          - /url: /categories#design
+        - link "Web APIs (10)" [ref=e589] [cursor=pointer]:
+          - /url: /categories#Web-APIs
+        - link "Coding Practices (1)" [ref=e590] [cursor=pointer]:
+          - /url: /categories#Coding-Practices
+        - link "distribuited systems (1)" [ref=e591] [cursor=pointer]:
+          - /url: /categories#distribuited-systems
+        - link "Object-Oriented (1)" [ref=e592] [cursor=pointer]:
+          - /url: /categories#Object-Oriented
+        - link "Domain-Driven Design (1)" [ref=e593] [cursor=pointer]:
+          - /url: /categories#Domain-Driven-Design
+        - link "Language (1)" [ref=e594] [cursor=pointer]:
+          - /url: /categories#Language
+        - link "Web Performance (1)" [ref=e595] [cursor=pointer]:
+          - /url: /categories#Web-Performance
+        - link "startup (1)" [ref=e596] [cursor=pointer]:
+          - /url: /categories#startup
+        - link "Project (1)" [ref=e597] [cursor=pointer]:
+          - /url: /categories#Project
+        - link "data structures (2)" [ref=e598] [cursor=pointer]:
+          - /url: /categories#data-structures
+        - link "programming (6)" [ref=e599] [cursor=pointer]:
+          - /url: /categories#programming
+    - contentinfo [ref=e600]:
+      - generic [ref=e602]:
+        - generic [ref=e603]: Copyright © 2026 codersite
+        - generic [ref=e604]:
+          - link "Privacy policy |" [ref=e605] [cursor=pointer]:
+            - /url: /policy
+          - link "Terms of service |" [ref=e606] [cursor=pointer]:
+            - /url: /termsOfService
+          - link "Impressum" [ref=e607] [cursor=pointer]:
+            - /url: /impressum
+  - generic [ref=e609]:
+    - button "Einstellungen für Datenschutz und Cookies" [ref=e610] [cursor=pointer]
+    - generic [ref=e611]: "Von Google verwaltet. Entspricht dem IAB-TCF. CMP-ID: 300"

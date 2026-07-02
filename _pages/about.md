@@ -74,7 +74,8 @@ comments: false
       <h4>What I write about</h4>
       <p>On the blog I focus on the fundamentals that make us better engineers — the topics I'm most passionate about:</p>
       <ul class="skill-pills">
-        <li><span>Clean Code</span></li>
+        <li><span>AI Agents</span></li>
+		<li><span>Clean Code</span></li>
         <li><span>Software Design</span></li>
         <li><span>Software Architecture</span></li>
         <li><span>Object-Oriented Programming</span></li>
@@ -84,6 +85,7 @@ comments: false
         <li><span>Automated Testing</span></li>
         <li><span>Distributed Systems</span></li>
         <li><span>Cloud Computing</span></li>
+		<li><span>Refactoring</span></li>
       </ul>
     </div>
 
