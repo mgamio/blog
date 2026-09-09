@@ -4,7 +4,7 @@ title:  "Understanding OOP concepts"
 description: "Object-oriented concepts give you a solid foundation for making critical design decisions."
 author: moises
 categories: [ Object-Oriented ]
-image: assets/images/oop.jpg
+image: /assets/images/oop.jpg
 featured: true
 hidden: false
 comments: false

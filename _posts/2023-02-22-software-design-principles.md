@@ -4,7 +4,7 @@ title:  "What are the Software Design Principles"
 description: "What are the Software Design Principles, SOLID"
 author: moises
 categories: [ design ]
-image: assets/images/softwareDesignPrinciples.jpg
+image: /assets/images/softwareDesignPrinciples.jpg
 comments: false
 ---
 

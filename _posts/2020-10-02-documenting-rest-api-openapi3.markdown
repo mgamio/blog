@@ -4,7 +4,7 @@ title: "Documenting a SpringBoot REST API with OpenAPI 3"
 description: "The main idea for documenting your back-end RESTful APIs with openAPI 3 to communicate to third-party developers what your endpoints are doing"
 author: moises
 categories: [ Web APIs ]
-image: assets/images/apiDocumentation.jpg
+image: /assets/images/apiDocumentation.jpg
 comments: false
 ---
 

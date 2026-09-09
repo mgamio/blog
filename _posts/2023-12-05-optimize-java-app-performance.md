@@ -4,7 +4,7 @@ title:  "Optimize Java App Performance"
 description: "Handling too many concurrent requests in a monolithic application on a Java Application Server can be challenging"
 author: aiAvatar
 categories: [ design ]
-image: assets/images/javaAppPerformance.jpg
+image: /assets/images/javaAppPerformance.jpg
 comments: false
 ---
 

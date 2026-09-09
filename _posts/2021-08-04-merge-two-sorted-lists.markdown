@@ -4,7 +4,7 @@ title:  "Merge two sorted lists algorithm"
 description: "Given two sorted lists, merge them in a new sorted list - coding interview"
 author: moises
 categories: [ algorithms ]
-image: assets/images/merge.jpg
+image: /assets/images/merge.jpg
 comments: false
 ---
 

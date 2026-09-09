@@ -4,7 +4,7 @@ title:  "An Introduction to Functional Programming in Java"
 description: "Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data"
 author: moises
 categories: [ programming ]
-image: assets/images/functionalProgramming.jpg
+image: /assets/images/functionalProgramming.jpg
 comments: false
 ---
 

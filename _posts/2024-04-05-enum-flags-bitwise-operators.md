@@ -4,7 +4,7 @@ title:  "Enum, Flags and bitwise operators"
 description: "Enum, Flags and bitwise operators"
 author: moises
 categories: [ programming ]
-image: assets/images/enumBitWiseOperators.jpg
+image: /assets/images/enumBitWiseOperators.jpg
 comments: false
 ---
 

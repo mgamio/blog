@@ -4,7 +4,7 @@ title:  "File Access Denied in a Cluster with Load Balancing"
 description: "Load balancing, Traffic distribution, Scalability solutions and Server performance optimization"
 author: moises
 categories: [ Web Performance ]
-image: assets/images/loadBalancing.jpg
+image: /assets/images/loadBalancing.jpg
 comments: false
 ---
 

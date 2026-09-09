@@ -4,7 +4,7 @@ title:  "How to Post a Random Tweet using Twitter API"
 description: "How to Post a Random Tweet using Twitter API"
 author: moises
 categories: [ algorithms ]
-image: assets/images/postInTwitterAPI.jpg
+image: /assets/images/postInTwitterAPI.jpg
 comments: false
 ---
 

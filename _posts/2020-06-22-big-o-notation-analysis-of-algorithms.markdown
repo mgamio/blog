@@ -4,7 +4,7 @@ title:  "Big O Notation and Analysis of Algorithms - coding interview"
 description: "Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users"
 author: moises
 categories: [ algorithms ]
-image: assets/images/algorithm.jpg
+image: /assets/images/algorithm.jpg
 featured: true
 hidden: false
 comments: false

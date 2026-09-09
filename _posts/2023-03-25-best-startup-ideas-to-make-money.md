@@ -4,7 +4,7 @@ title:  "Best Startup Ideas to Make Money"
 description: "Best Startup Ideas to Make Money"
 author: moises
 categories: [ startup ]
-image: assets/images/startupIdeas.jpg
+image: /assets/images/startupIdeas.jpg
 comments: false
 ---
 

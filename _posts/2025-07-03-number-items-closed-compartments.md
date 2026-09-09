@@ -4,7 +4,7 @@ title:  "ACME Inventory - number of items in closed compartments"
 description: "How many items exists in closed inventory compartments."
 author: moises
 categories: [ algorithms ]
-image: assets/images/inventoryItems.jpg
+image: /assets/images/inventoryItems.jpg
 comments: false
 ---
 

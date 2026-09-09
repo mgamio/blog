@@ -4,7 +4,7 @@ title: "SOLID principles: The Definitive Guide (Part I)"
 description: "Implementing the Single Responsibility Principle in a microservices architecture"
 author: moises
 categories: [ design ]
-image: assets/images/solid.jpg
+image: /assets/images/solid.jpg
 comments: false
 ---
 

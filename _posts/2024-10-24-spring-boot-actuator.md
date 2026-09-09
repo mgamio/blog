@@ -4,7 +4,7 @@ title:  "Production-ready Features - Spring Actuator"
 description: "The spring-boot-actuator module provides all of Spring Boot’s production-ready features."
 author: moises
 categories: [ programming ]
-image: assets/images/springBootActuator.jpg
+image: /assets/images/springBootActuator.jpg
 comments: false
 ---
 

@@ -4,7 +4,7 @@ title:  "REST client error handling - 503 Error"
 description: "How a REST client handles 503 Service Unavailable Error. Troubleshooting REST clients"
 author: moises
 categories: [ Web APIs ]
-image: assets/images/503ServiceUnavailableError.jpg
+image: /assets/images/503ServiceUnavailableError.jpg
 comments: false
 ---
 

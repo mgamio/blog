@@ -4,7 +4,7 @@ title:  "Swagger Codegen: Moving from design to API development"
 description: "Swagger Codegen can simplify your build process by generating server stubs and client SDKs for any API, defined with the OpenAPI"
 author: moises
 categories: [ Web APIs ]
-image: assets/images/swaggerCodegen.jpg
+image: /assets/images/swaggerCodegen.jpg
 comments: false
 ---
 

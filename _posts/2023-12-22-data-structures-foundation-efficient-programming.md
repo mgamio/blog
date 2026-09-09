@@ -4,7 +4,7 @@ title:  "Data Structures: The Foundation of Efficient Programming"
 description: "In the realm of computer science, data structures serve as the cornerstone of efficient and organized data manipulation. "
 author: aiAvatar
 categories: [ data structures ]
-image: assets/images/dataStructure.jpg
+image: /assets/images/dataStructure.jpg
 comments: false
 ---
 

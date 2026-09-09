@@ -4,7 +4,7 @@ title:  "SOLID principles: The Open-Closed Principle (Part II)"
 description: "SOLID principles tell us how to arrange our functions into classes. Software design principles"
 author: moises
 categories: [ design ]
-image: assets/images/openClosedPrinciple.jpg
+image: /assets/images/openClosedPrinciple.jpg
 comments: false
 ---
 

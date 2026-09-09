@@ -4,7 +4,7 @@ title:  "Designing APIs with Swagger and OpenAPI"
 description: "The OpenAPI Specifications provides a formal standard for describing HTTP APIs"
 author: moises
 categories: [ Web APIs ]
-image: assets/images/swaggerHubOpenAPI.jpg
+image: /assets/images/swaggerHubOpenAPI.jpg
 comments: false
 ---
 

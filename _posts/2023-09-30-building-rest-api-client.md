@@ -4,7 +4,7 @@ title:  "Building a REST API Client"
 description: "Building a REST API Client, restTemplate, Spring"
 author: moises
 categories: [ Web APIs ]
-image: assets/images/restApiClient.jpg
+image: /assets/images/restApiClient.jpg
 comments: false
 ---
 

@@ -4,7 +4,7 @@ title:  "How to implement Spring Boot Security OAuth2 with OpenAPI"
 description: "OAuth is an authorization framework many companies use to secure access to its protected resources."
 author: moises
 categories: [ Web APIs ]
-image: assets/images/oauthRoles.jpg
+image: /assets/images/oauthRoles.jpg
 comments: false
 ---
 

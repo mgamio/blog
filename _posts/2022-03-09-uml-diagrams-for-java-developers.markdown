@@ -4,7 +4,7 @@ title:  "UML Diagrams for Java Developers"
 description: "Design essensial UML diagram before starting programming"
 author: moises
 categories: [ design ]
-image: assets/images/umlDiagrams.jpg
+image: /assets/images/umlDiagrams.jpg
 comments: false
 ---
 

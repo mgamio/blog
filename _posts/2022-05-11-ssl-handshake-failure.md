@@ -4,7 +4,7 @@ title:  "Resolving SSL handshake failure in Java applications"
 description: "The Secure Socket Layer (SSL) enables a secured connection between a client and a server."
 author: moises
 categories: [ Web APIs ]
-image: assets/images/sslHandshake.jpg
+image: /assets/images/sslHandshake.jpg
 comments: false
 ---
 

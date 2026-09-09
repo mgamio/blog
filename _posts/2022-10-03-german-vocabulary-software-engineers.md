@@ -4,7 +4,7 @@ title:  "German vocabulary for Software Engineers"
 description: "A good reference for Deutsche Wortschatz for software or computer science"
 author: moises
 categories: [ Language ]
-image: assets/images/germanDeveloperVocabulary.jpg
+image: /assets/images/germanDeveloperVocabulary.jpg
 comments: false
 ---
 

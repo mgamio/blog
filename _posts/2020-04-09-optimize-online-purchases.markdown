@@ -4,7 +4,7 @@ title:  "Combinational Optimization Problem"
 description: "Knapsack problem. Fill a basket with the most valuable goods under a given budget to optimize online purchases."
 author: moises
 categories: [ test-driven development ]
-image: assets/images/knapsackAlgorithm.jpg
+image: /assets/images/knapsackAlgorithm.jpg
 comments: false
 ---
 

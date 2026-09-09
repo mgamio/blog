@@ -4,7 +4,7 @@ title:  "Assemble Parts in Minimum Time"
 description: "Assemble Parts in Minimum Time"
 author: moises
 categories: [ algorithms ]
-image: assets/images/assembleParts.jpg
+image: /assets/images/assembleParts.jpg
 comments: false
 ---
 

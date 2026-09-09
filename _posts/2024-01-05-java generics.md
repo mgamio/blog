@@ -4,7 +4,7 @@ title:  "Understanding the Basics of Generics in Java"
 description: "Generics in Java provide a powerful and flexible way to create classes, interfaces, and methods that can work with different data types while ensuring type safety"
 author: moises
 categories: [ programming ]
-image: assets/images/javaGenerics.jpg
+image: /assets/images/javaGenerics.jpg
 comments: false
 ---
 

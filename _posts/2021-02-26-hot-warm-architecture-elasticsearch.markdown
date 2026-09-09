@@ -4,7 +4,7 @@ title:  "Implementing hot-warm architecture in Elasticsearch for time-series dat
 description: "Hot-warm architecture for log analytics with Elasticsearch."
 author: moises
 categories: [ distribuited systems ]
-image: assets/images/elastic.jpg
+image: /assets/images/elastic.jpg
 comments: false
 ---
 

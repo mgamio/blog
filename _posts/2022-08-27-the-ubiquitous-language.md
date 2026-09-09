@@ -4,7 +4,7 @@ title:  "Domain-Driven Design - How to establish an effective ubiquitous languag
 description: "Domain Driven Design aims to build strategic software based on domain models. Domain modeling in microservices architecture"
 author: moises
 categories: [ Domain-Driven Design ]
-image: assets/images/theUbiquitousLanguage.jpg
+image: /assets/images/theUbiquitousLanguage.jpg
 comments: false
 ---
 

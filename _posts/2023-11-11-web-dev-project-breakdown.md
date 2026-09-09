@@ -4,7 +4,7 @@ title:  "Web Dev Project Breakdown"
 description: "Breaking down a large web development project into manageable tasks is crucial for effective planning, organization, and successful execution"
 author: moises
 categories: [ Project ]
-image: assets/images/webdevProject.jpg
+image: /assets/images/webdevProject.jpg
 comments: false
 ---
 Breaking down a large web development project into tasks is essential for effective project management. Here's a step-by-step guide to help you with the process:

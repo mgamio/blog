@@ -4,7 +4,7 @@ title:  "Problem-Solving Efficiency: Hashmap provides efficient solutions for se
 description: "Data structures provide efficient solutions to various computational problems, such as sorting, searching, and graph algorithms"
 author: moises
 categories: [ data structures ]
-image: assets/images/listIntoHashmap.jpg
+image: /assets/images/listIntoHashmap.jpg
 comments: false
 ---
 

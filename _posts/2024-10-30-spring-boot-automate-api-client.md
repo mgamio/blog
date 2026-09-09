@@ -4,7 +4,7 @@ title:  "Spring REST - Automate an API Client Request"
 description: "Creating a program to automate an API Client Request."
 author: moises
 categories: [ programming ]
-image: assets/images/apiClientRequest.jpg
+image: /assets/images/apiClientRequest.jpg
 comments: false
 ---
 

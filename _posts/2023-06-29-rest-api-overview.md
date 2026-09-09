@@ -4,7 +4,7 @@ title:  "RESTful API Tutorial"
 description: "REST API, Key Concepts, Best Practices, and Benefits"
 author: moises
 categories: [ Web APIs ]
-image: assets/images/RESTAPIOverview.jpg
+image: /assets/images/RESTAPIOverview.jpg
 comments: false
 ---
 

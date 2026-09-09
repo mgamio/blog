@@ -4,7 +4,7 @@ title:  "What are the Soft Skills in Software Development"
 description: "Soft Skills in Software Development"
 author: moises
 categories: [ design ]
-image: assets/images/softSkills.jpg
+image: /assets/images/softSkills.jpg
 comments: false
 ---
 

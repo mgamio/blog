@@ -4,7 +4,7 @@ title:  "Best practices for writing Clean Code"
 description: "Software development best practices. Writing maintainable code. Clean code examples for real-world scenarios"
 author: moises
 categories: [ Coding Practices ]
-image: assets/images/cleanCode.jpg
+image: /assets/images/cleanCode.jpg
 comments: false
 ---
 

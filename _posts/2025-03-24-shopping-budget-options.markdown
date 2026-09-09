@@ -4,7 +4,7 @@ title:  "Shopping options with a limited budget"
 description: "Shopping options under a budgeted amount"
 author: moises
 categories: [ algorithms ]
-image: assets/images/shoppingOptions.jpg
+image: /assets/images/shoppingOptions.jpg
 comments: false
 id: index
 ---

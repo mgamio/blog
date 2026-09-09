@@ -4,7 +4,7 @@ title:  "OCP Oracle Certified Professional Java, Test - Building Blocks"
 description: "OCP Oracle Certified Professional Java SE 17 Developer Study Guide"
 author: moises
 categories: [ programming ]
-image: assets/images/javaCertifiedBuildingBlocks.jpg
+image: /assets/images/javaCertifiedBuildingBlocks.jpg
 comments: false
 ---
 
