@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview | codersite</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview" />
+<meta name="author" content="moises" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A field-guide summary of Chapter 1 of System Design on AWS by Jayanth Kumar and Mandeep Singh — the concepts, fallacies, trade-offs, and guidelines that separate engineers who can code from engineers who can architect." />
+<meta name="twitter:description" property="og:description" content="A field-guide summary of Chapter 1 of System Design on AWS by Jayanth Kumar and Mandeep Singh — the concepts, fallacies, trade-offs, and guidelines that separate engineers who can code from engineers who can architect." />
+<link rel="canonical" href="http://localhost:4000/system-design-on-aws-book-review/" />
+<meta property="og:url" content="http://localhost:4000/system-design-on-aws-book-review/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:image" content="http://localhost:4000/assets/images/SystemDesignOnAWS.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-09-15T00:00:00+02:00" />
+<meta property="article:modified_time" content="2026-09-15T00:00:00+02:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:4000/assets/images/SystemDesignOnAWS.jpg" />
+<meta name="twitter:title" content="The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2026-09-15T00:00:00+02:00","datePublished":"2026-09-15T00:00:00+02:00","description":"A field-guide summary of Chapter 1 of System Design on AWS by Jayanth Kumar and Mandeep Singh — the concepts, fallacies, trade-offs, and guidelines that separate engineers who can code from engineers who can architect.","headline":"The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview","image":"http://localhost:4000/assets/images/SystemDesignOnAWS.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/system-design-on-aws-book-review/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/system-design-on-aws-book-review/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script src="/assets/js/jquery.min.js"></script><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-642735915');
+</script>
+
+<!-- Google tag (gtag.js) event -->
+<script>
+  gtag('event', 'redirect_to_amazon_de', {
+    // <event_parameters>
+  });
+</script>
+
+</head>
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+ 
+                <li class="nav-item">
+                <a class="nav-link" href="/recommended.html">Recommended</a>
+                </li>
+				
+                <li class="nav-item">
+                <a class="nav-link" href="/books.html">Books</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+  <div class="main-content">
+    <!-- Reading progress bar -->
+<div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+<!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="post-share-sticky">
+                <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview&url=http://localhost:4000/system-design-on-aws-book-review/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/system-design-on-aws-book-review/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+         <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/system-design-on-aws-book-review/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>	
+    </ul>
+    
+</div>
+
+            </div>
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://codersite.dev">Moises Gamio</a>
+						
+						<a target="_blank" href="https://twitter.com/MoisesGamio" class="btn follow">Follow</a>
+                        <span class="author-description">Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors.</span>
+						
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview</h1>
+
+                <!-- Post meta: published date · reading time (· updated, if any) -->
+                
+                
+                <p class="post-meta-line">
+                    <time datetime="2026-09-15T00:00:00+02:00" itemprop="datePublished">Sep 15, 2026</time>
+                    <span class="meta-sep">·</span>
+                    <span class="meta-reading-time">6 min read</span>
+                    
+                </p>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+			
+			
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/SystemDesignOnAWS.jpg" alt="The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p><strong>System Design on AWS: The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview</strong></p>
+
+<p>There’s a moment in every engineer’s career when “does it work on my machine” stops being good enough. Maybe it’s your first on-call rotation when a “reliable” service falls over under real traffic. Maybe it’s a system design interview where the whiteboard goes blank the instant someone asks, “okay, but what happens when that server dies?” That moment is exactly what <strong><a href="https://link.amazon/B05Mf5giA" target="_blank"><em>System Design on AWS: Building and Scaling Enterprise Solutions</em></a></strong> by Jayanth Kumar and Mandeep Singh is built for.</p>
+
+<p>I went through Chapter 1 — “System Design Trade-offs and Guidelines” — and it’s one of the tightest introductions to distributed systems thinking I’ve read in a while. No fluff, no toy examples that fall apart at scale. Just the vocabulary, the math, and the hard-won lessons that let you reason about systems built to serve millions of users. Here’s the breakdown, and why it’s worth putting on your shelf next to your other engineering references.</p>
+
+<h2 id="why-system-design-is-its-own-skill">Why “System Design” Is Its Own Skill</h2>
+
+<p>Writing correct code and designing a system that <em>stays</em> correct under load, failure, and years of change are two different disciplines. The book opens with a simple but important reframe: system design isn’t about being clever with algorithms — it’s about understanding trade-offs <em>before</em> you write a line of code, so you’re not rebuilding the foundation six months after launch. That framing alone is worth the price of admission for anyone who’s inherited a system nobody dared to touch.</p>
+
+<h2 id="seven-concepts-that-define-every-large-scale-system">Seven Concepts That Define Every Large-Scale System</h2>
+
+<p>The chapter builds a mental model around seven pillars that show up in literally every distributed system conversation you’ll ever have:</p>
+
+<ul>
+  <li><strong>Communication</strong> — synchronous vs. asynchronous, and why your API gateway and your background job queue shouldn’t be designed the same way.</li>
+  <li><strong>Consistency</strong> — from strong consistency all the way to eventual consistency, with the in-between stops (monotonic reads, monotonic writes, causal consistency) that most engineers have never heard named, let alone understood.</li>
+  <li><strong>Availability</strong> — how to actually <em>measure</em> uptime (the “nines” table makes it click instantly), and the surprisingly simple math showing why chaining components in series quietly <em>destroys</em> your availability while running them in parallel multiplies it.</li>
+  <li><strong>Reliability</strong> — MTBF and MTTR, explained as the two numbers that tell you whether a system is trustworthy or just currently lucky.</li>
+  <li><strong>Scalability</strong> — vertical vs. horizontal scaling, and a clear-eyed take on when to stop throwing bigger servers at a problem and start throwing more of them.</li>
+  <li><strong>Maintainability</strong> — broken into operability, lucidity, and modifiability, which is a genuinely useful way to audit whether <em>your</em> <a href="https://codersite.dev/clean-code/" target="_blank">codebase is actually maintainable</a>  or just familiar.</li>
+  <li><strong>Fault Tolerance</strong> — replication and checkpointing, plus RPO and RTO, the two metrics that turn “we have backups” into an actual, defensible recovery plan.</li>
+</ul>
+
+<blockquote>
+  <p>Every great career in tech is built on great design. Start building yours today.</p>
+</blockquote>
+
+<div><center>
+  <a href="https://amzn.to/3Csx3sR" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
+</center>
+
+<br /></div>
+
+<h2 id="the-8-fallacies-that-quietly-wreck-distributed-systems">The 8 Fallacies That Quietly Wreck Distributed Systems</h2>
+
+<p>This is my favorite section. Back in the 90s, L. Peter Deutsch cataloged the assumptions engineers keep making about networks that are, without exception, false: the network is reliable, latency is zero, bandwidth is infinite, the network is secure, topology never changes, there’s a single administrator, transport is free, and the network is homogeneous. The book doesn’t just list them — it ties each one to a concrete design response (edge computing to fight latency, lightweight payloads to respect bandwidth limits, defense-in-depth to counter the “secure network” myth). If you’ve ever been blindsided by a network partition you swore couldn’t happen, this section is basically a mirror.</p>
+
+<h2 id="the-trade-offs-nobody-can-escape">The Trade-offs Nobody Can Escape</h2>
+
+<p>Here’s the section that turns theory into judgment calls:</p>
+
+<ul>
+  <li><strong>Time vs. Space</strong> — when precomputing and caching beats recalculating, and when it doesn’t.</li>
+  <li><strong>Latency vs. Throughput</strong> — and why “average latency” is a metric that lies to you; p90 and p99 are where the real story lives.</li>
+  <li><strong>Performance vs. Scalability</strong> — a distinction most engineers conflate: a <em>fast</em> system and a <em>scalable</em> system are not the same claim.</li>
+  <li><strong>Consistency vs. Availability</strong> — the CAP theorem, demystified without the usual hand-waving, plus its more practical successor, <strong>PACELC</strong>, which finally answers the question CAP leaves hanging: <em>what do I trade off when there ISN’T a network partition?</em></li>
+</ul>
+
+<p>If you’ve ever sat in a design review arguing about whether to use strong or eventual consistency without a shared vocabulary for <em>why</em> — this is the chapter that gives everyone in the room the same map.</p>
+
+<h2 id="five-guidelines-worth-pinning-above-your-desk">Five Guidelines Worth Pinning Above Your Desk</h2>
+
+<p>The chapter closes with five hard-earned principles, each anchored to a memorable line from a giant of the field — Kernighan on complexity, Einstein on simplicity, Lampson on getting it right, and the reminder that there is, in fact, <strong>no free lunch</strong> in system design. Optimize for one property and you <em>will</em> pay for it somewhere else. The book is refreshingly honest about this instead of selling a silver bullet.</p>
+
+<h2 id="who-this-book-is-for">Who This Book Is For</h2>
+
+<ul>
+  <li>Engineers preparing for <strong>system design interviews</strong> at companies operating at real scale.</li>
+  <li>Developers ready to move from “I can build a feature” to <strong>“I can own an architecture.”</strong></li>
+  <li>Anyone building or operating production systems on <strong>AWS</strong> who wants the <em>why</em> behind the services, not just the console clicks.</li>
+  <li>Engineering leads who need a <a href="https://codersite.dev/the-ubiquitous-language/" target="_blank">shared vocabulary</a> to run design reviews that don’t dissolve into opinion wars.</li>
+</ul>
+
+<h2 id="the-bottom-line">The Bottom Line</h2>
+
+<p>Chapter 1 alone gives you the CAP theorem, PACELC, the fallacies of distributed computing, and a working definition of availability, reliability, scalability, and maintainability you can actually apply — and it’s just the <em>foundation</em> the rest of the book builds on toward real AWS architecture. If distributed systems have ever felt like a pile of buzzwords you nod along to in meetings, this is the book that turns them into tools you actually reach for.</p>
+
+<p><strong>Ready to build systems that don’t fall over at 2 a.m.?</strong></p>
+
+<p>👉 <strong><a href="https://link.amazon/B05Mf5giA" target="_blank">Get <em>System Design on AWS</em> on Amazon</a></strong></p>
+
+<hr />
+
+<p>Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!</p>
+
+<p><a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a></p>
+
+<p><em>This post contains an Amazon Associate link. As an Amazon Associate, I earn from qualifying purchases — at no extra cost to you, and it helps keep content like this coming.</em></p>
+
+				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#system-design">system-design</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#distributed-systems">distributed-systems</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#aws">aws</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#book-review">book-review</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#career">career</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <nav class="PageNavigation post-nav-cards" aria-label="Post navigation">
+            
+                <a class="nav-item-card prev" href="http://localhost:4000/gradle-building-restful-web-service/" rel="prev">
+                    <span class="nav-label">&laquo; Previous</span>
+                    <span class="nav-title">Building a RESTful Web Service with Gradle and Openapi</span>
+                </a>
+            
+            
+            </nav>
+            <!-- End Prev/Next -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+
+<!-- BlogPosting + BreadcrumbList structured data (rich results).
+     All string values pass through | jsonify so quotes/newlines are escaped safely. --><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:4000/system-design-on-aws-book-review/"
+  },
+  "headline": "The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview",
+  "description": "A field-guide summary of Chapter 1 of System Design on AWS by Jayanth Kumar and Mandeep Singh — the concepts, fallacies, trade-offs, and guidelines that separate engineers who can code from engineers who can architect.",
+  "image": "http://localhost:4000/assets/images/SystemDesignOnAWS.jpg",
+  "datePublished": "2026-09-15T00:00:00+02:00",
+  "dateModified": "2026-09-15T00:00:00+02:00",
+  "author": {
+    "@type": "Person",
+    "name": "Moises Gamio",
+    "url": "https://codersite.dev"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "codersite",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:4000/assets/images/logo.png"
+    }
+  }
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "http://localhost:4000/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "system-design",
+      "item": "http://localhost:4000/categories#system-design"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview",
+      "item": "http://localhost:4000/system-design-on-aws-book-review/"
+    }
+  ]
+}
+</script>
+
+<!-- Reading progress bar -->
+<script>
+(function () {
+    var bar = document.getElementById('readingProgress');
+    var article = document.querySelector('.article-post');
+    if (!bar || !article) return;
+    var ticking = false;
+    function update() {
+        var rect = article.getBoundingClientRect();
+        var winH = window.innerHeight || document.documentElement.clientHeight;
+        var total = article.offsetHeight - winH;
+        var read = Math.max(0, -rect.top);
+        var pct = total > 0 ? Math.min(100, (read / total) * 100) : 0;
+        bar.style.width = pct + '%';
+        ticking = false;
+    }
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(update);
+            ticking = true;
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+})();
+</script>
+
+<!-- Copy-to-clipboard buttons on code blocks -->
+<script>
+(function () {
+    var blocks = document.querySelectorAll('.article-post .highlight');
+    if (!blocks.length || !navigator.clipboard) return;
+    blocks.forEach(function (block) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'code-copy-btn';
+        btn.setAttribute('aria-label', 'Copy code to clipboard');
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function () {
+            var source = block.querySelector('.rouge-code')
+                || block.querySelector('td.code')
+                || block.querySelector('pre');
+            if (!source) return;
+            var text = (source.innerText || source.textContent || '').replace(/\n+$/, '');
+            navigator.clipboard.writeText(text).then(function () {
+                btn.textContent = 'Copied';
+                btn.classList.add('copied');
+                setTimeout(function () {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 1500);
+            }).catch(function () {
+                btn.textContent = 'Error';
+                setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+            });
+        });
+        block.appendChild(btn);
+    });
+})();
+</script>
+  </div>
+
+<!-- here include any banner or subscription like site.mailchimp_list  -->
+
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (9)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#design">design (6)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (10)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distribuited-systems">distribuited systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#startup">startup (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project">Project (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#data-structures">data structures (2)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#programming">programming (6)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#system-design">system-design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distributed-systems">distributed-systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#aws">aws (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#book-review">book-review (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#career">career (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2026 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/policy">Privacy policy |</a>
+				<a href="/termsOfService">Terms of service |</a>
+				<a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
+
+
+<!--
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('codersite', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support me',
+    'floating-chat.donateButton.background-color': '#f45d22',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>
+-->
+
+<!-- deferred-thirdparty: load GA4 gtag.js + AdSense on first interaction or 3s after load,
+     whichever comes first. Keeps third-party JS off the critical path (FCP/LCP/TBT);
+     gtag()/adsbygoogle commands queued earlier run as soon as the libraries arrive. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadScript(src, crossorigin) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = src;
+    if (crossorigin) { s.crossOrigin = 'anonymous'; }
+    document.head.appendChild(s);
+  }
+  function loadDeferred() {
+    if (loaded) { return; }
+    loaded = true;
+    loadScript('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042', true);
+  }
+  var evts = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+  evts.forEach(function (e) { window.addEventListener(e, loadDeferred, { passive: true, once: true }); });
+  // Fallback so visitors who never interact are still measured and served ads.
+  if (document.readyState === 'complete') {
+    setTimeout(loadDeferred, 3000);
+  } else {
+    window.addEventListener('load', function () { setTimeout(loadDeferred, 3000); });
+  }
+})();
+</script>
+
+</body>
+</html>
