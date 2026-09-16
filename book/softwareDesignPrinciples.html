@@ -171,7 +171,7 @@
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
     padding-inline: max(20px, calc((100vw - 1180px)/2));
-    margin-inline: max(-20px, calc(-1 * (100vw - 1180px)/2));
+    margin-inline: min(-20px, calc((1180px - 100vw)/2));
   }
   .navbar{ max-width:1180px; margin-inline:auto; display:flex; align-items:center; justify-content:space-between; gap:20px; padding-block:16px; }
   .brand{ display:flex; align-items:baseline; gap:8px; text-decoration:none; }
@@ -241,7 +241,7 @@
 
   @media (max-width: 900px){
     .hero-grid{ grid-template-columns:1fr; }
-    .cover-card{ max-width:340px; }
+    .cover-card{ max-width:min(340px, 100%); }
   }
 
   /* ================= MASTER (What You'll Master) ================= */
