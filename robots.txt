@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /assets/
 Disallow: /page*/
 
 Sitemap: https://codersite.dev/sitemap.xml
