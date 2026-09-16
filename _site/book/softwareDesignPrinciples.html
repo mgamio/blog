@@ -1,374 +1,518 @@
-<!DOCTYPE html>
-<html lang="en"> 
-<head>
-    <title>Software Design Principles</title>
-    
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Software Design Principles">
-    <meta name="author" content="Moises Gamio">
-	<meta property="og:title" content="Software Design Principles" />
-	<meta property="og:type" content="image/jpeg" />
-	<meta property="og:url" content="https://www.codersite.dev/book/softwareDesignPrinciples.html" />    
-	<meta property="og:image" content="https://www.codersite.dev/assets/images/SoftwareDesignPortadaJPG.jpg" />
-    <link rel="shortcut icon" href="favicon.ico"> 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:image" content="https://www.codersite.dev/assets/images/SoftwareDesignPortadaJPG.jpg" />
-    <meta property="twitter:title" content="Software Design Principles" />
+<title>Software Design Principles</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:700|Roboto:400,400i,700&display=swap" rel="stylesheet">
-    <script defer src="assets/fontawesome/js/all.min.js"></script>
-    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+  /* ---------- Tokens ---------- */
+  :root{
+    --paper:#EEF2F0;
+    --paper-raised:#E3E9E6;
+    --paper-raised-2:#D9E1DD;
+    --ink:#12314A;
+    --ink-soft:#4B6376;
+    --ink-faint:#7C8F9D;
+    --line:#C4D0CD;
+    --line-strong:#9DB0AC;
+    --accent:#B85420;
+    --accent-ink:#FFF9F3;
+    --grid-line: rgba(18,49,74,0.07);
+    --shadow: 0 1px 0 rgba(18,49,74,0.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0A263D;
+      --paper-raised:#0F3050;
+      --paper-raised-2:#153A5E;
+      --ink:#EAF2F6;
+      --ink-soft:#AEC6D5;
+      --ink-faint:#7C97A9;
+      --line: rgba(234,242,246,0.16);
+      --line-strong: rgba(234,242,246,0.3);
+      --accent:#E68A45;
+      --accent-ink:#1B1206;
+      --grid-line: rgba(234,242,246,0.06);
+      --shadow: 0 1px 0 rgba(0,0,0,0.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0A263D;
+    --paper-raised:#0F3050;
+    --paper-raised-2:#153A5E;
+    --ink:#EAF2F6;
+    --ink-soft:#AEC6D5;
+    --ink-faint:#7C97A9;
+    --line: rgba(234,242,246,0.16);
+    --line-strong: rgba(234,242,246,0.3);
+    --accent:#E68A45;
+    --accent-ink:#1B1206;
+    --grid-line: rgba(234,242,246,0.06);
+    --shadow: 0 1px 0 rgba(0,0,0,0.3);
+  }
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-642735915"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    padding-inline: max(20px, calc((100vw - 1180px)/2));
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  h1,h2,h3,h4{font-family:'Big Shoulders Display', sans-serif; font-weight:800; margin:0; text-wrap:balance; color:var(--ink); letter-spacing:0.01em;}
+  p{margin:0;}
+  a{color:inherit;}
+  img{display:block; max-width:100%;}
+  .mono{font-family:'IBM Plex Mono', ui-monospace, monospace;}
+  .tnum{font-variant-numeric:tabular-nums;}
 
-  gtag('config', 'AW-642735915');
-</script>
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--accent);
+    display:inline-block;
+  }
 
-<!-- Google tag (gtag.js) event -->
-<script>
-  gtag('event', 'redirect_to_amazon_de', {
-    // <event_parameters>
-  });
-</script>
+  .wrap{max-width:1180px; margin-inline:auto;}
+  section{padding-block:76px; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
 
-</head> 
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.86rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;
+    text-decoration:none;
+    padding:13px 22px;
+    border:1px solid var(--ink);
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .btn-primary{ background:var(--accent); border-color:var(--accent); color:var(--accent-ink); }
+  .btn-primary:hover{ filter:brightness(1.08); }
+  .btn-ghost{ background:transparent; color:var(--ink); border-color:var(--line-strong); }
+  .btn-ghost:hover{ border-color:var(--ink); }
+  .btn-arrow::after{content:"→"; font-family:inherit;}
 
-<body>    
-    <header class="header">	    
-        <div class="branding">
-            <div class="container-fluid position-relative py-3">
-                <div class="logo-wrapper">
-	                <div class="site-logo"><a class="navbar-brand" href="../index.html"><img class="logo-icon mr-2" src="../assets/images/logo.svg" height="30" alt="logo" ></a></div>    
-				</div><!--//docs-logo-wrapper-->
-            </div><!--//container-->
-        </div><!--//branding-->
-    </header><!--//header-->
-    
-    <section class="hero-section">
-	    <div class="container">
-		    <div class="row">
-			    <div class="col-12 col-md-7 pt-5 mb-5 align-self-center">
-				    <div class="promo pr-md-3 pr-lg-5">
-					    <h1 class="headline mb-3">
-						    Software Design Principles
-					    </h1><!--//headline-->
-					    <div class="subheadline mb-4">
-						    I am a software engineer who has worked for several companies from different economic sectors. Throughout the years, I have worked on many software development projects, and I have summarized my experience in interpreting and applying the various software design principles in this book !. 
-					    </div><!--//subheading-->
-					    
-					    <div class="cta-holder">
-						    <a class="btn btn-secondary scrollto mt-2" href="#benefits-section">Learn More</a>
-							<a class="btn btn-primary mr-lg-2 mt-2" href="https://amzn.to/3SBfzwk" target="_blank">Buy Now</a>
-					    </div><!--//cta-holder-->
-					    
-					    <div class="hero-quotes mt-5">
-						    <div id="quotes-carousel" class="quotes-carousel carousel slide carousel-fade mb-5" data-ride="carousel" data-interval="8000">
-								<ol class="carousel-indicators">
-									<li data-target="#quotes-carousel" data-slide-to="0" class="active"></li>
-									<li data-target="#quotes-carousel" data-slide-to="1"></li>
-								</ol>
-							  
-							    <div class="carousel-inner">
-								    
-									<div class="carousel-item active">
-								        <blockquote class="quote p-4 theme-bg-light">
-										    Currently there is a lot of attention on Artificial Intelligence & Data Science. At the end of the day those fields stand on software engineering best practices & patterns. This book will be a ideal fit for AI & DS practitioners to learn & enforce software engineering to build mature AI/DS solutions.
-								        </blockquote><!--//item-->
-								        <div class="source media flex-column flex-md-row align-items-center">
-									        <img class="source-profile mr-md-3" src="assets/images/profiles/boris.jpg" alt="image" >
-									        <div class="source-info media-body text-center text-md-left">
-										        <div class="source-name">Boris Villazon Terrazas</div>
-										        <div class="soure-title">AI/DS Product Manager</div>
-										    </div>
-								        </div><!--//source-->
-								    </div><!--//carousel-item-->								    
-									
-								</div><!--//carousel-inner-->
-							</div><!--//quotes-carousel-->
-							
-					    </div><!--//hero-quotes-->
-						
-						<br/>
-						<h4 class="item-title">About the Technology</h4>
+  /* ---------- Corner-bracket card motif ---------- */
+  .sheet{
+    position:relative;
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    padding:28px;
+  }
+  .sheet::before,.sheet::after,
+  .sheet .br1, .sheet .br2{
+    content:""; position:absolute; width:11px; height:11px;
+    border-color:var(--line-strong); pointer-events:none;
+  }
+  .sheet::before{ top:-1px; left:-1px; border-top:2px solid var(--line-strong); border-left:2px solid var(--line-strong);}
+  .sheet::after{ top:-1px; right:-1px; border-top:2px solid var(--line-strong); border-right:2px solid var(--line-strong);}
+  .sheet .br1{ bottom:-1px; left:-1px; border-bottom:2px solid var(--line-strong); border-left:2px solid var(--line-strong);}
+  .sheet .br2{ bottom:-1px; right:-1px; border-bottom:2px solid var(--line-strong); border-right:2px solid var(--line-strong);}
+  .sheet:hover::before,.sheet:hover::after,.sheet:hover .br1,.sheet:hover .br2{ border-color:var(--accent); }
 
-						<div class="subheadline mb-4">
-						    Good design is the foundation of great software. Mastering object-oriented design principles is the surest way to create applications that run fast, have few bugs, and last well into the future. Written especially for Java programmers, this easy-to-read book gently mentors you in designing great software.
-					    </div><!--//subheading-->
-					    						
-				    </div><!--//promo-->
-			    </div><!--col-->
-			    <div class="col-12 col-md-4 mb-4 align-self-center">
-				    <div>
-					    <a target="_blank" href="https://amzn.to/3SBfzwk">
-			              <img class="img-fluid book-cover" src="../assets/images/sdpCaratula.jpg" alt="book cover">
-						</a>					    					    
-				    </div><!--//book-cover-holder-->
-				    <div class="text-center"><a class="theme-link scrollto" href="#reviews-section">See all book reviews</a></div>
-			    </div><!--col-->
-		    </div><!--//row-->
-	    </div><!--//container-->
-    </section><!--//hero-section-->
-    
-    <section id="benefits-section" class="benefits-section theme-bg-light-gradient py-5">
-	    <div class="container py-5">
-		    <h2 class="section-heading text-center mb-3">What Will You Get From This Book?</h2>
-		    <!--
-			<div class="section-intro single-col-max mx-auto text-center mb-5">Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat. Orci varius natoque penatibus et magnis. </div>
-		    -->
-			<div class="row text-center">
-			    <div class="item col-12 col-md-6 col-lg-4">
-				    <div class="item-inner p-3 p-lg-4">
-					    <div class="item-header mb-3">
-						    <div class="item-icon"><i class="fas fa-laptop-code"></i></div>
-						    <h3 class="item-heading">Learn the fundamental concepts of object orientation to translate business requirements into technical specifications and programming.</h3>
-					    </div><!--//item-heading-->
-					    <div class="item-desc">
-						</div><!--//item-desc-->
-				    </div><!--//item-inner-->
-			    </div><!--//item-->
-			    <div class="item col-12 col-md-6 col-lg-4">
-				    <div class="item-inner p-3 p-lg-4">
-					    <div class="item-header mb-3">
-						    <div class="item-icon"><i class="fas fa-solid fa-code"></i></div>
-						    <h3 class="item-heading">Deep understanding of fundamental design principles, such as DRY (Don’t Repeat Yourself), YAGNI (You aren't going to need it), SOLID, and others.</h3>
-					    </div><!--//item-heading-->
-					    <div class="item-desc">
-					    </div><!--//item-desc-->
-				    </div><!--//item-inner-->
-			    </div><!--//item-->
-			    <div class="item col-12 col-md-6 col-lg-4">
-				    <div class="item-inner p-3 p-lg-4">
-					    <div class="item-header mb-3">
-						    <div class="item-icon"><i class="fas fa-code-branch"></i></div>
-						    <h3 class="item-heading">Promote clean, well-structured code, making it more straightforward for developers to maintain and enhance the software over time.</h3>
-					    </div><!--//item-heading-->
-					    <div class="item-desc">
-					    </div><!--//item-desc-->
-				    </div><!--//item-inner-->
-			    </div><!--//item-->
-			    <div class="item col-12 col-md-6 col-lg-4">
-				    <div class="item-inner p-3 p-lg-4">
-					    <div class="item-header mb-3">
-						    <div class="item-icon"><i class="fas fa-project-diagram"></i></div>
-						    <h3 class="item-heading">Promote scalability that allows adding new features or components without disrupting existing functionality.</h3>
-					    </div><!--//item-heading-->
-					    <div class="item-desc">
-					    </div><!--//item-desc-->
-				    </div><!--//item-inner-->
-			    </div><!--//item-->
-			    <div class="item col-12 col-md-6 col-lg-4">
-				    <div class="item-inner p-3 p-lg-4">
-					    <div class="item-header mb-3">
-						    <div class="item-icon"><i class="fas fa-user-cog"></i></div>
-						    <h3 class="item-heading">Enhance your system design skills to build scalable and efficient systems by working through real-world case studies.</h3>
-					    </div><!--//item-heading-->
-					    <div class="item-desc">
-					    </div><!--//item-desc-->
-				    </div><!--//item-inner-->
-			    </div><!--//item-->
-			    <div class="item col-12 col-md-6 col-lg-4">
-				    <div class="item-inner p-3 p-lg-4">
-					    <div class="item-header mb-3">
-						    <div class="item-icon"><i class="fas fa-hand-holding-usd"></i></div>
-						    <h3 class="item-heading">Better chances of negotiating your next salary.</h3>
-					    </div><!--//item-heading-->
-					    <div class="item-desc">
-					    </div><!--//item-desc-->
-				    </div><!--//item-inner-->
-			    </div><!--//item-->
-		    </div><!--//row-->
-	    </div><!--//container-->
-    </section><!--//benefits-section-->
-    
-    <section id="content-section" class="content-section">
-	    <div class="container">
-		    <div class="single-col-max mx-auto">
-		    <h2 class="section-heading text-center mb-5">What's Included</h2>
-			    <div class="row">
-				    <div class="col-12 col-md-6">
-						<div class="figure-holder mb-5">
-						  <a target="_blank" href="https://amzn.to/3SBfzwk">
-			                <img class="img-fluid" src="../assets/images/SoftwareDesignPortadaJPG.jpg" alt="book cover">
-						  </a>
-					    </div>
-				    </div><!--//col-->
-				    <div class="col-12 col-md-6 mb-5">
-					    <div class="key-points mb-4 text-center">
-						    <ul class="key-points-list list-unstyled mb-4 mx-auto d-inline-block text-left">
-							    <li><i class="fas fa-check-circle mr-2"></i>Introduction to Object-Oriented Concepts.</li>
-							    <li><i class="fas fa-check-circle mr-2"></i>UML Diagrams for developers.</li>
-							    <li><i class="fas fa-check-circle mr-2"></i>Coding Best Practices.</li>
-							    <li><i class="fas fa-check-circle mr-2"></i>Software Design Principles.</li>
-							    <li><i class="fas fa-check-circle mr-2"></i>Soft Skills.</li>
-							    <li><i class="fas fa-check-circle mr-2"></i>Case Studies.</li>
-						    </ul>
-							<div class="text-center">
-								<a class="btn btn-primary mr-lg-2 mt-2" href="https://amzn.to/3SBfzwk" target="_blank">Buy Now</a>
-							</div>
-							
-					    </div><!--//key-points-->
-					    
-				    </div><!--//col-12-->   
-			    </div><!--//row-->
-		    </div><!--//single-col-max-->
-	    </div><!--//container-->
-    </section><!--//content-section-->
-    
-    <section id="audience-section" class="audience-section py-5">
-	    <div class="container">
-		    <h2 class="section-heading text-center mb-4">Who This Book Is For</h2>
-		    <div class="section-intro single-col-max mx-auto text-center mb-5">
-			    So, whether you are just starting your journey in software design or are a seasoned practitioner seeking to deepen your expertise, I invite you to dive into the world of software design principles.
-		    </div><!--//section-intro-->
-			<div class="audience mx-auto">
-			    <div class="item media">
-				    <div class="item-icon mr-3"><i class="fas fa-user-check"></i></div>
-				    <div class="media-body">
-					    <h4 class="item-title">Software Engineers/Software Developer</h4>
-					    <!-- <div class="item-desc">Learn lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales sit amet neque sit amet molestie.</div> -->
-				    </div><!--//media-body-->
-			    </div><!--//item-->
-			    <div class="item media">
-				    <div class="item-icon mr-3"><i class="fas fa-user-check"></i></div>
-				    <div class="media-body">
-					    <h4 class="item-title">App/Web Developers</h4>
-					    
-				    </div><!--//media-body-->
-			    </div><!--//item-->
-			    <div class="item media">
-				    <div class="item-icon mr-3"><i class="fas fa-user-check"></i></div>
-				    <div class="media-body">
-					    <h4 class="item-title">Coders/Programmers</h4>
-					    
-				    </div><!--//media-body-->
-			    </div><!--//item-->
-				<div class="item media">
-				    <div class="item-icon mr-3"><i class="fas fa-user-check"></i></div>
-				    <div class="media-body">
-					    <h4 class="item-title">Data/ML engineer</h4>
-					    
-				    </div><!--//media-body-->
-			    </div><!--//item-->
-				<div class="item media">
-				    <div class="item-icon mr-3"><i class="fas fa-user-check"></i></div>
-				    <div class="media-body">
-					    <h4 class="item-title">Interested in computer science</h4>
-					    
-				    </div><!--//media-body-->
-			    </div><!--//item-->
-		
-		    </div><!--//audience-->
-			
-	    </div><!--//container-->
-    </section><!--//audience-section-->
+  /* ================= HEADER ================= */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    padding-inline: max(20px, calc((100vw - 1180px)/2));
+    margin-inline: max(-20px, calc(-1 * (100vw - 1180px)/2));
+  }
+  .navbar{ max-width:1180px; margin-inline:auto; display:flex; align-items:center; justify-content:space-between; gap:20px; padding-block:16px; }
+  .brand{ display:flex; align-items:baseline; gap:8px; text-decoration:none; }
+  .brand .mark{ font-family:'Big Shoulders Display'; font-weight:900; font-size:1.3rem; letter-spacing:0.01em; }
+  .brand .dot{ color:var(--accent); }
+  .brand .sub{ font-family:'IBM Plex Mono'; font-size:0.68rem; color:var(--ink-faint); letter-spacing:0.08em; }
+  nav.links{ display:flex; align-items:center; gap:26px; }
+  nav.links a{
+    font-family:'IBM Plex Mono'; font-size:0.78rem; letter-spacing:0.03em;
+    text-decoration:none; color:var(--ink-soft); text-transform:uppercase;
+  }
+  nav.links a:hover{ color:var(--accent); }
+  .nav-cta{ display:flex; align-items:center; gap:18px; }
+  #navToggle{ display:none; }
+  .burger{ display:none; }
 
-    <section id="form-section" class="form-section">
-	    <div class="container">
-		    <div class="lead-form-wrapper single-col-max mx-auto theme-bg-light rounded p-5">
-			    <h2 class="form-heading text-center">Get a Free Sample copy!</h2>
-			    <div class="form-intro text-center mb-3">It will give you an overview of what you will get in the entire book.</div>
-			    <div class="form-wrapper">
-				    <form class="form-inline justify-content-center flex-wrap">
-						<div class="form-group mr-md-2 mb-3 mb-md-0">
-							<div class="text-center"><a class="btn btn-success" href="/assets/files/sdpSample.pdf" target="_blank">Download a Sample PDF</a></div>
-						</div>
-					</form>
-			    </div>
-		    </div>
-	    </div>
-    </section>
+  @media (max-width: 860px){
+    nav.links{ display:none; }
+    .burger{
+      display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center;
+      border:1px solid var(--line-strong); background:transparent; cursor:pointer;
+    }
+    .burger span, .burger span::before, .burger span::after{
+      content:""; display:block; width:16px; height:2px; background:var(--ink); position:relative;
+    }
+    .burger span::before{ position:absolute; top:-5px; }
+    .burger span::after{ position:absolute; top:5px; }
+    #navToggle:checked ~ .navbar nav.links{
+      display:flex; flex-direction:column; align-items:flex-start; gap:16px;
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--paper); border-bottom:1px solid var(--line);
+      padding: 18px max(20px, calc((100vw - 1180px)/2)) 24px;
+    }
+  }
 
-    <section id="reviews-section" class="reviews-section py-5">
-	    <div class="container">
-		    <h2 class="section-heading text-center">Book Reviews</h2>
-		    <div class="section-intro text-center single-col-max mx-auto mb-5">See what our readers are saying. </div>
-		    <div class="row justify-content-center">
-			    
-				<div class="item col-12 col-lg-4 p-3 mb-4">
-				    <div class="item-inner theme-bg-light rounded p-4">
-					    
-					    <blockquote class="quote p-4 theme-bg-light">
-							Currently there is a lot of attention on Artificial Intelligence & Data Science. At the end of the day those fields stand on software engineering best practices & patterns. This book will be a ideal fit for AI & DS practitioners to learn & enforce software engineering to build mature AI/DS solutions.
-						</blockquote><!--//item-->
-						<div class="source media flex-column flex-md-row align-items-center">
-							<img class="source-profile mr-md-3" src="assets/images/profiles/boris.jpg" alt="image" >
-							<div class="source-info media-body text-center text-md-left">
-								<div class="source-name">Boris Villazon Terrazas</div>
-								<div class="soure-title">AI/DS Product Manager</div>
-							</div>
-						</div><!--//source-->
-				        <div class="icon-holder"><i class="fas fa-quote-right"></i></div>
-				    </div><!--//inner-->
-			    </div><!--//item-->
-			</div>
-	    </div><!--//container-->
-    </section><!--//reviews-section-->
-    
-	<section id="linksToBuy-section" class="reviews-section py-5">
-	    <div class="container">
-		    <div class="section-intro text-center single-col-max mx-auto mb-1">Jobs in the tech industry are growing exponentially.</div>
-			<h2 class="section-heading text-center mb-3">Be ready to negotiate your next salary!</h2>
+  /* ================= HERO ================= */
+  .hero{ padding-block:56px 72px; border-bottom:1px solid var(--line); }
+  .hero-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:start; }
+  .hero h1{ font-size:clamp(2.6rem, 5.4vw, 4.2rem); line-height:0.98; margin-block:16px 20px; }
+  .hero h1 em{ font-style:normal; color:var(--accent); }
+  .hero .lede{ font-size:1.1rem; color:var(--ink-soft); max-width:52ch; margin-bottom:30px; }
+  .cta-row{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:44px; }
 
-	        <div class="cta-holder text-center">
-			    <a class="btn btn-primary mr-lg-4 mt-2" href="https://amzn.to/3SBfzwk" target="_blank">Buy on Amazon</a>
-			</div><!--//cta-holder-->
-			
-	    </div><!--//container-->
-    </section><!--//reviews-section-->
-	
-    <section id="author-section" class="author-section section theme-bg-primary py-5">
-	    <div class="container py-3">
-		    <div class="author-profile text-center mb-5">
-			    <img class="author-pic" src="assets/images/profiles/author.jpg" alt="image" >
-		    </div><!--//author-profile-->
-		    <h2 class="section-heading text-center text-white mb-3">About The Author</h2>
-		    <div class="author-bio single-col-max mx-auto">
-			    <p>Moises Gamio has been working 25 years as a Software Engineer for several companies from different economic sectors such as Government, Financial, Industrial, Educative, Consulting, Retail, and Research. He has been using several technological tools such as Java, C, Cobol, C#, Visual Basic, PHP, Python, and JScript, in operating systems such as Windows, Linux, Unix, and RISC 6000, in databases such as SQL Server, Oracle, MySQL, DB2, and Lotus Notes. His tasks are related to Software Development, Stages of Analysis, Design, Testing, and Deployment in On-premise and Cloud computing environments.</p>
-			    <p>For eight years, he worked as a System Analyst for the Bank Sector. Since 2014, he has been a software engineer implementing web services for a B2B company in Berlin, Germany.</p>
-			    <div class="author-links text-center pt-4">
-			        <h5 class="text-white mb-4">Follow Author</h5>
-				    <ul class="social-list list-unstyled">				
-					    <li class="list-inline-item"><a href="https://medium.com/@mkgv89" target="_blank"><i class="fab fa-medium"></i></a></li>
-					    <li class="list-inline-item"><a href="http://www.twitter.com/MoisesGamio" target="_blank"><i class="fab fa-twitter"></i></a></li>
-					    <li class="list-inline-item"><a href="https://github.com/mgamio" target="_blank"><i class="fab fa-github-alt"></i></a></li> 
-			            <li class="list-inline-item"><a href="https://www.facebook.com/codersite.dev" target="_blank"><i class="fab fa-facebook"></i></a></li>            
-			            <li class="list-inline-item"><a href="https://www.linkedin.com/groups/12626056/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-			        </ul><!--//social-list-->
-			    </div><!--//author-links-->
-			    
-		    </div><!--//author-bio-->
-		    
-	    </div><!--//container-->
-    </section><!--//author-section-->
- 
-    <footer class="footer">
+  .statline{ display:flex; border-top:1px dashed var(--line-strong); padding-top:20px; gap:0; flex-wrap:wrap; }
+  .stat{ flex:1 1 130px; padding-right:22px; border-right:1px dashed var(--line); }
+  .stat:last-child{ border-right:none; }
+  .stat .n{ font-family:'IBM Plex Mono'; font-weight:600; font-size:1.9rem; color:var(--ink); display:block; }
+  .stat .l{ font-family:'IBM Plex Mono'; font-size:0.68rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.05em; display:block; margin-top:4px; }
 
-	    <div class="footer-bottom text-center py-5">
+  .cover-card{ position:relative; }
+  .cover-frame{
+    position:relative; background:var(--paper-raised); border:1px solid var(--line-strong); padding:18px;
+  }
+  .tape{
+    position:absolute; width:66px; height:22px; top:-11px;
+    background: color-mix(in srgb, var(--accent) 24%, transparent);
+    border:1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+    opacity:0.85;
+  }
+  .tape.l{ left:26px; transform:rotate(-4deg); }
+  .tape.r{ right:26px; transform:rotate(3deg); }
+  .cover-frame img{ width:100%; border:1px solid var(--line); }
+  .cover-caption{
+    margin-top:14px; display:flex; justify-content:space-between; align-items:baseline;
+    font-family:'IBM Plex Mono'; font-size:0.7rem; color:var(--ink-faint); letter-spacing:0.04em; text-transform:uppercase;
+  }
 
-	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
- 
-	    </div>
-	    
-    </footer>
-       
-    <!-- Javascript -->          
-    <script src="assets/plugins/jquery-3.4.1.min.js"></script>
-    <script src="assets/plugins/popper.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
-    <script src="assets/plugins/jquery.scrollTo.min.js"></script>  
-    <script src="assets/plugins/back-to-top.js"></script>  
-    
-    <script src="assets/js/main.js"></script>
+  @media (max-width: 900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .cover-card{ max-width:340px; }
+  }
 
-</body>
-</html> 
+  /* ================= MASTER (What You'll Master) ================= */
+  .section-head{ margin-bottom:44px; max-width:60ch; }
+  .section-head h2{ font-size:clamp(1.9rem,3.4vw,2.7rem); margin-top:12px; }
+  .section-head .desc{ color:var(--ink-soft); margin-top:14px; font-size:1.02rem; }
 
+  .master-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .master-item{ background:var(--paper); padding:30px 26px; min-height:230px; display:flex; flex-direction:column; gap:14px; }
+  .master-item .tag{ font-family:'IBM Plex Mono'; font-size:0.68rem; letter-spacing:0.08em; color:var(--accent); text-transform:uppercase; }
+  .master-item h3{ font-size:1.35rem; line-height:1.08; }
+  .master-item p{ color:var(--ink-soft); font-size:0.94rem; }
+  @media (max-width: 900px){ .master-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width: 600px){ .master-grid{ grid-template-columns:1fr;} }
+
+  /* ================= INSIDE THE BOOK ================= */
+  .toc-row{
+    display:grid; grid-template-columns:64px 260px 1fr; gap:22px; align-items:baseline;
+    padding-block:20px; border-bottom:1px solid var(--line);
+  }
+  .toc-row:first-of-type{ border-top:1px solid var(--line); }
+  .toc-num{ font-family:'IBM Plex Mono'; color:var(--accent); font-size:0.95rem; }
+  .toc-title{ font-family:'Big Shoulders Display'; font-weight:700; font-size:1.15rem; }
+  .toc-desc{ color:var(--ink-soft); font-size:0.93rem; }
+  @media (max-width: 760px){
+    .toc-row{ grid-template-columns:40px 1fr; }
+    .toc-desc{ grid-column: 2 / 3; }
+  }
+
+  /* ================= FREE EXTRACT ================= */
+  .extract{
+    display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line);
+  }
+  .extract-quote{
+    padding:44px; background:var(--ink); color:var(--paper); display:flex; flex-direction:column; justify-content:center; gap:18px; position:relative;
+  }
+  .extract-quote .qmark{ font-family:'Big Shoulders Display'; font-size:4.5rem; font-weight:900; color:var(--accent); line-height:0.6; }
+  .extract-quote blockquote{ font-family:'Big Shoulders Display'; font-weight:700; font-size:1.5rem; line-height:1.18; margin:0; }
+  .extract-quote cite{ font-family:'IBM Plex Mono'; font-style:normal; font-size:0.72rem; letter-spacing:0.05em; text-transform:uppercase; opacity:0.65; }
+  .extract-cta{ padding:44px; display:flex; flex-direction:column; justify-content:center; gap:18px; }
+  .extract-cta h3{ font-size:1.7rem; }
+  .extract-cta p{ color:var(--ink-soft); font-size:0.98rem; }
+  @media (max-width: 760px){ .extract{ grid-template-columns:1fr; } }
+
+  /* ================= WHO FOR ================= */
+  .audience-list{ display:flex; flex-direction:column; }
+  .audience-row{
+    display:grid; grid-template-columns:34px 260px 1fr; gap:20px; align-items:baseline;
+    padding-block:18px; border-bottom:1px solid var(--line);
+  }
+  .audience-row:first-child{ border-top:1px solid var(--line); }
+  .audience-row .idx{ font-family:'IBM Plex Mono'; color:var(--ink-faint); font-size:0.85rem; }
+  .audience-row .who{ font-family:'Big Shoulders Display'; font-weight:700; font-size:1.12rem; }
+  .audience-row .why{ color:var(--ink-soft); font-size:0.94rem; }
+  @media (max-width: 760px){
+    .audience-row{ grid-template-columns:26px 1fr; }
+    .audience-row .why{ grid-column:2/3; }
+  }
+
+  /* ================= REVIEWS ================= */
+  .review-sheet{ padding:44px; max-width:820px; margin-inline:auto; }
+  .review-sheet .qmark{ font-family:'Big Shoulders Display'; font-size:3.4rem; font-weight:900; color:var(--accent); line-height:0.5; display:block; margin-bottom:10px; }
+  .review-sheet blockquote{ font-size:1.28rem; line-height:1.5; margin:0 0 26px; color:var(--ink); }
+  .review-source{ display:flex; align-items:center; gap:14px; }
+  .review-source img{ width:52px; height:52px; border-radius:50%; object-fit:cover; border:1px solid var(--line-strong); }
+  .review-source .name{ font-weight:600; font-size:0.96rem; }
+  .review-source .role{ font-family:'IBM Plex Mono'; font-size:0.74rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.04em; }
+
+  /* ================= AUTHOR ================= */
+  .author-grid{ display:grid; grid-template-columns:220px 1fr; gap:44px; align-items:start; }
+  .author-photo{ width:100%; aspect-ratio:1/1; object-fit:cover; border:1px solid var(--line-strong); filter:grayscale(0.15); }
+  .author-bio p{ color:var(--ink-soft); margin-bottom:16px; font-size:0.98rem; }
+  .author-bio p:last-of-type{ margin-bottom:22px; }
+  .social-row{ display:flex; gap:14px; flex-wrap:wrap; }
+  .social-row a{
+    font-family:'IBM Plex Mono'; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em;
+    text-decoration:none; color:var(--ink-soft); border:1px solid var(--line-strong); padding:8px 14px;
+  }
+  .social-row a:hover{ color:var(--accent); border-color:var(--accent); }
+  @media (max-width: 700px){ .author-grid{ grid-template-columns:1fr; } .author-photo{ max-width:160px; } }
+
+  /* ================= FINAL CTA ================= */
+  .final-cta{ text-align:center; padding-block:80px; }
+  .final-cta .eyebrow{ justify-content:center; }
+  .final-cta .eyebrow::before{ display:none; }
+  .final-cta h2{ font-size:clamp(2.1rem,5vw,3.4rem); margin-block:16px 14px; }
+  .final-cta p{ color:var(--ink-soft); max-width:52ch; margin-inline:auto 46px; margin-bottom:38px; font-size:1.05rem;}
+  .final-cta .btn{ padding:17px 34px; font-size:0.95rem; }
+
+  /* ================= FOOTER ================= */
+  footer{ padding-block:36px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+  footer .mono{ font-size:0.72rem; color:var(--ink-faint); letter-spacing:0.03em; }
+  footer a{ text-decoration:none; color:var(--ink-faint); }
+  footer a:hover{ color:var(--accent); }
+</style>
+
+<header>
+  <input type="checkbox" id="navToggle">
+  <div class="navbar">
+    <a class="brand" href="#top">
+      <span class="mark">SOFTWARE DESIGN<span class="dot">·</span>PRINCIPLES</span>
+    </a>
+    <nav class="links">
+      <a href="#master">Master</a>
+      <a href="#inside">Inside</a>
+      <a href="#sample">Sample</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#author">Author</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://amzn.to/3SBfzwk" target="_blank" rel="noopener">Buy Now</a>
+      <label class="burger" for="navToggle"><span></span></label>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">A Practical Guide · By Moises Gamio</div>
+        <h1>Software is malleable.<br>Build it to <em>bend</em>, not break.</h1>
+        <p class="lede">Twenty-five years across banking, government, retail and B2B systems taught the author one lesson: every unmaintainable codebase started as somebody's fast, obvious shortcut. <strong>Software Design Principles</strong> hands you the antidote — OOP foundations, SOLID, UML fluency and clean-code habits that keep software bending instead of breaking as requirements change.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-arrow" href="https://amzn.to/3SBfzwk" target="_blank" rel="noopener">Get it on Amazon</a>
+          <a class="btn btn-ghost" href="#sample">Download free sample</a>
+        </div>
+        <div class="statline">
+          <div class="stat"><span class="n tnum">05</span><span class="l">SOLID principles</span></div>
+          <div class="stat"><span class="n tnum">12</span><span class="l">Clean-code habits</span></div>
+          <div class="stat"><span class="n tnum">06</span><span class="l">UML relationships</span></div>
+          <div class="stat"><span class="n tnum">25</span><span class="l">Years in production</span></div>
+        </div>
+      </div>
+      <div class="cover-card">
+        <div class="cover-frame">
+          <div class="tape l"></div>
+          <div class="tape r"></div>
+          <img src="../assets/images/SoftwareDesignPortadaJPG.jpg" alt="Software Design Principles book cover by Moises Gamio">
+        </div>
+        <div class="cover-caption">
+          <span>Sheet 00 / Cover</span>
+          <span>OOP · UML · SOLID</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="master">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Sec. 01 — What You'll Master</div>
+        <h2>Six ways of thinking. One fluent engineer.</h2>
+        <p class="desc">Each chapter trades vague advice for concrete, worked examples — the kind you can apply in your codebase before lunch.</p>
+      </div>
+      <div class="master-grid">
+        <div class="master-item">
+          <span class="tag">OOP · 4 Pillars</span>
+          <h3>Think like an architect, not a typist</h3>
+          <p>Classes, objects, encapsulation, inheritance, polymorphism and abstraction — translated straight from business requirements into a working object model.</p>
+        </div>
+        <div class="master-item">
+          <span class="tag">DRY · KISS · YAGNI</span>
+          <h3>Say no to wasted code</h3>
+          <p>Spot duplication before it calcifies, resist the urge to over-engineer, and build only what the requirement actually asks for.</p>
+        </div>
+        <div class="master-item">
+          <span class="tag">SOLID</span>
+          <h3>Wire classes that don't break each other</h3>
+          <p>All five SOLID principles, each with a worked code example and a Key Takeaways recap you can pin above your desk.</p>
+        </div>
+        <div class="master-item">
+          <span class="tag">UML</span>
+          <h3>Draw the system before you build it</h3>
+          <p>Class notation plus all six relationship types — association, aggregation, composition, dependency, inheritance and realization.</p>
+        </div>
+        <div class="master-item">
+          <span class="tag">Clean Code</span>
+          <h3>Write code your team won't curse</h3>
+          <p>Twelve field-tested habits, from intention-revealing names to knowing exactly when a comment is actually necessary.</p>
+        </div>
+        <div class="master-item">
+          <span class="tag">Case Studies</span>
+          <h3>Apply it to real systems</h3>
+          <p>Interpret a functional spec, design a RESTful API, and architect a B2B integration project — start to finish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inside">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Sec. 02 — Inside the Book</div>
+        <h2>Eight sheets. One blueprint.</h2>
+        <p class="desc">The full table of contents — no padding, no filler chapters.</p>
+      </div>
+      <div class="toc-list">
+        <div class="toc-row"><div class="toc-num">01</div><div class="toc-title">Preface &amp; Introduction</div><div class="toc-desc">Why design matters before you write a single line of code, and why software is fundamentally malleable.</div></div>
+        <div class="toc-row"><div class="toc-num">02</div><div class="toc-title">Software Design Principles</div><div class="toc-desc">DRY, KISS, YAGNI, Loose Coupling &amp; High Cohesion, Divide and Conquer, Separation of Concerns, and a deep dive into Clean Code.</div></div>
+        <div class="toc-row"><div class="toc-num">03</div><div class="toc-title">Object-Oriented Concepts</div><div class="toc-desc">Classes &amp; Objects, Encapsulation, Inheritance, Polymorphism, Abstraction, plus Association, Aggregation &amp; Composition.</div></div>
+        <div class="toc-row"><div class="toc-num">04</div><div class="toc-title">UML Diagrams for Developers</div><div class="toc-desc">Class notation and every relationship type you'll actually draw on a whiteboard.</div></div>
+        <div class="toc-row"><div class="toc-num">05</div><div class="toc-title">SOLID Principles</div><div class="toc-desc">Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion.</div></div>
+        <div class="toc-row"><div class="toc-num">06</div><div class="toc-title">Soft Skills</div><div class="toc-desc">Communication, problem-solving, teamwork, adaptability and time management — the habits behind a good career.</div></div>
+        <div class="toc-row"><div class="toc-num">07</div><div class="toc-title">Case Studies</div><div class="toc-desc">Interpreting a functional description, designing a RESTful API, and architecting a B2B integration project.</div></div>
+        <div class="toc-row"><div class="toc-num">08</div><div class="toc-title">Conclusions</div><div class="toc-desc">Field notes on coupling, cohesion, composition over inheritance, and modeling real business complexity.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sample">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Sec. 03 — Free Extract</div>
+        <h2>Read before you buy.</h2>
+      </div>
+      <div class="extract">
+        <div class="extract-quote">
+          <span class="qmark">&ldquo;</span>
+          <blockquote>Software design is everything related to managing interdependencies between different software components.</blockquote>
+          <cite>— From the Introduction</cite>
+        </div>
+        <div class="extract-cta">
+          <h3>Get a free excerpt, no signup</h3>
+          <p>Download a free PDF sample straight from the opening chapters and see exactly how the book explains, and code, each principle before you commit to the full edition.</p>
+          <div>
+            <a class="btn btn-primary btn-arrow" href="https://codersite.dev/assets/files/sdpSample.pdf" target="_blank" rel="noopener">Download the sample PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audience">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Sec. 04 — Who This Book Is For</div>
+        <h2>Wherever you are in the stack, this meets you there.</h2>
+        <p class="desc">Whether you're just starting your journey in software design or deepening expertise you already have — the principles hold either way.</p>
+      </div>
+      <div class="audience-list">
+        <div class="audience-row"><div class="idx">01</div><div class="who">Software Engineers &amp; Developers</div><div class="why">Refresh the fundamentals that get skipped after the first job and rarely revisited.</div></div>
+        <div class="audience-row"><div class="idx">02</div><div class="who">App &amp; Web Developers</div><div class="why">Turn UI and API work into architecture that survives the next feature request.</div></div>
+        <div class="audience-row"><div class="idx">03</div><div class="who">Coders &amp; Programmers</div><div class="why">Move from writing code that runs to writing code that lasts.</div></div>
+        <div class="audience-row"><div class="idx">04</div><div class="who">Data &amp; ML Engineers</div><div class="why">Bring engineering discipline to pipelines and services built under research pressure.</div></div>
+        <div class="audience-row"><div class="idx">05</div><div class="who">Computer Science Students</div><div class="why">Learn the vocabulary — SOLID, UML, OOP — before your first technical interview.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="section-head" style="text-align:center; margin-inline:auto;">
+        <div class="eyebrow" style="justify-content:center;">Sec. 05 — What Engineers Are Saying</div>
+        <h2>Endorsed beyond software engineering.</h2>
+      </div>
+      <div class="sheet review-sheet">
+        <span class="br1"></span><span class="br2"></span>
+        <span class="qmark">&ldquo;</span>
+        <blockquote>Currently there is a lot of attention on Artificial Intelligence &amp; Data Science. At the end of the day those fields stand on software engineering best practices &amp; patterns. This book will be a ideal fit for AI &amp; DS practitioners to learn &amp; enforce software engineering to build mature AI/DS solutions.</blockquote>
+        <div class="review-source">
+          <img src="assets/images/profiles/boris.jpg" alt="Boris Villazon Terrazas">
+          <div>
+            <div class="name">Boris Villazon Terrazas</div>
+            <div class="role">AI / DS Product Manager</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="author">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Sec. 06 — About the Author</div>
+        <h2>Written from the field, not the whiteboard.</h2>
+      </div>
+      <div class="author-grid">
+        <img class="author-photo" src="assets/images/profiles/author.jpg" alt="Moises Gamio">
+        <div class="author-bio">
+          <p><strong>Moises Gamio</strong> has spent 25 years as a software engineer across government, financial, industrial, education, consulting, retail and research organizations — working in Java, C, COBOL, C#, Visual Basic, PHP, Python and JScript, across Windows, Linux, Unix and RISC/6000, against SQL Server, Oracle, MySQL, DB2 and Lotus Notes.</p>
+          <p>Eight of those years were spent as a systems analyst in the banking sector. Since 2014, he has been building web services for a B2B company in Berlin, Germany — the same real-world pressure that shaped every principle in this book.</p>
+          <div class="social-row">
+            <a href="https://medium.com/@mkgv89" target="_blank" rel="noopener">Medium</a>
+            <a href="http://www.twitter.com/MoisesGamio" target="_blank" rel="noopener">Twitter</a>
+            <a href="https://github.com/mgamio" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.facebook.com/codersite.dev" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.linkedin.com/groups/12626056/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <div class="eyebrow">Jobs in tech keep growing</div>
+      <h2>Be ready to negotiate your next salary.</h2>
+      <p>Good design is the foundation of great software — and the engineers who understand it are the ones who get to be picky about where they work next.</p>
+      <a class="btn btn-primary btn-arrow" href="https://amzn.to/3SBfzwk" target="_blank" rel="noopener">Buy Software Design Principles on Amazon</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span class="mono">© Moises Gamio · <a href="https://codersite.dev" target="_blank" rel="noopener">codersite.dev</a></span>
+  <span class="mono">Software Design Principles — A Practical Guide</span>
+</footer>
