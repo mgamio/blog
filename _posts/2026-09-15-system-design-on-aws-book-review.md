@@ -12,7 +12,7 @@ comments: false
 
 There's a moment in every engineer's career when "does it work on my machine" stops being good enough. Maybe it's your first on-call rotation when a "reliable" service falls over under real traffic. Maybe it's a system design interview where the whiteboard goes blank the instant someone asks, "okay, but what happens when that server dies?".
 
-That moment is exactly what **[*System Design on AWS: Building and Scaling Enterprise Solutions*](https://link.amazon/B05Mf5giA){:target="_blank"}** by Jayanth Kumar and Mandeep Singh is built for.
+That moment is exactly what **[*System Design on AWS: Building and Scaling Enterprise Solutions*](https://link.amazon/B0cuO2jeG){:target="_blank"}** by Jayanth Kumar and Mandeep Singh is built for.
 
 I went through Chapter 1 — "System Design Trade-offs and Guidelines" — and it's one of the tightest introductions to distributed systems thinking I've read in a while. No fluff, no toy examples that fall apart at scale. Just the vocabulary, the math, and the hard-won lessons that let you reason about systems built to serve millions of users. 
 
@@ -78,7 +78,7 @@ Chapter 1 alone gives you the CAP theorem, PACELC, the fallacies of distributed 
 
 **Ready to build systems that don't fall over at 2 a.m.?**
 
-👉 **[Get *System Design on AWS* on Amazon](https://link.amazon/B05Mf5giA){:target="_blank"}**
+👉 **[Get *System Design on AWS* on Amazon](https://link.amazon/B0cuO2jeG){:target="_blank"}**
 
 ---
 

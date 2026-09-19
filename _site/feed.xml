@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 16 Sep 2026 17:44:25 +0200</pubDate>
-    <lastBuildDate>Wed, 16 Sep 2026 17:44:25 +0200</lastBuildDate>
+    <pubDate>Sat, 19 Sep 2026 21:29:24 +0200</pubDate>
+    <lastBuildDate>Sat, 19 Sep 2026 21:29:24 +0200</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
@@ -15,7 +15,7 @@
 
 &lt;p&gt;There’s a moment in every engineer’s career when “does it work on my machine” stops being good enough. Maybe it’s your first on-call rotation when a “reliable” service falls over under real traffic. Maybe it’s a system design interview where the whiteboard goes blank the instant someone asks, “okay, but what happens when that server dies?”.&lt;/p&gt;
 
-&lt;p&gt;That moment is exactly what &lt;strong&gt;&lt;a href=&quot;https://link.amazon/B05Mf5giA&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;System Design on AWS: Building and Scaling Enterprise Solutions&lt;/em&gt;&lt;/a&gt;&lt;/strong&gt; by Jayanth Kumar and Mandeep Singh is built for.&lt;/p&gt;
+&lt;p&gt;That moment is exactly what &lt;strong&gt;&lt;a href=&quot;https://link.amazon/B0cuO2jeG&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;System Design on AWS: Building and Scaling Enterprise Solutions&lt;/em&gt;&lt;/a&gt;&lt;/strong&gt; by Jayanth Kumar and Mandeep Singh is built for.&lt;/p&gt;
 
 &lt;p&gt;I went through Chapter 1 — “System Design Trade-offs and Guidelines” — and it’s one of the tightest introductions to distributed systems thinking I’ve read in a while. No fluff, no toy examples that fall apart at scale. Just the vocabulary, the math, and the hard-won lessons that let you reason about systems built to serve millions of users.&lt;/p&gt;
 
@@ -73,7 +73,7 @@
 &lt;p&gt;The chapter closes with five hard-earned principles, each anchored to a memorable line from a giant of the field — Kernighan on complexity, Einstein on simplicity, Lampson on getting it right, and the reminder that there is, in fact, &lt;strong&gt;no free lunch&lt;/strong&gt; in system design. Optimize for one property and you &lt;em&gt;will&lt;/em&gt; pay for it somewhere else. The book is refreshingly honest about this instead of selling a silver bullet.&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B074g4pOG&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../recommended/images/AWSCertifiedSolutionsArchitectStudyGuide.avif&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://link.amazon/B0fFaXn6k&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../recommended/images/AWSCertifiedSolutionsArchitectStudyGuide.avif&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -93,7 +93,7 @@
 
 &lt;p&gt;&lt;strong&gt;Ready to build systems that don’t fall over at 2 a.m.?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;👉 &lt;strong&gt;&lt;a href=&quot;https://link.amazon/B05Mf5giA&quot; target=&quot;_blank&quot;&gt;Get &lt;em&gt;System Design on AWS&lt;/em&gt; on Amazon&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;👉 &lt;strong&gt;&lt;a href=&quot;https://link.amazon/B0cuO2jeG&quot; target=&quot;_blank&quot;&gt;Get &lt;em&gt;System Design on AWS&lt;/em&gt; on Amazon&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
