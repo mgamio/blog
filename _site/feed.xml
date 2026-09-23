@@ -3,10 +3,10 @@
   <channel>
     <title>codersite</title>
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 23 Sep 2026 09:56:40 +0200</pubDate>
-    <lastBuildDate>Wed, 23 Sep 2026 09:56:40 +0200</lastBuildDate>
+    <link>https://codersite.dev/</link>
+    <atom:link href="https://codersite.dev/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 23 Sep 2026 10:03:24 +0200</pubDate>
+    <lastBuildDate>Wed, 23 Sep 2026 10:03:24 +0200</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
@@ -104,8 +104,8 @@
 &lt;p&gt;&lt;em&gt;This post contains an Amazon Associate link. As an Amazon Associate, I earn from qualifying purchases — at no extra cost to you, and it helps keep content like this coming.&lt;/em&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 15 Sep 2026 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/system-design-on-aws-book-review/</link>
-        <guid isPermaLink="true">http://localhost:4000/system-design-on-aws-book-review/</guid>
+        <link>https://codersite.dev/system-design-on-aws-book-review/</link>
+        <guid isPermaLink="true">https://codersite.dev/system-design-on-aws-book-review/</guid>
         
         
         <category>system-design</category>
@@ -379,8 +379,8 @@
 
 </description>
         <pubDate>Wed, 24 Sep 2025 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/gradle-building-restful-web-service/</link>
-        <guid isPermaLink="true">http://localhost:4000/gradle-building-restful-web-service/</guid>
+        <link>https://codersite.dev/gradle-building-restful-web-service/</link>
+        <guid isPermaLink="true">https://codersite.dev/gradle-building-restful-web-service/</guid>
         
         
         <category>Web APIs</category>
@@ -601,8 +601,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 03 Jul 2025 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/number-items-closed-compartments/</link>
-        <guid isPermaLink="true">http://localhost:4000/number-items-closed-compartments/</guid>
+        <link>https://codersite.dev/number-items-closed-compartments/</link>
+        <guid isPermaLink="true">https://codersite.dev/number-items-closed-compartments/</guid>
         
         
         <category>algorithms</category>
@@ -985,8 +985,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 15 May 2025 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/transform-list-into-hashmap/</link>
-        <guid isPermaLink="true">http://localhost:4000/transform-list-into-hashmap/</guid>
+        <link>https://codersite.dev/transform-list-into-hashmap/</link>
+        <guid isPermaLink="true">https://codersite.dev/transform-list-into-hashmap/</guid>
         
         
         <category>data structures</category>
@@ -1207,8 +1207,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 16 Apr 2025 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/swagger-codegen-server-stubs-openapi/</link>
-        <guid isPermaLink="true">http://localhost:4000/swagger-codegen-server-stubs-openapi/</guid>
+        <link>https://codersite.dev/swagger-codegen-server-stubs-openapi/</link>
+        <guid isPermaLink="true">https://codersite.dev/swagger-codegen-server-stubs-openapi/</guid>
         
         
         <category>Web APIs</category>
@@ -1655,8 +1655,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 24 Mar 2025 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/shopping-budget-options/</link>
-        <guid isPermaLink="true">http://localhost:4000/shopping-budget-options/</guid>
+        <link>https://codersite.dev/shopping-budget-options/</link>
+        <guid isPermaLink="true">https://codersite.dev/shopping-budget-options/</guid>
         
         
         <category>algorithms</category>
@@ -1918,8 +1918,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 26 Feb 2025 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/designing-apis-with-swagger-and-openapi/</link>
-        <guid isPermaLink="true">http://localhost:4000/designing-apis-with-swagger-and-openapi/</guid>
+        <link>https://codersite.dev/designing-apis-with-swagger-and-openapi/</link>
+        <guid isPermaLink="true">https://codersite.dev/designing-apis-with-swagger-and-openapi/</guid>
         
         
         <category>Web APIs</category>
@@ -2245,8 +2245,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 30 Oct 2024 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/spring-boot-automate-api-client/</link>
-        <guid isPermaLink="true">http://localhost:4000/spring-boot-automate-api-client/</guid>
+        <link>https://codersite.dev/spring-boot-automate-api-client/</link>
+        <guid isPermaLink="true">https://codersite.dev/spring-boot-automate-api-client/</guid>
         
         
         <category>programming</category>
@@ -2393,8 +2393,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 24 Oct 2024 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/spring-boot-actuator/</link>
-        <guid isPermaLink="true">http://localhost:4000/spring-boot-actuator/</guid>
+        <link>https://codersite.dev/spring-boot-actuator/</link>
+        <guid isPermaLink="true">https://codersite.dev/spring-boot-actuator/</guid>
         
         
         <category>programming</category>
@@ -2843,8 +2843,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 01 Oct 2024 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/certified-professional-java-building-blocks/</link>
-        <guid isPermaLink="true">http://localhost:4000/certified-professional-java-building-blocks/</guid>
+        <link>https://codersite.dev/certified-professional-java-building-blocks/</link>
+        <guid isPermaLink="true">https://codersite.dev/certified-professional-java-building-blocks/</guid>
         
         
         <category>programming</category>
