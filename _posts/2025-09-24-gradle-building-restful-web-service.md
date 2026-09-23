@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Building a RESTful Web Service with Gradle and Openapi"
+title:  "Build a RESTful Web Service with Spring Boot, Gradle, and OpenAPI"
 description: "This guide walks you through the process of creating a RESTful web service with Spring, Gradle and Openapi."
 author: moises
 categories: [ Web APIs ]
@@ -8,9 +8,9 @@ image: /assets/images/gradleRestfulWebService.jpg
 comments: false
 ---
 
-This guide walks you through the process of creating a [RESTful](https://codersite.dev/rest-api-overview/){:target="_blank"} web service with Gradle, Spring and Openapi.
+By the end of this guide you'll have a working Spring Boot [RESTful](https://codersite.dev/rest-api-overview/){:target="_blank"} API, built with Gradle and documented with OpenAPI, and a live Swagger UI page you can show your team or put in your portfolio. We'll build a real Finance API step by step, not a to-do list.
 
-## What You Will Building
+## What You'll Build
 
 You will build a service that will implement a Finance API specified in [API Hub](https://app.swaggerhub.com/apis/MGAMIO/apifinance/v1){:target="_blank"} Powered by Swagger.
 
@@ -20,7 +20,7 @@ To manually initialize the project:
 
 1. Navigate to [ https://start.spring.io](https://start.spring.io){:target="_blank"} and setup the following configuration:
 
-![springInitializrGradle](/assets/images/springInitializrGradle.JPG "spring Initializr Gradle"){:class="img-responsive"}
+![Spring Initializr configured for a Gradle project with Spring Web](/assets/images/springInitializrGradle.JPG "Spring Initializr configured for a Gradle project with Spring Web"){:class="img-responsive"}
 
 2. Click GENERATE.
 
@@ -32,22 +32,24 @@ To manually initialize the project:
 
 [Gradle](https://docs.gradle.org/current/userguide/gradle_basics.html){:target="_blank"} automates the building, testing, and deployment of software from information in build scripts.
 
+Gradle rewards people who understand it and punishes people who copy-paste build files. If you want to know what's happening under the hood, this is the shortest path:
+
 <div>
 {%- include introducingGradle.html -%}
 </div>
 
-To import all dependencies in your local machine, execute in your IDE Terminal the following Gradle command:
+To download all dependencies to your local machine, run the following Gradle command in your IDE terminal:
 
-```kotlin
+```shell
 C:\..\apifinance> .\gradlew build
 ```
-We create the following packages and classes:
+Next, create the following packages and classes:
 
-![gradleProject](/assets/images/gradleProject.JPG "gradle Project structure"){:class="img-responsive"}
+![Gradle project structure showing the controller, service, and model packages](/assets/images/gradleProject.JPG "Gradle project structure showing the controller, service, and model packages"){:class="img-responsive"}
 
-For the integration between spring-boot and swagger-ui, add the following library to the list of your project dependencies.
+To integrate Spring Boot with Swagger UI, add the following library to your project dependencies:
 
-```kotlin
+```groovy
 dependencies {
   .
   .
@@ -56,11 +58,11 @@ dependencies {
 }
 ```
 
-And execute **.\gradlew clean build** to download all dependencies again.
+Then run **.\gradlew clean build** to download the new dependency.
 
-We create an Interface to declare the funcionalities of this API by using swagger annotations.
+Next, we define an interface that declares the API's operations using Swagger annotations.
 
-```kotlin
+```java
 @Tags(value = {@Tag(name = "timeValueOfMoney")})
 @RequestMapping("/v1/timeValueOfMoney")
 public interface TimeValueOfMoneyApi {
@@ -73,11 +75,11 @@ public interface TimeValueOfMoneyApi {
 }
 ```
 
-We refactor the *getSimpleInterest* method to include all request parameters with its documentation by using swagger annotations.
+Now we refactor the *getSimpleInterest* method so every request parameter is declared and documented with Swagger annotations.
 
-Here is the code that corresponds to the **principal** parameter.
+Here is the code for the **principal** parameter:
 
-```kotlin
+```java
   @Operation(
     summary = "Gets the calculated simple interest",
     description = "Gets the calculated simple interest for the requested parameters",
@@ -96,17 +98,19 @@ Here is the code that corresponds to the **principal** parameter.
   ) throws Exception;
 ```
 
+Annotations like these are only half the story. Designing an API that other teams actually enjoy using is its own skill, and this is the book that teaches it:
+
 <div>
 {%- include designingAPIsWithSwaggerAndOpenAPI.html -%}
 </div>
 
-Run the ApiFinanceApplication. By default an Apache Tomcat is initialized as a Servlet engine. See the api doc at http://localhost:8080/swagger-ui/index.html.
+Run *ApiFinanceApplication*. By default, Spring Boot starts an embedded Apache Tomcat server. Open the API documentation at http://localhost:8080/swagger-ui/index.html.
 
-![apiFinanceInLocalhost](/assets/images/apiFinanceInLocalhost.JPG "api Finance In localhost"){:class="img-responsive"}
+![Swagger UI showing the Finance API running on localhost](/assets/images/apiFinanceInLocalhost.JPG "Swagger UI showing the Finance API running on localhost"){:class="img-responsive"}
 
-We create a **@RestController** to manage the requested parameters. And we delegate the calculus of our formula to a specialized *TimeValueOfMoneyService* Class.
+Next, we create a **@RestController** that receives the request parameters and delegates the actual calculation to a dedicated *TimeValueOfMoneyService* class.
 
-```kotlin
+```java
 @RestController
 public class TimeValueOfMoneyApiController implements TimeValueOfMoneyApi {
 
@@ -137,9 +141,9 @@ public class TimeValueOfMoneyApiController implements TimeValueOfMoneyApi {
 }
 ```
 
-We create a class that implements the previous Service.
+Finally, we create a class that implements the service.
 
-```kotlin
+```java
 public class TimeValueOfMoneyServiceImpl implements TimeValueOfMoneyService {
   @Override
   public SimpleInterestResponse getSimpleInterest(
@@ -158,16 +162,14 @@ public class TimeValueOfMoneyServiceImpl implements TimeValueOfMoneyService {
 }
 ```
 
-Well, we arrive to the magic of programming. Here is where we use all our creativity to implement a useful service with the help of Unit Testing. Follow me in my next article!
+This is where the fun starts: implementing the formula itself, driven by unit tests. Fork the project from [GitHub](https://github.com/mgamio/apifinance/tree/apifinance-implement-simpleInterest){:target="_blank"} and try it yourself.
 
-You can also fork the project from [Github](https://github.com/mgamio/apifinance/tree/apifinance-implement-simpleInterest){:target="_blank"} and open it in your IDE or other editor.
+New to data structures and algorithms? Start with my guides on [Data Structures](https://codersite.dev/data-structures-foundation-efficient-programming/){:target="_blank"} and [Algorithms](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"}.
 
-You can also buy my little book about [Data structures](https://codersite.dev/data-structures-foundation-efficient-programming/){:target="_blank"} and [Algorithms](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"}.
-
-> As a Java Developer, one is expected to attend interviews every now and then and I am pretty sure this book will be a handy guide.
+> You just built a production-style API. That's exactly the kind of thing interviewers ask you to design on a whiteboard. If you have interviews coming up, this roadmap tells you what to study and in what order:
 
 <div>
-{%- include crackCodingInterviewCallToAction1.html -%}
+{%- include technical_Interview_Preparation_Roadmap.html -%}
 </div>
 
 Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
