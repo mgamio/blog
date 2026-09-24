@@ -7,13 +7,13 @@
 <link rel="icon" href="/assets/images/logo.png">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>ACME Inventory - number of items in closed compartments | codersite</title>
+<title>Items in Containers: Count Items in Closed Compartments (Code Interview Problem) | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="ACME Inventory - number of items in closed compartments" />
+<meta property="og:title" content="Items in Containers: Count Items in Closed Compartments (Code Interview Problem)" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="How many items exists in closed inventory compartments." />
-<meta name="twitter:description" property="og:description" content="How many items exists in closed inventory compartments." />
+<meta name="description" content="Solve the Items in Containers coding interview problem in Java: count the items inside closed compartments for each query, from an O(n·q) brute force to an O(n + q) prefix-sum solution." />
+<meta name="twitter:description" property="og:description" content="Solve the Items in Containers coding interview problem in Java: count the items inside closed compartments for each query, from an O(n·q) brute force to an O(n + q) prefix-sum solution." />
 <link rel="canonical" href="https://codersite.dev/number-items-closed-compartments/" />
 <meta property="og:url" content="https://codersite.dev/number-items-closed-compartments/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2025-07-03T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/inventoryItems.jpg" />
-<meta name="twitter:title" content="ACME Inventory - number of items in closed compartments" />
+<meta name="twitter:title" content="Items in Containers: Count Items in Closed Compartments (Code Interview Problem)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2025-07-03T00:00:00+02:00","datePublished":"2025-07-03T00:00:00+02:00","description":"How many items exists in closed inventory compartments.","headline":"ACME Inventory - number of items in closed compartments","image":"https://codersite.dev/assets/images/inventoryItems.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/number-items-closed-compartments/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/number-items-closed-compartments/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2025-07-03T00:00:00+02:00","datePublished":"2025-07-03T00:00:00+02:00","description":"Solve the Items in Containers coding interview problem in Java: count the items inside closed compartments for each query, from an O(n·q) brute force to an O(n + q) prefix-sum solution.","headline":"Items in Containers: Count Items in Closed Compartments (Code Interview Problem)","image":"https://codersite.dev/assets/images/inventoryItems.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/number-items-closed-compartments/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/number-items-closed-compartments/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -167,7 +167,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=ACME Inventory - number of items in closed compartments&url=https://codersite.dev/number-items-closed-compartments/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Items in Containers: Count Items in Closed Compartments (Code Interview Problem)&url=https://codersite.dev/number-items-closed-compartments/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -215,7 +215,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">ACME Inventory - number of items in closed compartments</h1>
+                <h1 class="posttitle">Items in Containers: Count Items in Closed Compartments (Code Interview Problem)</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -223,7 +223,7 @@
                 <p class="post-meta-line">
                     <time datetime="2025-07-03T00:00:00+02:00" itemprop="datePublished">Jul 3, 2025</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">6 min read</span>
+                    <span class="meta-reading-time">8 min read</span>
                     
                 </p>
 
@@ -238,7 +238,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/inventoryItems.jpg" alt="ACME Inventory - number of items in closed compartments">
+            <img class="featured-image img-fluid" src="/assets/images/inventoryItems.jpg" alt="Items in Containers: Count Items in Closed Compartments (Code Interview Problem)">
             
 
             
@@ -249,7 +249,11 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>ACME Corporation would like to know how much inventory exists in their closed inventory compartments. Given a string <em>s</em> consisting of items as ‘*’ and closed compartments as an open and close ‘|’, an array of starting indices <em>startIndices</em> and an array of ending indices <em>endIndices</em>, determine the number of items in <strong>closed compartments</strong> within the substring between the two indices, inclusive.</p>
+                <p>This one shows up in online coding assessments under the name <strong>Items in Containers</strong>, and it’s a trap: the obvious solution passes the examples and then times out on the hidden tests. Here’s the problem, the brute force most people write first, and the idea that makes it fast.</p>
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>ACME Corporation would like to know how much inventory exists in their closed inventory compartments. Given a string <em>s</em> consisting of items as ‘*’ and closed compartments as an open and close ‘|’, an array of starting indices <em>startIndices</em> and an array of ending indices <em>endIndices</em>, determine the number of items in <strong>closed compartments</strong> within the substring between the two indices, inclusive.</p>
 
 <ul>
   <li>
@@ -288,7 +292,7 @@
   <li><em>endIndices</em>: An integer array, the ending indices.</li>
 </ul>
 
-<p><strong>Constraints</strong>:</p>
+<p><strong>Constraints</strong> (<em>n</em> is the length of <em>s</em>, and <em>m</em> is the number of queries):</p>
 
 <ul>
   <li>1 ≤ m, n ≤ 10<sup>5</sup></li>
@@ -330,7 +334,7 @@
 
 <h2 id="brute-force-algorithm">Brute Force Algorithm</h2>
 
-<p>A brute force algorithm solves a problem through exhaustion: it goes through all possible choices until a solution is found. The time complexity of a brute force algorithm is often proportional to the input size.</p>
+<p>A brute-force algorithm solves a problem by trying every possibility directly. It’s usually the easiest to write and the slowest to run.</p>
 
 <p>In a real interview, developers often try the simplest, most obvious solution (brute force approach), even if it’s not the best. Let’s look at that first.</p>
 
@@ -340,7 +344,7 @@
 
 <p>We define a <em>wasFirstPipeFound</em> variable to initialize our numOfAsterisk variable the first time a ‘|’ character is found, and we accumulate all items for subsequent ‘|’ characters.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -384,68 +388,99 @@
 42
 43
 44
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">ACMEInventory</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="nf">numberOfItemsInClosedCompartments</span><span class="p">(</span><span class="nc">String</span> <span class="n">s</span><span class="p">,</span>
-    <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">startIndices</span><span class="p">,</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">endIndices</span><span class="p">)</span> <span class="p">{</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ACMEInventory</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">numberOfItemsInClosedCompartments</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">startIndices</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">endIndices</span><span class="o">)</span> <span class="o">{</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">startIndices</span><span class="p">.</span><span class="nf">size</span><span class="p">()&lt;</span><span class="mi">1</span> <span class="p">||</span> <span class="n">startIndices</span><span class="p">.</span><span class="nf">size</span><span class="p">()&gt;</span><span class="mi">100000</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong size in startIndices"</span><span class="p">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">startIndices</span><span class="o">.</span><span class="na">size</span><span class="o">()&lt;</span><span class="mi">1</span> <span class="o">||</span> <span class="n">startIndices</span><span class="o">.</span><span class="na">size</span><span class="o">()&gt;</span><span class="mi">100000</span><span class="o">)</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong size in startIndices"</span><span class="o">);</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">endIndices</span><span class="p">.</span><span class="nf">size</span><span class="p">()&lt;</span><span class="mi">1</span> <span class="p">||</span> <span class="n">endIndices</span><span class="p">.</span><span class="nf">size</span><span class="p">()&gt;</span><span class="mi">100000</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong size in endIndices"</span><span class="p">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">endIndices</span><span class="o">.</span><span class="na">size</span><span class="o">()&lt;</span><span class="mi">1</span> <span class="o">||</span> <span class="n">endIndices</span><span class="o">.</span><span class="na">size</span><span class="o">()&gt;</span><span class="mi">100000</span><span class="o">)</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong size in endIndices"</span><span class="o">);</span>
 
-    <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">result</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;&gt;();</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">idx</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">idx</span><span class="p">&lt;</span><span class="n">startIndices</span><span class="p">.</span><span class="nf">size</span><span class="p">();</span> <span class="n">idx</span><span class="p">++)</span> <span class="p">{</span>
-      <span class="n">int</span> <span class="n">start</span> <span class="p">=</span> <span class="n">startIndices</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span>
-      <span class="n">int</span> <span class="n">end</span> <span class="p">=</span> <span class="n">endIndices</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">idx</span><span class="o">&lt;</span><span class="n">startIndices</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">idx</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">startIndices</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">idx</span><span class="o">);</span>
+      <span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="n">endIndices</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">idx</span><span class="o">);</span>
 
-      <span class="k">if</span> <span class="p">(</span><span class="n">start</span><span class="p">&lt;</span><span class="mi">1</span> <span class="p">||</span> <span class="n">start</span><span class="p">&gt;</span><span class="mi">100000</span><span class="p">)</span>
-        <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong value at startIndices"</span><span class="p">);</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">start</span><span class="o">&lt;</span><span class="mi">1</span> <span class="o">||</span> <span class="n">start</span><span class="o">&gt;</span><span class="mi">100000</span><span class="o">)</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong value at startIndices"</span><span class="o">);</span>
 
-      <span class="k">if</span> <span class="p">(</span><span class="n">end</span><span class="p">&lt;</span><span class="mi">1</span> <span class="p">||</span> <span class="n">end</span><span class="p">&gt;</span><span class="mi">100000</span><span class="p">)</span>
-        <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong value at endIndices"</span><span class="p">);</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">end</span><span class="o">&lt;</span><span class="mi">1</span> <span class="o">||</span> <span class="n">end</span><span class="o">&gt;</span><span class="mi">100000</span><span class="o">)</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong value at endIndices"</span><span class="o">);</span>
 
-      <span class="n">int</span> <span class="n">numOfAsterisk</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="n">boolean</span> <span class="n">wasFirstPipeFound</span>  <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
-      <span class="n">int</span> <span class="n">numOfAsteriskAccumulated</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="k">for</span> <span class="p">(</span><span class="n">char</span> <span class="n">c</span> <span class="p">:</span> <span class="n">s</span><span class="p">.</span><span class="nf">substring</span><span class="p">(</span><span class="n">start-1</span><span class="p">,</span> <span class="n">end</span><span class="p">).</span><span class="nf">toCharArray</span><span class="p">())</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="p">==</span> <span class="sc">'|'</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">wasFirstPipeFound</span> <span class="p">==</span> <span class="k">true</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">numOfAsteriskAccumulated</span> <span class="p">+=</span><span class="n">numOfAsterisk</span><span class="p">;</span>
-            <span class="n">numOfAsterisk</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">wasFirstPipeFound</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-            <span class="n">numOfAsterisk</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-          <span class="p">}</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="p">==</span> <span class="sc">'*'</span><span class="p">)</span> <span class="p">{</span>
-          <span class="n">numOfAsterisk</span> <span class="p">+=</span><span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-          <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong character"</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-      <span class="n">result</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">numOfAsteriskAccumulated</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+      <span class="kt">int</span> <span class="n">numOfAsterisk</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+      <span class="kt">boolean</span> <span class="n">wasFirstPipeFound</span>  <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+      <span class="kt">int</span> <span class="n">numOfAsteriskAccumulated</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">start</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">end</span><span class="o">).</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'|'</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">wasFirstPipeFound</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">numOfAsteriskAccumulated</span> <span class="o">+=</span><span class="n">numOfAsterisk</span><span class="o">;</span>
+            <span class="n">numOfAsterisk</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+          <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">wasFirstPipeFound</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="n">numOfAsterisk</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+          <span class="o">}</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'*'</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">numOfAsterisk</span> <span class="o">+=</span><span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+          <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong character"</span><span class="o">);</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+      <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">numOfAsteriskAccumulated</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Each query looks only inside the specified substring, but doing this for every query from scratch could be too slow (O(n × q)), or even quadratic O(n<sup>2</sup>). See <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Big O Notation</a>.</p>
 
 <blockquote>
-  <p>The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons.. – <cite>codersite.dev</cite></p>
+  <p>The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons. – <cite>codersite.dev</cite></p>
 </blockquote>
 
-<p>To solve this problem efficiently in Java, especially given the constraints (up to 100,000 characters and queries), we need a solution that preprocesses the string to answer each query in constant time (O(1)) after an O(n) preprocessing phase.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Approach</th>
+      <th>Preprocessing</th>
+      <th>Per query</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Brute force</td>
+      <td>none</td>
+      <td>O(n)</td>
+      <td>O(n·m)</td>
+    </tr>
+    <tr>
+      <td>Prefix sums</td>
+      <td>O(n)</td>
+      <td>O(1)</td>
+      <td>O(n + m)</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>We can define a sum[] array that stores at index i the number of items ‘*’ within closed compartments up to index i.</p>
+<p><br /></p>
 
-<p><img src="/assets/images/closedCompartments.jpg" alt="closedCompartments" title="closed Compartments algorithm" class="img-responsive" /></p>
+<h2 id="the-efficient-solution-prefix-sums">The Efficient Solution: Prefix Sums</h2>
 
-<p>The complete solution in <a href="https://amzn.to/3HrGXrF" target="_blank">Cracking the Coding Interview</a>.</p>
+<p>To solve this problem efficiently in Java, especially given the constraints (up to 100,000 characters and queries), we need a solution that preprocesses the string once in O(n) and then answers each query in constant time, O(1).</p>
+
+<p>Precompute <code class="language-plaintext highlighter-rouge">sum[i]</code>: the number of items inside compartments that are already closed at index <em>i</em>. Look at the diagram: the <code class="language-plaintext highlighter-rouge">*</code> at index 4 doesn’t count until the <code class="language-plaintext highlighter-rouge">|</code> at index 5 closes its compartment, and that’s when the count jumps from 2 to 3.</p>
+
+<p><img src="/assets/images/closedCompartments.jpg" alt="Prefix sum array counting the items in closed compartments at each index of the example string" title="Prefix sum array counting the items in closed compartments at each index of the example string" class="img-responsive" /></p>
+
+<p>For a query, find the first <code class="language-plaintext highlighter-rouge">|</code> at or after <em>start</em> and the last <code class="language-plaintext highlighter-rouge">|</code> at or before <em>end</em>. The answer is the difference between <code class="language-plaintext highlighter-rouge">sum</code> at those two walls. For (1, 6), the walls are at indices 0 and 5, so the answer is sum[5] − sum[0] = 3. Finding those walls in O(1) needs two more precomputed arrays, and that’s where most people’s first attempt goes wrong.</p>
+
+<p>The complete Java implementation, including the two helper arrays, the edge cases that trip up hidden tests, and the test cases, is in my book <strong><a href="https://amzn.to/3HrGXrF" target="_blank">Cracking the Coding Interview – Top Java Challenges</a></strong>. It’s built from real interview questions like this one, each solved step by step, from brute force to optimal.</p>
 
 <blockquote>
-  <p>The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.</p>
+  <p>If this problem made you stop and think, the rest of the book will too:</p>
 </blockquote>
 
 <div><center>
@@ -543,8 +578,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/number-items-closed-compartments/"
   },
-  "headline": "ACME Inventory - number of items in closed compartments",
-  "description": "How many items exists in closed inventory compartments.",
+  "headline": "Items in Containers: Count Items in Closed Compartments (Code Interview Problem)",
+  "description": "Solve the Items in Containers coding interview problem in Java: count the items inside closed compartments for each query, from an O(n·q) brute force to an O(n + q) prefix-sum solution.",
   "image": "https://codersite.dev/assets/images/inventoryItems.jpg",
   "datePublished": "2025-07-03T00:00:00+02:00",
   "dateModified": "2025-07-03T00:00:00+02:00",
@@ -582,7 +617,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "ACME Inventory - number of items in closed compartments",
+      "name": "Items in Containers: Count Items in Closed Compartments (Code Interview Problem)",
       "item": "https://codersite.dev/number-items-closed-compartments/"
     }
   ]
