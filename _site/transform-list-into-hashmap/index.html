@@ -7,13 +7,13 @@
 <link rel="icon" href="/assets/images/logo.png">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Problem-Solving Efficiency: Hashmap provides efficient solutions for searching | codersite</title>
+<title>From O(n²) to O(n): Replace Nested Loops with a HashMap in Java | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Problem-Solving Efficiency: Hashmap provides efficient solutions for searching" />
+<meta property="og:title" content="From O(n²) to O(n): Replace Nested Loops with a HashMap in Java" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Data structures provide efficient solutions to various computational problems, such as sorting, searching, and graph algorithms" />
-<meta name="twitter:description" property="og:description" content="Data structures provide efficient solutions to various computational problems, such as sorting, searching, and graph algorithms" />
+<meta name="description" content="A real REST API was slowed down by nested loops. Here’s how grouping a List into a HashMap by key turned 2,000,000 comparisons into about 3,000, with a classic loop and a one-line Java 8 version." />
+<meta name="twitter:description" property="og:description" content="A real REST API was slowed down by nested loops. Here’s how grouping a List into a HashMap by key turned 2,000,000 comparisons into about 3,000, with a classic loop and a one-line Java 8 version." />
 <link rel="canonical" href="https://codersite.dev/transform-list-into-hashmap/" />
 <meta property="og:url" content="https://codersite.dev/transform-list-into-hashmap/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2025-05-15T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/listIntoHashmap.jpg" />
-<meta name="twitter:title" content="Problem-Solving Efficiency: Hashmap provides efficient solutions for searching" />
+<meta name="twitter:title" content="From O(n²) to O(n): Replace Nested Loops with a HashMap in Java" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2025-05-15T00:00:00+02:00","datePublished":"2025-05-15T00:00:00+02:00","description":"Data structures provide efficient solutions to various computational problems, such as sorting, searching, and graph algorithms","headline":"Problem-Solving Efficiency: Hashmap provides efficient solutions for searching","image":"https://codersite.dev/assets/images/listIntoHashmap.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/transform-list-into-hashmap/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/transform-list-into-hashmap/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2025-05-15T00:00:00+02:00","datePublished":"2025-05-15T00:00:00+02:00","description":"A real REST API was slowed down by nested loops. Here’s how grouping a List into a HashMap by key turned 2,000,000 comparisons into about 3,000, with a classic loop and a one-line Java 8 version.","headline":"From O(n²) to O(n): Replace Nested Loops with a HashMap in Java","image":"https://codersite.dev/assets/images/listIntoHashmap.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/transform-list-into-hashmap/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/transform-list-into-hashmap/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -167,7 +167,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Problem-Solving Efficiency: Hashmap provides efficient solutions for searching&url=https://codersite.dev/transform-list-into-hashmap/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=From O(n²) to O(n): Replace Nested Loops with a HashMap in Java&url=https://codersite.dev/transform-list-into-hashmap/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -215,7 +215,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Problem-Solving Efficiency: Hashmap provides efficient solutions for searching</h1>
+                <h1 class="posttitle">From O(n²) to O(n): Replace Nested Loops with a HashMap in Java</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -223,7 +223,7 @@
                 <p class="post-meta-line">
                     <time datetime="2025-05-15T00:00:00+02:00" itemprop="datePublished">May 15, 2025</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">8 min read</span>
+                    <span class="meta-reading-time">9 min read</span>
                     
                 </p>
 
@@ -238,7 +238,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/listIntoHashmap.jpg" alt="Problem-Solving Efficiency: Hashmap provides efficient solutions for searching">
+            <img class="featured-image img-fluid" src="/assets/images/listIntoHashmap.jpg" alt="From O(n²) to O(n): Replace Nested Loops with a HashMap in Java">
             
 
             
@@ -249,7 +249,7 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>In this article, I am going to demonstrate the importance of knowing in detail every data structure to support business requirements in an efficient manner.</p>
+                <p>One endpoint in a B2B order system I worked on returned 1,000 orders, and it was slow. The database wasn’t the problem. Two innocent-looking nested loops were. Here’s how one data structure, the HashMap, turned 2,000,000 comparisons into about 3,000.</p>
 
 <p>A <strong>List</strong> data structure is an ordered collection of items, where each item has a specific position or index within the list.</p>
 
@@ -257,13 +257,13 @@
 
 <h2 id="use-case">Use Case</h2>
 
-<p>We have an <a href="https://codersite.dev/rest-api-overview/" target="_blank">RESTful API</a> endpoint to retrieve a list of orders placed by a given buyer.</p>
+<p>We have a <a href="https://codersite.dev/rest-api-overview/" target="_blank">RESTful API</a> endpoint to retrieve a list of orders placed by a given buyer.</p>
 
-<p><img src="/assets/images/getOrdersByBuyer.JPG" alt="getOrdersByBuyer" title="get Orders By Buyer" class="img-responsive" /></p>
+<p><img src="/assets/images/getOrdersByBuyer.JPG" alt="Swagger UI showing the GET orders-by-buyer endpoint" title="Swagger UI showing the GET orders-by-buyer endpoint" class="img-responsive" /></p>
 
-<p>The response includes different kind of addresses per order as you see in the following schema:</p>
+<p>The response includes different kinds of addresses per order, as you can see in the following schema:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -292,52 +292,42 @@
 27
 28
 29
-</pre></td><td class="rouge-code"><pre><span class="p">[</span>
-  <span class="p">{</span>
-    <span class="s">"orderId"</span><span class="p">:</span> <span class="mi">123456</span><span class="p">,</span>
-    <span class="s">"buyerId"</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
-    <span class="s">"customerNumberId"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="s">"supplierId"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s">"orderDate"</span><span class="p">:</span> <span class="s">"2025-05-15"</span><span class="p">,</span>
-    <span class="s">"orderDeliveryAddress"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s">"company"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
-      <span class="s">"contact"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
-      <span class="s">"countryCode"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="s">"orderInvoiceAddress"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s">"company"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
-      <span class="s">"contact"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
-      <span class="s">"countryCode"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="s">"desiredDeliveryDate"</span><span class="p">:</span> <span class="s">"2025-05-16"</span><span class="p">,</span>
-    <span class="s">"orderPositions"</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="s">"orderPositionNumber"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s">"orderPositionArticle"</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s">"articleId"</span><span class="p">:</span> <span class="mi">4531</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="s">"orderPositionQuantity"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
-<span class="p">]</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<blockquote>
-  <p>Real-world examples, diagrams, and explanations that make complex systems simple - <a href="https://amzn.to/4dTTUhs" target="_blank"><strong>Software Design Principles: A Practical Guide</strong></a></p>
-</blockquote>
-
-<div><center>
-  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="../assets/images/softwareDesign1.png" /></a>
-</center>
-
-<br /></div>
+</pre></td><td class="rouge-code"><pre><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"buyerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customerNumberId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"supplierId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"orderDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-15"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"orderDeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"contact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"orderInvoiceAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"contact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"desiredDeliveryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-16"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"orderPositions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"orderPositionNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"orderPositionArticle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"articleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4531</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"orderPositionQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>As you know, REST Controllers normally delegate the data retrieval to backend services.</p>
 
 <p>To build the body of the list of orders, the backend service calls different database functions to retrieve data. One of these calls is to recover all historical addresses per orderId.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -349,35 +339,35 @@
 10
 11
 12
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Order</span><span class="p">&gt;</span> <span class="nf">listOrders</span><span class="p">(</span><span class="nc">Integer</span> <span class="n">buyerId</span><span class="p">)</span> <span class="p">{</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Order</span><span class="o">&gt;</span> <span class="nf">listOrders</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">buyerId</span><span class="o">)</span> <span class="o">{</span>
 
-  <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Order</span><span class="p">&gt;</span> <span class="n">listOfOrders</span> <span class="p">=</span> <span class="nf">getOrdersByBuyerId</span><span class="p">(</span><span class="n">buyerId</span><span class="p">);</span>
+  <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Order</span><span class="o">&gt;</span> <span class="n">listOfOrders</span> <span class="o">=</span> <span class="n">getOrdersByBuyerId</span><span class="o">(</span><span class="n">buyerId</span><span class="o">);</span>
   
-  <span class="c1">//code ommited for brevety</span>
+  <span class="c1">//code omitted for brevity</span>
   
   <span class="c1">//retrieve headers and enrich listOfOrders</span>
   <span class="c1">//retrieve addresses and enrich listOfOrders</span>
   <span class="c1">//retrieve positions and enrich listOfOrders</span>
   
-  <span class="k">return</span> <span class="n">listOfOrders</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="k">return</span> <span class="n">listOfOrders</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>If the user requests the first 1000 orders, the backend makes only one database function call to retrieve 2000 records (2 different addresses per orderId).</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-</pre></td><td class="rouge-code"><pre><span class="p">{</span>
+</pre></td><td class="rouge-code"><pre><span class="o">{</span>
   <span class="c1">//retrieve addresses</span>
-  <span class="nc">Address</span><span class="p">[]</span> <span class="n">listOfAddresses</span> <span class="p">=</span> <span class="nf">getAddresses</span><span class="p">(</span><span class="n">order1</span><span class="p">,</span> <span class="n">order2</span><span class="p">,</span> <span class="o">..</span><span class="p">.</span> <span class="n">order1000</span><span class="p">);</span>
-<span class="p">}</span>
+  <span class="nc">Address</span><span class="o">[]</span> <span class="n">listOfAddresses</span> <span class="o">=</span> <span class="n">getAddresses</span><span class="o">(</span><span class="n">order1</span><span class="o">,</span> <span class="n">order2</span><span class="o">,</span> <span class="o">...</span> <span class="n">order1000</span><span class="o">);</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Here is the Object model to represent an Address:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -385,19 +375,19 @@
 6
 7
 8
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Address</span>   <span class="p">{</span>
-  <span class="k">private</span> <span class="nc">Integer</span> <span class="n">orderId</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">Integer</span> <span class="n">addressId</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">Integer</span> <span class="n">type</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">String</span> <span class="n">company</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">String</span> <span class="n">contact</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">String</span> <span class="n">countryCode</span><span class="p">;</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Address</span>   <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">Integer</span> <span class="n">orderId</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">Integer</span> <span class="n">addressId</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">Integer</span> <span class="n">type</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">company</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">contact</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">countryCode</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>The problem comes when we need to include two loops nested in the code to assign the addresses to every order.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -422,32 +412,40 @@
 23
 24
 </pre></td><td class="rouge-code"><pre><span class="c1">//retrieve addresses and enrich listOfOrders</span>
-<span class="k">for</span> <span class="p">(</span><span class="nc">Order</span> <span class="n">order</span> <span class="p">:</span> <span class="n">listOfOrders</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="nc">Address</span> <span class="n">address</span> <span class="p">:</span> <span class="n">listOfAddresses</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">order</span><span class="p">.</span><span class="nf">getOrderId</span><span class="p">().</span><span class="nf">equals</span><span class="p">(</span><span class="n">address</span><span class="p">.</span><span class="nf">getOrderId</span><span class="p">())</span> <span class="p">{</span>
-      <span class="nf">switch</span><span class="p">(</span><span class="nc">TYPEOFADDRESS</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">address</span><span class="p">.</span><span class="nf">getType</span><span class="p">()))</span> <span class="p">{</span>
-        <span class="n">case</span> <span class="nc">DELIVERY</span><span class="p">:</span>
-        <span class="p">{</span>
+<span class="k">for</span> <span class="o">(</span><span class="nc">Order</span> <span class="n">order</span> <span class="o">:</span> <span class="n">listOfOrders</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">for</span> <span class="o">(</span><span class="nc">Address</span> <span class="n">address</span> <span class="o">:</span> <span class="n">listOfAddresses</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getOrderId</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">address</span><span class="o">.</span><span class="na">getOrderId</span><span class="o">()))</span> <span class="o">{</span>
+      <span class="k">switch</span><span class="o">(</span><span class="no">TYPEOFADDRESS</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">address</span><span class="o">.</span><span class="na">getType</span><span class="o">()))</span> <span class="o">{</span>
+        <span class="k">case</span> <span class="nl">DELIVERY:</span>
+        <span class="o">{</span>
           <span class="c1">//assign address to order</span>
-          <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">case</span> <span class="nc">INVOICE</span><span class="p">:</span>
-        <span class="p">{</span>
+          <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">case</span> <span class="nl">INVOICE:</span>
+        <span class="o">{</span>
           <span class="c1">//assign address to order</span>
-          <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">default</span><span class="p">:</span>
-        <span class="p">{</span>
+          <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">default</span><span class="o">:</span>
+        <span class="o">{</span>
           <span class="c1">//assign null to order</span>
-          <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span>
-      <span class="p">}</span> 
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+          <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+      <span class="o">}</span> 
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>That means that the performance according to <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Big O Notation</a> is <strong>N x N</strong> = <strong>O(N<sup>2</sup>)</strong>.</p>
+
+<p>This is exactly the kind of design decision that separates code that works from code that scales. Real-world cases like this one, with diagrams and explanations, fill <a href="https://amzn.to/4dTTUhs" target="_blank"><strong>Software Design Principles: A Practical Guide</strong></a>:</p>
+
+<div><center>
+  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="../assets/images/softwareDesign1.png" /></a>
+</center>
+
+<br /></div>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -460,15 +458,15 @@
 
 <p>We need a fast lookup to iterate exactly the two addresses per order in sequential mode.</p>
 
-<p>A HashMap allows us to associate values (the two addresses) with unique key (orderId). So here is our new data structure:</p>
+<p>A HashMap allows us to associate values (the two addresses) with a unique key (orderId). So here is our new data structure:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nc">HashMap</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">,</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Address</span><span class="p">&gt;&gt;</span> <span class="n">hashMapOfAddressesByOrderId</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">HashMap</span><span class="p">&lt;&gt;();</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Address</span><span class="o">&gt;&gt;</span> <span class="n">hashMapOfAddressesByOrderId</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>We implement an algorithm to transform a List into a HashMap.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -485,28 +483,28 @@
 15
 16
 17
-</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">HashMap</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">,</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Address</span><span class="p">&gt;&gt;</span> <span class="nf">transformListToHashMap</span><span class="p">(</span><span class="nc">Address</span><span class="p">[]</span> <span class="n">listOfAddresses</span><span class="p">)</span> <span class="p">{</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">private</span> <span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Address</span><span class="o">&gt;&gt;</span> <span class="nf">transformListToHashMap</span><span class="o">(</span><span class="nc">Address</span><span class="o">[]</span> <span class="n">listOfAddresses</span><span class="o">)</span> <span class="o">{</span>
 
-  <span class="nc">HashMap</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">,</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Address</span><span class="p">&gt;&gt;</span> <span class="n">hashMapOfAddressesByOrderId</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">HashMap</span><span class="p">&lt;&gt;();</span>
+  <span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Address</span><span class="o">&gt;&gt;</span> <span class="n">hashMapOfAddressesByOrderId</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
 		
-  <span class="k">for</span> <span class="p">(</span><span class="nc">Address</span> <span class="n">address</span> <span class="p">:</span> <span class="n">listOfAddresses</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Address</span><span class="p">&gt;</span> <span class="n">listOfAddressesInHashMap</span> <span class="p">=</span> <span class="n">hashMapOfAddressesByOrderId</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">address</span><span class="p">.</span><span class="nf">getOrderId</span><span class="p">());</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">listOfAddressesInHashMap</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">listOfAddressesInHashMap</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;&gt;();</span>
-        <span class="n">listOfAddressesInHashMap</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">listOfAddressesInHashMap</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">hashMapOfAddressesByOrderId</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">address</span><span class="p">.</span><span class="nf">getOrderId</span><span class="p">(),</span> <span class="n">listOfAddressesInHashMap</span><span class="p">);</span>
-  <span class="p">}</span>
+  <span class="k">for</span> <span class="o">(</span><span class="nc">Address</span> <span class="n">address</span> <span class="o">:</span> <span class="n">listOfAddresses</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Address</span><span class="o">&gt;</span> <span class="n">listOfAddressesInHashMap</span> <span class="o">=</span> <span class="n">hashMapOfAddressesByOrderId</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">address</span><span class="o">.</span><span class="na">getOrderId</span><span class="o">());</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">listOfAddressesInHashMap</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">listOfAddressesInHashMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">listOfAddressesInHashMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">listOfAddressesInHashMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="n">hashMapOfAddressesByOrderId</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address</span><span class="o">.</span><span class="na">getOrderId</span><span class="o">(),</span> <span class="n">listOfAddressesInHashMap</span><span class="o">);</span>
+  <span class="o">}</span>
 
-  <span class="k">return</span> <span class="n">hashMapOfAddressesByOrderId</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="k">return</span> <span class="n">hashMapOfAddressesByOrderId</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Here is our new iteration through the new <a href="https://codersite.dev/data-structures-foundation-efficient-programming/" target="_blank">data structures</a>.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -535,58 +533,86 @@
 27
 28
 29
+30
 </pre></td><td class="rouge-code"><pre><span class="c1">//retrieve addresses and enrich listOfOrders</span>
 
-<span class="nc">HashMap</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">,</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Address</span><span class="p">&gt;&gt;</span> <span class="n">hashMapOfAddressesByOrderId</span> <span class="p">=</span> <span class="nf">transformListToHashMap</span><span class="p">(</span><span class="n">listOfAddresses</span><span class="p">);</span>
+<span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Address</span><span class="o">&gt;&gt;</span> <span class="n">hashMapOfAddressesByOrderId</span> <span class="o">=</span> <span class="n">transformListToHashMap</span><span class="o">(</span><span class="n">listOfAddresses</span><span class="o">);</span>
 
-<span class="k">for</span> <span class="p">(</span><span class="nc">Order</span> <span class="n">order</span> <span class="p">:</span> <span class="n">listOfOrders</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">for</span> <span class="o">(</span><span class="nc">Order</span> <span class="n">order</span> <span class="o">:</span> <span class="n">listOfOrders</span><span class="o">)</span> <span class="o">{</span>
 
-  <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Address</span><span class="p">&gt;</span> <span class="n">listOfAddressesInHashMap</span> <span class="p">=</span> <span class="n">hashMapOfAddressesByOrderId</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">order</span><span class="p">.</span><span class="nf">getOrderId</span><span class="p">());</span>
+  <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Address</span><span class="o">&gt;</span> <span class="n">listOfAddressesInHashMap</span> <span class="o">=</span>
+      <span class="n">hashMapOfAddressesByOrderId</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getOrderId</span><span class="o">(),</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">());</span>
   
-  <span class="k">for</span> <span class="p">(</span><span class="nc">Address</span> <span class="n">address</span> <span class="p">:</span> <span class="n">listOfAddressesInHashMap</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="o">(</span><span class="nc">Address</span> <span class="n">address</span> <span class="o">:</span> <span class="n">listOfAddressesInHashMap</span><span class="o">)</span> <span class="o">{</span>
 
-    <span class="nf">switch</span><span class="p">(</span><span class="nc">TYPEOFADDRESS</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">address</span><span class="p">.</span><span class="nf">getType</span><span class="p">()))</span> <span class="p">{</span>
-      <span class="n">case</span> <span class="nc">DELIVERY</span><span class="p">:</span>
-      <span class="p">{</span>
+    <span class="k">switch</span><span class="o">(</span><span class="no">TYPEOFADDRESS</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">address</span><span class="o">.</span><span class="na">getType</span><span class="o">()))</span> <span class="o">{</span>
+      <span class="k">case</span> <span class="nl">DELIVERY:</span>
+      <span class="o">{</span>
         <span class="c1">//assign address to order</span>
-        <span class="k">break</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="n">case</span> <span class="nc">INVOICE</span><span class="p">:</span>
-      <span class="p">{</span>
+        <span class="k">break</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="k">case</span> <span class="nl">INVOICE:</span>
+      <span class="o">{</span>
         <span class="c1">//assign address to order</span>
-        <span class="k">break</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="n">default</span><span class="p">:</span>
-      <span class="p">{</span>
+        <span class="k">break</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="k">default</span><span class="o">:</span>
+      <span class="o">{</span>
         <span class="c1">//assign null to order</span>
-        <span class="k">break</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">}</span> 
-  <span class="p">}</span>
-<span class="p">}</span>
+        <span class="k">break</span><span class="o">;</span>
+      <span class="o">}</span>
+    <span class="o">}</span> 
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Analysis of the algorithm performance:</p>
+<p><code class="language-plaintext highlighter-rouge">getOrDefault</code> returns an empty list for an order without addresses, so the loop simply doesn’t run instead of throwing a <code class="language-plaintext highlighter-rouge">NullPointerException</code>.</p>
 
-<p>first iteration: 1000N -&gt; N</p>
+<h2 id="the-java-8-one-liner">The Java 8 One-Liner</h2>
 
-<p>second iteration: 2 * 1000N = 2000N -&gt; N</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Address</span><span class="o">&gt;&gt;</span> <span class="n">addressesByOrderId</span> <span class="o">=</span>
+    <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">listOfAddresses</span><span class="o">)</span>
+          <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">groupingBy</span><span class="o">(</span><span class="nl">Address:</span><span class="o">:</span><span class="n">getOrderId</span><span class="o">));</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Total = N + N = 2N</p>
+<p>Same result, same O(N) cost. The loop above shows what’s happening under the hood, and <code class="language-plaintext highlighter-rouge">groupingBy</code> is what you’d write in production.</p>
 
-<p>That means that the new performance according to Big O Notation is lineal -&gt; <strong>O(N)</strong>.</p>
+<h2 id="performance-comparison">Performance Comparison</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Approach</th>
+      <th>Operations for 1,000 orders and 2,000 addresses</th>
+      <th>Big O</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nested loops</td>
+      <td>1,000 × 2,000 = 2,000,000 comparisons</td>
+      <td>O(N × M)</td>
+    </tr>
+    <tr>
+      <td>HashMap</td>
+      <td>2,000 inserts + 1,000 lookups ≈ 3,000 steps</td>
+      <td>O(N + M)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>The new performance according to Big O Notation is linear: <strong>O(N)</strong>.</p>
 
 <blockquote>
-  <p>The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons.. – <cite>codersite.dev</cite></p>
+  <p>The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons. – <cite>codersite.dev</cite></p>
 </blockquote>
 
-<div><center>
-  <a href="https://amzn.to/3QYUK0v" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/codingInterview2ndEdition.png" /></a>
-</center>
-
-<br /></div>
-
-<h2 id="when-to-use-each">When to use each:</h2>
+<h2 id="when-to-use-each">When to use each</h2>
 
 <p><strong>Use a List when</strong>:</p>
 
@@ -615,6 +641,14 @@
     <p>The data is best represented in a key-value format.</p>
   </li>
 </ul>
+
+<p>Replacing a nested loop with a HashMap is one of the most common optimizations interviewers look for. If you have interviews coming up, practice it on real questions:</p>
+
+<div><center>
+  <a href="https://amzn.to/3QYUK0v" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/codingInterview2ndEdition.png" /></a>
+</center>
+
+<br /></div>
 
 <p>Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!</p>
 
@@ -705,8 +739,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/transform-list-into-hashmap/"
   },
-  "headline": "Problem-Solving Efficiency: Hashmap provides efficient solutions for searching",
-  "description": "Data structures provide efficient solutions to various computational problems, such as sorting, searching, and graph algorithms",
+  "headline": "From O(n²) to O(n): Replace Nested Loops with a HashMap in Java",
+  "description": "A real REST API was slowed down by nested loops. Here's how grouping a List into a HashMap by key turned 2,000,000 comparisons into about 3,000, with a classic loop and a one-line Java 8 version.",
   "image": "https://codersite.dev/assets/images/listIntoHashmap.jpg",
   "datePublished": "2025-05-15T00:00:00+02:00",
   "dateModified": "2025-05-15T00:00:00+02:00",
@@ -744,7 +778,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Problem-Solving Efficiency: Hashmap provides efficient solutions for searching",
+      "name": "From O(n²) to O(n): Replace Nested Loops with a HashMap in Java",
       "item": "https://codersite.dev/transform-list-into-hashmap/"
     }
   ]
