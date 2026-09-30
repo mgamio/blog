@@ -63,7 +63,7 @@ comments: false
     <!-- Journey -->
     <div class="about-section">
       <h4>My journey</h4>
-      <p>I was born in Lima, Peru, where I studied for five years and earned a degree in Systems Engineering. Over my career I've worked across the Government, Financial, Industrial, Education, Consulting, Retail, and Research sectors — covering every stage of the software lifecycle, from analysis and design to testing and deployment, in both on-premise and cloud environments.</p>
+      <p>I was born in Lima, Peru, where I studied for five years and earned a degree in Systems Engineering. Over my career I've worked across the Government, Financial, Industrial, Education, Consulting, Retail, E-commerce, and Research sectors — covering every stage of the software lifecycle, from analysis and design to testing and deployment, in both on-premise and cloud environments.</p>
       <p>For eight years I worked as a Systems Analyst in the banking sector. Since 2014 I've been a software engineer at a B2B company in Berlin, Germany. Along the way I've programmed in a wide range of languages, which keeps me pragmatic about choosing the right tool for the job.</p>
     </div>
 
@@ -136,9 +136,9 @@ comments: false
       <p class="books-intro">Everything I've learned over the years, distilled into two practical guides.</p>
 
       <div class="book-card">
-        <a href="https://amzn.to/3Nwp1om" target="_blank" rel="noopener"><img alt="Top Java Challenges: Cracking the Coding Interview — book by Moisés Gamio" src="{{ site.baseurl }}/recommended/images/codingInterview2ndEdition.png"></a>
-        <p>My collection of real Java interview challenges. Stop losing interviews because you can't master algorithms — learn to solve problems the way top engineers do.</p>
-        <div class="text-center"><a target="_blank" rel="noopener" href="https://amzn.to/3Nwp1om" class="btn btn-danger">Get it on Amazon</a></div>
+        <a href="https://link.amazon/B08nEgB1o" target="_blank" rel="noopener"><img alt="The Code Interview, Second Edition" src="{{ site.baseurl }}/recommended/images/theCodeInterview.jpg"></a>
+        <p>48 real coding interview questions, each taken from the obvious brute-force idea to the efficient solution in Java. Every variable explained, every example traced, and 117 follow-up questions interviewers actually ask.</p>
+        <div class="text-center"><a target="_blank" rel="noopener" href="https://link.amazon/B08nEgB1o" class="btn btn-danger">Get it on Amazon</a></div>
       </div>
 
       <div class="book-card">
