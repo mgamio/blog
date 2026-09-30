@@ -34,10 +34,10 @@ The chapter builds a mental model around seven pillars that show up in literally
 - **Maintainability** — broken into operability, lucidity, and modifiability, which is a genuinely useful way to audit whether *your* [codebase is actually maintainable](https://codersite.dev/clean-code/){:target="_blank"}  or just familiar.
 - **Fault Tolerance** — replication and checkpointing, plus RPO and RTO, the two metrics that turn "we have backups" into an actual, defensible recovery plan.
 
-> Every great career in tech is built on great design. Start building yours today.
+> Solve it on the whiteboard. Explain it like a senior.
 
 <div>
-{%- include softwareDesign.html -%}
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 ## The 8 Fallacies That Quietly Wreck Distributed Systems
