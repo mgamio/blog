@@ -10,6 +10,12 @@ comments: false
 
 You've designed your API. Now comes the boring part: writing controllers, models and request mappings that only repeat what the spec already says. Swagger Codegen writes that code for you. In a few minutes you'll go from an OpenAPI file to a running Spring Boot server with live Swagger UI documentation, and all that's left for you is the business logic.
 
+**This series:**
+
+1. [Design the API with OpenAPI 3](https://codersite.dev/designing-apis-with-swagger-and-openapi/){:target="_blank"}
+2. **Generate a Spring Boot server with Swagger Codegen** (this post)
+3. [Implement it with Spring Boot, Gradle and OpenAPI](https://codersite.dev/gradle-building-restful-web-service/){:target="_blank"}
+
 Once you have learned how to [design APIs with Swagger and OpenAPI](https://codersite.dev/designing-apis-with-swagger-and-openapi/){:target="_blank"}, we will proceed to generate the stub code for a [RESTful web service](https://codersite.dev/rest-api-overview/){:target="_blank"} with Spring.
 
 In programming, a stub is an incomplete method. It already has the interface of the final method, but it doesn’t yet perform the full functionality. Instead, it returns “mock” or “dummy” data.

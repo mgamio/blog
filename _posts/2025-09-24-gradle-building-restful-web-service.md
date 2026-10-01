@@ -10,6 +10,12 @@ comments: false
 
 By the end of this guide you'll have a working Spring Boot [RESTful](https://codersite.dev/rest-api-overview/){:target="_blank"} API, built with Gradle and documented with OpenAPI, and a live Swagger UI page you can show your team or put in your portfolio. We'll build a real Finance API step by step, not a to-do list.
 
+**This series:**
+
+1. [Design the API with OpenAPI 3](https://codersite.dev/designing-apis-with-swagger-and-openapi/){:target="_blank"}
+2. [Generate a Spring Boot server with Swagger Codegen](https://codersite.dev/swagger-codegen-server-stubs-openapi/){:target="_blank"}
+3. **Implement it with Spring Boot, Gradle and OpenAPI** (this post)
+
 ## What You'll Build
 
 You will build a service that will implement a Finance API specified in [API Hub](https://app.swaggerhub.com/apis/MGAMIO/apifinance/v1){:target="_blank"} Powered by Swagger.
