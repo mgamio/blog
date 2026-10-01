@@ -7,13 +7,13 @@
 <link rel="icon" href="/assets/images/logo.png">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Shopping options with a limited budget | codersite</title>
+<title>Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem) | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Shopping options with a limited budget" />
+<meta property="og:title" content="Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Shopping options under a budgeted amount" />
-<meta name="twitter:description" property="og:description" content="Shopping options under a budgeted amount" />
+<meta name="description" content="Solve the Shopping Options coding interview problem in Java: count every way to buy one item from four categories within a budget, from a 10¹² brute force to a fast meet-in-the-middle solution." />
+<meta name="twitter:description" property="og:description" content="Solve the Shopping Options coding interview problem in Java: count every way to buy one item from four categories within a budget, from a 10¹² brute force to a fast meet-in-the-middle solution." />
 <link rel="canonical" href="https://codersite.dev/shopping-budget-options/" />
 <meta property="og:url" content="https://codersite.dev/shopping-budget-options/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2025-03-24T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/shoppingOptions.jpg" />
-<meta name="twitter:title" content="Shopping options with a limited budget" />
+<meta name="twitter:title" content="Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2025-03-24T00:00:00+01:00","datePublished":"2025-03-24T00:00:00+01:00","description":"Shopping options under a budgeted amount","headline":"Shopping options with a limited budget","image":"https://codersite.dev/assets/images/shoppingOptions.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/shopping-budget-options/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/shopping-budget-options/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2025-03-24T00:00:00+01:00","datePublished":"2025-03-24T00:00:00+01:00","description":"Solve the Shopping Options coding interview problem in Java: count every way to buy one item from four categories within a budget, from a 10¹² brute force to a fast meet-in-the-middle solution.","headline":"Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)","image":"https://codersite.dev/assets/images/shoppingOptions.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/shopping-budget-options/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/shopping-budget-options/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -167,7 +167,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Shopping options with a limited budget&url=https://codersite.dev/shopping-budget-options/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)&url=https://codersite.dev/shopping-budget-options/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -215,7 +215,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Shopping options with a limited budget</h1>
+                <h1 class="posttitle">Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -223,7 +223,7 @@
                 <p class="post-meta-line">
                     <time datetime="2025-03-24T00:00:00+01:00" itemprop="datePublished">Mar 24, 2025</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">14 min read</span>
+                    <span class="meta-reading-time">16 min read</span>
                     
                 </p>
 
@@ -238,7 +238,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/shoppingOptions.jpg" alt="Shopping options with a limited budget">
+            <img class="featured-image img-fluid" src="/assets/images/shoppingOptions.jpg" alt="Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)">
             
 
             
@@ -249,7 +249,11 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>A shopper wants to buy <strong>one item from each category</strong>: pants, sneakers, a skirt, and a t-shirt. Each category has multiple price options, and the shopper must stay within a fixed budget. Your task is to determine the number of unique ways the shopper can make a purchase without exceeding the budget.</p>
+                <p>Four nested loops solve this problem in five minutes, and that’s exactly the trap. With up to 1,000 prices per category, brute force has to check 10¹² combinations. Here’s how to get from the obvious answer to one that finishes in well under a second.</p>
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>A shopper wants to buy <strong>one item from each category</strong>: pants, sneakers, a skirt, and a t-shirt. Each category has multiple price options, and the shopper must stay within a fixed budget. Your task is to determine the number of unique ways the shopper can make a purchase without exceeding the budget.</p>
 
 <p>Example</p>
 
@@ -261,7 +265,7 @@
 
 <p>priceOfTShirts = [1,2]</p>
 
-<p>budged = 10</p>
+<p>budget = 10</p>
 
 <p>The shopper must buy sneakers for $4 since there is only one option. This leaves $6 for the other three items. The valid price combinations for (pants, skirts, t-shirts) that do not exceed $6 are:</p>
 
@@ -280,8 +284,8 @@
 
 <p><strong>Function Signature</strong></p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">static</span> <span class="n">int</span> <span class="nf">countShoppingOptions</span><span class="p">(</span><span class="n">int</span><span class="p">[]</span> <span class="n">priceOfPants</span><span class="p">,</span> <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfSneakers</span><span class="p">,</span> <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfSkirts</span><span class="p">,</span> <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfTShirts</span><span class="p">,</span> <span class="n">int</span> <span class="n">budget</span><span class="p">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countShoppingOptions</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfPants</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfSneakers</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfSkirts</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfTShirts</span><span class="o">,</span> <span class="kt">int</span> <span class="n">budget</span><span class="o">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p><strong>Parameters</strong></p>
@@ -310,6 +314,8 @@
 
 <p>1 ≤ budget, prices of items ≤ 1000000000</p>
 
+<p>Brute force, pruning and divide-and-conquer are classic algorithm-design techniques. Sedgewick’s book covers them with the clearest diagrams I know:</p>
+
 <div><center>
   <a href="https://amzn.to/4hDFb8q" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../recommended/images/algorithmsRobertSedgewick.jpg" /></a>
 </center>
@@ -318,13 +324,13 @@
 
 <h2 id="first-solution-brute-force-algorithm">First Solution: Brute force algorithm</h2>
 
-<p>To find how many ways the customer can purchase all four items, we can iterate the four arrays, combine all its products, and validate that the shopper cannot spend more money than the budgeted amount.</p>
+<p>To find how many ways the customer can purchase all four items, we can iterate over the four arrays, combine all their prices, and check that the shopper doesn’t spend more than the budget.</p>
 
-<p>This technique is straightforward and guarantees finding a solution if one exists, but it can be computationally expensive, especially for large input sizes</p>
+<p>This technique is straightforward and guarantees finding a solution if one exists, but it can be computationally expensive, especially for large input sizes.</p>
 
-<p>Here is our assumption based on a Test case.</p>
+<p>Here is our assumption, expressed as a test case.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -334,19 +340,19 @@
 8
 9
 </pre></td><td class="rouge-code"><pre><span class="nd">@Test</span>
-  <span class="k">public</span> <span class="n">void</span> <span class="nf">test_shoppingOptions</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfPants</span> <span class="p">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-    <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfSneakers</span> <span class="p">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">};</span>
-    <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfSkirts</span> <span class="p">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-    <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfTShirts</span> <span class="p">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
-    <span class="nf">assertEquals</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nc">ShoppingOptions</span><span class="p">.</span><span class="nf">countShoppingOptions</span><span class="p">(</span><span class="n">priceOfPants</span><span class="p">,</span> <span class="n">priceOfSneakers</span><span class="p">,</span>
-            <span class="n">priceOfSkirts</span><span class="p">,</span> <span class="n">priceOfTShirts</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
-  <span class="p">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test_shoppingOptions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfPants</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfSneakers</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">};</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfSkirts</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfTShirts</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="nc">ShoppingOptions</span><span class="o">.</span><span class="na">countShoppingOptions</span><span class="o">(</span><span class="n">priceOfPants</span><span class="o">,</span> <span class="n">priceOfSneakers</span><span class="o">,</span>
+            <span class="n">priceOfSkirts</span><span class="o">,</span> <span class="n">priceOfTShirts</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span>
+  <span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>We proceed to implement the algorithm that includes all possible input validations. The for-each construct helps our code be elegant and readable and there is no use of the index. See <a href="https://codersite.dev/clean-code/" target="_blank">clean code</a> practices.</p>
+<p>We proceed to implement the algorithm, including all possible input validations. The for-each construct makes our code elegant and readable, with no index variables. See <a href="https://codersite.dev/clean-code/" target="_blank">clean code</a> practices.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -389,50 +395,52 @@
 41
 42
 43
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">ShoppingOptions</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="n">int</span> <span class="nf">countShoppingOptions</span><span class="p">(</span><span class="n">int</span><span class="p">[]</span> <span class="n">priceOfPants</span><span class="p">,</span>
-    <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfSneakers</span><span class="p">,</span> <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfSkirts</span><span class="p">,</span> <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfTShirts</span><span class="p">,</span> <span class="n">int</span> <span class="n">budget</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">budget</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">budget</span> <span class="p">&gt;</span> <span class="mi">1000000000</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong value for budget"</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">priceOfPants</span><span class="p">.</span><span class="n">length</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">priceOfPants</span><span class="p">.</span><span class="n">length</span> <span class="p">&gt;</span> <span class="mi">1000</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong size in array: priceOfPants"</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">priceOfSneakers</span><span class="p">.</span><span class="n">length</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">priceOfSneakers</span><span class="p">.</span><span class="n">length</span> <span class="p">&gt;</span> <span class="mi">1000</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong size in array: priceOfSneakers"</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">priceOfSkirts</span><span class="p">.</span><span class="n">length</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">priceOfSkirts</span><span class="p">.</span><span class="n">length</span> <span class="p">&gt;</span> <span class="mi">1000</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong size in array: priceOfSkirts"</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">priceOfTShirts</span><span class="p">.</span><span class="n">length</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">priceOfTShirts</span><span class="p">.</span><span class="n">length</span> <span class="p">&gt;</span> <span class="mi">1000</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong size in array: priceOfTShirts"</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfPant</span> <span class="p">:</span> <span class="n">priceOfPants</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">priceOfPant</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">priceOfPant</span> <span class="p">&gt;</span> <span class="mi">1000000000</span><span class="p">)</span>
-        <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong value in array: priceOfPants"</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfSneaker</span> <span class="p">:</span> <span class="n">priceOfSneakers</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">priceOfSneaker</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">priceOfSneaker</span> <span class="p">&gt;</span> <span class="mi">1000000000</span><span class="p">)</span>
-        <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong value in array: priceOfSneakers"</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfSkirt</span> <span class="p">:</span> <span class="n">priceOfSkirts</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">priceOfSkirt</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">priceOfSkirt</span> <span class="p">&gt;</span> <span class="mi">1000000000</span><span class="p">)</span>
-        <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong value in array: priceOfSkirts"</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfTShirt</span> <span class="p">:</span> <span class="n">priceOfTShirts</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">priceOfTShirt</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">priceOfTShirt</span> <span class="p">&gt;</span> <span class="mi">1000000000</span><span class="p">)</span>
-        <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong value in array: priceOfTShirts"</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">int</span> <span class="n">numberOfOptions</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfPant</span> <span class="p">:</span> <span class="n">priceOfPants</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfSneaker</span> <span class="p">:</span> <span class="n">priceOfSneakers</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfSkirt</span> <span class="p">:</span> <span class="n">priceOfSkirts</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfTShirt</span> <span class="p">:</span> <span class="n">priceOfTShirts</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">priceOfPant</span> <span class="p">+</span> <span class="n">priceOfSneaker</span> <span class="p">+</span> <span class="n">priceOfSkirt</span> <span class="p">+</span> <span class="n">priceOfTShirt</span> <span class="p">&lt;=</span> <span class="n">budget</span><span class="p">)</span>
-              <span class="n">numberOfOptions</span> <span class="p">+=</span><span class="mi">1</span><span class="p">;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">numberOfOptions</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShoppingOptions</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countShoppingOptions</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfPants</span><span class="o">,</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfSneakers</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfSkirts</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfTShirts</span><span class="o">,</span> <span class="kt">int</span> <span class="n">budget</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">budget</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">budget</span> <span class="o">&gt;</span> <span class="mi">1000000000</span><span class="o">)</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong value for budget"</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">priceOfPants</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">priceOfPants</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="o">)</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong size in array: priceOfPants"</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">priceOfSneakers</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">priceOfSneakers</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="o">)</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong size in array: priceOfSneakers"</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">priceOfSkirts</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">priceOfSkirts</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="o">)</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong size in array: priceOfSkirts"</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">priceOfTShirts</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">priceOfTShirts</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="o">)</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong size in array: priceOfTShirts"</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfPant</span> <span class="o">:</span> <span class="n">priceOfPants</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">priceOfPant</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">priceOfPant</span> <span class="o">&gt;</span> <span class="mi">1000000000</span><span class="o">)</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong value in array: priceOfPants"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfSneaker</span> <span class="o">:</span> <span class="n">priceOfSneakers</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">priceOfSneaker</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">priceOfSneaker</span> <span class="o">&gt;</span> <span class="mi">1000000000</span><span class="o">)</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong value in array: priceOfSneakers"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfSkirt</span> <span class="o">:</span> <span class="n">priceOfSkirts</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">priceOfSkirt</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">priceOfSkirt</span> <span class="o">&gt;</span> <span class="mi">1000000000</span><span class="o">)</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong value in array: priceOfSkirts"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfTShirt</span> <span class="o">:</span> <span class="n">priceOfTShirts</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">priceOfTShirt</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">priceOfTShirt</span> <span class="o">&gt;</span> <span class="mi">1000000000</span><span class="o">)</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong value in array: priceOfTShirts"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kt">int</span> <span class="n">numberOfOptions</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfPant</span> <span class="o">:</span> <span class="n">priceOfPants</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfSneaker</span> <span class="o">:</span> <span class="n">priceOfSneakers</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfSkirt</span> <span class="o">:</span> <span class="n">priceOfSkirts</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfTShirt</span> <span class="o">:</span> <span class="n">priceOfTShirts</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">priceOfPant</span> <span class="o">+</span> <span class="n">priceOfSneaker</span> <span class="o">+</span> <span class="n">priceOfSkirt</span> <span class="o">+</span> <span class="n">priceOfTShirt</span> <span class="o">&lt;=</span> <span class="n">budget</span><span class="o">)</span>
+              <span class="n">numberOfOptions</span> <span class="o">+=</span><span class="mi">1</span><span class="o">;</span>
+          <span class="o">}</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">numberOfOptions</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>Watch out for overflow:</strong> three prices of 1,000,000,000 already exceed the largest <code class="language-plaintext highlighter-rouge">int</code>. Use <code class="language-plaintext highlighter-rouge">long</code> for the sums and for the count, which can reach 10¹².</p>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -445,7 +453,7 @@
 
 <p>A function or method should be small, making it easier to read and understand. Therefore, we refactor our code, moving all validations to a private method. The following code shows a new implementation of our algorithm.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -479,41 +487,43 @@
 32
 33
 34
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">ShoppingOptions</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="n">int</span> <span class="nf">countShoppingOptions</span><span class="p">(</span><span class="n">int</span><span class="p">[]</span> <span class="n">priceOfPants</span><span class="p">,</span> <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfSneakers</span><span class="p">,</span>
-  <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfSkirts</span><span class="p">,</span> <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfTShirts</span><span class="p">,</span> <span class="n">int</span> <span class="n">budget</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">budget</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">budget</span> <span class="p">&gt;</span> <span class="mi">1000000000</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong value for budget"</span><span class="p">);</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShoppingOptions</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countShoppingOptions</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfPants</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfSneakers</span><span class="o">,</span>
+  <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfSkirts</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfTShirts</span><span class="o">,</span> <span class="kt">int</span> <span class="n">budget</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">budget</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">budget</span> <span class="o">&gt;</span> <span class="mi">1000000000</span><span class="o">)</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong value for budget"</span><span class="o">);</span>
 
-    <span class="nf">validate</span><span class="p">(</span><span class="n">priceOfPants</span><span class="p">,</span> <span class="s">"pants"</span><span class="p">);</span>
-    <span class="nf">validate</span><span class="p">(</span><span class="n">priceOfSneakers</span><span class="p">,</span> <span class="s">"sneakers"</span><span class="p">);</span>
-    <span class="nf">validate</span><span class="p">(</span><span class="n">priceOfSkirts</span><span class="p">,</span> <span class="s">"skirts"</span><span class="p">);</span>
-    <span class="nf">validate</span><span class="p">(</span><span class="n">priceOfTShirts</span><span class="p">,</span> <span class="s">"tshirts"</span><span class="p">);</span>
-    <span class="n">int</span> <span class="n">numberOfOptions</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfPant</span> <span class="p">:</span> <span class="n">priceOfPants</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfSneaker</span> <span class="p">:</span> <span class="n">priceOfSneakers</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfSkirt</span> <span class="p">:</span> <span class="n">priceOfSkirts</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfTShirt</span> <span class="p">:</span> <span class="n">priceOfTShirts</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">priceOfPant</span> <span class="p">+</span> <span class="n">priceOfSneaker</span> <span class="p">+</span> <span class="n">priceOfSkirt</span> <span class="p">+</span> <span class="n">priceOfTShirt</span> <span class="p">&lt;=</span> <span class="n">budget</span><span class="p">)</span>
-              <span class="n">numberOfOptions</span> <span class="p">+=</span><span class="mi">1</span><span class="p">;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">numberOfOptions</span><span class="p">;</span>
-  <span class="p">}</span>
+    <span class="n">validate</span><span class="o">(</span><span class="n">priceOfPants</span><span class="o">,</span> <span class="s">"pants"</span><span class="o">);</span>
+    <span class="n">validate</span><span class="o">(</span><span class="n">priceOfSneakers</span><span class="o">,</span> <span class="s">"sneakers"</span><span class="o">);</span>
+    <span class="n">validate</span><span class="o">(</span><span class="n">priceOfSkirts</span><span class="o">,</span> <span class="s">"skirts"</span><span class="o">);</span>
+    <span class="n">validate</span><span class="o">(</span><span class="n">priceOfTShirts</span><span class="o">,</span> <span class="s">"tshirts"</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="n">numberOfOptions</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfPant</span> <span class="o">:</span> <span class="n">priceOfPants</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfSneaker</span> <span class="o">:</span> <span class="n">priceOfSneakers</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfSkirt</span> <span class="o">:</span> <span class="n">priceOfSkirts</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfTShirt</span> <span class="o">:</span> <span class="n">priceOfTShirts</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">priceOfPant</span> <span class="o">+</span> <span class="n">priceOfSneaker</span> <span class="o">+</span> <span class="n">priceOfSkirt</span> <span class="o">+</span> <span class="n">priceOfTShirt</span> <span class="o">&lt;=</span> <span class="n">budget</span><span class="o">)</span>
+              <span class="n">numberOfOptions</span> <span class="o">+=</span><span class="mi">1</span><span class="o">;</span>
+          <span class="o">}</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">numberOfOptions</span><span class="o">;</span>
+  <span class="o">}</span>
 
-  <span class="k">private</span> <span class="n">static</span> <span class="n">void</span> <span class="nf">validate</span><span class="p">(</span><span class="n">int</span><span class="p">[]</span> <span class="n">array</span><span class="p">,</span> <span class="nc">String</span> <span class="n">arrayName</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">.</span><span class="n">length</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">array</span><span class="p">.</span><span class="n">length</span> <span class="p">&gt;</span> <span class="mi">1000</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong size in array "</span> <span class="p">+</span> <span class="n">arrayName</span><span class="p">);</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">validate</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="nc">String</span> <span class="n">arrayName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">array</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="o">)</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong size in array "</span> <span class="o">+</span> <span class="n">arrayName</span><span class="o">);</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">price</span> <span class="p">:</span> <span class="n">array</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">price</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">price</span> <span class="p">&gt;</span> <span class="mi">1000000000</span><span class="p">)</span>
-        <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong value in array "</span> <span class="p">+</span>  <span class="n">arrayName</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">price</span> <span class="o">:</span> <span class="n">array</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">price</span> <span class="o">&gt;</span> <span class="mi">1000000000</span><span class="o">)</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong value in array "</span> <span class="o">+</span>  <span class="n">arrayName</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>For the theory behind why O(n⁴) collapses and O(n² log n) scales, this is the reference:</p>
 
 <div><center>
   <a href="https://amzn.to/4iYotll" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../recommended/images/introductionToAlgorithms.jpg" /></a>
@@ -521,15 +531,13 @@
 
 <br /></div>
 
-<h3 id="refactoring-for-the-best-case-scenario-youre-wrong">Refactoring for the best-case scenario? You’re wrong</h3>
+<h3 id="pruning-with-continue-faster-but-not-fast-enough">Pruning with <code class="language-plaintext highlighter-rouge">continue</code>: Faster, but Not Fast Enough</h3>
 
-<p>This algorithm works fine when array size and values are small. But based on the constraints, imagine you are processing a priceOfSneaker value of 100000 at the location priceOfSneakers[101]. At that moment, the sum of priceOfPant + priceOfSneaker is already greater than 10 dollars. Therefore, it does not make sense to continue processing the following possible 1000000000 items of pricesOfSkits[] and other 1000000000 items of priceOfTShirts[].</p>
-
-<p>To skip this particular iteration, we use the “<em>continue</em>” statement and continues with the next iteration in the loop. The next priceOfSneaker at the location priceOfSneakers[102], for example.</p>
+<p>This algorithm works fine when the arrays are small and the prices are low. But each array can hold up to 1,000 prices, and each price can be as high as 1,000,000,000. If pants plus sneakers already exceed the budget, there’s no point trying every skirt and t-shirt. The <code class="language-plaintext highlighter-rouge">continue</code> statement skips straight to the next sneaker.</p>
 
 <p>We create a new test case with big prices. You can add more items to the arrays.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -543,23 +551,23 @@
 12
 13
 </pre></td><td class="rouge-code"><pre><span class="nd">@Test</span>
-  <span class="k">public</span> <span class="n">void</span> <span class="nf">test_shoppingOptionsBigPrices</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfPants</span> <span class="p">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span>
-            <span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">};</span>
-    <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfSneakers</span> <span class="p">=</span> <span class="p">{</span><span class="mi">2000002</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2000002</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span>
-            <span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">400000</span><span class="p">};</span>
-    <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfSkirts</span> <span class="p">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span>
-            <span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">6000000</span><span class="p">};</span>
-    <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfTShirts</span> <span class="p">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span>
-            <span class="mi">3000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">,</span><span class="mi">3000000</span><span class="p">,</span><span class="mi">7000000</span><span class="p">};</span>
-    <span class="nf">assertEquals</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nc">ShoppingOptions</span><span class="p">.</span><span class="nf">countShoppingOptions</span><span class="p">(</span><span class="n">priceOfPants</span><span class="p">,</span> <span class="n">priceOfSneakers</span><span class="p">,</span>
-            <span class="n">priceOfSkirts</span><span class="p">,</span> <span class="n">priceOfTShirts</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
-  <span class="p">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test_shoppingOptionsBigPrices</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfPants</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span>
+            <span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">,</span><span class="mi">10000</span><span class="o">};</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfSneakers</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2000002</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2000002</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span>
+            <span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">,</span><span class="mi">200000</span><span class="o">,</span><span class="mi">400000</span><span class="o">};</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfSkirts</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span>
+            <span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">6000000</span><span class="o">};</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfTShirts</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span>
+            <span class="mi">3000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">,</span><span class="mi">3000000</span><span class="o">,</span><span class="mi">7000000</span><span class="o">};</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="nc">ShoppingOptions</span><span class="o">.</span><span class="na">countShoppingOptions</span><span class="o">(</span><span class="n">priceOfPants</span><span class="o">,</span> <span class="n">priceOfSneakers</span><span class="o">,</span>
+            <span class="n">priceOfSkirts</span><span class="o">,</span> <span class="n">priceOfTShirts</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span>
+  <span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>We run the test against the previous implementation, and the second test takes 32 ms on average. The execution time could increase if we complete the max size of our arrays.</p>
+<p>We run the test against the previous implementation, and the second test takes 32 ms on average. The execution time could increase if we fill the arrays up to their maximum size.</p>
 
-<p><img src="/assets/images/shoppingOptionsTest1.JPG" alt="shopping-Options-Test1" class="img-responsive" /></p>
+<p><img src="/assets/images/shoppingOptionsTest1.JPG" alt="JUnit result: the big-prices test takes 32 ms with the brute-force implementation" title="JUnit result: the big-prices test takes 32 ms with the brute-force implementation" class="img-responsive" /></p>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -570,7 +578,7 @@
 
 <p>Now, we include the “<em>continue</em>” statement in our algorithm.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -603,76 +611,107 @@
 31
 32
 33
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">ShoppingOptions</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="n">int</span> <span class="nf">countShoppingOptions</span><span class="p">(</span><span class="n">int</span><span class="p">[]</span> <span class="n">priceOfPants</span><span class="p">,</span> <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfSneakers</span><span class="p">,</span>
-         <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfSkirts</span><span class="p">,</span> <span class="n">int</span><span class="p">[]</span> <span class="n">priceOfTShirts</span><span class="p">,</span> <span class="n">int</span> <span class="n">budget</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">budget</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">||</span> <span class="n">budget</span> <span class="p">&gt;</span> <span class="mi">1000000000</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong value for budget"</span><span class="p">);</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShoppingOptions</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countShoppingOptions</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfPants</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfSneakers</span><span class="o">,</span>
+         <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfSkirts</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">priceOfTShirts</span><span class="o">,</span> <span class="kt">int</span> <span class="n">budget</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">budget</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">budget</span> <span class="o">&gt;</span> <span class="mi">1000000000</span><span class="o">)</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"wrong value for budget"</span><span class="o">);</span>
 
-    <span class="nf">validate</span><span class="p">(</span><span class="n">priceOfPants</span><span class="p">,</span> <span class="s">"pants"</span><span class="p">);</span>
-    <span class="nf">validate</span><span class="p">(</span><span class="n">priceOfSneakers</span><span class="p">,</span> <span class="s">"sneakers"</span><span class="p">);</span>
-    <span class="nf">validate</span><span class="p">(</span><span class="n">priceOfSkirts</span><span class="p">,</span> <span class="s">"skirts"</span><span class="p">);</span>
-    <span class="nf">validate</span><span class="p">(</span><span class="n">priceOfTShirts</span><span class="p">,</span> <span class="s">"tshirts"</span><span class="p">);</span>
+    <span class="n">validate</span><span class="o">(</span><span class="n">priceOfPants</span><span class="o">,</span> <span class="s">"pants"</span><span class="o">);</span>
+    <span class="n">validate</span><span class="o">(</span><span class="n">priceOfSneakers</span><span class="o">,</span> <span class="s">"sneakers"</span><span class="o">);</span>
+    <span class="n">validate</span><span class="o">(</span><span class="n">priceOfSkirts</span><span class="o">,</span> <span class="s">"skirts"</span><span class="o">);</span>
+    <span class="n">validate</span><span class="o">(</span><span class="n">priceOfTShirts</span><span class="o">,</span> <span class="s">"tshirts"</span><span class="o">);</span>
 
-    <span class="n">int</span> <span class="n">numberOfOptions</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfPant</span> <span class="p">:</span> <span class="n">priceOfPants</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">priceOfPant</span> <span class="p">&gt;=</span> <span class="n">budget</span><span class="p">)</span>
-        <span class="k">continue</span><span class="p">;</span>
-      <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfSneaker</span> <span class="p">:</span> <span class="n">priceOfSneakers</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">priceOfPant</span> <span class="p">+</span> <span class="n">priceOfSneaker</span> <span class="p">&gt;=</span> <span class="n">budget</span><span class="p">)</span>
-          <span class="k">continue</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfSkirt</span> <span class="p">:</span> <span class="n">priceOfSkirts</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">priceOfPant</span> <span class="p">+</span> <span class="n">priceOfSneaker</span> <span class="p">+</span> <span class="n">priceOfSkirt</span> <span class="p">&gt;=</span> <span class="n">budget</span><span class="p">)</span>
-            <span class="k">continue</span><span class="p">;</span>
-          <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">priceOfTShirt</span> <span class="p">:</span> <span class="n">priceOfTShirts</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">priceOfPant</span> <span class="p">+</span> <span class="n">priceOfSneaker</span> <span class="p">+</span> <span class="n">priceOfSkirt</span> <span class="p">+</span> <span class="n">priceOfTShirt</span> <span class="p">&lt;=</span> <span class="n">budget</span><span class="p">)</span>
-              <span class="n">numberOfOptions</span> <span class="p">+=</span><span class="mi">1</span><span class="p">;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">numberOfOptions</span><span class="p">;</span>
-  <span class="p">}</span>
-  
+    <span class="kt">int</span> <span class="n">numberOfOptions</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfPant</span> <span class="o">:</span> <span class="n">priceOfPants</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">priceOfPant</span> <span class="o">&gt;=</span> <span class="n">budget</span><span class="o">)</span>
+        <span class="k">continue</span><span class="o">;</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfSneaker</span> <span class="o">:</span> <span class="n">priceOfSneakers</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">priceOfPant</span> <span class="o">+</span> <span class="n">priceOfSneaker</span> <span class="o">&gt;=</span> <span class="n">budget</span><span class="o">)</span>
+          <span class="k">continue</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfSkirt</span> <span class="o">:</span> <span class="n">priceOfSkirts</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">priceOfPant</span> <span class="o">+</span> <span class="n">priceOfSneaker</span> <span class="o">+</span> <span class="n">priceOfSkirt</span> <span class="o">&gt;=</span> <span class="n">budget</span><span class="o">)</span>
+            <span class="k">continue</span><span class="o">;</span>
+          <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">priceOfTShirt</span> <span class="o">:</span> <span class="n">priceOfTShirts</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">priceOfPant</span> <span class="o">+</span> <span class="n">priceOfSneaker</span> <span class="o">+</span> <span class="n">priceOfSkirt</span> <span class="o">+</span> <span class="n">priceOfTShirt</span> <span class="o">&lt;=</span> <span class="n">budget</span><span class="o">)</span>
+              <span class="n">numberOfOptions</span> <span class="o">+=</span><span class="mi">1</span><span class="o">;</span>
+          <span class="o">}</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">numberOfOptions</span><span class="o">;</span>
+  <span class="o">}</span>
+
   <span class="c1">//code omitted for brevity</span>
-<span class="p">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>We can see the new execution time.</p>
 
-<p><img src="/assets/images/shoppingOptionsTest2.JPG" alt="shopping-Options-Test2" class="img-responsive" /></p>
+<p><img src="/assets/images/shoppingOptionsTest2.JPG" alt="JUnit result: the same test runs faster after pruning with continue" title="JUnit result: the same test runs faster after pruning with continue" class="img-responsive" /></p>
 
-<p>Overall complexity : <strong>O(N<sup>3</sup>M)</strong></p>
+<p>Pruning helps when prices are high, but in the worst case (lots of cheap items) we still check every combination: O(n⁴). With n = 1,000, that’s 10¹² iterations. We need a different idea.</p>
 
-<p>What happens when our possible choosing prices are located at the end of the arrays?. That is the algorithm you must develop: For the Worst-case scenario! or <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Big O Notation</a>.</p>
+<p>What happens when the prices we can afford are located at the end of the arrays? That is the algorithm you must design for: the worst-case scenario, described with <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Big O Notation</a>.</p>
 
 <p>When you implement an algorithm thinking in the worst-case scenario, the solution gives us a kind of guarantee that the algorithm will never take any longer with a new input size.</p>
 
 <blockquote>
-  <p>Understanding the inner workings of common <a href="https://codersite.dev/data-structures-foundation-efficient-programming/" target="_blank">data structures</a> and algorithms is a must for Java developers. <a href="https://amzn.to/4im1fFR" target="_blank">Learn more</a></p>
+  <p>Understanding the inner workings of common <a href="https://codersite.dev/data-structures-foundation-efficient-programming/" target="_blank">data structures</a> and algorithms is a must for Java developers.</p>
 </blockquote>
 
-<h3 id="efficient-solution">Efficient solution</h3>
+<h2 id="efficient-solution-meet-in-the-middle">Efficient Solution: Meet in the Middle</h2>
 
-<p>This approach optimizes the computation by:</p>
+<p>Instead of combining four lists at once, split the problem in half.</p>
 
 <ul>
-  <li>
-    <p>Precomputing valid pairs of two categories (pants + skirts).</p>
-  </li>
-  <li>
-    <p>Using a two-pointer or <strong>binary search</strong> approach to efficiently count valid combinations with the remaining budget.</p>
-  </li>
-  <li>
-    <p>Overall complexity: <strong>O(NM + M² log(NM))</strong>, which is manageable for constraints up to 10³.</p>
-  </li>
+  <li><strong>pairSumsA:</strong> every price of pants plus every price of sneakers. With 1,000 items each, that’s at most 1,000,000 sums.</li>
+  <li><strong>pairSumsB:</strong> every price of a skirt plus every price of a t-shirt, also at most 1,000,000 sums. Sort this list.</li>
+  <li>For each sum <code class="language-plaintext highlighter-rouge">a</code> in pairSumsA, the money left is <strong>remaining = budget − a</strong>. Every value in pairSumsB that is ≤ remaining is a valid purchase. Because pairSumsB is sorted, a binary search finds how many there are in O(log n).</li>
 </ul>
 
-<p>See the complete solution in this <a href="https://amzn.to/4iGQXQq" target="_blank">link</a>.</p>
+<p><strong>Walkthrough with the example (budget = 10):</strong></p>
 
-<blockquote>
-  <p>Practice like the job depends on it. Because it does.</p>
-</blockquote>
+<ul>
+  <li>pairSumsA = pants [2, 3] + sneakers [4] = <strong>[6, 7]</strong></li>
+  <li>pairSumsB = skirts [2, 3] + t-shirts [1, 2] = [3, 4, 4, 5] (already sorted)</li>
+  <li>a = 6 → remaining = 4 → values ≤ 4 in [3, 4, 4, 5]: <strong>3</strong></li>
+  <li>a = 7 → remaining = 3 → values ≤ 3: <strong>1</strong></li>
+  <li><strong>Total = 3 + 1 = 4</strong>, the same answer as brute force.</li>
+</ul>
+
+<p><strong>Complexity:</strong> building and sorting the pair sums is O(n² log n), and each lookup is O(log n). With n = 1,000, that’s about 2 × 10⁷ steps instead of 10¹², so it finishes in milliseconds instead of hours.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Approach</th>
+      <th>Time</th>
+      <th>Steps for n = 1,000</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Brute force (4 loops)</td>
+      <td>O(n⁴)</td>
+      <td>10¹²</td>
+    </tr>
+    <tr>
+      <td>Pruning with <code class="language-plaintext highlighter-rouge">continue</code></td>
+      <td>O(n⁴) worst case</td>
+      <td>10¹² worst case</td>
+    </tr>
+    <tr>
+      <td>Meet in the middle</td>
+      <td>O(n² log n)</td>
+      <td>≈ 2 × 10⁷</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>The complete Java implementation, with the binary search helper, the <code class="language-plaintext highlighter-rouge">long</code> arithmetic, and the edge-case tests, is in my book <strong><a href="https://link.amazon/B08nEgB1o" target="_blank">The Code Interview</a></strong>, along with dozens of other real interview questions solved step by step:</p>
 
 <div><center>
   <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
@@ -769,8 +808,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/shopping-budget-options/"
   },
-  "headline": "Shopping options with a limited budget",
-  "description": "Shopping options under a budgeted amount",
+  "headline": "Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)",
+  "description": "Solve the Shopping Options coding interview problem in Java: count every way to buy one item from four categories within a budget, from a 10¹² brute force to a fast meet-in-the-middle solution.",
   "image": "https://codersite.dev/assets/images/shoppingOptions.jpg",
   "datePublished": "2025-03-24T00:00:00+01:00",
   "dateModified": "2025-03-24T00:00:00+01:00",
@@ -808,7 +847,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Shopping options with a limited budget",
+      "name": "Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)",
       "item": "https://codersite.dev/shopping-budget-options/"
     }
   ]
