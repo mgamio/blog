@@ -151,24 +151,60 @@
 ================================================== -->
   <div class="main-content">
     <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
+  .not-found {
+    margin: 10px auto 40px;
     max-width: 600px;
     text-align: center;
   }
-  h1 {
-    margin: 30px 0;
+  .not-found img {
+    width: 150px;
+    height: auto;
+    margin: 10px auto 0;
+    display: block;
+  }
+  .not-found h1 {
+    margin: 20px 0 10px;
     font-size: 4em;
     line-height: 1;
     letter-spacing: -1px;
+    color: #194175;
+  }
+  .not-found .lead {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+  }
+  .not-found .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .not-found .links a {
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .not-found .links .primary {
+    background: #194175;
+    color: #fff;
+  }
+  .not-found .links .secondary {
+    border: 2px solid #194175;
+    color: #194175;
   }
 </style>
 
-<div class="container">
+<div class="not-found">
+  <img src="/assets/images/brand/kit-the-code-fox.svg" alt="Kit, the codersite fox">
   <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+  <p class="lead"><strong>Kit searched every branch, but this page isn't here.</strong></p>
+  <p>It may have moved when the site was reorganized. The article you were looking for is probably one click away.</p>
+  <div class="links">
+    <a class="primary" href="/">Back to the homepage</a>
+    <a class="secondary" href="/categories">Browse articles by topic</a>
+  </div>
 </div>
 
   </div>
@@ -238,6 +274,10 @@
 ================================================== -->
 <footer class="footer">
     <div class="container">
+        <div class="footer-kit">
+            <img src="/assets/images/brand/kit-the-code-fox.svg" width="36" height="40" alt="Kit, the codersite fox">
+            <span>Stay curious. Ship code. Grow.</span>
+        </div>
         <div class="row">
             <div class="col-md-6 col-sm-6 text-center text-lg-left">
                 Copyright © 2026 codersite 

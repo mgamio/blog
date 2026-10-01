@@ -28,6 +28,10 @@ comments: false
 .social-row a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,.05); transition: background .15s ease, transform .15s ease; }
 .social-row a:hover { background: rgba(0,0,0,.1); transform: translateY(-2px); }
 .social-row a img, .social-row a svg { width: 24px; height: 24px; }
+.meet-kit { display: flex; align-items: center; gap: 1.25rem; }
+.meet-kit img { flex: 0 0 96px; width: 96px; height: auto; }
+.meet-kit p { margin-bottom: 0; }
+@media (max-width: 480px) { .meet-kit { flex-direction: column; align-items: flex-start; } }
 .books-heading { font-weight: 700; margin-bottom: .25rem; }
 .books-intro { font-size: .9rem; color: rgba(0,0,0,.5); margin-bottom: 1.25rem; }
 .book-card { margin-bottom: 2rem; }
@@ -85,6 +89,15 @@ comments: false
         <li><span>Cloud Computing</span></li>
 		<li><span>Refactoring</span></li>
       </ul>
+    </div>
+
+    <!-- Mascot -->
+    <div class="about-section meet-kit">
+      <img src="{{ site.baseurl }}/assets/images/brand/kit-the-code-fox.svg" alt="Kit, the codersite fox">
+      <div>
+        <h4>Meet Kit</h4>
+        <p>Kit is the codersite mascot. A fox, because foxes are clever, adaptable and quick to learn, which is exactly what it takes to switch jobs or grow into a senior role. Look closely at Kit's eyes: they're two terminal cursors, always ready for the next line of code. Stay curious. Ship code. Grow.</p>
+      </div>
     </div>
 
     <!-- Languages -->

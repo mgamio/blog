@@ -13,3 +13,18 @@
 	"syntax",
     "starsnonscss"
 ;
+
+/* Kit, the codersite mascot, in the footer */
+.footer-kit {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 10px;
+	font-weight: 600;
+	font-size: 0.9rem;
+	color: #194175;
+}
+.footer-kit img {
+	flex: none;
+}
