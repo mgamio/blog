@@ -7,13 +7,13 @@
 <link rel="icon" href="/assets/images/logo.png">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Designing APIs with Swagger and OpenAPI | codersite</title>
+<title>Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Designing APIs with Swagger and OpenAPI" />
+<meta property="og:title" content="Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The OpenAPI Specifications provides a formal standard for describing HTTP APIs" />
-<meta name="twitter:description" property="og:description" content="The OpenAPI Specifications provides a formal standard for describing HTTP APIs" />
+<meta name="description" content="Design a real REST API before writing any code: a step-by-step OpenAPI 3 tutorial using SwaggerHub, with servers, tags, paths, parameters, responses and live documentation." />
+<meta name="twitter:description" property="og:description" content="Design a real REST API before writing any code: a step-by-step OpenAPI 3 tutorial using SwaggerHub, with servers, tags, paths, parameters, responses and live documentation." />
 <link rel="canonical" href="https://codersite.dev/designing-apis-with-swagger-and-openapi/" />
 <meta property="og:url" content="https://codersite.dev/designing-apis-with-swagger-and-openapi/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2025-02-26T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/swaggerHubOpenAPI.jpg" />
-<meta name="twitter:title" content="Designing APIs with Swagger and OpenAPI" />
+<meta name="twitter:title" content="Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2025-02-26T00:00:00+01:00","datePublished":"2025-02-26T00:00:00+01:00","description":"The OpenAPI Specifications provides a formal standard for describing HTTP APIs","headline":"Designing APIs with Swagger and OpenAPI","image":"https://codersite.dev/assets/images/swaggerHubOpenAPI.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/designing-apis-with-swagger-and-openapi/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/designing-apis-with-swagger-and-openapi/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2025-02-26T00:00:00+01:00","datePublished":"2025-02-26T00:00:00+01:00","description":"Design a real REST API before writing any code: a step-by-step OpenAPI 3 tutorial using SwaggerHub, with servers, tags, paths, parameters, responses and live documentation.","headline":"Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial","image":"https://codersite.dev/assets/images/swaggerHubOpenAPI.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/designing-apis-with-swagger-and-openapi/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/designing-apis-with-swagger-and-openapi/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -167,7 +167,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Designing APIs with Swagger and OpenAPI&url=https://codersite.dev/designing-apis-with-swagger-and-openapi/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial&url=https://codersite.dev/designing-apis-with-swagger-and-openapi/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -215,7 +215,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Designing APIs with Swagger and OpenAPI</h1>
+                <h1 class="posttitle">Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -238,7 +238,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/swaggerHubOpenAPI.jpg" alt="Designing APIs with Swagger and OpenAPI">
+            <img class="featured-image img-fluid" src="/assets/images/swaggerHubOpenAPI.jpg" alt="Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial">
             
 
             
@@ -249,11 +249,19 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>In this series of articles, we will follow a real API project from concept to production, and learn hands-on how to describe and design APIs using OpenAPI in the Swagger Editor.</p>
+                <p>Most API problems aren’t coding problems. They’re design problems found too late: a missing field, an inconsistent name, an error nobody documented. Design-first fixes that by agreeing on the contract before anyone writes code. In this tutorial we design a real Finance API with OpenAPI 3, step by step.</p>
+
+<p><strong>This series:</strong></p>
+
+<ol>
+  <li><strong>Design the API</strong> (this post)</li>
+  <li><a href="https://codersite.dev/swagger-codegen-server-stubs-openapi/" target="_blank">Generate a Spring Boot server with Swagger Codegen</a></li>
+  <li><a href="https://codersite.dev/gradle-building-restful-web-service/" target="_blank">Implement it with Spring Boot, Gradle and OpenAPI</a></li>
+</ol>
 
 <p>The <a href="https://www.openapis.org/" target="_blank">OpenAPI Specification</a> (OAS) enables business knowledge transfer from API provider to API consumer. It is an open standard for describing your APIs, allowing you to provide an API specification encoded in a JSON or YAML document.</p>
 
-<p>This allows customers and developers to understand how a <a href="https://codersite.dev/rest-api-overview/" target="_blank">RESTful API</a> works, how a sequence of APIs work together, generate client code, generate server stub, create tests, apply design standards, what are the expected results, and much, much more.</p>
+<p>This allows customers and developers to understand how a <a href="https://codersite.dev/rest-api-overview/" target="_blank">RESTful API</a> works and how a sequence of APIs works together. It also lets them generate client code and server stubs, create tests, apply design standards, see the expected results, and much, much more.</p>
 
 <p><a href="https://swagger.io/tools/swaggerhub/" target="_blank">SwaggerHub</a> is an online platform where you can design your APIs – be it public APIs, internal private APIs, or microservices. The core principle behind SwaggerHub is Design First, Code Later.</p>
 
@@ -261,31 +269,69 @@
 
 <p>Using SwaggerHub, you can design fast and generate documentation automatically with the OpenAPI specification.</p>
 
+<h2 id="design-first-vs-code-first">Design-First vs. Code-First</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Design-first</th>
+      <th>Code-first</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Contract agreed</td>
+      <td>Before coding</td>
+      <td>After the code exists</td>
+    </tr>
+    <tr>
+      <td>Frontend and backend</td>
+      <td>Work in parallel</td>
+      <td>Frontend waits</td>
+    </tr>
+    <tr>
+      <td>Documentation</td>
+      <td>Generated from the spec</td>
+      <td>Written afterwards, often outdated</td>
+    </tr>
+    <tr>
+      <td>Changing the API</td>
+      <td>Cheap: edit YAML</td>
+      <td>Expensive: change code and clients</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
 <h2 id="requirement">Requirement</h2>
 
-<p><strong>What should my API do?</strong>. Create a Finance API that returns calculated financial metrics, such as Simple and Compound Interest, Present Value (PV), Future Value (FV), Net Present Value (NPV), Internal Rate of Return (IRR), and many more.</p>
+<p><strong>What should my API do?</strong> Create a Finance API that returns calculated financial metrics, such as Simple and Compound Interest, Present Value (PV), Future Value (FV), Net Present Value (NPV), Internal Rate of Return (IRR), and many more.</p>
 
 <p>APIs should be designed from the perspective of the consumer and consider the requirement to abstract the underlying representation to reduce coupling.</p>
 
+<p>If you want to go deeper into design-first, this is the book this series follows:</p>
+
 <div><center>
-  <a href="https://amzn.to/40zUXLa" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../recommended/images/amazonWebServicesInAction.jpg" /></a>
+  <a href="https://amzn.to/3F10p2v" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../recommended/images/designingAPIsWithSwaggerAndOpenAPI.jpg" /></a>
 </center>
 
 <br /></div>
 
 <h2 id="getting-started-with-openapi-specification">Getting Started with OpenAPI Specification</h2>
 
-<p>Once you have created a Free Account in the <a href="https://swagger.io/api-hub/" target="_blank">Swagger editor</a>, sign in to the tool and choose “Create API”.</p>
+<p>Once you have created a free account in <a href="https://swagger.io/api-hub/" target="_blank">SwaggerHub</a>, sign in to the tool and choose “Create API”.</p>
 
-<p><img src="/assets/images/swaggerCreateAPI.jpg" alt="swaggerCreateAPI" title="swagger OpenAPI" class="img-responsive" /></p>
+<p><img src="/assets/images/swaggerCreateAPI.jpg" alt="SwaggerHub Create API dialog" title="SwaggerHub Create API dialog" class="img-responsive" /></p>
 
 <p>Then, select a template or create a Blank API:</p>
 
-<p><img src="/assets/images/swaggerBlankTemplate.jpg" alt="swaggerBlankTemplate" title="swagger Blank Template" class="img-responsive" /></p>
+<p><img src="/assets/images/swaggerBlankTemplate.jpg" alt="SwaggerHub template selection with the Blank API option" title="SwaggerHub template selection with the Blank API option" class="img-responsive" /></p>
 
-<p>Here, the first result:</p>
+<p>Here is the first result:</p>
 
-<p><img src="/assets/images/swaggerInitialAPIEditor.jpg" alt="swaggerInitialAPIEditor" title="swagger Initial API Editor" class="img-responsive" /></p>
+<p><img src="/assets/images/swaggerInitialAPIEditor.jpg" alt="SwaggerHub editor showing the initial blank OpenAPI document" title="SwaggerHub editor showing the initial blank OpenAPI document" class="img-responsive" /></p>
 
 <p>We are going to build an API Description Through Documentation by following the concepts included in <a href="https://learn.openapis.org/specification/" target="_blank">the OpenAPI Specification Explained</a>.</p>
 
@@ -297,44 +343,34 @@
 
 <p><strong>paths</strong>: Holds the relative paths to the individual endpoints and their parameters, and all possible server responses.</p>
 
-<blockquote>
-  <p>The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.</p>
-</blockquote>
-
-<div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
-</center>
-
-<br /></div>
-
-<p>Now, we add more metadata</p>
+<p>Now, we add more metadata.</p>
 
 <p><strong>servers</strong>: an array to specify one or more <strong>base URLs</strong> for your API.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
-</pre></td><td class="rouge-code"><pre><span class="n">servers</span><span class="p">:</span>
-  <span class="p">-</span> <span class="n">description</span><span class="p">:</span> <span class="nc">SwaggerHub</span> <span class="nc">API</span> <span class="nc">Auto</span> <span class="nc">Mocking</span>
-    <span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="c1">//virtserver.swaggerhub.com/MGAMIO/apifinance/v1</span>
-  <span class="p">-</span> <span class="n">description</span><span class="p">:</span> <span class="nc">Production</span> <span class="n">server</span>
-    <span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="c1">//codersite.dev/apifinance/v1</span>
+</pre></td><td class="rouge-code"><pre><span class="na">servers</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">description</span><span class="pi">:</span> <span class="s">SwaggerHub API Auto Mocking</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">https://virtserver.swaggerhub.com/MGAMIO/apifinance/v1</span>
+  <span class="pi">-</span> <span class="na">description</span><span class="pi">:</span> <span class="s">Production server</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">https://codersite.dev/apifinance/v1</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p><strong>tags</strong>: we use a tag to group similar operations. For example:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
-</pre></td><td class="rouge-code"><pre><span class="n">tags</span><span class="p">:</span>
-  <span class="p">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">timeValueOfMoney</span>
-    <span class="n">description</span><span class="p">:</span> <span class="n">time</span> <span class="n">value</span> <span class="n">of</span> <span class="n">money-related</span> <span class="n">operations</span>
-  <span class="p">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">moneyMarkets</span>
-    <span class="n">description</span><span class="p">:</span> <span class="n">operations</span> <span class="n">related</span> <span class="n">to</span> <span class="n">short-term</span> <span class="n">financial</span> <span class="n">instruments</span> <span class="n">which</span> <span class="n">are</span> <span class="n">based</span> <span class="n">on</span> <span class="n">an</span> <span class="n">interest</span> <span class="n">rate</span>
+</pre></td><td class="rouge-code"><pre><span class="na">tags</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">timeValueOfMoney</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s">time value of money-related operations</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">moneyMarkets</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s">operations related to short-term financial instruments which are based on an interest rate</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p><strong>/{path}</strong>: A relative path to an individual endpoint.</p>
@@ -349,7 +385,7 @@
 
 <p>Here is a code snippet of how we define a <em>getSimpleInterest</em> operation:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -376,58 +412,52 @@
 25
 26
 27
-</pre></td><td class="rouge-code"><pre><span class="n">paths</span><span class="p">:</span> 
-  <span class="p">/</span><span class="n">timeValueOfMoney</span><span class="p">/</span><span class="n">simpleInterest</span><span class="p">:</span>
-    <span class="k">get</span><span class="p">:</span>
-      <span class="n">tags</span><span class="p">:</span>
-        <span class="p">-</span> <span class="n">timeValueOfMoney</span>
-      <span class="n">summary</span><span class="p">:</span> <span class="nc">Gets</span> <span class="n">the</span> <span class="n">calculated</span> <span class="n">simple</span> <span class="n">interest</span>
-      <span class="n">description</span><span class="p">:</span> <span class="nc">Gets</span> <span class="n">the</span> <span class="n">calculated</span> <span class="n">simple</span> <span class="n">interest</span> <span class="k">for</span> <span class="n">the</span> <span class="n">requested</span> <span class="n">parameters</span>
-      <span class="n">operationId</span><span class="p">:</span> <span class="n">getSimpleInterest</span>
-      <span class="n">parameters</span><span class="p">:</span>
-        <span class="p">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">principal</span>
-          <span class="k">in</span><span class="p">:</span> <span class="n">query</span>
-          <span class="n">description</span><span class="p">:</span> <span class="k">is</span> <span class="n">the</span> <span class="n">principal</span> <span class="n">amount</span>
-          <span class="n">required</span><span class="p">:</span> <span class="k">true</span>
-          <span class="n">schema</span><span class="p">:</span>
-            <span class="n">type</span><span class="p">:</span> <span class="n">number</span>
-        <span class="p">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">interestRate</span>
-          <span class="k">in</span><span class="p">:</span> <span class="n">query</span>
-          <span class="n">description</span><span class="p">:</span> <span class="k">is</span> <span class="n">the</span> <span class="n">annual</span> <span class="n">rate</span> <span class="n">of</span> <span class="n">interest</span>
-          <span class="n">required</span><span class="p">:</span> <span class="k">true</span>
-          <span class="n">schema</span><span class="p">:</span>
-            <span class="n">type</span><span class="p">:</span> <span class="n">number</span>
-        <span class="p">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">time</span>
-          <span class="k">in</span><span class="p">:</span> <span class="n">query</span>
-          <span class="n">description</span><span class="p">:</span> <span class="k">is</span> <span class="n">the</span> <span class="n">time</span> <span class="k">for</span> <span class="n">which</span> <span class="n">principal</span> <span class="k">is</span> <span class="n">invested</span>
-          <span class="n">required</span><span class="p">:</span> <span class="k">true</span>
-          <span class="n">schema</span><span class="p">:</span>
-            <span class="n">type</span><span class="p">:</span> <span class="n">number</span>
+</pre></td><td class="rouge-code"><pre><span class="na">paths</span><span class="pi">:</span> 
+  <span class="na">/timeValueOfMoney/simpleInterest</span><span class="pi">:</span>
+    <span class="na">get</span><span class="pi">:</span>
+      <span class="na">tags</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">timeValueOfMoney</span>
+      <span class="na">summary</span><span class="pi">:</span> <span class="s">Gets the calculated simple interest</span>
+      <span class="na">description</span><span class="pi">:</span> <span class="s">Gets the calculated simple interest for the requested parameters</span>
+      <span class="na">operationId</span><span class="pi">:</span> <span class="s">getSimpleInterest</span>
+      <span class="na">parameters</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">principal</span>
+          <span class="na">in</span><span class="pi">:</span> <span class="s">query</span>
+          <span class="na">description</span><span class="pi">:</span> <span class="s">is the principal amount</span>
+          <span class="na">required</span><span class="pi">:</span> <span class="kc">true</span>
+          <span class="na">schema</span><span class="pi">:</span>
+            <span class="na">type</span><span class="pi">:</span> <span class="s">number</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">interestRate</span>
+          <span class="na">in</span><span class="pi">:</span> <span class="s">query</span>
+          <span class="na">description</span><span class="pi">:</span> <span class="s">is the annual rate of interest</span>
+          <span class="na">required</span><span class="pi">:</span> <span class="kc">true</span>
+          <span class="na">schema</span><span class="pi">:</span>
+            <span class="na">type</span><span class="pi">:</span> <span class="s">number</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">time</span>
+          <span class="na">in</span><span class="pi">:</span> <span class="s">query</span>
+          <span class="na">description</span><span class="pi">:</span> <span class="s">is the time for which principal is invested</span>
+          <span class="na">required</span><span class="pi">:</span> <span class="kc">true</span>
+          <span class="na">schema</span><span class="pi">:</span>
+            <span class="na">type</span><span class="pi">:</span> <span class="s">number</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Someone who reads your API specification must understand the purpose of your parameters. See <a href="https://codersite.dev/clean-code/" target="_blank">Best practices for writing Clean Code</a></p>
-
-<div><center>
-  <a href="https://amzn.to/3F10p2v" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../recommended/images/designingAPIsWithSwaggerAndOpenAPI.jpg" /></a>
-</center>
-
-<br /></div>
+<p>Someone who reads your API specification must understand the purpose of your parameters. See <a href="https://codersite.dev/clean-code/" target="_blank">Best practices for writing Clean Code</a>.</p>
 
 <p>As you write the specification, documentation is automatically generated.</p>
 
-<p><img src="/assets/images/swaggerEditor.JPG" alt="swaggerEditor" title="swagger Editor" class="img-responsive" /></p>
+<p><img src="/assets/images/swaggerEditor.JPG" alt="SwaggerHub editor with the YAML specification and the generated documentation side by side" title="SwaggerHub editor with the YAML specification and the generated documentation side by side" class="img-responsive" /></p>
 
 <p>You can use the <a href="https://openapi-map.apihandyman.io/" target="_blank">OpenAPI Map</a> as a visual tool to navigate this specification.</p>
 
 <p><strong>responses</strong>: A container for the expected responses of an operation.</p>
 
-<p><strong>{HTTP status code} property</strong>:  Describe the expected response for that HTTP status code.</p>
+<p><strong>{HTTP status code} property</strong>: Describes the expected response for that HTTP status code.</p>
 
 <p><strong>content</strong>: A map containing descriptions of potential response payloads.</p>
 
 <p>Here is an extract of what we expect from the <em>getSimpleInterest</em> operation:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -441,33 +471,33 @@
 12
 13
 14
-</pre></td><td class="rouge-code"><pre>      <span class="n">responses</span><span class="p">:</span>
-        <span class="err">'</span><span class="mi">200</span><span class="err">'</span><span class="p">:</span>
-          <span class="n">description</span><span class="p">:</span> <span class="nc">OK</span>
-          <span class="n">content</span><span class="p">:</span>
-            <span class="n">application</span><span class="p">/</span><span class="n">json</span><span class="p">:</span>
-              <span class="n">schema</span><span class="p">:</span>
-                <span class="err">$</span><span class="n">ref</span><span class="p">:</span> <span class="err">'#</span><span class="p">/</span><span class="n">components</span><span class="p">/</span><span class="n">schemas</span><span class="p">/</span><span class="nc">SimpleInterestResponse</span><span class="err">'</span>
-        <span class="err">'</span><span class="mi">400</span><span class="err">'</span><span class="p">:</span>
-          <span class="n">description</span><span class="p">:</span> <span class="nc">Bad</span> <span class="nc">Request</span>
-          <span class="n">content</span><span class="p">:</span>
-            <span class="n">application</span><span class="p">/</span><span class="n">json</span><span class="p">:</span>
-              <span class="n">schema</span><span class="p">:</span>
-                <span class="err">$</span><span class="n">ref</span><span class="p">:</span> <span class="err">'#</span><span class="p">/</span><span class="n">components</span><span class="p">/</span><span class="n">schemas</span><span class="p">/</span><span class="nc">ErrorDetail</span><span class="err">'</span>
+</pre></td><td class="rouge-code"><pre>      <span class="na">responses</span><span class="pi">:</span>
+        <span class="s1">'</span><span class="s">200'</span><span class="err">:</span>
+          <span class="na">description</span><span class="pi">:</span> <span class="s">OK</span>
+          <span class="na">content</span><span class="pi">:</span>
+            <span class="na">application/json</span><span class="pi">:</span>
+              <span class="na">schema</span><span class="pi">:</span>
+                <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/components/schemas/SimpleInterestResponse'</span>
+      <span class="err">  </span><span class="s1">'</span><span class="s">400'</span><span class="err">:</span>
+          <span class="na">description</span><span class="pi">:</span> <span class="s">Bad Request</span>
+          <span class="na">content</span><span class="pi">:</span>
+            <span class="na">application/json</span><span class="pi">:</span>
+              <span class="na">schema</span><span class="pi">:</span>
+                <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/components/schemas/ErrorDetail'</span>
 
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>We have created a reference to a SimpleInterestResponse Object.</p>
 
-<p><img src="/assets/images/swaggerObjectResponse.JPG" alt="swaggerObjectResponse" title="swagger Object Response" class="img-responsive" /></p>
+<p><img src="/assets/images/swaggerObjectResponse.JPG" alt="SimpleInterestResponse schema in the generated documentation" title="SimpleInterestResponse schema in the generated documentation" class="img-responsive" /></p>
 
-<p>You can execute the “Try Out” button and see an example:</p>
+<p>Click the “Try it out” button to see an example:</p>
 
-<p><img src="/assets/images/swaggerTryOut.jpg" alt="swaggerTryOut" title="swagger Try Out" class="img-responsive" /></p>
+<p><img src="/assets/images/swaggerTryOut.jpg" alt="Swagger UI Try it out result for getSimpleInterest" title="Swagger UI Try it out result for getSimpleInterest" class="img-responsive" /></p>
 
 <p>Here you can see the API specification: <a href="https://app.swaggerhub.com/apis/MGAMIO/apifinance/v1" target="_blank">apifinance/v1</a></p>
 
-<h2 id="notes">Notes</h2>
+<h2 id="key-takeaways">Key Takeaways</h2>
 
 <ul>
   <li>
@@ -481,11 +511,9 @@
   </li>
 </ul>
 
-<p>But what we need is a real implementation of this API specification. In my next article, I will explain the Codegen utility to export this specification to Java code.</p>
+<p><strong>Next:</strong> a specification is only a plan. In <a href="https://codersite.dev/swagger-codegen-server-stubs-openapi/" target="_blank">Part 2</a>, Swagger Codegen turns this file into a running Spring Boot server in minutes.</p>
 
-<blockquote>
-  <p>Master Data Structures &amp; Algorithms — And Ace Your Coding Interviews</p>
-</blockquote>
+<p>Interviews for backend roles increasingly include API design questions, and coding challenges too. Prepare for both:</p>
 
 <div><center>
   <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
@@ -584,8 +612,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/designing-apis-with-swagger-and-openapi/"
   },
-  "headline": "Designing APIs with Swagger and OpenAPI",
-  "description": "The OpenAPI Specifications provides a formal standard for describing HTTP APIs",
+  "headline": "Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial",
+  "description": "Design a real REST API before writing any code: a step-by-step OpenAPI 3 tutorial using SwaggerHub, with servers, tags, paths, parameters, responses and live documentation.",
   "image": "https://codersite.dev/assets/images/swaggerHubOpenAPI.jpg",
   "datePublished": "2025-02-26T00:00:00+01:00",
   "dateModified": "2025-02-26T00:00:00+01:00",
@@ -623,7 +651,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Designing APIs with Swagger and OpenAPI",
+      "name": "Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial",
       "item": "https://codersite.dev/designing-apis-with-swagger-and-openapi/"
     }
   ]

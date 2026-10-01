@@ -1,18 +1,24 @@
 ---
 layout: post
-title:  "Designing APIs with Swagger and OpenAPI"
-description: "The OpenAPI Specifications provides a formal standard for describing HTTP APIs"
+title:  "Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial"
+description: "Design a real REST API before writing any code: a step-by-step OpenAPI 3 tutorial using SwaggerHub, with servers, tags, paths, parameters, responses and live documentation."
 author: moises
 categories: [ Web APIs ]
 image: /assets/images/swaggerHubOpenAPI.jpg
 comments: false
 ---
 
-In this series of articles, we will follow a real API project from concept to production, and learn hands-on how to describe and design APIs using OpenAPI in the Swagger Editor.
+Most API problems aren't coding problems. They're design problems found too late: a missing field, an inconsistent name, an error nobody documented. Design-first fixes that by agreeing on the contract before anyone writes code. In this tutorial we design a real Finance API with OpenAPI 3, step by step.
+
+**This series:**
+
+1. **Design the API** (this post)
+2. [Generate a Spring Boot server with Swagger Codegen](https://codersite.dev/swagger-codegen-server-stubs-openapi/){:target="_blank"}
+3. [Implement it with Spring Boot, Gradle and OpenAPI](https://codersite.dev/gradle-building-restful-web-service/){:target="_blank"}
 
 The [OpenAPI Specification](https://www.openapis.org/){:target="_blank"} (OAS) enables business knowledge transfer from API provider to API consumer. It is an open standard for describing your APIs, allowing you to provide an API specification encoded in a JSON or YAML document.
 
-This allows customers and developers to understand how a [RESTful API](https://codersite.dev/rest-api-overview/){:target="_blank"} works, how a sequence of APIs work together, generate client code, generate server stub, create tests, apply design standards, what are the expected results, and much, much more.
+This allows customers and developers to understand how a [RESTful API](https://codersite.dev/rest-api-overview/){:target="_blank"} works and how a sequence of APIs works together. It also lets them generate client code and server stubs, create tests, apply design standards, see the expected results, and much, much more.
 
 [SwaggerHub](https://swagger.io/tools/swaggerhub/){:target="_blank"} is an online platform where you can design your APIs – be it public APIs, internal private APIs, or microservices. The core principle behind SwaggerHub is Design First, Code Later.
 
@@ -20,29 +26,42 @@ This allows customers and developers to understand how a [RESTful API](https://c
 
 Using SwaggerHub, you can design fast and generate documentation automatically with the OpenAPI specification.
 
+## Design-First vs. Code-First
+
+| | Design-first | Code-first |
+|---|---|---|
+| Contract agreed | Before coding | After the code exists |
+| Frontend and backend | Work in parallel | Frontend waits |
+| Documentation | Generated from the spec | Written afterwards, often outdated |
+| Changing the API | Cheap: edit YAML | Expensive: change code and clients |
+
+<br/>
+
 ## Requirement
 
-**What should my API do?**. Create a Finance API that returns calculated financial metrics, such as Simple and Compound Interest, Present Value (PV), Future Value (FV), Net Present Value (NPV), Internal Rate of Return (IRR), and many more.
+**What should my API do?** Create a Finance API that returns calculated financial metrics, such as Simple and Compound Interest, Present Value (PV), Future Value (FV), Net Present Value (NPV), Internal Rate of Return (IRR), and many more.
 
 APIs should be designed from the perspective of the consumer and consider the requirement to abstract the underlying representation to reduce coupling.
 
+If you want to go deeper into design-first, this is the book this series follows:
+
 <div>
-{%- include amazonWebServicesInAction.html -%}
+{%- include designingAPIsWithSwaggerAndOpenAPI.html -%}
 </div>
 
 ## Getting Started with OpenAPI Specification
 
-Once you have created a Free Account in the [Swagger editor](https://swagger.io/api-hub/){:target="_blank"}, sign in to the tool and choose "Create API".
+Once you have created a free account in [SwaggerHub](https://swagger.io/api-hub/){:target="_blank"}, sign in to the tool and choose "Create API".
 
-![swaggerCreateAPI](/assets/images/swaggerCreateAPI.jpg "swagger OpenAPI"){:class="img-responsive"}
+![SwaggerHub Create API dialog](/assets/images/swaggerCreateAPI.jpg "SwaggerHub Create API dialog"){:class="img-responsive"}
 
 Then, select a template or create a Blank API:
 
-![swaggerBlankTemplate](/assets/images/swaggerBlankTemplate.jpg "swagger Blank Template"){:class="img-responsive"}
+![SwaggerHub template selection with the Blank API option](/assets/images/swaggerBlankTemplate.jpg "SwaggerHub template selection with the Blank API option"){:class="img-responsive"}
 
-Here, the first result:
+Here is the first result:
 
-![swaggerInitialAPIEditor](/assets/images/swaggerInitialAPIEditor.jpg "swagger Initial API Editor"){:class="img-responsive"}
+![SwaggerHub editor showing the initial blank OpenAPI document](/assets/images/swaggerInitialAPIEditor.jpg "SwaggerHub editor showing the initial blank OpenAPI document"){:class="img-responsive"}
 
 We are going to build an API Description Through Documentation by following the concepts included in [the OpenAPI Specification Explained](https://learn.openapis.org/specification/){:target="_blank"}.
 
@@ -54,17 +73,11 @@ By default, it includes the following minimal fields:
 
 **paths**: Holds the relative paths to the individual endpoints and their parameters, and all possible server responses.
 
-> The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.
-
-<div>
-{%- include jediJavaInterviewAds.html -%}
-</div>
-
-Now, we add more metadata
+Now, we add more metadata.
 
 **servers**: an array to specify one or more **base URLs** for your API.
 
-```kotlin
+```yaml
 servers:
   - description: SwaggerHub API Auto Mocking
     url: https://virtserver.swaggerhub.com/MGAMIO/apifinance/v1
@@ -74,7 +87,7 @@ servers:
 
 **tags**: we use a tag to group similar operations. For example:
 
-```kotlin
+```yaml
 tags:
   - name: timeValueOfMoney
     description: time value of money-related operations
@@ -94,7 +107,7 @@ tags:
 
 Here is a code snippet of how we define a *getSimpleInterest* operation:
 
-```kotlin
+```yaml
 paths: 
   /timeValueOfMoney/simpleInterest:
     get:
@@ -124,27 +137,23 @@ paths:
             type: number
 ```
 
-Someone who reads your API specification must understand the purpose of your parameters. See [Best practices for writing Clean Code](https://codersite.dev/clean-code/){:target="_blank"}
-
-<div>
-{%- include designingAPIsWithSwaggerAndOpenAPI.html -%}
-</div>
+Someone who reads your API specification must understand the purpose of your parameters. See [Best practices for writing Clean Code](https://codersite.dev/clean-code/){:target="_blank"}.
 
 As you write the specification, documentation is automatically generated.
 
-![swaggerEditor](/assets/images/swaggerEditor.JPG "swagger Editor"){:class="img-responsive"}
+![SwaggerHub editor with the YAML specification and the generated documentation side by side](/assets/images/swaggerEditor.JPG "SwaggerHub editor with the YAML specification and the generated documentation side by side"){:class="img-responsive"}
 
 You can use the [OpenAPI Map](https://openapi-map.apihandyman.io/){:target="_blank"} as a visual tool to navigate this specification.
 
 **responses**: A container for the expected responses of an operation.
 
-**{HTTP status code} property**:  Describe the expected response for that HTTP status code.
+**{HTTP status code} property**: Describes the expected response for that HTTP status code.
 
 **content**: A map containing descriptions of potential response payloads.
 
 Here is an extract of what we expect from the *getSimpleInterest* operation:
 
-```kotlin
+```yaml
       responses:
         '200':
           description: OK
@@ -163,15 +172,15 @@ Here is an extract of what we expect from the *getSimpleInterest* operation:
 
 We have created a reference to a SimpleInterestResponse Object.
 
-![swaggerObjectResponse](/assets/images/swaggerObjectResponse.JPG "swagger Object Response"){:class="img-responsive"}
+![SimpleInterestResponse schema in the generated documentation](/assets/images/swaggerObjectResponse.JPG "SimpleInterestResponse schema in the generated documentation"){:class="img-responsive"}
 
-You can execute the "Try Out" button and see an example:
+Click the "Try it out" button to see an example:
 
-![swaggerTryOut](/assets/images/swaggerTryOut.jpg "swagger Try Out"){:class="img-responsive"}
+![Swagger UI Try it out result for getSimpleInterest](/assets/images/swaggerTryOut.jpg "Swagger UI Try it out result for getSimpleInterest"){:class="img-responsive"}
 
 Here you can see the API specification: [apifinance/v1](https://app.swaggerhub.com/apis/MGAMIO/apifinance/v1){:target="_blank"}
 
-## Notes
+## Key Takeaways
 
 - The OpenAPI Specification will be the official reference point to understand the final requirements from your users.
 
@@ -179,9 +188,9 @@ Here you can see the API specification: [apifinance/v1](https://app.swaggerhub.c
 
 - Any changes to your implementation code must be updated in the OpenAPI Specification and vice versa.
 
-But what we need is a real implementation of this API specification. In my next article, I will explain the Codegen utility to export this specification to Java code.
+**Next:** a specification is only a plan. In [Part 2](https://codersite.dev/swagger-codegen-server-stubs-openapi/){:target="_blank"}, Swagger Codegen turns this file into a running Spring Boot server in minutes.
 
-> Master Data Structures & Algorithms — And Ace Your Coding Interviews
+Interviews for backend roles increasingly include API design questions, and coding challenges too. Prepare for both:
 
 <div>
 {%- include jediJavaInterviewAds.html -%}

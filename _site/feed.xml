@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>https://codersite.dev/</link>
     <atom:link href="https://codersite.dev/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 01 Oct 2026 11:49:20 +0200</pubDate>
-    <lastBuildDate>Thu, 01 Oct 2026 11:49:20 +0200</lastBuildDate>
+    <pubDate>Thu, 01 Oct 2026 12:07:51 +0200</pubDate>
+    <lastBuildDate>Thu, 01 Oct 2026 12:07:51 +0200</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
@@ -1782,12 +1782,20 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
       </item>
     
       <item>
-        <title>Designing APIs with Swagger and OpenAPI</title>
-        <description>&lt;p&gt;In this series of articles, we will follow a real API project from concept to production, and learn hands-on how to describe and design APIs using OpenAPI in the Swagger Editor.&lt;/p&gt;
+        <title>Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial</title>
+        <description>&lt;p&gt;Most API problems aren’t coding problems. They’re design problems found too late: a missing field, an inconsistent name, an error nobody documented. Design-first fixes that by agreeing on the contract before anyone writes code. In this tutorial we design a real Finance API with OpenAPI 3, step by step.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;This series:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Design the API&lt;/strong&gt; (this post)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://codersite.dev/swagger-codegen-server-stubs-openapi/&quot; target=&quot;_blank&quot;&gt;Generate a Spring Boot server with Swagger Codegen&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://codersite.dev/gradle-building-restful-web-service/&quot; target=&quot;_blank&quot;&gt;Implement it with Spring Boot, Gradle and OpenAPI&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;The &lt;a href=&quot;https://www.openapis.org/&quot; target=&quot;_blank&quot;&gt;OpenAPI Specification&lt;/a&gt; (OAS) enables business knowledge transfer from API provider to API consumer. It is an open standard for describing your APIs, allowing you to provide an API specification encoded in a JSON or YAML document.&lt;/p&gt;
 
-&lt;p&gt;This allows customers and developers to understand how a &lt;a href=&quot;https://codersite.dev/rest-api-overview/&quot; target=&quot;_blank&quot;&gt;RESTful API&lt;/a&gt; works, how a sequence of APIs work together, generate client code, generate server stub, create tests, apply design standards, what are the expected results, and much, much more.&lt;/p&gt;
+&lt;p&gt;This allows customers and developers to understand how a &lt;a href=&quot;https://codersite.dev/rest-api-overview/&quot; target=&quot;_blank&quot;&gt;RESTful API&lt;/a&gt; works and how a sequence of APIs works together. It also lets them generate client code and server stubs, create tests, apply design standards, see the expected results, and much, much more.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://swagger.io/tools/swaggerhub/&quot; target=&quot;_blank&quot;&gt;SwaggerHub&lt;/a&gt; is an online platform where you can design your APIs – be it public APIs, internal private APIs, or microservices. The core principle behind SwaggerHub is Design First, Code Later.&lt;/p&gt;
 
@@ -1795,31 +1803,69 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 
 &lt;p&gt;Using SwaggerHub, you can design fast and generate documentation automatically with the OpenAPI specification.&lt;/p&gt;
 
+&lt;h2 id=&quot;design-first-vs-code-first&quot;&gt;Design-First vs. Code-First&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;Design-first&lt;/th&gt;
+      &lt;th&gt;Code-first&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Contract agreed&lt;/td&gt;
+      &lt;td&gt;Before coding&lt;/td&gt;
+      &lt;td&gt;After the code exists&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Frontend and backend&lt;/td&gt;
+      &lt;td&gt;Work in parallel&lt;/td&gt;
+      &lt;td&gt;Frontend waits&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Documentation&lt;/td&gt;
+      &lt;td&gt;Generated from the spec&lt;/td&gt;
+      &lt;td&gt;Written afterwards, often outdated&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Changing the API&lt;/td&gt;
+      &lt;td&gt;Cheap: edit YAML&lt;/td&gt;
+      &lt;td&gt;Expensive: change code and clients&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;h2 id=&quot;requirement&quot;&gt;Requirement&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;What should my API do?&lt;/strong&gt;. Create a Finance API that returns calculated financial metrics, such as Simple and Compound Interest, Present Value (PV), Future Value (FV), Net Present Value (NPV), Internal Rate of Return (IRR), and many more.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What should my API do?&lt;/strong&gt; Create a Finance API that returns calculated financial metrics, such as Simple and Compound Interest, Present Value (PV), Future Value (FV), Net Present Value (NPV), Internal Rate of Return (IRR), and many more.&lt;/p&gt;
 
 &lt;p&gt;APIs should be designed from the perspective of the consumer and consider the requirement to abstract the underlying representation to reduce coupling.&lt;/p&gt;
 
+&lt;p&gt;If you want to go deeper into design-first, this is the book this series follows:&lt;/p&gt;
+
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/40zUXLa&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../recommended/images/amazonWebServicesInAction.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://amzn.to/3F10p2v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../recommended/images/designingAPIsWithSwaggerAndOpenAPI.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;getting-started-with-openapi-specification&quot;&gt;Getting Started with OpenAPI Specification&lt;/h2&gt;
 
-&lt;p&gt;Once you have created a Free Account in the &lt;a href=&quot;https://swagger.io/api-hub/&quot; target=&quot;_blank&quot;&gt;Swagger editor&lt;/a&gt;, sign in to the tool and choose “Create API”.&lt;/p&gt;
+&lt;p&gt;Once you have created a free account in &lt;a href=&quot;https://swagger.io/api-hub/&quot; target=&quot;_blank&quot;&gt;SwaggerHub&lt;/a&gt;, sign in to the tool and choose “Create API”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerCreateAPI.jpg&quot; alt=&quot;swaggerCreateAPI&quot; title=&quot;swagger OpenAPI&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerCreateAPI.jpg&quot; alt=&quot;SwaggerHub Create API dialog&quot; title=&quot;SwaggerHub Create API dialog&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Then, select a template or create a Blank API:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerBlankTemplate.jpg&quot; alt=&quot;swaggerBlankTemplate&quot; title=&quot;swagger Blank Template&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerBlankTemplate.jpg&quot; alt=&quot;SwaggerHub template selection with the Blank API option&quot; title=&quot;SwaggerHub template selection with the Blank API option&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Here, the first result:&lt;/p&gt;
+&lt;p&gt;Here is the first result:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerInitialAPIEditor.jpg&quot; alt=&quot;swaggerInitialAPIEditor&quot; title=&quot;swagger Initial API Editor&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerInitialAPIEditor.jpg&quot; alt=&quot;SwaggerHub editor showing the initial blank OpenAPI document&quot; title=&quot;SwaggerHub editor showing the initial blank OpenAPI document&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We are going to build an API Description Through Documentation by following the concepts included in &lt;a href=&quot;https://learn.openapis.org/specification/&quot; target=&quot;_blank&quot;&gt;the OpenAPI Specification Explained&lt;/a&gt;.&lt;/p&gt;
 
@@ -1831,44 +1877,34 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 
 &lt;p&gt;&lt;strong&gt;paths&lt;/strong&gt;: Holds the relative paths to the individual endpoints and their parameters, and all possible server responses.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/theCodeInterview.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;p&gt;Now, we add more metadata&lt;/p&gt;
+&lt;p&gt;Now, we add more metadata.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;servers&lt;/strong&gt;: an array to specify one or more &lt;strong&gt;base URLs&lt;/strong&gt; for your API.&lt;/p&gt;
 
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
 4
 5
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;servers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SwaggerHub&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;API&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Auto&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Mocking&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//virtserver.swaggerhub.com/MGAMIO/apifinance/v1&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Production&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//codersite.dev/apifinance/v1&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;na&quot;&gt;servers&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;SwaggerHub API Auto Mocking&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://virtserver.swaggerhub.com/MGAMIO/apifinance/v1&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Production server&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://codersite.dev/apifinance/v1&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;tags&lt;/strong&gt;: we use a tag to group similar operations. For example:&lt;/p&gt;
 
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
 4
 5
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeValueOfMoney&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;money-related&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;operations&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;moneyMarkets&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;operations&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;related&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;short-term&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;financial&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instruments&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;which&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;are&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;based&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rate&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;timeValueOfMoney&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;time value of money-related operations&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;moneyMarkets&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;operations related to short-term financial instruments which are based on an interest rate&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;/{path}&lt;/strong&gt;: A relative path to an individual endpoint.&lt;/p&gt;
@@ -1883,7 +1919,7 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 
 &lt;p&gt;Here is a code snippet of how we define a &lt;em&gt;getSimpleInterest&lt;/em&gt; operation:&lt;/p&gt;
 
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
 4
@@ -1910,58 +1946,52 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 25
 26
 27
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timeValueOfMoney&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;simpleInterest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeValueOfMoney&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Gets&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;calculated&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;simple&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interest&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Gets&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;calculated&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;simple&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interest&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requested&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parameters&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;operationId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getSimpleInterest&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;principal&lt;/span&gt;
-          &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;principal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interestRate&lt;/span&gt;
-          &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;annual&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interest&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;
-          &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;which&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;principal&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;invested&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+  &lt;span class=&quot;na&quot;&gt;/timeValueOfMoney/simpleInterest&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;timeValueOfMoney&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Gets the calculated simple interest&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Gets the calculated simple interest for the requested parameters&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;operationId&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;getSimpleInterest&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;principal&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;query&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;is the principal amount&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;number&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;interestRate&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;query&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;is the annual rate of interest&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;number&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;time&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;query&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;is the time for which principal is invested&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;number&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Someone who reads your API specification must understand the purpose of your parameters. See &lt;a href=&quot;https://codersite.dev/clean-code/&quot; target=&quot;_blank&quot;&gt;Best practices for writing Clean Code&lt;/a&gt;&lt;/p&gt;
-
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3F10p2v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../recommended/images/designingAPIsWithSwaggerAndOpenAPI.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
+&lt;p&gt;Someone who reads your API specification must understand the purpose of your parameters. See &lt;a href=&quot;https://codersite.dev/clean-code/&quot; target=&quot;_blank&quot;&gt;Best practices for writing Clean Code&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;As you write the specification, documentation is automatically generated.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerEditor.JPG&quot; alt=&quot;swaggerEditor&quot; title=&quot;swagger Editor&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerEditor.JPG&quot; alt=&quot;SwaggerHub editor with the YAML specification and the generated documentation side by side&quot; title=&quot;SwaggerHub editor with the YAML specification and the generated documentation side by side&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can use the &lt;a href=&quot;https://openapi-map.apihandyman.io/&quot; target=&quot;_blank&quot;&gt;OpenAPI Map&lt;/a&gt; as a visual tool to navigate this specification.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;responses&lt;/strong&gt;: A container for the expected responses of an operation.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;{HTTP status code} property&lt;/strong&gt;:  Describe the expected response for that HTTP status code.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;{HTTP status code} property&lt;/strong&gt;: Describes the expected response for that HTTP status code.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;content&lt;/strong&gt;: A map containing descriptions of potential response payloads.&lt;/p&gt;
 
 &lt;p&gt;Here is an extract of what we expect from the &lt;em&gt;getSimpleInterest&lt;/em&gt; operation:&lt;/p&gt;
 
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
 4
@@ -1975,33 +2005,33 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 12
 13
 14
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;      &lt;span class=&quot;n&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OK&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-              &lt;span class=&quot;n&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ref&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&apos;#&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;components&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;schemas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SimpleInterestResponse&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bad&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Request&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-              &lt;span class=&quot;n&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ref&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&apos;#&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;components&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;schemas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ErrorDetail&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;      &lt;span class=&quot;na&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;200&apos;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;OK&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;#/components/schemas/SimpleInterestResponse&apos;&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;400&apos;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Bad Request&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;#/components/schemas/ErrorDetail&apos;&lt;/span&gt;
 
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;We have created a reference to a SimpleInterestResponse Object.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerObjectResponse.JPG&quot; alt=&quot;swaggerObjectResponse&quot; title=&quot;swagger Object Response&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerObjectResponse.JPG&quot; alt=&quot;SimpleInterestResponse schema in the generated documentation&quot; title=&quot;SimpleInterestResponse schema in the generated documentation&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;You can execute the “Try Out” button and see an example:&lt;/p&gt;
+&lt;p&gt;Click the “Try it out” button to see an example:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerTryOut.jpg&quot; alt=&quot;swaggerTryOut&quot; title=&quot;swagger Try Out&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/swaggerTryOut.jpg&quot; alt=&quot;Swagger UI Try it out result for getSimpleInterest&quot; title=&quot;Swagger UI Try it out result for getSimpleInterest&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Here you can see the API specification: &lt;a href=&quot;https://app.swaggerhub.com/apis/MGAMIO/apifinance/v1&quot; target=&quot;_blank&quot;&gt;apifinance/v1&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;notes&quot;&gt;Notes&lt;/h2&gt;
+&lt;h2 id=&quot;key-takeaways&quot;&gt;Key Takeaways&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -2015,11 +2045,9 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;But what we need is a real implementation of this API specification. In my next article, I will explain the Codegen utility to export this specification to Java code.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Next:&lt;/strong&gt; a specification is only a plan. In &lt;a href=&quot;https://codersite.dev/swagger-codegen-server-stubs-openapi/&quot; target=&quot;_blank&quot;&gt;Part 2&lt;/a&gt;, Swagger Codegen turns this file into a running Spring Boot server in minutes.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Master Data Structures &amp;amp; Algorithms — And Ace Your Coding Interviews&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Interviews for backend roles increasingly include API design questions, and coding challenges too. Prepare for both:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
   &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/theCodeInterview.jpg&quot; /&gt;&lt;/a&gt;
