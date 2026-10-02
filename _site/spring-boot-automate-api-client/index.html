@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Spring REST - Automate an API Client Request | codersite</title>
+<title>Break Out of Nested Loops in Java: Automating a Real REST API Client | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Spring REST - Automate an API Client Request" />
+<meta property="og:title" content="Break Out of Nested Loops in Java: Automating a Real REST API Client" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Creating a program to automate an API Client Request." />
-<meta name="twitter:description" property="og:description" content="Creating a program to automate an API Client Request." />
+<meta name="description" content="A real Spring REST client that walks buyers, suppliers, customer numbers and articles to place a test order, and how a labeled break replaces three flags and three if-checks." />
+<meta name="twitter:description" property="og:description" content="A real Spring REST client that walks buyers, suppliers, customer numbers and articles to place a test order, and how a labeled break replaces three flags and three if-checks." />
 <link rel="canonical" href="https://codersite.dev/spring-boot-automate-api-client/" />
 <meta property="og:url" content="https://codersite.dev/spring-boot-automate-api-client/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2024-10-30T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/apiClientRequest.jpg" />
-<meta name="twitter:title" content="Spring REST - Automate an API Client Request" />
+<meta name="twitter:title" content="Break Out of Nested Loops in Java: Automating a Real REST API Client" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2024-10-30T00:00:00+01:00","datePublished":"2024-10-30T00:00:00+01:00","description":"Creating a program to automate an API Client Request.","headline":"Spring REST - Automate an API Client Request","image":"https://codersite.dev/assets/images/apiClientRequest.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/spring-boot-automate-api-client/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/spring-boot-automate-api-client/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2024-10-30T00:00:00+01:00","datePublished":"2024-10-30T00:00:00+01:00","description":"A real Spring REST client that walks buyers, suppliers, customer numbers and articles to place a test order, and how a labeled break replaces three flags and three if-checks.","headline":"Break Out of Nested Loops in Java: Automating a Real REST API Client","image":"https://codersite.dev/assets/images/apiClientRequest.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/spring-boot-automate-api-client/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/spring-boot-automate-api-client/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -167,7 +167,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Spring REST - Automate an API Client Request&url=https://codersite.dev/spring-boot-automate-api-client/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Break Out of Nested Loops in Java: Automating a Real REST API Client&url=https://codersite.dev/spring-boot-automate-api-client/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -215,7 +215,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Spring REST - Automate an API Client Request</h1>
+                <h1 class="posttitle">Break Out of Nested Loops in Java: Automating a Real REST API Client</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -223,7 +223,7 @@
                 <p class="post-meta-line">
                     <time datetime="2024-10-30T00:00:00+01:00" itemprop="datePublished">Oct 30, 2024</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">8 min read</span>
+                    <span class="meta-reading-time">10 min read</span>
                     
                 </p>
 
@@ -238,7 +238,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/apiClientRequest.jpg" alt="Spring REST - Automate an API Client Request">
+            <img class="featured-image img-fluid" src="/assets/images/apiClientRequest.jpg" alt="Break Out of Nested Loops in Java: Automating a Real REST API Client">
             
 
             
@@ -249,41 +249,84 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>We will create an <a href="https://codersite.dev/building-rest-api-client/" target="_blank">API Client</a> to automate the creation of an Order based on a combination of Buyers, Suppliers, Customer Numbers, and Articles.</p>
+                <p>Testing an order API by hand means clicking through buyers, suppliers, customer numbers and articles until you find a combination that works. This program does it in seconds: it walks the API, finds the first valid combination, places the order and stops. Along the way it shows the right way to escape four nested loops in Java.</p>
+
+<p>We will create an <a href="https://codersite.dev/building-rest-api-client/" target="_blank">API Client</a> to automate the creation of an Order based on a combination of Buyers, Suppliers, Customer Numbers, and Articles.</p>
 
 <p>You can find the API specification in the following link.</p>
 
 <p><a href="https://app.swaggerhub.com/apis-docs/MGAMIO/selly-order_api/3.0.0" target="_blank">Order API</a>.</p>
 
+<blockquote>
+  <p><strong>A note for 2026:</strong> this client uses <code class="language-plaintext highlighter-rouge">OAuth2RestTemplate</code> from the Spring Security OAuth project, which is deprecated, and the password grant, which Spring Security 7.0 removed. It still works in projects on those older versions. For new code, see the follow-up: <a href="https://codersite.dev/spring-restclient-replace-oauth2resttemplate/" target="_blank">Replace OAuth2RestTemplate with RestClient</a>. The loop logic in this post stays exactly the same.</p>
+</blockquote>
+
 <h2 id="test-program">Test Program</h2>
 
-<p>Once a User is logged in, it can access a pool of Buyers. A Buyer can order articles from different Suppliers. But first, every Buyer must be identified by a unique customer number to proceed with creating orders.</p>
+<p>Once users are logged in, they can access a pool of Buyers. A Buyer can order articles from different Suppliers. But first, every Buyer must be identified by a unique customer number to proceed with creating orders.</p>
 
-<p>We proceed in that way because they are required parameters:</p>
+<p>Each call needs the IDs returned by the previous one, because they are required parameters:</p>
 
-<p><img src="/assets/images/articlesEndpoint.jpg" alt="articlesEndpoint" title="springOAuth" class="img-responsive" /></p>
+<table>
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Call</th>
+      <th>Needs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">GET /api/v2/buyers</code></td>
+      <td>nothing</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">GET /api/v2/suppliers</code></td>
+      <td>buyerId</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">GET /api/v2/customerNumbers</code></td>
+      <td>buyerId, supplierId</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">GET /api/v2/articles</code></td>
+      <td>buyerId, supplierId, customerNumberId</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code class="language-plaintext highlighter-rouge">POST /api/v2/orders</code></td>
+      <td>all of the above + one article</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Once the program localizes at least one article navigating through these entities, we build an order, send the request, and abort the program.</p>
+<p><br /></p>
+
+<p><img src="/assets/images/articlesEndpoint.jpg" alt="Swagger UI: GET /api/v2/articles requires buyerId, supplierId and customerNumberId" title="Swagger UI: GET /api/v2/articles requires buyerId, supplierId and customerNumberId" class="img-responsive" /></p>
+
+<p>Once the program finds at least one article by navigating through these entities, it builds an order, sends the request, and stops.</p>
 
 <h3 id="what-we-need-to-use-in-the-program">What we need to use in the Program</h3>
 
 <p><strong>continue statement</strong></p>
 
-<p>The continue statement is used when we want to skip a particular condition and continue the rest of the execution. The Java continue statement is used for all types of loops, but it is generally used in for, while, and do-while loops.</p>
+<p>The continue statement skips the rest of the current iteration and moves on to the next one. It works in all Java loops: for, while, and do-while.</p>
 
 <p><strong>break keyword</strong></p>
 
-<p>The break keyword in Java is used to terminate the execution of a loop or switch statement prematurely. When a break statement is encountered, control is transferred to the statement immediately following the enclosing loop or switch.</p>
+<p>The break keyword terminates a loop or switch statement early. Control moves to the statement immediately after the enclosing loop or switch.</p>
 
 <p><strong>OAuth2RestTemplate</strong></p>
 
-<p>Rest template that is able to make <a href="https://codersite.dev/spring-boot-oauth2/" target="_blank">OAuth2</a>-authenticated REST requests with the credentials of the provided resource.</p>
+<p>A RestTemplate that makes <a href="https://codersite.dev/spring-boot-oauth2/" target="_blank">OAuth2</a>-authenticated REST requests with the credentials of the provided resource.</p>
 
 <p>We define a boolean variable to control when an article is found.</p>
 
-<blockquote>
-  <p>Go from writing code to designing systems that scale to millions of users</p>
-</blockquote>
+<p>A test helper today, a production tool tomorrow. Small design choices like these decide whether code stays readable as it grows:</p>
 
 <div><center>
   <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="../assets/images/softwareDesign1.png" /></a>
@@ -293,7 +336,7 @@
 
 <p>Here is the program code.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -419,139 +462,171 @@
 124
 125
 126
-127
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="k">final</span> <span class="kd">class</span> <span class="nc">CreateOrderRandomTest</span> <span class="p">{</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">CreateOrderRandomTest</span> <span class="o">{</span>
 
-  <span class="k">private</span> <span class="n">static</span> <span class="k">final</span> <span class="nc">Logger</span> <span class="n">logger</span> <span class="p">=</span> <span class="nc">LoggerFactory</span><span class="p">.</span><span class="nf">getLogger</span><span class="p">(</span><span class="nc">CreateOrderRandomTest</span><span class="p">.</span><span class="k">class</span><span class="p">);</span>
-  
-  <span class="k">private</span> <span class="n">static</span> <span class="nc">ResourceOwnerPasswordResourceDetails</span> <span class="n">resourceDetails</span><span class="p">;</span>
-  <span class="k">private</span> <span class="n">static</span> <span class="nc">OAuth2RestTemplate</span> <span class="n">restTemplate</span><span class="p">;</span>
-  <span class="k">private</span> <span class="n">static</span> <span class="nc">HttpHeaders</span> <span class="n">headers</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="nc">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="nc">CreateOrderRandomTest</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 
-  <span class="n">static</span> <span class="nc">String</span> <span class="n">apiHost</span> <span class="p">=</span> <span class="s">"http://localhost:41231/cloud"</span><span class="p">;</span>
-  <span class="n">static</span> <span class="nc">String</span> <span class="n">tokenUri</span> <span class="p">=</span> <span class="n">apiHost</span> <span class="p">+</span> <span class="s">"/oauth/token"</span><span class="p">;</span>
-  <span class="n">static</span> <span class="nc">String</span> <span class="n">url</span> <span class="p">=</span> <span class="n">apiHost</span> <span class="p">+</span> <span class="s">"/api/v2/"</span><span class="p">;</span>
-  <span class="n">static</span> <span class="nc">String</span> <span class="n">clientId</span> <span class="p">=</span> <span class="s">"your_clientId"</span><span class="p">;</span> 
-  <span class="n">static</span> <span class="nc">String</span> <span class="n">secret</span> <span class="p">=</span> <span class="s">"your_secrret"</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="nc">ResourceOwnerPasswordResourceDetails</span> <span class="n">resourceDetails</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="nc">OAuth2RestTemplate</span> <span class="n">restTemplate</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="nc">HttpHeaders</span> <span class="n">headers</span><span class="o">;</span>
 
-  <span class="k">public</span> <span class="n">static</span> <span class="n">void</span> <span class="nf">main</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">static</span> <span class="nc">String</span> <span class="n">apiHost</span> <span class="o">=</span> <span class="s">"http://localhost:41231/cloud"</span><span class="o">;</span>
+  <span class="kd">static</span> <span class="nc">String</span> <span class="n">tokenUri</span> <span class="o">=</span> <span class="n">apiHost</span> <span class="o">+</span> <span class="s">"/oauth/token"</span><span class="o">;</span>
+  <span class="kd">static</span> <span class="nc">String</span> <span class="n">url</span> <span class="o">=</span> <span class="n">apiHost</span> <span class="o">+</span> <span class="s">"/api/v2/"</span><span class="o">;</span>
+  <span class="kd">static</span> <span class="nc">String</span> <span class="n">clientId</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">getenv</span><span class="o">(</span><span class="s">"API_CLIENT_ID"</span><span class="o">);</span>
+  <span class="kd">static</span> <span class="nc">String</span> <span class="n">secret</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">getenv</span><span class="o">(</span><span class="s">"API_CLIENT_SECRET"</span><span class="o">);</span>
 
-    <span class="n">headers</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">HttpHeaders</span><span class="p">();</span>
-    <span class="n">restTemplate</span> <span class="p">=</span> <span class="nf">buildRestTemplate</span><span class="p">(</span><span class="n">clientId</span><span class="p">,</span> <span class="n">secret</span><span class="p">);</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 
-    <span class="k">try</span> <span class="p">{</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HttpHeaders</span><span class="o">();</span>
+    <span class="n">restTemplate</span> <span class="o">=</span> <span class="n">buildRestTemplate</span><span class="o">(</span><span class="n">clientId</span><span class="o">,</span> <span class="n">secret</span><span class="o">);</span>
 
-      <span class="nc">String</span> <span class="n">urlRequest</span> <span class="p">=</span> <span class="n">url</span> <span class="p">+</span> <span class="s">"buyers"</span><span class="p">;</span>
+    <span class="k">try</span> <span class="o">{</span>
 
-      <span class="nc">HttpEntity</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">entity</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">HttpEntity</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;(</span><span class="n">headers</span><span class="p">);</span>
-      <span class="nc">ResponseEntity</span><span class="p">&lt;</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">Buyer</span><span class="p">&gt;&gt;</span> <span class="n">listOfBuyersResponse</span> <span class="p">=</span> <span class="n">restTemplate</span><span class="p">.</span><span class="nf">exchange</span><span class="p">(</span><span class="n">urlRequest</span><span class="p">,</span> 
-          <span class="nc">HttpMethod</span><span class="p">.</span><span class="nc">GET</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">new</span> <span class="nc">ParameterizedTypeReference</span><span class="p">&lt;</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">Buyer</span><span class="p">&gt;&gt;(){});</span>
+      <span class="nc">String</span> <span class="n">urlRequest</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s">"buyers"</span><span class="o">;</span>
 
-      <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Buyer</span><span class="p">&gt;</span> <span class="n">listOfBuyers</span> <span class="p">=</span> <span class="n">listOfBuyersResponse</span><span class="p">.</span><span class="nf">getBody</span><span class="p">();</span>
-	  
-      <span class="n">boolean</span> <span class="n">atLeastOneCustomerNumberWithArticles</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
-	  
-      <span class="k">for</span> <span class="p">(</span><span class="nc">Buyer</span> <span class="n">buyer</span> <span class="p">:</span> <span class="n">listOfBuyers</span><span class="p">)</span> <span class="p">{</span>
-	  
-        <span class="n">urlRequest</span> <span class="p">=</span> <span class="n">url</span> <span class="p">+</span> <span class="s">"suppliers"</span><span class="p">;</span>
-		
-        <span class="nc">ResponseEntity</span><span class="p">&lt;</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">Supplier</span><span class="p">&gt;&gt;</span> <span class="n">listOfSuppliersResponse</span> <span class="p">=</span> <span class="n">restTemplate</span><span class="p">.</span><span class="nf">exchange</span><span class="p">(</span><span class="n">urlRequest</span> <span class="p">+</span> <span class="s">"?buyerId="</span> <span class="p">+</span> <span class="n">buyer</span><span class="p">.</span><span class="nf">getBuyerId</span><span class="p">(),</span> 
-            <span class="nc">HttpMethod</span><span class="p">.</span><span class="nc">GET</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">new</span> <span class="nc">ParameterizedTypeReference</span><span class="p">&lt;</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">Supplier</span><span class="p">&gt;&gt;(){});</span>
-        
-        <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Supplier</span><span class="p">&gt;</span> <span class="n">listOfSuppliers</span> <span class="p">=</span> <span class="n">listOfSuppliersResponse</span><span class="p">.</span><span class="nf">getBody</span><span class="p">();</span>
-        
-        <span class="k">if</span> <span class="p">(</span><span class="n">listOfSuppliers</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="p">==</span> <span class="mi">0</span><span class="p">)</span>
-          <span class="k">continue</span><span class="p">;</span>
-		  
-          <span class="k">for</span> <span class="p">(</span><span class="nc">Supplier</span> <span class="n">supplier</span> <span class="p">:</span> <span class="n">listOfSuppliers</span><span class="p">)</span> <span class="p">{</span>
-		  
-            <span class="n">urlRequest</span> <span class="p">=</span> <span class="n">url</span> <span class="p">+</span> <span class="s">"customerNumbers"</span><span class="p">;</span>
-			
-            <span class="nc">ResponseEntity</span><span class="p">&lt;</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">CustomerNumber</span><span class="p">&gt;&gt;</span> <span class="n">listOfCustomerNumbersResponse</span> <span class="p">=</span> <span class="n">restTemplate</span><span class="p">.</span><span class="nf">exchange</span><span class="p">(</span>
-                <span class="n">urlRequest</span> <span class="p">+</span> <span class="s">"?buyerId="</span> <span class="p">+</span> <span class="n">buyer</span><span class="p">.</span><span class="nf">getBuyerId</span><span class="p">()</span> <span class="p">+</span> <span class="s">"&amp;supplierId="</span> <span class="p">+</span> <span class="n">supplier</span><span class="p">.</span><span class="nf">getSupplierId</span><span class="p">(),</span> 
-                <span class="nc">HttpMethod</span><span class="p">.</span><span class="nc">GET</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">new</span> <span class="nc">ParameterizedTypeReference</span><span class="p">&lt;</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">CustomerNumber</span><span class="p">&gt;&gt;(){});</span>
+      <span class="nc">HttpEntity</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">entity</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HttpEntity</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;(</span><span class="n">headers</span><span class="o">);</span>
+      <span class="nc">ResponseEntity</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Buyer</span><span class="o">&gt;&gt;</span> <span class="n">listOfBuyersResponse</span> <span class="o">=</span> <span class="n">restTemplate</span><span class="o">.</span><span class="na">exchange</span><span class="o">(</span><span class="n">urlRequest</span><span class="o">,</span>
+          <span class="nc">HttpMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span> <span class="k">new</span> <span class="nc">ParameterizedTypeReference</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Buyer</span><span class="o">&gt;&gt;(){});</span>
 
-            <span class="nc">List</span><span class="p">&lt;</span><span class="nc">CustomerNumber</span><span class="p">&gt;</span> <span class="n">listOfCustomerNumbers</span> <span class="p">=</span> <span class="n">listOfCustomerNumbersResponse</span><span class="p">.</span><span class="nf">getBody</span><span class="p">();</span>
+      <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Buyer</span><span class="o">&gt;</span> <span class="n">listOfBuyers</span> <span class="o">=</span> <span class="n">listOfBuyersResponse</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="n">listOfCustomerNumbers</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="p">==</span> <span class="mi">0</span><span class="p">)</span>
-              <span class="k">continue</span><span class="p">;</span>
+      <span class="kt">boolean</span> <span class="n">atLeastOneCustomerNumberWithArticles</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
 
-              <span class="k">for</span> <span class="p">(</span><span class="nc">CustomerNumber</span> <span class="n">customerNumber</span> <span class="p">:</span> <span class="n">listOfCustomerNumbers</span><span class="p">)</span> <span class="p">{</span>
-                
-                <span class="n">urlRequest</span> <span class="p">=</span> <span class="n">url</span> <span class="p">+</span> <span class="s">"articles"</span><span class="p">;</span>
-				
-                <span class="nc">ResponseEntity</span><span class="p">&lt;</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">Article</span><span class="p">&gt;&gt;</span> <span class="n">listOfArticlesResponse</span> <span class="p">=</span> <span class="n">restTemplate</span><span class="p">.</span><span class="nf">exchange</span><span class="p">(</span><span class="n">urlRequest</span> <span class="p">+</span> <span class="s">"?buyerId="</span> <span class="p">+</span> <span class="n">buyer</span><span class="p">.</span><span class="nf">getBuyerId</span><span class="p">()</span> <span class="p">+</span> 
-                    <span class="s">"&amp;supplierId="</span> <span class="p">+</span> <span class="n">supplier</span><span class="p">.</span><span class="nf">getSupplierId</span><span class="p">()</span> <span class="p">+</span> <span class="s">"&amp;customerNumberId="</span> <span class="p">+</span> <span class="n">customerNumber</span><span class="p">.</span><span class="nf">getCustomerNumberId</span><span class="p">(),</span> 
-                    <span class="nc">HttpMethod</span><span class="p">.</span><span class="nc">GET</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">new</span> <span class="nc">ParameterizedTypeReference</span><span class="p">&lt;</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">Article</span><span class="p">&gt;&gt;(){});</span>
+      <span class="k">for</span> <span class="o">(</span><span class="nc">Buyer</span> <span class="n">buyer</span> <span class="o">:</span> <span class="n">listOfBuyers</span><span class="o">)</span> <span class="o">{</span>
 
-                <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Article</span><span class="p">&gt;</span> <span class="n">listOfArticles</span> <span class="p">=</span> <span class="n">listOfArticlesResponse</span><span class="p">.</span><span class="nf">getBody</span><span class="p">();</span>
+        <span class="n">urlRequest</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s">"suppliers"</span><span class="o">;</span>
 
-                <span class="k">if</span> <span class="p">(</span><span class="n">listOfArticles</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="p">==</span> <span class="mi">0</span><span class="p">)</span>
-                  <span class="k">continue</span><span class="p">;</span>
+        <span class="nc">ResponseEntity</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Supplier</span><span class="o">&gt;&gt;</span> <span class="n">listOfSuppliersResponse</span> <span class="o">=</span> <span class="n">restTemplate</span><span class="o">.</span><span class="na">exchange</span><span class="o">(</span><span class="n">urlRequest</span> <span class="o">+</span> <span class="s">"?buyerId="</span> <span class="o">+</span> <span class="n">buyer</span><span class="o">.</span><span class="na">getBuyerId</span><span class="o">(),</span>
+            <span class="nc">HttpMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span> <span class="k">new</span> <span class="nc">ParameterizedTypeReference</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Supplier</span><span class="o">&gt;&gt;(){});</span>
 
-                  <span class="k">for</span> <span class="p">(</span><span class="nc">Article</span> <span class="n">article</span> <span class="p">:</span> <span class="n">listOfArticles</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Supplier</span><span class="o">&gt;</span> <span class="n">listOfSuppliers</span> <span class="o">=</span> <span class="n">listOfSuppliersResponse</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
 
-                    <span class="n">urlRequest</span> <span class="p">=</span> <span class="n">url</span> <span class="p">+</span> <span class="s">"orders"</span><span class="p">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">listOfSuppliers</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+          <span class="k">continue</span><span class="o">;</span>
 
-                    <span class="nc">Order</span> <span class="n">order</span> <span class="p">=</span> <span class="nf">buildOrder</span><span class="p">(</span><span class="n">buyer</span><span class="p">,</span> <span class="n">supplier</span><span class="p">,</span> <span class="n">customerNumber</span><span class="p">,</span> <span class="n">article</span><span class="p">);</span>
-                    <span class="nc">HttpEntity</span><span class="p">&lt;</span><span class="nc">Order</span><span class="p">&gt;</span> <span class="n">orderEntity</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">HttpEntity</span><span class="p">&lt;</span><span class="nc">Order</span><span class="p">&gt;(</span><span class="n">order</span><span class="p">,</span> <span class="n">headers</span><span class="p">);</span>
-                    <span class="nc">ResponseEntity</span><span class="p">&lt;</span><span class="nc">Order</span><span class="p">&gt;</span> <span class="n">responseEntity</span> <span class="p">=</span> <span class="n">restTemplate</span><span class="p">.</span><span class="nf">exchange</span><span class="p">(</span><span class="n">urlRequest</span><span class="p">,</span> <span class="nc">HttpMethod</span><span class="p">.</span><span class="nc">POST</span><span class="p">,</span> <span class="n">orderEntity</span><span class="p">,</span> <span class="nc">Order</span><span class="p">.</span><span class="k">class</span><span class="p">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">Supplier</span> <span class="n">supplier</span> <span class="o">:</span> <span class="n">listOfSuppliers</span><span class="o">)</span> <span class="o">{</span>
 
-                    <span class="nc">Order</span> <span class="n">orderResponse</span> <span class="p">=</span> <span class="n">responseEntity</span><span class="p">.</span><span class="nf">getBody</span><span class="p">();</span>
-                    <span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="n">responseEntity</span><span class="p">.</span><span class="nf">getStatusCode</span><span class="p">().</span><span class="nf">toString</span><span class="p">());</span>
-                    <span class="k">break</span><span class="p">;</span>
-                  <span class="p">}</span>
-                  
-                  <span class="n">atLeastOneCustomerNumberWithArticles</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-                  <span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">"buyerId = "</span> <span class="p">+</span> <span class="n">buyer</span><span class="p">.</span><span class="nf">getBuyerId</span><span class="p">()</span> <span class="p">+</span> <span class="s">", supplierId = "</span> <span class="p">+</span> <span class="n">supplier</span><span class="p">.</span><span class="nf">getSupplierId</span><span class="p">()</span> <span class="p">+</span> 
-                      <span class="s">", customerNumberId = "</span> <span class="p">+</span> <span class="n">customerNumber</span><span class="p">.</span><span class="nf">getCustomerNumberId</span><span class="p">());</span>
-                  <span class="k">break</span><span class="p">;</span>
+          <span class="n">urlRequest</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s">"customerNumbers"</span><span class="o">;</span>
 
+          <span class="nc">ResponseEntity</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">CustomerNumber</span><span class="o">&gt;&gt;</span> <span class="n">listOfCustomerNumbersResponse</span> <span class="o">=</span> <span class="n">restTemplate</span><span class="o">.</span><span class="na">exchange</span><span class="o">(</span>
+              <span class="n">urlRequest</span> <span class="o">+</span> <span class="s">"?buyerId="</span> <span class="o">+</span> <span class="n">buyer</span><span class="o">.</span><span class="na">getBuyerId</span><span class="o">()</span> <span class="o">+</span> <span class="s">"&amp;supplierId="</span> <span class="o">+</span> <span class="n">supplier</span><span class="o">.</span><span class="na">getSupplierId</span><span class="o">(),</span>
+              <span class="nc">HttpMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span> <span class="k">new</span> <span class="nc">ParameterizedTypeReference</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">CustomerNumber</span><span class="o">&gt;&gt;(){});</span>
 
-              <span class="p">}</span> <span class="c1">//end-for listOfCustomerNumbers</span>
+          <span class="nc">List</span><span class="o">&lt;</span><span class="nc">CustomerNumber</span><span class="o">&gt;</span> <span class="n">listOfCustomerNumbers</span> <span class="o">=</span> <span class="n">listOfCustomerNumbersResponse</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
 
-              <span class="k">if</span> <span class="p">(</span><span class="n">atLeastOneCustomerNumberWithArticles</span> <span class="p">==</span> <span class="k">true</span><span class="p">)</span>
-                <span class="k">break</span><span class="p">;</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">listOfCustomerNumbers</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+            <span class="k">continue</span><span class="o">;</span>
 
-          <span class="p">}</span> <span class="c1">//end-for listOfSuppliers</span>
+          <span class="k">for</span> <span class="o">(</span><span class="nc">CustomerNumber</span> <span class="n">customerNumber</span> <span class="o">:</span> <span class="n">listOfCustomerNumbers</span><span class="o">)</span> <span class="o">{</span>
 
-          <span class="k">if</span> <span class="p">(</span><span class="n">atLeastOneCustomerNumberWithArticles</span> <span class="p">==</span> <span class="k">true</span><span class="p">)</span>
-            <span class="k">break</span><span class="p">;</span>
+            <span class="n">urlRequest</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s">"articles"</span><span class="o">;</span>
 
-      <span class="p">}</span> <span class="c1">//end-for listOfBuyers</span>
-						
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nc">HttpClientErrorException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nc">ResponseEntity</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Article</span><span class="o">&gt;&gt;</span> <span class="n">listOfArticlesResponse</span> <span class="o">=</span> <span class="n">restTemplate</span><span class="o">.</span><span class="na">exchange</span><span class="o">(</span><span class="n">urlRequest</span> <span class="o">+</span> <span class="s">"?buyerId="</span> <span class="o">+</span> <span class="n">buyer</span><span class="o">.</span><span class="na">getBuyerId</span><span class="o">()</span> <span class="o">+</span>
+                <span class="s">"&amp;supplierId="</span> <span class="o">+</span> <span class="n">supplier</span><span class="o">.</span><span class="na">getSupplierId</span><span class="o">()</span> <span class="o">+</span> <span class="s">"&amp;customerNumberId="</span> <span class="o">+</span> <span class="n">customerNumber</span><span class="o">.</span><span class="na">getCustomerNumberId</span><span class="o">(),</span>
+                <span class="nc">HttpMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span> <span class="k">new</span> <span class="nc">ParameterizedTypeReference</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Article</span><span class="o">&gt;&gt;(){});</span>
+
+            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Article</span><span class="o">&gt;</span> <span class="n">listOfArticles</span> <span class="o">=</span> <span class="n">listOfArticlesResponse</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">listOfArticles</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+              <span class="k">continue</span><span class="o">;</span>
+
+            <span class="k">for</span> <span class="o">(</span><span class="nc">Article</span> <span class="n">article</span> <span class="o">:</span> <span class="n">listOfArticles</span><span class="o">)</span> <span class="o">{</span>
+
+              <span class="n">urlRequest</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s">"orders"</span><span class="o">;</span>
+
+              <span class="nc">Order</span> <span class="n">order</span> <span class="o">=</span> <span class="n">buildOrder</span><span class="o">(</span><span class="n">buyer</span><span class="o">,</span> <span class="n">supplier</span><span class="o">,</span> <span class="n">customerNumber</span><span class="o">,</span> <span class="n">article</span><span class="o">);</span>
+              <span class="nc">HttpEntity</span><span class="o">&lt;</span><span class="nc">Order</span><span class="o">&gt;</span> <span class="n">orderEntity</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HttpEntity</span><span class="o">&lt;</span><span class="nc">Order</span><span class="o">&gt;(</span><span class="n">order</span><span class="o">,</span> <span class="n">headers</span><span class="o">);</span>
+              <span class="nc">ResponseEntity</span><span class="o">&lt;</span><span class="nc">Order</span><span class="o">&gt;</span> <span class="n">responseEntity</span> <span class="o">=</span> <span class="n">restTemplate</span><span class="o">.</span><span class="na">exchange</span><span class="o">(</span><span class="n">urlRequest</span><span class="o">,</span> <span class="nc">HttpMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">,</span> <span class="n">orderEntity</span><span class="o">,</span> <span class="nc">Order</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+              <span class="nc">Order</span> <span class="n">orderResponse</span> <span class="o">=</span> <span class="n">responseEntity</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
+              <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">responseEntity</span><span class="o">.</span><span class="na">getStatusCode</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+              <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="n">atLeastOneCustomerNumberWithArticles</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"buyerId = "</span> <span class="o">+</span> <span class="n">buyer</span><span class="o">.</span><span class="na">getBuyerId</span><span class="o">()</span> <span class="o">+</span> <span class="s">", supplierId = "</span> <span class="o">+</span> <span class="n">supplier</span><span class="o">.</span><span class="na">getSupplierId</span><span class="o">()</span> <span class="o">+</span>
+                <span class="s">", customerNumberId = "</span> <span class="o">+</span> <span class="n">customerNumber</span><span class="o">.</span><span class="na">getCustomerNumberId</span><span class="o">());</span>
+            <span class="k">break</span><span class="o">;</span>
+
+          <span class="o">}</span> <span class="c1">//end-for listOfCustomerNumbers</span>
+
+          <span class="k">if</span> <span class="o">(</span><span class="n">atLeastOneCustomerNumberWithArticles</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span>
+            <span class="k">break</span><span class="o">;</span>
+
+        <span class="o">}</span> <span class="c1">//end-for listOfSuppliers</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">atLeastOneCustomerNumberWithArticles</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span>
+          <span class="k">break</span><span class="o">;</span>
+
+      <span class="o">}</span> <span class="c1">//end-for listOfBuyers</span>
+
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">HttpClientErrorException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
       <span class="c1">//code omitted for brevity</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">logger</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="s">"error:  "</span> <span class="p">+</span> <span class="n">e</span><span class="p">.</span><span class="nf">getMessage</span><span class="p">());</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">logger</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"error:  "</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
 
-  <span class="k">private</span> <span class="n">static</span> <span class="nc">Order</span> <span class="nf">buildOrder</span><span class="p">(</span><span class="nc">Buyer</span> <span class="n">buyer</span><span class="p">,</span> <span class="nc">Supplier</span> <span class="n">supplier</span><span class="p">,</span> <span class="nc">CustomerNumber</span> <span class="n">customerNumber</span><span class="p">,</span> <span class="nc">Article</span> <span class="n">article</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nc">Order</span> <span class="n">order</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">Order</span><span class="p">();</span>
-    <span class="n">order</span><span class="p">.</span><span class="nf">setBuyerId</span><span class="p">(</span><span class="n">buyer</span><span class="p">.</span><span class="nf">getBuyerId</span><span class="p">());</span>
-    <span class="n">order</span><span class="p">.</span><span class="nf">setSupplierId</span><span class="p">(</span><span class="n">supplier</span><span class="p">.</span><span class="nf">getSupplierId</span><span class="p">());</span>
-    <span class="c1">//code omitted for brevity</span>
-	
-    <span class="k">return</span> <span class="n">order</span><span class="p">;</span>
-  <span class="p">}</span>
-	
-  <span class="k">private</span> <span class="n">static</span> <span class="nc">OAuth2RestTemplate</span> <span class="nf">buildRestTemplate</span><span class="p">(</span><span class="nc">String</span> <span class="n">clientId</span><span class="p">,</span> <span class="nc">String</span> <span class="n">secret</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">resourceDetails</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ResourceOwnerPasswordResourceDetails</span><span class="p">();</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Order</span> <span class="nf">buildOrder</span><span class="o">(</span><span class="nc">Buyer</span> <span class="n">buyer</span><span class="o">,</span> <span class="nc">Supplier</span> <span class="n">supplier</span><span class="o">,</span> <span class="nc">CustomerNumber</span> <span class="n">customerNumber</span><span class="o">,</span> <span class="nc">Article</span> <span class="n">article</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Order</span> <span class="n">order</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Order</span><span class="o">();</span>
+    <span class="n">order</span><span class="o">.</span><span class="na">setBuyerId</span><span class="o">(</span><span class="n">buyer</span><span class="o">.</span><span class="na">getBuyerId</span><span class="o">());</span>
+    <span class="n">order</span><span class="o">.</span><span class="na">setSupplierId</span><span class="o">(</span><span class="n">supplier</span><span class="o">.</span><span class="na">getSupplierId</span><span class="o">());</span>
     <span class="c1">//code omitted for brevity</span>
 
-    <span class="nc">DefaultOAuth2ClientContext</span> <span class="n">clientContext</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">DefaultOAuth2ClientContext</span><span class="p">();</span>
-    <span class="n">restTemplate</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">OAuth2RestTemplate</span><span class="p">(</span><span class="n">resourceDetails</span><span class="p">,</span> <span class="n">clientContext</span><span class="p">);</span>
-    <span class="n">restTemplate</span><span class="p">.</span><span class="nf">setMessageConverters</span><span class="p">(</span><span class="nf">asList</span><span class="p">(</span><span class="n">new</span> <span class="nc">MappingJackson2HttpMessageConverter</span><span class="p">()));</span>
+    <span class="k">return</span> <span class="n">order</span><span class="o">;</span>
+  <span class="o">}</span>
 
-    <span class="k">return</span> <span class="n">restTemplate</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="nc">OAuth2RestTemplate</span> <span class="nf">buildRestTemplate</span><span class="o">(</span><span class="nc">String</span> <span class="n">clientId</span><span class="o">,</span> <span class="nc">String</span> <span class="n">secret</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">resourceDetails</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ResourceOwnerPasswordResourceDetails</span><span class="o">();</span>
+    <span class="c1">//code omitted for brevity</span>
+
+    <span class="nc">DefaultOAuth2ClientContext</span> <span class="n">clientContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultOAuth2ClientContext</span><span class="o">();</span>
+    <span class="n">restTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OAuth2RestTemplate</span><span class="o">(</span><span class="n">resourceDetails</span><span class="o">,</span> <span class="n">clientContext</span><span class="o">);</span>
+    <span class="n">restTemplate</span><span class="o">.</span><span class="na">setMessageConverters</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="k">new</span> <span class="nc">MappingJackson2HttpMessageConverter</span><span class="o">()));</span>
+
+    <span class="k">return</span> <span class="n">restTemplate</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<blockquote>
-  <p>Based on actual questions from startups and big tech companies</p>
-</blockquote>
+<p>The client ID and secret come from environment variables. Never hard-code credentials in source code: they end up in version control.</p>
+
+<p>Why does the program need <code class="language-plaintext highlighter-rouge">continue</code>? If a customer number has no articles, <code class="language-plaintext highlighter-rouge">continue</code> skips to the next one. Without it, the program would set <code class="language-plaintext highlighter-rouge">atLeastOneCustomerNumberWithArticles</code> to true and stop before placing any order.</p>
+
+<h2 id="refactor-one-labeled-break-instead-of-three-flags">Refactor: One Labeled Break Instead of Three Flags</h2>
+
+<p>The flag variable and the three <code class="language-plaintext highlighter-rouge">if (... == true) break;</code> checks exist only to escape four nested loops. Java has a cleaner tool for exactly this: a <strong>labeled break</strong>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="nl">search:</span>
+<span class="k">for</span> <span class="o">(</span><span class="nc">Buyer</span> <span class="n">buyer</span> <span class="o">:</span> <span class="n">getBuyers</span><span class="o">())</span> <span class="o">{</span>
+  <span class="k">for</span> <span class="o">(</span><span class="nc">Supplier</span> <span class="n">supplier</span> <span class="o">:</span> <span class="n">getSuppliers</span><span class="o">(</span><span class="n">buyer</span><span class="o">))</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">CustomerNumber</span> <span class="n">customerNumber</span> <span class="o">:</span> <span class="n">getCustomerNumbers</span><span class="o">(</span><span class="n">buyer</span><span class="o">,</span> <span class="n">supplier</span><span class="o">))</span> <span class="o">{</span>
+      <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Article</span><span class="o">&gt;</span> <span class="n">articles</span> <span class="o">=</span> <span class="n">getArticles</span><span class="o">(</span><span class="n">buyer</span><span class="o">,</span> <span class="n">supplier</span><span class="o">,</span> <span class="n">customerNumber</span><span class="o">);</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">articles</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span>
+        <span class="k">continue</span><span class="o">;</span>
+      <span class="n">createOrder</span><span class="o">(</span><span class="n">buyer</span><span class="o">,</span> <span class="n">supplier</span><span class="o">,</span> <span class="n">customerNumber</span><span class="o">,</span> <span class="n">articles</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+      <span class="k">break</span> <span class="n">search</span><span class="o">;</span>   <span class="c1">// leaves all three loops at once</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">get…</code> helpers wrap the <code class="language-plaintext highlighter-rouge">restTemplate.exchange</code> calls shown above. The flag variable and the three <code class="language-plaintext highlighter-rouge">if</code> checks disappear, and an empty list simply means the inner loop never runs.</p>
+
+<p>Escaping nested loops, early exits and API-driven test data are classic interview topics. Practice them on real questions:</p>
 
 <div><center>
   <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
@@ -648,8 +723,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/spring-boot-automate-api-client/"
   },
-  "headline": "Spring REST - Automate an API Client Request",
-  "description": "Creating a program to automate an API Client Request.",
+  "headline": "Break Out of Nested Loops in Java: Automating a Real REST API Client",
+  "description": "A real Spring REST client that walks buyers, suppliers, customer numbers and articles to place a test order, and how a labeled break replaces three flags and three if-checks.",
   "image": "https://codersite.dev/assets/images/apiClientRequest.jpg",
   "datePublished": "2024-10-30T00:00:00+01:00",
   "dateModified": "2024-10-30T00:00:00+01:00",
@@ -687,7 +762,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Spring REST - Automate an API Client Request",
+      "name": "Break Out of Nested Loops in Java: Automating a Real REST API Client",
       "item": "https://codersite.dev/spring-boot-automate-api-client/"
     }
   ]
@@ -800,7 +875,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
                 
                     <a class="mt-1 mb-1" href="/categories#data-structures">data structures (2)</a>
                 
-                    <a class="mt-1 mb-1" href="/categories#programming">programming (6)</a>
+                    <a class="mt-1 mb-1" href="/categories#programming">programming (7)</a>
                 
                     <a class="mt-1 mb-1" href="/categories#system-design">system-design (1)</a>
                 

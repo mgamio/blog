@@ -28,3 +28,19 @@
 .footer-kit img {
 	flex: none;
 }
+
+/* Wide Markdown tables in posts scroll inside their own box on phones,
+   like code blocks, instead of making the whole page scroll sideways. */
+.article-post table:not(.rouge-table) {
+	display: block;
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+/* Very long words (class names such as OAuth2RestTemplate) wrap instead of
+   pushing the page wider than a phone screen. */
+.posttitle,
+.article-post h1, .article-post h2, .article-post h3, .article-post h4,
+.article-post p, .article-post li {
+	overflow-wrap: break-word;
+}
