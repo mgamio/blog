@@ -70,6 +70,14 @@ comments: false
     </div>
 	<div class="row">
         <div class="col-md-12">
+            <h2>Online Shop (Spreadshop)</h2>
+            <p>Our shop page (<a href="/shop">codersite.dev/shop</a>) presents our merchandise and links to our Spreadshop at codersite.myspreadshop.de, which is operated by sprd.net AG ("Spreadshirt"), Gießerstraße 27, 04229 Leipzig, Germany. The shop page itself does not load any content, scripts or cookies from Spreadshirt. Data is only transferred to Spreadshirt when you click the link and open the shop on Spreadshirt's website.</p>
+            <p>If you place an order, your contract is exclusively with sprd.net AG, not with codersite.dev. Spreadshirt processes your order, payment, shipping and returns, and the personal data required for them, under its own responsibility.</p>
+            <p>For more information about how Spreadshirt processes your data, please read Spreadshirt's privacy policy: <a href="https://service.spreadshirt.com/hc/de/articles/115000978409" target="_blank" rel="noopener">https://service.spreadshirt.com/hc/de/articles/115000978409</a></p>
+        </div>
+    </div>
+	<div class="row">
+        <div class="col-md-12">
             <h2>Third Party Privacy Policies</h2>
             <p>codersite.dev's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
 			<p>You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.</p>
