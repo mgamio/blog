@@ -3,10 +3,10 @@
   <channel>
     <title>codersite</title>
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
-    <link>https://codersite.dev/</link>
-    <atom:link href="https://codersite.dev/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 02 Oct 2026 13:49:46 +0200</pubDate>
-    <lastBuildDate>Fri, 02 Oct 2026 13:49:46 +0200</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 03 Oct 2026 13:11:14 +0200</pubDate>
+    <lastBuildDate>Sat, 03 Oct 2026 13:11:14 +0200</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
@@ -476,8 +476,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 02 Oct 2026 00:00:00 +0200</pubDate>
-        <link>https://codersite.dev/spring-restclient-replace-oauth2resttemplate/</link>
-        <guid isPermaLink="true">https://codersite.dev/spring-restclient-replace-oauth2resttemplate/</guid>
+        <link>http://localhost:4000/spring-restclient-replace-oauth2resttemplate/</link>
+        <guid isPermaLink="true">http://localhost:4000/spring-restclient-replace-oauth2resttemplate/</guid>
         
         
         <category>programming</category>
@@ -579,8 +579,8 @@
 &lt;p&gt;&lt;em&gt;This post contains an Amazon Associate link. As an Amazon Associate, I earn from qualifying purchases — at no extra cost to you, and it helps keep content like this coming.&lt;/em&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 15 Sep 2026 00:00:00 +0200</pubDate>
-        <link>https://codersite.dev/system-design-on-aws-book-review/</link>
-        <guid isPermaLink="true">https://codersite.dev/system-design-on-aws-book-review/</guid>
+        <link>http://localhost:4000/system-design-on-aws-book-review/</link>
+        <guid isPermaLink="true">http://localhost:4000/system-design-on-aws-book-review/</guid>
         
         
         <category>system-design</category>
@@ -862,8 +862,8 @@
 
 </description>
         <pubDate>Wed, 24 Sep 2025 00:00:00 +0200</pubDate>
-        <link>https://codersite.dev/gradle-building-restful-web-service/</link>
-        <guid isPermaLink="true">https://codersite.dev/gradle-building-restful-web-service/</guid>
+        <link>http://localhost:4000/gradle-building-restful-web-service/</link>
+        <guid isPermaLink="true">http://localhost:4000/gradle-building-restful-web-service/</guid>
         
         
         <category>Web APIs</category>
@@ -1119,8 +1119,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 03 Jul 2025 00:00:00 +0200</pubDate>
-        <link>https://codersite.dev/number-items-closed-compartments/</link>
-        <guid isPermaLink="true">https://codersite.dev/number-items-closed-compartments/</guid>
+        <link>http://localhost:4000/number-items-closed-compartments/</link>
+        <guid isPermaLink="true">http://localhost:4000/number-items-closed-compartments/</guid>
         
         
         <category>algorithms</category>
@@ -1537,8 +1537,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 15 May 2025 00:00:00 +0200</pubDate>
-        <link>https://codersite.dev/transform-list-into-hashmap/</link>
-        <guid isPermaLink="true">https://codersite.dev/transform-list-into-hashmap/</guid>
+        <link>http://localhost:4000/transform-list-into-hashmap/</link>
+        <guid isPermaLink="true">http://localhost:4000/transform-list-into-hashmap/</guid>
         
         
         <category>data structures</category>
@@ -1777,8 +1777,8 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 16 Apr 2025 00:00:00 +0200</pubDate>
-        <link>https://codersite.dev/swagger-codegen-server-stubs-openapi/</link>
-        <guid isPermaLink="true">https://codersite.dev/swagger-codegen-server-stubs-openapi/</guid>
+        <link>http://localhost:4000/swagger-codegen-server-stubs-openapi/</link>
+        <guid isPermaLink="true">http://localhost:4000/swagger-codegen-server-stubs-openapi/</guid>
         
         
         <category>Web APIs</category>
@@ -2264,8 +2264,8 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 24 Mar 2025 00:00:00 +0100</pubDate>
-        <link>https://codersite.dev/shopping-budget-options/</link>
-        <guid isPermaLink="true">https://codersite.dev/shopping-budget-options/</guid>
+        <link>http://localhost:4000/shopping-budget-options/</link>
+        <guid isPermaLink="true">http://localhost:4000/shopping-budget-options/</guid>
         
         
         <category>algorithms</category>
@@ -2555,8 +2555,8 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 26 Feb 2025 00:00:00 +0100</pubDate>
-        <link>https://codersite.dev/designing-apis-with-swagger-and-openapi/</link>
-        <guid isPermaLink="true">https://codersite.dev/designing-apis-with-swagger-and-openapi/</guid>
+        <link>http://localhost:4000/designing-apis-with-swagger-and-openapi/</link>
+        <guid isPermaLink="true">http://localhost:4000/designing-apis-with-swagger-and-openapi/</guid>
         
         
         <category>Web APIs</category>
@@ -2957,8 +2957,8 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 30 Oct 2024 00:00:00 +0100</pubDate>
-        <link>https://codersite.dev/spring-boot-automate-api-client/</link>
-        <guid isPermaLink="true">https://codersite.dev/spring-boot-automate-api-client/</guid>
+        <link>http://localhost:4000/spring-boot-automate-api-client/</link>
+        <guid isPermaLink="true">http://localhost:4000/spring-boot-automate-api-client/</guid>
         
         
         <category>programming</category>
@@ -3105,8 +3105,8 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 24 Oct 2024 00:00:00 +0200</pubDate>
-        <link>https://codersite.dev/spring-boot-actuator/</link>
-        <guid isPermaLink="true">https://codersite.dev/spring-boot-actuator/</guid>
+        <link>http://localhost:4000/spring-boot-actuator/</link>
+        <guid isPermaLink="true">http://localhost:4000/spring-boot-actuator/</guid>
         
         
         <category>programming</category>
