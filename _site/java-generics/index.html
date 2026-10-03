@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Understanding the Basics of Generics in Java | codersite</title>
+<title>Java Generics Explained: Wildcards, PECS and Type Erasure with Examples | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Understanding the Basics of Generics in Java" />
+<meta property="og:title" content="Java Generics Explained: Wildcards, PECS and Type Erasure with Examples" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Generics in Java provide a powerful and flexible way to create classes, interfaces, and methods that can work with different data types while ensuring type safety" />
-<meta name="twitter:description" property="og:description" content="Generics in Java provide a powerful and flexible way to create classes, interfaces, and methods that can work with different data types while ensuring type safety" />
+<meta name="description" content="Learn Java generics with runnable examples: generic classes and methods, why a list of Integer is not a list of Number, extends and super wildcards (PECS), bounded types and type erasure." />
+<meta name="twitter:description" property="og:description" content="Learn Java generics with runnable examples: generic classes and methods, why a list of Integer is not a list of Number, extends and super wildcards (PECS), bounded types and type erasure." />
 <link rel="canonical" href="https://codersite.dev/java-generics/" />
 <meta property="og:url" content="https://codersite.dev/java-generics/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2024-01-05T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/javaGenerics.jpg" />
-<meta name="twitter:title" content="Understanding the Basics of Generics in Java" />
+<meta name="twitter:title" content="Java Generics Explained: Wildcards, PECS and Type Erasure with Examples" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2024-01-05T00:00:00+01:00","datePublished":"2024-01-05T00:00:00+01:00","description":"Generics in Java provide a powerful and flexible way to create classes, interfaces, and methods that can work with different data types while ensuring type safety","headline":"Understanding the Basics of Generics in Java","image":"https://codersite.dev/assets/images/javaGenerics.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/java-generics/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/java-generics/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2024-01-05T00:00:00+01:00","datePublished":"2024-01-05T00:00:00+01:00","description":"Learn Java generics with runnable examples: generic classes and methods, why a list of Integer is not a list of Number, extends and super wildcards (PECS), bounded types and type erasure.","headline":"Java Generics Explained: Wildcards, PECS and Type Erasure with Examples","image":"https://codersite.dev/assets/images/javaGenerics.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/java-generics/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/java-generics/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -171,7 +171,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Understanding the Basics of Generics in Java&url=https://codersite.dev/java-generics/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Java Generics Explained: Wildcards, PECS and Type Erasure with Examples&url=https://codersite.dev/java-generics/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -219,7 +219,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Understanding the Basics of Generics in Java</h1>
+                <h1 class="posttitle">Java Generics Explained: Wildcards, PECS and Type Erasure with Examples</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -227,7 +227,7 @@
                 <p class="post-meta-line">
                     <time datetime="2024-01-05T00:00:00+01:00" itemprop="datePublished">Jan 5, 2024</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">10 min read</span>
+                    <span class="meta-reading-time">14 min read</span>
                     
                 </p>
 
@@ -242,7 +242,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/javaGenerics.jpg" alt="Understanding the Basics of Generics in Java">
+            <img class="featured-image img-fluid" src="/assets/images/javaGenerics.jpg" alt="Java Generics Explained: Wildcards, PECS and Type Erasure with Examples">
             
 
             
@@ -253,93 +253,64 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>Generics in Java provide a powerful and <em>flexible</em> way to create classes, interfaces, and methods <em>that can work with different data types</em> while ensuring type safety. Introduced in Java 5, generics allow you to write code that is more <em>reusable</em> and less error-prone. In this article, we will explore the basics of generics in Java and understand how they contribute to writing robust and maintainable code.</p>
+                <p>Before Java 5, every collection held <code class="language-plaintext highlighter-rouge">Object</code>, and every value you took out needed a cast, which could fail at runtime. Generics moved that check to the compiler. Here’s how they work, from a simple <code class="language-plaintext highlighter-rouge">Box&lt;T&gt;</code> to the wildcard rules that confuse even experienced developers.</p>
 
 <h2 id="boxing-and-unboxing">Boxing and Unboxing</h2>
 
-<p>Every data type in Java is either a reference type or a primitive type. The following table shows the eight primitive data types and their corresponding reference type.</p>
-
-<hr />
+<p>Every data type in Java is either a reference type or a primitive type. Generics only work with reference types, so each primitive type has a corresponding wrapper class:</p>
 
 <table>
   <thead>
     <tr>
       <th>Primitive</th>
-      <th> </th>
       <th>Reference</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>byte</td>
-      <td> </td>
-      <td>Byte</td>
+      <td><code class="language-plaintext highlighter-rouge">byte</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Byte</code></td>
     </tr>
     <tr>
-      <td>short</td>
-      <td> </td>
-      <td>Short</td>
+      <td><code class="language-plaintext highlighter-rouge">short</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Short</code></td>
     </tr>
     <tr>
-      <td>int</td>
-      <td> </td>
-      <td>Integer</td>
+      <td><code class="language-plaintext highlighter-rouge">int</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Integer</code></td>
     </tr>
     <tr>
-      <td>long</td>
-      <td> </td>
-      <td>Long</td>
+      <td><code class="language-plaintext highlighter-rouge">long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
-      <td>float</td>
-      <td> </td>
-      <td>Float</td>
+      <td><code class="language-plaintext highlighter-rouge">float</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Float</code></td>
     </tr>
     <tr>
-      <td>double</td>
-      <td> </td>
-      <td>Double</td>
+      <td><code class="language-plaintext highlighter-rouge">double</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Double</code></td>
     </tr>
     <tr>
-      <td>boolean</td>
-      <td> </td>
-      <td>Boolean</td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Boolean</code></td>
     </tr>
     <tr>
-      <td>char</td>
-      <td> </td>
-      <td>Character</td>
+      <td><code class="language-plaintext highlighter-rouge">char</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Character</code></td>
     </tr>
   </tbody>
 </table>
 
-<hr />
+<p><br /></p>
 
-<p><strong>Boxing</strong> happens when a primitive type is converted to the corresponding reference type.
-Conversion of the reference type to the corresponding primitive type is called <strong>Unboxing</strong>.</p>
-<h2 id="what-are-generics">What are Generics?</h2>
+<p><strong>Boxing</strong> happens when a primitive type is converted to the corresponding reference type. Converting the reference type back to the primitive type is called <strong>unboxing</strong>. Since Java 5, the compiler does both automatically.</p>
 
-<p>Generics in Java enable you to create classes, interfaces, and methods that can operate on any data type without sacrificing type safety.</p>
+<h2 id="the-problem-generics-solve">The Problem Generics Solve</h2>
 
-<p>The type safety feature of Java simply means the language only allows you to perform the operations allowed by a data type.</p>
+<p>Before generics, a <code class="language-plaintext highlighter-rouge">List</code> could hold anything. You had to cast every element you took out, and box every number you put in:</p>
 
-<p>Prior to the introduction of generics, classes and methods would often use Object as a generic data type, leading to potential runtime errors and decreased code readability.</p>
-
-<p>Generics introduce the concept of <strong>parameterized types</strong>, allowing you to specify the type of data (reference type) a class or method can work with. This provides compile-time type checking, reducing the likelihood of runtime errors and making your code more robust.</p>
-
-<blockquote>
-  <p>Upgrade your thinking. Start designing systems that scale.</p>
-</blockquote>
-
-<div><center>
-  <a href="https://amzn.to/3Csx3sR" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
-</center>
-
-<br /></div>
-
-<p>Here is how to do it in Java with generics.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -347,39 +318,57 @@ Conversion of the reference type to the corresponding primitive type is called <
 6
 7
 8
-</pre></td><td class="rouge-code"><pre><span class="c1">//Boxing to a Wrapper class is automatically inserted - cast</span>
-<span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">ints</span> <span class="p">=</span> <span class="nc">Arrays</span><span class="p">.</span><span class="nf">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+9
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span> <span class="n">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">();</span>
+<span class="n">ints</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Integer</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+<span class="n">ints</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Integer</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span>
+<span class="n">ints</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Integer</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
 
-<span class="n">int</span> <span class="n">s</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="c1">//Unboxing to a primitive type is automatically inserted</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">n</span> <span class="p">:</span> <span class="n">ints</span><span class="p">)</span> <span class="p">{</span> 
-  <span class="n">s</span> <span class="p">+=</span> <span class="n">n</span><span class="p">;</span> 
-<span class="p">}</span>
+<span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="nc">Iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">ints</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">it</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();</span> <span class="o">)</span> <span class="o">{</span>
+  <span class="n">s</span> <span class="o">+=</span> <span class="o">((</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">it</span><span class="o">.</span><span class="na">next</span><span class="o">()).</span><span class="na">intValue</span><span class="o">();</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Here is how to do the same using <em>cast</em> in Java before generics:</p>
+<p>Worse, nothing stopped a wrong type from getting in. The mistake only showed up later, at runtime:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span> <span class="n">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">();</span>
+<span class="n">ints</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"42"</span><span class="o">);</span>                      <span class="c1">// compiles</span>
+<span class="nc">Integer</span> <span class="n">n</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">ints</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>   <span class="c1">// ClassCastException at runtime</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>With generics, the list knows its element type. Boxing, unboxing and the casts are inserted for you, and the compiler rejects the wrong type:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
-</pre></td><td class="rouge-code"><pre><span class="n">int</span> <span class="n">int1</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">int</span> <span class="n">int2</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">int</span> <span class="n">int3</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ints</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>   <span class="c1">// boxing is automatic</span>
 
-<span class="nc">List</span> <span class="n">ints</span> <span class="p">=</span> <span class="nc">Arrays</span><span class="p">.</span><span class="nf">asList</span><span class="p">(</span><span class="n">new</span> <span class="nc">Integer</span><span class="p">[]{(</span><span class="nc">Integer</span><span class="p">)</span><span class="n">int1</span><span class="p">,</span> <span class="p">(</span><span class="nc">Integer</span><span class="p">)</span><span class="n">int2</span><span class="p">,</span> <span class="p">(</span><span class="nc">Integer</span><span class="p">)</span><span class="n">int3</span><span class="p">});</span>
-
+<span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">:</span> <span class="n">ints</span><span class="o">)</span> <span class="o">{</span>                           <span class="c1">// unboxing is automatic</span>
+  <span class="n">s</span> <span class="o">+=</span> <span class="n">n</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p><em>Cast-iron guarantee</em>: the implicit <em>casts</em> added by the compilation of generics <strong>never fail</strong>.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">ints</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"42"</span><span class="o">);</span>   <span class="c1">// does not compile: String cannot be converted to Integer</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <em>cast-iron guarantee</em>: if your code compiles without unchecked warnings, the casts the compiler inserts for generics never fail.</p>
 
 <h2 id="the-generic-class">The Generic Class</h2>
 
 <p>Let’s start with a basic example of a generic class. Consider a simple <strong>Box</strong> class that can hold any type of object:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -390,17 +379,17 @@ Conversion of the reference type to the corresponding primitive type is called <
 9
 10
 11
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Box</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="p">{</span>
-  <span class="k">private</span> <span class="nc">T</span> <span class="n">value</span><span class="p">;</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="no">T</span> <span class="n">value</span><span class="o">;</span>
 
-  <span class="k">public</span> <span class="nc">Box</span><span class="p">(</span><span class="nc">T</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="n">value</span><span class="p">;</span>
-  <span class="p">}</span>
+  <span class="kd">public</span> <span class="nf">Box</span><span class="o">(</span><span class="no">T</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+  <span class="o">}</span>
 
-  <span class="k">public</span> <span class="nc">T</span> <span class="nf">getValue</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+  <span class="kd">public</span> <span class="no">T</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
@@ -410,45 +399,214 @@ Conversion of the reference type to the corresponding primitive type is called <
 </script>
 <br /></div>
 
-<p>In this example, the class <strong>Box</strong> is parameterized with a type variable <strong>T</strong>. The type variable is a placeholder for the actual data type that will be specified when an instance of the class is created. You can create a <strong>Box</strong> for different types, such as Box«Integer», Box«String», or any other class or interface.</p>
+<p>In this example, the class <strong>Box</strong> is parameterized with a type variable <strong>T</strong>. The type variable is a placeholder for the actual type, which you specify when you create an instance. You can create a <code class="language-plaintext highlighter-rouge">Box&lt;Integer&gt;</code>, a <code class="language-plaintext highlighter-rouge">Box&lt;String&gt;</code>, or a box for any other class or interface:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre><span class="nc">Box</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">integerBox</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">Box</span><span class="p">&lt;&gt;(</span><span class="mi">42</span><span class="p">);</span>
-<span class="nc">Box</span><span class="p">&lt;</span><span class="nc">Article</span><span class="p">&gt;</span> <span class="n">articleBox</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">Box</span><span class="p">&lt;&gt;(</span><span class="n">article</span><span class="p">);</span>
-<span class="nc">Box</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">stringBox</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">Box</span><span class="p">&lt;&gt;(</span><span class="s">"Hello, Generics!"</span><span class="p">);</span>
+</pre></td><td class="rouge-code"><pre><span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">integerBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;(</span><span class="mi">42</span><span class="o">);</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="nc">Article</span><span class="o">&gt;</span> <span class="n">articleBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;(</span><span class="n">article</span><span class="o">);</span>
+<span class="nc">Box</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">stringBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Box</span><span class="o">&lt;&gt;(</span><span class="s">"Hello, Generics!"</span><span class="o">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="the-generic-method">The Generic Method</h2>
 
-<p>Generics are not limited to classes; you can also use them in methods. Let’s look at an example of a generic method that compares two values:</p>
+<p>Generics are not limited to classes; you can also use them in methods. Here is a generic method that compares two values:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">GenericMethodExample</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="n">boolean</span> <span class="nf">isEqual</span><span class="p">(</span><span class="nc">T</span> <span class="n">value1</span><span class="p">,</span> <span class="nc">T</span> <span class="n">value2</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">value1</span><span class="p">.</span><span class="nf">equals</span><span class="p">(</span><span class="n">value2</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GenericMethodExample</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">boolean</span> <span class="nf">isEqual</span><span class="o">(</span><span class="no">T</span> <span class="n">value1</span><span class="o">,</span> <span class="no">T</span> <span class="n">value2</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">value1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">value2</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>A method that declares a new type variable <strong>T</strong> at the beginning of the method signature is called a generic method.</p>
+<p>A method that declares its own type variable, here <code class="language-plaintext highlighter-rouge">&lt;T&gt;</code> before the return type, is called a generic method. The compiler infers <strong>T</strong> from the arguments:</p>
 
-<p>In this example, the method <strong>isEqual</strong> is parameterized with a type variable <strong>T</strong>. This allows the method to accept any data type for comparison. You can call the method with different types, and the compiler will perform type checking:</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre><span class="nc">GenericMethodExample</span> <span class="n">example</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">GenericMethodExample</span><span class="p">();</span>
-<span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">example</span><span class="p">.</span><span class="nf">isEqual</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">42</span><span class="p">));</span> <span class="c1">// true</span>
-<span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">example</span><span class="p">.</span><span class="nf">isEqual</span><span class="p">(</span><span class="s">"hello"</span><span class="p">,</span> <span class="s">"world"</span><span class="p">));</span> <span class="c1">// false</span>
+</pre></td><td class="rouge-code"><pre><span class="nc">GenericMethodExample</span> <span class="n">example</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GenericMethodExample</span><span class="o">();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">example</span><span class="o">.</span><span class="na">isEqual</span><span class="o">(</span><span class="mi">42</span><span class="o">,</span> <span class="mi">42</span><span class="o">));</span>            <span class="c1">// true</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">example</span><span class="o">.</span><span class="na">isEqual</span><span class="o">(</span><span class="s">"hello"</span><span class="o">,</span> <span class="s">"world"</span><span class="o">));</span>  <span class="c1">// false</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>In Effective Java, Joshua Bloch tells you how to maximize the benefits of Generics:</p>
+<p>Generics are a design tool: they let one class or method serve many types safely. For more design decisions like this, explained with real-world examples:</p>
+
+<div><center>
+  <a href="https://amzn.to/3Csx3sR" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
+</center>
+
+<br /></div>
+
+<h2 id="bounded-type-parameters">Bounded Type Parameters</h2>
+
+<p>Sometimes a method needs more than “any type”. To find the largest element, the elements must be comparable. A <strong>bounded type parameter</strong> says exactly that:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;&gt;</span> <span class="no">T</span> <span class="nf">max</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+  <span class="no">T</span> <span class="n">best</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+  <span class="k">for</span> <span class="o">(</span><span class="no">T</span> <span class="n">item</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">best</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">best</span> <span class="o">=</span> <span class="n">item</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="n">best</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">max</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">4</span><span class="o">));</span>                  <span class="c1">// 9</span>
+<span class="n">max</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"pear"</span><span class="o">,</span> <span class="s">"apple"</span><span class="o">,</span> <span class="s">"plum"</span><span class="o">));</span>  <span class="c1">// "plum"</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;T extends Comparable&lt;T&gt;&gt;</code> means “any type T that can be compared with itself”. Calling <code class="language-plaintext highlighter-rouge">max</code> with a list of plain <code class="language-plaintext highlighter-rouge">Object</code>s doesn’t compile, because <code class="language-plaintext highlighter-rouge">Object</code> doesn’t implement <code class="language-plaintext highlighter-rouge">Comparable</code>.</p>
+
+<h2 id="subtyping-and-the-substitution-principle">Subtyping and the Substitution Principle</h2>
+
+<p>In Java, one type is a <em>subtype</em> of another if they are related by an <code class="language-plaintext highlighter-rouge">extends</code> or <code class="language-plaintext highlighter-rouge">implements</code> clause. Subtyping is transitive.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>is a subtype of</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Integer</code></td>
+      <td>is a subtype of</td>
+      <td><code class="language-plaintext highlighter-rouge">Number</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Double</code></td>
+      <td>is a subtype of</td>
+      <td><code class="language-plaintext highlighter-rouge">Number</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ArrayList&lt;E&gt;</code></td>
+      <td>is a subtype of</td>
+      <td><code class="language-plaintext highlighter-rouge">List&lt;E&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p><strong>Substitution Principle</strong>: <em>wherever a value of type T is expected, you can provide instead a value of a subtype of T.</em></p>
+
+<p>Consider the <strong>add</strong> method of a collection, which takes an element of type <strong>E</strong>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">interface</span> <span class="nc">Collection</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">add</span><span class="o">(</span><span class="no">E</span> <span class="n">el</span><span class="o">);</span>
+  <span class="o">...</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>According to the Substitution Principle, we may add an integer or a double to a collection of numbers, because <em>Integer</em> and <em>Double</em> are subtypes of <em>Number</em>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Number</span><span class="o">&gt;</span> <span class="n">nums</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+<span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mf">0.35</span><span class="o">);</span>   <span class="c1">// nums is [7, 0.35]</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The Liskov substitution principle is one of the five <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">SOLID principles</a>.</p>
+
+<h2 id="why-listinteger-is-not-a-listnumber">Why <code class="language-plaintext highlighter-rouge">List&lt;Integer&gt;</code> Is Not a <code class="language-plaintext highlighter-rouge">List&lt;Number&gt;</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">Integer</code> is a subtype of <code class="language-plaintext highlighter-rouge">Number</code>, so it’s natural to expect a <code class="language-plaintext highlighter-rouge">List&lt;Integer&gt;</code> to be a <code class="language-plaintext highlighter-rouge">List&lt;Number&gt;</code>. It isn’t:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Number</span><span class="o">&gt;</span> <span class="n">nums</span> <span class="o">=</span> <span class="n">ints</span><span class="o">;</span>   <span class="c1">// does not compile</span>
+<span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mf">3.14</span><span class="o">);</span>             <span class="c1">// ...because otherwise this would put a Double into ints</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>If the second line were allowed, <code class="language-plaintext highlighter-rouge">nums</code> and <code class="language-plaintext highlighter-rouge">ints</code> would be the same list, and you could add a <code class="language-plaintext highlighter-rouge">Double</code> to a list that promises to contain only integers. So generic types are <em>invariant</em>: <code class="language-plaintext highlighter-rouge">List&lt;Integer&gt;</code> and <code class="language-plaintext highlighter-rouge">List&lt;Number&gt;</code> are unrelated types. Wildcards are how you get the flexibility back safely.</p>
+
+<h2 id="wildcards-in-generics">Wildcards in Generics</h2>
+
+<p>There are two main wildcard types: <code class="language-plaintext highlighter-rouge">? extends T</code> and <code class="language-plaintext highlighter-rouge">? super T</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">? extends T</code> wildcard denotes an unknown subtype of type T. Use it when a method only <strong>reads</strong> elements:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ints</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+<span class="nc">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Number</span><span class="o">&gt;</span> <span class="n">nums</span> <span class="o">=</span> <span class="n">ints</span><span class="o">;</span>   <span class="c1">// compiles</span>
+<span class="nc">Number</span> <span class="n">first</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>           <span class="c1">// reading is fine: every element is a Number</span>
+<span class="n">nums</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mf">3.14</span><span class="o">);</span>                       <span class="c1">// does not compile: the list could be a List&lt;Integer&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">? super T</code> wildcard denotes an unknown supertype of type T. Use it when a method only <strong>writes</strong> elements:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Number</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="nc">List</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">sink</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">;</span>   <span class="c1">// compiles</span>
+<span class="n">sink</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>                            <span class="c1">// writing an Integer is fine</span>
+<span class="nc">Integer</span> <span class="n">x</span> <span class="o">=</span> <span class="n">sink</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>                <span class="c1">// does not compile: you only know it's an Object</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="the-get-and-put-principle-pecs">The Get and Put Principle (PECS)</h2>
+
+<p><em>The Get and Put Principle: use an extends wildcard when you only get elements out of a structure, use a super wildcard when you only put elements into a structure.</em></p>
+
+<p>Joshua Bloch gives the same rule a memorable name in <em>Effective Java</em>: <strong>PECS</strong>, “Producer Extends, Consumer Super”. A list that produces values for you is <code class="language-plaintext highlighter-rouge">? extends T</code>; a list that consumes values from you is <code class="language-plaintext highlighter-rouge">? super T</code>.</p>
+
+<p>Here is a method that copies the elements from a source list into a destination list:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">copy</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">dst</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="no">T</span><span class="o">&gt;</span> <span class="n">src</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">src</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">dst</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">src</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The source <em>produces</em> elements, so it uses <code class="language-plaintext highlighter-rouge">extends</code>. The destination <em>consumes</em> them, so it uses <code class="language-plaintext highlighter-rouge">super</code>. That makes the method work across types:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Object</span><span class="o">&gt;</span> <span class="n">objs</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mf">3.14</span><span class="o">,</span> <span class="s">"four"</span><span class="o">);</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ints</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">);</span>
+<span class="n">copy</span><span class="o">(</span><span class="n">objs</span><span class="o">,</span> <span class="n">ints</span><span class="o">);</span>   <span class="c1">// objs is now [5, 6, four]</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>In <em>Effective Java</em>, Joshua Bloch explains PECS and many more rules for getting the most out of generics:</p>
 
 <div><center>
   <a href="https://amzn.to/4aZes3T" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../recommended/images/effectiveJava.jpg" /></a>
@@ -456,162 +614,67 @@ Conversion of the reference type to the corresponding primitive type is called <
 
 <br /></div>
 
-<h2 id="subtyping-and-the-substitution-principle">Subtyping and the Substitution Principle</h2>
+<h2 id="type-erasure">Type Erasure</h2>
 
-<p>In Java, one type is a <em>subtype</em> of another if they are related by an extends clause. Subtyping is transitive.</p>
+<p>Under the hood, Java implements generics with <em>type erasure</em>: the compiler checks the types, then removes them. At runtime, the JVM works with raw types. This kept generic code compatible with code written before Java 5.</p>
 
-<hr />
+<p>The following code:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Integer</td>
-      <td>-</td>
-      <td>is a subtype of</td>
-      <td>-</td>
-      <td>Number</td>
-    </tr>
-    <tr>
-      <td>Double</td>
-      <td>-</td>
-      <td>is a subtype of</td>
-      <td>-</td>
-      <td>Number</td>
-    </tr>
-    <tr>
-      <td>ArrayList«E»</td>
-      <td>-</td>
-      <td>is a subtype of</td>
-      <td>-</td>
-      <td>List«E»</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr />
-
-<p><strong>Substitution Principle</strong>: <em>wherever a value of type T is expected, you can provide instead a value of a subtype of T.</em></p>
-
-<p>Consider the following <strong>add</strong> method, which takes a parameterized type of <strong>E</strong>.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4
-</pre></td><td class="rouge-code"><pre><span class="kd">interface</span> <span class="nc">Collection</span><span class="p">&lt;</span><span class="nc">E</span><span class="p">&gt;</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">boolean</span> <span class="nf">add</span><span class="p">(</span><span class="nc">E</span> <span class="n">el</span><span class="p">);</span>
-  <span class="o">..</span><span class="p">.</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Hallo"</span><span class="o">);</span>
+<span class="nc">String</span> <span class="n">x</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>According to the Substitution Principle, we may add an integer or a double to a collection of numbers, because <em>Integer</em> and <em>Double</em> are subtypes of <em>Number</em>.</p>
+<p>is compiled into:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="p">&lt;</span><span class="nc">Number</span><span class="p">&gt;</span> <span class="n">nums</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;&gt;();</span>
-<span class="n">nums</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
-<span class="n">nums</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mf">0.35</span><span class="p">);</span>
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">();</span>
+<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Hallo"</span><span class="o">);</span>
+<span class="nc">String</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span><span class="o">)</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>The Liskov substitution principle is one of the five <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">SOLID principles</a>.</p>
+<p>Erasure has visible consequences:</p>
 
-<h2 id="wildcards-in-generics">Wildcards in Generics</h2>
-
-<p>Wildcards in generics provide additional flexibility when working with generic types. There are two main wildcard types: <strong><code class="language-plaintext highlighter-rouge">? extends T</code></strong> and <strong><code class="language-plaintext highlighter-rouge">? super T</code></strong>.</p>
-
-<p>The <strong><code class="language-plaintext highlighter-rouge">? extends T</code></strong> wildcard denotes an unknown subtype of type T. It is used when you want to work with a collection of objects of a specific type or any of its subtypes.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">processList</span><span class="p">(</span><span class="nc">List</span><span class="p">&lt;?</span> <span class="err">extends</span> <span class="nc">Number</span><span class="p">&gt;</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">//Process the list of Numbers or its subtypes</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>If a structure contains elements with a type of the form <strong><code class="language-plaintext highlighter-rouge">? extends T</code></strong>, we can get elements out of the structure, but we cannot put elements into the structure. To put elements into the structure, we need a wildcard with <code class="language-plaintext highlighter-rouge">super</code>.</p>
-
-<p>The <strong><code class="language-plaintext highlighter-rouge">? super T</code></strong> wildcard denotes an unknown supertype of type T. It is used when you want to work with a collection of objects of a specific type or any of its supertypes.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">addNumbers</span><span class="p">(</span><span class="nc">List</span><span class="p">&lt;?</span> <span class="err">super</span> <span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">//Add integers to the list or its supertypes</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<blockquote>
-  <p>Understand algorithm patterns that appear in real interviews</p>
-</blockquote>
-
-<div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
-</center>
-
-<br /></div>
-
-<h2 id="the-get-and-put-principle">The Get and Put Principle</h2>
-
-<p><em>The Get and Put Principle: use an extends wildcard when you only get elements out of a structure, use a super wildcard when you only put elements into a structure.</em></p>
-
-<p>Here is a method, that copies the elements from a source list into a destination list.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">static</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="n">void</span> <span class="nf">copy</span><span class="p">(</span><span class="nc">List</span><span class="p">&lt;?</span> <span class="err">super</span> <span class="nc">T</span><span class="p">&gt;</span> <span class="n">dst</span><span class="p">,</span> <span class="nc">List</span><span class="p">&lt;?</span> <span class="err">extends</span> <span class="nc">T</span><span class="p">&gt;</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">src</span><span class="p">.</span><span class="nf">size</span><span class="p">();</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
-    <span class="n">dst</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">src</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+6
+</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">strings</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">strings</span><span class="o">.</span><span class="na">getClass</span><span class="o">()</span> <span class="o">==</span> <span class="n">numbers</span><span class="o">.</span><span class="na">getClass</span><span class="o">());</span>   <span class="c1">// true: both are just ArrayList</span>
+
+<span class="nc">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+<span class="kt">boolean</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span> <span class="k">instanceof</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;;</span>   <span class="c1">// does not compile: the type argument isn't known at runtime</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>The destination list may have elements of any type that is a <em>supertype</em> of <strong>T</strong>,  and the source list may have elements of any type that is a <em>subtype</em> of <strong>T</strong>.</p>
+<p>The terms <em>cast-iron guarantee</em> and <em>Get and Put Principle</em>, and the <code class="language-plaintext highlighter-rouge">copy</code> example, come from Maurice Naftalin and Philip Wadler’s book <em>Java Generics and Collections</em> (O’Reilly), still one of the best deep dives on the topic.</p>
 
-<h2 id="type-erasure">Type Erasure</h2>
+<h2 id="key-takeaways">Key Takeaways</h2>
 
-<p>Under the hood, Java uses a process called type erasure to implement generics. This means that generic type information is mostly removed at compile time, and the JVM works with raw types. Type erasure allows for backward compatibility with code written before the introduction of generics.</p>
+<ul>
+  <li>Generics move type errors from runtime (<code class="language-plaintext highlighter-rouge">ClassCastException</code>) to compile time.</li>
+  <li><code class="language-plaintext highlighter-rouge">List&lt;Integer&gt;</code> is <strong>not</strong> a <code class="language-plaintext highlighter-rouge">List&lt;Number&gt;</code>: generic types are invariant.</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">? extends T</code> to read and <code class="language-plaintext highlighter-rouge">? super T</code> to write: Producer Extends, Consumer Super.</li>
+  <li>Use bounded type parameters like <code class="language-plaintext highlighter-rouge">&lt;T extends Comparable&lt;T&gt;&gt;</code> when a method needs specific capabilities.</li>
+  <li>Type information is erased at runtime, so you can’t test <code class="language-plaintext highlighter-rouge">instanceof List&lt;String&gt;</code>.</li>
+</ul>
 
-<p>While type erasure simplifies the integration of generics into the existing Java codebase, it also has some implications. For example, you cannot directly check the type of a generic object at runtime using <strong>instanceof</strong> due to type erasure.</p>
+<p>Every example in this post compiles (or fails to compile) exactly as shown with Java 17.</p>
 
-<p>The following code:</p>
+<p>Generics questions are interview favorites: why is <code class="language-plaintext highlighter-rouge">List&lt;Integer&gt;</code> not a <code class="language-plaintext highlighter-rouge">List&lt;Number&gt;</code>? What does type erasure remove? Practice with real interview questions:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">list</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;();</span>
-<span class="n">list</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"Hallo"</span><span class="p">);</span>
-<span class="nc">String</span> <span class="n">x</span> <span class="p">=</span> <span class="n">list</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<div><center>
+  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
+</center>
 
-<p>It’s compiled into:</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="nc">List</span> <span class="n">list</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">();</span>
-<span class="n">list</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"Hallo"</span><span class="p">);</span>
-<span class="nc">String</span> <span class="n">x</span> <span class="p">=</span> <span class="p">(</span><span class="nc">String</span><span class="p">)</span> <span class="n">list</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="in-conclusion">In Conclusion</h2>
-
-<p>Generics in Java provide a powerful mechanism for writing flexible and type-safe code. By parameterizing classes and methods with type variables, you can create reusable components that work with different data types without sacrificing type safety. Wildcards further enhance the flexibility of generics, allowing you to work with unknown subtypes or supertypes.</p>
-
-<p>Understanding generics is crucial for Java developers, as they are widely used in collections, frameworks, and various libraries. By incorporating generics into your code, you can improve its readability, maintainability, and safety.</p>
+<br /></div>
 
 <p>Please support me as a writer. Your donation will help add more articles to this website. Thank you!</p>
 
@@ -702,8 +765,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/java-generics/"
   },
-  "headline": "Understanding the Basics of Generics in Java",
-  "description": "Generics in Java provide a powerful and flexible way to create classes, interfaces, and methods that can work with different data types while ensuring type safety",
+  "headline": "Java Generics Explained: Wildcards, PECS and Type Erasure with Examples",
+  "description": "Learn Java generics with runnable examples: generic classes and methods, why a list of Integer is not a list of Number, extends and super wildcards (PECS), bounded types and type erasure.",
   "image": "https://codersite.dev/assets/images/javaGenerics.jpg",
   "datePublished": "2024-01-05T00:00:00+01:00",
   "dateModified": "2024-01-05T00:00:00+01:00",
@@ -741,7 +804,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Understanding the Basics of Generics in Java",
+      "name": "Java Generics Explained: Wildcards, PECS and Type Erasure with Examples",
       "item": "https://codersite.dev/java-generics/"
     }
   ]

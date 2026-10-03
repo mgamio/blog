@@ -1,83 +1,81 @@
 ---
 layout: post
-title:  "Understanding the Basics of Generics in Java"
-description: "Generics in Java provide a powerful and flexible way to create classes, interfaces, and methods that can work with different data types while ensuring type safety"
+title:  "Java Generics Explained: Wildcards, PECS and Type Erasure with Examples"
+description: "Learn Java generics with runnable examples: generic classes and methods, why a list of Integer is not a list of Number, extends and super wildcards (PECS), bounded types and type erasure."
 author: moises
 categories: [ programming ]
 image: /assets/images/javaGenerics.jpg
 comments: false
 ---
 
-Generics in Java provide a powerful and *flexible* way to create classes, interfaces, and methods *that can work with different data types* while ensuring type safety. Introduced in Java 5, generics allow you to write code that is more *reusable* and less error-prone. In this article, we will explore the basics of generics in Java and understand how they contribute to writing robust and maintainable code.
+Before Java 5, every collection held `Object`, and every value you took out needed a cast, which could fail at runtime. Generics moved that check to the compiler. Here's how they work, from a simple `Box<T>` to the wildcard rules that confuse even experienced developers.
 
 ## Boxing and Unboxing
 
-Every data type in Java is either a reference type or a primitive type. The following table shows the eight primitive data types and their corresponding reference type.
+Every data type in Java is either a reference type or a primitive type. Generics only work with reference types, so each primitive type has a corresponding wrapper class:
 
----
+| Primitive | Reference |
+|---|---|
+| `byte` | `Byte` |
+| `short` | `Short` |
+| `int` | `Integer` |
+| `long` | `Long` |
+| `float` | `Float` |
+| `double` | `Double` |
+| `boolean` | `Boolean` |
+| `char` | `Character` |
 
-| Primitive   || Reference |
-| ----------- || --------- |
-| byte        || Byte      |
-| short       || Short     |
-| int         || Integer   |
-| long        || Long      |
-| float       || Float     |
-| double      || Double    |
-| boolean     || Boolean   |
-| char        || Character |
+<br/>
 
----
+**Boxing** happens when a primitive type is converted to the corresponding reference type. Converting the reference type back to the primitive type is called **unboxing**. Since Java 5, the compiler does both automatically.
 
-**Boxing** happens when a primitive type is converted to the corresponding reference type.
-Conversion of the reference type to the corresponding primitive type is called **Unboxing**.
-## What are Generics?
+## The Problem Generics Solve
 
-Generics in Java enable you to create classes, interfaces, and methods that can operate on any data type without sacrificing type safety. 
+Before generics, a `List` could hold anything. You had to cast every element you took out, and box every number you put in:
 
-The type safety feature of Java simply means the language only allows you to perform the operations allowed by a data type.
-
-Prior to the introduction of generics, classes and methods would often use Object as a generic data type, leading to potential runtime errors and decreased code readability.
-
-Generics introduce the concept of **parameterized types**, allowing you to specify the type of data (reference type) a class or method can work with. This provides compile-time type checking, reducing the likelihood of runtime errors and making your code more robust.
-
-> Upgrade your thinking. Start designing systems that scale.
-
-<div>
-{%- include softwareDesign.html -%}
-</div>
-
-Here is how to do it in Java with generics.
-
-```kotlin
-//Boxing to a Wrapper class is automatically inserted - cast
-List<Integer> ints = Arrays.asList(1,2,3);
+```java
+List ints = new ArrayList();
+ints.add(new Integer(1));
+ints.add(new Integer(2));
+ints.add(new Integer(3));
 
 int s = 0;
-//Unboxing to a primitive type is automatically inserted
-for (int n : ints) { 
-  s += n; 
+for (Iterator it = ints.iterator(); it.hasNext(); ) {
+  s += ((Integer) it.next()).intValue();
 }
 ```
 
-Here is how to do the same using *cast* in Java before generics:
+Worse, nothing stopped a wrong type from getting in. The mistake only showed up later, at runtime:
 
-```kotlin
-int int1 = 1;
-int int2 = 2;
-int int3 = 3;
-
-List ints = Arrays.asList(new Integer[]{(Integer)int1, (Integer)int2, (Integer)int3});
-
+```java
+List ints = new ArrayList();
+ints.add("42");                      // compiles
+Integer n = (Integer) ints.get(0);   // ClassCastException at runtime
 ```
 
-*Cast-iron guarantee*: the implicit *casts* added by the compilation of generics **never fail**.
+With generics, the list knows its element type. Boxing, unboxing and the casts are inserted for you, and the compiler rejects the wrong type:
+
+```java
+List<Integer> ints = Arrays.asList(1, 2, 3);   // boxing is automatic
+
+int s = 0;
+for (int n : ints) {                           // unboxing is automatic
+  s += n;
+}
+```
+
+```java
+List<Integer> ints = new ArrayList<>();
+ints.add("42");   // does not compile: String cannot be converted to Integer
+```
+
+The *cast-iron guarantee*: if your code compiles without unchecked warnings, the casts the compiler inserts for generics never fail.
 
 ## The Generic Class
 
 Let's start with a basic example of a generic class. Consider a simple **Box** class that can hold any type of object:
 
-```kotlin
+```java
 public class Box<T> {
   private T value;
 
@@ -95,9 +93,9 @@ public class Box<T> {
 {%- include inArticleAds.html -%}
 </div>
 
-In this example, the class **Box** is parameterized with a type variable **T**. The type variable is a placeholder for the actual data type that will be specified when an instance of the class is created. You can create a **Box** for different types, such as Box<<Integer>>, Box<<String>>, or any other class or interface.
+In this example, the class **Box** is parameterized with a type variable **T**. The type variable is a placeholder for the actual type, which you specify when you create an instance. You can create a `Box<Integer>`, a `Box<String>`, or a box for any other class or interface:
 
-```kotlin
+```java
 Box<Integer> integerBox = new Box<>(42);
 Box<Article> articleBox = new Box<>(article);
 Box<String> stringBox = new Box<>("Hello, Generics!");
@@ -105,9 +103,9 @@ Box<String> stringBox = new Box<>("Hello, Generics!");
 
 ## The Generic Method
 
-Generics are not limited to classes; you can also use them in methods. Let's look at an example of a generic method that compares two values:
+Generics are not limited to classes; you can also use them in methods. Here is a generic method that compares two values:
 
-```kotlin
+```java
 public class GenericMethodExample {
   public <T> boolean isEqual(T value1, T value2) {
     return value1.equals(value2);
@@ -115,41 +113,60 @@ public class GenericMethodExample {
 }
 ```
 
-A method that declares a new type variable **T** at the beginning of the method signature is called a generic method.
+A method that declares its own type variable, here `<T>` before the return type, is called a generic method. The compiler infers **T** from the arguments:
 
-In this example, the method **isEqual** is parameterized with a type variable **T**. This allows the method to accept any data type for comparison. You can call the method with different types, and the compiler will perform type checking:
-
-```kotlin
+```java
 GenericMethodExample example = new GenericMethodExample();
-System.out.println(example.isEqual(42, 42)); // true
-System.out.println(example.isEqual("hello", "world")); // false
+System.out.println(example.isEqual(42, 42));            // true
+System.out.println(example.isEqual("hello", "world"));  // false
 ```
 
-In Effective Java, Joshua Bloch tells you how to maximize the benefits of Generics:
+Generics are a design tool: they let one class or method serve many types safely. For more design decisions like this, explained with real-world examples:
 
 <div>
-{%- include effectiveJava.html -%}
+{%- include softwareDesign.html -%}
 </div>
+
+## Bounded Type Parameters
+
+Sometimes a method needs more than "any type". To find the largest element, the elements must be comparable. A **bounded type parameter** says exactly that:
+
+```java
+public static <T extends Comparable<T>> T max(List<T> list) {
+  T best = list.get(0);
+  for (T item : list) {
+    if (item.compareTo(best) > 0) {
+      best = item;
+    }
+  }
+  return best;
+}
+```
+
+```java
+max(Arrays.asList(3, 9, 4));                  // 9
+max(Arrays.asList("pear", "apple", "plum"));  // "plum"
+```
+
+`<T extends Comparable<T>>` means "any type T that can be compared with itself". Calling `max` with a list of plain `Object`s doesn't compile, because `Object` doesn't implement `Comparable`.
 
 ## Subtyping and the Substitution Principle
 
-In Java, one type is a *subtype* of another if they are related by an extends clause. Subtyping is transitive.
+In Java, one type is a *subtype* of another if they are related by an `extends` or `implements` clause. Subtyping is transitive.
 
----
+| Type | is a subtype of | Type |
+|---|---|---|
+| `Integer` | is a subtype of | `Number` |
+| `Double` | is a subtype of | `Number` |
+| `ArrayList<E>` | is a subtype of | `List<E>` |
 
-| Type           |   |                  |   | Type      |
-| -------------- |   | ---------------- |   | --------- |
-| Integer        | - | is a subtype of  | - | Number    |
-| Double         | - | is a subtype of  | - | Number    |
-| ArrayList<<E>> | - | is a subtype of  | - | List<<E>> |
-
----
+<br/>
 
 **Substitution Principle**: *wherever a value of type T is expected, you can provide instead a value of a subtype of T.*
 
-Consider the following **add** method, which takes a parameterized type of **E**.
+Consider the **add** method of a collection, which takes an element of type **E**:
 
-```kotlin
+```java
 interface Collection<E> {
   public boolean add(E el);
   ...
@@ -158,50 +175,57 @@ interface Collection<E> {
 
 According to the Substitution Principle, we may add an integer or a double to a collection of numbers, because *Integer* and *Double* are subtypes of *Number*.
 
-```kotlin
+```java
 List<Number> nums = new ArrayList<>();
 nums.add(7);
-nums.add(0.35);
+nums.add(0.35);   // nums is [7, 0.35]
 ```
 
 The Liskov substitution principle is one of the five [SOLID principles](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}.
 
+## Why `List<Integer>` Is Not a `List<Number>`
+
+`Integer` is a subtype of `Number`, so it's natural to expect a `List<Integer>` to be a `List<Number>`. It isn't:
+
+```java
+List<Integer> ints = new ArrayList<>();
+List<Number> nums = ints;   // does not compile
+nums.add(3.14);             // ...because otherwise this would put a Double into ints
+```
+
+If the second line were allowed, `nums` and `ints` would be the same list, and you could add a `Double` to a list that promises to contain only integers. So generic types are *invariant*: `List<Integer>` and `List<Number>` are unrelated types. Wildcards are how you get the flexibility back safely.
+
 ## Wildcards in Generics
 
-Wildcards in generics provide additional flexibility when working with generic types. There are two main wildcard types: **`? extends T`** and **`? super T`**.
+There are two main wildcard types: `? extends T` and `? super T`.
 
-The **`? extends T`** wildcard denotes an unknown subtype of type T. It is used when you want to work with a collection of objects of a specific type or any of its subtypes.
+The `? extends T` wildcard denotes an unknown subtype of type T. Use it when a method only **reads** elements:
 
-```kotlin
-public void processList(List<? extends Number> numbers) {
-  //Process the list of Numbers or its subtypes
-}
+```java
+List<Integer> ints = Arrays.asList(1, 2, 3);
+List<? extends Number> nums = ints;   // compiles
+Number first = nums.get(0);           // reading is fine: every element is a Number
+nums.add(3.14);                       // does not compile: the list could be a List<Integer>
 ```
 
-If a structure contains elements with a type of the form **`? extends T`**, we can get elements out of the structure, but we cannot put elements into the structure. To put elements into the structure, we need a wildcard with `super`.
+The `? super T` wildcard denotes an unknown supertype of type T. Use it when a method only **writes** elements:
 
-The **`? super T`** wildcard denotes an unknown supertype of type T. It is used when you want to work with a collection of objects of a specific type or any of its supertypes.
-
-```kotlin
-public void addNumbers(List<? super Integer> numbers) {
-  //Add integers to the list or its supertypes
-}
+```java
+List<Number> numbers = new ArrayList<>();
+List<? super Integer> sink = numbers;   // compiles
+sink.add(7);                            // writing an Integer is fine
+Integer x = sink.get(0);                // does not compile: you only know it's an Object
 ```
 
-> Understand algorithm patterns that appear in real interviews
-
-<div>
-{%- include algorithmsBook.html -%}
-</div>
-
-
-## The Get and Put Principle
+## The Get and Put Principle (PECS)
 
 *The Get and Put Principle: use an extends wildcard when you only get elements out of a structure, use a super wildcard when you only put elements into a structure.*
 
-Here is a method, that copies the elements from a source list into a destination list.
+Joshua Bloch gives the same rule a memorable name in *Effective Java*: **PECS**, "Producer Extends, Consumer Super". A list that produces values for you is `? extends T`; a list that consumes values from you is `? super T`.
 
-```kotlin
+Here is a method that copies the elements from a source list into a destination list:
+
+```java
 public static <T> void copy(List<? super T> dst, List<? extends T> src) {
   for (int i = 0; i < src.size(); i++) {
     dst.set(i, src.get(i));
@@ -209,35 +233,68 @@ public static <T> void copy(List<? super T> dst, List<? extends T> src) {
 }
 ```
 
-The destination list may have elements of any type that is a *supertype* of **T**,  and the source list may have elements of any type that is a *subtype* of **T**.
+The source *produces* elements, so it uses `extends`. The destination *consumes* them, so it uses `super`. That makes the method work across types:
+
+```java
+List<Object> objs = Arrays.asList(2, 3.14, "four");
+List<Integer> ints = Arrays.asList(5, 6);
+copy(objs, ints);   // objs is now [5, 6, four]
+```
+
+In *Effective Java*, Joshua Bloch explains PECS and many more rules for getting the most out of generics:
+
+<div>
+{%- include effectiveJava.html -%}
+</div>
 
 ## Type Erasure
 
-Under the hood, Java uses a process called type erasure to implement generics. This means that generic type information is mostly removed at compile time, and the JVM works with raw types. Type erasure allows for backward compatibility with code written before the introduction of generics.
-
-While type erasure simplifies the integration of generics into the existing Java codebase, it also has some implications. For example, you cannot directly check the type of a generic object at runtime using **instanceof** due to type erasure.
+Under the hood, Java implements generics with *type erasure*: the compiler checks the types, then removes them. At runtime, the JVM works with raw types. This kept generic code compatible with code written before Java 5.
 
 The following code:
 
-```kotlin
+```java
 List<String> list = new ArrayList<String>();
 list.add("Hallo");
 String x = list.get(0);
 ```
 
-It's compiled into:
+is compiled into:
 
-```kotlin
+```java
 List list = new ArrayList();
 list.add("Hallo");
 String x = (String) list.get(0);
 ```
 
-## In Conclusion
+Erasure has visible consequences:
 
-Generics in Java provide a powerful mechanism for writing flexible and type-safe code. By parameterizing classes and methods with type variables, you can create reusable components that work with different data types without sacrificing type safety. Wildcards further enhance the flexibility of generics, allowing you to work with unknown subtypes or supertypes.
+```java
+List<String> strings = new ArrayList<>();
+List<Integer> numbers = new ArrayList<>();
+System.out.println(strings.getClass() == numbers.getClass());   // true: both are just ArrayList
 
-Understanding generics is crucial for Java developers, as they are widely used in collections, frameworks, and various libraries. By incorporating generics into your code, you can improve its readability, maintainability, and safety.
+Object obj = new ArrayList<String>();
+boolean b = obj instanceof List<String>;   // does not compile: the type argument isn't known at runtime
+```
+
+The terms *cast-iron guarantee* and *Get and Put Principle*, and the `copy` example, come from Maurice Naftalin and Philip Wadler's book *Java Generics and Collections* (O'Reilly), still one of the best deep dives on the topic.
+
+## Key Takeaways
+
+- Generics move type errors from runtime (`ClassCastException`) to compile time.
+- `List<Integer>` is **not** a `List<Number>`: generic types are invariant.
+- Use `? extends T` to read and `? super T` to write: Producer Extends, Consumer Super.
+- Use bounded type parameters like `<T extends Comparable<T>>` when a method needs specific capabilities.
+- Type information is erased at runtime, so you can't test `instanceof List<String>`.
+
+Every example in this post compiles (or fails to compile) exactly as shown with Java 17.
+
+Generics questions are interview favorites: why is `List<Integer>` not a `List<Number>`? What does type erasure remove? Practice with real interview questions:
+
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
 
 Please support me as a writer. Your donation will help add more articles to this website. Thank you!
 
