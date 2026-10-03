@@ -269,19 +269,21 @@
 
 <p>Space complexity analysis is related to how efficient an algorithm is using the memory and disk.</p>
 
-<p>Both terms depend on the input size, the number of items in the input. Both terms depend on the input size and the number of items in the input. Moreover, we can analyze the complexity based on three cases or asymptotic notations.:</p>
+<p>Both depend on the input size n, the number of items in the input. We usually describe complexity with three notations:</p>
 
 <ul>
   <li>
-    <p>Best case or Big Omega Ω(n): Usually the algorithm executes in one step independently of the input size.</p>
+    <p>Big O, O(f(n)): an upper bound. The algorithm never grows faster than f(n). In interviews, “the complexity” almost always means the Big O of the worst case.</p>
   </li>
   <li>
-    <p>Average case or Big Theta Θ(n): If the the input size is ramdom</p>
+    <p>Big Omega, Ω(f(n)): a lower bound. The algorithm needs at least f(n) steps.</p>
   </li>
   <li>
-    <p>Worst-case analysis or Big O Notation O(n): Gives us an upper bound on the runtime for any input. It gives us a kind of guarantee that the algorithm will never take any longer with a new input size.</p>
+    <p>Big Theta, Θ(f(n)): a tight bound. The algorithm grows exactly like f(n), because f(n) is both an upper and a lower bound.</p>
   </li>
 </ul>
+
+<p>Do not confuse these notations with the best, average, and worst cases. The cases describe which input we analyze; the notations describe how we bound its running time. For example, a linear search takes O(1) time in the best case, when the item is the first one, and O(n) time in the worst case, when the item is the last one or is missing.</p>
 
 <blockquote>
   <p>Get the Job Offer, Not Just Algorithm Knowledge</p>
@@ -317,13 +319,7 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div><center>
-  <a href="https://amzn.to/3Ps12Uu" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="../assets/images/AdsCosmoCoding.jpg" /></a>
-</center>
-
-<br /></div>
-
-<p>In a best-case scenario, an <em>add</em> method takes O(1) time. The worst-case scenario takes O(n).</p>
+<p>Adding an item to the end of an ArrayList takes O(1) amortized time. Occasionally, when the internal array is full, Java copies all the items into a larger array, which costs O(n). This happens so rarely that the average cost per add stays constant.</p>
 
 <p><strong>O(N) – Linear Time Complexity</strong></p>
 
@@ -402,7 +398,7 @@
 
 <p><strong>O(N<sup>3</sup>) – Cubic Time Complexity</strong></p>
 
-<p>When the code includes at the most three nested loops, then the algorithm runs in Cubic time.</p>
+<p>An algorithm runs in cubic time when it has three nested loops, each iterating over the input. The runtime grows with n × n × n = n³.</p>
 
 <p>Example: Given N integers, how many triples sum to exactly zero?. One approach (not the best) is to use three nested loops.</p>
 
@@ -432,7 +428,7 @@
 
 <p><strong>O(LogN) – Logarithmic Time Complexity</strong></p>
 
-<p>This kind of algorithm produces a growth curve that peaks at the beginning and slowly flattens out as the size of the input increase. The runtime grows logarithmically with the input size.</p>
+<p>This kind of algorithm produces a growth curve that peaks at the beginning and slowly flattens out as the size of the input increases. The runtime grows logarithmically with the input size.</p>
 
 <p>Example: Binary search on a sorted array.</p>
 
@@ -599,8 +595,11 @@
 
 <p>But after an intersection point, O(100N) becomes faster and remains faster (in terms of the “number of steps”) for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, the value of 100 is irrelevant and O(100N) is written as O(N). The fewer steps, the faster the algorithm.</p>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Introduction to Algorithms, fourth edition <a href="https://t.co/d6ThijT6Za">https://t.co/d6ThijT6Za</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839040190213431745?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div><center>
+  <a href="https://link.amazon/A03J6CE1B" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/technical_Interview_Preparation_Roadmap.jpg" /></a>
+</center>
+
+<br /></div>
 
 <p>This article was just an introduction to algorithm analysis to face an actual code interview as a software developer. They are asked to build approximated models using Big O notation in Java. The same concepts apply to Python algorithm analysis.</p>
 

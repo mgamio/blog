@@ -26,13 +26,15 @@ Time complexity analysis is related to how many steps takes an algorithm.
 
 Space complexity analysis is related to how efficient an algorithm is using the memory and disk.
 
-Both terms depend on the input size, the number of items in the input. Both terms depend on the input size and the number of items in the input. Moreover, we can analyze the complexity based on three cases or asymptotic notations.:
+Both depend on the input size n, the number of items in the input. We usually describe complexity with three notations:
 
-- Best case or Big Omega Ω(n): Usually the algorithm executes in one step independently of the input size.
+- Big O, O(f(n)): an upper bound. The algorithm never grows faster than f(n). In interviews, “the complexity” almost always means the Big O of the worst case.
 
-- Average case or Big Theta Θ(n): If the the input size is ramdom 
+- Big Omega, Ω(f(n)): a lower bound. The algorithm needs at least f(n) steps.
 
-- Worst-case analysis or Big O Notation O(n): Gives us an upper bound on the runtime for any input. It gives us a kind of guarantee that the algorithm will never take any longer with a new input size.
+- Big Theta, Θ(f(n)): a tight bound. The algorithm grows exactly like f(n), because f(n) is both an upper and a lower bound.
+
+Do not confuse these notations with the best, average, and worst cases. The cases describe which input we analyze; the notations describe how we bound its running time. For example, a linear search takes O(1) time in the best case, when the item is the first one, and O(n) time in the worst case, when the item is the last one or is missing.
 
 > Get the Job Offer, Not Just Algorithm Knowledge
 
@@ -62,11 +64,7 @@ public void constant(List<string> list, String item) {
 }
 ```
 
-<div>
-{%- include adsCosmoCoding.html -%}
-</div>
-
-In a best-case scenario, an *add* method takes O(1) time. The worst-case scenario takes O(n).
+Adding an item to the end of an ArrayList takes O(1) amortized time. Occasionally, when the internal array is full, Java copies all the items into a larger array, which costs O(n). This happens so rarely that the average cost per add stays constant.
 
 **O(N) – Linear Time Complexity**
 
@@ -124,7 +122,7 @@ Here, if *arr* has *n* elements, the outer and inner loops both run *n* times, r
 
 **O(N<sup>3</sup>) – Cubic Time Complexity**
 
-When the code includes at the most three nested loops, then the algorithm runs in Cubic time.
+An algorithm runs in cubic time when it has three nested loops, each iterating over the input. The runtime grows with n × n × n = n³.
 
 Example: Given N integers, how many triples sum to exactly zero?. One approach (not the best) is to use three nested loops.
 
@@ -144,7 +142,7 @@ public int countThreeSum(int[] numbers) {
 
 **O(LogN) – Logarithmic Time Complexity**
 
-This kind of algorithm produces a growth curve that peaks at the beginning and slowly flattens out as the size of the input increase. The runtime grows logarithmically with the input size.
+This kind of algorithm produces a growth curve that peaks at the beginning and slowly flattens out as the size of the input increases. The runtime grows logarithmically with the input size.
 
 Example: Binary search on a sorted array.
 
@@ -250,7 +248,9 @@ Now, if we compare O(100N) with O(N<sup>2</sup>), we can see that O(N<sup>2</sup
 
 But after an intersection point, O(100N) becomes faster and remains faster (in terms of the "number of steps") for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, the value of 100 is irrelevant and O(100N) is written as O(N). The fewer steps, the faster the algorithm.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Introduction to Algorithms, fourth edition <a href="https://t.co/d6ThijT6Za">https://t.co/d6ThijT6Za</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839040190213431745?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div>
+{%- include technical_Interview_Preparation_Roadmap.html -%}
+</div>
 
 This article was just an introduction to algorithm analysis to face an actual code interview as a software developer. They are asked to build approximated models using Big O notation in Java. The same concepts apply to Python algorithm analysis.
 
