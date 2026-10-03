@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Enum, Flags and bitwise operators | codersite</title>
+<title>Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Enum, Flags and bitwise operators" />
+<meta property="og:title" content="Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Enum, Flags and bitwise operators" />
-<meta name="twitter:description" property="og:description" content="Enum, Flags and bitwise operators" />
+<meta name="description" content="Report several errors in one int: how to combine, test, remove and decode bit flags with Java enums and bitwise operators, and when to use EnumSet instead." />
+<meta name="twitter:description" property="og:description" content="Report several errors in one int: how to combine, test, remove and decode bit flags with Java enums and bitwise operators, and when to use EnumSet instead." />
 <link rel="canonical" href="https://codersite.dev/enum-flags-bitwise-operators/" />
 <meta property="og:url" content="https://codersite.dev/enum-flags-bitwise-operators/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2024-04-05T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/enumBitWiseOperators.jpg" />
-<meta name="twitter:title" content="Enum, Flags and bitwise operators" />
+<meta name="twitter:title" content="Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2024-04-05T00:00:00+02:00","datePublished":"2024-04-05T00:00:00+02:00","description":"Enum, Flags and bitwise operators","headline":"Enum, Flags and bitwise operators","image":"https://codersite.dev/assets/images/enumBitWiseOperators.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/enum-flags-bitwise-operators/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/enum-flags-bitwise-operators/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2024-04-05T00:00:00+02:00","datePublished":"2024-04-05T00:00:00+02:00","description":"Report several errors in one int: how to combine, test, remove and decode bit flags with Java enums and bitwise operators, and when to use EnumSet instead.","headline":"Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet","image":"https://codersite.dev/assets/images/enumBitWiseOperators.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/enum-flags-bitwise-operators/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/enum-flags-bitwise-operators/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -171,7 +171,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Enum, Flags and bitwise operators&url=https://codersite.dev/enum-flags-bitwise-operators/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet&url=https://codersite.dev/enum-flags-bitwise-operators/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -219,7 +219,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Enum, Flags and bitwise operators</h1>
+                <h1 class="posttitle">Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -227,7 +227,7 @@
                 <p class="post-meta-line">
                     <time datetime="2024-04-05T00:00:00+02:00" itemprop="datePublished">Apr 5, 2024</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">6 min read</span>
+                    <span class="meta-reading-time">9 min read</span>
                     
                 </p>
 
@@ -242,7 +242,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/enumBitWiseOperators.jpg" alt="Enum, Flags and bitwise operators">
+            <img class="featured-image img-fluid" src="/assets/images/enumBitWiseOperators.jpg" alt="Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet">
             
 
             
@@ -253,7 +253,7 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>Java enums, bit flags, and bitwise operations are powerful features that can greatly enhance the functionality and efficiency of your code. Understanding how to leverage these features effectively can lead to cleaner, more concise code and improved performance. In this article, we’ll explore what Java enums are, how to use them, and how to combine them with bit flags and bitwise operations for advanced functionality.</p>
+                <p>An order API has to report several problems at once: a wrong quantity, a price difference and an article that no longer exists. Sending a list of strings works, but many APIs pack them into a single number instead. Here’s how to build, read and decode those bit flags in Java.</p>
 
 <h2 id="understanding-java-enum-types">Understanding Java Enum Types</h2>
 
@@ -261,39 +261,39 @@
 
 <p>Here’s a simple example of how to define an enum in Java:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="k">enum</span> <span class="nc">Day</span> <span class="p">{</span>
-  <span class="nc">SUNDAY</span><span class="p">,</span> <span class="nc">MONDAY</span><span class="p">,</span> <span class="nc">TUESDAY</span><span class="p">,</span> <span class="nc">WEDNESDAY</span><span class="p">,</span> <span class="nc">THURSDAY</span><span class="p">,</span> <span class="nc">FRIDAY</span><span class="p">,</span> <span class="nc">SATURDAY</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">enum</span> <span class="nc">Day</span> <span class="o">{</span>
+  <span class="no">SUNDAY</span><span class="o">,</span> <span class="no">MONDAY</span><span class="o">,</span> <span class="no">TUESDAY</span><span class="o">,</span> <span class="no">WEDNESDAY</span><span class="o">,</span> <span class="no">THURSDAY</span><span class="o">,</span> <span class="no">FRIDAY</span><span class="o">,</span> <span class="no">SATURDAY</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>However, their capabilities extend beyond simple constant definitions. Enums can also have fields, constructors, and methods, making them versatile and powerful constructs in Java programming.</p>
+<p>Enums can also have fields, constructors, and methods, which is exactly what we’ll use below.</p>
 
-<h2 id="bit-flags-efficient-representation-of-multiple-states">Bit Flags: Efficient Representation of Multiple States</h2>
+<h2 id="bit-flags-several-states-in-one-number">Bit Flags: Several States in One Number</h2>
 
-<p>Bit flags are a technique used to represent multiple boolean states using a single integer value. Each bit in the integer represents a different state, allowing for efficient storage and manipulation of multiple flags in a compact form.</p>
+<p>Bit flags represent multiple yes/no states with a single integer. Each bit in the integer stands for a different state, so one <code class="language-plaintext highlighter-rouge">int</code> can carry up to 32 flags.</p>
 
-<p>For example, consider a set of boolean flags representing all possible issues during the process of creating an order:</p>
+<p>For example, consider the issues an API server can detect while it processes the positions of an order:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">ISSUES_ORDERPOSITION</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="k">final</span> <span class="n">int</span> <span class="nc">QUANTITY_ERROR</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>             <span class="c1">// 00000001</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="k">final</span> <span class="n">int</span> <span class="nc">PRICE_DIFFERS_WARNING</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>      <span class="c1">// 00000010</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="k">final</span> <span class="n">int</span> <span class="nc">ARTICLE_INVALID_ERROR</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>      <span class="c1">// 00000100</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="k">final</span> <span class="n">int</span> <span class="nc">ARTICLE_REMOVED_ERROR</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>      <span class="c1">// 00001000</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="k">final</span> <span class="n">int</span> <span class="nc">ARTICLE_NOTALLOWED_ERROR</span> <span class="p">=</span> <span class="mi">16</span><span class="p">;</span>  <span class="c1">// 00010000</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderPositionFlags</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">QUANTITY_ERROR</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>             <span class="c1">// 00001</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">PRICE_DIFFERS_WARNING</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>      <span class="c1">// 00010</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">ARTICLE_INVALID_ERROR</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>      <span class="c1">// 00100</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">ARTICLE_REMOVED_ERROR</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>      <span class="c1">// 01000</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">ARTICLE_NOTALLOWED_ERROR</span> <span class="o">=</span> <span class="mi">16</span><span class="o">;</span>  <span class="c1">// 10000</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>In this example, each flag is represented by a different bit position in the integer value. By combining these flags using bitwise operations, we can represent and manipulate different combinations of issues efficiently.</p>
+<p>Each flag is a power of two, so each one occupies a different bit. A position with a wrong quantity <em>and</em> a price difference is simply <code class="language-plaintext highlighter-rouge">1 + 2 = 3</code>, or <code class="language-plaintext highlighter-rouge">00011</code> in binary.</p>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -304,29 +304,62 @@
 
 <h2 id="bitwise-operations">Bitwise Operations</h2>
 
-<p>Bitwise operations are fundamental operations that manipulate individual bits in binary representations of data. Java provides several bitwise operators for performing these operations:</p>
+<p>Bitwise operators work on the individual bits of a number. Here is what each one does, with examples on five-bit flag values:</p>
 
-<ul>
-  <li>AND (&amp;): Sets each bit to 1 if both bits are 1.</li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>OR (</td>
-          <td>): Sets each bit to 1 if at least one of the corresponding bits is 1.</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li>XOR (^): Sets each bit to 1 if only one of the corresponding bits is 1.</li>
-  <li>NOT (~): Flips the bits.</li>
-  <li>Shift Left («): Shifts the bits to the left by a specified number of positions.</li>
-  <li>Shift Right (»): Shifts the bits to the right by a specified number of positions.</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Meaning</th>
+      <th>Example</th>
+      <th>Used for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&amp;</code> AND</td>
+      <td>1 only where both bits are 1</td>
+      <td><code class="language-plaintext highlighter-rouge">00011 &amp; 00010</code> = <code class="language-plaintext highlighter-rouge">00010</code></td>
+      <td>checking a flag</td>
+    </tr>
+    <tr>
+      <td><code>&#124;</code> OR</td>
+      <td>1 where at least one bit is 1</td>
+      <td><code>00011 &#124; 01000</code> = <code class="language-plaintext highlighter-rouge">01011</code></td>
+      <td>adding a flag</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">^</code> XOR</td>
+      <td>1 where exactly one bit is 1</td>
+      <td><code class="language-plaintext highlighter-rouge">00011 ^ 00001</code> = <code class="language-plaintext highlighter-rouge">00010</code></td>
+      <td>toggling a flag</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">~</code> NOT</td>
+      <td>flips every bit</td>
+      <td><code class="language-plaintext highlighter-rouge">~00001</code> = <code class="language-plaintext highlighter-rouge">…11110</code></td>
+      <td>removing a flag (with <code class="language-plaintext highlighter-rouge">&amp;</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;&lt;</code> shift left</td>
+      <td>moves the bits left</td>
+      <td><code class="language-plaintext highlighter-rouge">1 &lt;&lt; 3</code> = <code class="language-plaintext highlighter-rouge">01000</code> (8)</td>
+      <td>building flag values</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&gt;&gt;</code> shift right</td>
+      <td>moves the bits right</td>
+      <td><code class="language-plaintext highlighter-rouge">01000 &gt;&gt; 3</code> = <code class="language-plaintext highlighter-rouge">00001</code></td>
+      <td>reading a bit position</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><em>enums</em> can be decorated with Flags. This allows them to be treated as bit masks, storing multiple values between them. Here is how it looks in our enumeration.</p>
+<p><br /></p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<p>Java has no special flags syntax, but an enum can carry the bit value of each flag:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -343,40 +376,32 @@
 15
 16
 17
-18
-</pre></td><td class="rouge-code"><pre><span class="k">enum</span> <span class="nc">ISSUES_ORDERPOSITION</span>
-<span class="p">{</span>
-  <span class="nc">QUANTITY_ERROR</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>            <span class="c1">//Status Bit: 1</span>
-  <span class="nc">PRICE_DIFFERS_WARNING</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>     <span class="c1">//Status Bit: 2</span>
-  <span class="nc">ARTICLE_INVALID_ERROR</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>     <span class="c1">//Status Bit: 3</span>
-  <span class="nc">ARTICLE_REMOVED_ERROR</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span>     <span class="c1">//Status Bit: 4</span>
-  <span class="nc">ARTICLE_NOTALLOWED_ERROR</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span> <span class="c1">//Status Bit: 5</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">enum</span> <span class="nc">OrderPositionIssue</span> <span class="o">{</span>
+  <span class="no">QUANTITY_ERROR</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span>            <span class="c1">// bit 1: 00001</span>
+  <span class="no">PRICE_DIFFERS_WARNING</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span>     <span class="c1">// bit 2: 00010</span>
+  <span class="no">ARTICLE_INVALID_ERROR</span><span class="o">(</span><span class="mi">4</span><span class="o">),</span>     <span class="c1">// bit 3: 00100</span>
+  <span class="no">ARTICLE_REMOVED_ERROR</span><span class="o">(</span><span class="mi">8</span><span class="o">),</span>     <span class="c1">// bit 4: 01000</span>
+  <span class="no">ARTICLE_NOTALLOWED_ERROR</span><span class="o">(</span><span class="mi">16</span><span class="o">);</span> <span class="c1">// bit 5: 10000</span>
 
-  <span class="k">private</span> <span class="k">final</span> <span class="n">int</span> <span class="n">value</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
 
-  <span class="nc">ISSUES_ORDERPOSITION</span><span class="p">(</span><span class="n">int</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="n">value</span><span class="p">;</span>
-  <span class="p">}</span>
+  <span class="nc">OrderPositionIssue</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+  <span class="o">}</span>
 
-  <span class="k">public</span> <span class="n">int</span> <span class="nf">getValue</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>In this example, <strong>ISSUES_ORDERPOSITION</strong> is an enum type representing the possible issues that could happen when an API Server processes the positions of an order.</p>
+<p><strong>OrderPositionIssue</strong> represents the possible issues that can happen when an API server processes the positions of an order. Java type names use UpperCamelCase, which is why the enum isn’t called <code class="language-plaintext highlighter-rouge">ISSUES_ORDERPOSITION</code>.</p>
 
-<h2 id="combining-and-manipulating-bits">Combining and Manipulating Bits</h2>
+<h2 id="combining-and-checking-flags">Combining and Checking Flags</h2>
 
-<p>By combining enums with bit flags and bitwise operations, you can create powerful constructs for representing complex states and behaviors in your Java applications.</p>
+<p>A <a href="https://codersite.dev/building-rest-api-client/" target="_blank">client application</a> sends an order to an external API server. The server runs several internal checks, and each one can produce an error or a warning. The client must be able to handle all of them after a single request.</p>
 
-<p>For example, A client application sends data to an external API Server that involves different internal sub-processes, which could generate errors and warnings.</p>
-
-<p>The <a href="https://codersite.dev/building-rest-api-client/" target="_blank">Client application</a> should be able to handle all of these potential errors and warnings simultaneously after submitting a single request.</p>
-
-<p>Here’s an example demonstrating how to use enums with bit flags and bitwise operations:</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -391,32 +416,118 @@
 13
 14
 15
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">EnumBitMask</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="n">void</span> <span class="nf">main</span><span class="p">(</span><span class="nc">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Combine flags using OR operator</span>
-    <span class="n">int</span> <span class="n">issues</span> <span class="p">=</span> <span class="nc">ISSUES_ORDERPOSITION</span><span class="p">.</span><span class="nc">PRICE_DIFFERS_WARNING</span><span class="p">.</span><span class="nf">getValue</span><span class="p">()</span>
-        <span class="p">|</span> <span class="nc">ISSUES_ORDERPOSITION</span><span class="p">.</span><span class="nc">QUANTITY_ERROR</span><span class="p">.</span><span class="nf">getValue</span><span class="p">();</span>
-    <span class="c1">// Check if PRICE_DIFFERS_WARNING issue is set</span>
-    <span class="k">if</span> <span class="p">((</span><span class="n">issues</span> <span class="p">&amp;</span> <span class="nc">ISSUES_ORDERPOSITION</span><span class="p">.</span><span class="nc">PRICE_DIFFERS_WARNING</span><span class="p">.</span><span class="nf">getValue</span><span class="p">())</span> <span class="p">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"The article transmitted contains a differing price compared with the data on server side"</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="c1">// Check if QUANTITY_ERROR issue is set</span>
-    <span class="k">if</span> <span class="p">((</span><span class="n">issues</span> <span class="p">&amp;</span> <span class="nc">ISSUES_ORDERPOSITION</span><span class="p">.</span><span class="nc">QUANTITY_ERROR</span><span class="p">.</span><span class="nf">getValue</span><span class="p">())</span> <span class="p">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"The transmitted quantity is invalid"</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnumBitMask</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Combine flags using the OR operator</span>
+    <span class="kt">int</span> <span class="n">issues</span> <span class="o">=</span> <span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">PRICE_DIFFERS_WARNING</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span>
+        <span class="o">|</span> <span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">QUANTITY_ERROR</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>      <span class="c1">// 00011 = 3</span>
+    <span class="c1">// Check if PRICE_DIFFERS_WARNING is set</span>
+    <span class="k">if</span> <span class="o">((</span><span class="n">issues</span> <span class="o">&amp;</span> <span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">PRICE_DIFFERS_WARNING</span><span class="o">.</span><span class="na">getValue</span><span class="o">())</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The article transmitted contains a differing price compared with the data on server side"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// Check if QUANTITY_ERROR is set</span>
+    <span class="k">if</span> <span class="o">((</span><span class="n">issues</span> <span class="o">&amp;</span> <span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">QUANTITY_ERROR</span><span class="o">.</span><span class="na">getValue</span><span class="o">())</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The transmitted quantity is invalid"</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>In this example, we combine the ISSUES_ORDERPOSITION and PRICE_DIFFERS_WARNING issues using the bitwise OR operator. We then use the bitwise AND operator (&amp;) to check if each issue is set individually.</p>
+<p>In this example, we combine QUANTITY_ERROR and PRICE_DIFFERS_WARNING using the bitwise OR operator (<code class="language-plaintext highlighter-rouge">|</code>), which gives <code class="language-plaintext highlighter-rouge">00011</code>. We then use the bitwise AND operator (<code class="language-plaintext highlighter-rouge">&amp;</code>) to check whether each issue is set: the result is non-zero only if that flag’s bit is 1.</p>
 
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="remove-and-toggle-a-flag">Remove and Toggle a Flag</h2>
 
-<p>Java enums, bit flags, and bitwise operations are powerful features that can be combined to create expressive, efficient, and type-safe code. By leveraging enums to define a set of constants, bit flags to represent multiple states efficiently, and bitwise operations to manipulate these states, you can build robust and flexible Java applications. Mastering these concepts will enable you to write cleaner, more concise code and unlock new possibilities in your Java development projects.</p>
+<p>To <strong>remove</strong> a flag, AND the mask with the flag’s inverted bits. To <strong>toggle</strong> a flag (turn it on if it’s off, off if it’s on), use XOR:</p>
 
-<blockquote>
-  <p>The Interview Prep Book Written From the Hot Seat</p>
-</blockquote>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span> <span class="n">issues</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>                                                 <span class="c1">// 00011</span>
+
+<span class="n">issues</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">QUANTITY_ERROR</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>        <span class="c1">// 00011 &amp; 11110 = 00010 (2)</span>
+
+<span class="n">issues</span> <span class="o">^=</span> <span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">ARTICLE_REMOVED_ERROR</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>  <span class="c1">// 00010 ^ 01000 = 01010 (10)</span>
+<span class="n">issues</span> <span class="o">^=</span> <span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">ARTICLE_REMOVED_ERROR</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>  <span class="c1">// 01010 ^ 01000 = 00010 (2)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="decode-a-mask-from-the-server">Decode a Mask from the Server</h2>
+
+<p>On the client side, the typical situation is the reverse: the server returns a single number, and you need to know which issues it contains. Loop over the enum values and test each bit:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">static</span> <span class="nc">EnumSet</span><span class="o">&lt;</span><span class="nc">OrderPositionIssue</span><span class="o">&gt;</span> <span class="nf">decode</span><span class="o">(</span><span class="kt">int</span> <span class="n">mask</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">EnumSet</span><span class="o">&lt;</span><span class="nc">OrderPositionIssue</span><span class="o">&gt;</span> <span class="n">issues</span> <span class="o">=</span> <span class="nc">EnumSet</span><span class="o">.</span><span class="na">noneOf</span><span class="o">(</span><span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  <span class="k">for</span> <span class="o">(</span><span class="nc">OrderPositionIssue</span> <span class="n">issue</span> <span class="o">:</span> <span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">values</span><span class="o">())</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">((</span><span class="n">mask</span> <span class="o">&amp;</span> <span class="n">issue</span><span class="o">.</span><span class="na">getValue</span><span class="o">())</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="n">issues</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">issue</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="n">issues</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>decode(5)  = [QUANTITY_ERROR, ARTICLE_INVALID_ERROR]
+decode(26) = [PRICE_DIFFERS_WARNING, ARTICLE_REMOVED_ERROR, ARTICLE_NOTALLOWED_ERROR]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">5</code> is <code class="language-plaintext highlighter-rouge">00101</code>, so bits 1 and 3 are set. <code class="language-plaintext highlighter-rouge">26</code> is <code class="language-plaintext highlighter-rouge">11010</code>, so bits 2, 4 and 5 are set.</p>
+
+<h2 id="prefer-enumset-inside-your-code">Prefer EnumSet Inside Your Code</h2>
+
+<p><code class="language-plaintext highlighter-rouge">EnumSet</code> is the standard Java collection for sets of enum values. Internally it is also a bit mask, so it’s just as compact and fast, but it’s type-safe and it reads like plain English:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="nc">EnumSet</span><span class="o">&lt;</span><span class="nc">OrderPositionIssue</span><span class="o">&gt;</span> <span class="n">issues</span> <span class="o">=</span> <span class="nc">EnumSet</span><span class="o">.</span><span class="na">of</span><span class="o">(</span>
+    <span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">PRICE_DIFFERS_WARNING</span><span class="o">,</span>
+    <span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">ARTICLE_REMOVED_ERROR</span><span class="o">);</span>
+
+<span class="n">issues</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">PRICE_DIFFERS_WARNING</span><span class="o">);</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">issues</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="nc">OrderPositionIssue</span><span class="o">.</span><span class="na">ARTICLE_REMOVED_ERROR</span><span class="o">))</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The article was removed from the assortment"</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Convert to an <code class="language-plaintext highlighter-rouge">int</code> only at the boundary, when you send or receive data:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">static</span> <span class="kt">int</span> <span class="nf">encode</span><span class="o">(</span><span class="nc">Set</span><span class="o">&lt;</span><span class="nc">OrderPositionIssue</span><span class="o">&gt;</span> <span class="n">issues</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">mask</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="k">for</span> <span class="o">(</span><span class="nc">OrderPositionIssue</span> <span class="n">issue</span> <span class="o">:</span> <span class="n">issues</span><span class="o">)</span> <span class="n">mask</span> <span class="o">|=</span> <span class="n">issue</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+  <span class="k">return</span> <span class="n">mask</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">encode(EnumSet.of(PRICE_DIFFERS_WARNING, ARTICLE_REMOVED_ERROR))</code> returns <code class="language-plaintext highlighter-rouge">10</code> (<code class="language-plaintext highlighter-rouge">01010</code>), and <code class="language-plaintext highlighter-rouge">encode(decode(mask))</code> always gives back the original mask.</p>
+
+<h2 id="when-to-use-what">When to Use What</h2>
+
+<ul>
+  <li><strong>An <code class="language-plaintext highlighter-rouge">int</code> bit mask:</strong> compact wire formats, legacy APIs, database columns, and code where every byte counts.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">EnumSet</code>:</strong> everywhere else in your Java code. You get the same performance with readable, type-safe operations like <code class="language-plaintext highlighter-rouge">add</code>, <code class="language-plaintext highlighter-rouge">remove</code> and <code class="language-plaintext highlighter-rouge">contains</code>.</li>
+  <li><strong>Between the two:</strong> one <code class="language-plaintext highlighter-rouge">decode</code> and one <code class="language-plaintext highlighter-rouge">encode</code> method, at the edge of your application.</li>
+</ul>
+
+<p>Bit manipulation is a classic interview topic: check if a number is a power of two, count the set bits, swap two values without a temporary variable. Practice it on real questions:</p>
 
 <div><center>
   <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
@@ -513,8 +624,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/enum-flags-bitwise-operators/"
   },
-  "headline": "Enum, Flags and bitwise operators",
-  "description": "Enum, Flags and bitwise operators",
+  "headline": "Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet",
+  "description": "Report several errors in one int: how to combine, test, remove and decode bit flags with Java enums and bitwise operators, and when to use EnumSet instead.",
   "image": "https://codersite.dev/assets/images/enumBitWiseOperators.jpg",
   "datePublished": "2024-04-05T00:00:00+02:00",
   "dateModified": "2024-04-05T00:00:00+02:00",
@@ -552,7 +663,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Enum, Flags and bitwise operators",
+      "name": "Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet",
       "item": "https://codersite.dev/enum-flags-bitwise-operators/"
     }
   ]

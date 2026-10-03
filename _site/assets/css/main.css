@@ -472,4 +472,28 @@ pre.lineno {
   overflow-wrap: break-word;
 }
 
+/* Readable Markdown tables in posts: padding, row lines, and code that
+   doesn't break in the middle of an expression. */
+.article-post table:not(.rouge-table) {
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.95em;
+}
+
+.article-post table:not(.rouge-table) th,
+.article-post table:not(.rouge-table) td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-post table:not(.rouge-table) th {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.article-post table:not(.rouge-table) code {
+  white-space: nowrap;
+}
+
 /*# sourceMappingURL=main.css.map */

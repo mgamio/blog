@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  "Enum, Flags and bitwise operators"
-description: "Enum, Flags and bitwise operators"
+title:  "Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet"
+description: "Report several errors in one int: how to combine, test, remove and decode bit flags with Java enums and bitwise operators, and when to use EnumSet instead."
 author: moises
 categories: [ programming ]
 image: /assets/images/enumBitWiseOperators.jpg
 comments: false
 ---
 
-Java enums, bit flags, and bitwise operations are powerful features that can greatly enhance the functionality and efficiency of your code. Understanding how to leverage these features effectively can lead to cleaner, more concise code and improved performance. In this article, we'll explore what Java enums are, how to use them, and how to combine them with bit flags and bitwise operations for advanced functionality.
+An order API has to report several problems at once: a wrong quantity, a price difference and an article that no longer exists. Sending a list of strings works, but many APIs pack them into a single number instead. Here's how to build, read and decode those bit flags in Java.
 
 ## Understanding Java Enum Types
 
@@ -16,31 +16,31 @@ Java enums are a special type of class used to represent a fixed set of constant
 
 Here's a simple example of how to define an enum in Java:
 
-```kotlin
+```java
 public enum Day {
   SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
 }
 ```
 
-However, their capabilities extend beyond simple constant definitions. Enums can also have fields, constructors, and methods, making them versatile and powerful constructs in Java programming.
+Enums can also have fields, constructors, and methods, which is exactly what we'll use below.
 
-## Bit Flags: Efficient Representation of Multiple States
+## Bit Flags: Several States in One Number
 
-Bit flags are a technique used to represent multiple boolean states using a single integer value. Each bit in the integer represents a different state, allowing for efficient storage and manipulation of multiple flags in a compact form.
+Bit flags represent multiple yes/no states with a single integer. Each bit in the integer stands for a different state, so one `int` can carry up to 32 flags.
 
-For example, consider a set of boolean flags representing all possible issues during the process of creating an order:
+For example, consider the issues an API server can detect while it processes the positions of an order:
 
-```kotlin
-public class ISSUES_ORDERPOSITION {
-  public static final int QUANTITY_ERROR = 1;             // 00000001
-  public static final int PRICE_DIFFERS_WARNING = 2;      // 00000010
-  public static final int ARTICLE_INVALID_ERROR = 4;      // 00000100
-  public static final int ARTICLE_REMOVED_ERROR = 8;      // 00001000
-  public static final int ARTICLE_NOTALLOWED_ERROR = 16;  // 00010000
+```java
+public class OrderPositionFlags {
+  public static final int QUANTITY_ERROR = 1;             // 00001
+  public static final int PRICE_DIFFERS_WARNING = 2;      // 00010
+  public static final int ARTICLE_INVALID_ERROR = 4;      // 00100
+  public static final int ARTICLE_REMOVED_ERROR = 8;      // 01000
+  public static final int ARTICLE_NOTALLOWED_ERROR = 16;  // 10000
 }
 ```
 
-In this example, each flag is represented by a different bit position in the integer value. By combining these flags using bitwise operations, we can represent and manipulate different combinations of issues efficiently.
+Each flag is a power of two, so each one occupies a different bit. A position with a wrong quantity *and* a price difference is simply `1 + 2 = 3`, or `00011` in binary.
 
 <div>
 {%- include inArticleAds.html -%}
@@ -48,29 +48,32 @@ In this example, each flag is represented by a different bit position in the int
 
 ## Bitwise Operations
 
-Bitwise operations are fundamental operations that manipulate individual bits in binary representations of data. Java provides several bitwise operators for performing these operations:
+Bitwise operators work on the individual bits of a number. Here is what each one does, with examples on five-bit flag values:
 
-- AND (&): Sets each bit to 1 if both bits are 1.
-- OR (|): Sets each bit to 1 if at least one of the corresponding bits is 1.
-- XOR (^): Sets each bit to 1 if only one of the corresponding bits is 1.
-- NOT (~): Flips the bits.
-- Shift Left (<<): Shifts the bits to the left by a specified number of positions.
-- Shift Right (>>): Shifts the bits to the right by a specified number of positions.
+| Operator | Meaning | Example | Used for |
+|---|---|---|---|
+| `&` AND | 1 only where both bits are 1 | `00011 & 00010` = `00010` | checking a flag |
+| <code>&#124;</code> OR | 1 where at least one bit is 1 | <code>00011 &#124; 01000</code> = `01011` | adding a flag |
+| `^` XOR | 1 where exactly one bit is 1 | `00011 ^ 00001` = `00010` | toggling a flag |
+| `~` NOT | flips every bit | `~00001` = `…11110` | removing a flag (with `&`) |
+| `<<` shift left | moves the bits left | `1 << 3` = `01000` (8) | building flag values |
+| `>>` shift right | moves the bits right | `01000 >> 3` = `00001` | reading a bit position |
 
-*enums* can be decorated with Flags. This allows them to be treated as bit masks, storing multiple values between them. Here is how it looks in our enumeration.
+<br/>
 
-```kotlin
-enum ISSUES_ORDERPOSITION
-{
-  QUANTITY_ERROR(1),            //Status Bit: 1
-  PRICE_DIFFERS_WARNING(2),     //Status Bit: 2
-  ARTICLE_INVALID_ERROR(4),     //Status Bit: 3
-  ARTICLE_REMOVED_ERROR(8),     //Status Bit: 4
-  ARTICLE_NOTALLOWED_ERROR(16); //Status Bit: 5
+Java has no special flags syntax, but an enum can carry the bit value of each flag:
+
+```java
+enum OrderPositionIssue {
+  QUANTITY_ERROR(1),            // bit 1: 00001
+  PRICE_DIFFERS_WARNING(2),     // bit 2: 00010
+  ARTICLE_INVALID_ERROR(4),     // bit 3: 00100
+  ARTICLE_REMOVED_ERROR(8),     // bit 4: 01000
+  ARTICLE_NOTALLOWED_ERROR(16); // bit 5: 10000
 
   private final int value;
 
-  ISSUES_ORDERPOSITION(int value) {
+  OrderPositionIssue(int value) {
     this.value = value;
   }
 
@@ -80,44 +83,100 @@ enum ISSUES_ORDERPOSITION
 }
 ```
 
-In this example, **ISSUES_ORDERPOSITION** is an enum type representing the possible issues that could happen when an API Server processes the positions of an order.
+**OrderPositionIssue** represents the possible issues that can happen when an API server processes the positions of an order. Java type names use UpperCamelCase, which is why the enum isn't called `ISSUES_ORDERPOSITION`.
 
-## Combining and Manipulating Bits
+## Combining and Checking Flags
 
-By combining enums with bit flags and bitwise operations, you can create powerful constructs for representing complex states and behaviors in your Java applications. 
+A [client application](https://codersite.dev/building-rest-api-client/){:target="_blank"} sends an order to an external API server. The server runs several internal checks, and each one can produce an error or a warning. The client must be able to handle all of them after a single request.
 
-For example, A client application sends data to an external API Server that involves different internal sub-processes, which could generate errors and warnings.
-
-The [Client application](https://codersite.dev/building-rest-api-client/){:target="_blank"} should be able to handle all of these potential errors and warnings simultaneously after submitting a single request.
-
-Here's an example demonstrating how to use enums with bit flags and bitwise operations:
-
-```kotlin
+```java
 public class EnumBitMask {
   public static void main(String[] args) {
-    // Combine flags using OR operator
-    int issues = ISSUES_ORDERPOSITION.PRICE_DIFFERS_WARNING.getValue()
-        | ISSUES_ORDERPOSITION.QUANTITY_ERROR.getValue();
-    // Check if PRICE_DIFFERS_WARNING issue is set
-    if ((issues & ISSUES_ORDERPOSITION.PRICE_DIFFERS_WARNING.getValue()) != 0) {
+    // Combine flags using the OR operator
+    int issues = OrderPositionIssue.PRICE_DIFFERS_WARNING.getValue()
+        | OrderPositionIssue.QUANTITY_ERROR.getValue();      // 00011 = 3
+    // Check if PRICE_DIFFERS_WARNING is set
+    if ((issues & OrderPositionIssue.PRICE_DIFFERS_WARNING.getValue()) != 0) {
       System.out.println("The article transmitted contains a differing price compared with the data on server side");
     }
-    // Check if QUANTITY_ERROR issue is set
-    if ((issues & ISSUES_ORDERPOSITION.QUANTITY_ERROR.getValue()) != 0) {
+    // Check if QUANTITY_ERROR is set
+    if ((issues & OrderPositionIssue.QUANTITY_ERROR.getValue()) != 0) {
       System.out.println("The transmitted quantity is invalid");
     }
   }
 }
 ```
 
-In this example, we combine the ISSUES_ORDERPOSITION and PRICE_DIFFERS_WARNING issues using the bitwise OR operator. We then use the bitwise AND operator (&) to check if each issue is set individually.
+In this example, we combine QUANTITY_ERROR and PRICE_DIFFERS_WARNING using the bitwise OR operator (`|`), which gives `00011`. We then use the bitwise AND operator (`&`) to check whether each issue is set: the result is non-zero only if that flag's bit is 1.
 
+## Remove and Toggle a Flag
 
-## Conclusion
+To **remove** a flag, AND the mask with the flag's inverted bits. To **toggle** a flag (turn it on if it's off, off if it's on), use XOR:
 
-Java enums, bit flags, and bitwise operations are powerful features that can be combined to create expressive, efficient, and type-safe code. By leveraging enums to define a set of constants, bit flags to represent multiple states efficiently, and bitwise operations to manipulate these states, you can build robust and flexible Java applications. Mastering these concepts will enable you to write cleaner, more concise code and unlock new possibilities in your Java development projects.
+```java
+int issues = 3;                                                 // 00011
 
-> The Interview Prep Book Written From the Hot Seat
+issues &= ~OrderPositionIssue.QUANTITY_ERROR.getValue();        // 00011 & 11110 = 00010 (2)
+
+issues ^= OrderPositionIssue.ARTICLE_REMOVED_ERROR.getValue();  // 00010 ^ 01000 = 01010 (10)
+issues ^= OrderPositionIssue.ARTICLE_REMOVED_ERROR.getValue();  // 01010 ^ 01000 = 00010 (2)
+```
+
+## Decode a Mask from the Server
+
+On the client side, the typical situation is the reverse: the server returns a single number, and you need to know which issues it contains. Loop over the enum values and test each bit:
+
+```java
+static EnumSet<OrderPositionIssue> decode(int mask) {
+  EnumSet<OrderPositionIssue> issues = EnumSet.noneOf(OrderPositionIssue.class);
+  for (OrderPositionIssue issue : OrderPositionIssue.values()) {
+    if ((mask & issue.getValue()) != 0) issues.add(issue);
+  }
+  return issues;
+}
+```
+
+```text
+decode(5)  = [QUANTITY_ERROR, ARTICLE_INVALID_ERROR]
+decode(26) = [PRICE_DIFFERS_WARNING, ARTICLE_REMOVED_ERROR, ARTICLE_NOTALLOWED_ERROR]
+```
+
+`5` is `00101`, so bits 1 and 3 are set. `26` is `11010`, so bits 2, 4 and 5 are set.
+
+## Prefer EnumSet Inside Your Code
+
+`EnumSet` is the standard Java collection for sets of enum values. Internally it is also a bit mask, so it's just as compact and fast, but it's type-safe and it reads like plain English:
+
+```java
+EnumSet<OrderPositionIssue> issues = EnumSet.of(
+    OrderPositionIssue.PRICE_DIFFERS_WARNING,
+    OrderPositionIssue.ARTICLE_REMOVED_ERROR);
+
+issues.remove(OrderPositionIssue.PRICE_DIFFERS_WARNING);
+if (issues.contains(OrderPositionIssue.ARTICLE_REMOVED_ERROR)) {
+  System.out.println("The article was removed from the assortment");
+}
+```
+
+Convert to an `int` only at the boundary, when you send or receive data:
+
+```java
+static int encode(Set<OrderPositionIssue> issues) {
+  int mask = 0;
+  for (OrderPositionIssue issue : issues) mask |= issue.getValue();
+  return mask;
+}
+```
+
+`encode(EnumSet.of(PRICE_DIFFERS_WARNING, ARTICLE_REMOVED_ERROR))` returns `10` (`01010`), and `encode(decode(mask))` always gives back the original mask.
+
+## When to Use What
+
+- **An `int` bit mask:** compact wire formats, legacy APIs, database columns, and code where every byte counts.
+- **`EnumSet`:** everywhere else in your Java code. You get the same performance with readable, type-safe operations like `add`, `remove` and `contains`.
+- **Between the two:** one `decode` and one `encode` method, at the edge of your application.
+
+Bit manipulation is a classic interview topic: check if a number is a power of two, count the set bits, swap two values without a temporary variable. Practice it on real questions:
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
