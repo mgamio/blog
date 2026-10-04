@@ -351,7 +351,7 @@
 
 <p>Against a server that never answers, this call fails after about 2 seconds with an <code class="language-plaintext highlighter-rouge">HttpConnectTimeoutException</code>, instead of holding a thread forever. Spring’s <code class="language-plaintext highlighter-rouge">RestClient</code> can use the same <code class="language-plaintext highlighter-rouge">HttpClient</code> underneath (see <a href="https://codersite.dev/spring-restclient-replace-oauth2resttemplate/" target="_blank">Replace OAuth2RestTemplate with RestClient</a>).</p>
 <ul>
-  <li><strong>Retry carefully</strong>, with a limit and a delay. See <a href="https://codersite.dev/how-rest-client-handles-503-error/" target="_blank">how a REST client handles a 503 error</a>.</li>
+  <li><strong>Retry carefully</strong>, with a limit and a delay. See <a href="https://codersite.dev/how-rest-client-handles-503-error" target="_blank">how a REST client handles a 503 error</a>.</li>
   <li><strong>Use circuit breakers.</strong> When a service keeps failing, a circuit breaker stops calling it for a while and fails fast, which prevents one failure from cascading through your system.</li>
   <li><strong>Limit incoming traffic.</strong> <a href="https://codersite.dev/rate-limit/" target="_blank">Rate limiting</a> stops a single client from overwhelming the application and keeps access fair for everyone.</li>
 </ul>

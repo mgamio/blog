@@ -78,7 +78,7 @@ public String fetchPrice(String url) throws Exception {
 ```
 
   Against a server that never answers, this call fails after about 2 seconds with an `HttpConnectTimeoutException`, instead of holding a thread forever. Spring's `RestClient` can use the same `HttpClient` underneath (see [Replace OAuth2RestTemplate with RestClient](https://codersite.dev/spring-restclient-replace-oauth2resttemplate/){:target="_blank"}).
-- **Retry carefully**, with a limit and a delay. See [how a REST client handles a 503 error](https://codersite.dev/how-rest-client-handles-503-error/){:target="_blank"}.
+- **Retry carefully**, with a limit and a delay. See [how a REST client handles a 503 error](https://codersite.dev/how-rest-client-handles-503-error){:target="_blank"}.
 - **Use circuit breakers.** When a service keeps failing, a circuit breaker stops calling it for a while and fails fast, which prevents one failure from cascading through your system.
 - **Limit incoming traffic.** [Rate limiting](https://codersite.dev/rate-limit/){:target="_blank"} stops a single client from overwhelming the application and keeps access fair for everyone.
 

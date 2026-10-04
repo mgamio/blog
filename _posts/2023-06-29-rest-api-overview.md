@@ -1,60 +1,49 @@
 ---
 layout: post
-title:  "RESTful API Tutorial"
-description: "REST API, Key Concepts, Best Practices, and Benefits"
+title:  "REST API Tutorial: Resources, HTTP Methods, Status Codes and a Spring Boot Example"
+description: "Learn REST from a real B2B ordering API: resources and representations, the REST constraints, GET/POST/PUT/PATCH/DELETE with valid examples, status codes, and a Spring Boot controller."
 author: moises
 categories: [ Web APIs ]
 image: /assets/images/RESTAPIOverview.jpg
 comments: false
 ---
 
-In the world of web development, APIs (Application Programming Interfaces) play a vital role in enabling communication and data exchange between different systems. Among the various types of APIs, [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="_blank"} (Representational State Transfer) has emerged as a popular architectural style for building web services. 
+A restaurant app needs a supplier's food prices; the supplier's system needs the restaurant's orders. Two companies, two technologies, no shared code, and [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="_blank"} is how they talk. This tutorial explains REST through a real B2B ordering API, from resources and HTTP methods to a Spring Boot controller.
 
-This article will delve into the fundamental concepts of REST API, its principles, its benefits in modern web development, and how to design a RESTful API.
+## What Is an API?
 
-## What is RESTful API?
+An API (Application Programming Interface) is an interface with defined functionalities that a software program presents to other programs and, in the case of web APIs, to the rest of the world via the Internet.
 
-RESTful API is an interface that two computer systems use to exchange information over the Internet securely. Most enterprise applications must communicate with other internal and third-party applications to perform various tasks. For example, to retrieve food product information.
+APIs are the building blocks that allow businesses to work together on the web. Companies implement APIs to expose internal business processes and data to new customers and partners. For example, APIs are how food data, including allergen information, is shared with hundreds of restaurant apps.
 
-## What is an API?
+An API is a **contract**: once other companies build on it, you can't change it freely. Breaking changes, such as removing a field, need a new version of the API.
 
-An API is an interface with defined functionalities that a software program presents to other programs and, in the case of web APIs, to the rest of the world via the Internet.
+The party offering its services through an API is called the **provider**, and the one requesting these services is the **consumer**. Providers run programs that serve data (API servers), and consumers run programs that request and use that data (API clients):
 
-APIs are the building blocks that allow interoperability between businesses on the web. Companies implement APIs to expose internal business processes and data to new customers and partners. 
+![API clients of companies A, B and D calling the API servers of companies B and C, each company with its own data](/assets/images/APImesh.jpg "API clients of companies A, B and D calling the API servers of companies B and C, each company with its own data"){:class="img-responsive"}
 
-APIs are how food data containing information about allergens are shared with hundreds of restaurant apps specializing in their presentation to final customers.
+Every company can build its servers and clients with different programming languages, caches, proxies and security mechanisms, in monoliths or microservices, on its own servers or in the cloud. So how can all these different components communicate? They share a common language: the [HTTP](https://en.wikipedia.org/wiki/HTTP){:target="_blank"} protocol and the meaning of its methods.
 
-APIs are also called Contracts, because they are assumed to be unbreakable.
+- API servers (providers) provide **resources** (information).
+- API clients (consumers) request **resources**.
 
-The party offering up its services through an API is called the **provider** and the one requesting these services is the **consumer**.
- 
-We must create programs (API Servers) that serve data and other programs (API Clients) that consume/manipulate that data, as shown in the following figure.
+## What Is REST?
 
-![api-mesh](/assets/images/APImesh.jpg "api mesh"){:class="img-responsive"}
+REST (Representational State Transfer) is an architectural style for building web services. A **RESTful API** is an API that follows its rules. It lets a client, such as a web browser, a mobile app or another company's backend, communicate with a server over HTTP, using standard methods such as GET, POST, PUT, PATCH and DELETE to act on resources.
 
-Every company can implement Servers' and Clients' APIs using different programming languages, caches, proxies, and security mechanisms. They can choose monolithic or microservices architectures deployed in several application servers or cloud providers. 
+REST itself says nothing about security: you secure a REST API with HTTPS and authentication, for example [OAuth2](https://codersite.dev/spring-boot-oauth2/){:target="_blank"}.
 
-But how can all these heterogeneous components communicate with each other? The only answer is that they use a common language: the same semantics as the [HTTP](https://en.wikipedia.org/wiki/HTTP){:target="_blank"} protocol. In this context, semantic means the interpretation we give every HTTP method.
+### The REST Constraints
 
-We create a kind of API program called Web Service to support this interoperable machine-to-machine interaction over a network.
+An API is RESTful when it respects these constraints:
 
-API Servers (providers) -> provides **Resources** (contains information)
+- **Client-server:** the client and the server are separate and evolve independently.
+- **Stateless:** every request contains all the information the server needs to process it. The server doesn't keep session state between requests, which makes it easy to run several servers behind a load balancer.
+- **Cacheable:** responses say whether, and how long, they may be cached.
+- **Uniform interface:** every resource is used in the same, standard way (see below).
+- **Layered system:** the client can't tell whether it talks to the server directly or through proxies, gateways or load balancers.
 
-API Clients (consumers) -> requests **Resources**
-
-To implement efficiently API Servers or API Clients, you must understand the basic concepts of a REST API.
-
-## What is REST?
-
-REST is an architectural style that defines a set of guidelines for creating web services. It stands for Representational State Transfer and emphasizes a stateless, client-server communication model. 
-
-It allows communication between a client (such as a web browser or mobile app) and a server over the HTTP protocol.
-
-REST APIs use HTTP (Hypertext Transfer Protocol) as the primary protocol for data transmission and rely on standard operations such as GET, POST, PUT, and DELETE to perform actions on resources.
-
-The Hypertext Transfer Protocol (HTTP) is a stateless application-level protocol for distributed, collaborative, hypertext information systems. Stateless in this context means a receiver must not retain the session state from previous requests. 
-
-> RESTful APIs are widely used in web and mobile applications due to their simplicity, efficiency, and scalability. They provide a structured way to interact with a system’s data and services using standard web technologies. -- <cite>[Restful Web APIs](https://amzn.to/3PSGWmP){:target="_blank"}</cite>
+> RESTful APIs are widely used in web and mobile applications due to their simplicity, efficiency, and scalability. They provide a structured way to interact with a system's data and services using standard web technologies. -- <cite>[Restful Web APIs](https://amzn.to/3PSGWmP){:target="_blank"}</cite>
 
 <div>
 {%- include restfulWebApis.html -%}
@@ -62,31 +51,32 @@ The Hypertext Transfer Protocol (HTTP) is a stateless application-level protocol
 
 ## Resources
 
-In REST API, a resource is the **information or data** exposed through the web service. Resources can be entities such as users, suppliers, articles, or any other data entity that can be **uniquely identified**. Each resource on the Web is typically represented by a [URL](https://en.wikipedia.org/wiki/URL){:target="_blank"} (Uniform Resource Locator) or endpoint defining a globally unique address. Giving something a URL turns it into a resource.
+In a REST API, a resource is the **information or data** exposed through the web service: users, suppliers, articles, or any other entity that can be **uniquely identified**. Each resource has a [URL](https://en.wikipedia.org/wiki/URL){:target="_blank"}, a globally unique address. Giving something a URL turns it into a resource.
 
-In a business context, the following endpoint retrieves a **representation** of an array of article data under the following URL.
+In our business context, this request retrieves a **representation** of the list of articles:
 
-```
+```http
 GET /api/v1/articles HTTP/1.1
 Host: codersite.dev
 ```
 
 ### Representations
 
-We have defined an article as an HTTP resource but cannot transmit a physical article over the Internet. But as an information resource, we can send It over the Internet. The information must be helpful for the client. That’s a representation, **a machine-readable description of the current state of a resource**.
+We have defined an article as a resource, but we can't send a physical article over the Internet. What we can send is information about it, in a form that is useful to the client. That's a **representation**: *a machine-readable description of the current state of a resource*.
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
+
 {
-  articleID : 12121,
-  articleName : "Potatoes"
-  articlePrice : 12,3
-  articleDeliveryDate : 20230910
+  "articleId": 12121,
+  "articleName": "Potatoes",
+  "articlePrice": 12.3,
+  "articleDeliveryDate": "2023-09-10"
 }
 ```
 
-The server sends (because of GET requests from the client) a representation describing the state of a resource. The client sends (through a POST, PUT, or PATCH request) a representation describing the state it would like the resource to have. That’s **representational state transfer**.
+The server sends (in response to a GET request) a representation describing the state of a resource. The client sends (through a POST, PUT or PATCH request) a representation describing the state it would like the resource to have. That's **representational state transfer**.
 
 <div>
 {%- include inArticleAds.html -%}
@@ -94,27 +84,22 @@ The server sends (because of GET requests from the client) a representation desc
 
 ### Uniform Interface
 
-A fundamental principle of REST API is the uniform interface, which establishes a standardized way of interacting with resources. It encompasses several constraints, including:
+The uniform interface is what makes every REST API feel familiar. It has four parts:
 
-- Identification of resources: Resources should be uniquely identified by URIs.
+- **Identification of resources:** every resource is identified by a URI.
+- **Manipulation of resources through representations:** clients read and change resources by exchanging representations, such as JSON or XML.
+- **Self-descriptive messages:** requests and responses carry enough metadata, such as the HTTP method, the status code and the `Content-Type` header, to be understood on their own.
+- **Hypermedia as the engine of application state (HATEOAS):** responses contain links to related resources, so clients can navigate the API.
 
-- **Stateless communication**: Each request from the client to the server should contain all the necessary information to process the request without relying on the server's previous state.
+## HTTP Methods
 
-- Manipulation of resources through representations: Resources can be accessed and modified through representations, such as JSON or XML.
-
-- Self-descriptive messages: Requests and responses should include sufficient metadata to describe the meaning and format of the data.
-
-- Hypermedia as the engine of application state (HATEOAS): The API should provide links to related resources, allowing clients to navigate the application's state.
-
-### HTTP Methods
-
-API clients can interact with APIs by sending HTTP methods to perform actions on resources. The four commonly used HTTP methods are:
+API clients interact with resources by sending HTTP methods.
 
 **GET**
 
 Retrieves a representation of a resource or a collection of resources.
 
-```
+```http
 GET /api/v1/suppliers HTTP/1.1
 Host: codersite.dev
 
@@ -122,174 +107,160 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "suppliers" : {
-    "supplier" : [
-      {
-        "supplierId": 1881,
-        "supplierName": "ACME"
-        "supplierCurrency": "EUR"
-      },
-      {
-        "supplierId": 132,
-        "supplierName": "ROYAL"
-        "supplierCurrency": "EUR"
-      },
-      .
-      .
-    ]
-  },
-  "resultCountTotal" : 980
+  "suppliers": [
+    {
+      "supplierId": 1881,
+      "supplierName": "ACME",
+      "supplierCurrency": "EUR"
+    },
+    {
+      "supplierId": 132,
+      "supplierName": "ROYAL",
+      "supplierCurrency": "EUR"
+    }
+  ],
+  "resultCountTotal": 980
 }
 ```
 
-Even when a GET method is defined as a *safe* HTTP method, your application MUST ensure that it never changes the resource state.
-
-The success response code to a GET request is 200 (OK).
-
-> Real FAANG Interview Questions. Real Explanations. Real Results.
-
-<div>
-{%- include jediJavaInterviewAds.html -%}
-</div>
+GET is defined as a *safe* method, so your application must make sure a GET request never changes the state of a resource.
 
 **POST**
 
-Creates a new resource.
+Creates a new resource. The client sends a representation of the resource it wants to create:
 
-When a client sends a POST request, it sends a representation of the resource it wants to create that corresponds with the semantics defined for the endpoint.
-
-```
+```http
 POST /api/v1/buyers HTTP/1.1
 Content-Type: application/json
 Host: codersite.dev
 
 {
-  "buyerName" : "XYZ Restaurant",
-  "buyerContact" : "Mr Bond",
-  "buyerAddress" : "Berliner strasse 12",
+  "buyerName": "XYZ Restaurant",
+  "buyerContact": "Mr Bond",
+  "buyerAddress": "Berliner Strasse 12"
 }
 ```
 
-If you include an extra attribute in the body request not defined in the endpoint representation, you probably receive an Error from the server.
+The server answers **201 Created** and, as a good practice, tells the client where the new resource lives:
 
-The success response code to a POST request is 201 (Created).
+```http
+HTTP/1.1 201 Created
+Location: /api/v1/buyers/4711
+```
+
+What happens if the client sends an attribute that the endpoint doesn't define? That's up to the server. In Spring Boot, unknown JSON properties are **ignored by default**. If you'd rather reject them with an error, set `spring.jackson.deserialization.fail-on-unknown-properties=true`.
 
 **PUT**
 
-Updates an existing resource or creates it if it doesn't exist.
+Replaces an existing resource with the representation in the request, or creates it if it doesn't exist. The client usually takes the representation from a GET request, modifies it, and sends all of it back:
 
-The client usually takes the representation from a GET request, modifies it, and sends it back as the body of a PUT request. 
-
-```
-PUT /api/v1/buyers/{buyerId} HTTP/1.1
+```http
+PUT /api/v1/buyers/4711 HTTP/1.1
 Content-Type: application/json
 Host: codersite.dev
 
 {
-  "buyerName" : "XYZ Restaurant",
-  "buyerContact" : "Herr Olaf",
-  "buyerAddress" : "Berliner strasse 12",
+  "buyerName": "XYZ Restaurant",
+  "buyerContact": "Herr Olaf",
+  "buyerAddress": "Berliner Strasse 12"
 }
 ```
 
-The success response code to a PUT request is 200 (OK).
+**PATCH**
+
+Changes only part of a resource. The client sends just the fields to update:
+
+```http
+PATCH /api/v1/buyers/4711 HTTP/1.1
+Content-Type: application/json
+Host: codersite.dev
+
+{
+  "buyerContact": "Herr Olaf"
+}
+```
 
 **DELETE**
 
-Removes a resource from the server.
+Removes a resource from the server:
 
-```
-DELETE /api/v1/buyers/{buyerId} HTTP/1.1
-Content-Type: application/json
+```http
+DELETE /api/v1/buyers/4711 HTTP/1.1
 Host: codersite.dev
 ```
 
-The success response code to a DELETE request is 204 (No Content).
+**Typical success codes:**
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">As an application developer, you look at the real world and model it in terms of objects or data structures, and APIs that manipulate those data structures. -Designing Data-Intensive Applications <a href="https://t.co/tmKXmtxf09">https://t.co/tmKXmtxf09</a> via <a href="https://twitter.com/MoisesGamio?ref_src=twsrc%5Etfw">@MoisesGamio</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1882501803138257286?ref_src=twsrc%5Etfw">January 23, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+| Method | Success response |
+|---|---|
+| GET | 200 OK |
+| POST | 201 Created, with a `Location` header |
+| PUT | 200 OK or 204 No Content; 201 Created if the resource was created |
+| PATCH | 200 OK or 204 No Content |
+| DELETE | 204 No Content |
 
-### Common HTTP Method Properties
+<br/>
 
-**Safe Methods**
+### Safe and Idempotent Methods
 
-A Request method is [safe](https://httpwg.org/specs/rfc9110.html#safe.methods){:target="_blank"} when it does not change the state of a resource on the API Server.
+A method is [**safe**](https://httpwg.org/specs/rfc9110.html#safe.methods){:target="_blank"} when it doesn't change the state of a resource on the server. GET, HEAD, OPTIONS and TRACE are safe.
 
-The GET, HEAD, OPTIONS, and TRACE methods are defined to be safe.
-
-**Idempotent Methods**
-
-A request method is idempotent when multiple identical requests have the same effect on the API Server.
-
-The PUT, and DELETE methods are defined to be idempotent.
+A method is **idempotent** when sending the same request several times has the same effect on the server as sending it once. All safe methods are idempotent, and so are PUT and DELETE: deleting the same buyer twice still leaves it deleted. POST and PATCH are not idempotent by definition, which is why a client must be careful when it retries them.
 
 ## Request and Response
 
-REST API requests and responses are typically formatted in [JSON](https://www.json.org/json-en.html){:target="_blank"} (JavaScript Object Notation) or XML (eXtensible Markup Language). Requests consist of an HTTP method, headers, and, optionally, a request body containing data. Responses include an HTTP status code indicating the outcome of the request, along with the response body containing the requested resource or an error message.
+REST API requests and responses are usually formatted in [JSON](https://www.json.org/json-en.html){:target="_blank"} (JavaScript Object Notation), sometimes in XML. A request consists of an HTTP method, headers and, optionally, a body. A response includes an HTTP status code indicating the outcome, along with a body containing the requested resource or an error message.
 
-Common error HTTP status codes include:
+Common error status codes include:
 
-- 400 Bad Request. This means that client-request input is not well-formed. The response body will include an error providing further information.
-
-- 401 Unauthorized. Missing or incorrect authentication credentials.
-
-- 403 Forbidden. This means the user is authenticated, but it's not allowed to access a resource.
-
-- 404 Not Found. The requested resource could not be found but may be available in the future.
-
-- 405 Method Not Allowed. Indicates that the method received in the request-line is known by the origin server but not supported by the target resource.
-
-- 406 Not Acceptable. Returned when an invalid format is specified in the request
-
-- 429 Too Many Requests. Indicates the user has sent too many requests in a given amount of time ("rate limiting").
-
-- 500 Internal Server Error. Something is broken.
+- **400 Bad Request:** the client's input is not well formed. The response body should explain what's wrong.
+- **401 Unauthorized:** missing or incorrect authentication credentials.
+- **403 Forbidden:** the user is authenticated but not allowed to access the resource.
+- **404 Not Found:** the requested resource doesn't exist.
+- **405 Method Not Allowed:** the server knows the method but the resource doesn't support it.
+- **406 Not Acceptable:** the server can't produce the format the client asked for in its `Accept` header.
+- **429 Too Many Requests:** the client has sent too many requests in a given time ([rate limiting](https://codersite.dev/rate-limit/){:target="_blank"}).
+- **500 Internal Server Error:** something is broken on the server.
+- **503 Service Unavailable:** the server is temporarily overloaded or down. See [how a REST client handles a 503 error](https://codersite.dev/how-rest-client-handles-503-error){:target="_blank"}.
 
 ## Building a RESTful Web Service
 
-**Business requirement**: A company wants to implement an API to allow Restaurants (represented as a buyer) to place orders at suppliers to get food articles delivered.
+**Business requirement:** a company wants an API that lets restaurants (the buyers) place orders with suppliers, to get food articles delivered.
 
-The following figure shows an Aggregation/Composition [UML Diagram](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"} that describes a class that references one or more objects of other classes. This allows you to model a *has-a* association between objects.
+The following aggregation/composition [UML diagram](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"} describes how the business entities relate to each other. It models *has-a* associations between objects:
 
-![shopping-car](/assets/images/shoppingCar.jpg "Aggregation/Composition diagram"){:class="img-responsive"}
+![UML aggregation and composition diagram: a Buyer has Orders, BuyingLists and Assortments that contain Articles, plus an Address and Suppliers](/assets/images/shoppingCar.jpg "UML aggregation and composition diagram: a Buyer has Orders, BuyingLists and Assortments that contain Articles, plus an Address and Suppliers"){:class="img-responsive"}
 
-We use API endpoints and HTTP methods to define and implement the specific functional requirements. 
+We use endpoints and HTTP methods to implement each functional requirement. Name the path after the entity you're retrieving or manipulating, using plural nouns:
 
-We should use the nouns representing the entity with the endpoint we're retrieving or manipulating as the pathname
-
-```
+```http
 GET /buyers
-A list of accessible buyers is given
 ```
-It is highly recommended to use the SwaggerHub editor to create a consistent API design compliant with the OpenAPI Specifications. [Create a Free Account](https://swagger.io/tools/swaggerhub/){:target="_blank"}.
 
-While you are designing, SwaggerHub can generate documentation automatically, making it easy for both API consumers and internal users to learn and test your APIs. 
+returns the list of buyers the client can access.
 
-You can create a Client SDK for different programming languages from the Editor and generate the object model and API controllers on your server side.
+I recommend designing the API first, with an OpenAPI specification in an editor such as [SwaggerHub](https://swagger.io/tools/swaggerhub/){:target="_blank"}. While you design, the documentation is generated automatically, so API consumers and internal users can learn and test your API, and you can generate client SDKs and server code from the same file. The step-by-step guide is in [Design-First APIs with OpenAPI 3](https://codersite.dev/designing-apis-with-swagger-and-openapi/){:target="_blank"}.
 
-The following figure shows an example of how SwaggerHub generates the documentation.
+Here is the documentation SwaggerHub generates for the buyer operations:
 
-![buyer-swagger](/assets/images/buyerOperations.jpg "SwaggerHub"){:class="img-responsive"}
+![SwaggerHub documentation of the buyer operations: GET, POST, PUT and DELETE on /buyers and /buyers/{buyerId}](/assets/images/buyerOperations.jpg "SwaggerHub documentation of the buyer operations: GET, POST, PUT and DELETE on /buyers and /buyers/{buyerId}"){:class="img-responsive"}
 
-We will use the Spring portfolio to build a RESTful service.
+We will use the Spring portfolio to build the RESTful service.
 
-### Separation of REST controllers and business logic
+### Separate the REST Controller from the Business Logic
 
-Following the "separation of concerns" principle, we delegated the responsibility for managing all HTTP requests and responses to a REST Controller (*BuyersApiController*) and managing all business logic, mappings, and the database connection to a Service class (*BuyersService*).
+Following the *separation of concerns* principle, a REST controller (*BuyersApiController*) handles the HTTP requests and responses, and a service class (*BuyersService*) handles the business logic, the mappings and the database access.
 
-*@RestController* annotation tells that this Class describes endpoints that should be made available over the web to handle all HTTP requests.
+The *@RestController* annotation marks a class whose methods handle HTTP requests. We inject the *BuyersService* dependency through the constructor:
 
-We inject the *BuyersService* dependency class into the BuyersApiController class using its constructor method.
-
-```
+```java
 @RestController
 @Validated
 public class BuyersApiController implements BuyersApi {
-	
+
   private final BuyersService buyersService;
 
-  @Autowired
-  public BuyersApiController(
-    BuyersService buyersService) {
+  public BuyersApiController(BuyersService buyersService) {
     this.buyersService = buyersService;
   }
 }
@@ -301,15 +272,15 @@ public class BuyersApiController implements BuyersApi {
 {%- include softwareDesign.html -%}
 </div>
 
-The following listing shows common operations in a REST Controller.
+The following listing shows common operations in the controller. The controller implements the `BuyersApi` interface generated from the OpenAPI specification; with hand-written controllers, you'd use the shorter `@GetMapping`, `@PostMapping`, `@PutMapping` and `@DeleteMapping` annotations instead of `@RequestMapping`.
 
-```
+```java
 @Override
 @RequestMapping(value = "/api/v1/buyers", method = RequestMethod.POST)
 public ResponseEntity<Buyer> addBuyer(Buyer body) throws Exception {
-	
+
   Buyer newBuyer = buyersService.addBuyer(body);
-		
+
   return new ResponseEntity<Buyer>(newBuyer, HttpStatus.CREATED);
 }
 
@@ -321,16 +292,16 @@ public ResponseEntity<Void> deleteBuyer(Integer buyerId) throws Exception {
 
   return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 }
-	
+
 @Override
 @RequestMapping(value = "/api/v1/buyers/{buyerId}", method = RequestMethod.GET)
 public ResponseEntity<Buyer> getBuyerById(Integer buyerId) throws Exception {
 
   Buyer buyer = buyersService.getBuyerById(buyerId);
-		
+
   if (buyer == null)
     throw new ResourceNotFoundException("The buyerId does not exist");
-		
+
   return new ResponseEntity<Buyer>(buyer, HttpStatus.OK);
 }
 
@@ -339,17 +310,17 @@ public ResponseEntity<Buyer> getBuyerById(Integer buyerId) throws Exception {
 public ResponseEntity<Buyer> updateBuyer(Integer buyerId, Buyer body) throws Exception {
 
   Buyer updatedBuyer = buyersService.updateBuyer(buyerId, body);
-		
+
   return new ResponseEntity<Buyer>(updatedBuyer, HttpStatus.OK);
 }
 
 @Override
 @RequestMapping(value = "/api/v1/buyers", method = RequestMethod.GET)
 public ResponseEntity<List<Buyer>> listBuyers(
-  String buyerCompanyName, 
+  String buyerCompanyName,
   String sortBy,
-  String sortOrder, 
-  Integer offset, 
+  String sortOrder,
+  Integer offset,
   Integer limit) throws Exception {
 
   ListBuyersResponse response = buyersService.listBuyers(
@@ -357,22 +328,18 @@ public ResponseEntity<List<Buyer>> listBuyers(
 
   HttpHeaders responseHeaders = new HttpHeaders();
   responseHeaders.set("X-TotalResultCount", String.valueOf(response.getTotalResultCount()));
-    
+
   return new ResponseEntity<List<Buyer>>(response.getListBuyers(), responseHeaders, HttpStatus.OK);
-}	
+}
 ```
 
-> Master essential best practices for deploying and managing applications on Amazon Web Services, the leading cloud computing platform, offers customers APIs for on-demand access to computing services. -- <cite>[An in-depth guide to AWS](https://amzn.to/40zUXLa){:target="_blank"}</cite>
-
-<div>
-{%- include amazonWebServicesInAction.html -%}
-</div>
+`listBuyers` supports filtering (`buyerCompanyName`), sorting (`sortBy`, `sortOrder`) and pagination (`offset`, `limit`), and returns the total number of results in the `X-TotalResultCount` header, so clients know how many pages there are.
 
 ## Include Loggers
 
-Redirect the requests to the server logs. If you must fix any error your clients reported, you can always reproduce the original request and debug it in your backends.
+Log every incoming request. When a client reports an error, you can reproduce the original request and debug it in your backend:
 
-```
+```java
 @Override
 @RequestMapping(value = "/api/v1/buyers/{buyerId}", method = RequestMethod.DELETE)
 public ResponseEntity<Void> deleteBuyer(Integer buyerId) throws Exception {
@@ -385,15 +352,15 @@ public ResponseEntity<Void> deleteBuyer(Integer buyerId) throws Exception {
 }
 ```
 
-We include a new dependency in your Api Controller:
+The controller gets a new dependency, a utility service that rebuilds the full request URL:
 
-```
+```java
 public class UtilitiesServiceImpl implements UtilitiesService {
 
-@Override
-public String getRequestURLWithQueryParam(HttpServletRequest request) {
+  @Override
+  public String getRequestURLWithQueryParam(HttpServletRequest request) {
 
-  StringBuffer requestURL = request.getRequestURL();
+    StringBuffer requestURL = request.getRequestURL();
     if (request.getQueryString() != null) {
       requestURL.append('?').append(request.getQueryString());
     }
@@ -401,70 +368,74 @@ public String getRequestURLWithQueryParam(HttpServletRequest request) {
   }
 }
 ```
-	
-Even you can create statistics of how many requests by endpoint arrive per minute by [implementing a hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}.
 
-```
+```text
 [12/4/23 15:48:27:888 CET] 00000121 SystemOut     INFO 19484 BuyersApiController : DELETE_REQUESTED_PARAMETERS: https://yourapidomain/api/v1/buyers/12345
 ```
 
-## When the API Strategy is not aligned with the IT infrastructure
+You can even build statistics of how many requests per minute arrive at each endpoint by [implementing a hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}.
 
-In most business scenarios, companies decide to externalize part of their current functionalities by developing APIs to obtain new potential clients.
+## When the API Strategy Is Not Aligned with the IT Infrastructure
 
-For example, one requirement is to retrieve an assortment by a unique ID. You, as an API designer, create the following endpoint:
+In many companies, the decision to open existing functionality to new clients through an API comes before the IT systems are ready for it.
 
-![assortment1-endpoint](/assets/images/assortmentEndpoint1.jpg "assortments-endpoint"){:class="img-responsive"}
+For example, one requirement is to retrieve an assortment by its unique ID. As the API designer, you create this endpoint:
 
-It seems logical to retrieve a unique resource by using a unique ID parameter. But your IT department says you need additional parameters to retrieve an assortment entity because that's how your business model works.
+![First design: GET an assortment by its assortmentId only](/assets/images/assortmentEndpoint1.jpg "First design: GET an assortment by its assortmentId only"){:class="img-responsive"}
 
-Then you add the following required parameters (queries):
+Retrieving a resource by its unique ID seems logical. But your IT department says the backend needs additional parameters to find an assortment, because that's how your business model works. So you add the required query parameters:
 
-![assortment2-rest-endpoint](/assets/images/assortmentEndpoint2.jpg "assortments-endpoint"){:class="img-responsive"}
+![Second design: the same endpoint with supplierId and customerNumberId as required query parameters](/assets/images/assortmentEndpoint2.jpg "Second design: the same endpoint with supplierId and customerNumberId as required query parameters"){:class="img-responsive"}
 
-If we know and follow the relationships between our business entities, we can redesign the endpoint to a final version:
+If we follow the relationships between our business entities instead, we can redesign the endpoint into its final version:
 
-![assortment3-rest-spring](/assets/images/assortmentEndpoint3.jpg "assortments-endpoint-redesigned"){:class="img-responsive"}
+![Final design: GET /api/v2/suppliers/{supplierId}/customerNumbers/{customerNumberId}/assortments/{assortmentId}](/assets/images/assortmentEndpoint3.jpg "Final design: the assortment reached through its supplier and customer number"){:class="img-responsive"}
 
-It is up to you to give a better developer experience when your API documentation is understandable and easy to navigate.
+Clear, navigable endpoints and understandable documentation are what make developers enjoy using your API.
 
-## Designing an Endpoint from aggregation/composition relationships
+## Designing Endpoints from Aggregation/Composition Relationships
 
-Once you build a class design of your business model, think about in ***entities*** and ***relationships*** to create functional endpoints.
+Once you have a class design of your business model, think in ***entities*** and ***relationships*** to create functional endpoints.
 
-For example, from the following figure we can interpret that the **Buyer** entity includes one or more instances of the **BuyingList** entity.
+For example, the following figure shows that a **Buyer** has one or more **BuyingLists**:
 
-![shopping-car-navigation](/assets/images/shoppingCarNavigation.jpg "aggregation/composition relationships"){:class="img-responsive"}
+![UML diagram highlighting the path from Buyer to BuyingList to Article](/assets/images/shoppingCarNavigation.jpg "UML diagram highlighting the path from Buyer to BuyingList to Article"){:class="img-responsive"}
 
-Then, we can connect them by using the following relationship:
+So we connect them with this endpoint:
 
-```
+```http
 GET /api/v2/buyers/{buyerId}/buyingLists
 ```
 
-Additionally, the **BuyingList** entity includes one or more instances of the **Article** entity.
+Each **BuyingList** in turn contains one or more **Articles**, so we can navigate down to them:
 
-To navigate until the Article entity we can build the following endpoint:
-
-```
+```http
 GET /api/v2/buyers/{buyerId}/buyingLists/{buyingListId}/articles
 ```
 
-## Benefits of REST API
+When your API grows into many services and large amounts of data, you face new questions: consistency, replication, partitioning. This is the book that answers them:
 
-REST APIs offer several advantages that contribute to their widespread adoption in modern web development:
+<div>
+{%- include designingDataIntensiveApplications.html -%}
+</div>
 
-- Scalability: REST API's stateless nature allows for horizontal scalability, where multiple servers can handle requests independently, improving performance and accommodating a growing user base.
+## Where to Go Next
 
-- Interoperability: REST APIs leverage standardized HTTP methods and formats, enabling communication between different systems regardless of their underlying technologies.
+This post is the starting point of a series. Follow it in this order to go from concepts to a running, tested API:
 
-- Simplicity and ease of use: REST APIs have a straightforward design, making them easy to understand, implement, and consume. Developers can quickly grasp the concepts and start building applications around the exposed resources.
+1. [Design-first APIs with OpenAPI 3](https://codersite.dev/designing-apis-with-swagger-and-openapi/){:target="_blank"}
+2. [Generate a Spring Boot server from the spec with Swagger Codegen](https://codersite.dev/swagger-codegen-server-stubs-openapi/){:target="_blank"}
+3. [Implement it with Spring Boot, Gradle and OpenAPI](https://codersite.dev/gradle-building-restful-web-service/){:target="_blank"}
+4. [Call it with Spring's RestClient](https://codersite.dev/spring-restclient-replace-oauth2resttemplate/){:target="_blank"}
+5. [Protect it with rate limiting](https://codersite.dev/rate-limit/){:target="_blank"}
+6. [Handle 503 errors in the client](https://codersite.dev/how-rest-client-handles-503-error){:target="_blank"}
+7. [Load-test it with concurrent clients](https://codersite.dev/building-rest-api-client/){:target="_blank"}
 
-- Flexibility: REST APIs support various data formats and can be used with different client applications, including web browsers, mobile devices, and third-party services.
+REST questions are standard in backend interviews: what makes an API RESTful, PUT vs PATCH, which methods are idempotent. Practice with real interview questions:
 
-## Conclusion
-
-REST API concepts provide a foundation for building scalable, interoperable, and easily consumable web services. Understanding the principles of REST, such as resources, uniform interface, HTTP methods, and request/response formats, is crucial for designing and consuming RESTful APIs effectively. 
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
 
 Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 
