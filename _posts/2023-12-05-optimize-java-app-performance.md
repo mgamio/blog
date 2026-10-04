@@ -1,126 +1,146 @@
 ---
 layout: post
-title:  "Optimize Java App Performance"
-description: "Handling too many concurrent requests in a monolithic application on a Java Application Server can be challenging"
-author: aiAvatar
+title:  "Java App Slow Under Load? A Step-by-Step Performance Playbook"
+description: "A prioritized playbook for Java applications that slow down or crash under concurrent load: measure first, fix connection pools and leaks, add timeouts and caching, use virtual threads, then scale."
+author: moises
 categories: [ design ]
 image: /assets/images/javaAppPerformance.jpg
 comments: false
 ---
 
-When dealing with a monolithic Java application under heavy concurrent load that leads to issues like too many opened data pools, excessive resource consumption, performance degradation, and even system crashes, several strategies can be employed to address the problem. Here are some recommendations:
+Your Java application works fine in testing, then falls over in production: requests pile up, the database runs out of connections, the server stops responding. The fix is rarely "add more servers". Here's the order to work through it, from the cheapest fixes to the most expensive.
 
-1.-Optimize Database Connection Handling:
+## Step 1: Measure Before You Change Anything
 
-- Use connection pooling to reduce the overhead of creating and managing new database connections for each request. This ensures the reuse of established connections, minimizing the impact on database resources and improving overall performance.
-- Tune the connection pool settings to handle the expected concurrent load.
-- Ensure that connections are being released properly after usage to prevent connection leaks.
+Every other step is a guess until you know where the time goes.
 
-2.-Implement Caching:
+- **Collect metrics:** response times, error rates, CPU, memory, active database connections and thread counts. Spring Boot Actuator exposes most of these out of the box (see [Spring Boot Actuator auditing](https://codersite.dev/spring-boot-actuator/){:target="_blank"}).
+- **Profile under load:** a profiler such as JDK Flight Recorder shows which methods, queries and locks consume the time.
+- **Centralize your logs** so you can follow request patterns and errors across servers. See [Implementing hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}.
 
-- Introduce caching mechanisms to reduce the load on the database and improve response times.
-- Cache frequently accessed data or query results to serve subsequent requests without hitting the database.
+Look for the bottleneck first: a slow query, a full connection pool, a slow external service. Then fix that one thing and measure again.
 
-3.-Load Balancing:
+## Step 2: Fix the Database Layer
 
-- Deploy [load balancing](https://codersite.dev/load-balancing-clustering/){:target="_blank"} to distribute incoming requests across multiple instances of the application.
-- This helps in scaling horizontally by adding more servers to handle increased load.
+In most business applications, the database is where load turns into failures.
 
-4.-Scale Horizontally:
+**Size the connection pool deliberately.** Spring Boot uses HikariCP, whose pool holds **10 connections by default**. When all 10 are busy, the next request waits up to **30 seconds** for one (`connectionTimeout`) and then fails. A bigger pool is not automatically better: the database has to serve every connection, and too many connections slow it down. Increase the size step by step while you measure.
 
-- Consider deploying the application on multiple servers or instances to distribute the load.
-- Use a load balancer to evenly distribute requests among the different instances.
+```properties
+spring.datasource.hikari.maximum-pool-size=20
+spring.datasource.hikari.connection-timeout=5000
+spring.datasource.hikari.leak-detection-threshold=10000
+```
 
-5.-Asynchronous Processing:
+**Detect connection leaks.** Leak detection is off by default. With `leak-detection-threshold=10000`, HikariCP logs a warning, including the code location, whenever a connection stays out of the pool for more than 10 seconds.
 
-- Identify tasks that can be performed asynchronously and offload them to background processes or message queues.
-- This helps in freeing up resources to handle more incoming requests.
+**Always close resources with try-with-resources.** A connection that is never closed never returns to the pool, and after enough requests the pool is empty:
 
-6.-Optimize Code and Queries:
+```java
+public String findName(long customerId) throws SQLException {
+  String sql = "SELECT name FROM customer WHERE id = ?";
+  try (Connection con = dataSource.getConnection();
+       PreparedStatement ps = con.prepareStatement(sql)) {
+    ps.setLong(1, customerId);
+    try (ResultSet rs = ps.executeQuery()) {
+      return rs.next() ? rs.getString("name") : null;
+    }
+  }   // connection, statement and result set are closed here, even if an exception is thrown
+}
+```
 
-- Optimize database queries by using appropriate indexes, avoiding unnecessary JOINs, and using efficient data types. This ensures that database queries are executed quickly and efficiently, reducing the overall processing time for requests.
-- Identify and eliminate bottlenecks in the code and database interactions.
-
-7.-Monitoring and Profiling:
-
-- Implement monitoring and profiling tools to identify performance bottlenecks and areas for improvement.
-- Implement comprehensive logging to track request patterns, resource usage, and error occurrences. See [Implementing hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"}.
-- Analyze logs, metrics, and performance data to make informed decisions.
-
-> Jobs in the tech industry are growing exponentially. Learn the Top Algorithms in Interview Questions and Be ready to negotiate your next salary!
+*Effective Java* has a whole item on this: prefer try-with-resources to try-finally. It's one of the cheapest ways to prevent leaks:
 
 <div>
-{%- include jediJavaInterviewAds.html -%}
+{%- include effectiveJava.html -%}
 </div>
 
-8.-Vertical Scaling:
+**Optimize the queries themselves:** add indexes for the columns you filter and join on, avoid unnecessary JOINs, select only the columns you need, and watch for the "N+1" pattern, where a loop runs one query per row.
 
-- Consider upgrading hardware resources (CPU, RAM) on the existing server to handle increased load.
-- This is known as vertical scaling and can be a temporary solution while you work on horizontal scaling.
+## Step 3: Stop Waiting Forever
 
-9.-Implement Content Delivery Networks (CDNs):
+One slow external service can block every thread in your application if your calls have no time limit.
 
-- Utilize a Content Delivery Network (CDN) to cache static content like images, JavaScript, and CSS. This offloads the processing of static content from the application server, improving performance and reducing server load.
+- **Set timeouts** on every outgoing call. Java's `HttpClient` makes it explicit:
 
-10.-Fault Tolerance and Resilience:
+```java
+private final HttpClient client = HttpClient.newBuilder()
+    .connectTimeout(Duration.ofSeconds(2))      // give up connecting after 2 s
+    .build();
 
-- Enhance the application's fault tolerance by implementing mechanisms such as retry policies. See [REST client error handling](https://codersite.dev/how-rest-client-handles-503-error){:target="_blank"}.
-- Implement circuit breakers to monitor the health of external services or APIs that your application relies on. If a service becomes unavailable or unresponsive, the circuit breaker can temporarily disable requests to that service, preventing cascading failures and ensuring application stability.
-- Ensure the application can gracefully handle failures and recover without affecting the user experience.
+public String fetchPrice(String url) throws Exception {
+  HttpRequest request = HttpRequest.newBuilder(URI.create(url))
+      .timeout(Duration.ofSeconds(5))            // give up waiting for the response after 5 s
+      .GET()
+      .build();
+  return client.send(request, HttpResponse.BodyHandlers.ofString()).body();
+}
+```
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Effective Java <a href="https://t.co/pDuEXrHFUG">https://t.co/pDuEXrHFUG</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839041551248535984?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-11.-Implement Autoscalers:
-
-- Employ auto-scaling mechanisms to automatically adjust the number of application servers based on real-time demand. This ensures that the system has sufficient resources to handle the current load while avoiding resource wastage when traffic is low.
-
-12.-Modularization and Microservices:
-
-- If appropriate, consider breaking down the monolith into microservices. Microservices architecture decomposes a monolithic application into smaller, independent services, enabling better scaling, isolation, and fault tolerance. This modular approach can significantly improve handling of concurrent requests and overall application resilience.
-- Microservices architecture allows you to scale individual services based on their specific requirements.
-
-13.-Resource Cleanup and Management:
-
-- Ensure proper resource cleanup after each request to prevent resource leaks.
-- Closely monitor resource usage, including CPU, memory, and network traffic, to identify potential bottlenecks. This allows you to take proactive measures to address resource-intensive tasks and optimize performance.
+  Against a server that never answers, this call fails after about 2 seconds with an `HttpConnectTimeoutException`, instead of holding a thread forever. Spring's `RestClient` can use the same `HttpClient` underneath (see [Replace OAuth2RestTemplate with RestClient](https://codersite.dev/spring-restclient-replace-oauth2resttemplate/){:target="_blank"}).
+- **Retry carefully**, with a limit and a delay. See [how a REST client handles a 503 error](https://codersite.dev/how-rest-client-handles-503-error/){:target="_blank"}.
+- **Use circuit breakers.** When a service keeps failing, a circuit breaker stops calling it for a while and fails fast, which prevents one failure from cascading through your system.
+- **Limit incoming traffic.** [Rate limiting](https://codersite.dev/rate-limit/){:target="_blank"} stops a single client from overwhelming the application and keeps access fair for everyone.
 
 <div>
 {%- include inArticleAds.html -%}
 </div>
 
-14.-Review and Refactor Code:
+## Step 4: Do Less Work
 
-- Conduct a thorough code review to identify areas that can be refactored for better performance.
-- Identify and eliminate unnecessary code, optimize data access patterns, and minimize resource-intensive operations.
-- Consider rewriting or optimizing critical sections of the code. See [Best practices for writing Clean Code](https://codersite.dev/clean-code/){:target="_blank"}.
+The fastest request is the one you don't have to process.
 
-15.-Review Third-Party Dependencies:
+- **Cache** frequently read, rarely changed data. In Spring, one annotation caches a method's results (after enabling caching with `@EnableCaching`):
 
-- Evaluate and update third-party libraries and dependencies. Outdated or inefficient libraries can contribute to performance issues.
+```java
+@Cacheable("articles")
+public Article findArticle(long articleId) {
+  return articleRepository.findById(articleId).orElseThrow();
+}
+```
 
-16.-Tune Java Virtual Machine (JVM) Settings:
+- **Move slow work out of the request.** Sending e-mails, generating PDFs or calling partner systems can run asynchronously in the background or through a message queue, so the user gets an answer immediately.
+- **Serve static files from a CDN.** Images, JavaScript and CSS don't need your application server at all.
 
-- Adjust JVM settings, such as heap size and garbage collection parameters, to optimize memory management and overall performance.
+## Step 5: Handle More Concurrent Requests
 
-17.-Implement Rate Limiting:
+- **Use virtual threads.** A traditional server has a pool of platform threads, typically around 200. Each request holds one while it waits for the database or another service, and when all are busy, new requests queue up. Virtual threads (Java 21) are cheap enough to give every request its own. In Spring Boot 3.2 and later, it's one setting:
 
-- [Rate limiting](https://codersite.dev/rate-limit/){:target="_blank"} controls the frequency of requests from a particular client or IP address. This helps prevent a single user from overwhelming the system and ensures fair access for all users.
+```properties
+spring.threads.virtual.enabled=true
+```
 
-18.-Consider Cloud Services:
+  Two cautions from the Spring Boot documentation: Java 24 or later is recommended, because older versions can lose throughput with "pinned" virtual threads; and thread-pool settings no longer apply. Virtual threads don't create database capacity either: they still wait for one of the pool's connections from Step 2.
+- **Tune the JVM** once you have measurements: heap size and garbage collector settings.
+- **Review your code and dependencies.** Remove unnecessary work in hot code paths, choose the right [data structures](https://codersite.dev/data-structures-foundation-efficient-programming/){:target="_blank"}, and update outdated or inefficient libraries. See [Best practices for writing Clean Code](https://codersite.dev/clean-code/){:target="_blank"}.
 
-- Explore cloud services that offer scalable infrastructure solutions.
-- Cloud platforms often provide tools for easy scalability, load balancing, and resource management.
+## Step 6: Scale Out, and Only Then Split
 
-By implementing a combination of these strategies, you can effectively manage concurrent requests in your Java application server and ensure the stability, performance, and scalability of your application under heavy load conditions.
+When one well-tuned server isn't enough:
 
-Remember that the appropriate solution may depend on the specific characteristics and requirements of your application. It's often beneficial to combine multiple strategies for a comprehensive approach to scalability and performance optimization. Regularly monitor the application's performance and make adjustments as needed.
+1. **Scale vertically:** give the server more CPU and memory. It's the quickest fix, but it has a ceiling.
+2. **Scale horizontally:** run several instances behind a [load balancer](https://codersite.dev/load-balancing-clustering/){:target="_blank"}, and add **autoscaling** so the number of instances follows the real demand. Cloud platforms make both much easier.
+3. **Split the monolith** into microservices only when parts of the application have truly different load or release needs. It lets you scale each service separately, but it's the most expensive step, and it adds network calls, which bring you back to Steps 3 and 1.
 
-[Learn Java for free with 🤖 Travis](https://aigents.co/learn){:target="_blank"}
-
-> Software design is the art of managing dependencies and abstractions to create software that is scalable, maintainable, and efficient. This book will teach you how to design software that can handle millions of users
+Deciding where to split a monolith is a design question before it's a technical one:
 
 <div>
 {%- include softwareDesignAd1.html -%}
+</div>
+
+## The Playbook in One List
+
+1. Measure: find the real bottleneck.
+2. Database: pool size, leak detection, try-with-resources, query tuning.
+3. Time limits: timeouts, careful retries, circuit breakers, rate limiting.
+4. Less work: caching, async processing, CDN.
+5. More concurrency: virtual threads, JVM tuning, code and dependency review.
+6. Scale: vertical, then horizontal with autoscaling, then microservices.
+
+"How would you find out why an application slows down under load?" is a favorite question in senior Java interviews. Prepare with real interview questions:
+
+<div>
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!

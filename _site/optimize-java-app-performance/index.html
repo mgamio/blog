@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Optimize Java App Performance | codersite</title>
+<title>Java App Slow Under Load? A Step-by-Step Performance Playbook | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Optimize Java App Performance" />
-<meta name="author" content="aiAvatar" />
+<meta property="og:title" content="Java App Slow Under Load? A Step-by-Step Performance Playbook" />
+<meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Handling too many concurrent requests in a monolithic application on a Java Application Server can be challenging" />
-<meta name="twitter:description" property="og:description" content="Handling too many concurrent requests in a monolithic application on a Java Application Server can be challenging" />
+<meta name="description" content="A prioritized playbook for Java applications that slow down or crash under concurrent load: measure first, fix connection pools and leaks, add timeouts and caching, use virtual threads, then scale." />
+<meta name="twitter:description" property="og:description" content="A prioritized playbook for Java applications that slow down or crash under concurrent load: measure first, fix connection pools and leaks, add timeouts and caching, use virtual threads, then scale." />
 <link rel="canonical" href="https://codersite.dev/optimize-java-app-performance/" />
 <meta property="og:url" content="https://codersite.dev/optimize-java-app-performance/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2023-12-05T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/javaAppPerformance.jpg" />
-<meta name="twitter:title" content="Optimize Java App Performance" />
+<meta name="twitter:title" content="Java App Slow Under Load? A Step-by-Step Performance Playbook" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"aiAvatar"},"dateModified":"2023-12-05T00:00:00+01:00","datePublished":"2023-12-05T00:00:00+01:00","description":"Handling too many concurrent requests in a monolithic application on a Java Application Server can be challenging","headline":"Optimize Java App Performance","image":"https://codersite.dev/assets/images/javaAppPerformance.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/optimize-java-app-performance/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"aiAvatar"},"url":"https://codersite.dev/optimize-java-app-performance/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2023-12-05T00:00:00+01:00","datePublished":"2023-12-05T00:00:00+01:00","description":"A prioritized playbook for Java applications that slow down or crash under concurrent load: measure first, fix connection pools and leaks, add timeouts and caching, use virtual threads, then scale.","headline":"Java App Slow Under Load? A Step-by-Step Performance Playbook","image":"https://codersite.dev/assets/images/javaAppPerformance.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/optimize-java-app-performance/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/optimize-java-app-performance/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -171,7 +171,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Optimize Java App Performance&url=https://codersite.dev/optimize-java-app-performance/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Java App Slow Under Load? A Step-by-Step Performance Playbook&url=https://codersite.dev/optimize-java-app-performance/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -205,18 +205,21 @@
                 <div class="row post-top-meta">
                     <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
                         
-                        <img class="author-thumb" src="/assets/images/aiAvatar.jpg" alt="Powered by AI & Moises Gamio">
+                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
                         
                     </div>
                     <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
-                        <a target="_blank" class="link-dark" href="https://codersite.dev">Powered by AI & Moises Gamio</a>
+                        <a target="_blank" class="link-dark" href="https://codersite.dev">Moises Gamio</a>
+						
+						<a target="_blank" href="https://twitter.com/MoisesGamio" class="btn follow">Follow</a>
+                        <span class="author-description">Software Engineer. Comprehensive experience in all phases of the software development lifecycle for several economic sectors.</span>
 						
                     </div>
                 </div>
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Optimize Java App Performance</h1>
+                <h1 class="posttitle">Java App Slow Under Load? A Step-by-Step Performance Playbook</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -224,7 +227,7 @@
                 <p class="post-meta-line">
                     <time datetime="2023-12-05T00:00:00+01:00" itemprop="datePublished">Dec 5, 2023</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">6 min read</span>
+                    <span class="meta-reading-time">8 min read</span>
                     
                 </p>
 
@@ -239,7 +242,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/javaAppPerformance.jpg" alt="Optimize Java App Performance">
+            <img class="featured-image img-fluid" src="/assets/images/javaAppPerformance.jpg" alt="Java App Slow Under Load? A Step-by-Step Performance Playbook">
             
 
             
@@ -250,111 +253,107 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>When dealing with a monolithic Java application under heavy concurrent load that leads to issues like too many opened data pools, excessive resource consumption, performance degradation, and even system crashes, several strategies can be employed to address the problem. Here are some recommendations:</p>
+                <p>Your Java application works fine in testing, then falls over in production: requests pile up, the database runs out of connections, the server stops responding. The fix is rarely “add more servers”. Here’s the order to work through it, from the cheapest fixes to the most expensive.</p>
 
-<p>1.-Optimize Database Connection Handling:</p>
+<h2 id="step-1-measure-before-you-change-anything">Step 1: Measure Before You Change Anything</h2>
 
-<ul>
-  <li>Use connection pooling to reduce the overhead of creating and managing new database connections for each request. This ensures the reuse of established connections, minimizing the impact on database resources and improving overall performance.</li>
-  <li>Tune the connection pool settings to handle the expected concurrent load.</li>
-  <li>Ensure that connections are being released properly after usage to prevent connection leaks.</li>
-</ul>
-
-<p>2.-Implement Caching:</p>
+<p>Every other step is a guess until you know where the time goes.</p>
 
 <ul>
-  <li>Introduce caching mechanisms to reduce the load on the database and improve response times.</li>
-  <li>Cache frequently accessed data or query results to serve subsequent requests without hitting the database.</li>
+  <li><strong>Collect metrics:</strong> response times, error rates, CPU, memory, active database connections and thread counts. Spring Boot Actuator exposes most of these out of the box (see <a href="https://codersite.dev/spring-boot-actuator/" target="_blank">Spring Boot Actuator auditing</a>).</li>
+  <li><strong>Profile under load:</strong> a profiler such as JDK Flight Recorder shows which methods, queries and locks consume the time.</li>
+  <li><strong>Centralize your logs</strong> so you can follow request patterns and errors across servers. See <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">Implementing hot-warm architecture in Elasticsearch</a>.</li>
 </ul>
 
-<p>3.-Load Balancing:</p>
+<p>Look for the bottleneck first: a slow query, a full connection pool, a slow external service. Then fix that one thing and measure again.</p>
 
-<ul>
-  <li>Deploy <a href="https://codersite.dev/load-balancing-clustering/" target="_blank">load balancing</a> to distribute incoming requests across multiple instances of the application.</li>
-  <li>This helps in scaling horizontally by adding more servers to handle increased load.</li>
-</ul>
+<h2 id="step-2-fix-the-database-layer">Step 2: Fix the Database Layer</h2>
 
-<p>4.-Scale Horizontally:</p>
+<p>In most business applications, the database is where load turns into failures.</p>
 
-<ul>
-  <li>Consider deploying the application on multiple servers or instances to distribute the load.</li>
-  <li>Use a load balancer to evenly distribute requests among the different instances.</li>
-</ul>
+<p><strong>Size the connection pool deliberately.</strong> Spring Boot uses HikariCP, whose pool holds <strong>10 connections by default</strong>. When all 10 are busy, the next request waits up to <strong>30 seconds</strong> for one (<code class="language-plaintext highlighter-rouge">connectionTimeout</code>) and then fails. A bigger pool is not automatically better: the database has to serve every connection, and too many connections slow it down. Increase the size step by step while you measure.</p>
 
-<p>5.-Asynchronous Processing:</p>
+<div class="language-properties highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="py">spring.datasource.hikari.maximum-pool-size</span><span class="p">=</span><span class="s">20</span>
+<span class="py">spring.datasource.hikari.connection-timeout</span><span class="p">=</span><span class="s">5000</span>
+<span class="py">spring.datasource.hikari.leak-detection-threshold</span><span class="p">=</span><span class="s">10000</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<ul>
-  <li>Identify tasks that can be performed asynchronously and offload them to background processes or message queues.</li>
-  <li>This helps in freeing up resources to handle more incoming requests.</li>
-</ul>
+<p><strong>Detect connection leaks.</strong> Leak detection is off by default. With <code class="language-plaintext highlighter-rouge">leak-detection-threshold=10000</code>, HikariCP logs a warning, including the code location, whenever a connection stays out of the pool for more than 10 seconds.</p>
 
-<p>6.-Optimize Code and Queries:</p>
+<p><strong>Always close resources with try-with-resources.</strong> A connection that is never closed never returns to the pool, and after enough requests the pool is empty:</p>
 
-<ul>
-  <li>Optimize database queries by using appropriate indexes, avoiding unnecessary JOINs, and using efficient data types. This ensures that database queries are executed quickly and efficiently, reducing the overall processing time for requests.</li>
-  <li>Identify and eliminate bottlenecks in the code and database interactions.</li>
-</ul>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="nc">String</span> <span class="nf">findName</span><span class="o">(</span><span class="kt">long</span> <span class="n">customerId</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span> <span class="o">{</span>
+  <span class="nc">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT name FROM customer WHERE id = ?"</span><span class="o">;</span>
+  <span class="k">try</span> <span class="o">(</span><span class="nc">Connection</span> <span class="n">con</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">.</span><span class="na">getConnection</span><span class="o">();</span>
+       <span class="nc">PreparedStatement</span> <span class="n">ps</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="n">sql</span><span class="o">))</span> <span class="o">{</span>
+    <span class="n">ps</span><span class="o">.</span><span class="na">setLong</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">customerId</span><span class="o">);</span>
+    <span class="k">try</span> <span class="o">(</span><span class="nc">ResultSet</span> <span class="n">rs</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="na">executeQuery</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">rs</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">?</span> <span class="n">rs</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"name"</span><span class="o">)</span> <span class="o">:</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>   <span class="c1">// connection, statement and result set are closed here, even if an exception is thrown</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>7.-Monitoring and Profiling:</p>
-
-<ul>
-  <li>Implement monitoring and profiling tools to identify performance bottlenecks and areas for improvement.</li>
-  <li>Implement comprehensive logging to track request patterns, resource usage, and error occurrences. See <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">Implementing hot-warm architecture in Elasticsearch</a>.</li>
-  <li>Analyze logs, metrics, and performance data to make informed decisions.</li>
-</ul>
-
-<blockquote>
-  <p>Jobs in the tech industry are growing exponentially. Learn the Top Algorithms in Interview Questions and Be ready to negotiate your next salary!</p>
-</blockquote>
+<p><em>Effective Java</em> has a whole item on this: prefer try-with-resources to try-finally. It’s one of the cheapest ways to prevent leaks:</p>
 
 <div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
+  <a href="https://amzn.to/4aZes3T" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../recommended/images/effectiveJava.jpg" /></a>
 </center>
 
 <br /></div>
 
-<p>8.-Vertical Scaling:</p>
+<p><strong>Optimize the queries themselves:</strong> add indexes for the columns you filter and join on, avoid unnecessary JOINs, select only the columns you need, and watch for the “N+1” pattern, where a loop runs one query per row.</p>
+
+<h2 id="step-3-stop-waiting-forever">Step 3: Stop Waiting Forever</h2>
+
+<p>One slow external service can block every thread in your application if your calls have no time limit.</p>
 
 <ul>
-  <li>Consider upgrading hardware resources (CPU, RAM) on the existing server to handle increased load.</li>
-  <li>This is known as vertical scaling and can be a temporary solution while you work on horizontal scaling.</li>
+  <li><strong>Set timeouts</strong> on every outgoing call. Java’s <code class="language-plaintext highlighter-rouge">HttpClient</code> makes it explicit:</li>
 </ul>
 
-<p>9.-Implement Content Delivery Networks (CDNs):</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kd">private</span> <span class="kd">final</span> <span class="nc">HttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="nc">HttpClient</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">connectTimeout</span><span class="o">(</span><span class="nc">Duration</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span>      <span class="c1">// give up connecting after 2 s</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">fetchPrice</span><span class="o">(</span><span class="nc">String</span> <span class="n">url</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+  <span class="nc">HttpRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="nc">HttpRequest</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">(</span><span class="no">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">url</span><span class="o">))</span>
+      <span class="o">.</span><span class="na">timeout</span><span class="o">(</span><span class="nc">Duration</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>            <span class="c1">// give up waiting for the response after 5 s</span>
+      <span class="o">.</span><span class="na">GET</span><span class="o">()</span>
+      <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+  <span class="k">return</span> <span class="n">client</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="nc">HttpResponse</span><span class="o">.</span><span class="na">BodyHandlers</span><span class="o">.</span><span class="na">ofString</span><span class="o">()).</span><span class="na">body</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Against a server that never answers, this call fails after about 2 seconds with an <code class="language-plaintext highlighter-rouge">HttpConnectTimeoutException</code>, instead of holding a thread forever. Spring’s <code class="language-plaintext highlighter-rouge">RestClient</code> can use the same <code class="language-plaintext highlighter-rouge">HttpClient</code> underneath (see <a href="https://codersite.dev/spring-restclient-replace-oauth2resttemplate/" target="_blank">Replace OAuth2RestTemplate with RestClient</a>).</p>
 <ul>
-  <li>Utilize a Content Delivery Network (CDN) to cache static content like images, JavaScript, and CSS. This offloads the processing of static content from the application server, improving performance and reducing server load.</li>
-</ul>
-
-<p>10.-Fault Tolerance and Resilience:</p>
-
-<ul>
-  <li>Enhance the application’s fault tolerance by implementing mechanisms such as retry policies. See <a href="https://codersite.dev/how-rest-client-handles-503-error" target="_blank">REST client error handling</a>.</li>
-  <li>Implement circuit breakers to monitor the health of external services or APIs that your application relies on. If a service becomes unavailable or unresponsive, the circuit breaker can temporarily disable requests to that service, preventing cascading failures and ensuring application stability.</li>
-  <li>Ensure the application can gracefully handle failures and recover without affecting the user experience.</li>
-</ul>
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Effective Java <a href="https://t.co/pDuEXrHFUG">https://t.co/pDuEXrHFUG</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839041551248535984?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-<p>11.-Implement Autoscalers:</p>
-
-<ul>
-  <li>Employ auto-scaling mechanisms to automatically adjust the number of application servers based on real-time demand. This ensures that the system has sufficient resources to handle the current load while avoiding resource wastage when traffic is low.</li>
-</ul>
-
-<p>12.-Modularization and Microservices:</p>
-
-<ul>
-  <li>If appropriate, consider breaking down the monolith into microservices. Microservices architecture decomposes a monolithic application into smaller, independent services, enabling better scaling, isolation, and fault tolerance. This modular approach can significantly improve handling of concurrent requests and overall application resilience.</li>
-  <li>Microservices architecture allows you to scale individual services based on their specific requirements.</li>
-</ul>
-
-<p>13.-Resource Cleanup and Management:</p>
-
-<ul>
-  <li>Ensure proper resource cleanup after each request to prevent resource leaks.</li>
-  <li>Closely monitor resource usage, including CPU, memory, and network traffic, to identify potential bottlenecks. This allows you to take proactive measures to address resource-intensive tasks and optimize performance.</li>
+  <li><strong>Retry carefully</strong>, with a limit and a delay. See <a href="https://codersite.dev/how-rest-client-handles-503-error/" target="_blank">how a REST client handles a 503 error</a>.</li>
+  <li><strong>Use circuit breakers.</strong> When a service keeps failing, a circuit breaker stops calling it for a while and fails fast, which prevents one failure from cascading through your system.</li>
+  <li><strong>Limit incoming traffic.</strong> <a href="https://codersite.dev/rate-limit/" target="_blank">Rate limiting</a> stops a single client from overwhelming the application and keeps access fair for everyone.</li>
 </ul>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
@@ -364,51 +363,78 @@
 </script>
 <br /></div>
 
-<p>14.-Review and Refactor Code:</p>
+<h2 id="step-4-do-less-work">Step 4: Do Less Work</h2>
+
+<p>The fastest request is the one you don’t have to process.</p>
 
 <ul>
-  <li>Conduct a thorough code review to identify areas that can be refactored for better performance.</li>
-  <li>Identify and eliminate unnecessary code, optimize data access patterns, and minimize resource-intensive operations.</li>
-  <li>Consider rewriting or optimizing critical sections of the code. See <a href="https://codersite.dev/clean-code/" target="_blank">Best practices for writing Clean Code</a>.</li>
+  <li><strong>Cache</strong> frequently read, rarely changed data. In Spring, one annotation caches a method’s results (after enabling caching with <code class="language-plaintext highlighter-rouge">@EnableCaching</code>):</li>
 </ul>
 
-<p>15.-Review Third-Party Dependencies:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nd">@Cacheable</span><span class="o">(</span><span class="s">"articles"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">Article</span> <span class="nf">findArticle</span><span class="o">(</span><span class="kt">long</span> <span class="n">articleId</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="n">articleRepository</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">articleId</span><span class="o">).</span><span class="na">orElseThrow</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <ul>
-  <li>Evaluate and update third-party libraries and dependencies. Outdated or inefficient libraries can contribute to performance issues.</li>
+  <li><strong>Move slow work out of the request.</strong> Sending e-mails, generating PDFs or calling partner systems can run asynchronously in the background or through a message queue, so the user gets an answer immediately.</li>
+  <li><strong>Serve static files from a CDN.</strong> Images, JavaScript and CSS don’t need your application server at all.</li>
 </ul>
 
-<p>16.-Tune Java Virtual Machine (JVM) Settings:</p>
+<h2 id="step-5-handle-more-concurrent-requests">Step 5: Handle More Concurrent Requests</h2>
 
 <ul>
-  <li>Adjust JVM settings, such as heap size and garbage collection parameters, to optimize memory management and overall performance.</li>
+  <li><strong>Use virtual threads.</strong> A traditional server has a pool of platform threads, typically around 200. Each request holds one while it waits for the database or another service, and when all are busy, new requests queue up. Virtual threads (Java 21) are cheap enough to give every request its own. In Spring Boot 3.2 and later, it’s one setting:</li>
 </ul>
 
-<p>17.-Implement Rate Limiting:</p>
+<div class="language-properties highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="py">spring.threads.virtual.enabled</span><span class="p">=</span><span class="s">true</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
+<p>Two cautions from the Spring Boot documentation: Java 24 or later is recommended, because older versions can lose throughput with “pinned” virtual threads; and thread-pool settings no longer apply. Virtual threads don’t create database capacity either: they still wait for one of the pool’s connections from Step 2.</p>
 <ul>
-  <li><a href="https://codersite.dev/rate-limit/" target="_blank">Rate limiting</a> controls the frequency of requests from a particular client or IP address. This helps prevent a single user from overwhelming the system and ensures fair access for all users.</li>
+  <li><strong>Tune the JVM</strong> once you have measurements: heap size and garbage collector settings.</li>
+  <li><strong>Review your code and dependencies.</strong> Remove unnecessary work in hot code paths, choose the right <a href="https://codersite.dev/data-structures-foundation-efficient-programming/" target="_blank">data structures</a>, and update outdated or inefficient libraries. See <a href="https://codersite.dev/clean-code/" target="_blank">Best practices for writing Clean Code</a>.</li>
 </ul>
 
-<p>18.-Consider Cloud Services:</p>
+<h2 id="step-6-scale-out-and-only-then-split">Step 6: Scale Out, and Only Then Split</h2>
 
-<ul>
-  <li>Explore cloud services that offer scalable infrastructure solutions.</li>
-  <li>Cloud platforms often provide tools for easy scalability, load balancing, and resource management.</li>
-</ul>
+<p>When one well-tuned server isn’t enough:</p>
 
-<p>By implementing a combination of these strategies, you can effectively manage concurrent requests in your Java application server and ensure the stability, performance, and scalability of your application under heavy load conditions.</p>
+<ol>
+  <li><strong>Scale vertically:</strong> give the server more CPU and memory. It’s the quickest fix, but it has a ceiling.</li>
+  <li><strong>Scale horizontally:</strong> run several instances behind a <a href="https://codersite.dev/load-balancing-clustering/" target="_blank">load balancer</a>, and add <strong>autoscaling</strong> so the number of instances follows the real demand. Cloud platforms make both much easier.</li>
+  <li><strong>Split the monolith</strong> into microservices only when parts of the application have truly different load or release needs. It lets you scale each service separately, but it’s the most expensive step, and it adds network calls, which bring you back to Steps 3 and 1.</li>
+</ol>
 
-<p>Remember that the appropriate solution may depend on the specific characteristics and requirements of your application. It’s often beneficial to combine multiple strategies for a comprehensive approach to scalability and performance optimization. Regularly monitor the application’s performance and make adjustments as needed.</p>
-
-<p><a href="https://aigents.co/learn" target="_blank">Learn Java for free with 🤖 Travis</a></p>
-
-<blockquote>
-  <p>Software design is the art of managing dependencies and abstractions to create software that is scalable, maintainable, and efficient. This book will teach you how to design software that can handle millions of users</p>
-</blockquote>
+<p>Deciding where to split a monolith is a design question before it’s a technical one:</p>
 
 <div><center>
   <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="../assets/images/softwareDesign1.png" /></a>
+</center>
+
+<br /></div>
+
+<h2 id="the-playbook-in-one-list">The Playbook in One List</h2>
+
+<ol>
+  <li>Measure: find the real bottleneck.</li>
+  <li>Database: pool size, leak detection, try-with-resources, query tuning.</li>
+  <li>Time limits: timeouts, careful retries, circuit breakers, rate limiting.</li>
+  <li>Less work: caching, async processing, CDN.</li>
+  <li>More concurrency: virtual threads, JVM tuning, code and dependency review.</li>
+  <li>Scale: vertical, then horizontal with autoscaling, then microservices.</li>
+</ol>
+
+<p>“How would you find out why an application slows down under load?” is a favorite question in senior Java interviews. Prepare with real interview questions:</p>
+
+<div><center>
+  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
 </center>
 
 <br /></div>
@@ -502,14 +528,14 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/optimize-java-app-performance/"
   },
-  "headline": "Optimize Java App Performance",
-  "description": "Handling too many concurrent requests in a monolithic application on a Java Application Server can be challenging",
+  "headline": "Java App Slow Under Load? A Step-by-Step Performance Playbook",
+  "description": "A prioritized playbook for Java applications that slow down or crash under concurrent load: measure first, fix connection pools and leaks, add timeouts and caching, use virtual threads, then scale.",
   "image": "https://codersite.dev/assets/images/javaAppPerformance.jpg",
   "datePublished": "2023-12-05T00:00:00+01:00",
   "dateModified": "2023-12-05T00:00:00+01:00",
   "author": {
     "@type": "Person",
-    "name": "Powered by AI & Moises Gamio",
+    "name": "Moises Gamio",
     "url": "https://codersite.dev"
   },
   "publisher": {
@@ -541,7 +567,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Optimize Java App Performance",
+      "name": "Java App Slow Under Load? A Step-by-Step Performance Playbook",
       "item": "https://codersite.dev/optimize-java-app-performance/"
     }
   ]
