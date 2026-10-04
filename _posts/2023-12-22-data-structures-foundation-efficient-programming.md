@@ -1,69 +1,49 @@
 ---
 layout: post
-title:  "Data Structures: The Foundation of Efficient Programming"
-description: "In the realm of computer science, data structures serve as the cornerstone of efficient and organized data manipulation. "
-author: aiAvatar
+title:  "Java Data Structures: Which One to Use and Why (with a Big-O Cheat Sheet)"
+description: "Arrays, ArrayList, LinkedList, HashMap, TreeMap, stacks and queues in Java: what each one is good at, a Big-O cheat sheet, and the mistakes that cost performance."
+author: moises
 categories: [ data structures ]
 image: /assets/images/dataStructure.jpg
 comments: false
 ---
 
-In the realm of computer science, data structures serve as the cornerstone of efficient and organized data manipulation. They provide a systematic framework for arranging and managing data, enabling programmers to access, modify, and process information with optimal performance. Data structures are fundamental to the development of software applications, from simple web pages to complex data-driven systems.
+Choosing the wrong data structure is one of the most common reasons code is slow, and one of the most common interview questions. A list where you needed a map turns a millisecond lookup into a full scan. Here's what each core Java structure is good at, and how to choose.
 
-## Defining Data Structures
+A data structure is a way of organizing data in memory so that certain operations are fast: finding an element, adding one, removing one, or keeping them in order. No structure is fast at everything. Choosing one means choosing which operations matter for your problem.
 
-A data structure is a specialized format for organizing, storing, and managing data. It encompasses the arrangement of data elements in memory, the relationships between them, and the operations that can be performed on them. **Data structures are designed to optimize specific aspects of data manipulation**, such as searching, sorting, insertion, and deletion.
+## Arrays and ArrayList
 
-## Types of Data Structures
+We usually declare a variable to store a single value:
 
-A wide array of data structures exists, each tailored to handle different types of data and operations. Some of the most common data structures include:
-
--- **Arrays**: Store data elements in contiguous memory locations, offering efficient random access.
-
-We usually declare a variable to store a specific value.
-
-```kotlin
+```java
 int num = 15;
 ```
 
-Arrays are used to store multiple values in a single variable. To create an array of integers, you could write:
+Arrays store multiple values of the same type in a single variable, in contiguous memory:
 
-```kotlin
+```java
 int[] myNums = {15, 22, 7, 42};
+String[] tickets = {"Bicycle", "Trophy", "Umbrella", "Guitar", "Hat"};
 ```
 
-To create an array of strings that represent objects, you could write:
+Reading an element by its position is instant, whatever the size of the array: `myNums[3]` is `42`. The price is that an array has a fixed size.
 
-```kotlin
-String[] objects = {"Bicycle", "Trophy", "Umbrella", "Guitar", "Hat"};
+In everyday Java code you'll mostly use `ArrayList`, an array that grows automatically:
+
+```java
+List<String> objects = new ArrayList<>(List.of("Bicycle", "Trophy"));
+objects.add("Umbrella");     // [Bicycle, Trophy, Umbrella]
+objects.get(1);              // "Trophy"
 ```
 
-When you go to the bank for a Consultation, you receive a waiting ticket with a printed image. What you see in the display is an Array of images. Or rather, an array-based Queue.
+**Use it when:** you need a list. `ArrayList` is the default choice: fast access by index and fast adds at the end. Inserting or removing in the middle is slow, because every following element has to shift.
 
-![arrays](/assets/images/arrayBank.jpg "array-based Queue"){:class="img-responsive"}
+## LinkedList
 
-But the most probable is that these images come from an array of bytes.
+A linked list stores each element in a node that points to the next one, so adding or removing at either end never shifts anything:
 
-```kotlin
-private byte[][] images;
-```
-
-When your turn arrives, it is because the program retrieved an element from the array.
-
-![arrayElement](/assets/images/arrayElementBank.jpg "array Element"){:class="img-responsive"}
-
-
-> You should use an array when you need to store a fixed number of elements that are of the same type and size.
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
--- **Linked Lists**: Consist of nodes linked together, allowing for insertion and deletion operations without affecting other elements.
-
-Here’s an example of how to use the LinkedList class:
-
-```kotlin
+```java
 import java.util.LinkedList;
 
 public class LinkedListUseCase {
@@ -72,7 +52,7 @@ public class LinkedListUseCase {
     objects.add("Guitar");
     objects.add("Bicycle");
     objects.add("Radio");
-    
+
     // Use addFirst() to add the item to the beginning
     objects.addFirst("Book");
     System.out.println(objects);
@@ -80,35 +60,66 @@ public class LinkedListUseCase {
 }
 ```
 
-The output:
-
-```kotlin
+```text
 [Book, Guitar, Bicycle, Radio]
 ```
 
-Scenario:
+A common belief is that `LinkedList` is faster than `ArrayList` for inserting in the middle, for example in a music playlist. In Java it rarely is: the linked list first has to walk node by node to reach the middle, which is also O(n), and `ArrayList` uses memory far more efficiently.
 
-- In a digital music service, Use a linked list to create a playlist to add or remove dynamically your favorite songs. If you have an array, inserting or deleting songs in the middle of the playlist would require shifting all the subsequent elements in the array, which is a time-consuming operation.
+**Use it when:** you add and remove at both ends, or you remove elements while iterating with an `Iterator`. Even then, `ArrayDeque` (below) is usually faster.
 
-- In an e-commerce application, use a linked list to create a shopping list to hold frequently requested items.
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
-- You might use a linked list to implement a stack, a queue, or a hash table.
+## Queues and Stacks
 
--- **Stacks**: Treat data as a linear structure where items are added and removed from the top.
+When you visit some bank branches in Berlin, you don't get a number: you get a ticket with a picture. The display shows the pictures of everyone waiting:
 
--- **Queues**: Treat data as a linear structure where items are added to the rear and removed from the front.
+![Bank waiting display: each waiting customer has a picture ticket, such as a bicycle, trophy or umbrella](/assets/images/arrayBank.jpg "Bank waiting display: each waiting customer has a picture ticket, such as a bicycle, trophy or umbrella"){:class="img-responsive"}
 
-![queue](/assets/images/queueDef.jpg "queue"){:class="img-responsive"}
+Whoever arrived first is called first. That's a **queue**: first in, first out (FIFO). New tickets join at the back, and the next customer is taken from the front:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Introduction to Algorithms, fourth edition <a href="https://t.co/d6ThijT6Za">https://t.co/d6ThijT6Za</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839040190213431745?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+![A queue: elements are added at the back (enqueue) and removed from the front (dequeue)](/assets/images/queueDef.jpg "A queue: elements are added at the back (enqueue) and removed from the front (dequeue)"){:class="img-responsive"}
 
-> As a senior application developer, you should be willing to take on complex or unfamiliar tasks, such as **working with legacy code**.
+```java
+Deque<String> waiting = new ArrayDeque<>();
+waiting.offer("Bicycle");
+waiting.offer("Trophy");
+waiting.offer("Umbrella");
 
--- **Hash Tables**: Efficiently store and retrieve data using keys and values.
+String next = waiting.poll();   // "Bicycle": first in, first out
+                                // still waiting: [Trophy, Umbrella]
+```
 
-Hash table based implementation of the Map interface:
+When your turn arrives, the system takes your ticket from the front of the queue and sends you to a desk:
 
-```kotlin
+![The display calls the next ticket, a coffee cup, to desk 15](/assets/images/arrayElementBank.jpg "The display calls the next ticket, a coffee cup, to desk 15"){:class="img-responsive"}
+
+A **stack** is the opposite: last in, first out (LIFO), like the "back" button of a browser:
+
+```java
+Deque<String> history = new ArrayDeque<>();
+history.push("home");
+history.push("orders");
+history.push("order 4711");
+
+String back = history.pop();    // "order 4711": last in, first out
+```
+
+**Use it when:** you process items in arrival order (queue) or undo the most recent step first (stack). In both cases, use `ArrayDeque`. The old `Stack` class still works, but Java's documentation recommends `Deque` instead.
+
+For the theory behind these structures, with proofs and pseudocode, this is the classic reference:
+
+<div>
+{%- include introductionToAlgorithms.html -%}
+</div>
+
+## Hash Tables
+
+A hash table stores key-value pairs and finds a value by its key in constant time on average, no matter how many entries it holds. In Java, that's `HashMap`:
+
+```java
 import java.util.HashMap;
 import java.util.Map;
 
@@ -118,112 +129,120 @@ public class HashMapUseCase {
 
     Map<Integer, String> articles = new HashMap<>();
 
-    // Adding elements to the hashMap
+    // Adding elements to the HashMap
     articles.put(1, "link_article1");
     articles.put(2, "link_article2");
     articles.put(3, "link_article3");
 
-    // Getting values from the hashMap
+    // Getting values from the HashMap
     String articleLink = articles.get(1);
     System.out.println("Link to article: " + articleLink);
 
-    // Removing elements from the hashMap
+    // Removing elements from the HashMap
     articles.remove(2);
 
-    // Iterating the elements of the hashMap
+    // Iterating the elements of the HashMap
     for (Map.Entry<Integer, String> entry : articles.entrySet()) {
       Integer key = entry.getKey();
       System.out.println("Key: " + key + ", Value: " + entry.getValue());
     }
-
   }
 }
 ```
 
-Iterating the elements of the hashMap using lambda: (See [Functional Programming](https://codersite.dev/java-functional-programming/){:target="_blank"})
-
-```kotlin    
-    articles.forEach((key, value) -> {
-      System.out.println("Key: " + key + ", Value: " + value);
-    });
-```
-
-Output:
-
-```kotlin
+```text
 Link to article: link_article1
-Key: 3, Value: link_article3
 Key: 1, Value: link_article1
+Key: 3, Value: link_article3
 ```
 
-For non-threaded applications and better performance, use *Hashmap*. If synchronization becomes an issue, you may also use *ConcurrentHashMap*.
+You can also iterate with a lambda (see [Functional Programming](https://codersite.dev/java-functional-programming/){:target="_blank"}), which prints the same two lines:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems <a href="https://t.co/8x6quR4S8E">https://t.co/8x6quR4S8E</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839043588828610679?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+```java
+articles.forEach((key, value) -> {
+  System.out.println("Key: " + key + ", Value: " + value);
+});
+```
 
--- [Trees](https://codersite.dev/tree-data-structure-binary-search-tree/){:target="_blank"}: Hierarchical structures that organize data in a tree-like pattern.
+**Watch out: a `HashMap` has no guaranteed order.** Insert four customers and see what comes back:
 
--- [Graphs](https://codersite.dev/graphs-depth-first-search/){:target="_blank"}: Graph is a non-linear data structure consisting of nodes (vertices) and edges.
+```text
+inserted:       [Initech, ACME, Umbrella Corp, Globex]
+HashMap:        [Initech, ACME, Globex, Umbrella Corp]
+LinkedHashMap:  [Initech, ACME, Umbrella Corp, Globex]   keeps insertion order
+TreeMap:        [ACME, Globex, Initech, Umbrella Corp]   sorted by key
+```
 
-When you solve a problem, it is a common practice to build a new data structure - Abstract Data Type - that combines all previous data structures.
+Never rely on the order of a `HashMap`. Use `LinkedHashMap` when you need insertion order, and `TreeMap` when you need sorted keys. To see how a `HashMap` turns slow nested loops into fast lookups in a real project, read [From O(n²) to O(n) with a HashMap](https://codersite.dev/transform-list-into-hashmap/){:target="_blank"}.
 
-For example, you can build a queue data structure using only two internal stacks.
+For single-threaded code, use `HashMap`. If several threads update the same map, use `ConcurrentHashMap`.
 
-```kotlin
+When your data outgrows one machine, the same ideas (hashing, ordered indexes, queues) reappear as databases and message brokers. This book explains how:
+
+<div>
+{%- include designingDataIntensiveApplications.html -%}
+</div>
+
+## Trees and Graphs
+
+- [**Trees**](https://codersite.dev/tree-data-structure-binary-search-tree/){:target="_blank"} organize data hierarchically. A binary search tree keeps elements sorted, which is what `TreeMap` and `TreeSet` use internally.
+- [**Graphs**](https://codersite.dev/graphs-depth-first-search/){:target="_blank"} are nodes (vertices) connected by edges, for networks, routes and dependencies.
+
+## Big-O Cheat Sheet
+
+How fast each operation is, as the collection grows (see [Big O Notation](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"}):
+
+| Java class | Fast | Slow, O(n) | Order |
+|---|---|---|---|
+| array, `ArrayList` | get by index O(1), add at end O(1)* | search, insert or remove at the front or middle | insertion order |
+| `LinkedList` | add or remove at either end O(1) | get by index, search | insertion order |
+| `ArrayDeque` | add or remove at either end O(1)* | search | insertion order |
+| `HashMap`, `HashSet` | get, put, remove by key O(1) average | none for key operations | no guaranteed order |
+| `LinkedHashMap` | same as `HashMap` | none for key operations | insertion order |
+| `TreeMap`, `TreeSet` | get, put, remove O(log n) | none for key operations | sorted |
+| `PriorityQueue` | peek O(1), add and poll O(log n) | search, remove an arbitrary element | smallest first |
+
+<br/>
+
+\* Amortized: usually O(1), with an occasional O(n) step when the internal array grows.
+
+## How to Choose
+
+- Need a list you mostly read or append to? **`ArrayList`**.
+- Need to look things up by a key? **`HashMap`**.
+- Need the keys sorted, or the first/last key? **`TreeMap`**.
+- Need first in, first out, or last in, first out? **`ArrayDeque`**.
+- Need to always take the smallest (or highest-priority) item? **`PriorityQueue`**.
+- Need unique values? **`HashSet`**, or **`TreeSet`** if they must be sorted.
+
+## Abstract Data Types
+
+An **abstract data type** (ADT) is defined by its operations, not by how it's built. A queue is an ADT: *add at the back, remove from the front*. `ArrayDeque` is one implementation of it; two stacks are another:
+
+```java
 public class QueueViaStacks<T> {
-  Stack<T> inbox;
-  Stack<T> outbox;
-  
+  Deque<T> inbox;    // new elements are pushed here
+  Deque<T> outbox;   // elements are popped from here, in reversed (FIFO) order
+
   //code omitted for brevity
 }
 ```
- 
-You can see the real implementation in this [link](https://amzn.to/4d3tTdx){:target="_blank"}
 
-> Your next job offer starts with one book.
+Building one ADT out of others is a classic interview question. You can find the complete implementation, solved step by step, in my book [**The Code Interview**](https://link.amazon/B08nEgB1o){:target="_blank"}.
+
+Questions like "implement a queue with two stacks" or "why is this lookup slow?" come up in almost every coding interview. Practice them with real questions:
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
 
-## Significance of Data Structures
-
-Data structures play a crucial role in computer science for several reasons:
-
-- Efficient Data Access: Data structures enable efficient access to specific data elements, reducing the time and effort required for data manipulation.
-
-- Memory Management: Data structures optimize memory usage by minimizing wasted space and ensuring that data is stored in a compact and organized manner.
-
-- Problem-Solving Efficiency: Data structures provide efficient solutions to various computational problems, such as sorting, searching, and graph algorithms.
-
-- Software Scalability: Data structures are crucial for developing scalable software applications that can handle increasing data volumes and usage.
-
-See more about arrays:
-
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gG54dRfuUeE?si=roTC57WsLBGG9Elf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-## Applications of Data Structures
-
-Data structures are ubiquitous in various software domains, including:
-
-- Operating Systems: Data structures manage memory allocation, file systems, and process scheduling.
-
-- Databases: Data structures organize and index data in databases, enabling efficient retrieval and manipulation.
-
-- Networks: Data structures optimize data transmission and routing in communication networks.
-
-- Graphics and Multimedia: Data structures manage and manipulate image, audio, and video data.
-
-- Machine Learning: Data structures are used in machine learning algorithms for data storage, training, and model evaluation.
-
-## Conclusion
-
-Data structures are fundamental building blocks in the field of computer science, providing a structured approach to organizing and manipulating data. Their efficient design and implementation enable the development of high-performance software applications that can handle complex data operations with ease. As technology advances and data volumes continue to grow, the importance of data structures will only become more pronounced.
-
-> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+Choosing data structures is a design decision, and good design is about understanding the trade-offs:
 
 <div>
 {%- include softwareDesignAd1.html -%}
 </div>
+
+Every example in this post compiles and runs as shown with Java 17.
 
 Please support me as a writer. Your donation will help add more articles to this website. Thank you!
 
