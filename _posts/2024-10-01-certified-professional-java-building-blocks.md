@@ -79,6 +79,8 @@ public class Shipping {
 **Answer: B.** Local variables have no default value, and the compiler must be able to prove they are assigned before use. `base` is not assigned when `weight` is `0` or negative, because the `if`/`else if` chain has no final `else`, so the compiler reports *variable base might not have been initialized*. `extra` is fine: both branches of its `if`/`else` assign it.
 </details>
 
+Practice explaining answers like these out loud: that's what technical interviews test. [**Real Java Coding Interview Questions**](https://link.amazon/B03BT3etx){:target="_blank"} covers the Java questions interviewers ask most.
+
 ## 3. Local Variable Type Inference with var
 
 Which of these lines compile as local variable declarations inside a method? (Choose all that apply.)
@@ -307,8 +309,6 @@ public class Boxes {
 **Answer: B.** Autoboxing uses `Integer.valueOf()`, which caches the values from -128 to 127. So `a` and `b` are the same object, while `c` and `d` are two different objects, and `==` compares references. `equals()` compares values, so `c.equals(d)` is `true`, but `a.equals(e)` is `false` because an `Integer` is never equal to a `Long`. In `a == 127`, `a` is unboxed and the two `int` values are compared.
 </details>
 
-Practice explaining answers like these out loud: that's what technical interviews test. [**The Complete Coding Interview Guide in Java**](https://amzn.to/3UEJBn0){:target="_blank"} covers the Java questions interviewers ask most.
-
 ## 10. Imports
 
 This class does not compile. Which changes make it compile? (Choose all that apply.)
@@ -349,16 +349,16 @@ public class Report {
 
 Certification questions and interview questions test the same skill: reading code carefully and explaining your reasoning.
 
-> Real-world examples, diagrams, and explanations that make complex systems simple.
-
-<div>
-{%- include softwareDesign.html -%}
-</div>
-
 Interviews go one step further and ask you to write the code yourself. Practice with real interview questions, solved step by step:
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
+</div>
+
+> Real-world examples, diagrams, and explanations that make complex systems simple.
+
+<div>
+{%- include softwareDesign.html -%}
 </div>
 
 Please support me as a writer. Your donation will help add more articles to this website. Thank you!
