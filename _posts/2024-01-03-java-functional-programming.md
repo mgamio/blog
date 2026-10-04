@@ -1,102 +1,184 @@
 ---
 layout: post
-title:  "An Introduction to Functional Programming in Java"
-description: "Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data"
+title:  "Functional Programming in Java: Lambdas, Streams, Records and Immutability"
+description: "A practical introduction to functional programming in Java: pure functions, lambdas, method references, streams on real business data, and why final is not the same as immutable."
 author: moises
 categories: [ programming ]
 image: /assets/images/functionalProgramming.jpg
 comments: false
 ---
 
-Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data. While Java is traditionally seen as an object-oriented language, it has incorporated features of functional programming over the years. In this article, we'll explore the basics of functional programming in Java.
+You already use functional programming in Java every time you write a lambda or a stream. Used well, it turns a 20-line loop over orders into five readable lines. Used carelessly, it hides bugs. Here are the core ideas, with examples from real business code.
+
+Functional programming treats computation as the evaluation of functions and avoids changing state and mutable data. Java is an object-oriented language, but since Java 8 it has added lambdas, streams and, more recently, records, which make a functional style practical.
 
 ## Key Concepts of Functional Programming
 
-### 1. Immutability:
+### 1. Immutability
 
-In functional programming, data is immutable, meaning once a variable is assigned a value, it cannot be changed. This reduces side effects and makes programs more predictable. In Java, you can achieve immutability by using the final keyword for variables.
+In functional programming, data doesn't change after it's created. That removes a whole class of bugs: no other part of the program can modify your data behind your back.
 
-```kotlin
+A common misunderstanding is that the `final` keyword makes data immutable. It doesn't: `final` only stops a variable from being **reassigned**.
+
+```java
 final int immutableValue = 42;
-immutableValue = 24; // This will result in a compilation error
+immutableValue = 24;               // does not compile: cannot assign a value to final variable
+
+final List<String> names = new ArrayList<>();
+names.add("Ana");                  // compiles and runs: the list itself can still change
 ```
 
-### 2. Pure Functions:
-A pure function is a function where the output is solely determined by its input parameters without observable side effects. It doesn't rely on external state, and for the same input, it will always produce the same output. This predictability makes code more understandable and testable.
+For data that really can't change, use unmodifiable collections and records:
 
-```kotlin
-//Pure function
+```java
+List<String> fixed = List.of("Ana", "Ben");
+fixed.add("Carl");                 // throws UnsupportedOperationException
+
+record Order(String customer, String status, double amount) { }   // Java 16+
+```
+
+A **record** is an immutable data class: its fields are final, and Java generates the constructor, accessors (`order.customer()`), `equals`, `hashCode` and `toString` for you.
+
+### 2. Pure Functions
+
+A pure function's output depends only on its input, and it has no side effects: it doesn't change anything outside itself. For the same input it always returns the same output, which makes it easy to understand and to test.
+
+```java
+// Pure function
 int add(int a, int b) {
     return a + b;
 }
 ```
 
-### 3. First-Class and Higher-Order Functions:
-In functional programming, functions are first-class citizens. This means you can treat them like any other variable. Java introduced the *java.util.function* package, which includes functional interfaces like **Function**, **Predicate**, and **Consumer**. These interfaces allow the use of lambda expressions and method references.
+### 3. First-Class and Higher-Order Functions
 
-```kotlin
-//First-class function
-Function<Integer, Integer> square = x -> x * x;
+In functional programming, functions are first-class citizens: you can store them in variables, pass them as arguments and return them from methods. Java does this with the functional interfaces in *java.util.function*, such as **Function**, **Predicate** and **Consumer**.
 
-//Higher-order function
-Function<Function<Integer, Integer>, Integer> applyTwice = f -> f.apply(f.apply(2));
+A **higher-order function** takes a function as an argument or returns one. Here, `twice` takes a function and returns a new function that applies it two times:
 
-//We pass a first-class function as a variable
-int result = applyTwice.apply(square); // Result: 16
+```java
+Function<Integer, Integer> square = x -> x * x;   // a function stored in a variable
+
+static <T> Function<T, T> twice(Function<T, T> f) {
+    return f.andThen(f);                            // returns a new function
+}
+
+int result = twice(square).apply(2);                // square(square(2)) = 16
 ```
 
 <div>
 {%- include inArticleAds.html -%}
 </div>
 
-### 4. Lambda Expressions:
-Lambda expressions provide a concise way to express instances of single-method interfaces (functional interfaces) using the syntax **(parameters) -> expression**. They are a cornerstone of functional programming in Java.
+### 4. Lambda Expressions and Method References
 
-```kotlin
+Lambda expressions are a concise way to implement a functional interface (an interface with a single abstract method), using the syntax **(parameters) -> expression**. When a lambda only calls an existing method, a method reference is even shorter:
+
+```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
-// Using lambda expression
+// Using a lambda expression
 numbers.forEach(number -> System.out.println(number));
 
-// Using method reference
+// Using a method reference
 numbers.forEach(System.out::println);
 ```
 
-### 5. Streams:
-Java introduced the [Stream API](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html){:target="_blank"} to perform functional-style operations on sequences of elements. Streams enable concise and expressive code for operations like filtering, mapping, and reducing.
+### 5. Streams
 
-```kotlin
+The [Stream API](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html){:target="_blank"} performs functional-style operations on sequences of elements, such as filtering, mapping and reducing:
+
+```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
-// Using Stream API to filter and sum
+// Using the Stream API to filter and sum
 int sum = numbers.stream()
                  .filter(n -> n % 2 == 0)
                  .mapToInt(Integer::intValue)
-                 .sum();
+                 .sum();                     // 2 + 4 = 6
 ```
 
-## Benefits of Functional Programming
-### 1.Readability and Conciseness:
-Functional programming encourages writing code in a more declarative and expressive style. This can lead to more readable and concise code, making it easier to understand and maintain.
+## A Real Example: Summing Orders
 
-### 2.Parallelism and Concurrency:
-Immutability and the absence of shared state in functional programming make it easier to reason about and parallelize code. The Stream API in Java facilitates parallel execution of operations.
+Numbers make the syntax clear, but streams pay off on business data. Given a list of orders, we want the total amount of shipped orders per customer:
 
-### 3.Reduced Bugs and Side Effects:
-Pure functions and immutability reduce the likelihood of bugs and make code more predictable. With no side effects, functions have clearer behavior, making it easier to reason about their impact.
+```java
+List<Order> orders = List.of(
+    new Order("ACME", "SHIPPED", 120.0),
+    new Order("Globex", "OPEN", 80.0),
+    new Order("ACME", "SHIPPED", 30.5),
+    new Order("Initech", "SHIPPED", 200.0),
+    new Order("Globex", "SHIPPED", 45.0));
 
-### 4.Testability:
-Pure functions and the ability to treat functions as first-class citizens enhance testability. Unit testing becomes more straightforward when functions are isolated and stateless.
+Map<String, Double> shippedByCustomer = orders.stream()
+    .filter(o -> o.status().equals("SHIPPED"))
+    .collect(Collectors.groupingBy(Order::customer, TreeMap::new,
+             Collectors.summingDouble(Order::amount)));
+```
 
-## Challenges and Considerations
-While functional programming brings many advantages, it may not always be the best fit for every situation. Learning a new paradigm and applying it effectively requires time and practice. Additionally, not all problems are well-suited for a functional approach, and sometimes a hybrid of functional and [object-oriented programming](https://codersite.dev/understanding-oop-concepts/){:target="_blank"} is the most pragmatic solution.
+```text
+{ACME=150.5, Globex=45.0, Initech=200.0}
+```
 
-In conclusion, Java has embraced functional programming concepts over the years, providing developers with powerful tools to write cleaner, more maintainable, and parallelizable code. By incorporating these concepts into your Java development, you can take advantage of the benefits of functional programming while building robust and scalable applications.
+The stream reads like the requirement: *keep the shipped orders, group them by customer, sum the amounts*. Here is the same logic as a loop, which gives the same result:
 
-> Six Years of FAANG Interviews, Decoded.
+```java
+Map<String, Double> totals = new TreeMap<>();
+for (Order o : orders) {
+  if (o.status().equals("SHIPPED")) {
+    totals.merge(o.customer(), o.amount(), Double::sum);
+  }
+}
+```
+
+Both versions are correct. The stream version states *what* you want; the loop spells out *how* to do it, step by step.
+
+Want to know when to use streams, and when a plain loop is better? *Effective Java* has a whole chapter on lambdas and streams:
 
 <div>
-{%- include algorithmsBook.html -%}
+{%- include effectiveJava.html -%}
+</div>
+
+## Benefits of Functional Programming
+
+### 1. Readability and Conciseness
+
+A declarative style describes the result you want instead of the steps to get there, as the orders example shows. The code is shorter and closer to the business requirement.
+
+### 2. Parallelism and Concurrency
+
+Immutable data and the absence of shared state make code easier to reason about when several threads run it, and the Stream API can run some operations in parallel.
+
+### 3. Fewer Bugs from Side Effects
+
+Pure functions and immutable data can't be changed by other parts of the program, so their behavior is predictable.
+
+### 4. Testability
+
+A pure function needs no setup and no mocks: call it with an input and check the output.
+
+## Common Pitfalls
+
+- **Side effects inside lambdas.** Adding to an outside list in `forEach` or `map` works in a simple sequential stream but breaks with `parallel()`. Collect the result instead: `numbers.stream().filter(n -> n % 2 == 0).toList()` returns `[2, 4]`.
+- **`parallel()` is not free.** Splitting the work and merging the results has a cost. For small collections or cheap operations, a parallel stream is often slower. Measure before you use it.
+- **A stream can be used only once.** Calling a second terminal operation on the same stream throws `IllegalStateException: stream has already been operated upon or closed`.
+
+Not all problems are well suited for a functional approach. Often a mix of functional and [object-oriented programming](https://codersite.dev/understanding-oop-concepts/){:target="_blank"} is the most pragmatic solution.
+
+## Key Takeaways
+
+- `final` prevents reassignment; `List.of` and records give you real immutability.
+- Pure functions depend only on their input and change nothing else.
+- Lambdas and method references let you pass behavior as a value.
+- Streams turn "filter, group, sum" requirements into code that reads like the requirement.
+- Avoid side effects in lambdas, measure before using `parallel()`, and never reuse a stream.
+
+Every example in this post compiles and runs as shown with Java 17.
+
+Streams and lambdas come up in almost every Java interview: rewrite this loop as a stream, explain what a pure function is. Practice with real questions:
+
+<div>
+{%- include jediJavaInterviewAds.html -%}
 </div>
 
 Please support me as a writer. Your donation will help add more articles to this website. Thank you!
