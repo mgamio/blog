@@ -1,98 +1,118 @@
 ---
 layout: post
-title:  "Web Dev Project Breakdown"
-description: "Breaking down a large web development project into manageable tasks is crucial for effective planning, organization, and successful execution"
+title:  "How to Break Down a Software Project into Tasks: From Epics to User Stories, with a Real Example"
+description: "A practical way to turn a large software project into estimated, ordered tasks: goals and scope, epics, user stories with acceptance criteria, tasks, estimates and dependencies, shown on a real API project."
 author: moises
 categories: [ Project ]
 image: /assets/images/webdevProject.jpg
 comments: false
 ---
-Breaking down a large web development project into tasks is essential for effective project management. Here's a step-by-step guide to help you with the process:
 
-1.-Define Project Objectives:
+"Build the new customer portal" is not a task. Nobody can estimate it, start it, or tell when it's done. Projects fail less from bad code than from work nobody broke down properly. Here's a method that turns a vague goal into tasks a team can estimate and deliver, step by step, with a real example.
 
-- Clearly understand the project's goals and objectives.
-- Identify the desired outcomes and functionalities. In this point, for example, when your current backend infrastructure cannot support the required functionalities. Then, you could face new developments or reformulate your requirements.
+## Step 1: Define the Goal and the Scope
 
-2.-Create a Project Scope:
+- **Write down the goal** in one or two sentences: what problem does the project solve, and for whom?
+- **Define the scope:** list what is in scope, and just as important, what is *out* of scope. Most project arguments start with a feature that one person thought was included.
+- **Name the constraints:** deadline, budget, team size, technologies you must use.
+- **Check your current system early.** If your backend can't support the new features, that becomes work in itself, or a reason to change the requirements. It's much cheaper to find out now than in the middle of development.
 
-- Clearly define the project scope, including what's in and out of scope.
-- Understand the limitations and constraints of the project.
+## Step 2: Split the Project into Epics
 
-3.-Identify Deliverables:
+An **epic** is a large feature that delivers value on its own, too big to build in one go. A web shop project might have the epics *product catalog*, *checkout*, *order history* and *customer accounts*.
 
-- List all the deliverables that need to be produced.
-- This could include [UML Diagrams](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"} as design documents, codebase, user documentation, etc.
+Prioritize the epics by business value and by dependencies: you can't build *order history* before *checkout* exists.
 
-4.-Break Down the Project into Phases:
+## Step 3: Write User Stories with Acceptance Criteria
 
-- Divide the project into distinct phases, such as planning, design, development, testing, and deployment.
-- Each phase should have specific goals and deliverables.
+A **user story** describes one thing a user can do, from the user's point of view:
 
-5.-List Key Features and Functionalities:
+> As a *[type of user]*, I want *[an action]*, so that *[a benefit]*.
 
-- Identify the key features and functionalities required for the project.
-- Prioritize them based on importance and dependencies.
+Every story needs **acceptance criteria**: concrete conditions that tell everyone, including the tester, when the story is done. The *Given / When / Then* format keeps them precise:
 
-6.-Create User Stories:
+> **Given** a principal of 1,000, an annual interest rate of 5% and a time of 2 years,
+> **When** I request the simple interest,
+> **Then** the response contains a simple interest of 100.
 
-- Convert features and functionalities into user stories.
-- User stories represent specific actions or goals from an end user's perspective.
+A good rule of thumb for size: one story should fit into a few days of work. If it doesn't, split it, for example by user type, by business rule, or into a simple version first and the special cases later.
 
-7.-Define Tasks for Each User Story:
+## Step 4: Break Each Story into Tasks
 
-- Break down each user story into smaller, manageable tasks.
-- Tasks should be granular and focused on a specific aspect of the user story.
+Now switch to the developer's point of view. A **task** is a concrete technical step, small enough to finish in a day or less: design the endpoint, write the service, write the tests, update the documentation.
 
-8.-Estimate Time and Resources:
+Don't forget the work that's easy to overlook: tests, code reviews, documentation, [UML diagrams](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"} and other design documents, and deployment. They're often half the effort.
 
-- Estimate the time and resources required for each task. Sometimes, a lack of enough human resources - developers - impacts your estimations.
-- Consider the skills needed for each task and allocate resources accordingly.
-
-> From UML diagrams to RESTful API design — one practical guide for Java developers.
+Tasks like "design the API" and "draw the UML diagram" are where a project's quality is decided. This book covers both:
 
 <div>
 {%- include softwareDesign.html -%}
 </div>
 
-9.-Identify Dependencies:
+## Step 5: Estimate and Find the Dependencies
 
-- Determine dependencies between tasks.
-- Be aware of tasks that must be completed before others can start.
+- **Estimate each task.** For uncertain tasks, a **three-point estimate** is more honest than a single number: ask for an optimistic (O), most likely (M) and pessimistic (P) duration, then use *(O + 4 × M + P) / 6*. A task estimated at 2, 4 and 9 hours gives *(2 + 16 + 9) / 6 = 4.5 hours*.
+- **Consider who will do the work.** Estimates depend on people: if you have fewer developers than planned, or nobody with the right skills, the plan changes.
+- **Map the dependencies:** which tasks must finish before others can start?
+- **Find the critical path:** the longest chain of dependent tasks. It decides the earliest possible finish date, so delays on it delay everything, while other tasks have some slack.
 
-10.-Prioritize Tasks:
+## Step 6: Plan in Small Iterations
 
-- Prioritize tasks based on dependencies, critical path, and overall project goals.
-- Start with tasks that have the most significant impact on the project.
+Don't plan the whole project as one long sequence of design, then development, then testing, then deployment. Deliver in **small releases** instead: each one includes its own design, development and testing, and adds working features. You get feedback early, and mistakes stay small.
 
-11.-Use Project Management Tools:
+- **Track the work in a tool** such as [Jira](https://www.atlassian.com/software/jira){:target="_blank"}, Trello or Asana, so the whole team sees what's in progress and what's blocked.
+- **Define "done"** for the whole team. For example: code reviewed, tests passing, documentation updated, deployed to the test environment.
+- **Review regularly** and adjust the breakdown as you learn. The plan is a tool, not a contract.
 
-- Utilize project management tools like [Jira](https://www.atlassian.com/software/jira){:target="_blank"}, Trello, or Asana to create and manage tasks.
-- These tools can help with collaboration, tracking progress, and managing workflows.
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
-12.-Iterative Development:
+## A Real Example: Breaking Down a Finance API
 
-- Consider an iterative development approach, breaking the project into smaller releases.
-- Each release should add new features or improvements.
+Let's apply the method to the Finance API built in this blog's API series.
 
-13.-Testing Strategies:
+**Goal:** offer an API that calculates financial metrics for other applications. **Out of scope** for the first release: user accounts and billing.
 
-- Plan testing activities for each phase of development.
-- Include unit testing, integration testing, and user acceptance testing in your task breakdown.
+**Epic:** *Time value of money*, broken into user stories:
 
-14.-Regular Review and Adjustments:
+1. As an API consumer, I want to calculate **simple interest**, so that I can show loan costs to my customers.
+2. As an API consumer, I want to calculate **compound interest**, so that I can compare savings products.
+3. As an API consumer, I want to calculate **present and future values**, so that I can evaluate investments.
+4. As a developer integrating the API, I want **interactive documentation**, so that I can try the endpoints before I write any code.
 
-- Regularly review the project progress and make adjustments as needed.
-- Be flexible and willing to adapt the task breakdown based on feedback and changing requirements.
+**Acceptance criteria for story 1:**
 
-15.-Document and Communicate:
+- **Given** a principal of 1,000, an annual rate of 5% and a time of 2 years, **when** I request the simple interest, **then** the response contains 100.
+- **Given** a negative principal, **when** I request the simple interest, **then** the API answers *400 Bad Request* with an error message.
 
-- Document the task breakdown, dependencies, and timelines.
-- Communicate the plan to the development team, stakeholders, and any relevant parties.
+**Tasks for story 1** (the estimates are an illustration):
 
-Breaking down a large web development project into tasks requires a combination of careful planning, collaboration, and flexibility. Regularly reassess and adjust the task breakdown as the project progresses to ensure its success.
+| # | Task | Depends on | Estimate |
+|---|---|---|---|
+| 1 | [Design the endpoint and its parameters in OpenAPI](https://codersite.dev/designing-apis-with-swagger-and-openapi/){:target="_blank"} | none | 3 h |
+| 2 | Review the specification with the API consumers | 1 | 1 h |
+| 3 | [Generate the Spring Boot server stub](https://codersite.dev/swagger-codegen-server-stubs-openapi/){:target="_blank"} | 2 | 1 h |
+| 4 | [Implement the calculation in a service class](https://codersite.dev/gradle-building-restful-web-service/){:target="_blank"} | 3 | 4 h |
+| 5 | Unit tests for the formula and edge cases | 4 | 3 h |
+| 6 | Integration test for the endpoint | 4 | 2 h |
+| 7 | Update the API documentation and examples | 4 | 1 h |
+| 8 | Code review and deployment to the test environment | 5, 6, 7 | 2 h |
 
-> FAANG Interview Slots Are Limited—Your Preparation Shouldn't Be
+<br/>
+
+The story adds up to **17 hours** of work. The critical path is **1 → 2 → 3 → 4 → 5 → 8**, or 14 hours: tasks 6 and 7 can run in parallel with task 5, so they don't delay the story. And every task is small enough that "done" is obvious.
+
+## Checklist Before You Start
+
+- Is the goal written down, and is it clear what's out of scope?
+- Does every user story have acceptance criteria?
+- Can every task be finished in a day or two?
+- Are tests, reviews, documentation and deployment in the plan?
+- Do you know the critical path?
+- Is "done" defined for the whole team?
+
+Breaking a vague requirement into clear steps is exactly what interviewers test in system design questions. Practice with real interview questions:
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
