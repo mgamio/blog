@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>What are the Software Design Principles | codersite</title>
+<title>Software Design Principles Explained with Java Examples: SOLID, DRY, KISS, YAGNI and More | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="What are the Software Design Principles" />
+<meta property="og:title" content="Software Design Principles Explained with Java Examples: SOLID, DRY, KISS, YAGNI and More" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="What are the Software Design Principles, SOLID" />
-<meta name="twitter:description" property="og:description" content="What are the Software Design Principles, SOLID" />
+<meta name="description" content="The software design principles every developer should know, each with a short Java example: SOLID, DRY, KISS, YAGNI, separation of concerns, composition over inheritance and the Law of Demeter." />
+<meta name="twitter:description" property="og:description" content="The software design principles every developer should know, each with a short Java example: SOLID, DRY, KISS, YAGNI, separation of concerns, composition over inheritance and the Law of Demeter." />
 <link rel="canonical" href="https://codersite.dev/software-design-principles/" />
 <meta property="og:url" content="https://codersite.dev/software-design-principles/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2023-02-22T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/softwareDesignPrinciples.jpg" />
-<meta name="twitter:title" content="What are the Software Design Principles" />
+<meta name="twitter:title" content="Software Design Principles Explained with Java Examples: SOLID, DRY, KISS, YAGNI and More" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2023-02-22T00:00:00+01:00","datePublished":"2023-02-22T00:00:00+01:00","description":"What are the Software Design Principles, SOLID","headline":"What are the Software Design Principles","image":"https://codersite.dev/assets/images/softwareDesignPrinciples.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/software-design-principles/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/software-design-principles/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2023-02-22T00:00:00+01:00","datePublished":"2023-02-22T00:00:00+01:00","description":"The software design principles every developer should know, each with a short Java example: SOLID, DRY, KISS, YAGNI, separation of concerns, composition over inheritance and the Law of Demeter.","headline":"Software Design Principles Explained with Java Examples: SOLID, DRY, KISS, YAGNI and More","image":"https://codersite.dev/assets/images/softwareDesignPrinciples.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/software-design-principles/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/software-design-principles/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -171,7 +171,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=What are the Software Design Principles&url=https://codersite.dev/software-design-principles/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Software Design Principles Explained with Java Examples: SOLID, DRY, KISS, YAGNI and More&url=https://codersite.dev/software-design-principles/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -219,7 +219,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">What are the Software Design Principles</h1>
+                <h1 class="posttitle">Software Design Principles Explained with Java Examples: SOLID, DRY, KISS, YAGNI and More</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -227,7 +227,7 @@
                 <p class="post-meta-line">
                     <time datetime="2023-02-22T00:00:00+01:00" itemprop="datePublished">Feb 22, 2023</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">3 min read</span>
+                    <span class="meta-reading-time">14 min read</span>
                     
                 </p>
 
@@ -242,7 +242,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/softwareDesignPrinciples.jpg" alt="What are the Software Design Principles">
+            <img class="featured-image img-fluid" src="/assets/images/softwareDesignPrinciples.jpg" alt="Software Design Principles Explained with Java Examples: SOLID, DRY, KISS, YAGNI and More">
             
 
             
@@ -253,39 +253,422 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>Software design principles are guidelines and best practices that help software developers create high-quality, maintainable, and efficient software. Here are some commonly recognized software design principles:</p>
+                <p>Why are some codebases still easy to change after five years, while others need a rewrite after one? It’s rarely the framework or the language. It’s whether the people who wrote the code followed a few design principles. This post explains the principles every developer should know, each with a short Java example of the problem, the fix, and the point where the principle is taken too far.</p>
+
+<h2 id="solid">SOLID</h2>
+
+<p>SOLID is a set of five principles for object-oriented classes:</p>
 
 <ul>
-  <li>
-    <p><a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">SOLID Principles</a>: SOLID stands for Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion. These five principles help developers create software that is modular, extensible, and easy to maintain.</p>
-  </li>
-  <li>
-    <p>DRY (Don’t Repeat Yourself): The DRY principle states that code should not be repeated unnecessarily. Instead, developers should use abstractions, modularization, and other techniques to reduce repetition and make code more maintainable.</p>
-  </li>
-  <li>
-    <p>KISS (Keep It Simple, Stupid): The KISS principle suggests that developers should strive for simplicity and avoid unnecessary complexity. This makes code easier to understand, maintain, and debug.</p>
-  </li>
-  <li>
-    <p>YAGNI (You Ain’t Gonna Need It): The YAGNI principle encourages developers to avoid writing code that may be needed in the future but is not necessary at present. This reduces complexity and saves time and effort.</p>
-  </li>
-  <li>
-    <p>Separation of Concerns: This principle suggests that different concerns, such as user interface, data storage, and business logic, should be separated and handled independently. This makes code more modular, easier to maintain, and less prone to errors.</p>
-  </li>
-  <li>
-    <p>Composition over Inheritance: This principle suggests that developers should prefer composition over inheritance when designing software. This makes code more flexible and extensible and reduces code duplication.</p>
-  </li>
-  <li>
-    <p><a href="https://en.wikipedia.org/wiki/Law_of_Demeter" target="_blank">Law of Demeter</a> (LoD): The Law of Demeter suggests that objects should only communicate with their immediate neighbors and not with objects further down the chain. This reduces coupling and makes code more maintainable.</p>
-  </li>
-  <li>
-    <p>Design Patterns: Design patterns are proven solutions to common software design problems. Developers can use design patterns to create software that is modular, flexible, and reusable.</p>
-  </li>
+  <li><strong>Single Responsibility:</strong> a class should have one reason to change.</li>
+  <li><strong>Open-Closed:</strong> you should be able to add behavior without modifying existing, tested code.</li>
+  <li><strong>Liskov Substitution:</strong> a subclass must work everywhere its parent class works.</li>
+  <li><strong>Interface Segregation:</strong> many small interfaces are better than one large interface that forces classes to implement methods they don’t need.</li>
+  <li><strong>Dependency Inversion:</strong> depend on abstractions, not on concrete classes.</li>
 </ul>
 
-<p>These principles are not exhaustive, and there may be other principles that are relevant to specific types of software. However, these principles provide a solid foundation for creating high-quality, maintainable, and efficient software.</p>
+<p>Each one deserves its own example, so they have their own post: <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">SOLID Principles: The Definitive Guide</a>.</p>
+
+<h2 id="dry-dont-repeat-yourself">DRY: Don’t Repeat Yourself</h2>
+
+<p>Every piece of business knowledge should live in exactly one place. Here the discount rule is copied into two services:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="c1">// CartService</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">subtotal</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="k">new</span> <span class="nc">BigDecimal</span><span class="o">(</span><span class="s">"100"</span><span class="o">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">total</span> <span class="o">=</span> <span class="n">subtotal</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="k">new</span> <span class="nc">BigDecimal</span><span class="o">(</span><span class="s">"0.90"</span><span class="o">));</span>
+<span class="o">}</span>
+
+<span class="c1">// InvoiceService: the same rule, copied</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">subtotal</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="k">new</span> <span class="nc">BigDecimal</span><span class="o">(</span><span class="s">"100"</span><span class="o">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">total</span> <span class="o">=</span> <span class="n">subtotal</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="k">new</span> <span class="nc">BigDecimal</span><span class="o">(</span><span class="s">"0.90"</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>When marketing changes the discount to 15%, someone updates the cart and forgets the invoice, and customers see one price in the cart and another on the invoice. Move the rule into one place:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">Discounts</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">BigDecimal</span> <span class="no">THRESHOLD</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BigDecimal</span><span class="o">(</span><span class="s">"100"</span><span class="o">);</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">BigDecimal</span> <span class="no">RATE</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BigDecimal</span><span class="o">(</span><span class="s">"0.90"</span><span class="o">);</span>
+
+  <span class="kd">private</span> <span class="nf">Discounts</span><span class="o">()</span> <span class="o">{}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">BigDecimal</span> <span class="nf">apply</span><span class="o">(</span><span class="nc">BigDecimal</span> <span class="n">subtotal</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">BigDecimal</span> <span class="n">total</span> <span class="o">=</span> <span class="n">subtotal</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="no">THRESHOLD</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">subtotal</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="no">RATE</span><span class="o">)</span> <span class="o">:</span> <span class="n">subtotal</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">total</span><span class="o">.</span><span class="na">setScale</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="nc">RoundingMode</span><span class="o">.</span><span class="na">HALF_UP</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>Taken too far:</strong> DRY is about knowledge, not about code that happens to look the same. Two methods that look alike today but change for different reasons should stay separate. Merging them creates the wrong abstraction, and soon it fills up with <code class="language-plaintext highlighter-rouge">if</code> statements for each caller.</p>
+
+<h2 id="kiss-keep-it-simple">KISS: Keep It Simple</h2>
+
+<p>Choose the simplest solution that works. This checks whether a list contains duplicates:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kt">boolean</span> <span class="n">hasDuplicates</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">groupingBy</span><span class="o">(</span><span class="n">n</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">,</span> <span class="nc">Collectors</span><span class="o">.</span><span class="na">counting</span><span class="o">()))</span>
+    <span class="o">.</span><span class="na">values</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">anyMatch</span><span class="o">(</span><span class="n">count</span> <span class="o">-&gt;</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>It works, but the reader has to decode it. A set can’t hold duplicates, so this does the same in one readable line:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kt">boolean</span> <span class="n">hasDuplicates</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;(</span><span class="n">names</span><span class="o">).</span><span class="na">size</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">names</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Simple code is easier to read, to test and to debug, and a reviewer can see at a glance that it’s correct.</p>
+
+<h2 id="yagni-you-arent-gonna-need-it">YAGNI: You Aren’t Gonna Need It</h2>
+
+<p>Don’t build features or flexibility until a real requirement asks for them. A team that accepts card payments today builds this “for later”:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="c1">// Built for payment providers that don't exist yet</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PaymentProvider</span> <span class="o">{</span> <span class="nc">PaymentResult</span> <span class="nf">charge</span><span class="o">(</span><span class="nc">Order</span> <span class="n">order</span><span class="o">);</span> <span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PaymentProviderRegistry</span> <span class="o">{</span> <span class="cm">/* looks up providers by name */</span> <span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PaymentProviderConfigLoader</span> <span class="o">{</span> <span class="cm">/* reads providers from a config file */</span> <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The second provider never comes. Three classes now have to be read, tested and maintained for nothing, and when a different change does arrive, the design built in advance usually doesn’t fit it. Build what the requirement asks for:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CardPayments</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="nc">PaymentResult</span> <span class="nf">charge</span><span class="o">(</span><span class="nc">Order</span> <span class="n">order</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// call the card payment API and return the result</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>If a second provider comes, extracting an interface then takes minutes, and you’ll design it around two real providers instead of an imagined one.</p>
+
+<h2 id="separation-of-concerns">Separation of Concerns</h2>
+
+<p>Each part of the code should handle one concern: HTTP, business rules, or data storage. This controller mixes all three:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="nd">@RestController</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderController</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">JdbcTemplate</span> <span class="n">jdbc</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">OrderController</span><span class="o">(</span><span class="nc">JdbcTemplate</span> <span class="n">jdbc</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">jdbc</span> <span class="o">=</span> <span class="n">jdbc</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">"/orders/{id}/cancel"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">cancel</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">status</span> <span class="o">=</span> <span class="n">jdbc</span><span class="o">.</span><span class="na">queryForObject</span><span class="o">(</span><span class="s">"SELECT status FROM orders WHERE id = ?"</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="s">"SHIPPED"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">status</span><span class="o">))</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">ResponseStatusException</span><span class="o">(</span><span class="nc">HttpStatus</span><span class="o">.</span><span class="na">CONFLICT</span><span class="o">,</span> <span class="s">"A shipped order can't be cancelled"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="n">jdbc</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="s">"UPDATE orders SET status = 'CANCELLED' WHERE id = ?"</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The business rule, “a shipped order can’t be cancelled”, is buried between SQL statements. You can’t test it without a database, and you can’t reuse it from a batch job. Separate the concerns:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="rouge-code"><pre><span class="nd">@RestController</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderController</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">OrderService</span> <span class="n">orderService</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">OrderController</span><span class="o">(</span><span class="nc">OrderService</span> <span class="n">orderService</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">orderService</span> <span class="o">=</span> <span class="n">orderService</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">"/orders/{id}/cancel"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">cancel</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">orderService</span><span class="o">.</span><span class="na">cancel</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderService</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">OrderRepository</span> <span class="n">orders</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">OrderService</span><span class="o">(</span><span class="nc">OrderRepository</span> <span class="n">orders</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">orders</span> <span class="o">=</span> <span class="n">orders</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">cancel</span><span class="o">(</span><span class="kt">long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Order</span> <span class="n">order</span> <span class="o">=</span> <span class="n">orders</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+    <span class="n">order</span><span class="o">.</span><span class="na">cancel</span><span class="o">();</span>     <span class="c1">// the business rule lives in Order</span>
+    <span class="n">orders</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">order</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Now the controller only translates HTTP, the repository only stores data, and the rule lives in <code class="language-plaintext highlighter-rouge">Order.cancel()</code>, where a plain unit test can check it. The <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST API tutorial</a> applies the same split to a complete Spring Boot controller.</p>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="composition-over-inheritance">Composition over Inheritance</h2>
+
+<p>Inheritance means “is a”, and it exposes everything the parent class can do. This stack extends <code class="language-plaintext highlighter-rouge">ArrayList</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="no">E</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span> <span class="n">add</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> <span class="o">}</span>
+  <span class="kd">public</span> <span class="no">E</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">remove</span><span class="o">(</span><span class="n">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span> <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>But a stack is not a list. Every caller can now use <code class="language-plaintext highlighter-rouge">stack.add(0, item)</code> or <code class="language-plaintext highlighter-rouge">stack.remove(0)</code> and break the last-in, first-out order. Even the JDK made this mistake: <code class="language-plaintext highlighter-rouge">java.util.Stack</code> extends <code class="language-plaintext highlighter-rouge">Vector</code>, and its documentation recommends <code class="language-plaintext highlighter-rouge">Deque</code> instead. With composition, the stack <em>has</em> a list and exposes only stack operations:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">items</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="no">E</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span> <span class="n">items</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="no">E</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">items</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="k">throw</span> <span class="k">new</span> <span class="nc">NoSuchElementException</span><span class="o">(</span><span class="s">"stack is empty"</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">items</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">items</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">items</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span> <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The benefit isn’t less code; inheritance avoids duplication just as well. The benefit is control: the class decides what it exposes, you can swap the <code class="language-plaintext highlighter-rouge">ArrayList</code> for another implementation without affecting callers, and you aren’t tied to changes in a parent class you don’t own.</p>
+
+<p>Use inheritance when the subclass really <em>is</em> a kind of the parent everywhere, as Liskov Substitution requires. More on this in <a href="https://codersite.dev/understanding-oop-concepts/" target="_blank">Understanding OOP Concepts</a>.</p>
+
+<h2 id="law-of-demeter-talk-only-to-your-friends">Law of Demeter: Talk Only to Your Friends</h2>
+
+<p>A method should talk to its direct collaborators, not reach through them into objects further away:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">city</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="na">getCustomer</span><span class="o">().</span><span class="na">getAddress</span><span class="o">().</span><span class="na">getCity</span><span class="o">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This line knows that an order has a customer, that a customer has an address, and that an address has a city. If any of these relationships changes, for example customers get several addresses, every such line breaks. Ask the object you have:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Order</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Customer</span> <span class="n">customer</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nc">String</span> <span class="nf">shippingCity</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">customer</span><span class="o">.</span><span class="na">shippingCity</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Address</span> <span class="n">address</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nc">String</span> <span class="nf">shippingCity</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">address</span><span class="o">.</span><span class="na">city</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">city</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="na">shippingCity</span><span class="o">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>Taken too far:</strong> the law is about objects with behavior. Chains on data structures, such as records and DTOs, and fluent APIs like streams and builders are fine: <code class="language-plaintext highlighter-rouge">list.stream().filter(...).map(...)</code> doesn’t violate anything.</p>
+
+<h2 id="design-patterns">Design Patterns</h2>
+
+<p>Design patterns are proven, named solutions to problems that come up again and again, and most of them are these principles applied:</p>
+
+<ul>
+  <li><strong>Strategy</strong> combines composition and the open-closed principle: a new payment method is a new class, not a new <code class="language-plaintext highlighter-rouge">if</code> in old code.</li>
+  <li><strong>Decorator</strong> adds behavior through composition instead of a growing tree of subclasses.</li>
+  <li><strong>Factory</strong> and dependency injection apply dependency inversion: callers depend on an interface, not on the class that implements it.</li>
+  <li><strong>Observer</strong> keeps the sender and its receivers loosely coupled.</li>
+</ul>
+
+<p>The names give a team a shared vocabulary: “use a strategy here” says in three words what would otherwise take a whiteboard. They come from the classic catalog by the “Gang of Four”:</p>
+
+<div><center>
+  <a href="https://amzn.to/4hEl8Yw" target="_blank"><img style="border:1px solid black;" alt="Design Patterns: Elements of Reusable Object-Oriented Software" title="Buy Now" border="0" width="265" height="380" src="../recommended/images/designPatterns.jpg" /></a>
+</center>
+
+<br />
+</div>
+
+<h2 id="when-principles-conflict">When Principles Conflict</h2>
+
+<p>Principles are tools for making decisions, not laws, and sometimes they pull in opposite directions:</p>
+
+<ul>
+  <li><strong>DRY vs. loose coupling.</strong> Two microservices share a “common” library to avoid duplicating a class. Now every change to that class forces both services to release together. Across service boundaries, a little duplication is often cheaper than the coupling.</li>
+  <li><strong>YAGNI vs. open-closed.</strong> Open-closed says to leave room for extension; YAGNI says not to build what you don’t need yet. A practical rule: add the extension point the second time the same kind of change happens, when you know what actually varies.</li>
+  <li><strong>KISS vs. design patterns.</strong> A pattern applied to a 20-line problem makes it harder to read, not easier. Use a pattern when it removes complexity, not to show that you know it.</li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Principle</th>
+      <th>Warning sign in your code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Single Responsibility</strong>: one reason to change per class</td>
+      <td>A class called <code class="language-plaintext highlighter-rouge">Manager</code> or <code class="language-plaintext highlighter-rouge">Utils</code> with 2,000 lines</td>
+    </tr>
+    <tr>
+      <td><strong>Open-Closed</strong>: extend without modifying</td>
+      <td>A <code class="language-plaintext highlighter-rouge">switch</code> on a type that grows with every feature</td>
+    </tr>
+    <tr>
+      <td><strong>DRY</strong>: one place for each piece of knowledge</td>
+      <td>A bug fix you have to apply in several places</td>
+    </tr>
+    <tr>
+      <td><strong>KISS</strong>: the simplest solution that works</td>
+      <td>Code reviewers asking “what does this do?”</td>
+    </tr>
+    <tr>
+      <td><strong>YAGNI</strong>: build only what is needed now</td>
+      <td>Interfaces with a single implementation “for later”</td>
+    </tr>
+    <tr>
+      <td><strong>Separation of Concerns</strong>: one concern per layer</td>
+      <td>SQL statements in a controller</td>
+    </tr>
+    <tr>
+      <td><strong>Composition over Inheritance</strong>: prefer “has a” to “is a”</td>
+      <td>Subclasses that disable parent methods</td>
+    </tr>
+    <tr>
+      <td><strong>Law of Demeter</strong>: talk only to direct collaborators</td>
+      <td>Long chains of getter calls</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h2 id="learn-the-principles-in-depth">Learn the Principles in Depth</h2>
+
+<p>Knowing the names of the principles is easy. Recognizing when your own code breaks them, and fixing it under deadline pressure, takes practice.</p>
+
+<p>My book <strong>Software Design Principles</strong> takes the ideas in this post further with worked examples: DRY, KISS, YAGNI, loose coupling and high cohesion, all five SOLID principles each with code and a <em>Key Takeaways</em> recap, UML class diagrams with all six relationship types, twelve clean-code habits, and case studies where you design a RESTful API and a B2B integration from start to finish.</p>
 
 <blockquote>
-  <p>Every great career in tech is built on great design. Start building yours today.</p>
+  <p>Software design principles provide guidelines to handle the design process’s complexity, prepare your code when changes arise, and minimize the impact of introducing bugs. – <cite><a href="https://amzn.to/3Csx3sR" target="_blank">Software Design Principles</a></cite></p>
 </blockquote>
 
 <div><center>
@@ -293,6 +676,17 @@
 </center>
 
 <br /></div>
+
+<p>Not sure yet? <a href="https://codersite.dev/assets/files/sdpSample.pdf" target="_blank">Read the first chapters free</a>, no signup needed.</p>
+
+<p><strong>Keep reading:</strong></p>
+
+<ul>
+  <li><a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">SOLID Principles: The Definitive Guide</a></li>
+  <li><a href="https://codersite.dev/clean-code/" target="_blank">Best Practices for Writing Clean Code</a></li>
+  <li><a href="https://codersite.dev/understanding-oop-concepts/" target="_blank">Understanding OOP Concepts</a></li>
+  <li><a href="https://codersite.dev/uml-diagrams-for-java-developers/" target="_blank">UML Diagrams for Java Developers</a></li>
+</ul>
 
 <p>Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!</p>
 
@@ -383,8 +777,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/software-design-principles/"
   },
-  "headline": "What are the Software Design Principles",
-  "description": "What are the Software Design Principles, SOLID",
+  "headline": "Software Design Principles Explained with Java Examples: SOLID, DRY, KISS, YAGNI and More",
+  "description": "The software design principles every developer should know, each with a short Java example: SOLID, DRY, KISS, YAGNI, separation of concerns, composition over inheritance and the Law of Demeter.",
   "image": "https://codersite.dev/assets/images/softwareDesignPrinciples.jpg",
   "datePublished": "2023-02-22T00:00:00+01:00",
   "dateModified": "2023-02-22T00:00:00+01:00",
@@ -422,7 +816,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "What are the Software Design Principles",
+      "name": "Software Design Principles Explained with Java Examples: SOLID, DRY, KISS, YAGNI and More",
       "item": "https://codersite.dev/software-design-principles/"
     }
   ]
