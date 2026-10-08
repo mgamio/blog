@@ -1,257 +1,267 @@
 ---
 layout: post
-title:  "How to implement Rate Limiting"
-description: "Hot to implement an API Rate Limiting in a backend API. Rate Limiting Algorithms"
+title:  "Rate Limiting in Spring Boot with Bucket4j: Token Bucket Algorithm per Client"
+description: "Protect your REST API with rate limiting: compare the common algorithms, then implement a token bucket per client with Bucket4j and Spring Boot, return 429 with Retry-After, and avoid the shared-bucket bug."
 author: moises
 categories: [ Web APIs ]
 image: /assets/images/rateLimitAlgorithm.jpg
 comments: false
 ---
 
-A [rate-limiting](https://cloud.google.com/architecture/rate-limiting-strategies-techniques){:target="_blank"} system controls the rate of traffic sent or received on a network interface. APIs will use rate-limiting techniques to control how many times application Clients are allowed to call an API endpoint during a given time interval - Request Limiting. Traffic is allowed up to one specified rate, whereas traffic that exceeds that rate is denied – HTTP code 429.
+A partner company starts integrating with your API. On day one, their developer writes a loop to load test data, and suddenly your API answers slowly for every other client. Nobody attacked you: one client simply had no limit. **Rate limiting** controls how many requests each client may send in a given time. Requests within the limit are served; the rest get the status code **429 Too Many Requests**.
 
-## Reasons to implement Rate Limiting
+This post compares the common rate limiting algorithms, then implements a token bucket per client in Spring Boot with the [Bucket4j](https://bucket4j.com/){:target="_blank"} library.
 
-- Avoid a denial-of-service (DoS) attack. So, the first principle here will be Availability for our distributed systems.
+## Why Rate Limit Your API?
 
-- We must protect database functions that use expensive hardware resources when the API requests arrive concurrently or sequentially without limit.
+- **Fair use:** one client's traffic can't slow down the API for everyone else.
+- **Protect expensive resources:** database queries, calls to paid third-party APIs, and CPU-heavy work.
+- **Security:** rate limiting is one of the defenses against *Unrestricted Resource Consumption*, number 4 in the [OWASP API Security Top 10](https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/){:target="_blank"}, and it slows down brute-force attacks on login endpoints.
+- **Business plans:** a free plan with 10 requests per minute and a paid plan with 1,000 is a rate limit with a price tag.
 
-- Limiting Concurrent Requests.
+What it won't do: stop a large distributed denial-of-service (DDoS) attack. By the time a request reaches your application, it has already used your network and your servers. That protection belongs at the network level, in a CDN or a cloud firewall.
 
-- Rate limiting is one of the solutions to prevent "Unrestricted Resource Consumption" [API4:2023](https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/){:target="_blank"}.
+## Rate Limiting Algorithms Compared
 
-## Token-bucket algorithm
+- **Fixed window:** count the requests per client in each calendar minute and reset the counter when the minute ends. It's simple and cheap, but a client can send the full limit at 12:00:59 and again at 12:01:00, twice the limit within two seconds.
+- **Sliding window log:** store the timestamp of every request and count those in the last 60 seconds. It's exact, but it stores one entry per request.
+- **Sliding window counter:** combine the counts of the current and the previous window, weighted by time. It's a cheap and close approximation of the sliding log.
+- **Leaky bucket:** requests enter a queue that is processed at a constant rate. It smooths the traffic, but bursts wait in the queue or are dropped when it's full.
+- **Token bucket:** a bucket holds tokens; each request takes one, and tokens are added back at a fixed rate. It allows short bursts up to the bucket's capacity while keeping the average rate under control.
 
-The [token-bucket](https://en.wikipedia.org/wiki/Token_bucket){:target="_blank"} algorithm is explained with the analogy of a bucket with finite capacity, into which tokens are added at a fixed rate. But it can’t fill up infinitely. If a token arrives when the bucket is complete, it’s discarded. On every request, ***n*** number of tokens are removed from the bucket. The request is rejected if there are fewer than ***n*** tokens in the bucket.
+The token bucket is the most widely used, because real clients are bursty: a mobile app opening a screen sends five requests at once, then nothing for a minute.
 
-When we have somebody that takes out tokens, we also need somebody that puts tokens into the bucket. The *refiller* periodically creates new tokens and puts them into the bucket.
+## How the Token Bucket Works
 
-![rate-Limit-Refiller](/assets/images/rateLimitRefiller.jpg "rate-Limit-Refiller"){:class="img-responsive"}
+Imagine a bucket with a finite capacity. A *refiller* adds tokens at a fixed rate, and tokens that arrive when the bucket is full are discarded. Every request takes a token out. When the bucket is empty, the request is rejected until the refiller adds more tokens.
 
-## About Bucket4j
+![Token bucket: a refiller adds tokens to the bucket, and every request consumes one token](/assets/images/rateLimitRefiller.jpg "Token bucket: a refiller adds tokens to the bucket, and every request consumes one token"){:class="img-responsive"}
 
-[Bucket4j](https://bucket4j.com/8.1.1/toc.html){:target="_blank"} is a Java rate limiting library implemented on top of ideas of the token-bucket algorithm.
+Two numbers define the limit: the **capacity** (the largest burst a client can send) and the **refill rate** (the long-term average).
 
-Maven Configuration: We need to add the bucket4j dependency to our pom.xml file.
+## Add Bucket4j to Your Project
 
-```kotlin
+Bucket4j is a Java rate limiting library based on the token bucket algorithm. The Java 17 build of version 8.21:
+
+```xml
 <dependency>
-    <groupId>com.bucket4j</groupId>
-    <artifactId>bucket4j-core</artifactId>
-    <version>8.1.1</version>
+  <groupId>com.bucket4j</groupId>
+  <artifactId>bucket4j_jdk17-core</artifactId>
+  <version>8.21.0</version>
 </dependency>
 ```
+
+Or with Gradle:
+
+```groovy
+implementation 'com.bucket4j:bucket4j_jdk17-core:8.21.0'
+```
+
+Older tutorials use the artifact `bucket4j-core` and the methods `Bandwidth.classic(...)` and `Refill.intervally(...)`, which are deprecated in current versions. This post uses the current builder API.
+
+A bucket with a capacity of 10 tokens, refilled with 10 tokens every minute:
+
+```java
+Bucket bucket = Bucket.builder()
+    .addLimit(limit -> limit.capacity(10).refillIntervally(10, Duration.ofMinutes(1)))
+    .build();
+```
+
+Bucket4j offers two ways to refill:
+
+- **`refillIntervally(10, Duration.ofMinutes(1))`** waits until the whole minute has passed, then adds all 10 tokens at once. A client that sends 10 requests in the first 15 seconds must wait 45 seconds for the next one.
+- **`refillGreedy(10, Duration.ofMinutes(1))`** adds tokens gradually, one every 6 seconds. Clients get a steadier flow, and the 11th request only waits a few seconds.
 
 <div>
 {%- include inArticleAds.html -%}
 </div>
 
-You can implement a rate limiting for your clients based on subscription plans or even for each endpoint. For learning purposes, we implement a rate limit based on external IPs.
+## The Example: A Random Quote API
 
-## Inspirational Quotes About Tech
+The API returns a random quote about software. A repository reads the quotes from a text file, a service picks a random one, and a REST controller exposes it:
 
-We implement a web service allowing clients to retrieve a Random Quote about tech.
-
-Firstly, we define a *Repository* class to retrieve Quotes data from a text file, for example.
-
-Secondly, we define a *Service* class to manipulate the previous data and get a random Quote.
-
-Finally, we assemble all these components - dependencies - in a *RestContoller* class.
-
-```kotlin
+```java
 @RestController
 @RequestMapping("/v1")
 public class QuoteController {
 
-  @Autowired
-  private QuoteService quoteService;
+  private final QuoteService quoteService;
+
+  public QuoteController(QuoteService quoteService) {
+    this.quoteService = quoteService;
+  }
 
   @GetMapping(value = "/quotes/random", produces = MediaType.APPLICATION_JSON_VALUE)
-  public Quote getQuote(HttpServletRequest httpServletRequest) throws Exception {
-
+  public Quote getQuote() {
     return quoteService.getRandomQuote();
   }
 }
 ```
 
-> Not another theory book — every principle is backed by before/after Java code examples.
+A client such as Postman gets a quote:
+
+![Postman: GET /v1/quotes/random returns 200 OK with a quote and its author](/assets/images/randomQuotePostman.jpg "Postman: GET /v1/quotes/random returns 200 OK with a quote and its author"){:class="img-responsive"}
+
+Real clients, though, are programs. In B2B integrations, developers on the client side often send hundreds of requests per minute while they test their implementation. That's the traffic we want to limit.
+
+## The Rate Limit Interceptor
+
+A Spring MVC `HandlerInterceptor` runs before the controller. If its `preHandle` method returns `false`, the request never reaches the controller, which makes it the right place for the limit. The controller doesn't need to know that rate limiting exists.
+
+We give **each client its own bucket**. In this example, the client is identified by its IP address. With API keys or OAuth2, the client ID is a better key.
+
+```java
+@Component
+public class RateLimitInterceptor implements HandlerInterceptor {
+
+  private static final long CAPACITY = 10;
+  private static final Duration REFILL_PERIOD = Duration.ofMinutes(1);
+
+  // One bucket per client IP. Buckets of clients that stay idle for 10 minutes are removed.
+  private final Cache<String, Bucket> buckets = Caffeine.newBuilder()
+      .expireAfterAccess(Duration.ofMinutes(10))
+      .maximumSize(100_000)
+      .build();
+
+  @Override
+  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+    String clientIp = request.getRemoteAddr();
+    Bucket bucket = buckets.get(clientIp, ip -> newBucket());
+
+    ConsumptionProbe probe = bucket.tryConsumeAndReturnRemaining(1);
+    if (probe.isConsumed()) {
+      response.addHeader("X-Rate-Limit-Remaining", Long.toString(probe.getRemainingTokens()));
+      return true;
+    }
+
+    long waitMillis = TimeUnit.NANOSECONDS.toMillis(probe.getNanosToWaitForRefill());
+    response.setStatus(HttpStatus.TOO_MANY_REQUESTS.value()); // 429
+    response.addHeader("Retry-After", Long.toString((waitMillis + 999) / 1000)); // seconds, rounded up
+    response.addHeader("X-Rate-Limit-Retry-After-Milliseconds", Long.toString(waitMillis));
+    return false;
+  }
+
+  private Bucket newBucket() {
+    return Bucket.builder()
+        .addLimit(limit -> limit.capacity(CAPACITY).refillIntervally(CAPACITY, REFILL_PERIOD))
+        .build();
+  }
+}
+```
+
+What each part does:
+
+- **`buckets.get(clientIp, ip -> newBucket())`** returns the client's bucket, or creates a new one on the client's first request. The cache is thread-safe, so two simultaneous first requests from the same client can't create two buckets.
+- **The cache** comes from the [Caffeine](https://github.com/ben-manes/caffeine){:target="_blank"} library. A plain `HashMap` would keep a bucket for every IP that ever called your API, and memory would grow forever. Here, buckets of idle clients expire after 10 minutes, which is longer than the refill period, so expiry never resets an active limit.
+- **`tryConsumeAndReturnRemaining(1)`** takes one token if there is one. The probe says whether it succeeded, how many tokens are left, and how long the client must wait otherwise.
+- **The response headers** tell the client where it stands. `Retry-After` is the standard HTTP header, in seconds, which clients and proxies understand. `X-Rate-Limit-Remaining` and `X-Rate-Limit-Retry-After-Milliseconds` give more detail.
+
+With Spring Boot 3 or 4, the servlet classes come from `jakarta.servlet`. On Spring Boot 2, use `javax.servlet`.
+
+### The Real Client IP
+
+Many tutorials read the client IP from the `X-Forwarded-For` header. **Don't do this yourself.** Any client can send that header with a made-up IP, a different one on every request, and is never limited.
+
+Use `request.getRemoteAddr()` and let Spring Boot handle the header. When your application runs behind a load balancer or a reverse proxy, add this to `application.properties`:
+
+```properties
+server.forward-headers-strategy=native
+```
+
+The embedded server then takes the client IP from `X-Forwarded-For` only when the request comes from a trusted, internal proxy address. A header sent directly by a client from the Internet is ignored.
+
+## Register the Interceptor
+
+```java
+@Configuration
+public class InterceptorConfig implements WebMvcConfigurer {
+
+  private final RateLimitInterceptor rateLimitInterceptor;
+
+  public InterceptorConfig(RateLimitInterceptor rateLimitInterceptor) {
+    this.rateLimitInterceptor = rateLimitInterceptor;
+  }
+
+  @Override
+  public void addInterceptors(InterceptorRegistry registry) {
+    registry.addInterceptor(rateLimitInterceptor).addPathPatterns("/v1/**");
+  }
+}
+```
+
+`addPathPatterns` applies the limit to the API only, not to health checks or documentation. Older tutorials extend `WebMvcConfigurerAdapter`, which was removed in Spring 6, so that code doesn't compile on Spring Boot 3 or 4.
+
+The interceptor handles rate limiting, the controller handles HTTP, and the service handles the business logic. Each class has one job, so you can change the limit without touching the API. Designing classes this way is what my book is about:
+
+> Software design principles provide guidelines to handle the design process's complexity, prepare your code when changes arise, and minimize the impact of introducing bugs. -- <cite>[Software Design Principles](https://amzn.to/3Csx3sR){:target="_blank"}</cite>
 
 <div>
 {%- include softwareDesign.html -%}
 </div>
 
-[REST API](https://codersite.dev/rest-api-overview/){:target="_blank"} is an architectural style that defines a set of guidelines for creating web services.
+## See It Work
 
-Once you deploy the API service, you can request a random quote from a [REST API Client](https://codersite.dev/building-rest-api-client/){:target="_blank"} like Postman.
+Ten requests from the same client within a minute succeed, and the 11th is rejected:
 
-![rate-Limit-random](/assets/images/randomQuotePostman.jpg "random quote API"){:class="img-responsive"}
+```text
+$ curl -i http://localhost:8082/v1/quotes/random
+HTTP/1.1 200
+X-Rate-Limit-Remaining: 9
+...
+HTTP/1.1 200
+X-Rate-Limit-Remaining: 0
 
-But in reality, web Clients are automated, especially in B2B integrations, where developers on the client side send hundreds or thousands of requests per minute to analyze random data during the implementation stage.
+HTTP/1.1 429
+Retry-After: 60
+X-Rate-Limit-Retry-After-Milliseconds: 59142
+```
 
-We should implement a Rate Limiting Algorithm to protect our software infrastructure from unintentional requests that exceed the regular consumption of our web services.
+A request from another client still gets `200` with `X-Rate-Limit-Remaining: 9`, because every client has its own bucket.
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
+## A Bug to Avoid: The Shared Bucket
 
+An earlier version of this post, like several tutorials online, had this code:
 
-## Implementing Spring MVC HandlerInterceptor
+```java
+private final Bucket defaultBucket = Bucket.builder()...build();
 
-The *preHandle* method of a *HandlerInterceptor* Interface intercepts a client request and adds a preprocess.
-
-```kotlin
-@Component
-public class RateLimitInterceptor implements HandlerInterceptor {
- 
-  @Override
-  public boolean preHandle(HttpServletRequest request, 
-    HttpServletResponse response, Object handler) throws Exception {
-    
-	//preprocess here
-    
-	return false;
-  }
+if (buckets.containsKey(clientIP)) {
+  bucket = buckets.get(clientIP);
+} else {
+  bucket = this.defaultBucket;     // the same object for every new client
+  buckets.put(clientIP, bucket);
 }
 ```
 
-To detect an external IP, we implement the following method.
+It looks like one bucket per client, but every client gets the **same** bucket object. The limit is then 10 requests per minute for all clients together: in a test, client A sent 10 requests and all were served, and client B then got 0 of its 10. Always create a new bucket per client, as `newBucket()` does above.
 
-```kotlin
-  private String getClientIP(HttpServletRequest request) {
-    String ip = request.getHeader("X-FORWARDED-FOR");
+## Production Notes
 
-    if (ip == null || ip.isEmpty()) {
-      ip = request.getRemoteAddr();
-    }
+- **Several instances of your API:** each instance has its own buckets in memory, so with three instances a client gets three times the limit. Store the buckets in a shared store instead. Bucket4j supports Redis, Hazelcast, and databases such as PostgreSQL and MySQL.
+- **Limits per plan:** look up the client's plan and create the bucket with that plan's capacity, for example 10 requests per minute on the free plan and 1,000 on the paid plan.
+- **Know your traffic first:** before you choose limits, measure how many requests per minute your clients actually send. A [hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"} is one way to store and analyze those logs.
 
-    return ip;
-  }
-
-```
-
-To use the *bucket4j* library, we need to understand their terminology.
-
-**Bucket**  is the Interface that defines the behavior of a rate-limiter - based on the Token Bucket algorithm. A bucket is created using a builder pattern.
-
-```kotlin
-Bucket bucket = Bucket.builder()
-  .addLimit(...)
-  .build();
-```
-
-To add a *Limit* to the bucket, we define a *Bandwidth* denoted by the following terms.
-
-**Capacity** specifies how many tokens your bucket has.
-
-**Refill** specifies how fast tokens can be refilled after it was consumed from a bucket.
-
-If we choose the interval refill, the bucket will wait until the whole period is elapsed before regenerating the whole amount of tokens.
-
-```kotlin
-// generates 10 tokens each minute
-Refill.intervally(10, Duration.ofMinutes(1));
-
-```
+Shared state across instances, replication and consistency are exactly the problems this book explains better than any other:
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include designingDataIntensiveApplications.html -%}
 </div>
 
-For example, if we decide that *one* client request represents a token, and the client sends ten requests over the next 15 seconds, then the client must wait 45 seconds to send the following request; otherwise, the API rejects the request. We will see this implementation later.
+## Get the Code
 
-The following code defines a bucket with 10 tokens of capacity.
+The complete project, with Spring Boot 4.1, Bucket4j 8.21 and tests for the limit, is on GitHub: [https://github.com/mgamio/rateLimit](https://github.com/mgamio/rateLimit){:target="_blank"}.
 
-```kotlin
-  private long capacity = 10;
-  private long tokens = 10;
-  
-  private final Bucket defaultBucket = Bucket.builder()
-    .addLimit(Bandwidth.classic(capacity, Refill.intervally(tokens, Duration.ofMinutes(1))))
-    .build();
-```
+## Where to Go Next
 
-We need a *hashMap* to store the buckets corresponding to each external IP. And we also need a variable that defines how many tokens we can consume from the bucket when a request arrives.
+- [Load-test the rate limit with concurrent Java clients](https://codersite.dev/building-rest-api-client/){:target="_blank"}: simulate several clients and watch the 429 responses arrive.
+- [Handle 503 errors in the client](https://codersite.dev/how-rest-client-handles-503-error){:target="_blank"}: retry carefully when the server is overloaded.
+- [REST API tutorial](https://codersite.dev/rest-api-overview/){:target="_blank"}: resources, HTTP methods and status codes, the series' starting point.
 
-```kotlin
-  private final Map<String, Bucket> buckets = new ConcurrentHashMap<>();
-  private final long tokensToConsumeByDefault = 1;
-```
-
-With all the pieces in place, we implement request preprocessing inside the *preHandle* method.
-
-```kotlin
-@Override
-public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
-  Object handler) throws Exception {
-						   
-  String clientIP = getClientIP(request);
-
-  Bucket bucketByClientIP;
-  if (buckets.containsKey(clientIP)) {
-    bucketByClientIP = buckets.get(clientIP);
-  } else {
-    bucketByClientIP = this.defaultBucket;
-    buckets.put(clientIP, bucketByClientIP);
-  }
-
-  ConsumptionProbe probe = bucketByClientIP.tryConsumeAndReturnRemaining(this.tokensToConsumeByDefault);
-  if (probe.isConsumed()) {
-    response.addHeader("X-Rate-Limit-Remaining",
-      Long.toString(probe.getRemainingTokens()));
-    return true;
-  }
-
-  response.setStatus(HttpStatus.TOO_MANY_REQUESTS.value()); // 429
-  response.addHeader("X-Rate-Limit-Retry-After-Milliseconds",
-    Long.toString(TimeUnit.NANOSECONDS.toMillis(probe.getNanosToWaitForRefill())));
-
-  return false;
-}
-```
-
-The magic of this library is in the *isConsumed()* method. After asking the bucket to consume a token from the basket, we test whether the token was consumed. If true, the limit was not exceeded, and the API allows the client to consume the endpoint. Otherwise, the limit was exceeded, and we rejected the request, returning an HTTP error code of 429 to the client.
-
-> Master Data Structures & Algorithms — And Ace Your Coding Interviews
+"Design a rate limiter" is one of the classic system design interview questions. Practice with real interview questions:
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
-
-We need to register our *RateLimitInterceptor* class by extending the *WebMvcConfigurerAdapter* class.
-
-```kotlin
-@Configuration
-public class InterceptorConfig extends WebMvcConfigurerAdapter {
-
-  @Autowired
-  RateLimitInterceptor rateLimitInterceptor;
-
-  @Override
-  public void addInterceptors(InterceptorRegistry registry) {
-    registry.addInterceptor(rateLimitInterceptor);
-  }
-}
-```
-
-After you send ten requests, the eleventh request is rejected, and the web client must wait for around 7 seconds, as shown in the following example.
-
-![rate-Limit-random](/assets/images/randomQuotePostmanRateLimit.jpg "rate-Limit-random"){:class="img-responsive"}
-
-Offering valuable content through your API can also motivate external developers or companies to pay more for leveraging the API. When they exceed the ten requests by default, they subscribe to plans.
-
-Depending on how your software infrastructure is built, you can define plans with access to all API endpoints or a clientId+endpoint combination for example.
-
-If you dont know the actual request consumption from your users, you can [implement hot-warm architecture in Elasticsearch](https://codersite.dev/hot-warm-architecture-elasticsearch/){:target="_blank"} and monitor the number of requests per minute daily.
-
-When designing web APIs, consider implementing a rate-limiting algorithm to control the load on the system.
-
-You can use these ideas when trying to implement rate limiting with Redis or with AWS.
-
-You can download the code from the following link
-
-[https://github.com/mgamio/rateLimit](https://github.com/mgamio/rateLimit.git){:target="_blank"}
-
-In my next post, we will build an automated [REST API Client](https://codersite.dev/building-rest-api-client/){:target="_blank"} with random data to test the rate limit algorithm. Follow me!
 
 Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 
