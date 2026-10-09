@@ -7,25 +7,25 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>How to Post a Random Tweet using Twitter API | codersite</title>
+<title>Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="How to Post a Random Tweet using Twitter API" />
+<meta property="og:title" content="Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="How to Post a Random Tweet using Twitter API" />
-<meta name="twitter:description" property="og:description" content="How to Post a Random Tweet using Twitter API" />
+<meta name="description" content="Pick random items without repeats in Java: why random-and-retry with a queue breaks, how a shuffle bag fixes it in O(1), and how to schedule it with Spring Boot’s @Scheduled to post to the X API, with current API costs." />
+<meta name="twitter:description" property="og:description" content="Pick random items without repeats in Java: why random-and-retry with a queue breaks, how a shuffle bag fixes it in O(1), and how to schedule it with Spring Boot’s @Scheduled to post to the X API, with current API costs." />
 <link rel="canonical" href="https://codersite.dev/post-random-tweet-on-twitter-api/" />
 <meta property="og:url" content="https://codersite.dev/post-random-tweet-on-twitter-api/" />
 <meta property="og:site_name" content="codersite" />
-<meta property="og:image" content="https://codersite.dev/assets/images/postInTwitterAPI.jpg" />
+<meta property="og:image" content="https://codersite.dev/assets/images/randomWithoutRepeatsX.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-12-07T00:00:00+01:00" />
 <meta property="article:modified_time" content="2022-12-07T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://codersite.dev/assets/images/postInTwitterAPI.jpg" />
-<meta name="twitter:title" content="How to Post a Random Tweet using Twitter API" />
+<meta name="twitter:image" content="https://codersite.dev/assets/images/randomWithoutRepeatsX.jpg" />
+<meta name="twitter:title" content="Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-12-07T00:00:00+01:00","datePublished":"2022-12-07T00:00:00+01:00","description":"How to Post a Random Tweet using Twitter API","headline":"How to Post a Random Tweet using Twitter API","image":"https://codersite.dev/assets/images/postInTwitterAPI.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/post-random-tweet-on-twitter-api/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/post-random-tweet-on-twitter-api/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-12-07T00:00:00+01:00","datePublished":"2022-12-07T00:00:00+01:00","description":"Pick random items without repeats in Java: why random-and-retry with a queue breaks, how a shuffle bag fixes it in O(1), and how to schedule it with Spring Boot’s @Scheduled to post to the X API, with current API costs.","headline":"Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag","image":"https://codersite.dev/assets/images/randomWithoutRepeatsX.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/post-random-tweet-on-twitter-api/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/post-random-tweet-on-twitter-api/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -171,7 +171,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=How to Post a Random Tweet using Twitter API&url=https://codersite.dev/post-random-tweet-on-twitter-api/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag&url=https://codersite.dev/post-random-tweet-on-twitter-api/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -219,7 +219,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">How to Post a Random Tweet using Twitter API</h1>
+                <h1 class="posttitle">Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -227,7 +227,7 @@
                 <p class="post-meta-line">
                     <time datetime="2022-12-07T00:00:00+01:00" itemprop="datePublished">Dec 7, 2022</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">12 min read</span>
+                    <span class="meta-reading-time">15 min read</span>
                     
                 </p>
 
@@ -242,7 +242,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/postInTwitterAPI.jpg" alt="How to Post a Random Tweet using Twitter API">
+            <img class="featured-image img-fluid" src="/assets/images/randomWithoutRepeatsX.jpg" alt="Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag">
             
 
             
@@ -253,170 +253,37 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>The <a href="https://developer.twitter.com/en/docs/twitter-api" target="_blank">Twitter API</a> enables developers programmatically posting tweets.</p>
+                <p>You’ve written a hundred articles, and you want a bot to share one of them every three hours, even while you sleep. “Pick a random article” sounds like one line of code. But your followers will notice quickly when the same article shows up twice in one afternoon. What you really need is <strong>random without repeats</strong>, and that’s a small algorithm problem with a surprisingly elegant solution.</p>
 
-<p>We will use Spring Boot to build a Client App that posts tweets periodically.</p>
+<p>This post builds the bot with Spring Boot: a scheduler, two ways to pick articles without repeats, and a client for the X (formerly Twitter) API, including what posting through the API costs today.</p>
 
-<p><em>@Scheduled</em> is a Spring annotation that marks a method to be scheduled.</p>
+<h2 id="the-requirement">The Requirement</h2>
 
-<p>To execute <em>@Scheduled</em> annotations, we add an <em>@EnableScheduling</em> annotation on the main class.</p>
+<ul>
+  <li>Post one article every three hours: eight posts a day.</li>
+  <li><strong>No article may appear twice within one day</strong>, so no repeats within any eight consecutive posts.</li>
+  <li>Over time, every article gets posted equally often.</li>
+</ul>
 
-<p>A <em>cron job</em> is a Linux job scheduler that sets up tasks periodically that run at a fixed date or interval.</p>
+<p>The articles are listed in a text file, one per line:</p>
 
-<p>A <em>cron</em> attribute - as in Unix-based systems - enables the <em>@Scheduled</em> method to be executed at a specified date/time.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nd">@Scheduled</span><span class="p">(</span><span class="n">cron</span> <span class="p">=</span> <span class="s">"0 0 0/3 1/1 * ?"</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="the-requirement">The requirement</h2>
-
-<p>We want to delegate our manual tweets to an automated process, even when we are sleeping, to support our social media automation.</p>
-
-<p>We have created a Tweet scheduling client to publish tweets under a Scheduler’s control.</p>
-
-<p>We have a text file listing all the articles we have written.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="nc">SOLID</span> <span class="n">principles</span><span class="p">;</span><span class="n">article_URL</span><span class="p">;</span><span class="err">#</span><span class="n">solid</span> <span class="err">#</span><span class="n">objectoriented</span>
-<span class="nc">Binary</span> <span class="nc">Search</span> <span class="nc">Tree</span><span class="p">;</span><span class="n">article_URL</span><span class="p">;</span><span class="err">#</span><span class="n">algorithm</span> <span class="err">#</span><span class="n">datastructure</span>
-<span class="nc">Clean</span> <span class="n">code</span><span class="p">;</span><span class="n">article_URL</span><span class="p">;</span><span class="err">#</span><span class="n">programming</span> <span class="err">#</span><span class="n">codingpractices</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">.</span>
+</pre></td><td class="rouge-code"><pre>SOLID principles;https://codersite.dev/solid-principles-the-definitive-guide/;#solid #oop
+Clean code;https://codersite.dev/clean-code/;#programming #cleancode
+Binary Search Tree;https://codersite.dev/...;#algorithms #datastructures
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>We have the following metadata for every article.</p>
+<p>Each line becomes a record:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Article</span> <span class="p">{</span>
-  <span class="nc">String</span> <span class="n">title</span><span class="p">;</span>
-  <span class="nc">String</span> <span class="n">link</span><span class="p">;</span>
-  <span class="nc">String</span> <span class="n">hashTags</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">record</span> <span class="nf">Article</span><span class="o">(</span><span class="nc">String</span> <span class="n">title</span><span class="o">,</span> <span class="nc">String</span> <span class="n">link</span><span class="o">,</span> <span class="nc">String</span> <span class="n">hashTags</span><span class="o">)</span> <span class="o">{}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Load all the articles sequentially into a hashmap. We define the hashmap key as an integer to uniquely identify every article.</p>
+<p>A repository reads the file:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">,</span> <span class="nc">Article</span><span class="p">&gt;</span> <span class="n">articlesMap</span><span class="p">;</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">allLines</span> <span class="p">=</span> <span class="nc">Files</span><span class="p">.</span><span class="nf">readAllLines</span><span class="p">(</span><span class="nc">Paths</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">resource</span><span class="p">.</span><span class="nf">getURI</span><span class="p">()));</span>
-<span class="n">int</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">for</span> <span class="p">(</span><span class="nc">String</span> <span class="n">line</span><span class="p">:</span> <span class="n">allLines</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nc">String</span><span class="p">[]</span> <span class="n">attributes</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">";"</span><span class="p">);</span>
-  <span class="nc">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">Article</span><span class="p">();</span>
-  <span class="c1">//code omitted for brevity</span>
-  
-  <span class="n">articlesMap</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">n</span><span class="p">++,</span> <span class="n">article</span><span class="p">);</span>
-<span class="p">}</span>	  
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>We choose a random number with the following method.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="n">int</span> <span class="nf">getRandomNumber</span><span class="p">(</span><span class="n">int</span> <span class="n">min</span><span class="p">,</span> <span class="n">int</span> <span class="n">max</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nc">ThreadLocalRandom</span><span class="p">.</span><span class="nf">current</span><span class="p">().</span><span class="nf">nextInt</span><span class="p">(</span><span class="n">min</span><span class="p">,</span> <span class="n">max</span> <span class="p">+</span> <span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<blockquote>
-  <p>The more your team understands design principles, the less time you spend fixing bugs.</p>
-</blockquote>
-
-<div><center>
-  <a href="https://amzn.to/3q7otGe" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="../assets/images/softwareDesign1.png" /></a>
-</center>
-
-<br /></div>
-
-<p>The following code snippet shows a method executed every three hours to retrieve a random article and send it to the Twitter API as a scheduled tweet.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre><span class="nd">@Scheduled</span><span class="p">(</span><span class="n">cron</span> <span class="p">=</span> <span class="s">"0 0 0/3 1/1 * ?"</span><span class="p">)</span>
-<span class="k">public</span> <span class="n">void</span> <span class="nf">postInTwitter</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-
-  <span class="n">int</span> <span class="n">n</span> <span class="p">=</span> <span class="nf">getRandomNumber</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">articlesMap</span><span class="p">.</span><span class="nf">size</span><span class="p">());</span>
-  <span class="nc">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="n">articlesMap</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-  <span class="n">twitterService</span><span class="p">.</span><span class="nf">sendPost</span><span class="p">(</span><span class="n">article</span><span class="p">);</span>
-  
-  <span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">"postInTwitter random article: "</span> <span class="p">+</span> <span class="n">article</span><span class="p">.</span><span class="nf">getTitle</span><span class="p">());</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>But once an article is retrieved, the following article will probably be the same if we use the previous <em>getRandomNumber</em> method.</p>
-
-<h2 id="dont-post-duplicate-articles-in-a-time-frame">Don’t post duplicate articles in a time frame.</h2>
-
-<p>What we want is to post no duplicate articles in a time frame.</p>
-
-<p>For example, if we post every three hours, eight posts are in one day. Well, we want to show eight no-duplicate tweets for our users throughout the day.</p>
-
-<p>As developers, we need to understand the inner workings of <a href="https://codersite.dev/data-structures-foundation-efficient-programming/" target="_blank">Data Structures</a> to support the behavior - method - we want to implement. Could an array, linked list, queue, or stack satisfy our requirement?</p>
-
-<p>If we can publish only eight articles daily, then our data structure should allow us to store only eight elements. Once we have filled our data structure, there will be no space for the following article. Then, we must be able to remove the oldest article (in this case, the first one) and insert the newest article (in the last position). The Queue data structure supports our requirement.</p>
-
-<p>A <a href="https://amzn.to/3FxeKSb" target="_blank">Queue</a> is an abstract data type, which includes a collection of objects that follow the first-in, first-out (FIFO) principle, i.e., the element inserted at first is the first element to come out of the list.</p>
-
-<p>A MAX_ARTICLES variable defines your frame time. You can increase or decrease it according to the number of your articles.</p>
-
-<p>We define a queue of integers that is implemented by a linked list.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="n">int</span> <span class="nc">MAX_ARTICLES</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="k">private</span> <span class="nc">Queue</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">queue</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">LinkedList</span><span class="p">&lt;&gt;();</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Every three hours, we check if the new random number is not included in the queue. If the validation is successful, we retrieve a new article and publish it.</p>
-
-<p>The <em>remove</em> method deletes the oldest element from the queue (remember <em>the element inserted at first is the first element to come out of the list</em>).</p>
-
-<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
-
-<p>The new method executes (<strong>do</strong>) the following instructions <strong>while</strong> a new random number is not found.</p>
-
-<p>The new random number represents an article that is included in our <em>articlesMap</em> variable.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -434,31 +301,31 @@
 16
 17
 18
-</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">Article</span> <span class="nf">getRandomArticle</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nc">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-  <span class="n">boolean</span> <span class="n">newNumberFound</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
-  <span class="k">do</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">newNumber</span> <span class="p">=</span> <span class="nf">getRandomNumber</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">articlesMap</span><span class="p">.</span><span class="nf">size</span><span class="p">());</span>
-    <span class="k">if</span> <span class="p">(!</span><span class="n">queue</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="n">newNumber</span><span class="p">))</span> <span class="p">{</span>
-      <span class="n">newNumberFound</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-      <span class="n">article</span> <span class="p">=</span> <span class="n">articlesMap</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">newNumber</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="p">&lt;</span> <span class="nc">MAX_ARTICLES</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">queue</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">newNumber</span><span class="p">);</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">queue</span><span class="p">.</span><span class="nf">remove</span><span class="p">();</span>
-        <span class="n">queue</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">newNumber</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">newNumberFound</span> <span class="p">==</span> <span class="k">false</span><span class="p">);</span>
-  <span class="k">return</span> <span class="n">article</span><span class="p">;</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="nd">@Repository</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArticleRepository</span> <span class="o">{</span>
+
+  <span class="c1">// Each line of articles.txt is "title;link;hashtags"</span>
+  <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Article</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">ClassPathResource</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ClassPathResource</span><span class="o">(</span><span class="s">"articles.txt"</span><span class="o">);</span>
+    <span class="k">try</span> <span class="o">(</span><span class="nc">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span>
+        <span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">(),</span> <span class="nc">StandardCharsets</span><span class="o">.</span><span class="na">UTF_8</span><span class="o">)))</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">reader</span><span class="o">.</span><span class="na">lines</span><span class="o">()</span>
+          <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">line</span> <span class="o">-&gt;</span> <span class="o">!</span><span class="n">line</span><span class="o">.</span><span class="na">isBlank</span><span class="o">())</span>
+          <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">line</span> <span class="o">-&gt;</span> <span class="n">line</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">";"</span><span class="o">))</span>
+          <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">parts</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">Article</span><span class="o">(</span><span class="n">parts</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">parts</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span> <span class="n">parts</span><span class="o">[</span><span class="mi">2</span><span class="o">]))</span>
+          <span class="o">.</span><span class="na">toList</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">UncheckedIOException</span><span class="o">(</span><span class="s">"Cannot read articles.txt"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>The <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Big O notation</a> to <em>add</em> and <em>remove</em> elements is O(1).</p>
+<h2 id="scheduling-with-scheduled">Scheduling with @Scheduled</h2>
 
-<p>This is how it looks at the new <em>postInTwitter</em> method. To evaluate the random behavior, we iterate the queue - only for test purposes.</p>
+<p>Spring runs a method on a schedule when you annotate it with <code class="language-plaintext highlighter-rouge">@Scheduled</code> and enable scheduling once, on the main class:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -466,23 +333,29 @@
 6
 7
 8
-9
-10
-</pre></td><td class="rouge-code"><pre><span class="nd">@Scheduled</span><span class="p">(</span><span class="n">cron</span> <span class="p">=</span> <span class="s">"0 0 0/3 1/1 * ?"</span><span class="p">)</span>
-<span class="k">public</span> <span class="n">void</span> <span class="nf">postInTwitter</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-  <span class="nc">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="nf">getRandomArticle</span><span class="p">();</span>
-  <span class="n">twitterService</span><span class="p">.</span><span class="nf">sendPost</span><span class="p">(</span><span class="n">article</span><span class="p">);</span>
-  <span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">"postInTwitter random article: "</span> <span class="p">+</span> <span class="n">article</span><span class="p">.</span><span class="nf">getTitle</span><span class="p">());</span>
-  <span class="k">for</span> <span class="p">(</span><span class="nc">Integer</span> <span class="n">item</span><span class="p">:</span> <span class="n">queue</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">item</span> <span class="p">+</span> <span class="s">" "</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">println</span><span class="p">();</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="nd">@SpringBootApplication</span>
+<span class="nd">@EnableScheduling</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PostSchedulerApplication</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">PostSchedulerApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Once you deploy the Tweet scheduling to any cloud provider, its log files show the queue’s random numbers, for example.</p>
+<p>The <code class="language-plaintext highlighter-rouge">cron</code> attribute works like a Unix cron job, with one extra field for seconds:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nd">@Scheduled</span><span class="o">(</span><span class="n">cron</span> <span class="o">=</span> <span class="s">"0 0 */3 * * *"</span><span class="o">,</span> <span class="n">zone</span> <span class="o">=</span> <span class="s">"Europe/Berlin"</span><span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The six fields are <em>second, minute, hour, day of month, month, day of week</em>. <code class="language-plaintext highlighter-rouge">0 0 */3 * * *</code> means “at second 0 of minute 0, every third hour”: 00:00, 03:00, 06:00 and so on. The <code class="language-plaintext highlighter-rouge">zone</code> attribute makes the schedule independent of the server’s time zone, which matters when you deploy to a cloud server that runs on UTC.</p>
+
+<h2 id="first-attempt-random-and-retry-with-a-queue">First Attempt: Random and Retry with a Queue</h2>
+
+<p>The obvious idea is to pick a random article and try again if it was posted recently. To remember the last eight posts, we need a structure that keeps a fixed number of elements, adds the newest at the end, and drops the oldest from the front. That’s a <strong>queue</strong>, a first-in, first-out (FIFO) <a href="https://codersite.dev/data-structures-foundation-efficient-programming/" target="_blank">data structure</a>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -496,63 +369,77 @@
 12
 13
 14
-</pre></td><td class="rouge-code"><pre><span class="mi">42</span> 
-<span class="mi">42</span> <span class="mi">70</span> 
-<span class="mi">42</span> <span class="mi">70</span> <span class="mi">44</span> 
-<span class="mi">42</span> <span class="mi">70</span> <span class="mi">44</span> <span class="mi">1</span> 
-<span class="mi">42</span> <span class="mi">70</span> <span class="mi">44</span> <span class="mi">1</span> <span class="mi">61</span> 
-<span class="mi">42</span> <span class="mi">70</span> <span class="mi">44</span> <span class="mi">1</span> <span class="mi">61</span> <span class="mi">26</span> 
-<span class="mi">42</span> <span class="mi">70</span> <span class="mi">44</span> <span class="mi">1</span> <span class="mi">61</span> <span class="mi">26</span> <span class="mi">65</span> 
-<span class="mi">42</span> <span class="mi">70</span> <span class="mi">44</span> <span class="mi">1</span> <span class="mi">61</span> <span class="mi">26</span> <span class="mi">65</span> <span class="mi">28</span> 
-<span class="mi">70</span> <span class="mi">44</span> <span class="mi">1</span> <span class="mi">61</span> <span class="mi">26</span> <span class="mi">65</span> <span class="mi">28</span> <span class="mi">52</span> 
-<span class="mi">44</span> <span class="mi">1</span> <span class="mi">61</span> <span class="mi">26</span> <span class="mi">65</span> <span class="mi">28</span> <span class="mi">52</span> <span class="mi">31</span> 
-<span class="mi">1</span> <span class="mi">61</span> <span class="mi">26</span> <span class="mi">65</span> <span class="mi">28</span> <span class="mi">52</span> <span class="mi">31</span> <span class="mi">33</span> 
-<span class="mi">61</span> <span class="mi">26</span> <span class="mi">65</span> <span class="mi">28</span> <span class="mi">52</span> <span class="mi">31</span> <span class="mi">33</span> <span class="mi">6</span> 
-<span class="mi">26</span> <span class="mi">65</span> <span class="mi">28</span> <span class="mi">52</span> <span class="mi">31</span> <span class="mi">33</span> <span class="mi">6</span> <span class="mi">44</span> 
-<span class="mi">65</span> <span class="mi">28</span> <span class="mi">52</span> <span class="mi">31</span> <span class="mi">33</span> <span class="mi">6</span> <span class="mi">44</span> <span class="mi">24</span> 
+15
+</pre></td><td class="rouge-code"><pre><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">NO_REPEAT_WINDOW</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kd">final</span> <span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">recent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
+
+<span class="kd">private</span> <span class="nc">Article</span> <span class="nf">getRandomArticle</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">index</span><span class="o">;</span>
+  <span class="k">do</span> <span class="o">{</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="nc">ThreadLocalRandom</span><span class="o">.</span><span class="na">current</span><span class="o">().</span><span class="na">nextInt</span><span class="o">(</span><span class="n">articles</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+  <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">recent</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">index</span><span class="o">));</span>         <span class="c1">// posted recently: try again</span>
+
+  <span class="k">if</span> <span class="o">(</span><span class="n">recent</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="no">NO_REPEAT_WINDOW</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">recent</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>                        <span class="c1">// forget the oldest</span>
+  <span class="o">}</span>
+  <span class="n">recent</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+  <span class="k">return</span> <span class="n">articles</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>With the help of this Twitter bot, you can now focus on writing more articles. Look at it in action on my <a href="https://twitter.com/MoisesGamio" target="_blank">Twitter</a> account!.</p>
+<p>It works, and with 100 articles it’s fast. But how many tries does the loop need? If 8 of <em>n</em> articles are blocked, each try succeeds with probability <em>(n − 8) / n</em>, so the loop needs <em>n / (n − 8)</em> tries on average:</p>
 
-<h2 id="when-finding-a-random-number-is-exponential">When finding a random number is exponential</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Articles</th>
+      <th>Average tries per post</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>100</td>
+      <td>1.09</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>1.67</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>the loop never ends</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>When you have written more than 100 articles, finding a new random number that is not still included in the <em>queue</em> variable could be difficult.</p>
+<p><br /></p>
 
-<p><img src="/assets/images/queueRandomNumber.jpg" alt="queueRandomNumber" title="inheritance" class="img-responsive" /></p>
+<p>I confirmed these numbers with a simulation of 100,000 posts. The real danger isn’t speed; it’s the last row. If someone sets the window to the number of articles, or deletes a few articles from the file, every article is “recent”, and the scheduler hangs forever without an error message. Also, <code class="language-plaintext highlighter-rouge">recent.contains</code> scans the whole queue, so every try costs O(<em>k</em>) for a window of <em>k</em>.</p>
 
-<p>When the <em>queue</em> has space for only three more elements, the following validation could be exponential when trying to find a new random number between 100 possible articles.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre>  <span class="n">boolean</span> <span class="n">newNumberFound</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
-  <span class="k">do</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">newNumber</span> <span class="p">=</span> <span class="nf">getRandomNumber</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">articlesMap</span><span class="p">.</span><span class="nf">size</span><span class="p">());</span>
-    <span class="k">if</span> <span class="p">(!</span><span class="n">queue</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="n">newNumber</span><span class="p">))</span> <span class="p">{</span>
-      <span class="c1">//code omitted for brevity</span>
-    <span class="p">}</span>
-  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">newNumberFound</span> <span class="p">==</span> <span class="k">false</span><span class="p">);</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>To avoid this exponential issue we redesign our algorithm.</p>
-
-<blockquote>
-  <p>Arrays, graphs, recursion, dynamic programming — all in one book, all in Java.</p>
-</blockquote>
-
-<div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
-</center>
-
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <br /></div>
 
-<p>We define and initialize an array of Integers in the constructor of the class.</p>
+<h2 id="the-better-solution-a-shuffle-bag">The Better Solution: A Shuffle Bag</h2>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<p>Think of a deck of cards. Instead of drawing a random card and putting it back, you <strong>shuffle the deck once and deal from the top</strong>. No card can come twice until the deck is empty. Then you shuffle again.</p>
+
+<p>That’s a <strong>shuffle bag</strong>. Java’s <code class="language-plaintext highlighter-rouge">Collections.shuffle</code> implements the <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank">Fisher–Yates shuffle</a>, which puts the list in a uniformly random order in O(<em>n</em>). After that, every pick is O(1), without any retries.</p>
+
+<p>There’s one detail to handle: the boundary between two rounds. The last article of one round could be the first of the next round, a repeat within minutes. So when we reshuffle, we move the articles posted at the end of the old round out of the first positions of the new round:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -578,67 +465,87 @@
 24
 25
 26
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Scheduler</span> <span class="p">{</span>
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShuffleBag</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
 
-  <span class="k">private</span> <span class="n">static</span> <span class="k">final</span> <span class="nc">Logger</span> <span class="n">logger</span> <span class="p">=</span> <span class="nc">LoggerFactory</span><span class="p">.</span><span class="nf">getLogger</span><span class="p">(</span><span class="nc">Scheduler</span><span class="p">.</span><span class="k">class</span><span class="p">);</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">items</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">window</span><span class="o">;</span>      <span class="c1">// no item repeats within this many picks</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Random</span> <span class="n">random</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">next</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
-  <span class="nd">@Autowired</span>
-  <span class="k">private</span> <span class="k">final</span> <span class="nc">DataService</span> <span class="n">dataService</span><span class="p">;</span>
-  
-  <span class="nd">@Autowired</span>
-  <span class="k">private</span> <span class="nc">TwitterService</span> <span class="n">twitterService</span><span class="p">;</span>
-  
-  <span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">,</span> <span class="nc">Article</span><span class="p">&gt;</span> <span class="n">articlesMap</span><span class="p">;</span>
+  <span class="kd">public</span> <span class="nf">ShuffleBag</span><span class="o">(</span><span class="nc">Collection</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">items</span><span class="o">,</span> <span class="kt">int</span> <span class="n">window</span><span class="o">,</span> <span class="nc">Random</span> <span class="n">random</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">items</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">window</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">"Need at least "</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">window</span> <span class="o">+</span> <span class="s">" items for a window of "</span> <span class="o">+</span> <span class="n">window</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">items</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">items</span><span class="o">);</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">window</span> <span class="o">=</span> <span class="n">window</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="n">random</span><span class="o">;</span>
+    <span class="nc">Collections</span><span class="o">.</span><span class="na">shuffle</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">items</span><span class="o">,</span> <span class="n">random</span><span class="o">);</span>
+  <span class="o">}</span>
 
-  <span class="k">private</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">listOfArticlePositions</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;&gt;();</span>
+  <span class="kd">public</span> <span class="no">T</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">next</span> <span class="o">==</span> <span class="n">items</span><span class="o">.</span><span class="na">size</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">reshuffle</span><span class="o">();</span>
+      <span class="n">next</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">items</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">next</span><span class="o">++);</span>
+  <span class="o">}</span>
 
-  <span class="k">public</span> <span class="nc">Scheduler</span><span class="p">(</span><span class="nc">TwitterService</span> <span class="n">twitterService</span><span class="p">,</span>
-    <span class="nc">DataService</span> <span class="n">dataService</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-  
-    <span class="k">this</span><span class="p">.</span><span class="n">twitterService</span> <span class="p">=</span> <span class="n">twitterService</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="n">articlesMap</span> <span class="p">=</span> <span class="n">dataService</span><span class="p">.</span><span class="nf">getAllArticlesMetadata</span><span class="p">();</span>
-  
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">articlesMap</span><span class="p">.</span><span class="nf">size</span><span class="p">();</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
-      <span class="n">listOfArticlePositions</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-
-<span class="p">}</span>
+  <span class="c1">// The last `window` items of the old round must not come back</span>
+  <span class="c1">// in the first `window` picks of the new round.</span>
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">reshuffle</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">Set</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">recent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;(</span><span class="n">items</span><span class="o">.</span><span class="na">subList</span><span class="o">(</span><span class="n">items</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="n">window</span><span class="o">,</span> <span class="n">items</span><span class="o">.</span><span class="na">size</span><span class="o">()));</span>
+    <span class="nc">Collections</span><span class="o">.</span><span class="na">shuffle</span><span class="o">(</span><span class="n">items</span><span class="o">,</span> <span class="n">random</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">window</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">recent</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">items</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)))</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">j</span><span class="o">;</span>
+        <span class="k">do</span> <span class="o">{</span>
+          <span class="n">j</span> <span class="o">=</span> <span class="n">window</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">items</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="n">window</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">recent</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">items</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">)));</span>
+        <span class="nc">Collections</span><span class="o">.</span><span class="na">swap</span><span class="o">(</span><span class="n">items</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Inside the getRandomArticle() method we introduce our new getNewRandomNumber() method.</p>
+<p>Compared with the first attempt:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="rouge-code"><pre>  <span class="k">private</span> <span class="nc">Article</span> <span class="nf">getRandomArticle</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nc">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-    <span class="n">boolean</span> <span class="n">newNumberFound</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
-    <span class="k">do</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="n">newNumber</span> <span class="p">=</span> <span class="nf">getNewRandomNumber</span><span class="p">();</span>
-      <span class="k">if</span> <span class="p">(!</span><span class="n">queue</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">newNumber</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">newNumberFound</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-        <span class="n">article</span> <span class="p">=</span> <span class="n">articlesMap</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">newNumber</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">newNumberFound</span> <span class="p">==</span> <span class="k">false</span><span class="p">);</span>
+<ul>
+  <li><strong>Each pick is O(1)</strong>, and a full reshuffle costs O(<em>n</em>) once per round. See <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Big O notation</a> if these terms are new to you.</li>
+  <li><strong>It can’t hang.</strong> The constructor rejects a configuration that can’t work, with a clear error message, instead of looping forever at 3 a.m.</li>
+  <li><strong>It’s fair.</strong> Every article is posted exactly once per round.</li>
+</ul>
 
-    <span class="k">return</span> <span class="n">article</span><span class="p">;</span>
-  <span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<p>I tested it with 200,000 picks for several sizes (100, 17, 16 and 9 items): there was no repeat within any window, and every item was picked equally often.</p>
 
-<p>Once we have the new randomNumber, immediately it is removed from the list of integers. So, this new randomNumber will not be considered as our next Article next time.</p>
+<p>“Pick random elements without repeats” is a classic coding interview question, and the shuffle bag is the answer interviewers hope to hear. Practice more questions like it:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div><center>
+  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
+</center>
+
+<br /></div>
+
+<h2 id="the-scheduler">The Scheduler</h2>
+
+<p>The scheduler takes the next article from the bag and posts it:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -653,30 +560,203 @@
 13
 14
 15
-</pre></td><td class="rouge-code"><pre>  <span class="k">private</span> <span class="n">int</span> <span class="nf">getNewRandomNumber</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">newRandomNumber</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">index</span> <span class="p">=</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="p">(</span><span class="nc">Math</span><span class="p">.</span><span class="nf">random</span><span class="p">()</span> <span class="p">*</span> <span class="n">listOfArticlePositions</span><span class="p">.</span><span class="nf">size</span><span class="p">());</span>
-    <span class="n">newRandomNumber</span> <span class="p">=</span> <span class="n">listOfArticlePositions</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
-    <span class="n">listOfArticlePositions</span><span class="p">.</span><span class="nf">remove</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArticleScheduler</span> <span class="o">{</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">listOfArticlePositions</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="p">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="s">"Refilling listOfArticlePositions ..."</span><span class="p">);</span>
-      <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">articlesMyBooksAffiliates</span><span class="p">.</span><span class="nf">size</span><span class="p">();</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
-        <span class="n">listOfArticlePositions</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="nc">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="nc">ArticleScheduler</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">NO_REPEAT_WINDOW</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>   <span class="c1">// 8 posts = one day at one post every 3 hours</span>
 
-    <span class="k">return</span> <span class="n">newRandomNumber</span><span class="p">;</span>
-  <span class="p">}</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">ShuffleBag</span><span class="o">&lt;</span><span class="nc">Article</span><span class="o">&gt;</span> <span class="n">articles</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">XClient</span> <span class="n">xClient</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">ArticleScheduler</span><span class="o">(</span><span class="nc">ArticleRepository</span> <span class="n">repository</span><span class="o">,</span> <span class="nc">XClient</span> <span class="n">xClient</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">articles</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ShuffleBag</span><span class="o">&lt;&gt;(</span><span class="n">repository</span><span class="o">.</span><span class="na">findAll</span><span class="o">(),</span> <span class="no">NO_REPEAT_WINDOW</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">());</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">xClient</span> <span class="o">=</span> <span class="n">xClient</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Scheduled</span><span class="o">(</span><span class="n">cron</span> <span class="o">=</span> <span class="s">"0 0 */3 * * *"</span><span class="o">,</span> <span class="n">zone</span> <span class="o">=</span> <span class="s">"Europe/Berlin"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">postRandomArticle</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">Article</span> <span class="n">article</span> <span class="o">=</span> <span class="n">articles</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+    <span class="nc">String</span> <span class="n">id</span> <span class="o">=</span> <span class="n">xClient</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">article</span><span class="o">.</span><span class="na">title</span><span class="o">()</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">article</span><span class="o">.</span><span class="na">link</span><span class="o">()</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">article</span><span class="o">.</span><span class="na">hashTags</span><span class="o">());</span>
+    <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Posted '{}' as post {}"</span><span class="o">,</span> <span class="n">article</span><span class="o">.</span><span class="na">title</span><span class="o">(),</span> <span class="n">id</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.</p>
+<p>The scheduler decides <em>when</em>, the shuffle bag decides <em>what</em>, and the client decides <em>how</em> to post. Because each class has one job, you can swap X for another network, or the shuffle bag for another strategy, without touching the rest:</p>
+
+<div><center>
+  <a href="https://amzn.to/3Csx3sR" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPortadaJPG.jpg" /></a>
+</center>
+
+<br /></div>
+
+<h2 id="posting-to-the-x-api">Posting to the X API</h2>
+
+<p>A post is created with one request: <code class="language-plaintext highlighter-rouge">POST https://api.x.com/2/tweets</code>, with a JSON body containing the text. The API answers <strong>201 Created</strong> with the new post’s ID. A client with Spring’s <a href="https://codersite.dev/spring-restclient-replace-oauth2resttemplate/" target="_blank">RestClient</a>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre></td><td class="rouge-code"><pre><span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">XClient</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">RestClient</span> <span class="n">restClient</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">XClient</span><span class="o">(</span><span class="nc">RestClient</span><span class="o">.</span><span class="na">Builder</span> <span class="n">builder</span><span class="o">,</span>
+                 <span class="nd">@Value</span><span class="o">(</span><span class="s">"${x.base-url:https://api.x.com/2}"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">baseUrl</span><span class="o">,</span>
+                 <span class="nd">@Value</span><span class="o">(</span><span class="s">"${x.access-token}"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">accessToken</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">restClient</span> <span class="o">=</span> <span class="n">builder</span>
+        <span class="o">.</span><span class="na">baseUrl</span><span class="o">(</span><span class="n">baseUrl</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">defaultHeader</span><span class="o">(</span><span class="nc">HttpHeaders</span><span class="o">.</span><span class="na">AUTHORIZATION</span><span class="o">,</span> <span class="s">"Bearer "</span> <span class="o">+</span> <span class="n">accessToken</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="c1">// Creates a post and returns its id</span>
+  <span class="kd">public</span> <span class="nc">String</span> <span class="nf">post</span><span class="o">(</span><span class="nc">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">PostResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">restClient</span><span class="o">.</span><span class="na">post</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">uri</span><span class="o">(</span><span class="s">"/tweets"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">contentType</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="nc">Map</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">"text"</span><span class="o">,</span> <span class="n">text</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">retrieve</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="nc">PostResponse</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="na">data</span><span class="o">().</span><span class="na">id</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">record</span> <span class="nf">PostResponse</span><span class="o">(</span><span class="nc">PostData</span> <span class="n">data</span><span class="o">)</span> <span class="o">{}</span>
+  <span class="kd">record</span> <span class="nf">PostData</span><span class="o">(</span><span class="nc">String</span> <span class="n">id</span><span class="o">,</span> <span class="nc">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>I tested this client against a local mock server that answers like the X API. It sends exactly this request:</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nf">POST</span> <span class="nn">/2/tweets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer &lt;access-token&gt;</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="nl">"text"</span><span class="p">:</span><span class="s2">"SOLID principles https://codersite.dev/solid-principles-the-definitive-guide/ #solid #oop"</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>Authentication:</strong> posting requires a token that acts <em>on behalf of your account</em> (user context), not an app-only token. With OAuth 2.0, you authorize your app once with the scopes <code class="language-plaintext highlighter-rouge">tweet.write</code>, <code class="language-plaintext highlighter-rouge">tweet.read</code> and <code class="language-plaintext highlighter-rouge">users.read</code>. Add <code class="language-plaintext highlighter-rouge">offline.access</code> too: the access token expires after two hours, and the refresh token lets your bot get a new one without you. Alternatively, X still supports OAuth 1.0a user tokens, which don’t expire but require each request to be signed. Never put a token in your code or in Git; pass it as an environment variable, for example <code class="language-plaintext highlighter-rouge">X_ACCESS_TOKEN</code>.</p>
+
+<h2 id="what-posting-to-x-costs">What Posting to X Costs</h2>
+
+<p>When this post was first written, posting through the Twitter API was free. That’s no longer the case. The X API now charges <strong>per request</strong>, from prepaid credits. These are the official rates on the <a href="https://docs.x.com/x-api/getting-started/pricing" target="_blank">X API pricing page</a> in October 2026:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Request</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Create a post</td>
+      <td>$0.015</td>
+    </tr>
+    <tr>
+      <td>Create a post <strong>with a link</strong></td>
+      <td>$0.20</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>A link makes a post more than 13 times as expensive, and a bot that shares articles always includes a link. What this bot costs per month (posts per 30 days):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Schedule</th>
+      <th>Posts</th>
+      <th>With link</th>
+      <th>No link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Every 3 h</td>
+      <td>240</td>
+      <td>$48.00</td>
+      <td>$3.60</td>
+    </tr>
+    <tr>
+      <td>2 × a day</td>
+      <td>60</td>
+      <td>$12.00</td>
+      <td>$0.90</td>
+    </tr>
+    <tr>
+      <td>1 × a day</td>
+      <td>30</td>
+      <td>$6.00</td>
+      <td>$0.45</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>According to third-party reports, X closed its free tier to new developers in February 2026 (<a href="https://www.outstand.so/blog/x-api-pricing" target="_blank">outstand.so</a>, <a href="https://postproxy.dev/blog/x-api-pricing-2026/" target="_blank">postproxy.dev</a>). At the time of writing, the pricing page offers a one-time credit when you add your first payment card. Prices change often, so check the current rates in the X Developer Console before you start a bot, and set a spending limit.</p>
+
+<p>Two ways to keep the costs down:</p>
+
+<ul>
+  <li><strong>Post less often.</strong> Once or twice a day is enough for most accounts, and it’s less likely to feel like spam to your followers.</li>
+  <li><strong>Use other channels.</strong> The scheduler and the shuffle bag don’t depend on X. Only <code class="language-plaintext highlighter-rouge">XClient</code> does. Mastodon and Bluesky offer free APIs for posting, and you can add a client for each next to <code class="language-plaintext highlighter-rouge">XClient</code>.</li>
+</ul>
+
+<h2 id="before-you-deploy">Before You Deploy</h2>
+
+<ul>
+  <li><strong>Keep the state somewhere safe.</strong> The shuffle bag lives in memory, so a restart starts a new round and may repeat a recent article. For a bot that runs for months, save the order and the position in a small file or database table.</li>
+  <li><strong>Handle errors.</strong> If the API is down or your credits run out, <code class="language-plaintext highlighter-rouge">retrieve()</code> throws an exception. Log it, and don’t retry a paid request in a loop.</li>
+  <li><strong>Run one instance.</strong> Two instances of the application would each post on the same schedule.</li>
+</ul>
+
+<p>Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!</p>
 
 <p><a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a></p>
 
 <p><br /></p>
-
-<p>Similar problems you can find in my <a href="https://amzn.to/3FxeKSb" target="_blank">book</a> about algorithms and the inner workings of Data Structures. Learn how to apply common algorithms to practical problems.</p>
 
 				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
@@ -761,9 +841,9 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/post-random-tweet-on-twitter-api/"
   },
-  "headline": "How to Post a Random Tweet using Twitter API",
-  "description": "How to Post a Random Tweet using Twitter API",
-  "image": "https://codersite.dev/assets/images/postInTwitterAPI.jpg",
+  "headline": "Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag",
+  "description": "Pick random items without repeats in Java: why random-and-retry with a queue breaks, how a shuffle bag fixes it in O(1), and how to schedule it with Spring Boot's @Scheduled to post to the X API, with current API costs.",
+  "image": "https://codersite.dev/assets/images/randomWithoutRepeatsX.jpg",
   "datePublished": "2022-12-07T00:00:00+01:00",
   "dateModified": "2022-12-07T00:00:00+01:00",
   "author": {
@@ -800,7 +880,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "How to Post a Random Tweet using Twitter API",
+      "name": "Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag",
       "item": "https://codersite.dev/post-random-tweet-on-twitter-api/"
     }
   ]
