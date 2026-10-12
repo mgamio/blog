@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Assemble Parts in Minimum Time | codersite</title>
+<title>Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem) | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Assemble Parts in Minimum Time" />
+<meta property="og:title" content="Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Assemble Parts in Minimum Time" />
-<meta name="twitter:description" property="og:description" content="Assemble Parts in Minimum Time" />
+<meta name="description" content="Merge parts at minimum total cost: why sorting once fails, the greedy min-heap solution with PriorityQueue in O(n log n), a proof sketch, and JUnit 5 tests. Also known as connect ropes with minimum cost." />
+<meta name="twitter:description" property="og:description" content="Merge parts at minimum total cost: why sorting once fails, the greedy min-heap solution with PriorityQueue in O(n log n), a proof sketch, and JUnit 5 tests. Also known as connect ropes with minimum cost." />
 <link rel="canonical" href="https://codersite.dev/assemble-parts-in-minimum.time/" />
 <meta property="og:url" content="https://codersite.dev/assemble-parts-in-minimum.time/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2022-11-12T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/assembleParts.jpg" />
-<meta name="twitter:title" content="Assemble Parts in Minimum Time" />
+<meta name="twitter:title" content="Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-11-12T00:00:00+01:00","datePublished":"2022-11-12T00:00:00+01:00","description":"Assemble Parts in Minimum Time","headline":"Assemble Parts in Minimum Time","image":"https://codersite.dev/assets/images/assembleParts.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/assemble-parts-in-minimum.time/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/assemble-parts-in-minimum.time/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-11-12T00:00:00+01:00","datePublished":"2022-11-12T00:00:00+01:00","description":"Merge parts at minimum total cost: why sorting once fails, the greedy min-heap solution with PriorityQueue in O(n log n), a proof sketch, and JUnit 5 tests. Also known as connect ropes with minimum cost.","headline":"Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)","image":"https://codersite.dev/assets/images/assembleParts.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/assemble-parts-in-minimum.time/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/assemble-parts-in-minimum.time/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -171,7 +171,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Assemble Parts in Minimum Time&url=https://codersite.dev/assemble-parts-in-minimum.time/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)&url=https://codersite.dev/assemble-parts-in-minimum.time/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -219,7 +219,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Assemble Parts in Minimum Time</h1>
+                <h1 class="posttitle">Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -227,7 +227,7 @@
                 <p class="post-meta-line">
                     <time datetime="2022-11-12T00:00:00+01:00" itemprop="datePublished">Nov 12, 2022</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">5 min read</span>
+                    <span class="meta-reading-time">12 min read</span>
                     
                 </p>
 
@@ -242,7 +242,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/assembleParts.jpg" alt="Assemble Parts in Minimum Time">
+            <img class="featured-image img-fluid" src="/assets/images/assembleParts.jpg" alt="Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)">
             
 
             
@@ -253,41 +253,37 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>Write a method to calculate the minimum possible time to put the N parts together and build the final product. The input consists of two arguments: numOfParts, an integer representing the number of the parts, and parts, a list of integers representing the size of the parts.</p>
+                <p>This problem looks easy, and most candidates find the right idea within minutes. Then many of them implement it in a way that passes the examples and fails on half of all other inputs. Here’s the problem, the trap, and a solution you can defend in an interview. You may also know it as <strong>“connect ropes with minimum cost”</strong>.</p>
 
-<p><strong>Example:</strong></p>
+<h2 id="the-problem">The Problem</h2>
 
-<p>numOfParts=4</p>
+<p>A factory builds a product from <em>N</em> parts. Assembling two parts of sizes <em>a</em> and <em>b</em> takes <em>a + b</em> units of time and produces one new part of size <em>a + b</em>. Parts are assembled two at a time until only the final product is left.</p>
 
-<p>parts=[8,4,6,12]</p>
+<p>Write a method that calculates the <strong>minimum total time</strong> to build the final product. The input consists of two arguments: <code class="language-plaintext highlighter-rouge">numOfParts</code>, the number of parts, and <code class="language-plaintext highlighter-rouge">parts</code>, a list of integers with the size of each part.</p>
 
-<p>Output: 58</p>
-
-<p><strong>Explanation:</strong></p>
-
-<p><em>Step 1:</em> Assemble the parts of sizes 4 and 6 (time required is 10). Then, the size of the remaining parts after merging: [8,10,12].</p>
-
-<p><em>Step 2:</em> Assemble the parts of sizes 8 and 10 (time required is 18). Then, the size of the remaining parts after merging: [18,12].</p>
-
-<p><em>Step 3:</em> Assemble the parts of sizes 18 and 12 (time required is 30).</p>
-
-<p>The total time required to assemble the parts is 10+18+30=58.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
-7
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">AssembleParts</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="n">int</span> <span class="nf">minimumTime</span><span class="p">(</span><span class="n">int</span> <span class="n">numOfParts</span><span class="p">,</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">list</span><span class="p">)</span> <span class="p">{</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AssembleParts</span> <span class="o">{</span>
 
-  <span class="c1">//implement here your code</span>
-  
-  <span class="p">}</span>
-<span class="p">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">minimumTime</span><span class="o">(</span><span class="kt">int</span> <span class="n">numOfParts</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">parts</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// implement your code here</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>Example:</strong> <code class="language-plaintext highlighter-rouge">numOfParts = 4</code>, <code class="language-plaintext highlighter-rouge">parts = [8, 4, 6, 12]</code>. <strong>Output:</strong> <code class="language-plaintext highlighter-rouge">58</code>.</p>
+
+<ol>
+  <li>Assemble the parts of sizes 4 and 6: time 10. Remaining parts: [8, 10, 12].</li>
+  <li>Assemble the parts of sizes 8 and 10: time 18. Remaining parts: [18, 12].</li>
+  <li>Assemble the parts of sizes 18 and 12: time 30.</li>
+</ol>
+
+<p>The total time is 10 + 18 + 30 = <strong>58</strong>. No other order is faster.</p>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -296,59 +292,61 @@
 </script>
 <br /></div>
 
-<h2 id="solution">Solution</h2>
+<h2 id="ask-before-you-code">Ask Before You Code</h2>
 
-<p>You can notice that we always take the first two parts of minimum size. Once we have its required time, the length of the list decreases by one element. Based on this behavior, we propose the following pseudocode to optimize the assembly process of parts to reduce the time it takes to complete the task.</p>
+<p>In an interview, clarify the input before you write a line. Interviewers expect it, and it shows how you’ll work in a team: you don’t build on assumptions.</p>
 
 <ul>
-  <li>Sorting a list in descending order.</li>
-  <li>Iterate the list</li>
-  <li>Takes the first two parts and calculates the required time</li>
-  <li>This required time creates a new element in the new list (decreased by one). Then overwrite the second index value with the “required time” calculated. This unique element will be the first part of the next iteration.</li>
-  <li>Accumulate the required time in every iteration.</li>
+  <li><strong>Why <code class="language-plaintext highlighter-rouge">numOfParts</code>?</strong> The list already knows its size. Ask whether the two can differ, and validate them if they can.</li>
+  <li><strong>Can the list be empty, or contain a single part?</strong> Then no assembly is needed, and the time is 0.</li>
+  <li><strong>How large can the values be?</strong> Sums grow quickly. With large parts, the total doesn’t fit into an <code class="language-plaintext highlighter-rouge">int</code>, so return a <code class="language-plaintext highlighter-rouge">long</code>.</li>
+  <li><strong>Can sizes be negative or zero?</strong> A negative size makes no sense for a physical part, so reject it.</li>
 </ul>
 
-<p>Before implementing your <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">algorithm</a>, create your assumptions based on test cases.</p>
+<h2 id="the-trap-sorting-only-once">The Trap: Sorting Only Once</h2>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<p>The example suggests a pattern: always assemble the two smallest parts. A tempting implementation sorts the list once and then walks through it, adding each new part to the next one:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="rouge-code"><pre>  <span class="nd">@Test</span>
-  <span class="k">public</span> <span class="n">void</span> <span class="nf">test_right_values</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nf">assertTrue</span><span class="p">(</span><span class="nc">AssembleParts</span><span class="p">.</span><span class="nf">minimumTime</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span>
-            <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;(</span><span class="nc">Arrays</span><span class="p">.</span><span class="nf">asList</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">)))</span> <span class="p">==</span> <span class="mi">58</span><span class="p">);</span>
-    <span class="nf">assertTrue</span><span class="p">(</span><span class="nc">AssembleParts</span><span class="p">.</span><span class="nf">minimumTime</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span>
-            <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;(</span><span class="nc">Arrays</span><span class="p">.</span><span class="nf">asList</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span> <span class="p">==</span> <span class="mi">59</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="nd">@Test</span>
-  <span class="k">public</span> <span class="n">void</span> <span class="nf">test_wrong_values</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nf">assertFalse</span><span class="p">(</span><span class="nc">AssembleParts</span><span class="p">.</span><span class="nf">minimumTime</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span>
-            <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;(</span><span class="nc">Arrays</span><span class="p">.</span><span class="nf">asList</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)))</span> <span class="p">==</span> <span class="mi">12</span><span class="p">);</span>
-  <span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+<span class="kt">long</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">merged</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">+</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+  <span class="n">total</span> <span class="o">+=</span> <span class="n">merged</span><span class="o">;</span>
+  <span class="n">list</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">merged</span><span class="o">);</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p><strong>But what about the number of parts?</strong></p>
+<p>It returns 58 for the example. But try <code class="language-plaintext highlighter-rouge">[1, 1, 1, 1]</code>:</p>
 
-<p>You get the number of parts if you ask the size() method of the list. So in that case you never use the <em>numOfParts</em> argument.</p>
+<ul>
+  <li><strong>Sorting once:</strong> 1 + 1 = 2, then 2 + 1 = 3, then 3 + 1 = 4. Total: <strong>9</strong>.</li>
+  <li><strong>Always the two smallest:</strong> 1 + 1 = 2, then the other 1 + 1 = 2, then 2 + 2 = 4. Total: <strong>8</strong>.</li>
+</ul>
 
-<p>Validate your input data and check if the <em>numOfParts</em> value equals the list size.</p>
+<p>The mistake: after a merge, the new part is not necessarily one of the two smallest anymore. The sorted order is out of date after the first step. In a test with 10,000 random lists, the sort-once version gave a wrong answer for 6,034 of them. The two examples in the problem just happen to work.</p>
 
-<p>If you are facing a face-to-face interview, always ask the interviewer about the variables in case of doubt. Never assume and ask questions, this way you show that you will be a good team player in future projects.</p>
+<h2 id="the-greedy-idea-and-why-it-works">The Greedy Idea and Why It Works</h2>
 
-<p>Our final algorithm for the Assembly optimization.</p>
+<p>Look at what the total time really counts. Every time a part takes part in an assembly, its size is added to the total, and it stays inside the new part for every later assembly. So:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<blockquote>
+  <p>total time = the sum of (size of each original part × the number of assemblies it goes through)</p>
+</blockquote>
+
+<p>To keep the total small, the largest parts should go through the fewest assemblies, and the smallest parts can go through the most. That’s exactly what happens when you always assemble the two smallest parts <strong>currently available</strong>. If a larger part went through more assemblies than a smaller one, swapping their places would reduce the total, so the greedy choice can’t be beaten. This is the same argument that proves Huffman coding optimal.</p>
+
+<h2 id="the-solution-a-min-heap">The Solution: A Min-Heap</h2>
+
+<p>We need a structure that always gives us the smallest element, and accepts new elements that may belong anywhere in the order. That’s a <strong>min-heap</strong>, and in Java it’s a <code class="language-plaintext highlighter-rouge">PriorityQueue</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -364,29 +362,197 @@
 14
 15
 16
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">AssembleParts</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="n">int</span> <span class="nf">minimumTime</span><span class="p">(</span><span class="n">int</span> <span class="n">numOfParts</span><span class="p">,</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">list</span><span class="p">)</span> <span class="p">{</span>
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AssembleParts</span> <span class="o">{</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">numOfParts</span> <span class="p">!=</span> <span class="n">list</span><span class="p">.</span><span class="nf">size</span><span class="p">())</span>
-      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s">"wrong number of parts"</span><span class="p">);</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">minimumTime</span><span class="o">(</span><span class="kt">int</span> <span class="n">numOfParts</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">parts</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">parts</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">numOfParts</span> <span class="o">!=</span> <span class="n">parts</span><span class="o">.</span><span class="na">size</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">"numOfParts must equal the number of parts"</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    <span class="nc">Collections</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
-    <span class="n">int</span> <span class="n">accumulatedTime</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">idx</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">idx</span> <span class="p">&lt;</span> <span class="n">list</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="p">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">idx</span><span class="p">++)</span> <span class="p">{</span>
-      <span class="n">int</span> <span class="n">requiredTime</span> <span class="p">=</span> <span class="n">list</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="p">+</span> <span class="n">list</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">idx</span> <span class="p">+</span> <span class="mi">1</span><span class="p">);</span>
-      <span class="n">accumulatedTime</span> <span class="p">+=</span> <span class="n">requiredTime</span><span class="p">;</span>
-      <span class="n">list</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="n">idx</span> <span class="p">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">requiredTime</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">accumulatedTime</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+    <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Long</span><span class="o">&gt;</span> <span class="n">heap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PriorityQueue</span><span class="o">&lt;&gt;();</span>   <span class="c1">// min-heap: smallest part on top</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">part</span> <span class="o">:</span> <span class="n">parts</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">part</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">"Part sizes can't be negative: "</span> <span class="o">+</span> <span class="n">part</span><span class="o">);</span>
+      <span class="o">}</span>
+      <span class="n">heap</span><span class="o">.</span><span class="na">add</span><span class="o">((</span><span class="kt">long</span><span class="o">)</span> <span class="n">part</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kt">long</span> <span class="n">totalTime</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">heap</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kt">long</span> <span class="n">merged</span> <span class="o">=</span> <span class="n">heap</span><span class="o">.</span><span class="na">poll</span><span class="o">()</span> <span class="o">+</span> <span class="n">heap</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>   <span class="c1">// the two smallest parts</span>
+      <span class="n">totalTime</span> <span class="o">+=</span> <span class="n">merged</span><span class="o">;</span>
+      <span class="n">heap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">merged</span><span class="o">);</span>                          <span class="c1">// the new part competes again</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">totalTime</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Similar questions you can find in my <a href="https://amzn.to/3FxeKSb" target="_blank">book</a> about algorithms and data structures. Learn how to apply common algorithms to practical problems.</p>
+<p><strong>Complexity:</strong> each <code class="language-plaintext highlighter-rouge">poll</code> and <code class="language-plaintext highlighter-rouge">add</code> costs O(log <em>n</em>), and there are <em>n</em> − 1 assemblies, so the time is <strong>O(<em>n</em> log <em>n</em>)</strong>. The heap needs <strong>O(<em>n</em>)</strong> extra space. The method doesn’t modify the caller’s list, and it uses <code class="language-plaintext highlighter-rouge">long</code> so large inputs can’t overflow. See <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Big O notation</a> for how to analyze algorithms like this one, and <a href="https://codersite.dev/data-structures-foundation-efficient-programming/" target="_blank">choosing the right data structure</a> for when a heap is the right tool.</p>
 
-<blockquote>
-  <p>As a Java Developer, one is expected to attend interviews every now and then and I am pretty sure this book will be a handy guide.</p>
-</blockquote>
+<h2 id="tests-that-would-have-caught-the-bug">Tests That Would Have Caught the Bug</h2>
+
+<p>Write the tests first, and include more than the examples from the problem statement:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">AssemblePartsTest</span> <span class="o">{</span>
+
+  <span class="nd">@Test</span>
+  <span class="kt">void</span> <span class="nf">examplesFromTheProblem</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">58</span><span class="o">,</span> <span class="nc">AssembleParts</span><span class="o">.</span><span class="na">minimumTime</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">12</span><span class="o">)));</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">59</span><span class="o">,</span> <span class="nc">AssembleParts</span><span class="o">.</span><span class="na">minimumTime</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">5</span><span class="o">)));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kt">void</span> <span class="nf">inputsWhereSortingOnceFails</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span> <span class="nc">AssembleParts</span><span class="o">.</span><span class="na">minimumTime</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">)));</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">80</span><span class="o">,</span> <span class="nc">AssembleParts</span><span class="o">.</span><span class="na">minimumTime</span><span class="o">(</span><span class="mi">6</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">)));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kt">void</span> <span class="nf">edgeCases</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="nc">AssembleParts</span><span class="o">.</span><span class="na">minimumTime</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">()));</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="nc">AssembleParts</span><span class="o">.</span><span class="na">minimumTime</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">42</span><span class="o">)));</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">7</span><span class="o">,</span> <span class="nc">AssembleParts</span><span class="o">.</span><span class="na">minimumTime</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">)));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kt">void</span> <span class="nf">largeValuesDoNotOverflow</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">5L</span> <span class="o">*</span> <span class="n">max</span><span class="o">,</span> <span class="nc">AssembleParts</span><span class="o">.</span><span class="na">minimumTime</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">max</span><span class="o">,</span> <span class="n">max</span><span class="o">)));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kt">void</span> <span class="nf">invalidInput</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertThrows</span><span class="o">(</span><span class="nc">IllegalArgumentException</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="nc">AssembleParts</span><span class="o">.</span><span class="na">minimumTime</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">)));</span>
+    <span class="n">assertThrows</span><span class="o">(</span><span class="nc">IllegalArgumentException</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="nc">AssembleParts</span><span class="o">.</span><span class="na">minimumTime</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">)));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">assertEquals</code> shows the expected and the actual value when a test fails, which <code class="language-plaintext highlighter-rouge">assertTrue(result == 58)</code> can’t do.</p>
+
+<p>The strongest test compares the solution with a <strong>brute force</strong> that tries every possible order. It’s far too slow for real inputs, but for lists of up to seven parts it finishes instantly and is obviously correct:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+</pre></td><td class="rouge-code"><pre><span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">matchesBruteForceOnRandomInputs</span><span class="o">()</span> <span class="o">{</span>
+  <span class="nc">Random</span> <span class="n">random</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">(</span><span class="mi">42</span><span class="o">);</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">run</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">run</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">run</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">parts</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">parts</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">20</span><span class="o">));</span>
+    <span class="o">}</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">bruteForce</span><span class="o">(</span><span class="n">parts</span><span class="o">),</span> <span class="nc">AssembleParts</span><span class="o">.</span><span class="na">minimumTime</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">parts</span><span class="o">),</span> <span class="n">parts</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// Tries every possible pair at every step: exponential, only for small test inputs</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">bruteForce</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">parts</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">parts</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="kt">long</span> <span class="n">best</span> <span class="o">=</span> <span class="nc">Long</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">parts</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">parts</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">rest</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">parts</span><span class="o">);</span>
+      <span class="kt">int</span> <span class="n">merged</span> <span class="o">=</span> <span class="n">parts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">+</span> <span class="n">parts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+      <span class="n">rest</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+      <span class="n">rest</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+      <span class="n">rest</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">merged</span><span class="o">);</span>
+      <span class="n">best</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">best</span><span class="o">,</span> <span class="n">merged</span> <span class="o">+</span> <span class="n">bruteForce</span><span class="o">(</span><span class="n">rest</span><span class="o">));</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="n">best</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>All six tests pass with the min-heap solution. The sort-once version fails the counterexamples and the random test.</p>
+
+<h2 id="related-problems">Related Problems</h2>
+
+<p>The same greedy idea solves several well-known problems:</p>
+
+<ul>
+  <li><strong>Connect ropes with minimum cost:</strong> the same problem with ropes instead of parts.</li>
+  <li><strong>Optimal merge pattern:</strong> merge sorted files with the fewest total record moves.</li>
+  <li><strong>Huffman coding:</strong> build the code tree by repeatedly combining the two least frequent symbols, which gives the shortest compressed text.</li>
+</ul>
+
+<p>When you recognize the pattern “repeatedly combine the two smallest”, reach for a min-heap.</p>
+
+<p>Problems like this one, where the obvious solution has a hidden flaw, are what coding interviews are made of. My book walks through more of them, with the same approach: understand the problem, find the trap, then write the efficient solution:</p>
 
 <div><center>
   <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
@@ -394,7 +560,7 @@
 
 <br /></div>
 
-<p>Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.</p>
+<p>Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!</p>
 
 <p><a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a></p>
 
@@ -483,8 +649,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/assemble-parts-in-minimum.time/"
   },
-  "headline": "Assemble Parts in Minimum Time",
-  "description": "Assemble Parts in Minimum Time",
+  "headline": "Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)",
+  "description": "Merge parts at minimum total cost: why sorting once fails, the greedy min-heap solution with PriorityQueue in O(n log n), a proof sketch, and JUnit 5 tests. Also known as connect ropes with minimum cost.",
   "image": "https://codersite.dev/assets/images/assembleParts.jpg",
   "datePublished": "2022-11-12T00:00:00+01:00",
   "dateModified": "2022-11-12T00:00:00+01:00",
@@ -522,7 +688,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Assemble Parts in Minimum Time",
+      "name": "Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)",
       "item": "https://codersite.dev/assemble-parts-in-minimum.time/"
     }
   ]
