@@ -221,7 +221,7 @@ Common error status codes include:
 - **406 Not Acceptable:** the server can't produce the format the client asked for in its `Accept` header.
 - **429 Too Many Requests:** the client has sent too many requests in a given time ([rate limiting](https://codersite.dev/rate-limit/){:target="_blank"}).
 - **500 Internal Server Error:** something is broken on the server.
-- **503 Service Unavailable:** the server is temporarily overloaded or down. See [how a REST client handles a 503 error](https://codersite.dev/how-rest-client-handles-503-error){:target="_blank"}.
+- **503 Service Unavailable:** the server is temporarily overloaded or down. See [how a REST client handles a 503 error](https://codersite.dev/how-rest-client-handles-503-error/){:target="_blank"}.
 
 ## Building a RESTful Web Service
 
@@ -428,7 +428,7 @@ This post is the starting point of a series. Follow it in this order to go from 
 3. [Implement it with Spring Boot, Gradle and OpenAPI](https://codersite.dev/gradle-building-restful-web-service/){:target="_blank"}
 4. [Call it with Spring's RestClient](https://codersite.dev/spring-restclient-replace-oauth2resttemplate/){:target="_blank"}
 5. [Protect it with rate limiting](https://codersite.dev/rate-limit/){:target="_blank"}
-6. [Handle 503 errors in the client](https://codersite.dev/how-rest-client-handles-503-error){:target="_blank"}
+6. [Handle 503 errors in the client](https://codersite.dev/how-rest-client-handles-503-error/){:target="_blank"}
 7. [Load-test it with concurrent clients](https://codersite.dev/building-rest-api-client/){:target="_blank"}
 
 REST questions are standard in backend interviews: what makes an API RESTful, PUT vs PATCH, which methods are idempotent. Practice with real interview questions:

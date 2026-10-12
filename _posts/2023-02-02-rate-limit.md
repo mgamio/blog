@@ -254,7 +254,7 @@ The complete project, with Spring Boot 4.1, Bucket4j 8.21 and tests for the limi
 ## Where to Go Next
 
 - [Load-test the rate limit with concurrent Java clients](https://codersite.dev/building-rest-api-client/){:target="_blank"}: simulate several clients and watch the 429 responses arrive.
-- [Handle 503 errors in the client](https://codersite.dev/how-rest-client-handles-503-error){:target="_blank"}: retry carefully when the server is overloaded.
+- [Handle 503 errors in the client](https://codersite.dev/how-rest-client-handles-503-error/){:target="_blank"}: retry carefully when the server is overloaded.
 - [REST API tutorial](https://codersite.dev/rest-api-overview/){:target="_blank"}: resources, HTTP methods and status codes, the series' starting point.
 
 "Design a rate limiter" is one of the classic system design interview questions. Practice with real interview questions:
