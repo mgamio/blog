@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>REST client error handling - 503 Error | codersite</title>
+<title>How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="REST client error handling - 503 Error" />
+<meta property="og:title" content="How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="How a REST client handles 503 Service Unavailable Error. Troubleshooting REST clients" />
-<meta name="twitter:description" property="og:description" content="How a REST client handles 503 Service Unavailable Error. Troubleshooting REST clients" />
+<meta name="description" content="Handle HTTP 503 in a Java REST client: retry only errors that can succeed, respect Retry-After, use exponential backoff with jitter, and use Spring Framework 7’s built-in @Retryable." />
+<meta name="twitter:description" property="og:description" content="Handle HTTP 503 in a Java REST client: retry only errors that can succeed, respect Retry-After, use exponential backoff with jitter, and use Spring Framework 7’s built-in @Retryable." />
 <link rel="canonical" href="https://codersite.dev/how-rest-client-handles-503-error/" />
 <meta property="og:url" content="https://codersite.dev/how-rest-client-handles-503-error/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2022-11-04T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/503ServiceUnavailableError.jpg" />
-<meta name="twitter:title" content="REST client error handling - 503 Error" />
+<meta name="twitter:title" content="How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-11-04T00:00:00+01:00","datePublished":"2022-11-04T00:00:00+01:00","description":"How a REST client handles 503 Service Unavailable Error. Troubleshooting REST clients","headline":"REST client error handling - 503 Error","image":"https://codersite.dev/assets/images/503ServiceUnavailableError.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/how-rest-client-handles-503-error/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/how-rest-client-handles-503-error/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-11-04T00:00:00+01:00","datePublished":"2022-11-04T00:00:00+01:00","description":"Handle HTTP 503 in a Java REST client: retry only errors that can succeed, respect Retry-After, use exponential backoff with jitter, and use Spring Framework 7’s built-in @Retryable.","headline":"How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring","image":"https://codersite.dev/assets/images/503ServiceUnavailableError.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/how-rest-client-handles-503-error/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/how-rest-client-handles-503-error/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -171,7 +171,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=REST client error handling - 503 Error&url=https://codersite.dev/how-rest-client-handles-503-error/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring&url=https://codersite.dev/how-rest-client-handles-503-error/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -219,7 +219,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">REST client error handling - 503 Error</h1>
+                <h1 class="posttitle">How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -227,7 +227,7 @@
                 <p class="post-meta-line">
                     <time datetime="2022-11-04T00:00:00+01:00" itemprop="datePublished">Nov 4, 2022</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">6 min read</span>
+                    <span class="meta-reading-time">14 min read</span>
                     
                 </p>
 
@@ -242,7 +242,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/503ServiceUnavailableError.jpg" alt="REST client error handling - 503 Error">
+            <img class="featured-image img-fluid" src="/assets/images/503ServiceUnavailableError.jpg" alt="How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring">
             
 
             
@@ -253,64 +253,79 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>The HTTP 503 Service Unavailable server error response code indicates that the server is temporarily not ready to handle the request.</p>
+                <p>Your nightly job sends 50,000 articles to a partner’s API, in batches of 1,000. At batch 23, the API answers <strong>503 Service Unavailable</strong>. What should your client do? Give up, and the data is incomplete. Retry immediately, and you make an overloaded server even slower. This post shows how a REST client should handle a 503: which errors to retry, how long to wait, and how Spring Framework 7 does it with one annotation.</p>
 
-<p>Common causes of the 503 HTTP Status Code:</p>
+<h2 id="what-a-503-means">What a 503 Means</h2>
+
+<p>The HTTP status code <a href="https://httpwg.org/specs/rfc9110.html#status.503" target="_blank">503 Service Unavailable</a> says that the server can’t handle the request <strong>right now</strong>, but probably will later. Common causes:</p>
 
 <ul>
-  <li>The server is down for a scheduled maintenance</li>
-  <li>The server is overloaded due to too much traffic</li>
+  <li>The server is down for scheduled maintenance.</li>
+  <li>The server is overloaded by too much traffic.</li>
+  <li>A service the server depends on, such as a database or another API, is failing.</li>
 </ul>
 
-<p>In any case, the server will relieve itself after some delay.</p>
+<p>The server may add a <code class="language-plaintext highlighter-rouge">Retry-After</code> header that says how long to wait. The important word is <em>temporarily</em>: a 503 is an invitation to try again later, not a final answer.</p>
 
-<h2 id="a-rest-client-cannot-control-what-happens-on-the-server-side">A REST client cannot control what happens on the server side</h2>
+<h2 id="the-client-cant-control-the-server">The Client Can’t Control the Server</h2>
 
-<p>Business-to-business (<a href="https://en.wikipedia.org/wiki/Business-to-business" target="_blank">B2B</a>) is a typical scenario where one business acts as a client and the other acts as a server.</p>
+<p>Business-to-business (<a href="https://en.wikipedia.org/wiki/Business-to-business" target="_blank">B2B</a>) integrations are a typical case. One company’s application is the client, the other company’s API is the server, and the client has no say in how the server is built, deployed or scaled.</p>
 
-<p>A client-side company doesn’t care if there is a monolithic or microservice architecture on the server side.</p>
+<p><img src="/assets/images/webClient.png" alt="A Spring web client, used by a person, sends HTTP requests to an external API" title="A Spring web client, used by a person, sends HTTP requests to an external API" class="img-responsive" /></p>
 
-<p><img src="/assets/images/webClient.png" alt="webClient" title="web Client" class="img-responsive" /></p>
+<p>The first version of our client caught the exception, wrote it to the log and continued with the next batch. The job finished “successfully”, and 1,000 articles were silently missing. Somebody had to read the logs, call the partner company, and send the batch again by hand.</p>
 
-<p>We have implemented a web client that retrieves data from a thousand articles on each request.</p>
+<p>The opposite reaction is just as bad: retrying in a tight loop, three times in a row without a pause. A server that’s overloaded receives even more requests, exactly when it can handle the fewest. If hundreds of clients do the same, they keep the server down.</p>
 
-<p>We need to send 50 thousand items. We reuse the following method to send a thousand articles every time. But suddenly, the external API throws an HTTP 503 status code. To avoid our <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST</a> client aborting the process, we catch the exception and put the error into a logger, and the program continues with the following one thousand articles.</p>
+<h2 id="which-errors-should-you-retry">Which Errors Should You Retry?</h2>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="nc">Response</span> <span class="nf">getArticles</span><span class="p">(</span><span class="nc">StringJoiner</span> <span class="n">arrayOf1000Articles</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-   
-  <span class="nc">MultiValueMap</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">String</span><span class="p">&gt;</span> <span class="n">map</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">LinkedMultiValueMap</span><span class="p">&lt;&gt;();</span>
-  <span class="n">map</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"content"</span><span class="p">,</span> <span class="n">arrayOf1000Articles</span><span class="p">.</span><span class="nf">toString</span><span class="p">());</span>
-  <span class="nc">HttpEntity</span><span class="p">&lt;</span><span class="nc">MultiValueMap</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">String</span><span class="p">&gt;&gt;</span> <span class="n">request</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">HttpEntity</span><span class="p">&lt;&gt;(</span><span class="n">map</span><span class="p">,</span> <span class="n">headers</span><span class="p">);</span>
+<p>Retry only when the same request has a real chance of succeeding later:</p>
 
-  <span class="nc">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="n">response</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">RestTemplate</span><span class="p">().</span><span class="nf">postForObject</span><span class="p">(</span><span class="nc">URL_SERVER</span> <span class="p">+</span> <span class="s">"/articles/search"</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="nc">Response</span><span class="p">.</span><span class="k">class</span><span class="p">);</span>
-  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">logger</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="s">"Error in getArticles "</span> <span class="p">+</span> <span class="n">e</span><span class="p">.</span><span class="nf">getMessage</span><span class="p">());</span>
-  <span class="p">}</span>
+<table>
+  <thead>
+    <tr>
+      <th>Response</th>
+      <th>Retry?</th>
+      <th>Why</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>503 Service Unavailable</td>
+      <td>Yes</td>
+      <td>Temporary by definition</td>
+    </tr>
+    <tr>
+      <td>429 Too Many Requests</td>
+      <td>Yes</td>
+      <td>Wait until your limit resets</td>
+    </tr>
+    <tr>
+      <td>502 Bad Gateway, 504 Gateway Timeout</td>
+      <td>Yes</td>
+      <td>Usually a temporary network or proxy problem</td>
+    </tr>
+    <tr>
+      <td>Timeout, connection refused</td>
+      <td>Yes</td>
+      <td>The server may be restarting</td>
+    </tr>
+    <tr>
+      <td>400, 401, 403, 404, 422</td>
+      <td>No</td>
+      <td>The same request will fail again</td>
+    </tr>
+    <tr>
+      <td>500 Internal Server Error</td>
+      <td>With care</td>
+      <td>Can be a bug, which a retry won’t fix</td>
+    </tr>
+  </tbody>
+</table>
 
-  <span class="k">return</span> <span class="n">response</span><span class="p">;</span> 
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<p><br /></p>
 
-<p>Well, looking at our internal server logs - <em>logger</em> - won’t help to retry the request that failed. Sometimes we usually call the company that takes care of the external server. Usually, they report that there was a Service outage response.</p>
-
-<p>What this 503 error suggests is a retry action from our REST client to deal with external server errors.</p>
+<p><strong>Is the request safe to repeat?</strong> GET, PUT and DELETE are <a href="https://codersite.dev/rest-api-overview/" target="_blank">idempotent</a>: sending them twice has the same effect as sending them once. Our request is a POST, but it’s a search, so repeating it changes nothing. A POST that <em>creates</em> something, such as an order, is different: if the first attempt actually reached the server and only the response got lost, a retry creates a second order. APIs solve this with an <strong>idempotency key</strong>, a unique ID the client sends with the request, so the server can recognize a repeated request.</p>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -319,13 +334,11 @@
 </script>
 <br /></div>
 
-<h2 id="how-does-the-rest-client-automate-a-retry-action">How does the REST Client automate a retry action?</h2>
+<h2 id="a-retry-loop-with-backoff">A Retry Loop with Backoff</h2>
 
-<p>As developers, we need to anticipate and automate retrying the request with a certain number of attempts (MAX_TRIALS). If the server error persists, we need to inform our users about the failed request’s content.</p>
+<p>A good retry waits longer after each failure (<strong>exponential backoff</strong>: 1, 2, 4 seconds…), adds a random part to each delay (<strong>jitter</strong>, so that many clients don’t retry at the same moment), respects the server’s <code class="language-plaintext highlighter-rouge">Retry-After</code> header, and gives up after a few attempts. Here it is with Spring’s <a href="https://codersite.dev/spring-restclient-replace-oauth2resttemplate/" target="_blank">RestClient</a>:</p>
 
-<p>The following code implementation handles 503 Service Unavailable Error.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -350,86 +363,335 @@
 23
 24
 25
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="nc">Response</span> <span class="nf">getArticles</span><span class="p">(</span><span class="nc">StringJoiner</span> <span class="n">arrayOf1000Articles</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-   
-  <span class="nc">MultiValueMap</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">String</span><span class="p">&gt;</span> <span class="n">map</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">LinkedMultiValueMap</span><span class="p">&lt;&gt;();</span>
-  <span class="n">map</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"content"</span><span class="p">,</span> <span class="n">arrayOf1000Articles</span><span class="p">.</span><span class="nf">toString</span><span class="p">());</span>
-  <span class="nc">HttpEntity</span><span class="p">&lt;</span><span class="nc">MultiValueMap</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">String</span><span class="p">&gt;&gt;</span> <span class="n">request</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">HttpEntity</span><span class="p">&lt;&gt;(</span><span class="n">map</span><span class="p">,</span> <span class="n">headers</span><span class="p">);</span>
-  
-  <span class="n">boolean</span> <span class="n">success</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
-  <span class="n">int</span> <span class="nc">MAX_TRIALS</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="n">int</span> <span class="n">nextTrial</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="nc">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-  <span class="k">do</span> <span class="p">{</span>
-    <span class="k">try</span> <span class="p">{</span>
-      <span class="n">response</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">RestTemplate</span><span class="p">().</span><span class="nf">postForObject</span><span class="p">(</span><span class="nc">URL_SERVER</span> <span class="p">+</span> <span class="s">"/articles/search"</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="nc">Response</span><span class="p">.</span><span class="k">class</span><span class="p">);</span>
-      <span class="n">success</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">logger</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="s">"Error in getArticles "</span> <span class="p">+</span> <span class="n">e</span><span class="p">.</span><span class="nf">getMessage</span><span class="p">());</span>
-      <span class="n">nextTrial</span><span class="p">++;</span>
-    <span class="p">}</span>
-  <span class="p">}</span> <span class="k">while</span> <span class="p">(!</span><span class="n">success</span> <span class="p">&amp;&amp;</span> <span class="n">nextTrial</span> <span class="p">&lt;=</span> <span class="nc">MAX_TRIALS</span><span class="p">);</span>
- 
-  <span class="k">if</span> <span class="p">(!</span><span class="n">success</span><span class="p">)</span>
-    <span class="nf">informError</span><span class="p">(</span><span class="s">"Error in getArticles "</span> <span class="p">+</span> <span class="n">arrayOf1000Articles</span><span class="p">.</span><span class="nf">toString</span><span class="p">());</span>
- 
-  <span class="k">return</span> <span class="n">response</span><span class="p">;</span> 
-<span class="p">}</span>
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArticlesClient</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="nc">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="nc">ArticlesClient</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MAX_ATTEMPTS</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Duration</span> <span class="no">INITIAL_DELAY</span> <span class="o">=</span> <span class="nc">Duration</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Duration</span> <span class="no">MAX_DELAY</span> <span class="o">=</span> <span class="nc">Duration</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">30</span><span class="o">);</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="no">RETRYABLE_STATUS_CODES</span> <span class="o">=</span> <span class="nc">Set</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">429</span><span class="o">,</span> <span class="mi">502</span><span class="o">,</span> <span class="mi">503</span><span class="o">,</span> <span class="mi">504</span><span class="o">);</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">RestClient</span> <span class="n">restClient</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">ArticlesClient</span><span class="o">(</span><span class="nc">RestClient</span> <span class="n">restClient</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">restClient</span> <span class="o">=</span> <span class="n">restClient</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">SearchResponse</span> <span class="nf">searchArticles</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">articleNumbers</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">attempt</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="o">;</span> <span class="n">attempt</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">restClient</span><span class="o">.</span><span class="na">post</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">uri</span><span class="o">(</span><span class="s">"/articles/search"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">contentType</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="k">new</span> <span class="nc">SearchRequest</span><span class="o">(</span><span class="n">articleNumbers</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">retrieve</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="nc">SearchResponse</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RestClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">attempt</span> <span class="o">==</span> <span class="no">MAX_ATTEMPTS</span> <span class="o">||</span> <span class="o">!</span><span class="n">isRetryable</span><span class="o">(</span><span class="n">e</span><span class="o">))</span> <span class="o">{</span>
+          <span class="k">throw</span> <span class="n">e</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nc">Duration</span> <span class="n">wait</span> <span class="o">=</span> <span class="n">retryAfter</span><span class="o">(</span><span class="n">e</span><span class="o">).</span><span class="na">orElse</span><span class="o">(</span><span class="n">backoff</span><span class="o">(</span><span class="n">attempt</span><span class="o">));</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">wait</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="no">MAX_DELAY</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">throw</span> <span class="n">e</span><span class="o">;</span>   <span class="c1">// the server asks us to wait longer than we're willing to</span>
+        <span class="o">}</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">warn</span><span class="o">(</span><span class="s">"Attempt {} of {} failed: {}. Retrying in {} ms"</span><span class="o">,</span>
+            <span class="n">attempt</span><span class="o">,</span> <span class="no">MAX_ATTEMPTS</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(),</span> <span class="n">wait</span><span class="o">.</span><span class="na">toMillis</span><span class="o">());</span>
+        <span class="n">sleep</span><span class="o">(</span><span class="n">wait</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>For simplicity and learning purposes, we assume we receive an HTTP status code of 503 within the try &amp; catch block.</p>
+<p>The helper methods decide <em>whether</em> and <em>how long</em> to wait:</p>
 
-<p>You can simulate a HTTP status code 503 by calling the <a href="https://httpstat.us/" target="_blank">httpstat.us</a> service.</p>
-
-<p>Call the service httpstat.us with the desired response code in the URL path.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="err">$</span> <span class="n">curl</span> <span class="p">-</span><span class="n">v</span> <span class="n">http</span><span class="p">:</span><span class="c1">//httpstat.us/503</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>The response looks like this:</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-</pre></td><td class="rouge-code"><pre><span class="p">&gt;</span> <span class="nc">GET</span> <span class="p">/</span><span class="mi">503</span> <span class="nc">HTTP</span><span class="p">/</span><span class="mf">1.1</span>
-<span class="p">&gt;</span> <span class="nc">Host</span><span class="p">:</span> <span class="n">httpstat</span><span class="p">.</span><span class="n">us</span>
-<span class="p">&gt;</span> <span class="nc">User-Agent</span><span class="p">:</span> <span class="n">curl</span><span class="p">/</span><span class="mf">7.54.0</span>
-<span class="p">&gt;</span> <span class="nc">Accept</span><span class="p">:</span> <span class="p">*</span><span class="cm">/*
-&gt;
-&lt; HTTP/1.1 503 Service Unavailable
-...
-</span></pre></td></tr></tbody></table></code></pre></div></div>
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+</pre></td><td class="rouge-code"><pre><span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isRetryable</span><span class="o">(</span><span class="nc">RestClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">e</span> <span class="k">instanceof</span> <span class="nc">RestClientResponseException</span> <span class="n">responseError</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="no">RETRYABLE_STATUS_CODES</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">responseError</span><span class="o">.</span><span class="na">getStatusCode</span><span class="o">().</span><span class="na">value</span><span class="o">());</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="n">e</span> <span class="k">instanceof</span> <span class="nc">ResourceAccessException</span><span class="o">;</span>   <span class="c1">// timeout, connection refused</span>
+<span class="o">}</span>
 
-<p>When you need to analyze several server logs in a distributed system, read the article <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">Implementing hot-warm architecture in Elasticsearch</a>.</p>
+<span class="c1">// 1 s, 2 s, 4 s ... up to MAX_DELAY, each with random jitter between half and the full value</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="nc">Duration</span> <span class="nf">backoff</span><span class="o">(</span><span class="kt">int</span> <span class="n">attempt</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kt">long</span> <span class="n">cap</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="no">MAX_DELAY</span><span class="o">.</span><span class="na">toMillis</span><span class="o">(),</span> <span class="no">INITIAL_DELAY</span><span class="o">.</span><span class="na">toMillis</span><span class="o">()</span> <span class="o">&lt;&lt;</span> <span class="o">(</span><span class="n">attempt</span> <span class="o">-</span> <span class="mi">1</span><span class="o">));</span>
+  <span class="k">return</span> <span class="nc">Duration</span><span class="o">.</span><span class="na">ofMillis</span><span class="o">(</span><span class="nc">ThreadLocalRandom</span><span class="o">.</span><span class="na">current</span><span class="o">().</span><span class="na">nextLong</span><span class="o">(</span><span class="n">cap</span> <span class="o">/</span> <span class="mi">2</span><span class="o">,</span> <span class="n">cap</span> <span class="o">+</span> <span class="mi">1</span><span class="o">));</span>
+<span class="o">}</span>
 
-<h2 id="best-practices-for-handling-503-errors">Best Practices for Handling 503 Errors</h2>
+<span class="c1">// Retry-After is either a number of seconds or an HTTP date</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Duration</span><span class="o">&gt;</span> <span class="nf">retryAfter</span><span class="o">(</span><span class="nc">RestClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(!(</span><span class="n">e</span> <span class="k">instanceof</span> <span class="nc">RestClientResponseException</span> <span class="n">responseError</span><span class="o">)</span> <span class="o">||</span> <span class="n">responseError</span><span class="o">.</span><span class="na">getResponseHeaders</span><span class="o">()</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">empty</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="nc">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">responseError</span><span class="o">.</span><span class="na">getResponseHeaders</span><span class="o">().</span><span class="na">getFirst</span><span class="o">(</span><span class="nc">HttpHeaders</span><span class="o">.</span><span class="na">RETRY_AFTER</span><span class="o">);</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">value</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">empty</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="k">try</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="nc">Duration</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="nc">Long</span><span class="o">.</span><span class="na">parseLong</span><span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">trim</span><span class="o">())));</span>
+  <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">NumberFormatException</span> <span class="n">notSeconds</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="nc">ZonedDateTime</span> <span class="n">retryAt</span> <span class="o">=</span> <span class="nc">ZonedDateTime</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">trim</span><span class="o">(),</span> <span class="nc">DateTimeFormatter</span><span class="o">.</span><span class="na">RFC_1123_DATE_TIME</span><span class="o">);</span>
+      <span class="nc">Duration</span> <span class="n">wait</span> <span class="o">=</span> <span class="nc">Duration</span><span class="o">.</span><span class="na">between</span><span class="o">(</span><span class="nc">ZonedDateTime</span><span class="o">.</span><span class="na">now</span><span class="o">(),</span> <span class="n">retryAt</span><span class="o">);</span>
+      <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">wait</span><span class="o">.</span><span class="na">isNegative</span><span class="o">()</span> <span class="o">?</span> <span class="nc">Duration</span><span class="o">.</span><span class="na">ZERO</span> <span class="o">:</span> <span class="n">wait</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">DateTimeParseException</span> <span class="n">invalid</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">empty</span><span class="o">();</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sleep</span><span class="o">(</span><span class="nc">Duration</span> <span class="n">duration</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">try</span> <span class="o">{</span>
+    <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">duration</span><span class="o">);</span>
+  <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">interrupt</span><span class="o">();</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="s">"Interrupted while waiting to retry"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The request and response are records:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">record</span> <span class="nf">SearchRequest</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">articleNumbers</span><span class="o">)</span> <span class="o">{}</span>
+<span class="kd">public</span> <span class="kd">record</span> <span class="nf">SearchResponse</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Article</span><span class="o">&gt;</span> <span class="n">articles</span><span class="o">)</span> <span class="o">{}</span>
+<span class="kd">public</span> <span class="kd">record</span> <span class="nf">Article</span><span class="o">(</span><span class="nc">String</span> <span class="n">articleNumber</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="dont-lose-the-batches-that-still-fail">Don’t Lose the Batches That Still Fail</h3>
+
+<p>Even with retries, a batch can fail, for example when the partner’s API is down for an hour. Then the job must <strong>keep the data</strong>, not only a log line:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="nf">searchAll</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">articleNumbers</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">failedBatches</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">from</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">from</span> <span class="o">&lt;</span> <span class="n">articleNumbers</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">from</span> <span class="o">+=</span> <span class="no">BATCH_SIZE</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">batch</span> <span class="o">=</span> <span class="n">articleNumbers</span><span class="o">.</span><span class="na">subList</span><span class="o">(</span><span class="n">from</span><span class="o">,</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">from</span> <span class="o">+</span> <span class="no">BATCH_SIZE</span><span class="o">,</span> <span class="n">articleNumbers</span><span class="o">.</span><span class="na">size</span><span class="o">()));</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="nc">SearchResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">articlesClient</span><span class="o">.</span><span class="na">searchArticles</span><span class="o">(</span><span class="n">batch</span><span class="o">);</span>
+      <span class="n">save</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">articles</span><span class="o">());</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RestClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">logger</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Batch starting at {} failed after all retries: {}"</span><span class="o">,</span> <span class="n">from</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+      <span class="n">failedBatches</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">batch</span><span class="o">));</span>   <span class="c1">// keep the data: retry later or report it</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="n">failedBatches</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The caller can store the failed batches in a table, send them again in the next run, or notify the team. In each case, nobody needs to search the logs.</p>
+
+<h2 id="try-it">Try It</h2>
+
+<p>I ran the client against a local test server that answers 503, then 503 with <code class="language-plaintext highlighter-rouge">Retry-After: 2</code>, then 200:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>server: call 1 -&gt; 503
+WARN ArticlesClient -- Attempt 1 of 4 failed: 503 Service Unavailable: [no body]. Retrying in 618 ms
+server: call 2 -&gt; 503 (Retry-After: 2)
+WARN ArticlesClient -- Attempt 2 of 4 failed: 503 Service Unavailable: [no body]. Retrying in 2000 ms
+server: call 3 -&gt; 200
+result: SearchResponse[articles=[Article[articleNumber=4711, name=Potatoes]]]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The first wait is a random value from the backoff, and the second is exactly the 2 seconds the server asked for. In the other test runs, a 400 Bad Request failed immediately without a retry, a server that always answered 503 got four attempts with growing delays (0.8 s, 1.6 s, 2.1 s) before the client gave up, and a <code class="language-plaintext highlighter-rouge">Retry-After</code> of 120 seconds made the client stop instead of waiting.</p>
+
+<p>To see a real 503 response, use the public test service <a href="https://httpbin.org/" target="_blank">httpbin.org</a>:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>$ curl -i https://httpbin.org/status/503
+HTTP/1.1 503 SERVICE UNAVAILABLE
+Content-Length: 0
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="the-spring-framework-7-way-retryable">The Spring Framework 7 Way: @Retryable</h2>
+
+<p>Since Spring Framework 7 (Spring Boot 4), retries are built into Spring itself, with no extra library. Enable them once:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nd">@Configuration</span>
+<span class="nd">@EnableResilientMethods</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ResilienceConfig</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Then annotate the method:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="rouge-code"><pre><span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArticlesService</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">RestClient</span> <span class="n">restClient</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">ArticlesService</span><span class="o">(</span><span class="nc">RestClient</span> <span class="n">restClient</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">restClient</span> <span class="o">=</span> <span class="n">restClient</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Retryable</span><span class="o">(</span>
+      <span class="n">includes</span> <span class="o">=</span> <span class="o">{</span>
+          <span class="nc">HttpServerErrorException</span><span class="o">.</span><span class="na">ServiceUnavailable</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>   <span class="c1">// 503</span>
+          <span class="nc">HttpServerErrorException</span><span class="o">.</span><span class="na">BadGateway</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>           <span class="c1">// 502</span>
+          <span class="nc">HttpServerErrorException</span><span class="o">.</span><span class="na">GatewayTimeout</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>       <span class="c1">// 504</span>
+          <span class="nc">HttpClientErrorException</span><span class="o">.</span><span class="na">TooManyRequests</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>      <span class="c1">// 429</span>
+          <span class="nc">ResourceAccessException</span><span class="o">.</span><span class="na">class</span> <span class="o">},</span>                     <span class="c1">// timeout, connection refused</span>
+      <span class="n">maxRetries</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span>
+      <span class="n">delay</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">,</span>
+      <span class="n">multiplier</span> <span class="o">=</span> <span class="mi">2</span><span class="o">,</span>
+      <span class="n">maxDelay</span> <span class="o">=</span> <span class="mi">30_000</span><span class="o">,</span>
+      <span class="n">jitter</span> <span class="o">=</span> <span class="mi">250</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="nc">SearchResponse</span> <span class="nf">searchArticles</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">articleNumbers</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">restClient</span><span class="o">.</span><span class="na">post</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">uri</span><span class="o">(</span><span class="s">"/articles/search"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="k">new</span> <span class="nc">SearchRequest</span><span class="o">(</span><span class="n">articleNumbers</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">retrieve</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="nc">SearchResponse</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>In my test, this method also received 503, 503 and 200, with retries after about 1 and 2 seconds, and a 400 was not retried. The method itself contains no retry logic at all.</p>
+
+<p><strong>Which one should you use?</strong> <code class="language-plaintext highlighter-rouge">@Retryable</code> is shorter and keeps the business code clean, and it’s the right choice in most cases. It can’t read the <code class="language-plaintext highlighter-rouge">Retry-After</code> header, though, because it only sees the exception type. When an API sends <code class="language-plaintext highlighter-rouge">Retry-After</code>, typically with 429 and 503, the loop above respects it. On Spring Boot 3, the <a href="https://github.com/spring-projects/spring-retry" target="_blank">Spring Retry</a> library offers a similar <code class="language-plaintext highlighter-rouge">@Retryable</code>.</p>
+
+<h2 id="best-practices-checklist">Best Practices Checklist</h2>
 
 <ul>
-  <li>Respect the Retry-After Header: If the server includes this header, wait before retrying.</li>
-  <li>Implement Exponential Backoff: Retry after increasing delays (e.g., 1s, 2s, 4s).</li>
-  <li>Set a Maximum Retry Limit: Avoid infinite loops; define a max retry count.</li>
-  <li>Log Errors for Debugging: Persistent 503 errors may indicate a backend issue.</li>
-  <li>Fallback Mechanisms: Consider alternative servers or cached responses.</li>
+  <li>Retry only errors that can succeed later: 429, 502, 503, 504 and timeouts.</li>
+  <li>Wait with exponential backoff and jitter, and respect <code class="language-plaintext highlighter-rouge">Retry-After</code>.</li>
+  <li>Limit the number of attempts and the longest wait.</li>
+  <li>Make sure a repeated request is safe; use idempotency keys for requests that create data.</li>
+  <li>Never lose data: keep failed requests for a later retry or a report.</li>
+  <li>On the server side, return <code class="language-plaintext highlighter-rouge">Retry-After</code> with your 503 and 429 responses. The <a href="https://codersite.dev/rate-limit/" target="_blank">rate limiting post</a> shows how, and you can <a href="https://codersite.dev/building-rest-api-client/" target="_blank">load-test it with concurrent clients</a>.</li>
 </ul>
 
-<p>Jobs in the tech industry are expected to grow exponentially in the next few years. If you plan to enter the job market soon, you must know that companies will evaluate your problem-solving skills based on data structures and algorithms, and you will need to face a complex problem on a blackboard.</p>
-
-<blockquote>
-  <p>50+ Java challenges based on real interview questions — solved and explained step by step.</p>
-</blockquote>
+<p>Retries, timeouts and idempotency are where distributed systems get hard: what happens when a request is processed twice, or a response never arrives? This book explains these problems better than any other:</p>
 
 <div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
+  <a href="https://amzn.to/4hVK3pL" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../recommended/images/designingDataIntensiveApplications.jpg" /></a>
 </center>
 
 <br /></div>
 
-<p>Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.</p>
+<p>“What happens when the service you call is down?” is a standard question in backend and system design interviews. Practice with real interview questions:</p>
+
+<div><center>
+  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
+</center>
+
+<br /></div>
+
+<p>Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!</p>
 
 <p><a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a></p>
 
@@ -518,8 +780,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/how-rest-client-handles-503-error/"
   },
-  "headline": "REST client error handling - 503 Error",
-  "description": "How a REST client handles 503 Service Unavailable Error. Troubleshooting REST clients",
+  "headline": "How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring",
+  "description": "Handle HTTP 503 in a Java REST client: retry only errors that can succeed, respect Retry-After, use exponential backoff with jitter, and use Spring Framework 7's built-in @Retryable.",
   "image": "https://codersite.dev/assets/images/503ServiceUnavailableError.jpg",
   "datePublished": "2022-11-04T00:00:00+01:00",
   "dateModified": "2022-11-04T00:00:00+01:00",
@@ -557,7 +819,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "REST client error handling - 503 Error",
+      "name": "How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring",
       "item": "https://codersite.dev/how-rest-client-handles-503-error/"
     }
   ]
