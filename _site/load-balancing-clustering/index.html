@@ -7,25 +7,25 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>File Access Denied in a Cluster with Load Balancing | codersite</title>
+<title>Access Denied When Deleting Files in a Load-Balanced Java Cluster | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="File Access Denied in a Cluster with Load Balancing" />
+<meta property="og:title" content="Access Denied When Deleting Files in a Load-Balanced Java Cluster" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Load balancing, Traffic distribution, Scalability solutions and Server performance optimization" />
-<meta name="twitter:description" property="og:description" content="Load balancing, Traffic distribution, Scalability solutions and Server performance optimization" />
-<link rel="canonical" href="http://localhost:4000/load-balancing-clustering/" />
-<meta property="og:url" content="http://localhost:4000/load-balancing-clustering/" />
+<meta name="description" content="Why a Java app in a load-balanced cluster gets Access Denied on a shared file server, why File.delete() hides it, and three ways to fix it." />
+<meta name="twitter:description" property="og:description" content="Why a Java app in a load-balanced cluster gets Access Denied on a shared file server, why File.delete() hides it, and three ways to fix it." />
+<link rel="canonical" href="https://codersite.dev/load-balancing-clustering/" />
+<meta property="og:url" content="https://codersite.dev/load-balancing-clustering/" />
 <meta property="og:site_name" content="codersite" />
-<meta property="og:image" content="http://localhost:4000/assets/images/loadBalancing.jpg" />
+<meta property="og:image" content="https://codersite.dev/assets/images/loadBalancing.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-10-05T00:00:00+02:00" />
 <meta property="article:modified_time" content="2022-10-05T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://localhost:4000/assets/images/loadBalancing.jpg" />
-<meta name="twitter:title" content="File Access Denied in a Cluster with Load Balancing" />
+<meta name="twitter:image" content="https://codersite.dev/assets/images/loadBalancing.jpg" />
+<meta name="twitter:title" content="Access Denied When Deleting Files in a Load-Balanced Java Cluster" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-10-05T00:00:00+02:00","datePublished":"2022-10-05T00:00:00+02:00","description":"Load balancing, Traffic distribution, Scalability solutions and Server performance optimization","headline":"File Access Denied in a Cluster with Load Balancing","image":"http://localhost:4000/assets/images/loadBalancing.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/load-balancing-clustering/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/load-balancing-clustering/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-10-05T00:00:00+02:00","datePublished":"2022-10-05T00:00:00+02:00","description":"Why a Java app in a load-balanced cluster gets Access Denied on a shared file server, why File.delete() hides it, and three ways to fix it.","headline":"Access Denied When Deleting Files in a Load-Balanced Java Cluster","image":"https://codersite.dev/assets/images/loadBalancing.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/load-balancing-clustering/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/load-balancing-clustering/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -171,19 +171,19 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=File Access Denied in a Cluster with Load Balancing&url=http://localhost:4000/load-balancing-clustering/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Access Denied When Deleting Files in a Load-Balanced Java Cluster&url=https://codersite.dev/load-balancing-clustering/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
 
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/load-balancing-clustering/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=https://codersite.dev/load-balancing-clustering/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
                 <i class="fab fa-facebook-f"></i>
             </a>
         </li>
 
          <li class="ml-1 mr-1">
-            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/load-balancing-clustering/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://codersite.dev/load-balancing-clustering/" onclick="window.open(this.href, 'width=550,height=435');return false;">
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </li>	
@@ -219,7 +219,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">File Access Denied in a Cluster with Load Balancing</h1>
+                <h1 class="posttitle">Access Denied When Deleting Files in a Load-Balanced Java Cluster</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -227,7 +227,7 @@
                 <p class="post-meta-line">
                     <time datetime="2022-10-05T00:00:00+02:00" itemprop="datePublished">Oct 5, 2022</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">4 min read</span>
+                    <span class="meta-reading-time">8 min read</span>
                     
                 </p>
 
@@ -242,7 +242,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/loadBalancing.jpg" alt="File Access Denied in a Cluster with Load Balancing">
+            <img class="featured-image img-fluid" src="/assets/images/loadBalancing.jpg" alt="Access Denied When Deleting Files in a Load-Balanced Java Cluster">
             
 
             
@@ -253,61 +253,55 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>Load balancing is a process that routes network traffic to a group of backend servers, also known as a server pool. A load balancer is responsible for distributing incoming requests to a collection of application servers.</p>
+                <p>Your Java application runs on two servers behind a load balancer. Both write images to the same file server. Everything works, until one day old images stop being deleted, and nobody gets an error. This post explains what a load balancer and a cluster do, why the second server can’t delete files that the first one created, why Java’s <code class="language-plaintext highlighter-rouge">File.delete()</code> hides the problem, and three ways to fix it.</p>
 
-<p>Load balancers help solve problems of server performance, high availability and scalability in distributed systems. See <a href="https://codersite.dev/optimize-java-app-performance/" target="_blank">Optimize Java App Performance</a>.</p>
+<h2 id="load-balancers-and-clusters">Load Balancers and Clusters</h2>
 
-<h2 id="application-server">Application Server</h2>
-
-<p>Application server refers to the process that provides the functions required to support and host user applications. For example, in Websphere, an application server runs Java language-based applications.</p>
-
-<h2 id="clustering">Clustering</h2>
-
-<p>A cluster is a group of servers that are managed together. For example, in the WebSphere Application Server, all application servers processes are running the same set of enterprise applications, and the workload capacity is distributed between these servers.</p>
-
-<blockquote>
-  <p>Your next job offer starts with one book.</p>
-</blockquote>
-
-<div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
-</center>
-
-<br /></div>
-
-<p>The benefits of building a cluster are:</p>
+<p>A <strong>load balancer</strong> sits in front of a group of servers (a <em>server pool</em>) and decides which server handles each incoming request. Common load-balancing algorithms are:</p>
 
 <ul>
-  <li>
-    <p><em>Scalability</em> enables enterprise applications to handle an increase in load volumes properly and achieve better throughput by using more infrastructure resources.</p>
-  </li>
-  <li>
-    <p><em>High availability</em> means enterprise applications can continue to process work and avoid impacts in the occurrence of failure of one or several components.</p>
-  </li>
+  <li><strong>Round robin:</strong> server 1, server 2, server 1, server 2…</li>
+  <li><strong>Least connections:</strong> the server with the fewest active requests gets the next one.</li>
+  <li><strong>IP hash:</strong> the client’s IP address decides the server, so the same client usually lands on the same server.</li>
 </ul>
 
-<h2 id="when-a-cluster-shares-a-file-server">When a Cluster shares a File Server</h2>
+<p>A <strong>cluster</strong> is a group of application servers that run the same application and are managed together, for example in WebSphere, WildFly or a Kubernetes deployment. A cluster gives you two things:</p>
 
-<p>We want to deploy a Java WebClient to retrieve image objects from an external <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST API</a> and store it in an internal file server.</p>
+<ul>
+  <li><strong>Scalability:</strong> more servers handle more load and give better throughput.</li>
+  <li><strong>High availability:</strong> if one server fails, the others keep working.</li>
+</ul>
 
-<p>The Java WebClient is deployed in a cluster with two application servers.</p>
+<p>Load balancing is one of the most effective ways to make an application faster under load. For the other ways, see <a href="https://codersite.dev/optimize-java-app-performance/" target="_blank">Optimize Java App Performance</a>.</p>
 
-<p><img src="/assets/images/loadBalancingFileServer.jpg" alt="loadBalancing and FileServer." title="load Balancing" class="img-responsive" /></p>
+<h2 id="the-problem-one-server-creates-the-other-cant-delete">The Problem: One Server Creates, the Other Can’t Delete</h2>
 
-<p>The cluster uses a load balancer to delegate a specific task to one of its servers in a randomized order. A load-balancing algorithm is a load balancer’s logic to distribute network traffic between servers.</p>
+<p>Our Java application downloads images from an external <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST API</a> and stores them on an internal file server. It runs in a cluster with two application servers.</p>
 
-<p>The first time a user requests the execution of the Java WebClient, the load balancer delegates the task to the first application server, for example.</p>
+<p><img src="/assets/images/loadBalancingFileServer.jpg" alt="A load balancer sends requests to two application servers, AppServer1 and AppServer2, which both store images on a shared file server" title="A load balancer in front of two application servers that share a file server" class="img-responsive" /></p>
 
-<p>The Java WebClient stores some image files in a directory, and the <em>AppServer1</em> server owns those files.</p>
+<p>The first time the job runs, the load balancer sends it to <em>AppServer1</em>. The images it stores belong to the account that AppServer1 runs under:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-</pre></td><td class="rouge-code"><pre><span class="nc">U</span><span class="p">:</span><span class="err">\</span><span class="n">imagesFromApi</span><span class="err">\</span><span class="n">image1</span><span class="p">.</span><span class="nf">jpg</span> <span class="p">(</span><span class="n">owner</span> <span class="nc">AppServer1</span><span class="p">)</span>
-<span class="nc">U</span><span class="p">:</span><span class="err">\</span><span class="n">imagesFromApi</span><span class="err">\</span><span class="n">image2</span><span class="p">.</span><span class="nf">jpg</span> <span class="p">(</span><span class="n">owner</span> <span class="nc">AppServer1</span><span class="p">)</span>
+</pre></td><td class="rouge-code"><pre>\\fileserver\images\image1.jpg   (owner: CORP\AppServer1$)
+\\fileserver\images\image2.jpg   (owner: CORP\AppServer1$)
 </pre></td></tr></tbody></table></code></pre></div></div>
-<p>One week after, the Java WebClient is requested again, but it needs to execute the following code to delete an image file on the internal file server if the same image was deleted on the external API.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<p>A week later the job runs again. An image was deleted in the external API, so our copy must be deleted too. This time the load balancer picks <em>AppServer2</em>, which runs under a different account. Windows refuses: <strong>Access is denied</strong>. Sticky sessions don’t help here, because they keep one <em>user</em> on one server for a short session, not a job that runs once a week.</p>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="why-nobody-noticed-filedelete-doesnt-throw">Why Nobody Noticed: File.delete() Doesn’t Throw</h2>
+
+<p>The original code looked like this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -315,36 +309,102 @@
 6
 7
 8
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">deleteFile</span><span class="p">(</span><span class="nc">String</span> <span class="n">fileName</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="nc">File</span> <span class="n">file</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">File</span><span class="p">(</span><span class="nc">OUTPUT_FILE_LOCATION</span> <span class="p">+</span> <span class="n">fileName</span><span class="p">);</span>
-    <span class="n">file</span><span class="p">.</span><span class="nf">delete</span><span class="p">();</span> 
-  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">logger</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="s">"Exception in deleteFile "</span> <span class="p">+</span> <span class="n">e</span><span class="p">.</span><span class="nf">getMessage</span><span class="p">());</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">deleteFile</span><span class="o">(</span><span class="nc">String</span> <span class="n">fileName</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">try</span> <span class="o">{</span>
+    <span class="nc">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="no">OUTPUT_FILE_LOCATION</span> <span class="o">+</span> <span class="n">fileName</span><span class="o">);</span>
+    <span class="n">file</span><span class="o">.</span><span class="na">delete</span><span class="o">();</span>
+  <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">logger</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Exception in deleteFile "</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>But this second time, the load balancer delegates the execution of the task to the second application server - <em>AppServer2</em>. Then, the java client throws an error.</p>
+<p>The <code class="language-plaintext highlighter-rouge">catch</code> block looks safe, but it never runs. <code class="language-plaintext highlighter-rouge">File.delete()</code> doesn’t throw an exception when it fails; it <strong>returns <code class="language-plaintext highlighter-rouge">false</code></strong>. The code ignores the return value, so the file stays on the server and the log stays empty.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nc">Access</span> <span class="k">is</span> <span class="n">denied</span>
+<p><code class="language-plaintext highlighter-rouge">Files.delete()</code> and <code class="language-plaintext highlighter-rouge">Files.deleteIfExists()</code> from <code class="language-plaintext highlighter-rouge">java.nio.file</code> throw an exception that tells you <em>why</em> the delete failed. I removed the delete permission from a file on Windows and called both:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>File.delete() returned false, exists: true
+Files.delete() threw java.nio.file.AccessDeniedException: C:\...\images\image1.jpg
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>The Java WebClient cannot delete files that another user created.</p>
+<p>Here is the fixed method. Let the exception reach the caller, so the job can report the failure:</p>
 
-<p>We cannot change the permissions of a file from within a Java program as we can on Linux systems - <em>chmod</em> command.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Path</span> <span class="no">IMAGES_DIR</span> <span class="o">=</span> <span class="nc">Path</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">"\\\\fileserver\\images"</span><span class="o">);</span>
 
-<h2 id="possible-solutions">Possible Solutions</h2>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">deleteImage</span><span class="o">(</span><span class="nc">String</span> <span class="n">fileName</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+  <span class="nc">Path</span> <span class="n">image</span> <span class="o">=</span> <span class="no">IMAGES_DIR</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>
+  <span class="k">if</span> <span class="o">(</span><span class="nc">Files</span><span class="o">.</span><span class="na">deleteIfExists</span><span class="o">(</span><span class="n">image</span><span class="o">))</span> <span class="o">{</span>
+    <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Deleted {}"</span><span class="o">,</span> <span class="n">image</span><span class="o">);</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"{} was already deleted"</span><span class="o">,</span> <span class="n">image</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Note the path: <code class="language-plaintext highlighter-rouge">\\fileserver\images</code> instead of a mapped drive such as <code class="language-plaintext highlighter-rouge">U:\</code>. A mapped drive belongs to the logged-in user, and an application server that runs as a service often can’t see it at all.</p>
+
+<p>Java can change file permissions, for example with <code class="language-plaintext highlighter-rouge">Files.setPosixFilePermissions</code> on Linux or <code class="language-plaintext highlighter-rouge">AclFileAttributeView</code> on Windows. But AppServer2 can’t use that to fix the problem: changing the permissions of a file requires rights that its account doesn’t have. The fix belongs in the configuration, not in the code.</p>
+
+<div><center>
+  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
+</center>
+
+<br /></div>
+
+<h2 id="three-ways-to-fix-it">Three Ways to Fix It</h2>
+
+<p><strong>1. Run every server under the same account.</strong> Configure AppServer1 and AppServer2 to run as one service account, such as <code class="language-plaintext highlighter-rouge">CORP\svc-images</code>. Every file then has the same owner, and every server can delete it. This is the simplest fix.</p>
+
+<p><strong>2. Give a group permission on the folder.</strong> Create a group, add the accounts of all application servers, and give the group <em>Modify</em> rights on the folder. With inheritance, every new file gets the same rights:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>icacls \\fileserver\images /grant "CORP\ImageWriters:(OI)(CI)M"
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">(OI)(CI)</code> means that files and subfolders inherit the permission, and <code class="language-plaintext highlighter-rouge">M</code> means <em>Modify</em>, which includes delete. Remember that the share permissions must allow it too. On Linux, deleting a file depends on write permission on the <em>directory</em>, so a shared group with write access to the directory (and no sticky bit) solves the same problem.</p>
+
+<p><strong>3. Use storage that doesn’t care which server writes.</strong> Store the images in object storage such as Amazon S3, Azure Blob Storage or MinIO. Every server uses the same credentials, so the question of who owns a file disappears. This is the usual choice for cloud and Kubernetes deployments, where servers come and go.</p>
+
+<p>What about deploying the application on only one server? It removes the error, but also the high availability, which is the reason to have a cluster. If the problem is a <em>scheduled job</em> that should run only once, keep the cluster and make sure that only one server runs the job at a time, for example with <a href="https://github.com/lukas-krecan/ShedLock" target="_blank">ShedLock</a>.</p>
+
+<h2 id="key-takeaways">Key Takeaways</h2>
 
 <ul>
-  <li>Configure only one user account on application servers and give it full access control - hardware configuration.</li>
-  <li>Deploy the Java WebClient in only one server.</li>
+  <li>A load balancer can send the same job to a different server each time. Never assume that the server that created a file is the one that will change it.</li>
+  <li><code class="language-plaintext highlighter-rouge">File.delete()</code> returns <code class="language-plaintext highlighter-rouge">false</code> instead of throwing. Use <code class="language-plaintext highlighter-rouge">Files.delete()</code> or <code class="language-plaintext highlighter-rouge">Files.deleteIfExists()</code>, which throw <code class="language-plaintext highlighter-rouge">AccessDeniedException</code>.</li>
+  <li>Use network paths like <code class="language-plaintext highlighter-rouge">\\fileserver\images</code>, not mapped drives.</li>
+  <li>Fix permissions with one service account, a group with <em>Modify</em> rights, or object storage.</li>
 </ul>
 
-<p>Now any application server in the cluster can create or delete any file on the file server.</p>
+<p>Shared files are one example of <em>shared state</em>, and shared state is what makes distributed systems hard: who owns the data, what happens when two servers change it, and what happens when one of them fails. This book explains it better than any other:</p>
 
-<p>Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.</p>
+<div><center>
+  <a href="https://amzn.to/4hVK3pL" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../recommended/images/designingDataIntensiveApplications.jpg" /></a>
+</center>
+
+<br /></div>
+
+<p>Load balancers, clusters and shared state are standard topics in system design interviews. When an external API fails instead, read <a href="https://codersite.dev/how-rest-client-handles-503-error/" target="_blank">how a REST client should handle a 503 error</a>. This book takes you the rest of the way, to systems that hold up under millions of users:</p>
+
+<div><center>
+  <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="../assets/images/SoftwareDesignPrinciplesV2.png" /></a>
+</center>
+
+<br /></div>
+
+<p>Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!</p>
 
 <p><a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a></p>
 
@@ -391,13 +451,13 @@
             <!-- Prev/Next -->
             <nav class="PageNavigation post-nav-cards" aria-label="Post navigation">
             
-                <a class="nav-item-card prev" href="http://localhost:4000/german-vocabulary-software-engineers/" rel="prev">
+                <a class="nav-item-card prev" href="https://codersite.dev/german-vocabulary-software-engineers/" rel="prev">
                     <span class="nav-label">&laquo; Previous</span>
                     <span class="nav-title">German vocabulary for Software Engineers</span>
                 </a>
             
             
-                <a class="nav-item-card next" href="http://localhost:4000/how-rest-client-handles-503-error/" rel="next">
+                <a class="nav-item-card next" href="https://codersite.dev/how-rest-client-handles-503-error/" rel="next">
                     <span class="nav-label">Next &raquo;</span>
                     <span class="nav-title">How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring</span>
                 </a>
@@ -431,11 +491,11 @@ https://search.google.com/structured-data/testing-tool/u/0/
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:4000/load-balancing-clustering/"
+    "@id": "https://codersite.dev/load-balancing-clustering/"
   },
-  "headline": "File Access Denied in a Cluster with Load Balancing",
-  "description": "Load balancing, Traffic distribution, Scalability solutions and Server performance optimization",
-  "image": "http://localhost:4000/assets/images/loadBalancing.jpg",
+  "headline": "Access Denied When Deleting Files in a Load-Balanced Java Cluster",
+  "description": "Why a Java app in a load-balanced cluster gets Access Denied on a shared file server, why File.delete() hides it, and three ways to fix it.",
+  "image": "https://codersite.dev/assets/images/loadBalancing.jpg",
   "datePublished": "2022-10-05T00:00:00+02:00",
   "dateModified": "2022-10-05T00:00:00+02:00",
   "author": {
@@ -448,7 +508,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "name": "codersite",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:4000/assets/images/logo.png"
+      "url": "https://codersite.dev/assets/images/logo.png"
     }
   }
 }
@@ -461,19 +521,19 @@ https://search.google.com/structured-data/testing-tool/u/0/
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "http://localhost:4000/"
+      "item": "https://codersite.dev/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Web Performance",
-      "item": "http://localhost:4000/categories#Web-Performance"
+      "item": "https://codersite.dev/categories#Web-Performance"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "File Access Denied in a Cluster with Load Balancing",
-      "item": "http://localhost:4000/load-balancing-clustering/"
+      "name": "Access Denied When Deleting Files in a Load-Balanced Java Cluster",
+      "item": "https://codersite.dev/load-balancing-clustering/"
     }
   ]
 }
