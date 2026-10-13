@@ -357,6 +357,8 @@ Files.delete() threw java.nio.file.AccessDeniedException: C:\...\images\image1.j
 
 <p>Java can change file permissions, for example with <code class="language-plaintext highlighter-rouge">Files.setPosixFilePermissions</code> on Linux or <code class="language-plaintext highlighter-rouge">AclFileAttributeView</code> on Windows. But AppServer2 can’t use that to fix the problem: changing the permissions of a file requires rights that its account doesn’t have. The fix belongs in the configuration, not in the code.</p>
 
+<p>Why does <code class="language-plaintext highlighter-rouge">File.delete()</code> return false instead of throwing? Small API details like this come up in Java interviews:</p>
+
 <div><center>
   <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
 </center>
@@ -453,7 +455,7 @@ Files.delete() threw java.nio.file.AccessDeniedException: C:\...\images\image1.j
             
                 <a class="nav-item-card prev" href="https://codersite.dev/german-vocabulary-software-engineers/" rel="prev">
                     <span class="nav-label">&laquo; Previous</span>
-                    <span class="nav-title">German vocabulary for Software Engineers</span>
+                    <span class="nav-title">German IT Vocabulary for Software Developers Working in Germany</span>
                 </a>
             
             

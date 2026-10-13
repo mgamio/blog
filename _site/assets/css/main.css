@@ -492,6 +492,12 @@ pre.lineno {
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 575.98px) {
+  .article-post table:not(.rouge-table) th,
+  .article-post table:not(.rouge-table) td {
+    padding: 0.5rem 0.5rem;
+  }
+}
 .article-post table:not(.rouge-table) code {
   white-space: nowrap;
 }

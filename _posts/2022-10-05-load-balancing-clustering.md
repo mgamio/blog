@@ -87,6 +87,8 @@ Note the path: `\\fileserver\images` instead of a mapped drive such as `U:\`. A 
 
 Java can change file permissions, for example with `Files.setPosixFilePermissions` on Linux or `AclFileAttributeView` on Windows. But AppServer2 can't use that to fix the problem: changing the permissions of a file requires rights that its account doesn't have. The fix belongs in the configuration, not in the code.
 
+Why does `File.delete()` return false instead of throwing? Small API details like this come up in Java interviews:
+
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
