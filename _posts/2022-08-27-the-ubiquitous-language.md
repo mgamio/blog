@@ -1,112 +1,135 @@
 ---
 layout: post
-title:  "Domain-Driven Design - How to establish an effective ubiquitous language"
-description: "Domain Driven Design aims to build strategic software based on domain models. Domain modeling in microservices architecture"
+title:  "Ubiquitous Language in Domain-Driven Design: How to Build One, with Java Examples"
+description: "What a ubiquitous language is, why it belongs to one bounded context, and six practices to build one, with Java examples and an anti-corruption layer for external APIs."
 author: moises
 categories: [ Domain-Driven Design ]
 image: /assets/images/theUbiquitousLanguage.jpg
 comments: false
 ---
 
-A *Domain* is an area of knowledge associated with a problem we are trying to solve.
+The business people say *delivery note*, the ticket says *shipping document*, and the code says `DocService.getDoc()`. Every conversation needs a translation, and every translation is a chance for a bug. **Domain-Driven Design** (DDD) solves this with a *ubiquitous language*: one set of words that business experts and developers share and use everywhere, from meetings to source code. This post explains what a ubiquitous language is, why it belongs to one *bounded context*, and six practices to build one, with Java examples.
 
-A *Domain Model* represents those aspects of a domain that are relevant to a particular problem.
+## Domain, Model and Bounded Context
 
-[Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design){:target="_blank"} aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.
+- A **domain** is the area of knowledge your software works in: online retail, insurance, logistics.
+- A **domain model** captures the parts of that domain that matter for the problem you're solving.
+- A **bounded context** is a part of the system with an explicit boundary, its own model and usually its own team. An online shop could have *Catalog*, *Ordering* and *Shipping* contexts.
+- The **ubiquitous language** is the vocabulary that the team uses *inside one bounded context*, in conversations, documents, tickets, tests and code.
 
-- *Bounded Context* is a subsystem that defines a specific responsibility with an explicit boundary. For example, in a shopping application, we build specific components to support the *Sales Context* and others to support the *Buyer Context*.
+The key point is that **a word can mean different things in different contexts**. In the Catalog, a *product* has a description, a price and images. In the Warehouse, a *product* has a stock level and a shelf location. Both are correct, in their own context. Trying to build one `Product` class for the whole company produces a class that nobody understands. Contexts stay loosely coupled and exchange data through explicit interfaces, such as a [REST API](https://codersite.dev/rest-api-overview/){:target="_blank"}.
 
-- The *Ubiquitous Language* reflects a language spoken among team members working in the Bounded Context.
+![A bounded context containing a model with a Product class, and the ubiquitous language that applies inside that boundary](/assets/images/ubiquitousLanguage.jpg "A bounded context and its ubiquitous language"){:class="img-responsive"}
 
-Using bounded contexts reduces coupling between subsystems, and we can exchange data between them via explicit [REST API](https://codersite.dev/rest-api-overview/){:target="_blank"}, avoiding dependencies.
+## Case Study: Product Images from a Vendor
 
-As developers, we must choose appropriate names for our variables that reflect the business terms used in all communication channels during the Domain modeling design stage.
+A company runs an online shop that sells T-shirts from several vendors. One vendor doesn't want to upload product images twice, so it offers access to its own API. Business experts and developers from both companies work closely to clarify the requirements:
 
-![ubiquitous Language](/assets/images/ubiquitousLanguage.jpg "bounded context"){:class="img-responsive"}
+- The vendor's API identifies an image by a *mediaAssetId*.
+- Several emails later, everyone agrees how to build the URL that returns the image file from a *mediaAssetId*.
 
-## Case study
+A first version of the class could look like this:
 
-Business-to-business (B2B) is a business conducted between one company and another.
-
-A leading company implements an e-commerce portal to sell t-shirt products from various vendors and manufacturers.
-
-A vendor wants to avoid duplication of effort to manually upload images on both sides and asks the lead company to use an internal API to update their product images.
-
-> Join Candidates Who Prepared With Real Questions
-
-<div>
-{%- include algorithmsBook.html -%}
-</div>
-
-During the integration process, business experts and developers are in constant communication to clarify requirements. For example.
-
-- The vendor communicates to the development team that its internal API describes a *mediaAssetID* attribute to uniquely identify an image object in its domain.
-- Email interactions occur to clarify how to build a URL path to retrieve the final image object using the *mediaAssetID* attribute.
-
-We want to introduce business terminology into our variable names
-
-## Understand business concepts before translating them into source code
-
-The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain. Ubiquitous language in software development is a set of concepts and vocabulary shared between everyone on the team.
-
-Some developers can specify the following class design when your bounded context is translated into source code.
-
-```kotlin
+```java
 public class Product {
   private int id;
   private String imageId;
   private String imageURL;
-  
-  //code omitted for brevity
+  // ...
 }
 ```
 
-The *imageId* attribute is a good name, but other business domains may already use it. We, as developers, sometimes disconnect from business and look for variable names that usually follow conventions, standards, programming languages, framework recommendations, or technical terms.
+`imageId` is a technical name. It doesn't say where the ID comes from, and in a large system other parts of the code may already use *imageId* for something else. Developers often pick names from conventions and frameworks instead of from the business. After weeks of requirements meetings, the business words are right there: use them. [Clean code](https://codersite.dev/clean-code/){:target="_blank"} calls this *names that reveal intent*.
 
-If we've been involved in requirements analysis for weeks, why not introduce the same business terminology into our variable **names**? See how *variable names* reveal intent in [Best practices for writing Clean Code](https://codersite.dev/clean-code/){:target="_blank"}. 
+But which business words? It's tempting to copy the vendor's words and write `mediaAssetId` everywhere. That's a trap: **the vendor's API is a different bounded context**, with *its* language. If its terms spread through our code, every change on the vendor's side changes our model too, and the next vendor, who calls it *pictureRef*, makes it worse.
 
-One of the benefits of using ubiquitous language is introducing the influence of business communication structures on software. Whenever you can, try to introduce business terminology into your variable names.
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
-By introducing a better name for our variables, we can establish an effective ubiquitous language in domain-driven design
+### Translate at the Boundary: an Anti-Corruption Layer
 
-```kotlin
+DDD's answer is an **anti-corruption layer**: one place that knows both languages and translates between them. In our catalog, the domain experts talk about *product images*, so that's what the model says:
+
+```java
+// Our Catalog context: our language
+public record ProductImageId(String value) {}
+
+public record ProductImage(ProductImageId id, URI url) {}
+
 public class Product {
-  private int id;
-  private String mediaAssetID;
-  private String mediaAssetURL;
-  
-  //code omitted for brevity
+  private final String sku;
+  private final List<ProductImage> images;
+  // ...
 }
 ```
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Domain-Driven Design: Tackling Complexity in the Heart of Software <a href="https://t.co/UJcmA5FpLo">https://t.co/UJcmA5FpLo</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839044643658330294?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+The vendor's language stays in the integration package:
 
-## Never assume and ask questions to clarify ambiguous and synonyms terms
+```java
+// The vendor's context: their language, used only in the integration package
+public record MediaAsset(String mediaAssetId, String mimeType) {}
 
-You receive a task to implement a service to retrieve documents used in the shipment of goods, and you decide to call it  ***shipping notes***. But your business doesn't ship goods by the sea! 
+// Anti-corruption layer: the only class that knows both languages
+public class VendorImageTranslator {
 
-Ask always questions to your colleagues and domains experts to clarify business concepts. Then you will realize that your service should implement ***delivery notes***.
+  private final URI vendorBaseUrl;
 
-The following class design represents a fundamental concept in the domain expert’s mental model.
+  public VendorImageTranslator(URI vendorBaseUrl) {
+    this.vendorBaseUrl = vendorBaseUrl;
+  }
 
-```kotlin
+  public ProductImage toProductImage(MediaAsset asset) {
+    URI url = vendorBaseUrl.resolve("media-assets/" + asset.mediaAssetId() + "/content");
+    return new ProductImage(new ProductImageId(asset.mediaAssetId()), url);
+  }
+}
+```
+
+For a `MediaAsset` with ID `MA-48213`, the translator returns:
+
+```text
+ProductImage[id=ProductImageId[value=MA-48213], url=https://api.vendor.example/v2/media-assets/MA-48213/content]
+```
+
+When developers talk to the vendor, they say *media asset*. When they talk to their own business experts, they say *product image*. Both conversations match the code, and if the vendor changes its API, only the translator changes.
+
+Eric Evans introduced the ubiquitous language, bounded contexts and the anti-corruption layer in the book that started DDD. It's still the best source:
+
+<div>
+{%- include domainDrivenDesignAd.html -%}
+</div>
+
+## Never Assume: Ask About Ambiguous Words
+
+You get a task to build a service that returns the documents that go with a delivery of goods, and you call it `ShippingNoteService`. In the next meeting, a domain expert looks confused: a *shipping note* is a specific document for freight transport, and the company doesn't use it. The paper that goes with every delivery to a customer is the **delivery note** (in German, *Lieferschein*).
+
+```java
 public interface DeliveryNoteService {
-
-  //code omitted for brevity
+  DeliveryNote createFor(Order order);
 }
 ```
 
-Use the ubiquitous language as a tool for effective cross-team collaboration and knowledge sharing. 
+A five-minute question saved a wrong name that would have confused every developer and business expert after you. When a word is unclear, or two words seem to mean the same thing, ask. Synonyms in the language usually mean that the model isn't clear yet.
 
-Using the Ubiquitous language in agile software development and in domain modeling of microservices architecture is a common practice.
+## How to Establish a Ubiquitous Language: 6 Practices
 
-> Turn complexity into clarity: design systems with confidence and precision
+1. **Keep a glossary in the repository.** A simple `GLOSSARY.md` with each term, its meaning, and the words *not* to use (for example: "delivery note, not shipping note or dispatch document"). It's reviewed like code.
+2. **Model together with domain experts.** Workshops such as *event storming*, where experts and developers put business events on a wall, bring out the words the business really uses.
+3. **Use the words everywhere.** The same term in conversations, tickets, API endpoints, database tables and class names. If the ticket says *delivery note*, the code shouldn't say `Document`.
+4. **Write tests in the domain language.** A test called `deliveryNoteListsEveryItemOfTheOrder()` documents the business rule, and a domain expert can read it.
+5. **Rename when the language changes.** When the team learns a better word, refactor the code. Modern IDEs make renames safe; an outdated name costs more every day.
+6. **Translate at the boundaries.** Each bounded context keeps its own language, and external systems are translated by an anti-corruption layer, as in the case study.
+
+Business concepts get business names, while technical parts such as `Repository`, `Controller` or `Mapper` keep their technical names. The goal is not to remove technical words, but to make sure the business part of the code reads like the business.
+
+The ubiquitous language tells you *what* to call things. Turning a domain model into classes that stay easy to change is the next step, and that's what my book covers, with Java examples:
 
 <div>
 {%- include softwareDesign.html -%}
 </div>
 
-Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.
+Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 
 {% include buymeacoffee.html %}
 <br/>

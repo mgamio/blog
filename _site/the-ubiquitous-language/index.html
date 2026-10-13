@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Domain-Driven Design - How to establish an effective ubiquitous language | codersite</title>
+<title>Ubiquitous Language in Domain-Driven Design: How to Build One, with Java Examples | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Domain-Driven Design - How to establish an effective ubiquitous language" />
+<meta property="og:title" content="Ubiquitous Language in Domain-Driven Design: How to Build One, with Java Examples" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Domain Driven Design aims to build strategic software based on domain models. Domain modeling in microservices architecture" />
-<meta name="twitter:description" property="og:description" content="Domain Driven Design aims to build strategic software based on domain models. Domain modeling in microservices architecture" />
+<meta name="description" content="What a ubiquitous language is, why it belongs to one bounded context, and six practices to build one, with Java examples and an anti-corruption layer for external APIs." />
+<meta name="twitter:description" property="og:description" content="What a ubiquitous language is, why it belongs to one bounded context, and six practices to build one, with Java examples and an anti-corruption layer for external APIs." />
 <link rel="canonical" href="https://codersite.dev/the-ubiquitous-language/" />
 <meta property="og:url" content="https://codersite.dev/the-ubiquitous-language/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2022-08-27T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/theUbiquitousLanguage.jpg" />
-<meta name="twitter:title" content="Domain-Driven Design - How to establish an effective ubiquitous language" />
+<meta name="twitter:title" content="Ubiquitous Language in Domain-Driven Design: How to Build One, with Java Examples" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-08-27T00:00:00+02:00","datePublished":"2022-08-27T00:00:00+02:00","description":"Domain Driven Design aims to build strategic software based on domain models. Domain modeling in microservices architecture","headline":"Domain-Driven Design - How to establish an effective ubiquitous language","image":"https://codersite.dev/assets/images/theUbiquitousLanguage.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/the-ubiquitous-language/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/the-ubiquitous-language/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-08-27T00:00:00+02:00","datePublished":"2022-08-27T00:00:00+02:00","description":"What a ubiquitous language is, why it belongs to one bounded context, and six practices to build one, with Java examples and an anti-corruption layer for external APIs.","headline":"Ubiquitous Language in Domain-Driven Design: How to Build One, with Java Examples","image":"https://codersite.dev/assets/images/theUbiquitousLanguage.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/the-ubiquitous-language/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/the-ubiquitous-language/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -171,7 +171,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Domain-Driven Design - How to establish an effective ubiquitous language&url=https://codersite.dev/the-ubiquitous-language/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Ubiquitous Language in Domain-Driven Design: How to Build One, with Java Examples&url=https://codersite.dev/the-ubiquitous-language/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -219,7 +219,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Domain-Driven Design - How to establish an effective ubiquitous language</h1>
+                <h1 class="posttitle">Ubiquitous Language in Domain-Driven Design: How to Build One, with Java Examples</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -227,7 +227,7 @@
                 <p class="post-meta-line">
                     <time datetime="2022-08-27T00:00:00+02:00" itemprop="datePublished">Aug 27, 2022</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">5 min read</span>
+                    <span class="meta-reading-time">8 min read</span>
                     
                 </p>
 
@@ -242,7 +242,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/theUbiquitousLanguage.jpg" alt="Domain-Driven Design - How to establish an effective ubiquitous language">
+            <img class="featured-image img-fluid" src="/assets/images/theUbiquitousLanguage.jpg" alt="Ubiquitous Language in Domain-Driven Design: How to Build One, with Java Examples">
             
 
             
@@ -253,128 +253,166 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>A <em>Domain</em> is an area of knowledge associated with a problem we are trying to solve.</p>
+                <p>The business people say <em>delivery note</em>, the ticket says <em>shipping document</em>, and the code says <code class="language-plaintext highlighter-rouge">DocService.getDoc()</code>. Every conversation needs a translation, and every translation is a chance for a bug. <strong>Domain-Driven Design</strong> (DDD) solves this with a <em>ubiquitous language</em>: one set of words that business experts and developers share and use everywhere, from meetings to source code. This post explains what a ubiquitous language is, why it belongs to one <em>bounded context</em>, and six practices to build one, with Java examples.</p>
 
-<p>A <em>Domain Model</em> represents those aspects of a domain that are relevant to a particular problem.</p>
-
-<p><a href="https://en.wikipedia.org/wiki/Domain-driven_design" target="_blank">Domain Driven Design</a> aims to build strategic software based on domain models and defines two fundamental concepts to achieve it.</p>
+<h2 id="domain-model-and-bounded-context">Domain, Model and Bounded Context</h2>
 
 <ul>
-  <li>
-    <p><em>Bounded Context</em> is a subsystem that defines a specific responsibility with an explicit boundary. For example, in a shopping application, we build specific components to support the <em>Sales Context</em> and others to support the <em>Buyer Context</em>.</p>
-  </li>
-  <li>
-    <p>The <em>Ubiquitous Language</em> reflects a language spoken among team members working in the Bounded Context.</p>
-  </li>
+  <li>A <strong>domain</strong> is the area of knowledge your software works in: online retail, insurance, logistics.</li>
+  <li>A <strong>domain model</strong> captures the parts of that domain that matter for the problem you’re solving.</li>
+  <li>A <strong>bounded context</strong> is a part of the system with an explicit boundary, its own model and usually its own team. An online shop could have <em>Catalog</em>, <em>Ordering</em> and <em>Shipping</em> contexts.</li>
+  <li>The <strong>ubiquitous language</strong> is the vocabulary that the team uses <em>inside one bounded context</em>, in conversations, documents, tickets, tests and code.</li>
 </ul>
 
-<p>Using bounded contexts reduces coupling between subsystems, and we can exchange data between them via explicit <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST API</a>, avoiding dependencies.</p>
+<p>The key point is that <strong>a word can mean different things in different contexts</strong>. In the Catalog, a <em>product</em> has a description, a price and images. In the Warehouse, a <em>product</em> has a stock level and a shelf location. Both are correct, in their own context. Trying to build one <code class="language-plaintext highlighter-rouge">Product</code> class for the whole company produces a class that nobody understands. Contexts stay loosely coupled and exchange data through explicit interfaces, such as a <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST API</a>.</p>
 
-<p>As developers, we must choose appropriate names for our variables that reflect the business terms used in all communication channels during the Domain modeling design stage.</p>
+<p><img src="/assets/images/ubiquitousLanguage.jpg" alt="A bounded context containing a model with a Product class, and the ubiquitous language that applies inside that boundary" title="A bounded context and its ubiquitous language" class="img-responsive" /></p>
 
-<p><img src="/assets/images/ubiquitousLanguage.jpg" alt="ubiquitous Language" title="bounded context" class="img-responsive" /></p>
+<h2 id="case-study-product-images-from-a-vendor">Case Study: Product Images from a Vendor</h2>
 
-<h2 id="case-study">Case study</h2>
+<p>A company runs an online shop that sells T-shirts from several vendors. One vendor doesn’t want to upload product images twice, so it offers access to its own API. Business experts and developers from both companies work closely to clarify the requirements:</p>
 
-<p>Business-to-business (B2B) is a business conducted between one company and another.</p>
+<ul>
+  <li>The vendor’s API identifies an image by a <em>mediaAssetId</em>.</li>
+  <li>Several emails later, everyone agrees how to build the URL that returns the image file from a <em>mediaAssetId</em>.</li>
+</ul>
 
-<p>A leading company implements an e-commerce portal to sell t-shirt products from various vendors and manufacturers.</p>
+<p>A first version of the class could look like this:</p>
 
-<p>A vendor wants to avoid duplication of effort to manually upload images on both sides and asks the lead company to use an internal API to update their product images.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">imageId</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">imageURL</span><span class="o">;</span>
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<blockquote>
-  <p>Join Candidates Who Prepared With Real Questions</p>
-</blockquote>
+<p><code class="language-plaintext highlighter-rouge">imageId</code> is a technical name. It doesn’t say where the ID comes from, and in a large system other parts of the code may already use <em>imageId</em> for something else. Developers often pick names from conventions and frameworks instead of from the business. After weeks of requirements meetings, the business words are right there: use them. <a href="https://codersite.dev/clean-code/" target="_blank">Clean code</a> calls this <em>names that reveal intent</em>.</p>
 
-<div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="320" height="500" src="../recommended/images/theCodeInterview.jpg" /></a>
-</center>
+<p>But which business words? It’s tempting to copy the vendor’s words and write <code class="language-plaintext highlighter-rouge">mediaAssetId</code> everywhere. That’s a trap: <strong>the vendor’s API is a different bounded context</strong>, with <em>its</em> language. If its terms spread through our code, every change on the vendor’s side changes our model too, and the next vendor, who calls it <em>pictureRef</em>, makes it worse.</p>
 
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <br /></div>
 
-<p>During the integration process, business experts and developers are in constant communication to clarify requirements. For example.</p>
+<h3 id="translate-at-the-boundary-an-anti-corruption-layer">Translate at the Boundary: an Anti-Corruption Layer</h3>
 
-<ul>
-  <li>The vendor communicates to the development team that its internal API describes a <em>mediaAssetID</em> attribute to uniquely identify an image object in its domain.</li>
-  <li>Email interactions occur to clarify how to build a URL path to retrieve the final image object using the <em>mediaAssetID</em> attribute.</li>
-</ul>
+<p>DDD’s answer is an <strong>anti-corruption layer</strong>: one place that knows both languages and translates between them. In our catalog, the domain experts talk about <em>product images</em>, so that’s what the model says:</p>
 
-<p>We want to introduce business terminology into our variable names</p>
-
-<h2 id="understand-business-concepts-before-translating-them-into-source-code">Understand business concepts before translating them into source code</h2>
-
-<p>The ubiquitous language is the language of the business. Technical names are not allowed to describe the business domain. Ubiquitous language in software development is a set of concepts and vocabulary shared between everyone on the team.</p>
-
-<p>Some developers can specify the following class design when your bounded context is translated into source code.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="p">{</span>
-  <span class="k">private</span> <span class="n">int</span> <span class="n">id</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">String</span> <span class="n">imageId</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">String</span> <span class="n">imageURL</span><span class="p">;</span>
-  
-  <span class="c1">//code omitted for brevity</span>
-<span class="p">}</span>
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1">// Our Catalog context: our language</span>
+<span class="kd">public</span> <span class="kd">record</span> <span class="nf">ProductImageId</span><span class="o">(</span><span class="nc">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{}</span>
+
+<span class="kd">public</span> <span class="kd">record</span> <span class="nf">ProductImage</span><span class="o">(</span><span class="nc">ProductImageId</span> <span class="n">id</span><span class="o">,</span> <span class="no">URI</span> <span class="n">url</span><span class="o">)</span> <span class="o">{}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">String</span> <span class="n">sku</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">ProductImage</span><span class="o">&gt;</span> <span class="n">images</span><span class="o">;</span>
+  <span class="c1">// ...</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>The <em>imageId</em> attribute is a good name, but other business domains may already use it. We, as developers, sometimes disconnect from business and look for variable names that usually follow conventions, standards, programming languages, framework recommendations, or technical terms.</p>
+<p>The vendor’s language stays in the integration package:</p>
 
-<p>If we’ve been involved in requirements analysis for weeks, why not introduce the same business terminology into our variable <strong>names</strong>? See how <em>variable names</em> reveal intent in <a href="https://codersite.dev/clean-code/" target="_blank">Best practices for writing Clean Code</a>.</p>
-
-<p>One of the benefits of using ubiquitous language is introducing the influence of business communication structures on software. Whenever you can, try to introduce business terminology into your variable names.</p>
-
-<p>By introducing a better name for our variables, we can establish an effective ubiquitous language in domain-driven design</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="p">{</span>
-  <span class="k">private</span> <span class="n">int</span> <span class="n">id</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">String</span> <span class="n">mediaAssetID</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">String</span> <span class="n">mediaAssetURL</span><span class="p">;</span>
-  
-  <span class="c1">//code omitted for brevity</span>
-<span class="p">}</span>
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="c1">// The vendor's context: their language, used only in the integration package</span>
+<span class="kd">public</span> <span class="kd">record</span> <span class="nf">MediaAsset</span><span class="o">(</span><span class="nc">String</span> <span class="n">mediaAssetId</span><span class="o">,</span> <span class="nc">String</span> <span class="n">mimeType</span><span class="o">)</span> <span class="o">{}</span>
+
+<span class="c1">// Anti-corruption layer: the only class that knows both languages</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VendorImageTranslator</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="no">URI</span> <span class="n">vendorBaseUrl</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">VendorImageTranslator</span><span class="o">(</span><span class="no">URI</span> <span class="n">vendorBaseUrl</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">vendorBaseUrl</span> <span class="o">=</span> <span class="n">vendorBaseUrl</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">ProductImage</span> <span class="nf">toProductImage</span><span class="o">(</span><span class="nc">MediaAsset</span> <span class="n">asset</span><span class="o">)</span> <span class="o">{</span>
+    <span class="no">URI</span> <span class="n">url</span> <span class="o">=</span> <span class="n">vendorBaseUrl</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="s">"media-assets/"</span> <span class="o">+</span> <span class="n">asset</span><span class="o">.</span><span class="na">mediaAssetId</span><span class="o">()</span> <span class="o">+</span> <span class="s">"/content"</span><span class="o">);</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">ProductImage</span><span class="o">(</span><span class="k">new</span> <span class="nc">ProductImageId</span><span class="o">(</span><span class="n">asset</span><span class="o">.</span><span class="na">mediaAssetId</span><span class="o">()),</span> <span class="n">url</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Domain-Driven Design: Tackling Complexity in the Heart of Software <a href="https://t.co/UJcmA5FpLo">https://t.co/UJcmA5FpLo</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839044643658330294?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>For a <code class="language-plaintext highlighter-rouge">MediaAsset</code> with ID <code class="language-plaintext highlighter-rouge">MA-48213</code>, the translator returns:</p>
 
-<h2 id="never-assume-and-ask-questions-to-clarify-ambiguous-and-synonyms-terms">Never assume and ask questions to clarify ambiguous and synonyms terms</h2>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>ProductImage[id=ProductImageId[value=MA-48213], url=https://api.vendor.example/v2/media-assets/MA-48213/content]
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>You receive a task to implement a service to retrieve documents used in the shipment of goods, and you decide to call it  <strong><em>shipping notes</em></strong>. But your business doesn’t ship goods by the sea!</p>
+<p>When developers talk to the vendor, they say <em>media asset</em>. When they talk to their own business experts, they say <em>product image</em>. Both conversations match the code, and if the vendor changes its API, only the translator changes.</p>
 
-<p>Ask always questions to your colleagues and domains experts to clarify business concepts. Then you will realize that your service should implement <strong><em>delivery notes</em></strong>.</p>
+<p>Eric Evans introduced the ubiquitous language, bounded contexts and the anti-corruption layer in the book that started DDD. It’s still the best source:</p>
 
-<p>The following class design represents a fundamental concept in the domain expert’s mental model.</p>
+<div><center>
+  <a href="https://amzn.to/3AktDHJ" target="_blank"><img style="border:1px solid black;" alt="Domain-Driven Design: Tackling Complexity in the Heart of Software" title="Buy Now" border="0" width="265" height="380" src="../recommended/images/domainDrivenDesign.jpg" /></a>
+</center>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<br />
+</div>
+
+<h2 id="never-assume-ask-about-ambiguous-words">Never Assume: Ask About Ambiguous Words</h2>
+
+<p>You get a task to build a service that returns the documents that go with a delivery of goods, and you call it <code class="language-plaintext highlighter-rouge">ShippingNoteService</code>. In the next meeting, a domain expert looks confused: a <em>shipping note</em> is a specific document for freight transport, and the company doesn’t use it. The paper that goes with every delivery to a customer is the <strong>delivery note</strong> (in German, <em>Lieferschein</em>).</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">interface</span> <span class="nc">DeliveryNoteService</span> <span class="p">{</span>
-
-  <span class="c1">//code omitted for brevity</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">DeliveryNoteService</span> <span class="o">{</span>
+  <span class="nc">DeliveryNote</span> <span class="nf">createFor</span><span class="o">(</span><span class="nc">Order</span> <span class="n">order</span><span class="o">);</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Use the ubiquitous language as a tool for effective cross-team collaboration and knowledge sharing.</p>
+<p>A five-minute question saved a wrong name that would have confused every developer and business expert after you. When a word is unclear, or two words seem to mean the same thing, ask. Synonyms in the language usually mean that the model isn’t clear yet.</p>
 
-<p>Using the Ubiquitous language in agile software development and in domain modeling of microservices architecture is a common practice.</p>
+<h2 id="how-to-establish-a-ubiquitous-language-6-practices">How to Establish a Ubiquitous Language: 6 Practices</h2>
 
-<blockquote>
-  <p>Turn complexity into clarity: design systems with confidence and precision</p>
-</blockquote>
+<ol>
+  <li><strong>Keep a glossary in the repository.</strong> A simple <code class="language-plaintext highlighter-rouge">GLOSSARY.md</code> with each term, its meaning, and the words <em>not</em> to use (for example: “delivery note, not shipping note or dispatch document”). It’s reviewed like code.</li>
+  <li><strong>Model together with domain experts.</strong> Workshops such as <em>event storming</em>, where experts and developers put business events on a wall, bring out the words the business really uses.</li>
+  <li><strong>Use the words everywhere.</strong> The same term in conversations, tickets, API endpoints, database tables and class names. If the ticket says <em>delivery note</em>, the code shouldn’t say <code class="language-plaintext highlighter-rouge">Document</code>.</li>
+  <li><strong>Write tests in the domain language.</strong> A test called <code class="language-plaintext highlighter-rouge">deliveryNoteListsEveryItemOfTheOrder()</code> documents the business rule, and a domain expert can read it.</li>
+  <li><strong>Rename when the language changes.</strong> When the team learns a better word, refactor the code. Modern IDEs make renames safe; an outdated name costs more every day.</li>
+  <li><strong>Translate at the boundaries.</strong> Each bounded context keeps its own language, and external systems are translated by an anti-corruption layer, as in the case study.</li>
+</ol>
+
+<p>Business concepts get business names, while technical parts such as <code class="language-plaintext highlighter-rouge">Repository</code>, <code class="language-plaintext highlighter-rouge">Controller</code> or <code class="language-plaintext highlighter-rouge">Mapper</code> keep their technical names. The goal is not to remove technical words, but to make sure the business part of the code reads like the business.</p>
+
+<p>The ubiquitous language tells you <em>what</em> to call things. Turning a domain model into classes that stay easy to change is the next step, and that’s what my book covers, with Java examples:</p>
 
 <div><center>
   <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="../assets/images/SoftwareDesignPrinciplesV2.png" /></a>
@@ -382,7 +420,7 @@
 
 <br /></div>
 
-<p>Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.</p>
+<p>Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!</p>
 
 <p><a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a></p>
 
@@ -471,8 +509,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/the-ubiquitous-language/"
   },
-  "headline": "Domain-Driven Design - How to establish an effective ubiquitous language",
-  "description": "Domain Driven Design aims to build strategic software based on domain models. Domain modeling in microservices architecture",
+  "headline": "Ubiquitous Language in Domain-Driven Design: How to Build One, with Java Examples",
+  "description": "What a ubiquitous language is, why it belongs to one bounded context, and six practices to build one, with Java examples and an anti-corruption layer for external APIs.",
   "image": "https://codersite.dev/assets/images/theUbiquitousLanguage.jpg",
   "datePublished": "2022-08-27T00:00:00+02:00",
   "dateModified": "2022-08-27T00:00:00+02:00",
@@ -510,7 +548,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Domain-Driven Design - How to establish an effective ubiquitous language",
+      "name": "Ubiquitous Language in Domain-Driven Design: How to Build One, with Java Examples",
       "item": "https://codersite.dev/the-ubiquitous-language/"
     }
   ]
