@@ -95,6 +95,12 @@ tags:
     description: operations related to short-term financial instruments which are based on an interest rate
 ```
 
+> Software Design Principles: A Practical Guide to Building Software That Can Change gives working developers a clear, practical path from messy code to systems that are easy to understand, test, and evolve. -- <cite>[Software That Can Change](https://www.amazon.com/dp/B0HMWNF1Y4){:target="_blank"}</cite>
+
+<div>
+{%- include softwareDesign.html -%}
+</div>
+
 **/{path}**: A relative path to an individual endpoint. 
 
 **Path Item Object**: Describes the operations available on a single path.

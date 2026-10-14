@@ -82,6 +82,12 @@ Chapter 1 alone gives you the CAP theorem, PACELC, the fallacies of distributed 
 
 ---
 
+> Software Design Principles: A Practical Guide to Building Software That Can Change gives working developers a clear, practical path from messy code to systems that are easy to understand, test, and evolve. -- <cite>[Software That Can Change](https://www.amazon.com/dp/B0HMWNF1Y4){:target="_blank"}</cite>
+
+<div>
+{%- include softwareDesign.html -%}
+</div>
+
 Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 
 {% include buymeacoffee.html %}

@@ -266,7 +266,7 @@ public class BuyersApiController implements BuyersApi {
 }
 ```
 
-> Software design principles provide guidelines to handle the design process's complexity, prepare your code when changes arise, and minimize the impact of introducing bugs. -- <cite>[Software Design Principles](https://amzn.to/3Csx3sR){:target="_blank"}</cite>
+> Software design principles provide guidelines to handle the design process's complexity, prepare your code when changes arise, and minimize the impact of introducing bugs. -- <cite>[Software That Can Change](https://www.amazon.com/dp/B0HMWNF1Y4){:target="_blank"}</cite>
 
 <div>
 {%- include softwareDesign.html -%}
