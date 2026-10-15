@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Understanding OOP concepts"
-description: "Object-oriented concepts give you a solid foundation for making critical design decisions."
+title:  "OOP Concepts in Java: The 4 Pillars and Composition, with Examples"
+description: "Abstraction, encapsulation, inheritance and polymorphism explained with short Java examples, plus composition, and why you should favor composition over inheritance."
 author: moises
 categories: [ Object-Oriented ]
 image: /assets/images/oop.jpg
@@ -10,204 +10,238 @@ hidden: false
 comments: false
 ---
 
-Get OOP wrong and you'll spend years paying for it — tangled classes, features that break other features, a codebase nobody wants to touch. Get it right, and every future requirement slots in cleanly. Here's the foundation that makes the difference.
+Get object-oriented programming (OOP) wrong and you'll pay for it for years: tangled classes, features that break other features, a codebase nobody wants to touch. Get it right, and new requirements fit in cleanly. This post explains the core OOP concepts, the **four pillars** (abstraction, encapsulation, inheritance and polymorphism) plus composition, each with a short Java example, and shows with a real requirement why you should usually **favor composition over inheritance**.
 
-## Class
+## Class and Object
 
-A class is the blueprint for an object — it defines the attributes (data) and behavior (methods) an object will have. You always design the class before you create the object from it.
-
-## Object
-
-An object is an instance of a class. When we create an object, we create real-world entities such as cars, bicycles, or dogs with their own attributes and own behaviors.
+A **class** is a blueprint: it defines the data (fields) and the behavior (methods) that its objects will have. An **object** is an instance of a class, with its own values. You write the class once and create as many objects from it as you need, in Java with the `new` keyword.
 
 ![UML diagram showing the relationship between a Class and its Object instance](/assets/images/carClass.jpg "UML diagram showing the relationship between a Class and its Object instance"){:class="img-responsive"}
 
-We instantiate an object via the *new* keyword in the Java programming language. When you design a class follow the [SOLID principles](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}.
+When you design classes, the [SOLID principles](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"} help you keep them small and focused.
+
+## Abstraction
+
+Abstraction means that an object tells its users **what** it does, not **how** it does it. Your TV remote shows the buttons you need; what happens inside when you press one isn't your concern. In Java, you create abstractions with interfaces and abstract classes:
+
+```java
+public interface Shape {
+  double area();
+}
+```
+
+Code that works with a `Shape` only knows that it can ask for an area. It doesn't know, and doesn't need to know, how each shape calculates it.
+
+## Encapsulation
+
+Encapsulation bundles data with the methods that work on it and hides the data from the outside (*data hiding*). Other objects can't change the fields directly; they must go through methods that protect the object's rules:
+
+```java
+public class BankAccount {
+
+  private BigDecimal balance = BigDecimal.ZERO;
+
+  public void deposit(BigDecimal amount) {
+    if (amount.signum() <= 0) {
+      throw new IllegalArgumentException("Deposit must be positive");
+    }
+    balance = balance.add(amount);
+  }
+
+  public void withdraw(BigDecimal amount) {
+    if (amount.compareTo(balance) > 0) {
+      throw new IllegalStateException("Insufficient funds");
+    }
+    balance = balance.subtract(amount);
+  }
+
+  public BigDecimal balance() {
+    return balance;
+  }
+}
+```
+
+Because `balance` is `private`, no code anywhere can set it to a negative value. After depositing 100.00 and withdrawing 30.00, the balance is 70.00, and trying to withdraw 500.00 throws `Insufficient funds`. Note that encapsulation is not the same as adding a getter and a setter for every field: a public `setBalance()` would make the `private` keyword almost useless.
 
 <div>
 {%- include inArticleAds.html -%}
 </div>
 
-## Abstraction in OOP
+## Inheritance
 
-Abstraction lets an object tell its users **what** it does without exposing **how** it does it. You can see the essential buttons on your TV remote control, but you don't care what happens behind the scenes when you press one of them. In Java, we create abstractions via Interfaces and Abstract classes.
+Inheritance lets a class take over the fields and methods of another class and add its own. It describes an **is-a** relationship: a savings account *is a* bank account. In Java, you use the `extends` keyword:
 
-## Encapsulation in OOP and Data Hiding
+```java
+public class SavingsAccount extends BankAccount {
 
-Restricting access to an object's internal attributes and methods is called *data hiding* — one object should never directly manipulate another object's data.
+  private final BigDecimal interestRate;
 
-Encapsulation is what makes this possible: bundling data and the methods that operate on it into a single unit, so all access is controlled and intentional.
+  public SavingsAccount(BigDecimal interestRate) {
+    this.interestRate = interestRate;
+  }
 
-## Inheritance in OOP
+  public void addInterest() {
+    BigDecimal interest = balance().multiply(interestRate).setScale(2, RoundingMode.HALF_EVEN);
+    if (interest.signum() > 0) {
+      deposit(interest);
+    }
+  }
+}
+```
 
-Inheritance is a process in which a class inherits the attributes and methods of another class.
+A `SavingsAccount` with 1,000.00 and a 2% rate has 1,020.00 after `addInterest()`. It reuses `deposit()` and the balance rules from `BankAccount` without copying them. A subclass must be usable wherever its superclass is expected; that rule is the *L* in SOLID, the Liskov substitution principle.
 
-Class inheritance in OOP provides the ability to create new classes with new functionalities while maintaining the functionalities inherited. In this way, it promotes code reusability.
+## Polymorphism
 
-This relationship is an *is-a* relationship because when a subclass inherits from a superclass, it can do anything that the superclass can do. 
+Polymorphism means "many forms": the same call does different things depending on the object that receives it. In Java this usually happens through an interface or a superclass:
 
-In Java, we create inheritance between classes via the *extends* keyword.
+```java
+public record Circle(double radius) implements Shape {
+  public double area() { return Math.PI * radius * radius; }
+}
 
-## Polymorphism in OOP
+public record Square(double side) implements Shape {
+  public double area() { return side * side; }
+}
 
-Polymorphism in OOP means many shapes and is coupled to inheritance. For example, a Shape class defines a *draw* method, but Square and Circle's subclasses will implement it differently.
+List<Shape> shapes = List.of(new Circle(1), new Square(2));
+for (Shape shape : shapes) {
+  System.out.printf("%s area = %.2f%n", shape.getClass().getSimpleName(), shape.area());
+}
+```
 
-Polymorphism is also the engine behind almost every classic Gang of Four design pattern — Strategy, Observer, Template Method. If you want the canonical reference every senior engineer eventually reads, this is it.
+```text
+Circle area = 3.14
+Square area = 4.00
+```
+
+The loop never checks which shape it has. Adding a `Triangle` later needs no change to the loop.
+
+**Overriding vs overloading**, a classic interview question: *overriding* (as in `area()` above) is runtime polymorphism, because the JVM picks the method by the object's actual class. *Overloading*, several methods with the same name but different parameters, such as `print(int)` and `print(String)`, is resolved by the compiler and is sometimes called compile-time polymorphism.
+
+Polymorphism is the engine behind almost every classic Gang of Four design pattern: Strategy, Observer, Template Method. If you want the canonical reference that every senior engineer eventually reads, this is it:
 
 <div>
 {%- include designPatternsAd.html -%}
 </div>
 
-## Composition in OOP
+## Composition
 
-The composition in OOP provides a mechanism for building classes from other classes. In Java, we usually create a class with instance variables that references one or more objects of other classes.
+Composition builds a class from other objects: the class holds references to them in its fields. It describes a **has-a** relationship. In a shop, an order *has* items and *has* a shipping address:
 
-The benefit of separating one class from another one is the *Reuse*.
+```java
+public record Order(int clientId, List<Item> items, Address shippingAddress) {}
 
-For example, in a shopping context, we need a list of requested *items* and an *address* where to deliver the *order*.
+public record Item(Article article, int quantity) {}
 
-```kotlin
-public class Order {
+public record Article(int id, String name, String category, BigDecimal deliveryPrice) {}
 
-  private int clientId;
-  private List<Item> orderItems;
-  private Address shippingAddress;
-  
-  //code omitted for brevity
-}
+public record Address(String street, String city, String countryCode) {}
 ```
 
-We build an *Item* class including an *Article* class.
+Each class has one job, and each can be reused: the search can return a list of `Article` objects, and a customer can have an `Address` too. Note `BigDecimal` for prices: `double` can't represent amounts like 0.10 exactly, and those rounding errors end up on invoices.
 
-```kotlin
-public class Item {
-
-  private Article article;
-  private double quantity;
-  
-  //code omitted for brevity
-}
-```
-
-And the *Article* class includes enough attributes to support the shopping business.
-
-```kotlin
-public class Article {
-
-  private int id;
-  private String name;
-  private double deliveryPrice;
-  
-  //code omitted for brevity
-}
-```
-
-Even we can reuse the *Article* class to support a *Search* request.
-
-```kotlin
-public class SearchResponse {
-
-  private List<Article> articles;
-  
-  //code omitted for brevity
-}
-```
-
-That instinct — modeling `Article` once and reusing it everywhere — is the seed of Domain-Driven Design. This is the book that turns that instinct into a discipline.
+Deciding where a class like `Article` can be shared, and where a part of the system needs its own model, is what Domain-Driven Design is about (see [the ubiquitous language](https://codersite.dev/the-ubiquitous-language/){:target="_blank"}). This is the book that started it:
 
 <div>
 {%- include domainDrivenDesignAd.html -%}
 </div>
 
-Now imagine the business expands into a country where certain articles are legally restricted from being sold. How does the model adapt?
+## Composition over Inheritance: a Real Requirement
 
-Bolting a *tradable* flag onto every `Article` is the wrong move — most countries will never use it, and now every object carries dead weight.
+The shop expands into Singapore, where e-cigarettes can't be sold. The search must stop showing them there, while every other country keeps seeing them.
 
-Here, we can use the other technique to build new classes: **inheritance**.
+**Option 1: a flag on every article.** Adding `boolean tradable` to `Article` doesn't work: the same article is tradable in Germany and not in Singapore, and one flag can't hold both answers.
 
-![UML diagram showing TradableArticle inheriting from Article to add region-specific trade restrictions](/assets/images/tradableArticle.png "UML diagram showing TradableArticle inheriting from Article to add region-specific trade restrictions"){:class="img-responsive"}
+**Option 2: inheritance.** A `TradableArticle extends Article` looks object-oriented, but it has the same problem, because being restricted is not something an article *is*; it depends on the country. It also breaks the rest of the code: a `List<TradableArticle>` can't hold normal articles, and the next country with different rules needs yet another subclass.
 
-Now, we can support the new requirement for the new country.
+**Option 3: composition.** The restriction is a separate concept, so it gets its own interface, with one implementation per kind of rule. The search *has* a restriction for each country:
 
-```kotlin
-public class SearchResponse {
+![UML class diagram: ArticleSearch holds a list of Article objects and one SalesRestriction per country; NoRestriction and BlockedCategories implement the SalesRestriction interface](/assets/images/salesRestrictionUml.png "Composition over inheritance: ArticleSearch uses a SalesRestriction per country"){:class="img-responsive"}
 
-  private List<TradableArticle> articles;
-  
-  //code omitted for brevity
+```java
+public interface SalesRestriction {
+  boolean allows(Article article);
+}
+
+public class NoRestriction implements SalesRestriction {
+  public boolean allows(Article article) {
+    return true;
+  }
+}
+
+public class BlockedCategories implements SalesRestriction {
+
+  private final Set<String> blockedCategories;
+
+  public BlockedCategories(Set<String> blockedCategories) {
+    this.blockedCategories = Set.copyOf(blockedCategories);
+  }
+
+  public boolean allows(Article article) {
+    return !blockedCategories.contains(article.category());
+  }
 }
 ```
 
-We can reuse our classes even out of context. For example, in a Bank context, we need an *address* to contact a *customer*.
+The search combines the catalog with the restriction for the customer's country:
 
-```kotlin
-public class Customer {
+```java
+public class ArticleSearch {
 
-  private int customerId;
-  private String lastName;
-  private Address address;
-  
-  //code omitted for brevity
+  private final List<Article> catalog;
+  private final Map<String, SalesRestriction> restrictionsByCountry;
+
+  public ArticleSearch(List<Article> catalog, Map<String, SalesRestriction> restrictionsByCountry) {
+    this.catalog = List.copyOf(catalog);
+    this.restrictionsByCountry = Map.copyOf(restrictionsByCountry);
+  }
+
+  public SearchResponse search(String text, String countryCode) {
+    SalesRestriction restriction = restrictionsByCountry.getOrDefault(countryCode, new NoRestriction());
+    List<Article> found = catalog.stream()
+        .filter(article -> article.name().toLowerCase().contains(text.toLowerCase()))
+        .filter(restriction::allows)
+        .toList();
+    return new SearchResponse(found);
+  }
 }
 ```
 
-We use the term *has-a* to describe composition relationships. An order *has-a(n)* address. A customer *has-a(n)* address.
+With a "Vape Starter Kit" (category *e-cigarettes*) and a "Phone Starter Kit" in the catalog, and `Map.of("SG", new BlockedCategories(Set.of("e-cigarettes")))`:
 
-> Software design is the art of managing dependencies and abstractions — and everything you just read in this article is chapter one. This book takes you the rest of the way, to systems that hold up under millions of users.
+```text
+DE: [Vape Starter Kit, Phone Starter Kit]
+SG: [Phone Starter Kit]
+```
+
+`Article` didn't change at all. A new country with different rules is one more map entry, and a new *kind* of rule, such as a minimum age, is one more class that implements `SalesRestriction`. This design uses three of the four pillars at once: an abstraction (`SalesRestriction`), polymorphism (each rule decides in its own way) and composition (the search *has* rules instead of *being* one).
+
+## Advantages of OOP, and When It Goes Wrong
+
+Used well, OOP gives you:
+
+- **Modularity:** each class has one job, so a large system becomes many small, understandable parts.
+- **Protected rules:** encapsulation keeps objects in a valid state, like the account that can't go negative.
+- **Extensibility:** with abstractions and polymorphism, you add features by adding classes instead of changing working code.
+- **Testability:** small objects with clear interfaces are easy to test in isolation.
+- **Code that matches the business:** classes named after business concepts make the code easier to read; see [best practices for writing clean code](https://codersite.dev/clean-code/){:target="_blank"}.
+
+OOP goes wrong when inheritance hierarchies get deep (a change in a base class breaks subclasses three levels down), when classes become bags of getters and setters with all the logic somewhere else, or when every small idea gets an interface it doesn't need. Modern Java also mixes OOP with functional ideas such as records, lambdas and streams, as the examples above do. Use objects where they make the design clearer, not everywhere.
+
+Everything in this article, from classes and encapsulation to polymorphism and composition, is covered chapter by chapter in my book **[Software Design Principles](https://www.amazon.com/dp/B0HMWNF1Y4){:target="_blank"}**, with worked examples and case studies that go much further than one post can:
 
 <div>
 {%- include softwareDesignAd1.html -%}
 </div>
 
-## Advantages of object-oriented programming
-
-Object-oriented programming (OOP) is a programming paradigm that uses objects and classes to structure code. It offers several advantages, which have contributed to its popularity and widespread use in software development:
-
-- Focuses on data: You create a program using objects focused on data. You don't define global data. Every object contains its data.
-
-- Modularity: OOP promotes modularity by encapsulating objects and their behaviors within classes. This allows developers to break down a complex system into smaller, manageable parts, making it easier to understand, maintain, and debug.
-
-- Reusability: OOP encourages code reusability through inheritance and polymorphism. Developers can create new classes by inheriting properties and behaviors from existing classes, reducing redundancy and promoting a "write once, use many times" approach.
-
-- Flexibility and Extensibility: OOP allows for easy modification and extension of existing code. You can add new classes and methods without altering the existing codebase, reducing the risk of introducing bugs in previously working code.
-
-- Abstraction: Abstraction is a key concept in OOP, where you model real-world entities as objects and focus on essential properties and behaviors while hiding unnecessary details. This simplifies problem-solving and enhances code clarity.
-
-- Encapsulation: OOP supports encapsulation by bundling data (attributes) and functions (methods) into objects. Access to an object's internal state is controlled through well-defined interfaces, promoting data integrity and security.
-
-- Organization: OOP provides a natural way to organize code, making it more intuitive for developers to work collaboratively on large projects. Classes and objects mirror the structure of the problem domain, making it easier to map real-world concepts to code.
-
-<div>
-{%- include inArticleAds.html -%}
-</div>
-
-- Maintainability: OOP code tends to be more maintainable because of its modular and organized nature. Changes and updates can be made to specific classes or objects without affecting the entire system, reducing the risk of introducing unintended side effects.
-
-- Testability: OOP code is often easier to test since objects can be isolated and tested independently, leading to more comprehensive and efficient testing strategies.
-
-- [Best practices for writing Clean Code](https://codersite.dev/clean-code/){:target="_blank"}: OOP promotes a closer alignment between code and real-world concepts, making the codebase more understandable to developers, even those who didn't write the original code.
-
-- Support for Large-Scale Development: OOP is well-suited for large-scale software development projects. Its inherent structure and organization facilitate teamwork, reduce development time, and enhance project manageability.
-
-- Community and Ecosystem: OOP has a vast and mature ecosystem of libraries, frameworks, and tools, making it easier to find resources and solutions for common programming tasks.
-
-- Cross-Disciplinary Applications: OOP is applicable to various domains and industries, making it a versatile paradigm suitable for a wide range of software development projects.
-
-Understanding OOP concepts in Java or Python OOP concepts makes your system design resilient to future changes.
-
-While OOP offers numerous advantages, it's important to note that it may not always be the best choice for every project or problem. The choice of programming paradigm should align with the specific requirements, constraints, and goals of the software being developed.
-
-Everything above — classes, encapsulation, inheritance, polymorphism, composition — is chapter-by-chapter material in **[Software Design Principles](https://amzn.to/42mIqx7){:target="_blank"}**, with the worked examples and case studies this article only had room to sketch.
-
-👉 **[Get Software Design Principles on Amazon](https://amzn.to/42mIqx7){:target="_blank"}**
-
-> Every OOP concept above shows up as an interview question sooner or later. Walk in ready:
+What's the difference between overriding and overloading? Why favor composition over inheritance? Every OOP concept above comes up in interviews sooner or later. Walk in ready:
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
 
-Please donate if you can. Every contribution helps, and your donation can help maintain and improve this website, no matter how small.
+Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
 
 {% include buymeacoffee.html %}
 <br/>
