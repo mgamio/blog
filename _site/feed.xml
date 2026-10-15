@@ -5,8 +5,8 @@
     <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 Oct 2026 14:26:18 +0200</pubDate>
-    <lastBuildDate>Wed, 14 Oct 2026 14:26:18 +0200</lastBuildDate>
+    <pubDate>Thu, 15 Oct 2026 15:04:17 +0200</pubDate>
+    <lastBuildDate>Thu, 15 Oct 2026 15:04:17 +0200</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
@@ -211,7 +211,7 @@
 &lt;p&gt;Swapping a deprecated library without touching the business logic is exactly what good design buys you. That idea runs through every chapter of this book:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://www.amazon.com/dp/B0HMWNF1Y4&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/SoftwareDesignPrinciplesV2.png&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://www.amazon.com/dp/B0HMWNF1Y4&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/SoftwareDesignPrinciplesV2.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -464,7 +464,7 @@
 &lt;p&gt;Migrations like this one come up in interviews too: why a library was deprecated, what replaces it, and how to change it without breaking anything. Prepare with real questions:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/theCodeInterview.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -519,7 +519,7 @@
 &lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/theCodeInterview.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -577,7 +577,7 @@
 &lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://www.amazon.com/dp/B0HMWNF1Y4&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPrinciplesV2.png&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://www.amazon.com/dp/B0HMWNF1Y4&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/SoftwareDesignPrinciplesV2.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -1117,7 +1117,7 @@
 &lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/theCodeInterview.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -1332,7 +1332,7 @@
 &lt;p&gt;This is exactly the kind of design decision that separates code that works from code that scales. Real-world cases like this one, with diagrams and explanations, fill &lt;a href=&quot;https://amzn.to/4dTTUhs&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Software Design Principles: A Practical Guide&lt;/strong&gt;&lt;/a&gt;:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://www.amazon.com/dp/B0HMWNF1Y4&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/SoftwareDesignPrinciplesV2.png&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://www.amazon.com/dp/B0HMWNF1Y4&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/SoftwareDesignPrinciplesV2.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -1535,7 +1535,7 @@
 &lt;p&gt;Replacing a nested loop with a HashMap is one of the most common optimizations interviewers look for. If you have interviews coming up, practice it on real questions:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/theCodeInterview.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -1729,7 +1729,7 @@ INFO 20364 --- [nio-8080-exec-3] o.springdoc.api.AbstractOpenApiResource  : Init
 &lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://www.amazon.com/dp/B0HMWNF1Y4&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPrinciplesV2.png&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://www.amazon.com/dp/B0HMWNF1Y4&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/SoftwareDesignPrinciplesV2.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -1775,7 +1775,7 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;Code generators write the boilerplate. Interviews test the code nobody can generate for you: the algorithms. Practice them on real interview questions:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/theCodeInterview.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -2262,7 +2262,7 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;The complete Java implementation, with the binary search helper, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;long&lt;/code&gt; arithmetic, and the edge-case tests, is in my book &lt;strong&gt;&lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;The Code Interview&lt;/a&gt;&lt;/strong&gt;, along with dozens of other real interview questions solved step by step:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/theCodeInterview.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -2413,7 +2413,7 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://www.amazon.com/dp/B0HMWNF1Y4&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;../assets/images/SoftwareDesignPrinciplesV2.png&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://www.amazon.com/dp/B0HMWNF1Y4&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/SoftwareDesignPrinciplesV2.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -2561,7 +2561,7 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;Interviews for backend roles increasingly include API design questions, and coding challenges too. Prepare for both:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/theCodeInterview.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -2665,7 +2665,7 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;A test helper today, a production tool tomorrow. Small design choices like these decide whether code stays readable as it grows:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://www.amazon.com/dp/B0HMWNF1Y4&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/SoftwareDesignPrinciplesV2.png&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://www.amazon.com/dp/B0HMWNF1Y4&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/SoftwareDesignPrinciplesV2.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -2965,7 +2965,7 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;Escaping nested loops, early exits and API-driven test data are classic interview topics. Practice them on real questions:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/theCodeInterview.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;
@@ -3149,7 +3149,7 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;Security and observability questions are common in backend interviews: how would you detect a brute-force attack on your login? Prepare with real questions:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;320&quot; height=&quot;500&quot; src=&quot;../recommended/images/theCodeInterview.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;../assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;br /&gt;&lt;/div&gt;

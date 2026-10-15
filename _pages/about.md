@@ -134,9 +134,15 @@ comments: false
 
     <!-- Support -->
     <div class="about-section">
-      <h4>Support my work</h4>
-      <p>codersite.dev is a labour of love. If an article has helped you, please consider supporting the blog — every contribution, no matter how small, helps me add more content. Thank you!</p>
+      <h4>Help Keep Great Software Knowledge Growing ☕</h4>
+	  <p>Do you find these articles useful? Help me create more!</p>
+	  <p>My goal is to make programming and software design easier to understand through practical examples, clear explanations, and ideas you can apply to real-world projects.</p>
+	  <p>Creating quality technical content takes time, research, and dedication. Your support helps keep this website growing and allows me to continue sharing knowledge with developers who want to write better code, design better systems, and become better engineers.</p>
+	  <p><b>If an article has helped you solve a problem, learn something new, or become a better developer, consider buying me a coffee. ☕</b></p>
+
       {% include buymeacoffee.html %}
+	  
+	  <p>Thank you for your support!</p>
     </div>
 
   </div>
@@ -155,9 +161,9 @@ comments: false
       </div>
 
       <div class="book-card">
-        <a href="https://amzn.to/3AucVBA" target="_blank" rel="noopener"><img alt="Software Design Principles: A Practical Guide — book by Moisés Gamio" src="{{ site.baseurl }}/assets/images/SoftwareDesignPortadaJPG.jpg"></a>
+        <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank" rel="noopener"><img alt="Software Design Principles: A Practical Guide — book by Moisés Gamio" src="{{ site.baseurl }}/assets/images/SoftwareDesignPrinciplesV2.png"></a>
         <p>My practical guide to software design — real-world examples, diagrams, and clear explanations that make complex systems simple.</p>
-        <div class="text-center"><a target="_blank" rel="noopener" href="https://amzn.to/3AucVBA" class="btn btn-danger">Get it on Amazon</a></div>
+        <div class="text-center"><a target="_blank" rel="noopener" href="https://www.amazon.com/dp/B0HMWNF1Y4" class="btn btn-danger">Get it on Amazon</a></div>
       </div>
 
     </div>
