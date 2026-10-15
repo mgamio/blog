@@ -128,7 +128,8 @@ Load balancers, clusters and shared state are standard topics in system design i
 {%- include softwareDesignAd1.html -%}
 </div>
 
-Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
-
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

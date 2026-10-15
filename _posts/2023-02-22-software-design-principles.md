@@ -290,7 +290,8 @@ Not sure yet? [Read the first chapters free](https://codersite.dev/assets/files/
 - [Understanding OOP Concepts](https://codersite.dev/understanding-oop-concepts/){:target="_blank"}
 - [UML Diagrams for Java Developers](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"}
 
-Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
-
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

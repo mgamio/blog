@@ -178,6 +178,6 @@ New to data structures and algorithms? Start with my guides on [Data Structures]
 {%- include technical_Interview_Preparation_Roadmap.html -%}
 </div>
 
-Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
-
+<div>
 {% include buymeacoffee.html %}
+</div>

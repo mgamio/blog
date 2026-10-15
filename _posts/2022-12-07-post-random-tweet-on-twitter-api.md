@@ -299,7 +299,8 @@ Two ways to keep the costs down:
 - **Handle errors.** If the API is down or your credits run out, `retrieve()` throws an exception. Log it, and don't retry a paid request in a loop.
 - **Run one instance.** Two instances of the application would each post on the same schedule.
 
-Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
-
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

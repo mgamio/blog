@@ -181,7 +181,8 @@ Streams and lambdas come up in almost every Java interview: rewrite this loop as
 {%- include jediJavaInterviewAds.html -%}
 </div>
 
-Please support me as a writer. Your donation will help add more articles to this website. Thank you!
-
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

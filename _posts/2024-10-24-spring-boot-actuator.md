@@ -128,7 +128,8 @@ Security and observability questions are common in backend interviews: how would
 {%- include jediJavaInterviewAds.html -%}
 </div>
 
-Please support me as a writer. Your donation will help add more articles to this website. Thank you!
-
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

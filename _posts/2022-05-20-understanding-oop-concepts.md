@@ -241,5 +241,8 @@ What's the difference between overriding and overloading? Why favor composition 
 {%- include jediJavaInterviewAds.html -%}
 </div>
 
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

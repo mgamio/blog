@@ -263,7 +263,8 @@ The complete project, with Spring Boot 4.1, Bucket4j 8.21 and tests for the limi
 {%- include jediJavaInterviewAds.html -%}
 </div>
 
-Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
-
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

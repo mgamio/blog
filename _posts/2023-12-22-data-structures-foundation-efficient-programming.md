@@ -244,7 +244,8 @@ Choosing data structures is a design decision, and good design is about understa
 
 Every example in this post compiles and runs as shown with Java 17.
 
-Please support me as a writer. Your donation will help add more articles to this website. Thank you!
-
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>
