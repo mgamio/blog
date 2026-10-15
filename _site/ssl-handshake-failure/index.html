@@ -7,25 +7,25 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Resolving SSL handshake failure in Java applications | codersite</title>
+<title>Fix ‘Received fatal alert: handshake_failure’ in Java: SSL/TLS Troubleshooting | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Resolving SSL handshake failure in Java applications" />
+<meta property="og:title" content="Fix ‘Received fatal alert: handshake_failure’ in Java: SSL/TLS Troubleshooting" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The Secure Socket Layer (SSL) enables a secured connection between a client and a server." />
-<meta name="twitter:description" property="og:description" content="The Secure Socket Layer (SSL) enables a secured connection between a client and a server." />
-<link rel="canonical" href="http://localhost:4000/ssl-handshake-failure/" />
-<meta property="og:url" content="http://localhost:4000/ssl-handshake-failure/" />
+<meta name="description" content="Why a Java client fails with handshake_failure, how to find the cause with javax.net.debug and openssl, and how to fix protocol and cipher mismatches in Java and Spring WebClient." />
+<meta name="twitter:description" property="og:description" content="Why a Java client fails with handshake_failure, how to find the cause with javax.net.debug and openssl, and how to fix protocol and cipher mismatches in Java and Spring WebClient." />
+<link rel="canonical" href="https://codersite.dev/ssl-handshake-failure/" />
+<meta property="og:url" content="https://codersite.dev/ssl-handshake-failure/" />
 <meta property="og:site_name" content="codersite" />
-<meta property="og:image" content="http://localhost:4000/assets/images/sslHandshake.jpg" />
+<meta property="og:image" content="https://codersite.dev/assets/images/sslHandshake.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-05-11T00:00:00+02:00" />
 <meta property="article:modified_time" content="2022-05-11T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://localhost:4000/assets/images/sslHandshake.jpg" />
-<meta name="twitter:title" content="Resolving SSL handshake failure in Java applications" />
+<meta name="twitter:image" content="https://codersite.dev/assets/images/sslHandshake.jpg" />
+<meta name="twitter:title" content="Fix ‘Received fatal alert: handshake_failure’ in Java: SSL/TLS Troubleshooting" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-05-11T00:00:00+02:00","datePublished":"2022-05-11T00:00:00+02:00","description":"The Secure Socket Layer (SSL) enables a secured connection between a client and a server.","headline":"Resolving SSL handshake failure in Java applications","image":"http://localhost:4000/assets/images/sslHandshake.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ssl-handshake-failure/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"},"name":"moises"},"url":"http://localhost:4000/ssl-handshake-failure/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-05-11T00:00:00+02:00","datePublished":"2022-05-11T00:00:00+02:00","description":"Why a Java client fails with handshake_failure, how to find the cause with javax.net.debug and openssl, and how to fix protocol and cipher mismatches in Java and Spring WebClient.","headline":"Fix ‘Received fatal alert: handshake_failure’ in Java: SSL/TLS Troubleshooting","image":"https://codersite.dev/assets/images/sslHandshake.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/ssl-handshake-failure/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/ssl-handshake-failure/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -171,19 +171,19 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Resolving SSL handshake failure in Java applications&url=http://localhost:4000/ssl-handshake-failure/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Fix 'Received fatal alert: handshake_failure' in Java: SSL/TLS Troubleshooting&url=https://codersite.dev/ssl-handshake-failure/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
 
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/ssl-handshake-failure/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=https://codersite.dev/ssl-handshake-failure/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
                 <i class="fab fa-facebook-f"></i>
             </a>
         </li>
 
          <li class="ml-1 mr-1">
-            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/ssl-handshake-failure/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://codersite.dev/ssl-handshake-failure/" onclick="window.open(this.href, 'width=550,height=435');return false;">
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </li>	
@@ -219,7 +219,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Resolving SSL handshake failure in Java applications</h1>
+                <h1 class="posttitle">Fix 'Received fatal alert: handshake_failure' in Java: SSL/TLS Troubleshooting</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -227,7 +227,7 @@
                 <p class="post-meta-line">
                     <time datetime="2022-05-11T00:00:00+02:00" itemprop="datePublished">May 11, 2022</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">7 min read</span>
+                    <span class="meta-reading-time">9 min read</span>
                     
                 </p>
 
@@ -242,7 +242,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/sslHandshake.jpg" alt="Resolving SSL handshake failure in Java applications">
+            <img class="featured-image img-fluid" src="/assets/images/sslHandshake.jpg" alt="Fix 'Received fatal alert: handshake_failure' in Java: SSL/TLS Troubleshooting">
             
 
             
@@ -253,31 +253,50 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>The Secure Socket Layer (SSL) enables a secured connection between a client and a server. SSL Handshake is a set of steps that make it possible for this secured connection over the network.</p>
+                <p>Your Java client calls an HTTPS API and fails before sending a single request:</p>
 
-<p>A summary of the steps in the SSL handshake:</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The message says that the <strong>server</strong> ended the connection during the TLS handshake, but not why. This post shows how a TLS handshake works, how to find out what went wrong with <code class="language-plaintext highlighter-rouge">javax.net.debug</code> and <code class="language-plaintext highlighter-rouge">openssl</code>, and how to fix the most common cause, a protocol or cipher mismatch, in plain Java and in Spring’s WebClient.</p>
+
+<h2 id="how-the-tls-handshake-works">How the TLS Handshake Works</h2>
+
+<p>TLS (Transport Layer Security) encrypts the connection between a client and a server. It replaced SSL (Secure Sockets Layer), which is why many error messages and class names still say <em>SSL</em>. Before any data is sent, client and server run a <strong>handshake</strong>:</p>
+
+<ol>
+  <li>The client says which protocol versions (TLS 1.2, TLS 1.3…) and cipher suites it supports.</li>
+  <li>The server picks a version and a cipher suite that both sides support. If there is none, the handshake fails here.</li>
+  <li>The server sends its certificate, and the client checks that it’s valid and trusted. With <em>mutual TLS</em>, the client also sends a certificate.</li>
+  <li>Both sides agree on a shared secret key, usually with ECDHE (Elliptic Curve Diffie-Hellman), and use it to encrypt everything that follows.</li>
+</ol>
+
+<h3 id="whats-in-a-cipher-suite">What’s in a Cipher Suite?</h3>
+
+<p>A cipher suite names the algorithms for one connection. For example, <code class="language-plaintext highlighter-rouge">TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</code> means:</p>
 
 <ul>
-  <li>Agree on the version of the cryptographic protocol to use.</li>
-  <li>Select cryptographic algorithms - cipher suites to use.</li>
-  <li>Exchange and validate digital certificates to authenticate each other.</li>
-  <li>Generate a shared secret key using asymmetric encryption techniques.</li>
+  <li><strong>ECDHE:</strong> how the shared key is agreed;</li>
+  <li><strong>RSA:</strong> how the server proves its identity (an RSA certificate);</li>
+  <li><strong>AES_128_GCM:</strong> how the data is encrypted;</li>
+  <li><strong>SHA256:</strong> the hash function used in the handshake.</li>
 </ul>
 
-<p>For more information about cryptographic algorithms and digital certificates, refer <a href="https://www.ibm.com/docs/en/ibm-mq/9.3?topic=overview-cryptographic-security-protocols-tls" target="_blank">here</a>.</p>
+<p>In TLS 1.3, suite names are shorter, such as <code class="language-plaintext highlighter-rouge">TLS_AES_128_GCM_SHA256</code>, because the key agreement is negotiated separately. Old suites with RC4, DES or MD5 are insecure, and modern servers and JDKs reject them.</p>
 
-<h2 id="ssl-handshake-failure-during-api-integration">SSL handshake failure during API integration</h2>
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
 
-<p>We try to build a Spring WebClient component to consume data from an API Server (target_server).</p>
+<h2 id="the-failure-a-client-stuck-on-tls-10">The Failure: a Client Stuck on TLS 1.0</h2>
 
-<p>Requisites:</p>
+<p>We built a Spring WebClient to read data from a partner’s API. The application ran on WebSphere Application Server with IBM Java 8:</p>
 
-<ul>
-  <li>SDK: 1.8 java version “1.8.0_191”</li>
-  <li>Websphere application server</li>
-</ul>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -288,67 +307,160 @@
 9
 10
 11
-12
-13
-14
-15
-</pre></td><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">username</span><span class="p">=</span><span class="s">"here_username_target_server"</span><span class="p">;</span>
-<span class="nc">String</span> <span class="n">password</span> <span class="p">=</span> <span class="s">"here_password_target_server"</span><span class="p">;</span>
+</pre></td><td class="rouge-code"><pre><span class="nc">WebClient</span> <span class="n">webClient</span> <span class="o">=</span> <span class="nc">WebClient</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">baseUrl</span><span class="o">(</span><span class="s">"https://api.partner.example"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="nc">ExchangeFilterFunctions</span><span class="o">.</span><span class="na">basicAuthentication</span><span class="o">(</span><span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">))</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-<span class="nc">WebClient</span> <span class="n">webClient</span> <span class="p">=</span> <span class="nc">WebClient</span><span class="p">.</span><span class="nf">builder</span><span class="p">()</span>
-  <span class="p">.</span><span class="nf">baseUrl</span><span class="p">(</span><span class="s">"baseUrl_target_server"</span><span class="p">)</span>
-  <span class="p">.</span><span class="nf">filter</span><span class="p">(</span><span class="nf">basicAuthentication</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
-  <span class="p">.</span><span class="nf">build</span><span class="p">();</span>
-
-<span class="nc">Mono</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">monoString</span> <span class="p">=</span> <span class="n">webClient</span>
-  <span class="p">.</span><span class="k">get</span><span class="p">()</span>
-  <span class="p">.</span><span class="nf">uri</span><span class="p">(</span><span class="s">"uri_target_server"</span><span class="p">).</span><span class="nf">accept</span><span class="p">(</span><span class="nc">MediaType</span><span class="p">.</span><span class="nc">TEXT_PLAIN</span><span class="p">)</span>
-  <span class="p">.</span><span class="nf">retrieve</span><span class="p">()</span>
-  <span class="p">.</span><span class="nf">bodyToMono</span><span class="p">(</span><span class="nc">String</span><span class="p">.</span><span class="k">class</span><span class="p">).</span><span class="nf">log</span><span class="p">();</span>
-
-<span class="n">logger</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="n">monoString</span><span class="p">.</span><span class="nf">block</span><span class="p">());</span>
+<span class="nc">String</span> <span class="n">body</span> <span class="o">=</span> <span class="n">webClient</span><span class="o">.</span><span class="na">get</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">uri</span><span class="o">(</span><span class="s">"/articles"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">TEXT_PLAIN</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">retrieve</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">bodyToMono</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">block</span><span class="o">();</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
+<p>Every call failed:</p>
 
-<p>Once the client is running, it throws the following error - a common SSL Handshake issue.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nc">ERROR</span> <span class="nc">WebClientRequestException</span><span class="p">:</span> <span class="nc">Received</span> <span class="n">fatal</span> <span class="n">alert</span><span class="p">:</span> <span class="n">handshake_failure</span><span class="p">;</span> <span class="n">nested</span> <span class="n">exception</span> <span class="k">is</span> <span class="n">javax</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">ssl</span><span class="p">.</span><span class="nc">SSLException</span><span class="p">:</span> <span class="nc">Received</span> <span class="n">fatal</span> <span class="n">alert</span><span class="p">:</span> <span class="n">handshake_failure</span><span class="p">)</span>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>ERROR WebClientRequestException: Received fatal alert: handshake_failure;
+nested exception is javax.net.ssl.SSLException: Received fatal alert: handshake_failure
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="what-is-tls">What is TLS?</h3>
+<h2 id="step-1-what-does-the-client-offer">Step 1: What Does the Client Offer?</h2>
 
-<p>Transport Layer Security (TLS) is a protocol for implementing cryptography on the web. Encrypts data sent over the Internet to ensure hackers cannot see your sensitive information such as passwords or credit card numbers.</p>
+<p>At startup, Netty (the HTTP library under WebClient) logs the protocols and cipher suites that the JDK offers:</p>
 
-<p>TLS protocol evolved from Secure Socket Layer (SSL) developed by Netscape to secure web sessions.</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>DEBUG io.netty.handler.ssl.JdkSslContext - Default protocols (JDK): [TLSv1]
+DEBUG io.netty.handler.ssl.JdkSslContext - Default cipher suites (JDK): [TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, ...]
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="cipher-suite">Cipher Suite</h3>
+<p>The client offered <strong>only TLS 1.0</strong>. For any Java client, not only Netty, you can see the full handshake with a JVM option:</p>
 
-<p>A Cipher Suite is a set of cryptographic algorithms used by an SSL or TLS connection. A suite includes three distinct <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">algorithms</a>:</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>java -Djavax.net.debug=ssl:handshake -jar app.jar
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>It prints the <em>ClientHello</em> (what the client offers), the server’s answer, and the alert that ended the handshake.</p>
+
+<h2 id="step-2-what-does-the-server-accept">Step 2: What Does the Server Accept?</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">openssl</code> command line tool (included in Git Bash on Windows) connects like a TLS client and shows what the server negotiated:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>$ openssl s_client -connect api.partner.example:443
+...
+New, TLSv1.2, Cipher is ECDHE-RSA-AES128-GCM-SHA256
+Server public key is 4096 bit
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES128-GCM-SHA256
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>To test one version at a time, add <code class="language-plaintext highlighter-rouge">-tls1</code>, <code class="language-plaintext highlighter-rouge">-tls1_1</code>, <code class="language-plaintext highlighter-rouge">-tls1_2</code> or <code class="language-plaintext highlighter-rouge">-tls1_3</code>. Here, <code class="language-plaintext highlighter-rouge">-tls1_2</code> connected and <code class="language-plaintext highlighter-rouge">-tls1</code> failed. <strong>The server requires TLS 1.2, and the client offered only TLS 1.0</strong>: there was no common protocol, so the server ended the handshake. TLS 1.0 and 1.1 have been officially deprecated since 2021 (<a href="https://www.rfc-editor.org/rfc/rfc8996" target="_blank">RFC 8996</a>), so the server was right to refuse.</p>
+
+<h3 id="reproducing-it">Reproducing It</h3>
+
+<p>I reproduced both mismatches with a Java client and a Java server, running the handshake in memory. With a <strong>cipher mismatch</strong> (server: only AES-256-GCM, client: only AES-128-GCM), the client gets exactly our error, and the server log says why:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>client: javax.net.ssl.SSLHandshakeException: (handshake_failure) Received fatal alert: handshake_failure
+server: javax.net.ssl.SSLHandshakeException: (handshake_failure) no cipher suites in common
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>With a <strong>protocol mismatch</strong> (client: TLS 1.0, server: TLS 1.2), a current JDK server answers with a more specific alert. Older servers often send <code class="language-plaintext highlighter-rouge">handshake_failure</code> here too:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>client: javax.net.ssl.SSLHandshakeException: (protocol_version) Received fatal alert: protocol_version
+server: javax.net.ssl.SSLHandshakeException: (protocol_version) The client supported protocol versions [TLSv1] are not accepted by server preferences [TLSv1.2]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>After allowing TLS 1.2 in the client, the handshake succeeds:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>connected with TLSv1.2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The lesson: when you can, <strong>ask the server team for their log</strong>. The client only sees “handshake_failure”; the server knows the reason.</p>
+
+<h2 id="step-3-fix-it">Step 3: Fix It</h2>
+
+<p><strong>Best fix: upgrade the JDK.</strong> Oracle Java and OpenJDK 8 already use TLS 1.2 by default, later Java 8 updates added TLS 1.3, and Java 11 and newer use TLS 1.3 by default. On WebSphere, upgrading often means waiting for the next fix pack, so the following options help in the meantime.</p>
+
+<p><strong>IBM Java (WebSphere):</strong> IBM’s JDK 8 uses TLS 1.0 for <code class="language-plaintext highlighter-rouge">SSLContext.getInstance("TLS")</code> unless you set:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>-Dcom.ibm.jsse2.overrideDefaultTLS=true
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This option exists <strong>only in IBM Java</strong>; Oracle and OpenJDK ignore it. Add it as a JVM argument in the server’s configuration (<em>Java Virtual Machine &gt; Generic JVM arguments</em> in WebSphere), not with <code class="language-plaintext highlighter-rouge">System.setProperty()</code> in your code: the SSL classes read it once, and if anything has already used SSL, setting it later has no effect. After the change, our client offered:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>DEBUG io.netty.handler.ssl.JdkSslContext - Default protocols (JDK): [TLSv1.2, TLSv1.1, TLSv1]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>and the handshake with the server succeeded.</p>
+
+<p><strong>Oracle JDK and OpenJDK 8:</strong> set the protocols that clients offer with:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>-Djdk.tls.client.protocols=TLSv1.2,TLSv1.3
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>Spring WebClient, independent of the JDK defaults:</strong> set the protocols on Netty’s <code class="language-plaintext highlighter-rouge">SslContext</code>. This works with Spring Boot 3 and 4, and I tested it against a public HTTPS server:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="nc">SslContext</span> <span class="n">sslContext</span> <span class="o">=</span> <span class="nc">SslContextBuilder</span><span class="o">.</span><span class="na">forClient</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">protocols</span><span class="o">(</span><span class="s">"TLSv1.3"</span><span class="o">,</span> <span class="s">"TLSv1.2"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+<span class="nc">HttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="nc">HttpClient</span><span class="o">.</span><span class="na">create</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">secure</span><span class="o">(</span><span class="n">spec</span> <span class="o">-&gt;</span> <span class="n">spec</span><span class="o">.</span><span class="na">sslContext</span><span class="o">(</span><span class="n">sslContext</span><span class="o">));</span>
+
+<span class="nc">WebClient</span> <span class="n">webClient</span> <span class="o">=</span> <span class="nc">WebClient</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">clientConnector</span><span class="o">(</span><span class="k">new</span> <span class="nc">ReactorClientHttpConnector</span><span class="o">(</span><span class="n">httpClient</span><span class="o">))</span>
+    <span class="o">.</span><span class="na">baseUrl</span><span class="o">(</span><span class="s">"https://api.partner.example"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">HttpClient</code> here is <code class="language-plaintext highlighter-rouge">reactor.netty.http.client.HttpClient</code>, not the JDK’s <code class="language-plaintext highlighter-rouge">java.net.http.HttpClient</code>.</p>
+
+<h2 id="ssl-handshake-troubleshooting-checklist">SSL Handshake Troubleshooting Checklist</h2>
+
+<p>Different TLS errors have different causes. Find your message:</p>
 
 <ul>
-  <li>The key exchange and authentication algorithm.</li>
-  <li>The encryption algorithm to encipher the data</li>
-  <li>The MAC (Message Authentication Code) algorithm generates the message digest.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Received fatal alert: handshake_failure</code>:</strong> the server found no common protocol or cipher suite, or it requires a client certificate (mutual TLS) that you didn’t send. Compare the client’s offer (<code class="language-plaintext highlighter-rouge">javax.net.debug</code>) with what the server accepts (<code class="language-plaintext highlighter-rouge">openssl s_client</code>).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Received fatal alert: protocol_version</code>:</strong> no common TLS version. Enable TLS 1.2 or 1.3 in the client.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">No appropriate protocol (protocol is disabled or cipher suites are inappropriate)</code>:</strong> the error comes from <strong>your own JDK</strong>, before anything is sent. Current JDKs disable TLS 1.0 and 1.1 in <code class="language-plaintext highlighter-rouge">java.security</code>. Don’t re-enable them; ask for the server to be upgraded.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">PKIX path building failed: unable to find valid certification path</code>:</strong> the protocol was fine, but the client doesn’t trust the server’s certificate. Add the server’s CA certificate to the client’s truststore. Antivirus products that scan HTTPS can cause this too: while testing this post, Norton replaced every server certificate with its own, which Java doesn’t trust by default. On Windows, <code class="language-plaintext highlighter-rouge">-Djavax.net.ssl.trustStoreType=Windows-ROOT</code> makes Java use the Windows certificate store, which includes such certificates.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">No subject alternative DNS name matching ...</code> (or <code class="language-plaintext highlighter-rouge">... names matching IP address ...</code>):</strong> the certificate is valid but issued for a different host name. Call the API with the host name that’s in the certificate, not with its IP address.</li>
 </ul>
 
-<p>For example, the Cipher Suite SSL_RSA_WITH_RC4_128_MD5 includes:</p>
+<p>When the handshake works but the API still fails, the next problems are HTTP errors and overload: see <a href="https://codersite.dev/how-rest-client-handles-503-error/" target="_blank">how a REST client should handle a 503 error</a> and <a href="https://codersite.dev/building-rest-api-client/" target="_blank">building a REST API client</a>. And when you need to search the logs of several servers at once, read <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">hot-warm architecture in Elasticsearch</a>.</p>
 
-<ul>
-  <li>The RSA key exchange and authentication algorithm</li>
-  <li>The RC4 encryption algorithm, using a 128-bit key</li>
-  <li>The MD5 MAC algorithm</li>
-</ul>
-
-<blockquote>
-  <p>Confidence in interviews is built, not born.</p>
-</blockquote>
+<p>“What happens during a TLS handshake?” is a classic question in backend interviews, together with HTTP, REST and Java networking. Practice with real interview questions:</p>
 
 <div><center>
   <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="../assets/images/theCodeInterview-featured.jpg" /></a>
@@ -356,101 +468,7 @@
 
 <br /></div>
 
-<h2 id="how-to-interpret-ssl-handshake-failure-logs">How to interpret SSL handshake failure logs</h2>
-
-<p>We usually check if both parties - client and server - comply with all the steps of the SSL Handshake mechanism.</p>
-
-<p>The first two steps deal with cryptographic protocols and cipher suites.</p>
-
-<p>Returning to our scenario, when the client initializes, we see the following lines on the console.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="mi">15</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mf">23.567</span> <span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="nc">DEBUG</span> <span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">ssl</span><span class="p">.</span><span class="nc">OpenSsl</span> <span class="p">-</span> <span class="n">netty-tcnative</span> <span class="n">not</span> <span class="k">in</span> <span class="n">the</span> <span class="n">classpath</span><span class="p">;</span> <span class="nc">OpenSslEngine</span> <span class="n">will</span> <span class="n">be</span> <span class="n">unavailable</span><span class="p">.</span>
-<span class="mi">15</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mf">24.939</span> <span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="nc">DEBUG</span> <span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">ssl</span><span class="p">.</span><span class="nc">JdkSslContext</span> <span class="p">-</span> <span class="nc">Default</span> <span class="nf">protocols</span> <span class="p">(</span><span class="nc">JDK</span><span class="p">):</span> <span class="p">[</span><span class="nc">TLSv1</span><span class="p">]</span>
-<span class="mi">15</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mf">24.939</span> <span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="nc">DEBUG</span> <span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">ssl</span><span class="p">.</span><span class="nc">JdkSslContext</span> <span class="p">-</span> <span class="nc">Default</span> <span class="n">cipher</span> <span class="nf">suites</span> <span class="p">(</span><span class="nc">JDK</span><span class="p">):</span> <span class="p">[</span><span class="nc">TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384</span><span class="p">,</span> <span class="nc">TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</span><span class="p">,</span> <span class="nc">TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</span><span class="p">,</span> <span class="nc">TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</span><span class="p">,</span> <span class="nc">TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA</span><span class="p">,</span> <span class="nc">TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA</span><span class="p">,</span> <span class="nc">TLS_RSA_WITH_AES_128_GCM_SHA256</span><span class="p">,</span> <span class="nc">TLS_RSA_WITH_AES_128_CBC_SHA</span><span class="p">,</span> <span class="nc">TLS_RSA_WITH_AES_256_CBC_SHA</span><span class="p">]</span>
-
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>We can realize Client is using the <strong>TLSv1</strong> protocol</p>
-
-<p>Now let’s see on the server-side by using an OpenSSL command. (On Windows PC we can use Git Bash)</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="n">openssl</span> <span class="n">s_client</span> <span class="p">-</span><span class="n">connect</span> <span class="p">&lt;</span><span class="nc">IP</span><span class="p">&gt;:&lt;</span><span class="nc">PORT</span><span class="p">&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Now, we can see the response.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="rouge-code"><pre><span class="p">---</span>
-<span class="nc">SSL</span> <span class="n">handshake</span> <span class="n">has</span> <span class="n">read</span> <span class="mi">5388</span> <span class="n">bytes</span> <span class="n">and</span> <span class="n">written</span> <span class="mi">473</span> <span class="n">bytes</span>
-<span class="nc">Verification</span><span class="p">:</span> <span class="nc">OK</span>
-<span class="p">---</span>
-<span class="nc">New</span><span class="p">,</span> <span class="nc">TLSv1</span><span class="mf">.2</span><span class="p">,</span> <span class="nc">Cipher</span> <span class="k">is</span> <span class="nc">ECDHE-RSA-AES128-GCM-SHA256</span>
-<span class="nc">Server</span> <span class="k">public</span> <span class="n">key</span> <span class="k">is</span> <span class="mi">4096</span> <span class="n">bit</span>
-<span class="nc">Secure</span> <span class="nc">Renegotiation</span> <span class="nc">IS</span> <span class="n">supported</span>
-<span class="nc">Compression</span><span class="p">:</span> <span class="nc">NONE</span>
-<span class="nc">Expansion</span><span class="p">:</span> <span class="nc">NONE</span>
-<span class="nc">No</span> <span class="nc">ALPN</span> <span class="n">negotiated</span>
-<span class="nc">SSL-Session</span><span class="p">:</span>
-    <span class="nc">Protocol</span>  <span class="p">:</span> <span class="nc">TLSv1</span><span class="mf">.2</span>
-    <span class="nc">Cipher</span>    <span class="p">:</span> <span class="nc">ECDHE-RSA-AES128-GCM-SHA256</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
-
-<p>The server uses the <strong>TLSv1.2</strong> protocol, which means the Client and Server are not using the same protocol version.</p>
-
-<h2 id="fixing-ssl-handshake-failures">Fixing SSL handshake failures</h2>
-
-<p>From the server response, some ciphers are not supported in the TLSv1.2 protocol.</p>
-
-<p>We can upgrade the java version, but sometimes it is not easy because many applications depend on WebSphere licenses, and we need to wait until the next release.</p>
-
-<p>Once we have identified the supported Protocol and Cipher Suites supported by the server, we can modify the ones supported by the Client through the TLS configuration to be able to connect to the Server.</p>
-
-<p>Or we can implement the following system property to our Client code.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nc">System</span><span class="p">.</span><span class="nf">setProperty</span><span class="p">(</span><span class="s">"com.ibm.jsse2.overrideDefaultTLS"</span><span class="p">,</span><span class="s">"true"</span><span class="p">);</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>We rerun the Client and see the console.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="mi">16</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mf">56.858</span> <span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="nc">DEBUG</span> <span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">ssl</span><span class="p">.</span><span class="nc">OpenSsl</span> <span class="p">-</span> <span class="n">netty-tcnative</span> <span class="n">not</span> <span class="k">in</span> <span class="n">the</span> <span class="n">classpath</span><span class="p">;</span> <span class="nc">OpenSslEngine</span> <span class="n">will</span> <span class="n">be</span> <span class="n">unavailable</span><span class="p">.</span>
-<span class="mi">16</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mf">58.106</span> <span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="nc">DEBUG</span> <span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">ssl</span><span class="p">.</span><span class="nc">JdkSslContext</span> <span class="p">-</span> <span class="nc">Default</span> <span class="nf">protocols</span> <span class="p">(</span><span class="nc">JDK</span><span class="p">):</span> <span class="p">[</span><span class="nc">TLSv1</span><span class="mf">.2</span><span class="p">,</span> <span class="nc">TLSv1</span><span class="mf">.1</span><span class="p">,</span> <span class="nc">TLSv1</span><span class="p">]</span>
-<span class="mi">16</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mf">58.106</span> <span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="nc">DEBUG</span> <span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">ssl</span><span class="p">.</span><span class="nc">JdkSslContext</span> <span class="p">-</span> <span class="nc">Default</span> <span class="n">cipher</span> <span class="nf">suites</span> <span class="p">(</span><span class="nc">JDK</span><span class="p">):</span> <span class="p">[</span><span class="nc">TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384</span><span class="p">,</span> <span class="nc">TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</span><span class="p">,</span> <span class="nc">TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</span><span class="p">,</span> <span class="nc">TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</span><span class="p">,</span> <span class="nc">TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA</span><span class="p">,</span> <span class="nc">TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA</span><span class="p">,</span> <span class="nc">TLS_RSA_WITH_AES_128_GCM_SHA256</span><span class="p">,</span> <span class="nc">TLS_RSA_WITH_AES_128_CBC_SHA</span><span class="p">,</span> <span class="nc">TLS_RSA_WITH_AES_256_CBC_SHA</span><span class="p">]</span>
-
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Now Client and Server are agreed on the SSL Handshake and can exchange data.</p>
-
-<p>When you need to analyze several server logs in a distributed system, read the article <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">Implementing hot-warm architecture in Elasticsearch</a>.</p>
-
-<p>Please donate to maintain and improve this website if you find this content valuable.</p>
+<p>Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!</p>
 
 <p><b><i>“If this article helped you, help me create the next one.”</i></b></p>
 <p><a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a></p>
@@ -498,13 +516,13 @@
             <!-- Prev/Next -->
             <nav class="PageNavigation post-nav-cards" aria-label="Post navigation">
             
-                <a class="nav-item-card prev" href="http://localhost:4000/spring-boot-oauth2/" rel="prev">
+                <a class="nav-item-card prev" href="https://codersite.dev/spring-boot-oauth2/" rel="prev">
                     <span class="nav-label">&laquo; Previous</span>
                     <span class="nav-title">How to implement Spring Boot Security OAuth2 with OpenAPI</span>
                 </a>
             
             
-                <a class="nav-item-card next" href="http://localhost:4000/understanding-oop-concepts/" rel="next">
+                <a class="nav-item-card next" href="https://codersite.dev/understanding-oop-concepts/" rel="next">
                     <span class="nav-label">Next &raquo;</span>
                     <span class="nav-title">OOP Concepts in Java: The 4 Pillars and Composition, with Examples</span>
                 </a>
@@ -538,11 +556,11 @@ https://search.google.com/structured-data/testing-tool/u/0/
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:4000/ssl-handshake-failure/"
+    "@id": "https://codersite.dev/ssl-handshake-failure/"
   },
-  "headline": "Resolving SSL handshake failure in Java applications",
-  "description": "The Secure Socket Layer (SSL) enables a secured connection between a client and a server.",
-  "image": "http://localhost:4000/assets/images/sslHandshake.jpg",
+  "headline": "Fix 'Received fatal alert: handshake_failure' in Java: SSL/TLS Troubleshooting",
+  "description": "Why a Java client fails with handshake_failure, how to find the cause with javax.net.debug and openssl, and how to fix protocol and cipher mismatches in Java and Spring WebClient.",
+  "image": "https://codersite.dev/assets/images/sslHandshake.jpg",
   "datePublished": "2022-05-11T00:00:00+02:00",
   "dateModified": "2022-05-11T00:00:00+02:00",
   "author": {
@@ -555,7 +573,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "name": "codersite",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:4000/assets/images/logo.png"
+      "url": "https://codersite.dev/assets/images/logo.png"
     }
   }
 }
@@ -568,19 +586,19 @@ https://search.google.com/structured-data/testing-tool/u/0/
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "http://localhost:4000/"
+      "item": "https://codersite.dev/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Web APIs",
-      "item": "http://localhost:4000/categories#Web-APIs"
+      "item": "https://codersite.dev/categories#Web-APIs"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Resolving SSL handshake failure in Java applications",
-      "item": "http://localhost:4000/ssl-handshake-failure/"
+      "name": "Fix 'Received fatal alert: handshake_failure' in Java: SSL/TLS Troubleshooting",
+      "item": "https://codersite.dev/ssl-handshake-failure/"
     }
   ]
 }
