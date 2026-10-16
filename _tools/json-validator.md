@@ -4,6 +4,7 @@ short_title: "JSON Validator"
 description: "Free online JSON validator and formatter. Shows the exact line and column of each error and how to fix it, keeps large numbers exact, and runs entirely in your browser."
 lead: "Paste your JSON to check it as you type. If it's invalid, you see the exact line and column and how to fix it. If it's valid, you get it formatted or minified."
 tool: json-validator
+scripts: [json-core]
 order: 1
 ---
 

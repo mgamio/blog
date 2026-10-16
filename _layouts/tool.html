@@ -2,9 +2,12 @@
 layout: default
 ---
 <!-- Free developer tool page. Front matter: title, description, short_title, lead, tool (the
-     include in _includes/tools/ and the script in assets/js/tools/). The page content is the
+     include in _includes/tools/ and the script in assets/js/tools/), and optional scripts (shared
+     scripts from assets/js/tools/ loaded first, e.g. [json-core]). The page content is the
      explanation below the tool. Don't use <header> here: mediumish.js sizes the top margin
      from the first <header> on the page. -->
+<link href="{{ '/assets/css/tools.css' | relative_url }}" rel="stylesheet">
+
 <style>
 .tool-page {
     max-width: 1100px;
@@ -117,6 +120,9 @@ layout: default
 
 </div>
 
+{% for s in page.scripts %}
+<script src="{{ '/assets/js/tools/' | append: s | append: '.js' | relative_url }}" defer></script>
+{% endfor %}
 <script src="{{ '/assets/js/tools/' | append: page.tool | append: '.js' | relative_url }}" defer></script>
 
 <script type="application/ld+json">

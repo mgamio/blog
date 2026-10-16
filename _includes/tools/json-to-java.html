@@ -1,0 +1,49 @@
+<div class="jt">
+    <div class="jt-options">
+        <label class="jt-field">Class name
+            <input type="text" id="j2jRoot" value="Root" spellcheck="false" autocomplete="off">
+        </label>
+        <label class="jt-field">Package (optional)
+            <input type="text" id="j2jPackage" placeholder="com.example.model" spellcheck="false" autocomplete="off">
+        </label>
+        <label class="jt-field">Generate
+            <select id="j2jStyle">
+                <option value="record" selected>Java records</option>
+                <option value="lombok">Lombok classes (@Data)</option>
+                <option value="pojo">POJOs with getters and setters</option>
+            </select>
+        </label>
+        <div class="jt-checks">
+            <label><input type="checkbox" id="j2jDates" checked> Detect dates (java.time)</label>
+            <label><input type="checkbox" id="j2jBigDecimal"> BigDecimal for decimals</label>
+            <label><input type="checkbox" id="j2jPrimitives"> Primitive types</label>
+            <label><input type="checkbox" id="j2jIgnore"> Ignore unknown properties</label>
+            <label><input type="checkbox" id="j2jAllProps"> @JsonProperty on every field</label>
+            <label><input type="checkbox" id="j2jSeparate"> One file per class</label>
+        </div>
+    </div>
+
+    <div class="jt-toolbar">
+        <button type="button" id="j2jSample" class="jt-btn jt-ghost">Sample</button>
+        <button type="button" id="j2jClear" class="jt-btn jt-ghost">Clear</button>
+    </div>
+
+    <div class="jt-panes">
+        <div class="jt-pane">
+            <div class="jt-pane-head"><label for="j2jInput"><span>Your JSON</span></label></div>
+            <textarea id="j2jInput" class="jt-input" spellcheck="false" autocapitalize="off" autocomplete="off"
+                      placeholder="Paste a JSON object or API response here, or click Sample"></textarea>
+        </div>
+        <div class="jt-pane">
+            <div class="jt-pane-head">
+                <span>Java code</span>
+                <button type="button" id="j2jCopy" class="jt-small" disabled>Copy</button>
+                <button type="button" id="j2jDownload" class="jt-small" disabled>Download</button>
+            </div>
+            <pre id="j2jOutput" class="jt-output" aria-label="Generated Java code"></pre>
+        </div>
+    </div>
+
+    <div id="j2jStatus" class="jt-status" role="status" aria-live="polite">Paste JSON above, or click Sample. The Java code is generated as you type.</div>
+    <noscript><p class="jt-noscript">This tool needs JavaScript. Everything runs locally in your browser.</p></noscript>
+</div>

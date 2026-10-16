@@ -1,0 +1,290 @@
+/* Shared styles for the codersite.dev developer tools (/tools/). */
+.jt {
+    border: 1px solid #e1e4e8;
+    border-radius: 10px;
+    background: #fff;
+    padding: 1rem;
+}
+
+.jt-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem 0.9rem;
+    margin-bottom: 0.9rem;
+}
+
+.jt-btn {
+    border: 1px solid #00ab6b;
+    background: #fff;
+    color: #038252;
+    border-radius: 999em;
+    padding: 0.4rem 1.1rem;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+}
+
+.jt-btn:hover {
+    background: #e9f7f1;
+}
+
+.jt-btn.jt-active {
+    background: #00ab6b;
+    color: #fff;
+}
+
+.jt-ghost {
+    border-color: #d0d5da;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.jt-ghost:hover {
+    background: #f4f6f8;
+}
+
+.jt-toolbar label {
+    margin: 0;
+    font-size: 0.92rem;
+    color: rgba(0, 0, 0, 0.7);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.jt-toolbar select {
+    font-size: 0.9rem;
+    padding: 0.15rem 0.3rem;
+    border: 1px solid #d0d5da;
+    border-radius: 4px;
+}
+
+.jt-spacer {
+    flex: 1;
+}
+
+.jt-panes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 992px) {
+    .jt-panes {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.jt-pane {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.jt-pane-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 0.35rem;
+    min-height: 30px;
+}
+
+.jt-pane-head span,
+.jt-pane-head label {
+    flex: 1;
+    margin: 0;
+}
+
+.jt-small {
+    border: 1px solid #d0d5da;
+    background: #fff;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    padding: 0.15rem 0.6rem;
+    cursor: pointer;
+}
+
+.jt-small:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+.jt-input,
+.jt-output {
+    font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
+    font-size: 13.5px;
+    line-height: 1.5;
+    height: 440px;
+    border: 1px solid #d0d5da;
+    border-radius: 6px;
+    padding: 0.7rem;
+    margin: 0;
+    background: #fbfcfd;
+    color: #1b1b1b;
+}
+
+.jt-input {
+    width: 100%;
+    resize: vertical;
+    white-space: pre;
+    overflow: auto;
+}
+
+.jt-input:focus {
+    outline: 2px solid rgba(0, 171, 107, 0.35);
+    border-color: #00ab6b;
+}
+
+.jt-output {
+    overflow: auto;
+    white-space: pre;
+}
+
+@media (max-width: 767px) {
+    .jt-input,
+    .jt-output {
+        height: 300px;
+    }
+}
+
+.jt-status {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    background: #f4f6f8;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 0.95rem;
+    overflow-wrap: anywhere;
+}
+
+.jt-status.jt-ok {
+    background: #e9f7f1;
+    color: #035c3a;
+}
+
+.jt-status.jt-error {
+    background: #fdecea;
+    color: #8a1c13;
+}
+
+.jt-hint {
+    margin-top: 0.35rem;
+}
+
+.jt-warn {
+    margin-top: 0.35rem;
+    color: #7a5200;
+}
+
+.jt-excerpt {
+    margin: 0.6rem 0 0.4rem;
+    padding: 0.5rem 0.7rem;
+    background: #fff;
+    border: 1px solid #f3c4bf;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.4;
+    overflow-x: auto;
+    white-space: pre;
+    color: #1b1b1b;
+}
+
+.jt-link {
+    border: 0;
+    background: none;
+    padding: 0;
+    color: #8a1c13;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.jt-noscript {
+    margin-top: 1rem;
+    color: #8a1c13;
+}
+
+/* Options panel (JSON to Java) */
+.jt-options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.75rem 1.25rem;
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.9rem;
+    background: #f7f9fa;
+    border: 1px solid #eceff1;
+    border-radius: 8px;
+}
+
+.jt-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+}
+
+.jt-field input,
+.jt-field select {
+    font-size: 0.92rem;
+    font-weight: 400;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid #d0d5da;
+    border-radius: 4px;
+    background: #fff;
+    color: #1b1b1b;
+    min-width: 0;
+}
+
+.jt-field input[type="text"] {
+    width: 13rem;
+    max-width: 100%;
+}
+
+.jt-checks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.1rem;
+    flex-basis: 100%;
+}
+
+.jt-checks label {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.7);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.j2j-usage {
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 575.98px) {
+    .jt-field {
+        flex: 1 1 100%;
+    }
+
+    .jt-field input[type="text"] {
+        width: 100%;
+    }
+}
+
+/* Let code in the explanation tables wrap on phones instead of widening the table. */
+@media (max-width: 575.98px) {
+    .article-post.tool-content table:not(.rouge-table) td code {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+}

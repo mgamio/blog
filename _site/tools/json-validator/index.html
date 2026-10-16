@@ -17,12 +17,12 @@
 <meta property="og:url" content="https://codersite.dev/tools/json-validator/" />
 <meta property="og:site_name" content="codersite" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-10-17T01:10:00+02:00" />
-<meta property="article:modified_time" content="2026-10-17T01:10:00+02:00" />
+<meta property="article:published_time" content="2026-10-17T01:33:58+02:00" />
+<meta property="article:modified_time" content="2026-10-17T01:33:58+02:00" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="JSON Validator and Formatter" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-10-17T01:10:00+02:00","datePublished":"2026-10-17T01:10:00+02:00","description":"Free online JSON validator and formatter. Shows the exact line and column of each error and how to fix it, keeps large numbers exact, and runs entirely in your browser.","headline":"JSON Validator and Formatter","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/tools/json-validator/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"}},"url":"https://codersite.dev/tools/json-validator/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-10-17T01:33:58+02:00","datePublished":"2026-10-17T01:33:58+02:00","description":"Free online JSON validator and formatter. Shows the exact line and column of each error and how to fix it, keeps large numbers exact, and runs entirely in your browser.","headline":"JSON Validator and Formatter","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/tools/json-validator/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"}},"url":"https://codersite.dev/tools/json-validator/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -146,9 +146,12 @@
 ================================================== -->
   <div class="main-content">
     <!-- Free developer tool page. Front matter: title, description, short_title, lead, tool (the
-     include in _includes/tools/ and the script in assets/js/tools/). The page content is the
+     include in _includes/tools/ and the script in assets/js/tools/), and optional scripts (shared
+     scripts from assets/js/tools/ loaded first, e.g. [json-core]). The page content is the
      explanation below the tool. Don't use <header> here: mediumish.js sizes the top margin
      from the first <header> on the page. -->
+<link href="/assets/css/tools.css" rel="stylesheet">
+
 <style>
 .tool-page {
     max-width: 1100px;
@@ -231,217 +234,7 @@
     <h1 class="tool-title">JSON Validator and Formatter</h1>
     <p class="tool-lead">Paste your JSON to check it as you type. If it's invalid, you see the exact line and column and how to fix it. If it's valid, you get it formatted or minified.</p>
 
-    <style>
-.jt {
-    border: 1px solid #e1e4e8;
-    border-radius: 10px;
-    background: #fff;
-    padding: 1rem;
-}
-
-.jt-toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.6rem 0.9rem;
-    margin-bottom: 0.9rem;
-}
-
-.jt-btn {
-    border: 1px solid #00ab6b;
-    background: #fff;
-    color: #038252;
-    border-radius: 999em;
-    padding: 0.4rem 1.1rem;
-    font-weight: 600;
-    font-size: 0.92rem;
-    cursor: pointer;
-}
-
-.jt-btn:hover {
-    background: #e9f7f1;
-}
-
-.jt-btn.jt-active {
-    background: #00ab6b;
-    color: #fff;
-}
-
-.jt-ghost {
-    border-color: #d0d5da;
-    color: rgba(0, 0, 0, 0.65);
-}
-
-.jt-ghost:hover {
-    background: #f4f6f8;
-}
-
-.jt-toolbar label {
-    margin: 0;
-    font-size: 0.92rem;
-    color: rgba(0, 0, 0, 0.7);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-}
-
-.jt-toolbar select {
-    font-size: 0.9rem;
-    padding: 0.15rem 0.3rem;
-    border: 1px solid #d0d5da;
-    border-radius: 4px;
-}
-
-.jt-spacer {
-    flex: 1;
-}
-
-.jt-panes {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
-
-@media (min-width: 992px) {
-    .jt-panes {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-.jt-pane {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
-.jt-pane-head {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.7);
-    margin-bottom: 0.35rem;
-    min-height: 30px;
-}
-
-.jt-pane-head span,
-.jt-pane-head label {
-    flex: 1;
-    margin: 0;
-}
-
-.jt-small {
-    border: 1px solid #d0d5da;
-    background: #fff;
-    border-radius: 4px;
-    font-size: 0.82rem;
-    padding: 0.15rem 0.6rem;
-    cursor: pointer;
-}
-
-.jt-small:disabled {
-    opacity: 0.45;
-    cursor: default;
-}
-
-#jtInput,
-#jtOutput {
-    font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
-    font-size: 13.5px;
-    line-height: 1.5;
-    height: 440px;
-    border: 1px solid #d0d5da;
-    border-radius: 6px;
-    padding: 0.7rem;
-    margin: 0;
-    background: #fbfcfd;
-    color: #1b1b1b;
-}
-
-#jtInput {
-    width: 100%;
-    resize: vertical;
-    white-space: pre;
-    overflow: auto;
-}
-
-#jtInput:focus {
-    outline: 2px solid rgba(0, 171, 107, 0.35);
-    border-color: #00ab6b;
-}
-
-#jtOutput {
-    overflow: auto;
-    white-space: pre;
-}
-
-@media (max-width: 767px) {
-    #jtInput,
-    #jtOutput {
-        height: 300px;
-    }
-}
-
-.jt-status {
-    margin-top: 1rem;
-    padding: 0.75rem 1rem;
-    border-radius: 6px;
-    background: #f4f6f8;
-    color: rgba(0, 0, 0, 0.7);
-    font-size: 0.95rem;
-    overflow-wrap: anywhere;
-}
-
-.jt-status.jt-ok {
-    background: #e9f7f1;
-    color: #035c3a;
-}
-
-.jt-status.jt-error {
-    background: #fdecea;
-    color: #8a1c13;
-}
-
-.jt-hint {
-    margin-top: 0.35rem;
-}
-
-.jt-warn {
-    margin-top: 0.35rem;
-    color: #7a5200;
-}
-
-.jt-excerpt {
-    margin: 0.6rem 0 0.4rem;
-    padding: 0.5rem 0.7rem;
-    background: #fff;
-    border: 1px solid #f3c4bf;
-    border-radius: 4px;
-    font-size: 13px;
-    line-height: 1.4;
-    overflow-x: auto;
-    white-space: pre;
-    color: #1b1b1b;
-}
-
-.jt-link {
-    border: 0;
-    background: none;
-    padding: 0;
-    color: #8a1c13;
-    text-decoration: underline;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.jt-noscript {
-    margin-top: 1rem;
-    color: #8a1c13;
-}
-</style>
-
-<div class="jt">
+    <div class="jt">
     <div class="jt-toolbar">
         <button type="button" id="jtFormat" class="jt-btn jt-active" title="Ctrl+Enter">Format</button>
         <button type="button" id="jtMinify" class="jt-btn">Minify</button>
@@ -461,7 +254,7 @@
     <div class="jt-panes">
         <div class="jt-pane">
             <div class="jt-pane-head"><label for="jtInput"><span>Your JSON</span></label></div>
-            <textarea id="jtInput" spellcheck="false" autocapitalize="off" autocomplete="off"
+            <textarea id="jtInput" class="jt-input" spellcheck="false" autocapitalize="off" autocomplete="off"
                       placeholder="Paste your JSON here, or click Sample"></textarea>
         </div>
         <div class="jt-pane">
@@ -470,7 +263,7 @@
                 <button type="button" id="jtCopy" class="jt-small" disabled>Copy</button>
                 <button type="button" id="jtDownload" class="jt-small" disabled>Download</button>
             </div>
-            <pre id="jtOutput" aria-label="Formatted JSON"></pre>
+            <pre id="jtOutput" class="jt-output" aria-label="Formatted JSON"></pre>
         </div>
     </div>
 
@@ -673,8 +466,20 @@ Several megabytes. Inputs up to 2 MB are checked as you type; for larger inputs,
 
     
     
+    <section class="tool-related">
+        <h2>More free developer tools</h2>
+        <ul>
+            
+            <li><a href="/tools/json-to-java/">JSON to Java Converter</a>: Convert JSON to Java records, Lombok classes or POJOs online. Correct types for long IDs, dates and decimals, Jackson annotations for snake_case, and code that compiles.</li>
+            
+        </ul>
+    </section>
+    
 
 </div>
+
+
+<script src="/assets/js/tools/json-core.js" defer></script>
 
 <script src="/assets/js/tools/json-validator.js" defer></script>
 
