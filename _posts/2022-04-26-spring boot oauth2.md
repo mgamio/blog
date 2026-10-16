@@ -163,6 +163,12 @@ public class BookController {
 }
 ```
 
+> Software design principles, trade-offs and architecture for working developers. Learn when each principle helps, what it costs, and when to leave it alone, by following one real system from its first messy version to a design your team can change without fear.
+
+<div>
+{%- include softwareDesignAd1.html -%}
+</div>
+
 ## Try It with curl
 
 Without a token, the API refuses the request:
