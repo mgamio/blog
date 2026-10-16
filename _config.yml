@@ -13,6 +13,19 @@ mailchimp-list: 'https://dev.us20.list-manage.com/subscribe/post?u=7ae24fed31c48
 include: ["_pages"]
 permalink: /:title/
 
+# Free developer tools: one page per tool in _tools/, served at /tools/<name>/
+collections:
+  tools:
+    output: true
+    permalink: /tools/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: tools
+    values:
+      layout: tool
+
 # Authors
 authors:
   moises:
