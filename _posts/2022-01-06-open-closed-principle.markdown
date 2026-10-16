@@ -207,4 +207,3 @@ Applying these Refactoring techniques, the Open-Closed Principle enhances softwa
 {% include buymeacoffee.html %}
 </div>
 
-</div>
