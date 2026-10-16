@@ -538,15 +538,13 @@ And we can remove the old library from the project.
 * Clean code practices for improving code collaboration
 * Clean code and continuous integration/continuous deployment (CI/CD)
 
-Please donate to maintain and improve this website if you find this content valuable.
-
-{% include buymeacoffee.html %}
-<br/>
-
-You can see a lot of typical algorithms implemented with Clean Code principles in [Cracking the coding interview](https://amzn.to/3PiUs0w){:target="_blank"}
 
 > From Big O to Binary Trees — every answer you need.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
+</div>
+
+<div>
+{% include buymeacoffee.html %}
 </div>

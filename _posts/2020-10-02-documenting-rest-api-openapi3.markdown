@@ -441,9 +441,8 @@ Once you receive the [technical specifications in UML](https://codersite.dev/uml
 
 Documenting API endpoints with OpenAPI 3 facilitates interaction between internal development teams that build different web services for the same product.
 
-Please donate to maintain and improve this website if you find this content valuable.
-
-{% include buymeacoffee.html %}
-<br/>
-
 Let's now see how to integrate [Spring Boot, OpenAPI3, and OAuth2](https://codersite.dev/spring-boot-oauth2/){:target="_blank"} to protect our endpoints.
+
+<div>
+{% include buymeacoffee.html %}
+</div>

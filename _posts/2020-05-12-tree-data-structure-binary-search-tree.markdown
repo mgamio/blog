@@ -229,9 +229,14 @@ public class TreePerformance {
 }
 ```
 
-Understanding the inner workings of common data structures and algorithms is a must for Java developers. [Cracking the Coding Interview](https://amzn.to/3Lst26n){:target="_blank"}
+> Understanding the inner workings of common data structures and algorithms is a must for Java developers.
 
-Please support me as a writer. Your donation will help add more articles to this website. Thank you!
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
 
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

@@ -135,14 +135,12 @@ comments: false
     <!-- Support -->
     <div class="about-section">
       <h4>Help Keep Great Software Knowledge Growing ☕</h4>
-	  <p>Do you find these articles useful? Help me create more!</p>
 	  <p>My goal is to make programming and software design easier to understand through practical examples, clear explanations, and ideas you can apply to real-world projects.</p>
 	  <p>Creating quality technical content takes time, research, and dedication. Your support helps keep this website growing and allows me to continue sharing knowledge with developers who want to write better code, design better systems, and become better engineers.</p>
-	  <p><b>If an article has helped you solve a problem, learn something new, or become a better developer, consider buying me a coffee. ☕</b></p>
+	  <p><b>If an article has helped you solve a problem, learn something new, or become a better developer, <i>"help me create the next one."</i></b></p>
 
-      {% include buymeacoffee.html %}
+      {% include buymeacoffeeNeutral.html %}
 	  
-	  <p>Thank you for your support!</p>
     </div>
 
   </div>

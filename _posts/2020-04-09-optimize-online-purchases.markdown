@@ -242,9 +242,14 @@ for (int idx=0; idx<numIterations; idx++){
 }
 ```
 
-You can see the complete solution explained in detail and all test cases in [Cracking the Coding Interview](https://amzn.to/3Lst26n){:target="_blank"}
+You can see the complete solution explained in detail and all test cases in my book:
 
-Please support me as a writer. Your donation will help add more articles to this website. Thank you!
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
 
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

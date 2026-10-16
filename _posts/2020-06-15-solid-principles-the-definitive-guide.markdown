@@ -114,11 +114,9 @@ Also, when new features arrive, then we need to distinct in which Class to inclu
 
 In conclusion, once you identify classes that have too many responsibilities, use this refactoring technique to create smaller classes with single responsibilities and focused only on one business actor.
 
-Use this [software design principle](https://amzn.to/3PvNE1Q){:target="_blank"} as a tool when translating [business software requirements into technical specifications](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"}. Programmers must understand these design decisions before programming.
+Use this software design principle as a tool when translating [business software requirements into technical specifications](https://codersite.dev/uml-diagrams-for-java-developers/){:target="_blank"}. Programmers must understand these design decisions before programming.
 
 Now that you've learned the Single Responsibility principle, it's time to learn the [Open-closed principle](https://codersite.dev/open-closed-principle/){:target="_blank"} to design flexible systems and avoid future software maintenance costs.
-
-> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
 
 Here’s a Quick Guide to Elevate Your Projects with Proven Software Design Tactics!.
 
@@ -126,7 +124,8 @@ Here’s a Quick Guide to Elevate Your Projects with Proven Software Design Tact
 {%- include softwareDesign.html -%}
 </div>
 
-Please donate to maintain and improve this website if you find this content valuable.
-
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

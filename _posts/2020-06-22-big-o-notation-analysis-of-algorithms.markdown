@@ -256,9 +256,8 @@ This article was just an introduction to algorithm analysis to face an actual co
 
 If you want to create a mathematical model for the execution time of a discrete operation, for example, you should take a course in [discrete mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics){:target="_blank"}.
 
-Please donate to maintain and improve this website if you find this content valuable.
-
-{% include buymeacoffee.html %}
-<br/>
-
 Preparing to discuss algorithms analysis in your following programming interview requires practicing and studying different algorithms, and you can find it in [Cracking the Coding Interview](https://amzn.to/3HrGXrF){:target="_blank"} with many explanation details.
+
+<div>
+{% include buymeacoffee.html %}
+</div>

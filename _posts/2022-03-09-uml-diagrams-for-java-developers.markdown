@@ -242,7 +242,8 @@ We will see how to implement every Spring Boot service in the following articles
 {%- include softwareDesign.html -%}
 </div>
 
-Please donate to maintain and improve this website if you find this content valuable.
-
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

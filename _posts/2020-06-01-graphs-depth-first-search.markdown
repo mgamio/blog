@@ -284,9 +284,14 @@ We can change the entry city and see different traversing paths
 Hannover Dortmund Frankfurt Stuttgart Magdeburg Berlin Leipzig Dresden Nürnberg München Rostock Bremen 
 ```
 
-You can see as well the *Breadth-First Search* (BFS) algorithm by using an Adjacency List based on a LinkedList data structure in [Cracking the Coding Interview](https://amzn.to/3Lst26n){:target="_blank"}
+You can see as well the *Breadth-First Search* (BFS) algorithm by using an Adjacency List based on a LinkedList data structure in THE CODE INTERVIEW: Real Java Coding Interview Questions, Solved Step by Step.
 
-Please support me as a writer to maintain and improve this website if you find this content valuable. Thank you!
+<div>
+{%- include jediJavaInterviewAds.html -%}
+</div>
 
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

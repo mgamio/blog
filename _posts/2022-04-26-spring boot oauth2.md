@@ -276,7 +276,8 @@ On the client side, a Spring application gets and renews these tokens automatica
 {%- include jediJavaInterviewAds.html -%}
 </div>
 
-Please support me as a writer. Every contribution helps, and your donation can help add more articles to this website, no matter how small. Thank you!
-
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>

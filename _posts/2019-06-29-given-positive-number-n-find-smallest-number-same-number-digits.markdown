@@ -111,15 +111,14 @@ public class NumberUtils {
 
 The main idea in [Analysis of Algorithms](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"} is always to improve the algorithm performance by reducing the number of steps and comparisons. The simpler and more intuitive an algorithm is, the more useful and efficient it will be.
 
-Similar questions you can find in my book about algorithms and [data structures](https://codersite.dev/data-structures-foundation-efficient-programming/){:target="_blank"}. Learn how to apply common algorithms to the practical problems.
-
-> One Book Instead of Scattered Resources.
+> One Book Instead of Scattered Resources. Learn how to apply common algorithms to the practical problems.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
 </div>
 
-Please support me as a writer. Your donation will help add more articles to this website. Thank you!
-
+<div>
 {% include buymeacoffee.html %}
+</div>
+
 <br/>
