@@ -68,6 +68,11 @@ layout: default
     font-size: 1.3rem;
 }
 
+.tool-multiplex {
+    max-width: 820px;
+    margin-top: 2rem;
+}
+
 @media (max-width: 767px) {
     .tool-title {
         font-size: 1.7rem;
@@ -117,6 +122,10 @@ layout: default
         </ul>
     </section>
     {% endif %}
+
+    <div class="tool-multiplex">
+        {%- include multiplexAds.html -%}
+    </div>
 
 </div>
 
