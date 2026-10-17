@@ -18,6 +18,9 @@ collections:
   tools:
     output: true
     permalink: /tools/:name/
+  agent_templates:
+    output: true
+    permalink: /tools/claude-md-templates/:name/
 
 defaults:
   - scope:
@@ -25,6 +28,11 @@ defaults:
       type: tools
     values:
       layout: tool
+  - scope:
+      path: ""
+      type: agent_templates
+    values:
+      layout: agent-template
 
 # Authors
 authors:

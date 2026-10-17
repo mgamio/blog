@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+
+<!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>CLAUDE.md and AGENTS.md Generator | codersite</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="CLAUDE.md and AGENTS.md Generator" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Free generator for AGENTS.md, CLAUDE.md, GEMINI.md, Copilot instructions and Cursor rules. Pick your stack and architecture and get a clear instructions file for your AI coding agent." />
+<meta name="twitter:description" property="og:description" content="Free generator for AGENTS.md, CLAUDE.md, GEMINI.md, Copilot instructions and Cursor rules. Pick your stack and architecture and get a clear instructions file for your AI coding agent." />
+<link rel="canonical" href="https://codersite.dev/tools/claude-md-generator/" />
+<meta property="og:url" content="https://codersite.dev/tools/claude-md-generator/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:image" content="https://codersite.dev/assets/images/claudeMdGeneratorTool.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-10-17T18:01:16+02:00" />
+<meta property="article:modified_time" content="2026-10-17T18:01:16+02:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://codersite.dev/assets/images/claudeMdGeneratorTool.jpg" />
+<meta name="twitter:title" content="CLAUDE.md and AGENTS.md Generator" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-10-17T18:01:16+02:00","datePublished":"2026-10-17T18:01:16+02:00","description":"Free generator for AGENTS.md, CLAUDE.md, GEMINI.md, Copilot instructions and Cursor rules. Pick your stack and architecture and get a clear instructions file for your AI coding agent.","headline":"CLAUDE.md and AGENTS.md Generator","image":"https://codersite.dev/assets/images/claudeMdGeneratorTool.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/tools/claude-md-generator/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"}},"url":"https://codersite.dev/tools/claude-md-generator/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script src="/assets/js/jquery.min.js"></script><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-642735915');
+</script>
+
+<!-- Google tag (gtag.js) event -->
+<script>
+  gtag('event', 'redirect_to_amazon_de', {
+    // <event_parameters>
+  });
+</script>
+
+</head>
+
+
+<body class="layout-tool">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/books.html">Books</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/tools/">Tools</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/shop">Shop</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+  <div class="main-content">
+    <!-- Free developer tool page. Front matter: title, description, short_title, lead, tool (the
+     include in _includes/tools/ and the script in assets/js/tools/), and optional scripts (shared
+     scripts from assets/js/tools/ loaded first, e.g. [json-core]). The page content is the
+     explanation below the tool. Don't use <header> here: mediumish.js sizes the top margin
+     from the first <header> on the page. -->
+<link href="/assets/css/tools.css" rel="stylesheet">
+
+<style>
+.tool-page {
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+}
+
+.tool-breadcrumb {
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+.tool-breadcrumb a {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.tool-title {
+    font-family: Righteous, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    color: #222;
+    margin-bottom: 0.6rem;
+}
+
+.tool-lead {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.65);
+    max-width: 760px;
+    margin-bottom: 1.5rem;
+}
+
+.tool-privacy {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: #038252;
+    margin: 0.9rem 0 0;
+}
+
+.tool-ad {
+    margin: 2.5rem 0 1rem;
+}
+
+.tool-content {
+    max-width: 820px;
+    margin-top: 2rem;
+}
+
+.tool-related {
+    max-width: 820px;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.tool-related h2 {
+    font-size: 1.3rem;
+}
+
+@media (max-width: 767px) {
+    .tool-title {
+        font-size: 1.7rem;
+    }
+
+    .tool-lead {
+        font-size: 1rem;
+    }
+}
+</style>
+
+<div class="tool-page">
+
+    <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> &rsaquo;
+        <a href="/tools/">Tools</a> &rsaquo;
+        <span>CLAUDE.md Generator</span>
+    </nav>
+
+    <h1 class="tool-title">CLAUDE.md and AGENTS.md Generator</h1>
+    <p class="tool-lead">Create the instructions file your AI coding agent reads at the start of every session: build commands, architecture rules and guardrails for Claude Code, Codex, Cursor, Copilot and Gemini CLI.</p>
+
+    <div class="jt">
+    <div class="jt-panes">
+        <form id="cmgForm" class="jt-pane cmg-form" autocomplete="off" onsubmit="return false">
+            <fieldset>
+                <legend>Project</legend>
+                <label class="jt-field">Project name
+                    <input type="text" id="cmgName" spellcheck="false">
+                </label>
+                <label class="jt-field">What it does (one sentence)
+                    <input type="text" id="cmgSummary">
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Stack and commands</legend>
+                <label class="jt-field">Stack preset
+                    <select id="cmgStack"></select>
+                </label>
+                <label class="jt-field">Tech stack (comma-separated)
+                    <input type="text" id="cmgStackText" spellcheck="false">
+                </label>
+                <div class="cmg-cmds">
+                    <label class="jt-field">Build <input type="text" id="cmgCmd_build" spellcheck="false"></label>
+                    <label class="jt-field">Run locally <input type="text" id="cmgCmd_run" spellcheck="false"></label>
+                    <label class="jt-field">Run all tests <input type="text" id="cmgCmd_test" spellcheck="false"></label>
+                    <label class="jt-field">Run one test <input type="text" id="cmgCmd_single" spellcheck="false"></label>
+                    <label class="jt-field">Lint and format <input type="text" id="cmgCmd_lint" spellcheck="false" placeholder="optional"></label>
+                </div>
+                <div class="jt-checks">
+                    <label><input type="checkbox" id="cmgStackRules"> Add code style and testing rules for this stack</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Architecture</legend>
+                <label class="jt-field">Architecture rules
+                    <select id="cmgArch"></select>
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Working rules for the agent</legend>
+                <div class="jt-checks" id="cmgGuard"></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Project notes</legend>
+                <label class="jt-field">One rule per line: gotchas, conventions, things the agent keeps getting wrong
+                    <textarea id="cmgExtra" rows="4" spellcheck="false" placeholder="Money amounts are BigDecimal, never double.&#10;The payments module is legacy: don't change it without asking."></textarea>
+                </label>
+            </fieldset>
+
+            <button type="button" id="cmgReset" class="jt-btn jt-ghost">Reset to preset defaults</button>
+        </form>
+
+        <div class="jt-pane cmg-preview">
+            <label class="jt-field cmg-format">File for
+                <select id="cmgFormat" form="cmgForm"></select>
+            </label>
+            <div class="jt-pane-head">
+                <span id="cmgFile">AGENTS.md</span>
+                <button type="button" id="cmgCopy" class="jt-small">Copy</button>
+                <button type="button" id="cmgDownload" class="jt-small">Download</button>
+            </div>
+            <pre id="cmgOutput" class="jt-output cmg-output" aria-label="Generated instructions file"></pre>
+        </div>
+    </div>
+
+    <div id="cmgStatus" class="jt-status" role="status" aria-live="polite">Fill in the form. The file updates as you type.</div>
+    <noscript><p class="jt-noscript">This tool needs JavaScript. Everything runs locally in your browser.</p></noscript>
+</div>
+
+
+    <p class="tool-privacy">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 1a3.5 3.5 0 0 0-3.5 3.5V7H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-.5V4.5A3.5 3.5 0 0 0 8 1zm2 6H6V4.5a2 2 0 1 1 4 0z"/></svg>
+        Runs in your browser. Your data is never sent to a server.
+    </p>
+
+    <!-- Kept well below the tool's buttons so it can't be clicked by accident (AdSense policy). -->
+    <div class="tool-ad"><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+    <div class="article-post tool-content">
+        <h2 id="how-to-use-the-generator">How to Use the Generator</h2>
+
+<ol>
+  <li><strong>Describe your project</strong> in one sentence. The agent reads this first.</li>
+  <li><strong>Pick a stack preset.</strong> It fills in the tech stack and the exact commands to build, run and test your project. Edit them to match your repository: correct commands are the most useful part of the file.</li>
+  <li><strong>Pick an architecture</strong> to tell the agent where code belongs, and <strong>choose working rules</strong> such as “test first” or “ask before adding dependencies”.</li>
+  <li><strong>Add project notes</strong>: the things a new teammate would need to be told, and the mistakes your agent keeps making.</li>
+  <li><strong>Choose the file</strong> for your agent, then <strong>Copy</strong> or <strong>Download</strong> it and save it in the root of your repository.</li>
+</ol>
+
+<p>The generator remembers your settings in your browser, so you can come back and adjust them.</p>
+
+<p><strong>Prefer to start from a finished file?</strong> Copy one of the ready-made templates:</p>
+
+<ul>
+  <li><a href="/tools/claude-md-templates/spring-boot/">CLAUDE.md Template for Spring Boot</a></li>
+  <li><a href="/tools/claude-md-templates/spring-boot-hexagonal/">AGENTS.md Template for Spring Boot with Hexagonal Architecture</a></li>
+  <li><a href="/tools/claude-md-templates/spring-boot-microservices/">AGENTS.md Template for Spring Boot Microservices</a></li>
+  <li><a href="/tools/claude-md-templates/nextjs/">AGENTS.md Template for Next.js (App Router)</a></li>
+  <li><a href="/tools/claude-md-templates/python-fastapi/">CLAUDE.md Template for Python and FastAPI</a></li>
+  <li><a href="/tools/claude-md-templates/go/">AGENTS.md Template for Go</a></li>
+</ul>
+
+<h2 id="which-file-does-each-ai-coding-agent-read">Which File Does Each AI Coding Agent Read?</h2>
+
+<p>Every agent reads a Markdown file from your repository at the start of a session. Most of them now agree on one name, <code class="language-plaintext highlighter-rouge">AGENTS.md</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Agent</th>
+      <th>Reads</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OpenAI Codex, Jules, Windsurf, Zed, Aider, JetBrains Junie, Amp</td>
+      <td><code class="language-plaintext highlighter-rouge">AGENTS.md</code></td>
+    </tr>
+    <tr>
+      <td>Cursor</td>
+      <td><code class="language-plaintext highlighter-rouge">AGENTS.md</code>, and rules in <code class="language-plaintext highlighter-rouge">.cursor/rules/*.mdc</code></td>
+    </tr>
+    <tr>
+      <td>GitHub Copilot</td>
+      <td><code class="language-plaintext highlighter-rouge">.github/copilot-instructions.md</code>, <code class="language-plaintext highlighter-rouge">AGENTS.md</code>, or a <code class="language-plaintext highlighter-rouge">CLAUDE.md</code> or <code class="language-plaintext highlighter-rouge">GEMINI.md</code> in the root</td>
+    </tr>
+    <tr>
+      <td>Claude Code</td>
+      <td><code class="language-plaintext highlighter-rouge">CLAUDE.md</code>; reads <code class="language-plaintext highlighter-rouge">AGENTS.md</code> when the repository has no <code class="language-plaintext highlighter-rouge">CLAUDE.md</code></td>
+    </tr>
+    <tr>
+      <td>Gemini CLI</td>
+      <td><code class="language-plaintext highlighter-rouge">GEMINI.md</code>; reads <code class="language-plaintext highlighter-rouge">AGENTS.md</code> when you add it to <code class="language-plaintext highlighter-rouge">context.fileName</code> in <code class="language-plaintext highlighter-rouge">settings.json</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p><strong>The simplest setup for a team that uses several agents:</strong> keep the rules in one <code class="language-plaintext highlighter-rouge">AGENTS.md</code>. If you also need Claude-specific instructions, create a <code class="language-plaintext highlighter-rouge">CLAUDE.md</code> that imports the shared file with <code class="language-plaintext highlighter-rouge">@AGENTS.md</code> and adds the rest below it. One file to maintain, every agent up to date.</p>
+
+<p>In a monorepo, you can put another <code class="language-plaintext highlighter-rouge">AGENTS.md</code> in each subproject. Agents use the nearest file to the code they are editing, so each package can have its own commands.</p>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="what-to-put-in-your-claudemd-or-agentsmd">What to Put in Your CLAUDE.md or AGENTS.md</h2>
+
+<p>The file is loaded into the agent’s context in <strong>every session</strong>, before you type anything. Every line costs tokens and competes for the agent’s attention, so include only what the agent can’t find out by itself:</p>
+
+<ul>
+  <li><strong>Exact commands</strong> to build, test, run one test, and lint. With these, the agent checks its own work instead of guessing.</li>
+  <li><strong>Architecture boundaries</strong>: which package may depend on which, where business logic goes, what must never be imported where.</li>
+  <li><strong>Conventions that differ from the default</strong>: “money is <code class="language-plaintext highlighter-rouge">BigDecimal</code>”, “DTOs are records”, “no Lombok”.</li>
+  <li><strong>Gotchas</strong>: the generated folder nobody may edit, the test that needs Docker, the legacy module that must not change.</li>
+  <li><strong>Workflow rules</strong>: run the tests before finishing, don’t commit unless asked, ask before adding dependencies.</li>
+</ul>
+
+<p>Leave out:</p>
+
+<ul>
+  <li><strong>What the code already shows.</strong> The agent can read your <code class="language-plaintext highlighter-rouge">pom.xml</code> or <code class="language-plaintext highlighter-rouge">package.json</code>.</li>
+  <li><strong>Generic advice</strong> such as “write clean code” or “follow best practices”. It changes nothing.</li>
+  <li><strong>Long explanations and tutorials.</strong> Link to the documentation instead.</li>
+  <li><strong>Secrets.</strong> The file is committed with your code.</li>
+</ul>
+
+<p>Anthropic’s documentation for Claude Code recommends <strong>under 200 lines</strong> per <code class="language-plaintext highlighter-rouge">CLAUDE.md</code>, because longer files reduce how closely the agent follows them. The generator shows the line count and an estimate of the tokens the file adds to every session.</p>
+
+<h2 id="a-real-example-the-claudemd-behind-this-website">A Real Example: The CLAUDE.md Behind This Website</h2>
+
+<p>This blog is maintained with Claude Code. Here is part of its <code class="language-plaintext highlighter-rouge">CLAUDE.md</code>, slightly shortened. Notice that most of it is <strong>gotchas</strong>: things that look right but break the live site, which no agent could guess from the code:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="gu">## Workflow</span>
+<span class="p">
+-</span> Work locally first with <span class="sb">`bundle exec jekyll serve`</span>.
+  Propose changes and have the author review them before editing.
+  Only commit or push when asked.
+<span class="p">-</span> To build without serving, run <span class="sb">`bundle exec jekyll build`</span>.
+
+<span class="gu">## Build and deploy gotchas</span>
+<span class="p">
+-</span> <span class="sb">`jekyll serve`</span> writes the local server URL into every canonical, og:url
+  and JSON-LD URL, so before committing <span class="sb">`_site`</span>, regenerate it with
+  <span class="sb">`bundle exec jekyll build`</span> (which uses <span class="sb">`url: https://codersite.dev`</span>).
+<span class="p">-</span> Permalinks are <span class="sb">`/:title/`</span>, and <span class="sb">`:title`</span> comes from the post filename, not
+  the front-matter <span class="sb">`title`</span>. Changing a title does not change the URL.
+<span class="p">-</span> <span class="sb">`image:`</span> must start with <span class="sb">`/`</span>. Without it, jekyll-seo-tag resolves the path
+  relative to the post URL and the og:image breaks.
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Each rule is there because a mistake happened once. That is the best way to grow the file: <strong>when the agent makes the same mistake twice, add a line.</strong></p>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="rules-that-agents-actually-follow">Rules That Agents Actually Follow</h2>
+
+<p><strong>Be specific.</strong> “Use constructor injection; never use <code class="language-plaintext highlighter-rouge">@Autowired</code> on fields” is followed. “Write good Spring code” is not.</p>
+
+<p><strong>Give the reason for unusual rules.</strong> “Don’t edit <code class="language-plaintext highlighter-rouge">src/generated/</code>: it is overwritten by the OpenAPI build” lets the agent handle cases the rule doesn’t mention.</p>
+
+<p><strong>Don’t contradict yourself.</strong> When two rules conflict, the agent picks one at random. Review the file when the project changes.</p>
+
+<p><strong>Use tools for hard guarantees.</strong> The instructions file is context, not enforcement: an agent can still ignore a rule. For things that must never happen, such as pushing to <code class="language-plaintext highlighter-rouge">main</code> or editing secrets, use your agent’s permission settings or hooks and your CI pipeline.</p>
+
+<p><strong>Scope rules to the files they apply to.</strong> In a large repository, rules for one area shouldn’t load for every task. Claude Code reads path-scoped rules from <code class="language-plaintext highlighter-rouge">.claude/rules/</code>, Copilot from <code class="language-plaintext highlighter-rouge">.github/instructions/*.instructions.md</code> with <code class="language-plaintext highlighter-rouge">applyTo</code>, and Cursor from <code class="language-plaintext highlighter-rouge">.cursor/rules/*.mdc</code> with <code class="language-plaintext highlighter-rouge">globs</code>.</p>
+
+<h2 id="architecture-rules-your-agent-can-follow">Architecture Rules Your Agent Can Follow</h2>
+
+<p>An agent writes code where it fits best <em>in its own opinion</em>, unless you tell it where code belongs. The architecture presets give it clear boundaries:</p>
+
+<ul>
+  <li><strong>Layered:</strong> controllers handle HTTP, services hold the business logic, repositories access the database. The best default for a typical Spring Boot REST API.</li>
+  <li><strong>Hexagonal / Clean Architecture:</strong> the domain has no framework imports, and adapters implement interfaces (ports) that the application defines. The <a href="https://codersite.dev/open-closed-principle/" target="_blank">open-closed principle</a> applied to a whole application.</li>
+  <li><strong>Domain-Driven Design:</strong> code organized by business area, with aggregates that protect their own rules.</li>
+  <li><strong>Microservices</strong> and <strong>modular monolith:</strong> rules about who owns which data and which module may call which.</li>
+</ul>
+
+<p>The rules work only if you can state your design clearly, and that is a skill worth learning for its own sake. Review the principles behind them in <a href="https://codersite.dev/software-design-principles/" target="_blank">Software Design Principles Explained with Java Examples</a> and the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">SOLID principles guide</a>.</p>
+
+<p>An agent follows your architecture only as well as you can describe it. My book <em>Software Design Principles</em> explains SOLID, coupling, cohesion and the trade-offs between them with practical examples, the vocabulary you need to write rules an agent can follow:</p>
+
+<div><center>
+  <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="/assets/images/SoftwareDesignPrinciplesV2.jpg" /></a>
+</center>
+
+<br /></div>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+
+<p><strong>What is the difference between CLAUDE.md and AGENTS.md?</strong>
+Only the name and the agents that read them. <code class="language-plaintext highlighter-rouge">CLAUDE.md</code> is Claude Code’s file; <code class="language-plaintext highlighter-rouge">AGENTS.md</code> is the shared standard that most other agents read. The content is the same kind of Markdown. Claude Code reads <code class="language-plaintext highlighter-rouge">AGENTS.md</code> when there is no <code class="language-plaintext highlighter-rouge">CLAUDE.md</code>, and a <code class="language-plaintext highlighter-rouge">CLAUDE.md</code> can import it with <code class="language-plaintext highlighter-rouge">@AGENTS.md</code>.</p>
+
+<p><strong>Should I commit the file to Git?</strong>
+Yes. It describes the project, so it belongs with the code and helps everyone on the team. Personal preferences go in a file you don’t commit, such as <code class="language-plaintext highlighter-rouge">CLAUDE.local.md</code> (add it to <code class="language-plaintext highlighter-rouge">.gitignore</code>).</p>
+
+<p><strong>How long should the file be?</strong>
+As short as possible while still covering the commands, the architecture rules and the gotchas. Most projects need 30 to 100 lines. Above 200 lines, move rules that apply to only part of the code into path-scoped rules.</p>
+
+<p><strong>Does the agent always follow the instructions?</strong>
+No. The file is context that strongly guides the agent, not a configuration it must obey. Clear, specific, consistent rules are followed far more reliably than long or vague ones. For anything that must never happen, use permissions, hooks and CI checks.</p>
+
+<p><strong>Can I generate the file with the agent itself?</strong>
+Yes. Claude Code’s <code class="language-plaintext highlighter-rouge">/init</code> command, for example, analyzes the repository and writes a first <code class="language-plaintext highlighter-rouge">CLAUDE.md</code>. Use it together with this generator: <code class="language-plaintext highlighter-rouge">/init</code> finds the commands, and the generator adds the architecture and working rules that an agent can’t discover from the code.</p>
+
+<p><strong>Is anything I type sent to a server?</strong>
+No. The generator is a small JavaScript program that runs in your browser. Your settings are saved only in your browser’s local storage.</p>
+
+    </div>
+
+    
+    
+    <section class="tool-related">
+        <h2>More free developer tools</h2>
+        <ul>
+            
+            <li><a href="/tools/json-to-java/">JSON to Java Converter</a>: Convert JSON to Java records, Lombok classes or POJOs online. Correct types for long IDs, dates and decimals, Jackson annotations for snake_case, and code that compiles.</li>
+            
+            <li><a href="/tools/json-validator/">JSON Validator</a>: Free online JSON validator and formatter. Shows the exact line and column of each error and how to fix it, keeps large numbers exact, and runs entirely in your browser.</li>
+            
+        </ul>
+    </section>
+    
+
+</div>
+
+
+<script src="/assets/js/tools/claude-md-generator.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "CLAUDE.md Generator",
+      "description": "Free generator for AGENTS.md, CLAUDE.md, GEMINI.md, Copilot instructions and Cursor rules. Pick your stack and architecture and get a clear instructions file for your AI coding agent.",
+      "url": "https://codersite.dev/tools/claude-md-generator/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "author": { "@type": "Person", "name": "Moises Gamio", "url": "https://codersite.dev" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codersite.dev/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://codersite.dev/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "CLAUDE.md Generator", "item": "https://codersite.dev/tools/claude-md-generator/" }
+      ]
+    }
+  ]
+}
+</script>
+
+  </div>
+
+<!-- here include any banner or subscription like site.mailchimp_list  -->
+
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (9)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#design">design (5)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (10)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distribuited-systems">distribuited systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#career">career (2)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#startup">startup (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project">Project (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#data-structures">data structures (2)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#programming">programming (7)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#system-design">system-design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distributed-systems">distributed-systems (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#aws">aws (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#book-review">book-review (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-kit">
+            <img src="/assets/images/brand/kit-the-code-fox.svg" width="36" height="40" alt="Kit, the codersite fox">
+            <span>Stay curious. Ship code. Grow.</span>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2026 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/policy">Privacy policy |</a>
+				<a href="/termsOfService">Terms of service |</a>
+				<a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+
+<!--
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('codersite', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support me',
+    'floating-chat.donateButton.background-color': '#f45d22',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>
+-->
+
+<!-- deferred-thirdparty: load GA4 gtag.js + AdSense on first interaction or 3s after load,
+     whichever comes first. Keeps third-party JS off the critical path (FCP/LCP/TBT);
+     gtag()/adsbygoogle commands queued earlier run as soon as the libraries arrive. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadScript(src, crossorigin) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = src;
+    if (crossorigin) { s.crossOrigin = 'anonymous'; }
+    document.head.appendChild(s);
+  }
+  function loadDeferred() {
+    if (loaded) { return; }
+    loaded = true;
+    loadScript('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042', true);
+  }
+  var evts = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+  evts.forEach(function (e) { window.addEventListener(e, loadDeferred, { passive: true, once: true }); });
+  // Fallback so visitors who never interact are still measured and served ads.
+  if (document.readyState === 'complete') {
+    setTimeout(loadDeferred, 3000);
+  } else {
+    window.addEventListener('load', function () { setTimeout(loadDeferred, 3000); });
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+---
+layout: default
+---
+<!-- Ready-made AGENTS.md / CLAUDE.md template page (collection _agent_templates). Front matter: title,
+     short_title, description, lead, file (the file name the template is shown as), stack and arch (the
+     generator presets, for the "Customize" link), order, and template (the file content, generated with
+     assets/js/tools/claude-md-generator.js so it always matches the generator). The page content is the
+     explanation below the template. Don't use <header> here: mediumish.js sizes the top margin from it. -->
+<link href="{{ '/assets/css/tools.css' | relative_url }}" rel="stylesheet">
+
+<style>
+.tool-page {
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+}
+
+.tool-breadcrumb {
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+.tool-breadcrumb a {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.tool-title {
+    font-family: Righteous, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    color: #222;
+    margin-bottom: 0.6rem;
+}
+
+.tool-lead {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.65);
+    max-width: 760px;
+    margin-bottom: 1.5rem;
+}
+
+.tpl-box {
+    max-width: 820px;
+}
+
+.tpl-box .jt-output {
+    height: auto;
+    max-height: 640px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.tpl-customize {
+    margin: 0.9rem 0 0;
+    font-size: 0.95rem;
+}
+
+.tool-content {
+    max-width: 820px;
+    margin-top: 2rem;
+}
+
+.tool-ad {
+    max-width: 820px;
+    margin: 2rem 0 1rem;
+}
+
+.tool-related {
+    max-width: 820px;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.tool-related h2 {
+    font-size: 1.3rem;
+}
+
+@media (max-width: 767px) {
+    .tool-title {
+        font-size: 1.7rem;
+    }
+
+    .tool-lead {
+        font-size: 1rem;
+    }
+}
+</style>
+
+<div class="tool-page">
+
+    <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ site.baseurl }}/">Home</a> &rsaquo;
+        <a href="{{ site.baseurl }}/tools/">Tools</a> &rsaquo;
+        <a href="{{ site.baseurl }}/tools/claude-md-templates/">CLAUDE.md Templates</a> &rsaquo;
+        <span>{{ page.short_title | default: page.title }}</span>
+    </nav>
+
+    <h1 class="tool-title">{{ page.title }}</h1>
+    {% if page.lead %}<p class="tool-lead">{{ page.lead }}</p>{% endif %}
+
+    <div class="jt tpl-box">
+        <div class="jt-pane-head">
+            <span>{{ page.file }}</span>
+            <button type="button" class="jt-small" id="tplCopy">Copy</button>
+            <button type="button" class="jt-small" id="tplDownload" data-file="{{ page.file }}">Download</button>
+        </div>
+        <pre class="jt-output" id="tplText" aria-label="{{ page.file }} template">{{ page.template | xml_escape }}</pre>
+        <p class="tpl-customize">Want different commands, rules or file names?
+            <a href="{{ '/tools/claude-md-generator/' | relative_url }}?stack={{ page.stack }}&amp;arch={{ page.arch }}">Customize this template in the generator &rarr;</a></p>
+    </div>
+
+    <div class="article-post tool-content">
+        {{ content }}
+    </div>
+
+    <div class="tool-ad">
+        {%- include displayAds.html -%}
+    </div>
+
+    {% assign others = site.agent_templates | where_exp: "t", "t.url != page.url" | sort: "order" %}
+    <section class="tool-related">
+        <h2>More AGENTS.md and CLAUDE.md templates</h2>
+        <ul>
+            {% for t in others %}
+            <li><a href="{{ t.url | relative_url }}">{{ t.title }}</a></li>
+            {% endfor %}
+            <li><a href="{{ '/tools/claude-md-generator/' | relative_url }}">CLAUDE.md and AGENTS.md Generator</a>: build your own file for any stack.</li>
+        </ul>
+    </section>
+
+</div>
+
+<script>
+(function () {
+    var text = document.getElementById('tplText');
+    var copy = document.getElementById('tplCopy');
+    var download = document.getElementById('tplDownload');
+    copy.addEventListener('click', function () {
+        navigator.clipboard.writeText(text.textContent).then(function () {
+            copy.textContent = 'Copied';
+            setTimeout(function () { copy.textContent = 'Copy'; }, 1500);
+        });
+    });
+    download.addEventListener('click', function () {
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([text.textContent], { type: 'text/markdown' }));
+        a.download = download.getAttribute('data-file');
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": {{ page.title | jsonify }},
+      "description": {{ page.description | jsonify }},
+      "url": {{ page.url | absolute_url | jsonify }},
+      "author": { "@type": "Person", "name": "Moises Gamio", "url": {{ site.url | jsonify }} }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ "/" | absolute_url | jsonify }} },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": {{ "/tools/" | absolute_url | jsonify }} },
+        { "@type": "ListItem", "position": 3, "name": "CLAUDE.md Templates", "item": {{ "/tools/claude-md-templates/" | absolute_url | jsonify }} },
+        { "@type": "ListItem", "position": 4, "name": {{ page.short_title | default: page.title | jsonify }}, "item": {{ page.url | absolute_url | jsonify }} }
+      ]
+    }
+  ]
+}
+</script>

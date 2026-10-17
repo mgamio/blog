@@ -1,0 +1,90 @@
+---
+title: "CLAUDE.md and AGENTS.md Templates"
+layout: page
+permalink: "/tools/claude-md-templates/"
+description: "Free, ready-to-use CLAUDE.md and AGENTS.md templates for Spring Boot, hexagonal architecture, microservices, Next.js, Python FastAPI and Go. Copy one or customize it in the generator."
+image: /assets/images/claudeMdGeneratorTool.jpg
+comments: false
+---
+
+<style>
+.tools-intro {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.65);
+    max-width: 720px;
+    margin-bottom: 1.75rem;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.tool-card {
+    display: block;
+    border: 1px solid #e1e4e8;
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem;
+    background: #fff;
+    color: inherit;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.tool-card:hover {
+    text-decoration: none;
+    color: inherit;
+    border-color: rgba(0, 171, 107, 0.5);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.tool-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: rgba(0, 0, 0, 0.88);
+}
+
+.tool-card p {
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0 0 0.75rem;
+}
+
+.tool-card .tool-open {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #00ab6b;
+}
+
+.tool-card code {
+    font-size: 0.85rem;
+}
+</style>
+
+<p class="tools-intro">Ready-made instruction files for AI coding agents such as Claude Code, Codex, Cursor and GitHub Copilot. Copy a template into the root of your repository, or open it in the <a href="{{ '/tools/claude-md-generator/' | relative_url }}">CLAUDE.md and AGENTS.md Generator</a> to change the commands and rules.</p>
+
+<div class="tools-grid">
+    {% assign templates = site.agent_templates | sort: "order" %}
+    {% for t in templates %}
+    <a class="tool-card" href="{{ t.url | relative_url }}">
+        <h3>{{ t.title }}</h3>
+        <p>{{ t.description }}</p>
+        <span class="tool-open">View template &rarr;</span>
+    </a>
+    {% endfor %}
+</div>

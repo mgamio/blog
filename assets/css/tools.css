@@ -288,3 +288,102 @@
         overflow-wrap: anywhere;
     }
 }
+
+/* CLAUDE.md and AGENTS.md Generator */
+.cmg-form fieldset {
+    border: 1px solid #eceff1;
+    border-radius: 8px;
+    background: #f7f9fa;
+    padding: 0.6rem 0.9rem 0.8rem;
+    margin: 0 0 0.8rem;
+    min-width: 0;
+}
+
+.cmg-form legend {
+    width: auto;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 0 0.3rem;
+    margin: 0;
+}
+
+.cmg-form .jt-field {
+    margin-bottom: 0.55rem;
+}
+
+.cmg-form .jt-field input[type="text"],
+.cmg-form .jt-field select,
+.cmg-form textarea {
+    width: 100%;
+}
+
+.cmg-form textarea {
+    font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid #d0d5da;
+    border-radius: 4px;
+    background: #fff;
+    color: #1b1b1b;
+    resize: vertical;
+}
+
+.cmg-cmds {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 0.8rem;
+}
+
+@media (min-width: 576px) {
+    .cmg-cmds {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.cmg-cmds input {
+    font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
+    font-size: 13px !important;
+}
+
+.cmg-form .jt-checks {
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.cmg-form .jt-checks label {
+    align-items: flex-start;
+}
+
+.cmg-form .jt-checks input {
+    margin-top: 0.25rem;
+}
+
+.cmg-format {
+    margin-bottom: 0.6rem;
+}
+
+.cmg-format select {
+    width: 100%;
+}
+
+.cmg-output {
+    height: auto;
+    min-height: 440px;
+    max-height: 1100px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+@media (min-width: 992px) {
+    .cmg-preview {
+        position: sticky;
+        top: 80px;
+        align-self: start;
+    }
+
+    .cmg-output {
+        max-height: calc(100vh - 200px);
+    }
+}

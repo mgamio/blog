@@ -1,0 +1,71 @@
+<div class="jt">
+    <div class="jt-panes">
+        <form id="cmgForm" class="jt-pane cmg-form" autocomplete="off" onsubmit="return false">
+            <fieldset>
+                <legend>Project</legend>
+                <label class="jt-field">Project name
+                    <input type="text" id="cmgName" spellcheck="false">
+                </label>
+                <label class="jt-field">What it does (one sentence)
+                    <input type="text" id="cmgSummary">
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Stack and commands</legend>
+                <label class="jt-field">Stack preset
+                    <select id="cmgStack"></select>
+                </label>
+                <label class="jt-field">Tech stack (comma-separated)
+                    <input type="text" id="cmgStackText" spellcheck="false">
+                </label>
+                <div class="cmg-cmds">
+                    <label class="jt-field">Build <input type="text" id="cmgCmd_build" spellcheck="false"></label>
+                    <label class="jt-field">Run locally <input type="text" id="cmgCmd_run" spellcheck="false"></label>
+                    <label class="jt-field">Run all tests <input type="text" id="cmgCmd_test" spellcheck="false"></label>
+                    <label class="jt-field">Run one test <input type="text" id="cmgCmd_single" spellcheck="false"></label>
+                    <label class="jt-field">Lint and format <input type="text" id="cmgCmd_lint" spellcheck="false" placeholder="optional"></label>
+                </div>
+                <div class="jt-checks">
+                    <label><input type="checkbox" id="cmgStackRules"> Add code style and testing rules for this stack</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Architecture</legend>
+                <label class="jt-field">Architecture rules
+                    <select id="cmgArch"></select>
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Working rules for the agent</legend>
+                <div class="jt-checks" id="cmgGuard"></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Project notes</legend>
+                <label class="jt-field">One rule per line: gotchas, conventions, things the agent keeps getting wrong
+                    <textarea id="cmgExtra" rows="4" spellcheck="false" placeholder="Money amounts are BigDecimal, never double.&#10;The payments module is legacy: don't change it without asking."></textarea>
+                </label>
+            </fieldset>
+
+            <button type="button" id="cmgReset" class="jt-btn jt-ghost">Reset to preset defaults</button>
+        </form>
+
+        <div class="jt-pane cmg-preview">
+            <label class="jt-field cmg-format">File for
+                <select id="cmgFormat" form="cmgForm"></select>
+            </label>
+            <div class="jt-pane-head">
+                <span id="cmgFile">AGENTS.md</span>
+                <button type="button" id="cmgCopy" class="jt-small">Copy</button>
+                <button type="button" id="cmgDownload" class="jt-small">Download</button>
+            </div>
+            <pre id="cmgOutput" class="jt-output cmg-output" aria-label="Generated instructions file"></pre>
+        </div>
+    </div>
+
+    <div id="cmgStatus" class="jt-status" role="status" aria-live="polite">Fill in the form. The file updates as you type.</div>
+    <noscript><p class="jt-noscript">This tool needs JavaScript. Everything runs locally in your browser.</p></noscript>
+</div>
