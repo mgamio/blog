@@ -4,6 +4,7 @@ short_title: "JSON to Java Converter"
 description: "Convert JSON to Java records, Lombok classes or POJOs online. Correct types for long IDs, dates and decimals, Jackson annotations for snake_case, and code that compiles."
 lead: "Paste a JSON object or API response and get Java classes for Jackson: records, Lombok or classic POJOs. Nested objects, lists, dates and snake_case names are handled for you."
 tool: json-to-java
+image: /assets/images/jsonToJavaTool.jpg
 scripts: [json-core]
 order: 2
 ---
