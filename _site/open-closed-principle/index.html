@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>SOLID principles: The Open-Closed Principle (Part II) | codersite</title>
+<title>Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II) | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="SOLID principles: The Open-Closed Principle (Part II)" />
+<meta property="og:title" content="Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II)" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="SOLID principles tell us how to arrange our functions into classes. Software design principles" />
-<meta name="twitter:description" property="og:description" content="SOLID principles tell us how to arrange our functions into classes. Software design principles" />
+<meta name="description" content="Learn the open-closed principle with a real Spring Boot example: refactor a rate limiter so you can add new data sources without touching existing code." />
+<meta name="twitter:description" property="og:description" content="Learn the open-closed principle with a real Spring Boot example: refactor a rate limiter so you can add new data sources without touching existing code." />
 <link rel="canonical" href="https://codersite.dev/open-closed-principle/" />
 <meta property="og:url" content="https://codersite.dev/open-closed-principle/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2022-01-06T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/openClosedPrinciple.jpg" />
-<meta name="twitter:title" content="SOLID principles: The Open-Closed Principle (Part II)" />
+<meta name="twitter:title" content="Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-01-06T00:00:00+01:00","datePublished":"2022-01-06T00:00:00+01:00","description":"SOLID principles tell us how to arrange our functions into classes. Software design principles","headline":"SOLID principles: The Open-Closed Principle (Part II)","image":"https://codersite.dev/assets/images/openClosedPrinciple.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/open-closed-principle/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/open-closed-principle/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2022-01-06T00:00:00+01:00","datePublished":"2022-01-06T00:00:00+01:00","description":"Learn the open-closed principle with a real Spring Boot example: refactor a rate limiter so you can add new data sources without touching existing code.","headline":"Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II)","image":"https://codersite.dev/assets/images/openClosedPrinciple.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/open-closed-principle/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/open-closed-principle/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -165,7 +165,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=SOLID principles: The Open-Closed Principle (Part II)&url=https://codersite.dev/open-closed-principle/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II)&url=https://codersite.dev/open-closed-principle/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -213,7 +213,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">SOLID principles: The Open-Closed Principle (Part II)</h1>
+                <h1 class="posttitle">Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II)</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -221,7 +221,7 @@
                 <p class="post-meta-line">
                     <time datetime="2022-01-06T00:00:00+01:00" itemprop="datePublished">Jan 6, 2022</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">9 min read</span>
+                    <span class="meta-reading-time">14 min read</span>
                     
                 </p>
 
@@ -236,7 +236,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/openClosedPrinciple.jpg" alt="SOLID principles: The Open-Closed Principle (Part II)">
+            <img class="featured-image img-fluid" src="/assets/images/openClosedPrinciple.jpg" alt="Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II)">
             
 
             
@@ -247,236 +247,42 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.</p>
+                <p>SOLID principles tell you how to arrange your functions into classes and how those classes should depend on each other. Applied well, they make your software easier to change, easier to understand and easier to reuse.</p>
 
-<p>When SOLID principles are applied correctly, your software infrastructure will be able to tolerate changes, it will be easier to understand, and it will be focuser on reusable components.</p>
+<p>In <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Part I of this series</a>, you learned the <em>Single Responsibility Principle</em>. This article covers the second one, the <strong>Open-Closed Principle (OCP)</strong>, with a real example: a rate limiter in a Spring Boot REST API that has to switch from a text file to a database.</p>
 
-<p>After reviewing the <em>Single Responsibility Principle</em> included in the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">SOLID principles</a>, let’s proceed to the second principle.</p>
-
-<h2 id="solid-principles-the-open-closed-principle-ocp">SOLID principles: The Open-Closed Principle (OCP)</h2>
+<h2 id="what-is-the-open-closed-principle">What Is the Open-Closed Principle?</h2>
 
 <blockquote>
-  <p>… “a module, class, or function should be open for extension but closed for modification.“</p>
+  <p>“Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.”</p>
 </blockquote>
 
-<p><a href="https://amzn.to/40ehLzP" target="_blank">Bertrand Meyer</a> coined the principle, suggesting that we should build software to be extendable without touching its current code implementation.</p>
+<ul>
+  <li><strong>Open for extension:</strong> you can add new behavior.</li>
+  <li><strong>Closed for modification:</strong> you add it without editing code that already works.</li>
+</ul>
 
-<p>But there are situations we change one of our classes, and we realize that we need to adapt all its depending classes.</p>
+<p><a href="https://amzn.to/40ehLzP" target="_blank">Bertrand Meyer</a> introduced the principle in 1988 in <em>Object-Oriented Software Construction</em>. His solution was inheritance: leave the original class alone and extend it in a subclass. Robert C. Martin later restated it the way we use it today: depend on an <strong>interface</strong>, and add behavior by writing a new class that implements it.</p>
 
-<h2 id="explaining-the-open-closed-principle-with-code-examples">Explaining the Open-Closed Principle with code examples</h2>
+<p>Why does it matter? Every time you edit a class that already works, you risk breaking it and everything that depends on it. If a new requirement only adds a class, the tested code stays untouched.</p>
 
-<p>For instance, imagine that we are assigned the task of <a href="https://codersite.dev/rate-limit/" target="_blank">How to implement Rate Limiting</a> algorithm to control the number of requests allowed for every endpoint in a <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST API</a>.</p>
+<h2 id="the-example-a-rate-limiter-that-reads-plans-from-a-file">The Example: A Rate Limiter That Reads Plans from a File</h2>
 
-<p>The RateLimit class implements an interceptor - <em>HandlerInterceptor</em> - that allows an application to intercept HTTP requests before they reach the service, so we can either let the request go through or block it and send back the status code 429.</p>
+<p>Imagine your team is <a href="https://codersite.dev/rate-limit/" target="_blank">implementing rate limiting</a> to control how many requests each client can send to a <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST API</a>.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<p>The <code class="language-plaintext highlighter-rouge">RateLimit</code> class implements Spring’s <code class="language-plaintext highlighter-rouge">HandlerInterceptor</code>, which intercepts HTTP requests before they reach the controller. For each request, it either lets the request through or blocks it with status code <strong>429 Too Many Requests</strong>.</p>
+
+<p>How many requests a client may send depends on its plan. The plans are stored in a text file on the classpath, <code class="language-plaintext highlighter-rouge">apiPlans.txt</code>, with each plan’s number of requests per minute:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">RateLimit</span> <span class="n">implements</span> <span class="nc">HandlerInterceptor</span> <span class="p">{</span>
-  <span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span><span class="p">;</span>
-  
-  <span class="nd">@Override</span>
-  <span class="k">public</span> <span class="n">boolean</span> <span class="nf">preHandle</span><span class="p">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> 
-    <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span> <span class="nc">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-    <span class="c1">//getClientId</span>
-    <span class="n">apiPlans</span> <span class="p">=</span> <span class="nf">getAPIPlans</span><span class="p">();</span>
-    <span class="c1">//build Buckets</span>
-    <span class="c1">//evaluate request per clientId</span>
-    <span class="c1">//accept(200) or refuse(429) request</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre>FREE:10
+PAID:1000
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
+<p>The first version of <code class="language-plaintext highlighter-rouge">RateLimit</code> loads the plans once, when it is created:</p>
 
-<p>The number of requests allowed during a time interval is specified in plans; for example, plan A allows to consume 100 requests in 1 minute.</p>
-
-<p>The team wants to retrieve the number of requests by plan from a text file. The following <em>getAPIPlans</em> method retrieves those parameters.</p>
-
-<p>The following getAPIPlans method retrieves those parameters.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="nf">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-  <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ConcurrentHashMap</span><span class="p">&lt;&gt;();</span>
-  <span class="nc">Resource</span> <span class="n">resource</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ClassPathResource</span><span class="p">(</span><span class="s">"apiPlans.txt"</span><span class="p">);</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="nc">List</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="n">allLines</span> <span class="p">=</span> <span class="nc">Files</span><span class="p">.</span><span class="nf">readAllLines</span><span class="p">(</span><span class="nc">Paths</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">resource</span><span class="p">.</span><span class="nf">getURI</span><span class="p">()));</span>
-    <span class="k">for</span> <span class="p">(</span><span class="nc">String</span> <span class="n">line</span><span class="p">:</span> <span class="n">allLines</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nc">String</span><span class="p">[]</span> <span class="n">attributes</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s">":"</span><span class="p">);</span>
-      <span class="nc">String</span> <span class="n">plan</span> <span class="p">=</span> <span class="n">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-      <span class="n">long</span> <span class="n">capacity</span> <span class="p">=</span> <span class="nc">Long</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">attributes</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nf">longValue</span><span class="p">();</span>
-      <span class="n">apiPlans</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">capacity</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">throw</span> <span class="n">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="nf">getMessage</span><span class="p">());</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">apiPlans</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="when-suddenly-an-unexpected-scenario-arises">When suddenly, an unexpected scenario arises</h2>
-
-<p>The developer leaves the company, and a new one arrives—for example, You.</p>
-
-<p>As developers, we usually receive tasks to do maintenance in projects that do not belong to us; specifically, we never created that code.</p>
-
-<p>Then weeks later, your team decides that must be retrieved parameters from a database. Therefore you proceed to replace the <em>getAPIPlans</em> method; then, <em>you break the open-closed principle</em>.</p>
-
-<p>That is the meaning of the principle; you can not touch the code that is already implemented and working for a long time. Suppose the code is too complex to understand, not well documented, and includes a lot of dependencies. In that case, we have a lot of probabilities to introduce a bug or break some functionalities that we cannot visualize. Unless it is a bug that we have to fix, we should never modify the existing code.</p>
-
-<blockquote>
-  <p>The Book I Wish I Had When I Started Preparing</p>
-</blockquote>
-
-<div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
-</center>
-
-<br /></div>
-
-<p>Even if the code is not well designed or does not follow <a href="https://codersite.dev/understanding-oop-concepts/" target="_blank">object-oriented programming concepts</a>, it could not be easy to extend a class to introduce new functionalities.</p>
-
-<p>The team wants to implement the open-closed principle to support future changes for this scenario. But they need to adopt Refactoring techniques to promote the Open-Closed Principle. For this scenario: polymorphism and aggregation.</p>
-
-<h3 id="polymorphism">Polymorphism</h3>
-
-<p>Polymorphism is part of the core concepts of Object-Oriented Programming and means many forms, allowing an object to behave differently in some instances. For our scenario, polymorphism will enable the <em>getAPIPlans</em> method to achieve its goals in different ways: retrieve the parameters from a text file or a database.</p>
-
-<h3 id="aggregation">Aggregation</h3>
-
-<p>Aggregation defines a HAS-A relationship between two classes. Their objects have their life cycle, but one of them is the owner of the HAS-A relationship.</p>
-
-<p>The following diagram shows the goal of our design.</p>
-
-<p><img src="/assets/images/rateLimit.jpg" alt="rateLimit" title="rateLimit" class="img-responsive" /></p>
-
-<p>Please donate to maintain and improve this website if you find this content valuable.</p>
-
-<p><b><i>“If this article helped you, help me create the next one.”</i></b></p>
-<p><a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a></p>
-
-<p><br /></p>
-
-<p>Read more about <a href="https://codersite.dev/understanding-oop-concepts/" target="_blank">Understanding OOP concepts</a>.</p>
-
-<h2 id="achieving-extensibility-with-the-open-closed-principle">Achieving extensibility with the Open-Closed Principle</h2>
-
-<p>Firstly,  and thinking abstractly, you should create an interface and define a contract that will include all required functionalities.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">interface</span> <span class="nc">DataService</span> <span class="p">{</span>
-
-  <span class="k">public</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="nf">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span><span class="p">;</span>
-
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Secondly, we move our <em>getAPIPlans</em> method to a new class that implements the previous interface.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">TextData</span> <span class="n">implements</span> <span class="nc">DataService</span> <span class="p">{</span>
-  <span class="nd">@Override</span>
-  <span class="k">public</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="nf">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-    <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ConcurrentHashMap</span><span class="p">&lt;&gt;();</span>
-    <span class="c1">//code omitted for brevity</span>
-	
-    <span class="k">return</span> <span class="n">apiPlans</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Thanks to abstractions, we can create a new class to implement <em>getAPIPlans</em> with different behavior, in this case, to retrieve parameters from a database.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">DBData</span> <span class="n">implements</span> <span class="nc">DataService</span> <span class="p">{</span>
-  <span class="k">private</span> <span class="nc">DataSource</span> <span class="n">datasource</span><span class="p">;</span>
-  
-  <span class="k">public</span> <span class="nc">DBData</span><span class="p">(</span><span class="nc">DataSource</span> <span class="n">datasource</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="n">datasource</span> <span class="p">=</span> <span class="n">datasource</span><span class="p">;</span>
-  <span class="p">}</span>
-  
-  <span class="nd">@Override</span>
-  <span class="k">public</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="nf">getAPIPlans</span><span class="p">()</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-    <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ConcurrentHashMap</span><span class="p">&lt;&gt;();</span>
-    <span class="k">for</span> <span class="p">(</span><span class="nc">Plan</span> <span class="n">plan</span> <span class="p">:</span> <span class="n">datasource</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">())</span> <span class="p">{</span>
-    <span class="c1">//code omitted for brevity</span>
-	 
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">apiPlans</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
-
-<p>Introducing a new abstraction layer with different implementations avoids tight coupling between classes.</p>
-
-<p>Finally, we refactor our RateLimit class <em>aggregating</em> an instance of DataService type in its constructor method.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -494,48 +300,370 @@
 16
 17
 18
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">RateLimit</span> <span class="n">implements</span> <span class="nc">HandlerInterceptor</span> <span class="p">{</span>
-  <span class="k">private</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Long</span><span class="p">&gt;</span> <span class="n">apiPlans</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nc">DataService</span> <span class="n">dataService</span><span class="p">;</span>
-  
-  <span class="k">public</span> <span class="nc">RateLimit</span><span class="p">(</span><span class="nc">DataService</span> <span class="n">dataService</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="n">dataService</span> <span class="p">=</span> <span class="n">dataService</span><span class="p">;</span>
-  <span class="p">}</span>
-  
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RateLimit</span> <span class="kd">implements</span> <span class="nc">HandlerInterceptor</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="n">apiPlans</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">RateLimit</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">apiPlans</span> <span class="o">=</span> <span class="n">loadPlans</span><span class="o">();</span>
+  <span class="o">}</span>
+
   <span class="nd">@Override</span>
-  <span class="k">public</span> <span class="n">boolean</span> <span class="nf">preHandle</span><span class="p">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> 
-    <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span> <span class="nc">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="n">throws</span> <span class="nc">Exception</span> <span class="p">{</span>
-    <span class="c1">//getClientId</span>
-    <span class="n">apiPlans</span> <span class="p">=</span> <span class="n">dataService</span><span class="p">.</span><span class="nf">getAPIPlans</span><span class="p">();</span>
-    <span class="c1">//build Buckets</span>
-    <span class="c1">//evaluate request per clientId</span>
-    <span class="c1">//accept(200) or refuse(429) request</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">preHandle</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span>
+      <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">handler</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+    <span class="c1">// get the client ID, find its plan in apiPlans and its bucket</span>
+    <span class="c1">// if the bucket is empty: response.setStatus(429) and return false</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="nf">loadPlans</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="n">plans</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="nc">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ClassPathResource</span><span class="o">(</span><span class="s">"apiPlans.txt"</span><span class="o">);</span>
+    <span class="k">try</span> <span class="o">(</span><span class="nc">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span>
+        <span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">resource</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">(),</span> <span class="nc">StandardCharsets</span><span class="o">.</span><span class="na">UTF_8</span><span class="o">)))</span> <span class="o">{</span>
+      <span class="nc">String</span> <span class="n">line</span><span class="o">;</span>
+      <span class="k">while</span> <span class="o">((</span><span class="n">line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">line</span><span class="o">.</span><span class="na">isBlank</span><span class="o">())</span> <span class="o">{</span>
+          <span class="k">continue</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">":"</span><span class="o">);</span>
+        <span class="n">plans</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">parts</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">trim</span><span class="o">(),</span> <span class="nc">Long</span><span class="o">.</span><span class="na">parseLong</span><span class="o">(</span><span class="n">parts</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">trim</span><span class="o">()));</span>
+      <span class="o">}</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">UncheckedIOException</span><span class="o">(</span><span class="s">"Cannot read apiPlans.txt"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="nc">Map</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">plans</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>If later we decided to retrieve the parameters from a NoSQL database such as <a href="https://codersite.dev/hot-warm-architecture-elasticsearch/" target="_blank">Elasticsearch</a>, we would no longer have to touch the code, create a new class that implements <em>getAPIPlans</em>, and instantiate this new class in RateLimit.</p>
+<p><strong>Tip:</strong> read classpath files with <code class="language-plaintext highlighter-rouge">resource.getInputStream()</code>, not with <code class="language-plaintext highlighter-rouge">Paths.get(resource.getURI())</code>. The second version works in your IDE, but once Spring Boot runs from a packaged JAR, the file is inside the JAR and <code class="language-plaintext highlighter-rouge">Paths.get</code> throws <code class="language-plaintext highlighter-rouge">FileSystemNotFoundException</code>.</p>
 
-<p>Even if, instead of implementing the <em>HandlerInterceptor</em> interface, we implement a <em>Filter</em> to design our Rate Limit algorithm, we can reuse the DataService interface as one of its dependencies.</p>
+<p>The algorithm behind the buckets is explained in <a href="https://codersite.dev/rate-limit/" target="_blank">Rate Limiting in Spring Boot with Bucket4j</a>. Here we focus on the design.</p>
 
-<p>Calling to <em>getAPIPlans</em> is now fixed (closed for modification). If we want it to behave differently, we implement it in a new class (open for extension) that will follow the contracts defined in our interface.</p>
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
 
-<p>Our new DBData dependency is instantiated in our RateLimit class thanks to the magic of the Dependency Injection principle, which I will explain in a near-future article, so follow me!.</p>
+<h2 id="then-the-requirements-change">Then the Requirements Change</h2>
 
-<p>Applying these Refactoring techniques, the Open-Closed Principle enhances software maintainability.</p>
+<p>The developer who wrote this class leaves the company, and a new one arrives: you. This is how most maintenance work looks: you change code that you didn’t write.</p>
 
-<p><strong>Do you want to know more about Software Design Principles?</strong></p>
+<p>A few weeks later, the team decides that the plans must come from a database, so that the sales team can change them without a new release. The obvious solution is to rewrite <code class="language-plaintext highlighter-rouge">loadPlans()</code> inside <code class="language-plaintext highlighter-rouge">RateLimit</code>. And next year, when the plans move to Elasticsearch, you rewrite it again.</p>
 
-<blockquote>
-  <p>Here’s a Quick Guide to Elevate Your Projects with Proven Software Design Tactics!. – <cite><a href="https://amzn.to/3EdhXI5" target="_blank">Software Design Principles</a></cite></p>
-</blockquote>
+<p><strong>That is a violation of the open-closed principle.</strong> <code class="language-plaintext highlighter-rouge">RateLimit</code> has one job, limiting requests, but it changes every time the <em>storage</em> of the plans changes. Each change means editing, retesting and redeploying a class that controls every request to your API. If the code is complex, poorly documented or has many dependencies, each edit is a chance to break something you can’t see.</p>
+
+<h3 id="how-to-spot-an-open-closed-violation">How to Spot an Open-Closed Violation</h3>
+
+<p>The most common sign is a <code class="language-plaintext highlighter-rouge">switch</code> or <code class="language-plaintext highlighter-rouge">if-else</code> chain on a type that grows with every new feature:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="nf">loadPlans</span><span class="o">(</span><span class="nc">String</span> <span class="n">source</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="nf">switch</span> <span class="o">(</span><span class="n">source</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="s">"file"</span> <span class="o">-&gt;</span> <span class="n">readFromFile</span><span class="o">();</span>
+    <span class="k">case</span> <span class="s">"database"</span> <span class="o">-&gt;</span> <span class="n">readFromDatabase</span><span class="o">();</span>
+    <span class="k">case</span> <span class="s">"elasticsearch"</span> <span class="o">-&gt;</span> <span class="n">readFromElasticsearch</span><span class="o">();</span>   <span class="c1">// every new source edits this method</span>
+    <span class="k">default</span> <span class="o">-&gt;</span> <span class="k">throw</span> <span class="k">new</span> <span class="nc">IllegalArgumentException</span><span class="o">(</span><span class="n">source</span><span class="o">);</span>
+  <span class="o">};</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Other signs are a class you have to change for unrelated reasons, and a bug fix in one feature that breaks another.</p>
+
+<h2 id="refactoring-toward-the-open-closed-principle">Refactoring Toward the Open-Closed Principle</h2>
+
+<p>Two object-oriented techniques solve the problem:</p>
+
+<ul>
+  <li><strong>Polymorphism:</strong> one contract, many implementations. Code that calls <code class="language-plaintext highlighter-rouge">loadPlans()</code> doesn’t need to know whether the plans come from a file or a database. Read more in <a href="https://codersite.dev/understanding-oop-concepts/" target="_blank">Understanding OOP Concepts</a>.</li>
+  <li><strong>Constructor injection:</strong> <code class="language-plaintext highlighter-rouge">RateLimit</code> receives the implementation from outside instead of creating it, so it never depends on a concrete class.</li>
+</ul>
+
+<p>Here is the design we’re aiming for (the notation is explained in <a href="https://codersite.dev/uml-diagrams-for-java-developers/" target="_blank">UML Diagrams for Java Developers</a>):</p>
+
+<p><img src="/assets/images/openClosedRateLimitDiagram.png" alt="UML class diagram: RateLimit uses the PlanProvider interface, which FilePlanProvider, DatabasePlanProvider and a later ElasticsearchPlanProvider implement" title="The open-closed principle applied to the rate limiter" class="img-responsive" /></p>
+
+<h3 id="step-1-define-the-contract">Step 1: Define the Contract</h3>
+
+<p>Think abstractly: what does <code class="language-plaintext highlighter-rouge">RateLimit</code> need? Not a file, not a database, just the plans. That is the interface:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PlanProvider</span> <span class="o">{</span>
+
+  <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="nf">loadPlans</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="step-2-move-the-existing-code-into-an-implementation">Step 2: Move the Existing Code into an Implementation</h3>
+
+<p>The file-reading code moves, unchanged, into its own class:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FilePlanProvider</span> <span class="kd">implements</span> <span class="nc">PlanProvider</span> <span class="o">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="nf">loadPlans</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="n">plans</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="nc">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ClassPathResource</span><span class="o">(</span><span class="s">"apiPlans.txt"</span><span class="o">);</span>
+    <span class="c1">// same code as before</span>
+    <span class="k">return</span> <span class="nc">Map</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">plans</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="step-3-extend-with-a-new-class">Step 3: Extend with a New Class</h3>
+
+<p>Reading the plans from a database is now a new class, not a change to an old one. This one uses Spring’s <code class="language-plaintext highlighter-rouge">JdbcClient</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DatabasePlanProvider</span> <span class="kd">implements</span> <span class="nc">PlanProvider</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">JdbcClient</span> <span class="n">jdbcClient</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">DatabasePlanProvider</span><span class="o">(</span><span class="nc">JdbcClient</span> <span class="n">jdbcClient</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">jdbcClient</span> <span class="o">=</span> <span class="n">jdbcClient</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="nf">loadPlans</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="n">plans</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="n">jdbcClient</span><span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">"SELECT name, capacity FROM api_plan"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="n">rs</span> <span class="o">-&gt;</span> <span class="o">{</span>
+          <span class="n">plans</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"name"</span><span class="o">),</span> <span class="n">rs</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="s">"capacity"</span><span class="o">));</span>
+        <span class="o">});</span>
+    <span class="k">return</span> <span class="nc">Map</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">plans</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="step-4-depend-on-the-interface">Step 4: Depend on the Interface</h3>
+
+<p><code class="language-plaintext highlighter-rouge">RateLimit</code> receives a <code class="language-plaintext highlighter-rouge">PlanProvider</code> in its constructor. It doesn’t know, and doesn’t care, where the plans come from:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RateLimit</span> <span class="kd">implements</span> <span class="nc">HandlerInterceptor</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="n">apiPlans</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">RateLimit</span><span class="o">(</span><span class="nc">PlanProvider</span> <span class="n">planProvider</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">apiPlans</span> <span class="o">=</span> <span class="n">planProvider</span><span class="o">.</span><span class="na">loadPlans</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">preHandle</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span>
+      <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">handler</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+    <span class="c1">// get the client ID, find its plan in apiPlans and its bucket</span>
+    <span class="c1">// if the bucket is empty: response.setStatus(429) and return false</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h3 id="step-5-choose-the-implementation-in-one-place">Step 5: Choose the Implementation in One Place</h3>
+
+<p>Spring Boot creates the objects and passes them in, which is called <em>dependency injection</em>. One configuration class decides which provider the application uses:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PlanConfig</span> <span class="o">{</span>
+
+  <span class="nd">@Bean</span>
+  <span class="nc">PlanProvider</span> <span class="nf">planProvider</span><span class="o">(</span><span class="nc">JdbcClient</span> <span class="n">jdbcClient</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">DatabasePlanProvider</span><span class="o">(</span><span class="n">jdbcClient</span><span class="o">);</span>   <span class="c1">// before: return new FilePlanProvider();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>And the web configuration registers the interceptor with whatever provider Spring injects:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebConfig</span> <span class="kd">implements</span> <span class="nc">WebMvcConfigurer</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">PlanProvider</span> <span class="n">planProvider</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">WebConfig</span><span class="o">(</span><span class="nc">PlanProvider</span> <span class="n">planProvider</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">planProvider</span> <span class="o">=</span> <span class="n">planProvider</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addInterceptors</span><span class="o">(</span><span class="nc">InterceptorRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">registry</span><span class="o">.</span><span class="na">addInterceptor</span><span class="o">(</span><span class="k">new</span> <span class="nc">RateLimit</span><span class="o">(</span><span class="n">planProvider</span><span class="o">)).</span><span class="na">addPathPatterns</span><span class="o">(</span><span class="s">"/api/**"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Switching from the text file to the database was a <strong>one-line change in the configuration</strong>. <code class="language-plaintext highlighter-rouge">RateLimit</code>, <code class="language-plaintext highlighter-rouge">PlanProvider</code>, <code class="language-plaintext highlighter-rouge">FilePlanProvider</code> and <code class="language-plaintext highlighter-rouge">WebConfig</code> were not touched. When the plans move to Elasticsearch, you write an <code class="language-plaintext highlighter-rouge">ElasticsearchPlanProvider</code> and change the same line. With <code class="language-plaintext highlighter-rouge">@ConditionalOnProperty</code> on the bean methods, you can even choose the provider with a property in <code class="language-plaintext highlighter-rouge">application.properties</code>, without recompiling.</p>
+
+<p>The interface is reusable, too: if you later replace the interceptor with a servlet <code class="language-plaintext highlighter-rouge">Filter</code>, the filter receives the same <code class="language-plaintext highlighter-rouge">PlanProvider</code>.</p>
+
+<h2 id="open-closed-and-the-strategy-pattern">Open-Closed and the Strategy Pattern</h2>
+
+<p>What you just built has a name: the <strong>Strategy pattern</strong>. <code class="language-plaintext highlighter-rouge">PlanProvider</code> is the strategy, each implementation is a concrete strategy, and <code class="language-plaintext highlighter-rouge">RateLimit</code> is the context that uses one without knowing which. Many classic design patterns, including Strategy, Decorator, Template Method and Observer, are ways to make code open for extension and closed for modification. They were cataloged by the “Gang of Four” in the book that made design patterns part of every developer’s vocabulary:</p>
+
+<div><center>
+  <a href="https://amzn.to/4hEl8Yw" target="_blank"><img style="border:1px solid black;" alt="Design Patterns: Elements of Reusable Object-Oriented Software" title="Buy Now" border="0" width="265" height="380" src="/recommended/images/designPatterns.jpg" /></a>
+</center>
+
+<br />
+</div>
+
+<h2 id="when-not-to-apply-the-open-closed-principle">When Not to Apply the Open-Closed Principle</h2>
+
+<p>The principle doesn’t say “never edit existing code”:</p>
+
+<ul>
+  <li><strong>Bugs get fixed where they are.</strong> Writing a subclass to work around a bug is worse than fixing it.</li>
+  <li><strong>Don’t add an interface for every class.</strong> An extension point that never gets a second implementation is extra code to read and maintain. This is the classic conflict between open-closed and YAGNI (“You Aren’t Gonna Need It”). A practical rule: add the abstraction the <em>second</em> time the same kind of change happens. By then, you know what actually varies. See <a href="https://codersite.dev/software-design-principles/#when-principles-conflict" target="_blank">When Principles Conflict</a> in the software design principles overview.</li>
+  <li><strong>Refactoring is allowed.</strong> Making code ready for extension, as we did above, means changing it once. The principle protects the code <em>after</em> that.</li>
+</ul>
+
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+
+<p><strong>Who created the open-closed principle?</strong>
+Bertrand Meyer introduced it in 1988 in <em>Object-Oriented Software Construction</em>. Robert C. Martin reformulated it in the 1990s, based on interfaces and polymorphism, and made it the “O” in SOLID.</p>
+
+<p><strong>What is the difference between open-closed and dependency inversion?</strong>
+Dependency inversion says that classes should depend on abstractions, such as <code class="language-plaintext highlighter-rouge">PlanProvider</code>, not on concrete classes, such as <code class="language-plaintext highlighter-rouge">DatabasePlanProvider</code>. That dependency is what makes open-closed possible: because <code class="language-plaintext highlighter-rouge">RateLimit</code> depends only on the interface, you can extend the system without modifying it.</p>
+
+<p><strong>Does open-closed mean I can never change a class?</strong>
+No. You fix bugs, refactor and change behavior when requirements truly change. The goal is that <em>the most common kind of change</em>, in our case a new data source, means adding code instead of editing working code.</p>
+
+<p><strong>Is open-closed asked in job interviews?</strong>
+Yes, very often. A good answer explains the principle in one sentence, shows a violation (a growing <code class="language-plaintext highlighter-rouge">switch</code>) and the fix (an interface with one class per variant), and mentions the Strategy pattern.</p>
+
+<h2 id="summary">Summary</h2>
+
+<ul>
+  <li><strong>Open for extension, closed for modification:</strong> add new behavior as new classes, not as edits to working code.</li>
+  <li><strong>The tool is an interface:</strong> <code class="language-plaintext highlighter-rouge">RateLimit</code> depends on <code class="language-plaintext highlighter-rouge">PlanProvider</code>, not on a file or a database.</li>
+  <li><strong>Dependency injection picks the implementation</strong> in one configuration class.</li>
+  <li><strong>Apply it where change actually happens,</strong> not everywhere “just in case”.</li>
+</ul>
+
+<p><br /></p>
+
+<p>Open-closed is one of the most common SOLID questions in Java interviews, together with design patterns and system design questions like “design a rate limiter”. Practice with real interview questions and answers:</p>
+
+<div><center>
+  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
+</center>
+
+<br /></div>
+
+<p>Open-closed is one of many principles that keep code easy to change. My book <em>Software Design Principles</em> covers SOLID, DRY, KISS, YAGNI, coupling and cohesion with practical examples, so you can apply them in your own projects:</p>
+
+<div><center>
+  <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="/assets/images/SoftwareDesignPrinciplesV2.jpg" /></a>
+</center>
+
+<br /></div>
+
+<p>If you found this article useful, you can support this website:</p>
 
 <div>
 <p><b><i>“If this article helped you, help me create the next one.”</i></b></p>
 <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 
 </div>
-
 
 				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
@@ -620,8 +748,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/open-closed-principle/"
   },
-  "headline": "SOLID principles: The Open-Closed Principle (Part II)",
-  "description": "SOLID principles tell us how to arrange our functions into classes. Software design principles",
+  "headline": "Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II)",
+  "description": "Learn the open-closed principle with a real Spring Boot example: refactor a rate limiter so you can add new data sources without touching existing code.",
   "image": "https://codersite.dev/assets/images/openClosedPrinciple.jpg",
   "datePublished": "2022-01-06T00:00:00+01:00",
   "dateModified": "2022-01-06T00:00:00+01:00",
@@ -659,7 +787,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "SOLID principles: The Open-Closed Principle (Part II)",
+      "name": "Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II)",
       "item": "https://codersite.dev/open-closed-principle/"
     }
   ]
