@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Merge two sorted lists algorithm | codersite</title>
+<title>Merge Two Sorted Lists in Java: Array List and Linked List Solutions | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Merge two sorted lists algorithm" />
+<meta property="og:title" content="Merge Two Sorted Lists in Java: Array List and Linked List Solutions" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Given two sorted lists, merge them in a new sorted list - coding interview" />
-<meta name="twitter:description" property="og:description" content="Given two sorted lists, merge them in a new sorted list - coding interview" />
+<meta name="description" content="Merge two sorted lists in Java in O(n + m): the two-pointer solution for ArrayList, a generic version, and the LeetCode 21 linked-list solution with tests." />
+<meta name="twitter:description" property="og:description" content="Merge two sorted lists in Java in O(n + m): the two-pointer solution for ArrayList, a generic version, and the LeetCode 21 linked-list solution with tests." />
 <link rel="canonical" href="https://codersite.dev/merge-two-sorted-lists/" />
 <meta property="og:url" content="https://codersite.dev/merge-two-sorted-lists/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2021-08-04T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/merge.jpg" />
-<meta name="twitter:title" content="Merge two sorted lists algorithm" />
+<meta name="twitter:title" content="Merge Two Sorted Lists in Java: Array List and Linked List Solutions" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2021-08-04T00:00:00+02:00","datePublished":"2021-08-04T00:00:00+02:00","description":"Given two sorted lists, merge them in a new sorted list - coding interview","headline":"Merge two sorted lists algorithm","image":"https://codersite.dev/assets/images/merge.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/merge-two-sorted-lists/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/merge-two-sorted-lists/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2021-08-04T00:00:00+02:00","datePublished":"2021-08-04T00:00:00+02:00","description":"Merge two sorted lists in Java in O(n + m): the two-pointer solution for ArrayList, a generic version, and the LeetCode 21 linked-list solution with tests.","headline":"Merge Two Sorted Lists in Java: Array List and Linked List Solutions","image":"https://codersite.dev/assets/images/merge.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/merge-two-sorted-lists/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/merge-two-sorted-lists/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -165,7 +165,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Merge two sorted lists algorithm&url=https://codersite.dev/merge-two-sorted-lists/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Merge Two Sorted Lists in Java: Array List and Linked List Solutions&url=https://codersite.dev/merge-two-sorted-lists/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -213,7 +213,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Merge two sorted lists algorithm</h1>
+                <h1 class="posttitle">Merge Two Sorted Lists in Java: Array List and Linked List Solutions</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -221,7 +221,7 @@
                 <p class="post-meta-line">
                     <time datetime="2021-08-04T00:00:00+02:00" itemprop="datePublished">Aug 4, 2021</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">4 min read</span>
+                    <span class="meta-reading-time">14 min read</span>
                     
                 </p>
 
@@ -236,7 +236,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/merge.jpg" alt="Merge two sorted lists algorithm">
+            <img class="featured-image img-fluid" src="/assets/images/merge.jpg" alt="Merge Two Sorted Lists in Java: Array List and Linked List Solutions">
             
 
             
@@ -247,40 +247,25 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>A merging algorithm takes two sorted lists as input and produces a single list as output, containing all the elements of the two inputs lists in sorted order.</p>
+                <p>Merging two sorted lists is one of the classic coding interview problems, and one of the most useful: it is the heart of merge sort, of merging k sorted lists, and of sorting files too big to fit in memory.</p>
 
-<p>A <em>List</em> is an abstract data type that can store a list of items. Unlike traditional arrays, however, lists can be expanded and shrunk and are stored dynamically in memory.</p>
+<p>This article solves it three ways in Java, each with tests: for array-based lists, for any <code class="language-plaintext highlighter-rouge">List</code>, and for linked lists (the version LeetCode 21 asks for).</p>
 
-<h2 id="problem">Problem</h2>
+<h2 id="the-problem">The Problem</h2>
 
-<p>Given two sorted lists, merge them in a new sorted list.</p>
+<p>Given two lists sorted in ascending order, return one list that contains all their elements, also sorted.</p>
 
-<p><img src="/assets/images/mergeSortedLists.jpg" alt="merge-two-sorted-lists" title="Merge two sorted lists" class="img-responsive" /></p>
+<p><img src="/assets/images/mergeSortedLists.jpg" alt="Two sorted lists, 1 1 2 5 8 and 3 4 6, merged into 1 1 2 3 4 5 6 8" title="Merge two sorted lists" class="img-responsive" /></p>
 
-<h2 id="solution">Solution</h2>
+<p>The simple solution is to put all elements into one list and sort it. That works, but it costs O((n + m) log(n + m)) and ignores the fact that both lists are <em>already sorted</em>. We can do better.</p>
 
-<p>What we are going to do is implement a new algorithm that follows a Logarithmic Time Complexity, NlogN (see <a href="/big-o-notation-analysis-of-algorithms/" target="_blank">Big O Notation</a>).</p>
+<h2 id="the-idea-two-pointers">The Idea: Two Pointers</h2>
 
-<ul>
-  <li>We define a new List to add all elements from the other two lists in a sorted way.</li>
-  <li>We define two indexes that point to every element in every list</li>
-  <li>We iterate both lists while still exist elements in both lists</li>
-  <li>We compare elements from both lists and add the smaller one to the new list in every iteration. Before passing to the next iteration, we increment in one the index of the list, which contains the smaller element.</li>
-  <li>If there is a list that still contains elements, we add them directly to the new list.</li>
-</ul>
+<p>Keep one pointer at the start of each list. At every step, compare the two elements the pointers point to, copy the smaller one to the result, and move that pointer forward. When one list runs out, copy the rest of the other one: it is already sorted.</p>
 
-<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
+<p>Here are the steps for the lists in the picture (<code class="language-plaintext highlighter-rouge">[i]</code> and <code class="language-plaintext highlighter-rouge">[j]</code> mark the elements being compared):</p>
 
-<h2 id="a-test-case-helps-to-validate-your-assumptions">A test case helps to validate your assumptions</h2>
-
-<p>Our assumption based on a test case:</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -288,35 +273,23 @@
 6
 7
 8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="rouge-code"><pre><span class="nd">@Test</span>
-<span class="k">public</span> <span class="n">void</span> <span class="nf">mergeSortedLists</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">sList1</span> <span class="p">=</span> <span class="nc">Arrays</span><span class="p">.</span><span class="nf">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span>
-  <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">sList2</span> <span class="p">=</span> <span class="nc">Arrays</span><span class="p">.</span><span class="nf">asList</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
-  <span class="nf">assertEquals</span><span class="p">(</span><span class="s">"[1, 1, 2, 3, 4, 5, 6, 8]"</span><span class="p">,</span>    
-    <span class="nc">SortedList</span><span class="p">.</span><span class="nf">merge_sorted</span><span class="p">(</span><span class="n">sList1</span><span class="p">,</span><span class="n">sList2</span><span class="p">).</span><span class="nf">toString</span><span class="p">());</span>
-<span class="p">}</span>
-
-<span class="nd">@Test</span>
-<span class="k">public</span> <span class="n">void</span> <span class="nf">mergeSortedLists2</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">sList1</span> <span class="p">=</span> <span class="nc">Arrays</span><span class="p">.</span><span class="nf">asList</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
-  <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">sList2</span> <span class="p">=</span> <span class="nc">Arrays</span><span class="p">.</span><span class="nf">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
-  <span class="nf">assertEquals</span><span class="p">(</span><span class="s">"[1, 2, 3, 4, 5, 6]"</span><span class="p">,</span> 
-    <span class="nc">SortedList</span><span class="p">.</span><span class="nf">merge_sorted</span><span class="p">(</span><span class="n">sList1</span><span class="p">,</span><span class="n">sList2</span><span class="p">).</span><span class="nf">toString</span><span class="p">());</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre>list1: [1] 1  2  5  8    list2: [3] 4  6    1 &lt;= 3, take 1  →  1
+list1:  1 [1] 2  5  8    list2: [3] 4  6    1 &lt;= 3, take 1  →  1 1
+list1:  1  1 [2] 5  8    list2: [3] 4  6    2 &lt;= 3, take 2  →  1 1 2
+list1:  1  1  2 [5] 8    list2: [3] 4  6    5 &gt;  3, take 3  →  1 1 2 3
+list1:  1  1  2 [5] 8    list2:  3 [4] 6    5 &gt;  4, take 4  →  1 1 2 3 4
+list1:  1  1  2 [5] 8    list2:  3  4 [6]   5 &lt;= 6, take 5  →  1 1 2 3 4 5
+list1:  1  1  2  5 [8]   list2:  3  4 [6]   8 &gt;  6, take 6  →  1 1 2 3 4 5 6
+list2 is used up: copy the rest of list1                     →  1 1 2 3 4 5 6 8
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h2 id="merging-sorted-lists-in-a-single-pass">Merging sorted lists in a single pass</h2>
+<p>Every element is copied exactly once, so the merge takes <strong>O(n + m)</strong> time, where n and m are the lengths of the two lists. That is linear time, the best possible, because every element has to end up in the result. (See <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Big O Notation</a> for how to analyze algorithms like this one.)</p>
 
-<p>Here, the implementation code:</p>
+<h2 id="write-the-tests-first">Write the Tests First</h2>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<p>The tests describe what “correct” means, including the cases that are easy to forget: lists of different lengths and empty lists. They use JUnit 5 or later:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -337,34 +310,348 @@
 19
 20
 21
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">SortedList</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="nf">merge_sorted</span><span class="p">(</span>
-    <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">sList1</span><span class="p">,</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">sList2</span><span class="p">)</span> <span class="p">{</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">SortedListsTest</span> <span class="o">{</span>
 
-    <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Integer</span><span class="p">&gt;</span> <span class="n">mergedSortedList</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">ArrayList</span><span class="p">&lt;&gt;();</span>
-    <span class="n">int</span> <span class="n">idx1</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">int</span> <span class="n">idx2</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nd">@Test</span>
+  <span class="kt">void</span> <span class="nf">mergesListsOfDifferentLengths</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">8</span><span class="o">),</span>
+        <span class="nc">SortedLists</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">8</span><span class="o">),</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">)));</span>
+  <span class="o">}</span>
 
-    <span class="k">while</span> <span class="p">(</span><span class="n">idx1</span> <span class="p">&lt;</span> <span class="n">sList1</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="p">&amp;&amp;</span> <span class="n">idx2</span> <span class="p">&lt;</span> <span class="n">sList2</span><span class="p">.</span><span class="nf">size</span><span class="p">())</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">sList1</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">idx1</span><span class="p">)</span> <span class="p">&lt;=</span> <span class="n">sList2</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">idx2</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">mergedSortedList</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">sList1</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">idx1</span><span class="p">));</span>
-        <span class="n">idx1</span><span class="p">++;</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">mergedSortedList</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">sList2</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">idx2</span><span class="p">));</span>
-        <span class="n">idx2</span><span class="p">++;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+  <span class="nd">@Test</span>
+  <span class="kt">void</span> <span class="nf">mergesInterleavedLists</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">),</span>
+        <span class="nc">SortedLists</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">),</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">6</span><span class="o">)));</span>
+  <span class="o">}</span>
 
-    <span class="k">return</span> <span class="n">mergedSortedList</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+  <span class="nd">@Test</span>
+  <span class="kt">void</span> <span class="nf">handlesEmptyLists</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">),</span> <span class="nc">SortedLists</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(),</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">)));</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">),</span> <span class="nc">SortedLists</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">),</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">()));</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(),</span> <span class="nc">SortedLists</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(),</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">()));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>The previous algorithm is missing how to proceed when one of the lists still contains elements not compared. Keep reading <a href="https://amzn.to/3wdwVry" target="_blank">here</a></p>
+<p>Compare lists with <code class="language-plaintext highlighter-rouge">assertEquals</code>, not their <code class="language-plaintext highlighter-rouge">toString()</code> output: when a test fails, JUnit then shows exactly which element differs.</p>
 
-<blockquote>
-  <p>Learn From Someone’s $300K+ Mistake So You Don’t Make It.</p>
-</blockquote>
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="solution-1-merge-two-arraylists">Solution 1: Merge Two ArrayLists</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SortedLists</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">merge</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list1</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list2</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">merged</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">list1</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">+</span> <span class="n">list2</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">list1</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">list2</span><span class="o">.</span><span class="na">size</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">list1</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="n">list2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">merged</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">list1</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+        <span class="n">i</span><span class="o">++;</span>
+      <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">merged</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">list2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">));</span>
+        <span class="n">j</span><span class="o">++;</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">// One list is used up; the rest of the other is already sorted.</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">list1</span><span class="o">.</span><span class="na">size</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">merged</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">list1</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+      <span class="n">i</span><span class="o">++;</span>
+    <span class="o">}</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">list2</span><span class="o">.</span><span class="na">size</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">merged</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">list2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">));</span>
+      <span class="n">j</span><span class="o">++;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">merged</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Three details make this solution correct and fast:</p>
+
+<ul>
+  <li><strong>The two loops at the end.</strong> Without them, the merge stops as soon as the shorter list runs out, and the first test fails: the <code class="language-plaintext highlighter-rouge">8</code> is missing. This is the most common mistake in interviews.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">&lt;=</code>, not <code class="language-plaintext highlighter-rouge">&lt;</code>.</strong> When two elements are equal, the one from <code class="language-plaintext highlighter-rouge">list1</code> goes first. Equal elements keep their original order, which makes the merge <em>stable</em>. Merge sort relies on this to be a stable sort.</li>
+  <li><strong>The initial capacity.</strong> <code class="language-plaintext highlighter-rouge">new ArrayList&lt;&gt;(list1.size() + list2.size())</code> creates the result at its final size, so the list never has to grow and copy itself while you add elements.</li>
+</ul>
+
+<h2 id="solution-2-a-generic-merge-for-any-list">Solution 2: A Generic Merge for Any List</h2>
+
+<p>The first solution has a hidden trap: <code class="language-plaintext highlighter-rouge">get(i)</code> is fast on an <code class="language-plaintext highlighter-rouge">ArrayList</code> but slow on a <code class="language-plaintext highlighter-rouge">LinkedList</code>, which has to walk from the start of the list to reach position <code class="language-plaintext highlighter-rouge">i</code>. On two <code class="language-plaintext highlighter-rouge">LinkedList</code>s of 20,000 elements, the version above took <strong>650 ms</strong> on my machine. The version below took <strong>4 ms</strong>, because iterators move through any list one step at a time:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Comparable</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="no">T</span><span class="o">&gt;&gt;</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">mergeAny</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">list1</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">list2</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">merged</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">list1</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">+</span> <span class="n">list2</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+  <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">it1</span> <span class="o">=</span> <span class="n">list1</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+  <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">list2</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+  <span class="no">T</span> <span class="n">a</span> <span class="o">=</span> <span class="n">it1</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">it1</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="no">T</span> <span class="n">b</span> <span class="o">=</span> <span class="n">it2</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">it2</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="kc">null</span><span class="o">;</span>
+
+  <span class="k">while</span> <span class="o">(</span><span class="n">a</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">b</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">merged</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+      <span class="n">a</span> <span class="o">=</span> <span class="n">it1</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">it1</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="n">merged</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+      <span class="n">b</span> <span class="o">=</span> <span class="n">it2</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">?</span> <span class="n">it2</span><span class="o">.</span><span class="na">next</span><span class="o">()</span> <span class="o">:</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">merged</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+    <span class="n">it1</span><span class="o">.</span><span class="na">forEachRemaining</span><span class="o">(</span><span class="nl">merged:</span><span class="o">:</span><span class="n">add</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">b</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">merged</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+    <span class="n">it2</span><span class="o">.</span><span class="na">forEachRemaining</span><span class="o">(</span><span class="nl">merged:</span><span class="o">:</span><span class="n">add</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="n">merged</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The type parameter <code class="language-plaintext highlighter-rouge">T extends Comparable&lt;? super T&gt;</code> lets the method merge any comparable type: <code class="language-plaintext highlighter-rouge">Integer</code>, <code class="language-plaintext highlighter-rouge">String</code>, <code class="language-plaintext highlighter-rouge">LocalDate</code>, or your own records. It’s the same signature that <code class="language-plaintext highlighter-rouge">Collections.sort</code> uses; <a href="https://codersite.dev/java-generics/" target="_blank">Java Generics</a> explains how it works. The method assumes the lists contain no <code class="language-plaintext highlighter-rouge">null</code> elements.</p>
+
+<h2 id="solution-3-merge-two-sorted-linked-lists-leetcode-21">Solution 3: Merge Two Sorted Linked Lists (LeetCode 21)</h2>
+
+<p>In interviews, and on LeetCode, the problem usually comes with a hand-made linked list:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListNode</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
+  <span class="nc">ListNode</span> <span class="n">next</span><span class="o">;</span>
+
+  <span class="nc">ListNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nc">ListNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">,</span> <span class="nc">ListNode</span> <span class="n">next</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Instead of copying values into a new list, you <strong>relink the existing nodes</strong>, so the merge needs no extra memory:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="nc">ListNode</span> <span class="nf">mergeTwoLists</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">list1</span><span class="o">,</span> <span class="nc">ListNode</span> <span class="n">list2</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">ListNode</span> <span class="n">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+  <span class="nc">ListNode</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">dummy</span><span class="o">;</span>
+
+  <span class="k">while</span> <span class="o">(</span><span class="n">list1</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">list2</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">list1</span><span class="o">.</span><span class="na">val</span> <span class="o">&lt;=</span> <span class="n">list2</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">tail</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">list1</span><span class="o">;</span>
+      <span class="n">list1</span> <span class="o">=</span> <span class="n">list1</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="n">tail</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">list2</span><span class="o">;</span>
+      <span class="n">list2</span> <span class="o">=</span> <span class="n">list2</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="n">tail</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="o">(</span><span class="n">list1</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">list1</span> <span class="o">:</span> <span class="n">list2</span><span class="o">;</span>
+  <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <strong>dummy node</strong> is the trick worth remembering. It is a placeholder in front of the result, so the first node doesn’t need special code: <code class="language-plaintext highlighter-rouge">tail</code> always has a node to attach to, and <code class="language-plaintext highlighter-rouge">dummy.next</code> is the head of the merged list. The last line attaches the rest of the remaining list in one step. There is no copy loop here, because the remaining nodes are already linked to each other.</p>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h3 id="the-recursive-version">The Recursive Version</h3>
+
+<p>The same merge fits in a few lines with recursion:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="nc">ListNode</span> <span class="nf">mergeRecursive</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">list1</span><span class="o">,</span> <span class="nc">ListNode</span> <span class="n">list2</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">list1</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="n">list2</span><span class="o">;</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">list2</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="n">list1</span><span class="o">;</span>
+
+  <span class="k">if</span> <span class="o">(</span><span class="n">list1</span><span class="o">.</span><span class="na">val</span> <span class="o">&lt;=</span> <span class="n">list2</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">list1</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">mergeRecursive</span><span class="o">(</span><span class="n">list1</span><span class="o">.</span><span class="na">next</span><span class="o">,</span> <span class="n">list2</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">list1</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="n">list2</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">mergeRecursive</span><span class="o">(</span><span class="n">list1</span><span class="o">,</span> <span class="n">list2</span><span class="o">.</span><span class="na">next</span><span class="o">);</span>
+  <span class="k">return</span> <span class="n">list2</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>It is elegant, but every node adds a call to the stack. With the default stack size, merging two lists of 20,000 nodes each threw a <code class="language-plaintext highlighter-rouge">StackOverflowError</code> on my machine. Show it in an interview if you like, then mention this limit and prefer the iterative version in production code. Interviewers like to hear that trade-off.</p>
+
+<h2 id="complexity">Complexity</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Solution</th>
+      <th>Time</th>
+      <th>Extra space</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Concatenate and sort</td>
+      <td>O((n+m) log(n+m))</td>
+      <td>O(n+m)</td>
+    </tr>
+    <tr>
+      <td>ArrayList, two indexes</td>
+      <td>O(n+m)</td>
+      <td>O(n+m) for the result</td>
+    </tr>
+    <tr>
+      <td>Any List, iterators</td>
+      <td>O(n+m)</td>
+      <td>O(n+m) for the result</td>
+    </tr>
+    <tr>
+      <td>Linked list, iterative</td>
+      <td>O(n+m)</td>
+      <td>O(1)</td>
+    </tr>
+    <tr>
+      <td>Linked list, recursive</td>
+      <td>O(n+m)</td>
+      <td>O(n+m) call stack</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h2 id="where-merging-is-used">Where Merging Is Used</h2>
+
+<ul>
+  <li><strong>Merge sort</strong> splits a list in halves, sorts each half, and merges them with exactly this algorithm. Java’s <code class="language-plaintext highlighter-rouge">Arrays.sort</code> for objects and <code class="language-plaintext highlighter-rouge">Collections.sort</code> use TimSort, a refined merge sort.</li>
+  <li><strong>Merge k sorted lists</strong>, a common follow-up question, merges many lists at once with a priority queue, in O(N log k).</li>
+  <li><strong>External sorting</strong> sorts files too large for memory: sort chunks that fit, write them to disk, then merge the sorted chunks.</li>
+  <li><strong>Databases</strong> use a <em>merge join</em> to combine two tables that are sorted on the join column.</li>
+</ul>
+
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+
+<p><strong>What is the time complexity of merging two sorted lists?</strong>
+O(n + m), where n and m are the lengths of the lists. Each element is compared and copied once.</p>
+
+<p><strong>Why not just add both lists together and call <code class="language-plaintext highlighter-rouge">sort</code>?</strong>
+It works, but it costs O((n + m) log(n + m)) because it ignores that the inputs are already sorted. For large lists, the merge is much faster.</p>
+
+<p><strong>What if the lists are sorted in descending order?</strong>
+Flip the comparison (<code class="language-plaintext highlighter-rouge">&gt;=</code> instead of <code class="language-plaintext highlighter-rouge">&lt;=</code>), or pass a <code class="language-plaintext highlighter-rouge">Comparator</code> and use <code class="language-plaintext highlighter-rouge">comparator.compare(a, b) &lt;= 0</code>.</p>
+
+<p><strong>How do I remove duplicates while merging?</strong>
+Before adding an element, skip it if it equals the last element added to the result.</p>
+
+<p><br /></p>
+
+<p>This problem is a favorite in coding interviews because it tests the details: the leftover elements, empty lists, stability and the dummy node. My book <em>The Code Interview</em> solves real Java interview questions the same way, step by step, with the follow-up questions interviewers ask:</p>
 
 <div><center>
   <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
@@ -372,13 +659,13 @@
 
 <br /></div>
 
+<p>If you found this article useful, you can support this website:</p>
+
 <div>
 <p><b><i>“If this article helped you, help me create the next one.”</i></b></p>
 <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 
 </div>
-
-<p><br /></p>
 
 				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
@@ -429,7 +716,7 @@
             
                 <a class="nav-item-card next" href="https://codersite.dev/open-closed-principle/" rel="next">
                     <span class="nav-label">Next &raquo;</span>
-                    <span class="nav-title">SOLID principles: The Open-Closed Principle (Part II)</span>
+                    <span class="nav-title">Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II)</span>
                 </a>
             
             </nav>
@@ -463,8 +750,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/merge-two-sorted-lists/"
   },
-  "headline": "Merge two sorted lists algorithm",
-  "description": "Given two sorted lists, merge them in a new sorted list - coding interview",
+  "headline": "Merge Two Sorted Lists in Java: Array List and Linked List Solutions",
+  "description": "Merge two sorted lists in Java in O(n + m): the two-pointer solution for ArrayList, a generic version, and the LeetCode 21 linked-list solution with tests.",
   "image": "https://codersite.dev/assets/images/merge.jpg",
   "datePublished": "2021-08-04T00:00:00+02:00",
   "dateModified": "2021-08-04T00:00:00+02:00",
@@ -502,7 +789,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Merge two sorted lists algorithm",
+      "name": "Merge Two Sorted Lists in Java: Array List and Linked List Solutions",
       "item": "https://codersite.dev/merge-two-sorted-lists/"
     }
   ]
