@@ -105,6 +105,12 @@ Each rule is there because a mistake happened once. That is the best way to grow
 
 **Scope rules to the files they apply to.** In a large repository, rules for one area shouldn't load for every task. Claude Code reads path-scoped rules from `.claude/rules/`, Copilot from `.github/instructions/*.instructions.md` with `applyTo`, and Cursor from `.cursor/rules/*.mdc` with `globs`.
 
+An instructions file is a prompt that runs at the start of every session, so writing a good one is prompt engineering. *Prompt Engineering for LLMs* by John Berryman and Albert Ziegler, two of the engineers behind GitHub Copilot, explains how a model reads the context you give it and how to structure instructions so it follows them:
+
+<div>
+{%- include promptEngineeringForLLMs.html -%}
+</div>
+
 ## Architecture Rules Your Agent Can Follow
 
 An agent writes code where it fits best *in its own opinion*, unless you tell it where code belongs. The architecture presets give it clear boundaries:
@@ -145,3 +151,19 @@ Yes. Claude Code's `/init` command, for example, analyzes the repository and wri
 
 **Is anything I type sent to a server?**
 No. The generator is a small JavaScript program that runs in your browser. Your settings are saved only in your browser's local storage.
+
+## Go Further: Build Your Own AI Applications
+
+An instructions file makes you a better *user* of AI agents. If you want to build AI features or agents into your own applications, these two books are the best places to start.
+
+*AI Engineering* by Chip Huyen covers the whole process of building products on top of foundation models: choosing a model, evaluating its answers, retrieval (RAG), agents, fine-tuning and cost. It's the book to read before your first AI feature goes to production:
+
+<div>
+{%- include aiEngineering.html -%}
+</div>
+
+*Building Applications with AI Agents* by Michael Albada goes deeper into agents themselves: how they plan, use tools and keep memory, how several agents work together, and how to make them reliable enough for real users:
+
+<div>
+{%- include buildingApplicationsWithAIAgents.html -%}
+</div>

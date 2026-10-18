@@ -74,6 +74,36 @@ comments: false
 .tool-card code {
     font-size: 0.85rem;
 }
+
+.tpl-books-title {
+    font-size: 1.4rem;
+    margin: 2.5rem 0 0.75rem;
+}
+
+.tpl-books {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .tpl-books {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.tpl-books p {
+    text-align: center;
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.65);
+    margin: 0 0.5rem;
+}
+
+.tpl-books img {
+    max-width: 100%;
+    height: auto;
+}
 </style>
 
 <p class="tools-intro">Ready-made instruction files for AI coding agents such as Claude Code, Codex, Cursor and GitHub Copilot. Copy a template into the root of your repository, or open it in the <a href="{{ '/tools/claude-md-generator/' | relative_url }}">CLAUDE.md and AGENTS.md Generator</a> to change the commands and rules.</p>
@@ -87,4 +117,23 @@ comments: false
         <span class="tool-open">View template &rarr;</span>
     </a>
     {% endfor %}
+</div>
+
+<h2 class="tpl-books-title">Books for Developers Who Work with AI Agents</h2>
+
+<p class="tools-intro">A template gets your agent started. These books explain what happens behind it: how models read your instructions, and how to build AI features and agents of your own.</p>
+
+<div class="tpl-books">
+    <div>
+        {%- include promptEngineeringForLLMs.html -%}
+        <p><strong>Prompt Engineering for LLMs</strong><br>How a model reads its context, and how to write instructions it follows.</p>
+    </div>
+    <div>
+        {%- include aiEngineering.html -%}
+        <p><strong>AI Engineering</strong><br>From choosing a model to evaluating, RAG and cost: AI features in production.</p>
+    </div>
+    <div>
+        {%- include buildingApplicationsWithAIAgents.html -%}
+        <p><strong>Building Applications with AI Agents</strong><br>Planning, tools, memory and multi-agent systems you can rely on.</p>
+    </div>
 </div>
