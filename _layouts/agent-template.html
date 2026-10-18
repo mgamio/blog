@@ -106,7 +106,7 @@ layout: default
 
     <div class="jt tpl-box">
         <div class="jt-pane-head">
-            <span>{{ page.file }}</span>
+            <span>{{ page.file_path | default: page.file }}</span>
             <button type="button" class="jt-small" id="tplCopy">Copy</button>
             <button type="button" class="jt-small" id="tplDownload" data-file="{{ page.file }}">Download</button>
         </div>

@@ -90,6 +90,31 @@
         'Every bug fix starts with a test that reproduces the bug.'
       ]
     },
+    'python-ai': {
+      label: 'Python / AI and LLM app (RAG)',
+      stack: 'Python 3.13, uv, FastAPI, LLM API SDK, PostgreSQL with pgvector',
+      commands: {
+        build: 'uv sync',
+        run: 'uv run fastapi dev',
+        test: 'uv run pytest',
+        single: 'uv run pytest tests/test_retrieval.py',
+        lint: 'uv run ruff check . && uv run ruff format .'
+      },
+      style: [
+        'Type hints on every function signature.',
+        'Prompts live in `prompts/` as files under version control, not as strings spread through the code.',
+        'Model names, token limits and temperature come from configuration, never hard-coded.',
+        'Validate every model response with a Pydantic model before using it, and handle invalid output.',
+        'Every model and embedding call has a timeout, and retries with backoff on rate-limit errors.',
+        'Treat user input and retrieved documents as untrusted: they never change the system prompt or trigger tools without checks.',
+        'Never log full prompts or responses that can contain personal data.'
+      ],
+      testing: [
+        'Unit tests never call a real model; replace the client with a fake.',
+        'Changes to prompts or retrieval are checked against the evaluation set in `evals/` before merging.',
+        'pytest with fixtures in `tests/conftest.py`.'
+      ]
+    },
     'go': {
       label: 'Go',
       stack: 'Go, standard library net/http',
@@ -163,6 +188,17 @@
         'Services talk through documented APIs (OpenAPI) or events.',
         'Public API changes must be backward compatible; breaking changes need a new version.',
         'Every call to another service has a timeout and handles failure.'
+      ]
+    },
+    'event-driven': {
+      label: 'Event-driven (Kafka, messaging)',
+      rules: [
+        'Events describe something that happened and are named in the past tense, for example `OrderPlaced`.',
+        'Events are immutable and versioned. Add fields; never rename or remove them.',
+        'Consumers are idempotent: handling the same event twice has the same effect as handling it once.',
+        'Save the state change and the event in one transaction with the transactional outbox; never publish to the broker inside a business transaction.',
+        'After a limited number of retries, failed messages go to a dead-letter topic; they never block the partition.',
+        'Ordering is guaranteed only within a partition: when order matters, use the aggregate ID as the message key.'
       ]
     },
     'modular-monolith': {

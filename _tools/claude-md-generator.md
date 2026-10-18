@@ -119,6 +119,7 @@ An agent writes code where it fits best *in its own opinion*, unless you tell it
 - **Hexagonal / Clean Architecture:** the domain has no framework imports, and adapters implement interfaces (ports) that the application defines. The [open-closed principle](https://codersite.dev/open-closed-principle/){:target="_blank"} applied to a whole application.
 - **Domain-Driven Design:** code organized by business area, with aggregates that protect their own rules.
 - **Microservices** and **modular monolith:** rules about who owns which data and which module may call which.
+- **Event-driven:** idempotent consumers, versioned events and the transactional outbox, so messages are neither lost nor processed twice by mistake.
 
 The rules work only if you can state your design clearly, and that is a skill worth learning for its own sake. Review the principles behind them in [Software Design Principles Explained with Java Examples](https://codersite.dev/software-design-principles/){:target="_blank"} and the [SOLID principles guide](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}.
 

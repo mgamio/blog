@@ -13,18 +13,18 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Free generator for AGENTS.md, CLAUDE.md, GEMINI.md, Copilot instructions and Cursor rules. Pick your stack and architecture and get a clear instructions file for your AI coding agent." />
 <meta name="twitter:description" property="og:description" content="Free generator for AGENTS.md, CLAUDE.md, GEMINI.md, Copilot instructions and Cursor rules. Pick your stack and architecture and get a clear instructions file for your AI coding agent." />
-<link rel="canonical" href="http://localhost:4000/tools/claude-md-generator/" />
-<meta property="og:url" content="http://localhost:4000/tools/claude-md-generator/" />
+<link rel="canonical" href="https://codersite.dev/tools/claude-md-generator/" />
+<meta property="og:url" content="https://codersite.dev/tools/claude-md-generator/" />
 <meta property="og:site_name" content="codersite" />
-<meta property="og:image" content="http://localhost:4000/assets/images/claudeMdGeneratorTool.jpg" />
+<meta property="og:image" content="https://codersite.dev/assets/images/claudeMdGeneratorTool.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-10-18T18:32:44+02:00" />
-<meta property="article:modified_time" content="2026-10-18T18:32:44+02:00" />
+<meta property="article:published_time" content="2026-10-18T21:35:47+02:00" />
+<meta property="article:modified_time" content="2026-10-18T21:35:47+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://localhost:4000/assets/images/claudeMdGeneratorTool.jpg" />
+<meta name="twitter:image" content="https://codersite.dev/assets/images/claudeMdGeneratorTool.jpg" />
 <meta name="twitter:title" content="CLAUDE.md and AGENTS.md Generator" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-10-18T18:32:44+02:00","datePublished":"2026-10-18T18:32:44+02:00","description":"Free generator for AGENTS.md, CLAUDE.md, GEMINI.md, Copilot instructions and Cursor rules. Pick your stack and architecture and get a clear instructions file for your AI coding agent.","headline":"CLAUDE.md and AGENTS.md Generator","image":"http://localhost:4000/assets/images/claudeMdGeneratorTool.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/tools/claude-md-generator/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.svg"}},"url":"http://localhost:4000/tools/claude-md-generator/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-10-18T21:35:47+02:00","datePublished":"2026-10-18T21:35:47+02:00","description":"Free generator for AGENTS.md, CLAUDE.md, GEMINI.md, Copilot instructions and Cursor rules. Pick your stack and architecture and get a clear instructions file for your AI coding agent.","headline":"CLAUDE.md and AGENTS.md Generator","image":"https://codersite.dev/assets/images/claudeMdGeneratorTool.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/tools/claude-md-generator/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"}},"url":"https://codersite.dev/tools/claude-md-generator/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -354,6 +354,10 @@
   <li><a href="/tools/claude-md-templates/nextjs/">AGENTS.md Template for Next.js (App Router)</a></li>
   <li><a href="/tools/claude-md-templates/python-fastapi/">CLAUDE.md Template for Python and FastAPI</a></li>
   <li><a href="/tools/claude-md-templates/go/">AGENTS.md Template for Go</a></li>
+  <li><a href="/tools/claude-md-templates/spring-boot-ddd/">CLAUDE.md Template for Domain-Driven Design with Spring Boot</a></li>
+  <li><a href="/tools/claude-md-templates/spring-boot-event-driven/">AGENTS.md Template for Event-Driven Spring Boot with Kafka</a></li>
+  <li><a href="/tools/claude-md-templates/python-ai-rag/">CLAUDE.md Template for Python AI Apps (LLM and RAG)</a></li>
+  <li><a href="/tools/claude-md-templates/cursor-rules-spring-boot/">Cursor Rules Template for Spring Boot (.cursor/rules)</a></li>
 </ul>
 
 <h2 id="which-file-does-each-ai-coding-agent-read">Which File Does Each AI Coding Agent Read?</h2>
@@ -504,6 +508,7 @@
   <li><strong>Hexagonal / Clean Architecture:</strong> the domain has no framework imports, and adapters implement interfaces (ports) that the application defines. The <a href="https://codersite.dev/open-closed-principle/" target="_blank">open-closed principle</a> applied to a whole application.</li>
   <li><strong>Domain-Driven Design:</strong> code organized by business area, with aggregates that protect their own rules.</li>
   <li><strong>Microservices</strong> and <strong>modular monolith:</strong> rules about who owns which data and which module may call which.</li>
+  <li><strong>Event-driven:</strong> idempotent consumers, versioned events and the transactional outbox, so messages are neither lost nor processed twice by mistake.</li>
 </ul>
 
 <p>The rules work only if you can state your design clearly, and that is a skill worth learning for its own sake. Review the principles behind them in <a href="https://codersite.dev/software-design-principles/" target="_blank">Software Design Principles Explained with Java Examples</a> and the <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">SOLID principles guide</a>.</p>
@@ -606,20 +611,20 @@ No. The generator is a small JavaScript program that runs in your browser. Your 
       "@type": "WebApplication",
       "name": "CLAUDE.md Generator",
       "description": "Free generator for AGENTS.md, CLAUDE.md, GEMINI.md, Copilot instructions and Cursor rules. Pick your stack and architecture and get a clear instructions file for your AI coding agent.",
-      "url": "http://localhost:4000/tools/claude-md-generator/",
+      "url": "https://codersite.dev/tools/claude-md-generator/",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Any",
       "browserRequirements": "Requires JavaScript",
       "isAccessibleForFree": true,
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
-      "author": { "@type": "Person", "name": "Moises Gamio", "url": "http://localhost:4000" }
+      "author": { "@type": "Person", "name": "Moises Gamio", "url": "https://codersite.dev" }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "http://localhost:4000/" },
-        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "http://localhost:4000/tools/" },
-        { "@type": "ListItem", "position": 3, "name": "CLAUDE.md Generator", "item": "http://localhost:4000/tools/claude-md-generator/" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codersite.dev/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://codersite.dev/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "CLAUDE.md Generator", "item": "https://codersite.dev/tools/claude-md-generator/" }
       ]
     }
   ]
