@@ -5,6 +5,7 @@ permalink: "/tools/claude-md-templates/"
 description: "Free, ready-to-use CLAUDE.md and AGENTS.md templates for Spring Boot, hexagonal architecture, microservices, Next.js, Python FastAPI and Go. Copy one or customize it in the generator."
 image: /assets/images/claudeMdGeneratorTool.jpg
 comments: false
+adsense: true
 ---
 
 <style>
@@ -116,6 +117,7 @@ comments: false
         <p>{{ t.description }}</p>
         <span class="tool-open">View template &rarr;</span>
     </a>
+    {% if forloop.index == 3 %}{%- include inFeedAds.html -%}{% endif %}
     {% endfor %}
 </div>
 

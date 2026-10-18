@@ -4,6 +4,7 @@ layout: page
 permalink: "/tools/"
 description: "Free online tools for Java developers: JSON validator and formatter, JSON to Java converter, and a CLAUDE.md and AGENTS.md generator for AI coding agents. Everything runs in your browser."
 comments: false
+adsense: true
 ---
 
 <style>
@@ -81,6 +82,7 @@ comments: false
         <p>{{ t.description }}</p>
         <span class="tool-open">Open tool &rarr;</span>
     </a>
+    {% if forloop.index == 2 %}{%- include inFeedAds.html -%}{% endif %}
     {% endfor %}
 </div>
 
