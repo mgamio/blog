@@ -289,8 +289,6 @@ Open-closed is one of many principles that keep code easy to change. My book *So
 {%- include softwareDesign.html -%}
 </div>
 
-If you found this article useful, you can support this website:
-
 <div>
 {% include buymeacoffee.html %}
 </div>

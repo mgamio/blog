@@ -259,8 +259,6 @@ This problem is a favorite in coding interviews because it tests the details: th
 {%- include jediJavaInterviewAds.html -%}
 </div>
 
-If you found this article useful, you can support this website:
-
 <div>
 {% include buymeacoffee.html %}
 </div>
