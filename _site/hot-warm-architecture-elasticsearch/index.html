@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Implementing hot-warm architecture in Elasticsearch for time-series data | codersite</title>
+<title>Hot-Warm-Cold Architecture in Elasticsearch: Data Tiers, ILM and Centralized Logs | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Implementing hot-warm architecture in Elasticsearch for time-series data" />
+<meta property="og:title" content="Hot-Warm-Cold Architecture in Elasticsearch: Data Tiers, ILM and Centralized Logs" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Hot-warm architecture for log analytics with Elasticsearch." />
-<meta name="twitter:description" property="og:description" content="Hot-warm architecture for log analytics with Elasticsearch." />
+<meta name="description" content="Build a hot-warm-cold Elasticsearch cluster for log analytics: data tier node roles, an ILM policy that moves logs between tiers, and Filebeat and Logstash to ship them." />
+<meta name="twitter:description" property="og:description" content="Build a hot-warm-cold Elasticsearch cluster for log analytics: data tier node roles, an ILM policy that moves logs between tiers, and Filebeat and Logstash to ship them." />
 <link rel="canonical" href="https://codersite.dev/hot-warm-architecture-elasticsearch/" />
 <meta property="og:url" content="https://codersite.dev/hot-warm-architecture-elasticsearch/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2021-02-26T00:00:00+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/elastic.jpg" />
-<meta name="twitter:title" content="Implementing hot-warm architecture in Elasticsearch for time-series data" />
+<meta name="twitter:title" content="Hot-Warm-Cold Architecture in Elasticsearch: Data Tiers, ILM and Centralized Logs" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2021-02-26T00:00:00+01:00","datePublished":"2021-02-26T00:00:00+01:00","description":"Hot-warm architecture for log analytics with Elasticsearch.","headline":"Implementing hot-warm architecture in Elasticsearch for time-series data","image":"https://codersite.dev/assets/images/elastic.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/hot-warm-architecture-elasticsearch/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/hot-warm-architecture-elasticsearch/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2021-02-26T00:00:00+01:00","datePublished":"2021-02-26T00:00:00+01:00","description":"Build a hot-warm-cold Elasticsearch cluster for log analytics: data tier node roles, an ILM policy that moves logs between tiers, and Filebeat and Logstash to ship them.","headline":"Hot-Warm-Cold Architecture in Elasticsearch: Data Tiers, ILM and Centralized Logs","image":"https://codersite.dev/assets/images/elastic.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/hot-warm-architecture-elasticsearch/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/hot-warm-architecture-elasticsearch/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -165,7 +165,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Implementing hot-warm architecture in Elasticsearch for time-series data&url=https://codersite.dev/hot-warm-architecture-elasticsearch/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Hot-Warm-Cold Architecture in Elasticsearch: Data Tiers, ILM and Centralized Logs&url=https://codersite.dev/hot-warm-architecture-elasticsearch/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -213,7 +213,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Implementing hot-warm architecture in Elasticsearch for time-series data</h1>
+                <h1 class="posttitle">Hot-Warm-Cold Architecture in Elasticsearch: Data Tiers, ILM and Centralized Logs</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -221,7 +221,7 @@
                 <p class="post-meta-line">
                     <time datetime="2021-02-26T00:00:00+01:00" itemprop="datePublished">Feb 26, 2021</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">22 min read</span>
+                    <span class="meta-reading-time">24 min read</span>
                     
                 </p>
 
@@ -236,7 +236,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/elastic.jpg" alt="Implementing hot-warm architecture in Elasticsearch for time-series data">
+            <img class="featured-image img-fluid" src="/assets/images/elastic.jpg" alt="Hot-Warm-Cold Architecture in Elasticsearch: Data Tiers, ILM and Centralized Logs">
             
 
             
@@ -247,160 +247,257 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>Elasticsearch is a distributed real-time document store where every field is indexed and searchable. It provides near real-time search and analysis for all types of data.</p>
+                <p>Recent logs are written and searched all the time. Logs from last month are searched now and then, and logs from three months ago almost never. Keeping all of them on the same fast, expensive disks wastes money, and deleting them too early loses the history you need when something goes wrong.</p>
 
-<p>Elasticsearch is document oriented, meaning that it stores entire objects or documents.</p>
+<p>A <strong>hot-warm-cold architecture</strong> solves this in Elasticsearch: new data lands on fast <em>hot</em> nodes, then moves automatically to cheaper <em>warm</em> and <em>cold</em> nodes as it ages, and is finally deleted.</p>
 
-<h2 id="fundamentals-concepts">Fundamentals concepts</h2>
+<p>This article builds that architecture step by step for the logs of Java application servers, with Elasticsearch, Logstash, Filebeat and Kibana 9. Every configuration and request in it was tested on a three-node Elasticsearch 9.5 cluster.</p>
 
-<p>The act of storing data in Elasticsearch is called <em>indexing</em>.</p>
+<h2 id="the-problem-logs-spread-across-many-servers">The Problem: Logs Spread Across Many Servers</h2>
 
-<p>An <strong>index</strong> is a collection of documents and each document is a collection of fields, which are the key-value pairs that contain your data. Every index has some properties like mappings, settings, and aliases.</p>
+<p>To find bottlenecks, errors, slow queries or connection pool problems, we read the logs of our application servers. With a cluster of servers, every server has its own log files, so one problem means searching several machines.</p>
 
-<p>In Elasticsearch, a document belongs to a type, and those types live inside an index. We can draw a parallel to a traditional relational database:</p>
+<p>Log rotation makes it worse. Application servers keep only a few log files of a fixed size and overwrite the oldest one, so on a busy day the history you need is gone within hours:</p>
 
-<p>Relational DB ⇒ Databases ⇒ Tables ⇒ Rows ⇒ Columns</p>
+<p><img src="/assets/images/logFileRotation.JPG" alt="Log rotation settings: maximum file size 1 MB and 5 historical log files" title="Log file rotation" class="img-responsive" /></p>
 
-<p>Elasticsearch ⇒ Indices ⇒ Types ⇒ Documents ⇒ Fields</p>
+<p>The solution is to ship every log line to one central place, keep it as long as the business needs it, and make it searchable. That place is an Elasticsearch cluster.</p>
 
-<p>In Elasticsearch, the term document has a specific meaning. It refers to the top-level, or root object that is serialized into JSON and stored in Elasticsearch under a unique ID.</p>
+<h2 id="elasticsearch-basics-in-two-minutes">Elasticsearch Basics in Two Minutes</h2>
 
-<p>Elasticsearch lets you insert documents without a predefined schema (in RDBMS you need to define tables in advance).</p>
+<p>Elasticsearch is a distributed search and analytics engine. It stores <strong>documents</strong>, JSON objects such as one parsed log line, in <strong>indices</strong>. Storing a document is called <em>indexing</em> it.</p>
 
-<p><strong>Inverted index</strong></p>
+<p><strong>Inverted index.</strong> Relational databases speed up queries with B-tree indexes on selected columns. Elasticsearch builds an <em>inverted index</em> for text fields instead: a list of every word, and for each word, the documents that contain it.</p>
 
-<p>Relational databases add an index, such as a B-tree index, to specific columns in order to improve the speed of data retrieval. Elasticsearch use a structure called an inverted index for exactly the same purpose.</p>
+<p>For example, the billing and ordering servers both log this line:</p>
 
-<p>By default, every field in a document is indexed (has an inverted index) and thus is searchable – FullText search. A field without an inverted index is not searchable.</p>
-
-<p>An inverted index consists of a list of all the unique words that appear in any document, and for each word, a list of the documents in which it appears</p>
-
-<p>For example, your billing and ordering applications print the following message to the log file of their respective application servers.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="na">[11.01.21 06:12:20:099 MESZ]</span> <span class="nc">J2CA0045E</span><span class="p">:</span> <span class="nc">Connection</span> <span class="n">not</span> <span class="n">available</span> <span class="k">while</span> <span class="n">invoking</span> <span class="n">method</span> <span class="n">queueRequest</span> <span class="k">for</span> <span class="n">resource</span> <span class="n">jdbc</span><span class="p">/</span><span class="n">xxxxxx</span>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>[11.01.21 06:12:20:099 MESZ] J2CA0045E: Connection not available while invoking method queueRequest for resource jdbc/xxxxxx
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Also, you have an image service that suddenly throws and prints to another application server the following error:</p>
+<p>and the image service logs this one:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="na">[28.01.21 17:47:48:647 MESZ]</span> <span class="n">java</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="nc">Exception</span><span class="p">:</span> <span class="nc">I</span><span class="p">/</span><span class="nc">O</span> <span class="nc">Exception</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="c1">//server/imageService</span>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>[28.01.21 17:47:48:647 MESZ] java.lang.Exception: I/O Exception: https://server/imageService
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Once these documents are indexed into Elasticsearch, the following figure shows an inverted index data structure.</p>
+<p>After indexing the three documents, the inverted index looks like this:</p>
 
-<p><img src="/assets/images/invertedIndex.jpg" alt="inverted-index" title="inverted-index" class="img-responsive" /></p>
+<p><img src="/assets/images/invertedIndex.jpg" alt="Inverted index: each word points to the documents that contain it" title="Inverted index" class="img-responsive" /></p>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin) <a href="https://t.co/ARf0FUDzRw">https://t.co/ARf0FUDzRw</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1838935023786905637?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>A search for “Connection” doesn’t read any log line: it looks up one word and gets documents 1 and 2 directly. That’s why Elasticsearch searches millions of log lines in milliseconds.</p>
 
-<p><strong>Mapping</strong></p>
+<p>The other terms you need for this article:</p>
 
-<p>In order to be able to treat date fields as dates, numeric fields as numbers, and string fields as full-text or exact-value strings, Elasticsearch needs to know what type of data each field contains. This information is contained in the mapping.</p>
+<ul>
+  <li><strong>Mapping:</strong> the type of each field (date, number, keyword, text), like a table schema.</li>
+  <li><strong>Index template:</strong> the settings and mappings that Elasticsearch applies automatically to every new index whose name matches a pattern.</li>
+  <li><strong>Shard:</strong> a piece of an index. Each shard is a <a href="https://lucene.apache.org/" target="_blank">Lucene</a> index that lives on one node.</li>
+  <li><strong>Node and cluster:</strong> a node is one running Elasticsearch instance; a cluster is a group of nodes with the same <code class="language-plaintext highlighter-rouge">cluster.name</code>.</li>
+  <li><strong>Data stream:</strong> a name, such as <code class="language-plaintext highlighter-rouge">billing-logs</code>, that you write time-series data to. Behind it, Elasticsearch creates a new <em>backing index</em> regularly, which is what lets old data move to other nodes.</li>
+</ul>
 
-<p><strong>Index Templates</strong></p>
+<h2 id="hot-warm-cold-and-frozen-data-tiers">Hot, Warm, Cold and Frozen Data Tiers</h2>
 
-<p>When you create an index template, you tell Elasticsearch which settings and mappings an index should have when it is created.</p>
+<p>Each node in the cluster belongs to a <strong>data tier</strong>, set with its <code class="language-plaintext highlighter-rouge">node.roles</code>. Elasticsearch has five:</p>
 
-<p><strong>Shards</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Tier</th>
+      <th>Node role</th>
+      <th>Holds</th>
+      <th>Typical hardware</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hot</td>
+      <td><code class="language-plaintext highlighter-rouge">data_hot</code></td>
+      <td>New data: written and searched all the time</td>
+      <td>Fast SSDs, most CPU and memory</td>
+    </tr>
+    <tr>
+      <td>Warm</td>
+      <td><code class="language-plaintext highlighter-rouge">data_warm</code></td>
+      <td>Read-only data, searched less often</td>
+      <td>Larger, slower disks</td>
+    </tr>
+    <tr>
+      <td>Cold</td>
+      <td><code class="language-plaintext highlighter-rouge">data_cold</code></td>
+      <td>Old data, rarely searched</td>
+      <td>The cheapest storage</td>
+    </tr>
+    <tr>
+      <td>Frozen</td>
+      <td><code class="language-plaintext highlighter-rouge">data_frozen</code></td>
+      <td>Data that is almost never searched</td>
+      <td>Object storage through searchable snapshots (paid license)</td>
+    </tr>
+    <tr>
+      <td>Content</td>
+      <td><code class="language-plaintext highlighter-rouge">data_content</code></td>
+      <td>Data that isn’t time-based, such as Kibana’s own indices</td>
+      <td>Like hot</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Shards are the physical instances of <a href="https://lucene.apache.org/" target="_blank">Apache Lucene</a>, shards take care of the physical storage and retrieval of our data.</p>
+<p><br /></p>
 
-<p><strong>Nodes and Cluster</strong></p>
+<p>You don’t decide where each index goes. An <strong>index lifecycle management (ILM) policy</strong> does: it says how long data stays in each phase, and ILM moves the indices from tier to tier on its own.</p>
 
-<p>A node is a running instance of Elasticsearch, while a cluster consists of one or more nodes with the same cluster.name that are working together to share their data and workload.</p>
+<p>The architecture in this article has one node per tier, plus Logstash and Kibana:</p>
 
-<p><strong>Hot-warm architecture</strong></p>
+<p><img src="/assets/images/hotWarmColdElasticsearch.png" alt="Hot-warm-cold architecture: Filebeat on each application server sends logs to Logstash, which writes them to the hot node; ILM moves them to the warm and cold nodes" title="Hot-warm-cold architecture in Elasticsearch" class="img-responsive" /></p>
 
-<p>Hot-warm architecture is a way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes.</p>
-
-<p>In Hot nodes, You are actively querying and writing to your index.</p>
-
-<p>In Warm nodes, You are still querying your index, but it is read-only.</p>
-
-<p>In Cold nodes, You are querying your index less frequently. You can deploy it to less performant hardware.</p>
-
-<p>We can balance indexing and query performance in Elasticsearch with a hot-warm architecture.</p>
-
-<blockquote>
-  <p>Learn how to design software that can handle millions of users without breaking a sweat.</p>
-</blockquote>
+<p>Why tiers and replicas work the way they do, and what they cost, is a question about how data systems store and move data. <em>Designing Data-Intensive Applications</em> by Martin Kleppmann explains replication, partitioning and storage engines better than any other book, and it will help you size a cluster like this one:</p>
 
 <div><center>
-  <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="/assets/images/SoftwareDesignPrinciplesV2.jpg" /></a>
+  <a href="https://amzn.to/4hVK3pL" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="/recommended/images/designingDataIntensiveApplications.jpg" /></a>
 </center>
 
 <br /></div>
 
-<h2 id="jvm-logs">JVM Logs</h2>
+<h2 id="the-servers">The Servers</h2>
 
-<p>The JVM logs are created by redirecting the System.out and System.err streams of the JVM to independent log files. The System.out log is used to monitor the health of the running application server. The System.err log contains exception stack trace information for problem analysis.</p>
+<p>We use four Windows servers:</p>
 
-<h2 id="problem">Problem</h2>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>110.1.0.101   es-hot-1    Elasticsearch, hot tier
+110.1.0.102   es-warm-1   Elasticsearch, warm tier
+110.1.0.103   es-cold-1   Elasticsearch, cold tier
+110.1.0.104   logs-1      Logstash and Kibana
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, connection pooling problems, and more, we usually analyze our application server <em>logs</em>.
-But this task is tedious because the <em>log files</em> are distributed in a cluster that contains several application servers with their applications. Depending on each application server product, rotating policies for regenerating a <em>log file</em> cause historical records to be lost - data retention period.</p>
+<p>All three Elasticsearch nodes are <strong>master-eligible</strong>. A cluster needs a majority of its master-eligible nodes to elect a master, so with three of them it keeps working when any one server is down. With a single master node, as many older tutorials show, losing that one server stops the whole cluster.</p>
 
-<p><img src="/assets/images/logFileRotation.JPG" alt="logFileRotation" title="log File Rotation" class="img-responsive" /></p>
+<p>Open these ports in Windows Defender Firewall. On the three Elasticsearch servers, in a PowerShell window run as administrator:</p>
 
-<p>If every business area has different cluster, the licenses and number of application servers are exponential.</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">New-NetFirewallRule</span><span class="w"> </span><span class="nt">-DisplayName</span><span class="w"> </span><span class="s2">"Elasticsearch"</span><span class="w"> </span><span class="nt">-Direction</span><span class="w"> </span><span class="nx">Inbound</span><span class="w"> </span><span class="nt">-Protocol</span><span class="w"> </span><span class="nx">TCP</span><span class="w"> </span><span class="nt">-LocalPort</span><span class="w"> </span><span class="nx">9200</span><span class="p">,</span><span class="nx">9300</span><span class="w"> </span><span class="nt">-Action</span><span class="w"> </span><span class="nx">Allow</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
 
-<h2 id="solution--hot-warm-architecture-for-log-analytics-with-elasticsearch">Solution : Hot-warm architecture for log analytics with Elasticsearch</h2>
+<p>Port 9200 is the REST API that Logstash and Kibana use; port 9300 is the transport port the nodes use to talk to each other. On <code class="language-plaintext highlighter-rouge">logs-1</code>, open 5044 for Filebeat and 5601 for Kibana.</p>
 
-<p>To centralize, increase the availability of this log data, and improve error analysis, we implement Elasticsearch.</p>
+<h2 id="step-1-configure-the-elasticsearch-nodes">Step 1: Configure the Elasticsearch Nodes</h2>
 
-<p>We are going to install a Hot-Warm-Cold Logging Cluster on the Elasticsearch Service as shown in the following figure.</p>
+<p>Download the Elasticsearch Windows zip from <a href="https://www.elastic.co/downloads/elasticsearch" target="_blank">elastic.co</a> and extract it on each of the three servers, for example to <code class="language-plaintext highlighter-rouge">C:\elasticsearch</code>. Then add these lines to <code class="language-plaintext highlighter-rouge">config\elasticsearch.yml</code>.</p>
 
-<p><img src="/assets/images/hot-warm-elastic.jpg" alt="hot-warm-architecture" title="elastic hot-warm-architecture" class="img-responsive" /></p>
+<p><strong>Hot node</strong> (<code class="language-plaintext highlighter-rouge">110.1.0.101</code>):</p>
 
-<blockquote>
-  <p>Arrays, graphs, recursion, dynamic programming — all in one book, all in Java.</p>
-</blockquote>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="na">cluster.name</span><span class="pi">:</span> <span class="s">logs-prod</span>
+<span class="na">node.name</span><span class="pi">:</span> <span class="s">es-hot-1</span>
+<span class="na">node.roles</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">master</span><span class="pi">,</span> <span class="nv">data_hot</span><span class="pi">,</span> <span class="nv">data_content</span><span class="pi">,</span> <span class="nv">ingest</span> <span class="pi">]</span>
+<span class="na">network.host</span><span class="pi">:</span> <span class="s">110.1.0.101</span>
+<span class="na">path.data</span><span class="pi">:</span> <span class="s">E:\elasticsearch\data</span>
+<span class="na">path.logs</span><span class="pi">:</span> <span class="s">E:\elasticsearch\logs</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
-</center>
+<p><strong>Warm node</strong> (<code class="language-plaintext highlighter-rouge">110.1.0.102</code>):</p>
 
-<br /></div>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="na">cluster.name</span><span class="pi">:</span> <span class="s">logs-prod</span>
+<span class="na">node.name</span><span class="pi">:</span> <span class="s">es-warm-1</span>
+<span class="na">node.roles</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">master</span><span class="pi">,</span> <span class="nv">data_warm</span> <span class="pi">]</span>
+<span class="na">network.host</span><span class="pi">:</span> <span class="s">110.1.0.102</span>
+<span class="na">path.data</span><span class="pi">:</span> <span class="s">E:\elasticsearch\data</span>
+<span class="na">path.logs</span><span class="pi">:</span> <span class="s">E:\elasticsearch\logs</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Logs come from multiple sources, such as software applications installed on various application servers.</p>
+<p><strong>Cold node</strong> (<code class="language-plaintext highlighter-rouge">110.1.0.103</code>):</p>
 
-<h2 id="choosing-the-right-hardware-for-hot-warm-architecture-in-elasticsearch">Choosing the right hardware for hot-warm architecture in Elasticsearch</h2>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="na">cluster.name</span><span class="pi">:</span> <span class="s">logs-prod</span>
+<span class="na">node.name</span><span class="pi">:</span> <span class="s">es-cold-1</span>
+<span class="na">node.roles</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">master</span><span class="pi">,</span> <span class="nv">data_cold</span> <span class="pi">]</span>
+<span class="na">network.host</span><span class="pi">:</span> <span class="s">110.1.0.103</span>
+<span class="na">path.data</span><span class="pi">:</span> <span class="s">E:\elasticsearch\data</span>
+<span class="na">path.logs</span><span class="pi">:</span> <span class="s">E:\elasticsearch\logs</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>We have the following IP addresses (Three Windows Servers):</p>
+<p>The hot node also has <code class="language-plaintext highlighter-rouge">data_content</code>, because Kibana and Elasticsearch keep their own indices on content nodes, and <code class="language-plaintext highlighter-rouge">ingest</code> for ingest pipelines. <code class="language-plaintext highlighter-rouge">network.host</code> takes only an address, never a port: the HTTP port defaults to 9200 and the transport port to 9300.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">master</span>   <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span>
-<span class="n">hotnode</span>  <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.102</span>
-<span class="n">coldnode</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.103</span></code></pre></figure>
+<p>If you have used Elasticsearch 7 or earlier, notice what is <em>not</em> here: <code class="language-plaintext highlighter-rouge">node.master</code>, <code class="language-plaintext highlighter-rouge">node.data</code> and <code class="language-plaintext highlighter-rouge">node.ingest</code> were replaced by <code class="language-plaintext highlighter-rouge">node.roles</code> and removed in Elasticsearch 8, and so were <code class="language-plaintext highlighter-rouge">transport.tcp.port</code> and <code class="language-plaintext highlighter-rouge">node.max_local_storage_nodes</code>. A custom attribute like <code class="language-plaintext highlighter-rouge">node.attr.box_type: hot</code> isn’t needed either: the data tier roles replace it.</p>
 
-<p>Open Windows Defender Firewall and add the following rule for the three machines:</p>
+<h3 id="start-the-first-node-with-security-on">Start the First Node with Security On</h3>
 
-<p><img src="/assets/images/firewall.jpg" alt="firewall" title="Windows Defender Firewall" class="img-responsive" /></p>
+<p>Since Elasticsearch 8, security is enabled by default, and you should keep it that way: without it, anyone who can reach port 9200 can read and delete your logs.</p>
 
-<p>For the <em>hotnode</em> add an extra 5044 port to the rule if you want to install <em>logstash</em> in that machine.</p>
+<p>Start the hot node first:</p>
 
-<h3 id="configure-elasticsearch-cluster-settings-at-master-node">Configure Elasticsearch cluster settings at Master Node</h3>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">cd</span><span class="w"> </span><span class="nx">C:\elasticsearch</span><span class="w">
+</span><span class="o">.</span><span class="n">\bin\elasticsearch.bat</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Open …/elasticsearch.yml and copy the following content.</p>
+<p>On its first start, Elasticsearch configures security by itself. It creates TLS certificates for the HTTP and transport layers in <code class="language-plaintext highlighter-rouge">config\certs</code>, adds the security settings to <code class="language-plaintext highlighter-rouge">elasticsearch.yml</code>, and prints:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">bootstrap</span><span class="p">.</span><span class="nf">memory_lock</span><span class="p">:</span> <span class="kp">true</span>
-<span class="n">cluster</span><span class="p">.</span><span class="nf">initial_master_nodes</span><span class="p">:</span>
-  <span class="o">-</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
-<span class="n">cluster</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">elasticprod</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9200</span>
-<span class="n">network</span><span class="p">.</span><span class="nf">host</span><span class="p">:</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">data</span><span class="p">:</span> <span class="kp">false</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">ingest</span><span class="p">:</span> <span class="kp">false</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">master</span><span class="p">:</span> <span class="kp">true</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">max_local_storage_nodes</span><span class="p">:</span> <span class="mi">1</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
-<span class="n">path</span><span class="p">.</span><span class="nf">data</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="no">Elastic</span><span class="p">\</span><span class="no">Elasticsearch</span><span class="p">\</span><span class="n">data</span>
-<span class="n">path</span><span class="p">.</span><span class="nf">logs</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="no">Elastic</span><span class="p">\</span><span class="no">Elasticsearch</span><span class="p">\</span><span class="n">logs</span>
-<span class="n">transport</span><span class="p">.</span><span class="nf">tcp</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9300</span>
-<span class="n">xpack</span><span class="p">.</span><span class="nf">license</span><span class="p">.</span><span class="nf">self_generated</span><span class="p">.</span><span class="nf">type</span><span class="p">:</span> <span class="n">basic</span>
-<span class="n">xpack</span><span class="p">.</span><span class="nf">security</span><span class="p">.</span><span class="nf">enabled</span><span class="p">:</span> <span class="kp">false</span>
-<span class="n">discovery</span><span class="p">.</span><span class="nf">seed_hosts</span><span class="p">:</span> <span class="p">[</span><span class="s2">"110.1.0.102:9300"</span><span class="p">,</span> <span class="s2">"110.1.0.103:9300"</span><span class="p">]</span>
-<span class="n">path</span><span class="p">.</span><span class="nf">repo</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="n">repo</span></code></pre></figure>
+<ul>
+  <li>the password of the <code class="language-plaintext highlighter-rouge">elastic</code> superuser;</li>
+  <li>an enrollment token for Kibana, valid for 30 minutes.</li>
+</ul>
+
+<p>Save the password. If you lose it, reset it with <code class="language-plaintext highlighter-rouge">.\bin\elasticsearch-reset-password.bat -u elastic</code>.</p>
+
+<h3 id="add-the-warm-and-cold-nodes">Add the Warm and Cold Nodes</h3>
+
+<p>New nodes join a secured cluster with an <strong>enrollment token</strong>. Create one on the hot node:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="o">.</span><span class="n">\bin\elasticsearch-create-enrollment-token.bat</span><span class="w"> </span><span class="nt">-s</span><span class="w"> </span><span class="nx">node</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Then start the warm node, and after it the cold node, with that token:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="o">.</span><span class="n">\bin\elasticsearch.bat</span><span class="w"> </span><span class="nt">--enrollment-token</span><span class="w"> </span><span class="s2">"paste-the-token-here"</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The token tells the new node where the cluster is and gives it the certificates it needs, so you don’t copy any certificate by hand. It is valid for 30 minutes; create a new one if it expires.</p>
+
+<p>When all three nodes have joined, remove the <code class="language-plaintext highlighter-rouge">cluster.initial_master_nodes</code> line from the hot node’s <code class="language-plaintext highlighter-rouge">elasticsearch.yml</code>. Elasticsearch added it to form the first cluster, and it must not be used again.</p>
+
+<p>Check the cluster with <code class="language-plaintext highlighter-rouge">curl</code>, using the CA certificate Elasticsearch created:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">curl.exe</span><span class="w"> </span><span class="nt">--cacert</span><span class="w"> </span><span class="nx">config\certs\http_ca.crt</span><span class="w"> </span><span class="nt">-u</span><span class="w"> </span><span class="nx">elastic</span><span class="w"> </span><span class="s2">"https://110.1.0.101:9200/_cat/nodes?v&amp;h=ip,node.role,master,name"</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>ip          node.role master name
+110.1.0.101 hims      *      es-hot-1
+110.1.0.102 mw        -      es-warm-1
+110.1.0.103 cm        -      es-cold-1
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Each letter is a role: <strong>h</strong> data_hot, <strong>i</strong> ingest, <strong>m</strong> master, <strong>s</strong> data_content, <strong>w</strong> data_warm, <strong>c</strong> data_cold. The <code class="language-plaintext highlighter-rouge">*</code> marks the elected master, which can be any of the three nodes.</p>
+
+<p>Once each node starts correctly, you can install it as a Windows service with <code class="language-plaintext highlighter-rouge">.\bin\elasticsearch-service.bat install</code>, so it starts with the server.</p>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -409,178 +506,194 @@ But this task is tedious because the <em>log files</em> are distributed in a clu
 </script>
 <br /></div>
 
-<p>Check the installation with the following command:</p>
+<h2 id="step-2-install-kibana">Step 2: Install Kibana</h2>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">...</span><span class="p">\</span><span class="n">codersite</span><span class="p">.</span><span class="nf">dev</span><span class="o">&gt;</span><span class="n">curl</span> <span class="o">-</span><span class="no">XGET</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span><span class="p">:</span><span class="mi">9200</span><span class="o">/</span><span class="n">_cat</span><span class="o">/</span><span class="n">health?v</span><span class="o">=</span><span class="kp">true</span>
-<span class="n">epoch</span>      <span class="n">timestamp</span> <span class="n">cluster</span>     <span class="n">status</span> <span class="n">node</span><span class="p">.</span><span class="nf">total</span> <span class="n">node</span><span class="p">.</span><span class="nf">data</span> <span class="n">shards</span> <span class="n">pri</span> <span class="n">relo</span> <span class="n">init</span> <span class="n">unassign</span> <span class="n">pending_tasks</span> <span class="n">max_task_wait_time</span> <span class="n">active_shards_percent</span>
-<span class="mi">1611057767</span> <span class="mi">12</span><span class="p">:</span><span class="mo">02</span><span class="p">:</span><span class="mi">47</span>  <span class="n">elasticprod</span> <span class="n">green</span>           <span class="mi">1</span>         <span class="mi">0</span>      <span class="mi">0</span>   <span class="mi">0</span>    <span class="mi">0</span>    <span class="mi">0</span>        <span class="mi">0</span>             <span class="mi">0</span>                  <span class="o">-</span>                <span class="mf">100.0</span><span class="o">%</span></code></pre></figure>
+<p>Kibana is the web interface for searching logs and managing the cluster. Extract the Kibana Windows zip on <code class="language-plaintext highlighter-rouge">logs-1</code>, and in <code class="language-plaintext highlighter-rouge">config\kibana.yml</code> set the address it listens on:</p>
 
-<h3 id="configure-elasticsearch-cluster-settings-at-hot-node">Configure Elasticsearch cluster settings at Hot Node</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="na">server.host</span><span class="pi">:</span> <span class="s2">"</span><span class="s">110.1.0.104"</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">bootstrap</span><span class="p">.</span><span class="nf">memory_lock</span><span class="p">:</span> <span class="kp">true</span>
-<span class="n">cluster</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">elasticprod</span>
-<span class="n">discovery</span><span class="p">.</span><span class="nf">seed_hosts</span><span class="p">:</span>
-  <span class="o">-</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span><span class="p">:</span><span class="mi">9300</span>
-  <span class="o">-</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.103</span><span class="p">:</span><span class="mi">9300</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9200</span>
-<span class="n">network</span><span class="p">.</span><span class="nf">host</span><span class="p">:</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.102</span><span class="p">:</span><span class="mi">9300</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">data</span><span class="p">:</span> <span class="kp">true</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">ingest</span><span class="p">:</span> <span class="kp">false</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">master</span><span class="p">:</span> <span class="kp">false</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">max_local_storage_nodes</span><span class="p">:</span> <span class="mi">1</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">hotnode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
-<span class="n">path</span><span class="p">.</span><span class="nf">data</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="no">Elastic</span><span class="p">\</span><span class="no">Elasticsearch</span><span class="p">\</span><span class="n">data</span>
-<span class="n">path</span><span class="p">.</span><span class="nf">logs</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="no">Elastic</span><span class="p">\</span><span class="no">Elasticsearch</span><span class="p">\</span><span class="n">logs</span>
-<span class="n">transport</span><span class="p">.</span><span class="nf">tcp</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9300</span>
-<span class="n">xpack</span><span class="p">.</span><span class="nf">license</span><span class="p">.</span><span class="nf">self_generated</span><span class="p">.</span><span class="nf">type</span><span class="p">:</span> <span class="n">basic</span>
-<span class="n">xpack</span><span class="p">.</span><span class="nf">security</span><span class="p">.</span><span class="nf">enabled</span><span class="p">:</span> <span class="kp">false</span>
-<span class="n">cluster</span><span class="p">.</span><span class="nf">initial_master_nodes</span><span class="p">:</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
-<span class="n">path</span><span class="p">.</span><span class="nf">repo</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="n">repo</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">attr</span><span class="p">.</span><span class="nf">box_type</span><span class="p">:</span> <span class="n">hot</span></code></pre></figure>
+<p>Start it with <code class="language-plaintext highlighter-rouge">.\bin\kibana.bat</code> and open <code class="language-plaintext highlighter-rouge">http://110.1.0.104:5601</code>. Kibana asks for the enrollment token that the hot node printed on its first start (or create a new one on the hot node with <code class="language-plaintext highlighter-rouge">.\bin\elasticsearch-create-enrollment-token.bat -s kibana</code>), then for a verification code that it prints in its console. After that, log in as <code class="language-plaintext highlighter-rouge">elastic</code>.</p>
 
-<p>Check the installation with the following command:</p>
+<p>The following requests are run in Kibana’s <strong>Dev Tools</strong> console (menu <strong>Management → Dev Tools</strong>).</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">...</span><span class="p">\</span><span class="n">codersite</span><span class="p">.</span><span class="nf">dev</span><span class="o">&gt;</span><span class="n">curl</span> <span class="o">-</span><span class="no">XGET</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span><span class="p">:</span><span class="mi">9200</span><span class="o">/</span><span class="n">_cat</span><span class="o">/</span><span class="n">nodes</span>
-<span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span> <span class="mi">4</span> <span class="mi">66</span> <span class="mi">0</span>    <span class="n">lmr</span>      <span class="o">*</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
-<span class="mf">110.1</span><span class="o">.</span><span class="mf">0.102</span> <span class="mi">1</span> <span class="mi">60</span> <span class="mi">8</span>    <span class="n">cdhlrstw</span> <span class="o">-</span> <span class="n">hotnode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span></code></pre></figure>
+<h2 id="step-3-create-the-ilm-policy">Step 3: Create the ILM Policy</h2>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Elasticsearch: The Definitive Guide: A Distributed Real-Time Search and Analytics Engine <a href="https://t.co/jMzY0hKid8">https://t.co/jMzY0hKid8</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839042597014352063?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>The lifecycle policy is the heart of the architecture. It describes what happens to the billing logs as they age:</p>
 
-<h3 id="configure-elasticsearch-cluster-settings-at-cold-node">Configure Elasticsearch cluster settings at Cold Node</h3>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre></td><td class="rouge-code"><pre>PUT _ilm/policy/billing-logs-policy
+{
+  "policy": {
+    "phases": {
+      "hot": {
+        "actions": {
+          "rollover": {
+            "max_age": "1d",
+            "max_primary_shard_size": "50gb"
+          }
+        }
+      },
+      "warm": {
+        "min_age": "7d",
+        "actions": {
+          "forcemerge": {
+            "max_num_segments": 1
+          }
+        }
+      },
+      "cold": {
+        "min_age": "30d",
+        "actions": {}
+      },
+      "delete": {
+        "min_age": "60d",
+        "actions": {
+          "delete": {}
+        }
+      }
+    }
+  }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">bootstrap</span><span class="p">.</span><span class="nf">memory_lock</span><span class="p">:</span> <span class="kp">true</span>
-<span class="n">cluster</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">elasticprod</span>
-<span class="n">discovery</span><span class="p">.</span><span class="nf">seed_hosts</span><span class="p">:</span>
-  <span class="o">-</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span><span class="p">:</span><span class="mi">9300</span>
-  <span class="o">-</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.102</span><span class="p">:</span><span class="mi">9300</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9200</span>
-<span class="n">network</span><span class="p">.</span><span class="nf">host</span><span class="p">:</span> <span class="mf">110.1</span><span class="o">.</span><span class="mf">0.103</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">data</span><span class="p">:</span> <span class="kp">true</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">ingest</span><span class="p">:</span> <span class="kp">false</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">master</span><span class="p">:</span> <span class="kp">false</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">max_local_storage_nodes</span><span class="p">:</span> <span class="mi">1</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">name</span><span class="p">:</span> <span class="n">coldnode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
-<span class="n">path</span><span class="p">.</span><span class="nf">data</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="no">Elastic</span><span class="p">\</span><span class="no">Elasticsearch</span><span class="p">\</span><span class="n">data</span>
-<span class="n">path</span><span class="p">.</span><span class="nf">logs</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="no">ProgramData</span><span class="p">\</span><span class="no">Elastic</span><span class="p">\</span><span class="no">Elasticsearch</span><span class="p">\</span><span class="n">logs</span>
-<span class="n">transport</span><span class="p">.</span><span class="nf">tcp</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9300</span>
-<span class="n">xpack</span><span class="p">.</span><span class="nf">license</span><span class="p">.</span><span class="nf">self_generated</span><span class="p">.</span><span class="nf">type</span><span class="p">:</span> <span class="n">basic</span>
-<span class="n">xpack</span><span class="p">.</span><span class="nf">security</span><span class="p">.</span><span class="nf">enabled</span><span class="p">:</span> <span class="kp">false</span>
-<span class="n">cluster</span><span class="p">.</span><span class="nf">initial_master_nodes</span><span class="p">:</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
-<span class="n">path</span><span class="p">.</span><span class="nf">repo</span><span class="p">:</span> <span class="no">E</span><span class="p">:\</span><span class="n">repo</span>
-<span class="n">node</span><span class="p">.</span><span class="nf">attr</span><span class="p">.</span><span class="nf">box_type</span><span class="p">:</span> <span class="n">cold</span></code></pre></figure>
+<ul>
+  <li><strong>Hot:</strong> logs are written to the current backing index. <strong>Rollover</strong> starts a new one every day, or sooner if a shard reaches 50 GB. Only whole backing indices can move between tiers, so rollover is what makes the architecture work.</li>
+  <li><strong>Warm:</strong> 7 days after rollover, the index moves to the warm node. Nothing writes to it anymore, so <strong>force merge</strong> compacts it into one segment per shard, which saves disk space and speeds up searches.</li>
+  <li><strong>Cold:</strong> after 30 days, the index moves to the cold node.</li>
+  <li><strong>Delete:</strong> after 60 days, the index is deleted.</li>
+</ul>
 
-<p>Check the installation with the following command:</p>
+<p>Where are the instructions to move the data? You don’t need any. In every phase, ILM runs a <strong>migrate</strong> action automatically: it changes the index’s tier preference, for example to <code class="language-plaintext highlighter-rouge">data_warm,data_hot</code>, and Elasticsearch moves its shards to a node with that role. Phase ages count from the rollover, not from the creation of the index.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">...</span><span class="p">\</span><span class="n">codersite</span><span class="p">.</span><span class="nf">dev</span><span class="o">&gt;</span><span class="n">curl</span> <span class="o">-</span><span class="no">XGET</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span><span class="p">:</span><span class="mi">9200</span><span class="o">/</span><span class="n">_cat</span><span class="o">/</span><span class="n">nodes</span>
-<span class="mf">110.1</span><span class="o">.</span><span class="mf">0.101</span> <span class="mi">5</span> <span class="mi">66</span>  <span class="mi">0</span>    <span class="n">lmr</span>      <span class="o">*</span> <span class="n">masternode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
-<span class="mf">110.1</span><span class="o">.</span><span class="mf">0.102</span> <span class="mi">1</span> <span class="mi">60</span>  <span class="mi">0</span>    <span class="n">cdhlrstw</span> <span class="o">-</span> <span class="n">hotnode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span>
-<span class="mf">110.1</span><span class="o">.</span><span class="mf">0.103</span> <span class="mi">2</span> <span class="mi">66</span> <span class="mi">25</span>    <span class="n">cdhlrstw</span> <span class="o">-</span> <span class="n">coldnode</span><span class="p">.</span><span class="nf">codersite</span><span class="p">.</span><span class="nf">dev</span></code></pre></figure>
+<h2 id="step-4-create-the-index-template">Step 4: Create the Index Template</h2>
 
-<p>Please donate to maintain and improve this website if you find this content valuable.</p>
+<p>The index template turns <code class="language-plaintext highlighter-rouge">billing-logs</code> into a data stream, connects it to the policy and defines the fields of a parsed log line:</p>
 
-<p><b><i>“If this article helped you, help me create the next one.”</i></b></p>
-<p><a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a></p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="rouge-code"><pre>PUT _index_template/billing-logs
+{
+  "index_patterns": ["billing-logs*"],
+  "data_stream": {},
+  "priority": 200,
+  "template": {
+    "settings": {
+      "index.lifecycle.name": "billing-logs-policy",
+      "index.number_of_replicas": 0
+    },
+    "mappings": {
+      "properties": {
+        "@timestamp": { "type": "date" },
+        "client_ip":  { "type": "ip" },
+        "client":     { "type": "keyword" },
+        "method":     { "type": "keyword" },
+        "endpoint":   { "type": "keyword" },
+        "bytes":      { "type": "long" },
+        "duration":   { "type": "float" }
+      }
+    }
+  }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p><br /></p>
+<p><strong>Why no replicas?</strong> A replica must live on a different node than its primary shard, in the same tier. With one node per tier, replicas could never be placed, and the cluster would stay yellow. In production, run at least two nodes in each tier and set <code class="language-plaintext highlighter-rouge">number_of_replicas</code> to 1, so you don’t lose data when a disk fails.</p>
 
-<p>Before we define Index Templates and configure our Index Lifecycle Policies, we must install the Kibana product.</p>
+<p><code class="language-plaintext highlighter-rouge">priority: 200</code> makes this template win over Elasticsearch’s built-in templates, which have priority 100.</p>
 
-<h2 id="installation-and-configuration-of-kibana">Installation and configuration of Kibana</h2>
+<h2 id="step-5-create-an-api-key-for-logstash">Step 5: Create an API Key for Logstash</h2>
 
-<p>Kibana enables to us navigate through our data (log files)</p>
+<p>Logstash should not log in as <code class="language-plaintext highlighter-rouge">elastic</code>. Create an API key that can only write to the billing logs:</p>
 
-<p>We have installed kibana using a <a href="https://www.elastic.co/downloads/kibana" target="_blank">zip</a> package.</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre>POST _security/api_key
+{
+  "name": "logstash-billing",
+  "role_descriptors": {
+    "billing_logs_writer": {
+      "cluster": ["monitor"],
+      "indices": [
+        {
+          "names": ["billing-logs*"],
+          "privileges": ["create_doc", "auto_configure"]
+        }
+      ]
+    }
+  }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Check that the following lines are included and activated in the kibana.yml file.</p>
+<p><code class="language-plaintext highlighter-rouge">create_doc</code> lets Logstash add documents, and <code class="language-plaintext highlighter-rouge">auto_configure</code> lets it create the <code class="language-plaintext highlighter-rouge">billing-logs</code> data stream on the first write. The response contains an <code class="language-plaintext highlighter-rouge">id</code> and an <code class="language-plaintext highlighter-rouge">api_key</code>. Logstash needs them joined with a colon, <code class="language-plaintext highlighter-rouge">id:api_key</code>.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">&lt;</span><span class="n">kibana</span><span class="o">-</span><span class="n">folder</span><span class="o">&gt;</span><span class="p">\</span><span class="n">config</span><span class="p">\</span><span class="n">kibana</span><span class="p">.</span><span class="nf">yml</span> <span class="n">file</span></code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">server</span><span class="p">.</span><span class="nf">port</span><span class="p">:</span> <span class="mi">9340</span>
-<span class="n">server</span><span class="p">.</span><span class="nf">host</span><span class="p">:</span> <span class="s2">"110.1.0.104"</span>
-<span class="n">elasticsearch</span><span class="p">.</span><span class="nf">hosts</span><span class="p">:</span> <span class="s2">"110.1.0.101:9200"</span></code></pre></figure>
-
-<p>To run kibana, execute the following command:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">&lt;</span><span class="n">kibana</span><span class="o">-</span><span class="n">folder</span><span class="o">&gt;</span><span class="p">\</span><span class="n">bin</span><span class="o">&gt;</span><span class="n">kibana</span><span class="p">.</span><span class="nf">bat</span></code></pre></figure>
-
-<p>From our local workstations we can access kibana in our browsers using the following url:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="mf">110.1</span><span class="o">.</span><span class="mf">0.104</span><span class="p">:</span><span class="mi">9340</span><span class="o">/</span></code></pre></figure>
-
-<p><strong>Creating index templates</strong></p>
-
-<p>We must create and configure our index templates prior to index creation.</p>
-
-<p>From <strong>Stack Management</strong> -&gt; <strong>Index Management</strong> -&gt; <strong>Index Templates</strong>, we create a new index template for our billing application log files.</p>
-
-<p><img src="/assets/images/billingTemplate.jpg" alt="billing-template" title="kibana template" class="img-responsive" /></p>
-
-<p>The following snippet code is the final template for new indices whose names match the <strong>billing</strong>* index pattern. Every time Elasticsearch receive a log file, it transforms it into an index by applying the following 
-settings:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span>
-  <span class="s2">"template"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"settings"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"index"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"lifecycle"</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"billing_policy"</span>
-        <span class="p">},</span>
-        <span class="s2">"number_of_replicas"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>
-        <span class="s2">"routing"</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s2">"allocation"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"require"</span><span class="p">:</span> <span class="p">{</span>
-              <span class="s2">"box_type"</span><span class="p">:</span> <span class="s2">"hot"</span>
-            <span class="p">}</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s2">"mappings"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"properties"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"was_date"</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"date"</span><span class="p">,</span>
-          <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"dd.MM.yy HH:mm:ss:SSS"</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s2">"aliases"</span><span class="p">:</span> <span class="p">{}</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>The <em>routing</em> attribute lets you see which <em>data tier</em> the new indices are allocated to. In our Hot-warm architecture, this will be the Hot Node (<em>box_type</em> attribute).</p>
-
-<p>The snippet code also defines a <em>lifecycle</em> to automate when and how to transition an index through our nodes.</p>
-
-<h3 id="data-lifecycle-management-in-elasticsearch">Data lifecycle management in Elasticsearch</h3>
-
-<p><strong>ILM: Manage the index lifecycle</strong></p>
-
-<p>We can create and apply Index Lifecycle Management (ILM) policies to automatically manage our indices following our retention requirements.</p>
-
-<p>We create a billing policy that defines how to move your data through the following phases.</p>
-
-<p><img src="/assets/images/hotPhase.jpg" alt="hot-phase" title="elastic hot-phase" class="img-responsive" /></p>
-
-<p>We want to move our data index to the <strong>Cold Node</strong> after 30 days from the index’s rollover.</p>
-
-<p><img src="/assets/images/coldPhase.jpg" alt="cold-phase" title="elastic cold-phase" class="img-responsive" /></p>
-
-<p>If we want to configure a <strong>Delete phase</strong>, we must enable the “Delete data after this phase” label.</p>
-
-<p>In this Cold phase, we also need to select the node attribute we defined for the Cold Node.</p>
-
-<p><img src="/assets/images/dataAllocation.jpg" alt="data-allocation" title="&quot;elastic data-allocation" class="img-responsive" /></p>
-
-<p>Finally, to save space on our machines, we define a <strong>Delete phase</strong> to delete our data index after 60 days from the index’s rollover.</p>
-
-<p><img src="/assets/images/deletePhase.jpg" alt="delete-phase" title="elastic delete-phase" class="img-responsive" /></p>
-
-<p>Now our index templates and lifecycle policies are ready. Let’s now move on to the <em>sources</em> where the log files come from to Elasticsearch.</p>
-
-<blockquote>
-  <p>Dependency is the key problem in software development. – <cite>Software Design, The Art of managing dependencies and Abstractions.</cite></p>
-</blockquote>
+<p>Clean architecture is about managing dependencies: Filebeat knows only Logstash, Logstash knows only the data stream, and the ILM policy can change without touching either of them. My book <em>Software Design Principles</em> explains how to design systems whose parts can change independently:</p>
 
 <div><center>
   <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="/assets/images/SoftwareDesignPrinciplesV2.jpg" /></a>
@@ -588,318 +701,377 @@ settings:</p>
 
 <br /></div>
 
-<h2 id="using-logstash-to-extract-transform-and-load-data">Using Logstash to Extract, Transform, and Load Data</h2>
+<h2 id="step-6-parse-the-logs-with-logstash">Step 6: Parse the Logs with Logstash</h2>
 
-<p>Logstash allow us to collect data (log files) from different sources (application servers), and can be enriched, transformed, filtered and moved to elasticsearch.</p>
+<p>Logstash receives the log lines, parses them into fields, and writes them to Elasticsearch. A Logstash <strong>pipeline</strong> has three parts: inputs, filters and outputs.</p>
 
-<p>We have installed logstash using a <a href="https://www.elastic.co/downloads/logstash" target="_blank">zip</a> package.</p>
+<p><img src="/assets/images/logstashPipeline.jpg" alt="Logstash pipeline: inputs, filters and outputs between the data source and Elasticsearch" title="Logstash pipeline" class="img-responsive" /></p>
 
-<p>Logstash will be the receiver for log data from sources such as Beats Agents installed on the Java application servers.</p>
+<p>Our application servers write one line per API request:</p>
 
-<p>We need to create a <em>pipeline</em> (config file) in which we define an <em>input</em> (collect data), a <em>filter</em> (data transformation), and an <em>output</em> (load data into elastic).</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>55.3.244.1 [19.10.26 06:17:42 +0000] codersite.dev GET /v1/api/billings 15824 0.043
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p><img src="/assets/images/logstashPipeline.jpg" alt="logstash-pipeline" title="elastic logstash-pipeline" class="img-responsive" /></p>
+<p>That is the client’s IP address, the time, the client name, the HTTP method, the endpoint, the response size in bytes and the duration in seconds.</p>
 
-<p>Before we create the Logstash pipeline, we’ll configure a Beat Agent called Filebeat to send log lines to Logstash.</p>
+<p>Extract Logstash on <code class="language-plaintext highlighter-rouge">logs-1</code>, copy <code class="language-plaintext highlighter-rouge">config\certs\http_ca.crt</code> from the hot node to <code class="language-plaintext highlighter-rouge">C:\logstash\config\certs\</code>, and create <code class="language-plaintext highlighter-rouge">config\billing-pipeline.conf</code>:</p>
 
-<h3 id="configuring-filebeat-to-send-log-lines-to-logstash">Configuring Filebeat to Send Log Lines to Logstash</h3>
-
-<p>Filebeat is a lightweight shipper for forwarding and centralizing log data. Installed as an agent (service) on our Java application servers, Filebeat monitors the log files, collects log events, and forwards them to Logstash for indexing.</p>
-
-<p>We have installed Filebeat with Windows <a href="https://www.elastic.co/downloads/beats/filebeat" target="_blank">MSI</a> Installer, establishing it as a Windows service.</p>
-
-<p>Open the <em>filebeat.yml</em> file in your Filebeat installation directory and replace the content with the following lines. Make sure the paths point to the application server log files.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">filebeat</span><span class="p">.</span><span class="nf">inputs</span><span class="p">:</span>
-<span class="o">-</span> <span class="ss">type: </span><span class="n">log</span>
-  <span class="ss">paths:
-    </span><span class="o">-</span> <span class="sr">/path/</span><span class="n">to</span><span class="o">/</span><span class="n">logs</span><span class="o">/</span><span class="n">billingServer</span><span class="o">/</span><span class="no">SystemOut</span><span class="p">.</span><span class="nf">log</span>
-<span class="n">output</span><span class="p">.</span><span class="nf">logstash</span><span class="p">:</span>
-  <span class="ss">hosts: </span><span class="p">[</span><span class="s2">"110.1.0.102:5044"</span><span class="p">]</span>
-  <span class="n">ilm</span><span class="p">.</span><span class="nf">enabled</span><span class="p">:</span> <span class="kp">true</span></code></pre></figure>
-
-<p>The log files that Filebeat processes are redirected - output - to the machine where we will install Logstash.</p>
-
-<p>On Windows machines, the absolute path to the log files looks like the following line:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="ss">paths:
-    </span><span class="o">-</span> <span class="s2">"C:</span><span class="se">\\</span><span class="s2">path</span><span class="se">\\</span><span class="s2">to</span><span class="se">\\</span><span class="s2">logs</span><span class="se">\\</span><span class="s2">billingServer</span><span class="se">\\</span><span class="s2">SystemOut.log"</span></code></pre></figure>
-
-<p>At the application servers machines (data source), run Filebeat with the following command.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="p">.</span><span class="nf">/</span><span class="n">filebeat</span> <span class="o">-</span><span class="n">e</span> <span class="o">-</span><span class="n">c</span> <span class="n">filebeat</span><span class="p">.</span><span class="nf">yml</span> <span class="o">-</span><span class="n">d</span> <span class="s2">"publish"</span></code></pre></figure>
-
-<p>Filebeat will attempt to connect Logstash on port 5044.</p>
-
-<h3 id="configuring-logstash-for-filebeat-input">Configuring Logstash for Filebeat Input</h3>
-
-<p>Next, we create a primary Logstash configuration pipeline that uses the Beats input plugin to receive events from the application servers and an output section to write to Elasticsearch.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">input</span> <span class="p">{</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre></td><td class="rouge-code"><pre><span class="n">input</span> <span class="p">{</span>
   <span class="n">beats</span> <span class="p">{</span>
     <span class="n">port</span> <span class="o">=&gt;</span> <span class="mi">5044</span>
   <span class="p">}</span>
 <span class="p">}</span>
-<span class="c1"># The filter part of this file is commented out to indicate that it is optional.</span>
-<span class="c1"># filter {</span>
-<span class="c1">#</span>
-<span class="c1"># }</span>
-<span class="n">output</span> <span class="p">{</span>
-  <span class="n">stdout</span> <span class="p">{</span> <span class="n">codec</span> <span class="o">=&gt;</span> <span class="n">rubydebug</span> <span class="p">}</span>
-  <span class="n">elasticsearch</span> <span class="p">{</span>
-    <span class="n">hosts</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">"110.1.0.101:9200"</span> <span class="p">]</span> 
-    <span class="n">index</span> <span class="o">=&gt;</span> <span class="s2">"billing-%{[@metadata][version]}"</span>
-    <span class="n">ilm_policy</span> <span class="o">=&gt;</span> <span class="s2">"billing_policy"</span>
-    <span class="n">action</span> <span class="o">=&gt;</span> <span class="s2">"create"</span>
+
+<span class="n">filter</span> <span class="p">{</span>
+  <span class="n">grok</span> <span class="p">{</span>
+    <span class="n">match</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="s2">"message"</span> <span class="o">=&gt;</span> <span class="s2">"%{IP:client_ip} </span><span class="se">\[</span><span class="s2">%{DATA:timestamp}</span><span class="se">\]</span><span class="s2"> %{HOSTNAME:client} %{WORD:method} %{URIPATHPARAM:endpoint} %{NUMBER:bytes:int} %{NUMBER:duration:float}"</span>
+    <span class="p">}</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+  <span class="n">date</span> <span class="p">{</span>
+    <span class="n">match</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">"timestamp"</span><span class="p">,</span> <span class="s2">"dd.MM.yy HH:mm:ss Z"</span> <span class="p">]</span>
+    <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">"timestamp"</span> <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-<p>Tu run logstash, execute the following command.</p>
+<span class="n">output</span> <span class="p">{</span>
+  <span class="n">elasticsearch</span> <span class="p">{</span>
+    <span class="n">hosts</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">"https://110.1.0.101:9200"</span><span class="p">,</span> <span class="s2">"https://110.1.0.102:9200"</span><span class="p">,</span> <span class="s2">"https://110.1.0.103:9200"</span> <span class="p">]</span>
+    <span class="n">index</span> <span class="o">=&gt;</span> <span class="s2">"billing-logs"</span>
+    <span class="n">action</span> <span class="o">=&gt;</span> <span class="s2">"create"</span>
+    <span class="n">manage_template</span> <span class="o">=&gt;</span> <span class="kp">false</span>
+    <span class="n">api_key</span> <span class="o">=&gt;</span> <span class="s2">"${ES_API_KEY}"</span>
+    <span class="n">ssl_certificate_authorities</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">"C:/logstash/config/certs/http_ca.crt"</span> <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">C</span><span class="p">:\</span><span class="o">&lt;</span><span class="n">logstash</span><span class="o">-</span><span class="n">folder</span><span class="o">&gt;</span><span class="p">\</span><span class="n">bin</span><span class="o">&gt;</span><span class="n">logstash</span> <span class="o">-</span><span class="n">f</span> <span class="o">..</span><span class="p">\</span><span class="n">config</span><span class="p">\</span><span class="n">billing</span><span class="o">-</span><span class="n">pipeline</span><span class="p">.</span><span class="nf">conf</span> <span class="o">--</span><span class="n">config</span><span class="p">.</span><span class="nf">reload</span><span class="p">.</span><span class="nf">automatic</span></code></pre></figure>
+<p><strong>The grok filter</strong> matches the line with named patterns. Each <code class="language-plaintext highlighter-rouge">%{PATTERN:field}</code> matches a piece of text and stores it in a field:</p>
 
-<p>With this minimal configuration, you can visualize your log files in Kibana.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">%{IP:client_ip}</code> matches <code class="language-plaintext highlighter-rouge">55.3.244.1</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">\[%{DATA:timestamp}\]</code> matches the text between the brackets. The brackets are escaped because <code class="language-plaintext highlighter-rouge">[</code> has a special meaning in a regular expression.</li>
+  <li><code class="language-plaintext highlighter-rouge">%{HOSTNAME:client}</code> matches <code class="language-plaintext highlighter-rouge">codersite.dev</code>. <code class="language-plaintext highlighter-rouge">WORD</code> would not, because a word can’t contain a dot.</li>
+  <li><code class="language-plaintext highlighter-rouge">%{NUMBER:bytes:int}</code> converts the value to a number, so you can calculate with it.</li>
+</ul>
 
-<p>Please donate if you find this content valuable.</p>
+<p><strong>The date filter</strong> parses the timestamp from the log line and stores it in <code class="language-plaintext highlighter-rouge">@timestamp</code>. Without it, every event gets the time Logstash <em>received</em> it, and your charts show when the logs were shipped instead of when the requests happened.</p>
 
-<p><b><i>“If this article helped you, help me create the next one.”</i></b></p>
-<p><a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a></p>
+<p><strong>The output</strong> writes to the <code class="language-plaintext highlighter-rouge">billing-logs</code> data stream. <code class="language-plaintext highlighter-rouge">action =&gt; "create"</code> is required, because data streams only accept new documents. <code class="language-plaintext highlighter-rouge">manage_template =&gt; false</code> stops Logstash from installing its own index template, since we created ours in step 4.</p>
+
+<p>Store the API key in the Logstash keystore, so it isn’t written in a file, and start the pipeline:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="n">cd</span><span class="w"> </span><span class="nx">C:\logstash</span><span class="w">
+</span><span class="o">.</span><span class="n">\bin\logstash-keystore.bat</span><span class="w"> </span><span class="nx">create</span><span class="w">
+</span><span class="o">.</span><span class="n">\bin\logstash-keystore.bat</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="nx">ES_API_KEY</span><span class="w">
+</span><span class="o">.</span><span class="n">\bin\logstash.bat</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="nx">config\billing-pipeline.conf</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="step-7-ship-the-logs-with-filebeat">Step 7: Ship the Logs with Filebeat</h2>
+
+<p>Filebeat is a small agent that runs on each application server. It reads new lines from the log files and sends them to Logstash, and it remembers how far it has read, so no line is lost or sent twice when it restarts.</p>
+
+<p>Extract the Filebeat Windows zip to <code class="language-plaintext highlighter-rouge">C:\Program Files\Filebeat</code> on each application server and replace <code class="language-plaintext highlighter-rouge">filebeat.yml</code> with:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="na">filebeat.inputs</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">filestream</span>
+    <span class="na">id</span><span class="pi">:</span> <span class="s">billing-access-logs</span>
+    <span class="na">paths</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">D:\AppServer\logs\billingServer\access.log'</span>
+
+<span class="na">output.logstash</span><span class="pi">:</span>
+  <span class="na">hosts</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">110.1.0.104:5044"</span><span class="pi">]</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">filestream</code> input. The older <code class="language-plaintext highlighter-rouge">log</code> input was deprecated in version 7.16 and is disabled in Filebeat 9. Every <code class="language-plaintext highlighter-rouge">filestream</code> input needs a unique <code class="language-plaintext highlighter-rouge">id</code>. Write Windows paths in single quotes, so YAML keeps the backslashes as they are.</p>
+
+<p>Test the configuration and the connection to Logstash, then install and start Filebeat as a Windows service. Run PowerShell as administrator:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="n">cd</span><span class="w"> </span><span class="s1">'C:\Program Files\Filebeat'</span><span class="w">
+</span><span class="o">.</span><span class="n">\filebeat.exe</span><span class="w"> </span><span class="nx">test</span><span class="w"> </span><span class="nx">config</span><span class="w">
+</span><span class="o">.</span><span class="n">\filebeat.exe</span><span class="w"> </span><span class="nx">test</span><span class="w"> </span><span class="nx">output</span><span class="w">
+</span><span class="n">PowerShell.exe</span><span class="w"> </span><span class="nt">-ExecutionPolicy</span><span class="w"> </span><span class="nx">UnRestricted</span><span class="w"> </span><span class="nt">-File</span><span class="w"> </span><span class="o">.</span><span class="nx">\install-service-filebeat.ps1</span><span class="w">
+</span><span class="n">Start-Service</span><span class="w"> </span><span class="nx">filebeat</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>Shipping JVM logs with stack traces.</strong> In <code class="language-plaintext highlighter-rouge">SystemOut.log</code> and <code class="language-plaintext highlighter-rouge">SystemErr.log</code>, one error is many lines: the message and every line of the stack trace. Without extra settings, each line becomes a separate document. A <code class="language-plaintext highlighter-rouge">multiline</code> parser joins every line that doesn’t start with <code class="language-plaintext highlighter-rouge">[</code> to the line before it:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">filestream</span>
+    <span class="na">id</span><span class="pi">:</span> <span class="s">billing-jvm-logs</span>
+    <span class="na">paths</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">D:\AppServer\logs\billingServer\SystemErr.log'</span>
+    <span class="na">parsers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">multiline</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">pattern</span>
+          <span class="na">pattern</span><span class="pi">:</span> <span class="s1">'</span><span class="s">^\['</span>
+          <span class="na">negate</span><span class="pi">:</span> <span class="kc">true</span>
+          <span class="na">match</span><span class="pi">:</span> <span class="s">after</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="step-8-check-that-everything-works">Step 8: Check That Everything Works</h2>
+
+<p>After a few requests, each parsed log line is a document in the data stream:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"@timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-19T06:21:30.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"client_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55.3.244.1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"client"</span><span class="p">:</span><span class="w"> </span><span class="s2">"codersite.dev"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/api/billings"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1777</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.024</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55.3.244.1 [19.10.26 06:21:30 +0000] codersite.dev GET /v1/api/billings 1777 0.024"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>(Logstash and Filebeat also add fields such as <code class="language-plaintext highlighter-rouge">host</code>, <code class="language-plaintext highlighter-rouge">agent</code> and <code class="language-plaintext highlighter-rouge">log.file.path</code>, left out here.) A line that doesn’t match the grok pattern gets the tag <code class="language-plaintext highlighter-rouge">_grokparsefailure</code>, so search for that tag to find log formats you haven’t parsed yet.</p>
+
+<p>To see which phase each backing index is in, ask ILM:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>GET billing-logs/_ilm/explain
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"indices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">".ds-billing-logs-2026.10.19-000001"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">".ds-billing-logs-2026.10.19-000001"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"billing-logs-policy"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phase"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hot"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rollover"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check-rollover-ready"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The response above is shortened. To test the whole lifecycle without waiting 60 days, I created a copy of the policy with ages in minutes. The first backing index moved from the hot node to the warm node, then to the cold node, and was deleted, all without any routing setting.</p>
+
+<h2 id="use-the-logs-requests-per-minute-for-rate-limiting">Use the Logs: Requests per Minute for Rate Limiting</h2>
+
+<p>Centralized logs answer questions that no single server can. For example: how many requests per minute does each client send? You need that number to choose a fair rate limit.</p>
+
+<p>A <code class="language-plaintext highlighter-rouge">date_histogram</code> counts the requests per minute, and the <code class="language-plaintext highlighter-rouge">avg_bucket</code> and <code class="language-plaintext highlighter-rouge">max_bucket</code> aggregations calculate the average and the busiest minute for each client:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre>GET billing-logs/_search
+{
+  "size": 0,
+  "query": {
+    "range": {
+      "@timestamp": { "gte": "2026-10-19T06:00:00Z", "lt": "2026-10-19T07:00:00Z" }
+    }
+  },
+  "aggs": {
+    "by_client": {
+      "terms": { "field": "client" },
+      "aggs": {
+        "per_minute": {
+          "date_histogram": { "field": "@timestamp", "fixed_interval": "1m" }
+        },
+        "avg_per_minute": {
+          "avg_bucket": { "buckets_path": "per_minute&gt;_count" }
+        },
+        "peak_per_minute": {
+          "max_bucket": { "buckets_path": "per_minute&gt;_count" }
+        }
+      }
+    }
+  }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Adding <code class="language-plaintext highlighter-rouge">?filter_path=aggregations.by_client.buckets.key,aggregations.by_client.buckets.*_per_minute.value</code> to the URL keeps only the numbers we need:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"aggregations"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"by_client"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"buckets"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"key"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"codersite.dev"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"avg_per_minute"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">893.2</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"peak_per_minute"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">939.0</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"key"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"shop.example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"avg_per_minute"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">122.0</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"peak_per_minute"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">135.0</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"key"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"partner.example.org"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"avg_per_minute"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">47.6</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"peak_per_minute"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">61.0</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The client <code class="language-plaintext highlighter-rouge">codersite.dev</code> sends 893 requests per minute on average, with peaks of 939. A limit of about 1,000 requests per minute protects your servers from overload and attacks without rejecting this client’s normal traffic. Learn how to enforce such a limit in <a href="https://codersite.dev/rate-limit/" target="_blank">How to Implement Rate Limiting</a>.</p>
+
+<p>The same logs tell you much more: Kibana’s <strong>Discover</strong> view shows the errors of all application servers in one place, filtered by server, time or message, instead of searching log files on each machine.</p>
+
+<p>To go deeper into how Elasticsearch works, <em>Elasticsearch in Action, Second Edition</em> by Madhusudhan Konda covers Elasticsearch 8 from the ground up: text analysis, mappings, search and aggregations, and the cluster administration behind an architecture like this one:</p>
+
+<div><center>
+  <a href="https://www.amazon.de/dp/1617299855?tag=mkgv89-21" target="_blank"><img style="border:1px solid black;" alt="Elasticsearch in Action, Second Edition by Madhusudhan Konda" title="Buy Now" border="0" width="265" height="332" src="/recommended/images/elasticsearchInAction.jpg" /></a>
+</center>
+
+<br />
+</div>
+
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+
+<p><strong>What is the difference between hot-warm and hot-warm-cold?</strong>
+A hot-warm architecture has two tiers: one for new data and one for everything older. Adding a cold tier gives old, rarely searched data its own cheaper hardware. Start with the tiers your retention needs: if you delete logs after two weeks, hot and warm are enough.</p>
+
+<p><strong>Do I need a frozen tier?</strong>
+Only for data you must keep for months or years but almost never search, such as audit logs. The frozen tier keeps data in object storage (such as S3 or Azure Blob Storage) through searchable snapshots, which needs a paid Elastic license.</p>
+
+<p><strong>How many master-eligible nodes do I need?</strong>
+Three. A cluster needs a majority of its master-eligible nodes to elect a master, so three nodes survive the loss of one. Two nodes don’t survive the loss of either, because one node out of two isn’t a majority.</p>
+
+<p><strong>Filebeat or Elastic Agent?</strong>
+Elastic Agent is one agent for logs, metrics and security data, managed centrally from Kibana with Fleet. Filebeat is simpler to set up for shipping log files, as in this article. Both work with Logstash.</p>
+
+<p><strong>Why are my old logs still on the hot node?</strong>
+Check <code class="language-plaintext highlighter-rouge">GET billing-logs/_ilm/explain</code>. The usual causes are a backing index that hasn’t rolled over yet (phase ages count from rollover), a policy not attached to the template, or no node with the target tier’s role, in which case the index stays where it is.</p>
 
 <p><br /></p>
 
-<p><strong>Customizing the filter</strong></p>
-
-<p>To use logs data from Elastic to set up a rate-limit algorithm, we need to parse it using filter plugins.</p>
-
-<p>We want to know how many requests for every endpoint and client arrive at our application servers by month, day, hour, minute, and second.</p>
-
-<p><strong>Grok filter</strong></p>
-
-<p>Grok combines text patterns into something that matches your logs.</p>
-
-<p>Grok pattern: %{<em>SYNTAX</em>:<em>SEMANTIC</em>}</p>
-
-<p>The <em>SYNTAX</em> is the name of the pattern that will match your text.</p>
-
-<p>The <em>SEMANTIC</em> is the identifier you give to the matched piece of text.</p>
-
-<p>For example, we can pull out fields from a server log file.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mf">55.3</span><span class="o">.</span><span class="mf">244.1</span> <span class="p">[</span><span class="mf">19.08</span><span class="o">.</span><span class="mi">22</span> <span class="mo">05</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mi">42</span> <span class="o">+</span><span class="mo">0000</span><span class="p">]</span> <span class="n">codersite</span><span class="p">.</span><span class="nf">dev</span> <span class="no">GET</span> <span class="sr">/v1/</span><span class="n">api</span><span class="o">/</span><span class="n">billings</span> <span class="mi">15824</span> <span class="mf">0.043</span></code></pre></figure>
-
-<p>The filter section inside logstash pipeline looks like the following.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">filter</span> <span class="p">{</span>
-  <span class="n">grok</span> <span class="p">{</span>
-    <span class="n">match</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="s2">"message"</span> <span class="o">=&gt;</span> <span class="s2">"%{IP:client} %{DATA:timestamp} %{WORD:client} %{WORD:method} %{URIPATHPARAM:endpoint} %{NUMBER:bytes} %{NUMBER:duration}"</span> <span class="p">}</span>
-  <span class="p">}</span>
-  
-  <span class="n">grok</span> <span class="p">{</span>
-    <span class="n">match</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"timestamp"</span><span class="p">,</span> <span class="s2">"%{WORD:was_dd}.%{WORD:was_MM}.%{WORD:was_yy} %{SPACE}%{WORD:was_HH}:%{WORD:was_mm}:%{WORD:was_ss}"</span><span class="p">]</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>We build an aggregation that summarizes our data. The following search runs a terms aggregation on “codersite.dev” client.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">GET</span> <span class="p">.</span><span class="nf">ds</span><span class="o">-</span><span class="n">billing</span><span class="o">-</span><span class="n">index</span><span class="o">-</span><span class="mo">000006</span><span class="o">/</span><span class="n">_search</span>
-<span class="p">{</span>
-  <span class="s2">"size"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-  <span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"match"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"client.keyword"</span><span class="p">:</span> <span class="s2">"codersite.dev"</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"all_clients"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"client.keyword"</span>
-      <span class="p">},</span>
-      <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"all_endpoints"</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"endpoint.keyword"</span>
-          <span class="p">},</span>
-          <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"all_was_years"</span><span class="p">:</span> <span class="p">{</span>
-              <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"was_yy.keyword"</span>
-              <span class="p">},</span>
-              <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">"all_was_months"</span><span class="p">:</span> <span class="p">{</span>
-                  <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"was_MM.keyword"</span>
-                  <span class="p">},</span>
-                  <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"all_was_days"</span><span class="p">:</span> <span class="p">{</span>
-                      <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"was_dd.keyword"</span>
-                      <span class="p">},</span>
-                      <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"all_was_hours"</span><span class="p">:</span> <span class="p">{</span>
-                          <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
-                            <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"was_HH.keyword"</span>
-                          <span class="p">},</span>
-                          <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
-                            <span class="s2">"all_was_minutes"</span><span class="p">:</span> <span class="p">{</span>
-                              <span class="s2">"terms"</span><span class="p">:</span> <span class="p">{</span>
-                                <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"was_mm.keyword"</span>
-                              <span class="p">}</span>         
-                            <span class="p">}</span>
-                          <span class="p">}</span>
-                        <span class="p">}</span>
-                      <span class="p">}</span>
-                    <span class="p">}</span>
-                  <span class="p">}</span>
-                <span class="p">}</span>
-              <span class="p">}</span>
-            <span class="p">}</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
-
-<blockquote>
-  <p>The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.</p>
-</blockquote>
-
-<div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
-</center>
-
-<br /></div>
-
-<p>Aggregation results are in the response’s aggregations object.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span>
-  <span class="s2">"took"</span> <span class="p">:</span> <span class="mi">1253</span><span class="p">,</span>
-  <span class="s2">"timed_out"</span> <span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
-  <span class="s2">"_shards"</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"total"</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"successful"</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"skipped"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"failed"</span> <span class="p">:</span> <span class="mi">0</span>
-  <span class="p">},</span>
-  <span class="s2">"hits"</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"total"</span> <span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"value"</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
-      <span class="s2">"relation"</span> <span class="p">:</span> <span class="s2">"gte"</span>
-    <span class="p">},</span>
-    <span class="s2">"max_score"</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-    <span class="s2">"hits"</span> <span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="s2">"aggregations"</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"all_clients"</span> <span class="p">:</span> <span class="p">{</span>
-      <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"codersite.dev"</span><span class="p">,</span>
-          <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">2310409</span><span class="p">,</span>
-          <span class="s2">"all_endpoints"</span> <span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
-              <span class="p">{</span>
-                <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"/v1/api/billings"</span><span class="p">,</span>
-                <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">2309966</span><span class="p">,</span>
-                <span class="s2">"all_was_years"</span> <span class="p">:</span> <span class="p">{</span>
-                  <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                  <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                  <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                      <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"23"</span><span class="p">,</span>
-                      <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">2309966</span><span class="p">,</span>
-                      <span class="s2">"all_was_months"</span> <span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                        <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                        <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
-                          <span class="p">{</span>
-                            <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"09"</span><span class="p">,</span>
-                            <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">1516918</span><span class="p">,</span>
-                            <span class="s2">"all_was_days"</span> <span class="p">:</span> <span class="p">{</span>
-                              <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                              <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">712935</span><span class="p">,</span>
-                              <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
-                                <span class="p">{</span>
-                                  <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"13"</span><span class="p">,</span>
-                                  <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">80457</span><span class="p">,</span>
-                                  <span class="s2">"all_was_hours"</span> <span class="p">:</span> <span class="p">{</span>
-                                    <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                                    <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                                    <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
-                                      <span class="p">{</span>
-                                        <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"06"</span><span class="p">,</span>
-                                        <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">10061</span><span class="p">,</span>
-                                        <span class="s2">"all_was_minutes"</span> <span class="p">:</span> <span class="p">{</span>
-                                          <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                                          <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">1146</span><span class="p">,</span>
-                                          <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
-                                            <span class="p">{</span>
-                                              <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"17"</span><span class="p">,</span>
-                                              <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">939</span>
-                                            <span class="p">},</span>
-                                            <span class="p">{</span>
-                                              <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"18"</span><span class="p">,</span>
-                                              <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">916</span>
-                                            <span class="p">},</span>
-                                            <span class="p">{</span>
-                                              <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"26"</span><span class="p">,</span>
-                                              <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">840</span>
-                                            <span class="p">}</span>
-                                          <span class="p">]</span>
-                                        <span class="p">}</span>
-                                      <span class="p">},</span>
-                                      <span class="p">{</span>
-                                        <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"21"</span><span class="p">,</span>
-                                        <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">10061</span><span class="p">,</span>
-                                        <span class="s2">"all_was_minutes"</span> <span class="p">:</span> <span class="p">{</span>
-                                          <span class="s2">"doc_count_error_upper_bound"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                                          <span class="s2">"sum_other_doc_count"</span> <span class="p">:</span> <span class="mi">1461</span><span class="p">,</span>
-                                          <span class="s2">"buckets"</span> <span class="p">:</span> <span class="p">[</span>
-                                            <span class="p">{</span>
-                                              <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"18"</span><span class="p">,</span>
-                                              <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">889</span>
-                                            <span class="p">},</span>
-                                            <span class="p">{</span>
-                                              <span class="s2">"key"</span> <span class="p">:</span> <span class="s2">"19"</span><span class="p">,</span>
-                                              <span class="s2">"doc_count"</span> <span class="p">:</span> <span class="mi">882</span>
-                                            <span class="p">}</span>
-										  <span class="p">]</span>
-                                        <span class="p">}</span>
-                                      <span class="p">}</span>
-                                    <span class="p">]</span>
-                                  <span class="p">}</span>
-                                <span class="p">}</span>
-                              <span class="p">]</span>
-                            <span class="p">}</span>
-                          <span class="p">}</span>
-                        <span class="p">]</span>
-                      <span class="p">}</span>
-                    <span class="p">}</span>
-                  <span class="p">]</span>
-                <span class="p">}</span>
-              <span class="p">}</span>
-            <span class="p">]</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">]</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>									</code></pre></figure>
-
-<p>From the buckets per minute, we can see codersite.dev client sends an average of 893 requests per minute.</p>
-
-<p>Based on these accurate statistics and analyses, you know how to limit the number of requests allowed per client + endpoint. In this way, you can protect your software infrastructure from possible attacks or overuse of hardware resources.</p>
-
-<p>Learn <a href="https://codersite.dev/rate-limit/" target="_blank">How to implement Rate Limiting</a> algorithm.</p>
-
-<p>Now that you have centralized all server logs in only one cluster, you can monitor or diagnose possible errors. Kibana will inform you about all application servers’ errors in one unified report.</p>
-
-<p>Here is an example:</p>
-
-<p><img src="/assets/images/kibanaLogs.JPG" alt="kibana Logs" title="kibana Logs" class="img-responsive" /></p>
+<p>If you found this article useful, you can support this website:</p>
 
 <div>
 <p><b><i>“If this article helped you, help me create the next one.”</i></b></p>
@@ -929,7 +1101,7 @@ settings:</p>
                     
                     
                     <li>
-                        <a class="smoothscroll" href="/categories#distribuited-systems">distribuited systems</a>
+                        <a class="smoothscroll" href="/categories#distributed-systems">distributed-systems</a>
                     </li>
                     
                 </ul>
@@ -990,8 +1162,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/hot-warm-architecture-elasticsearch/"
   },
-  "headline": "Implementing hot-warm architecture in Elasticsearch for time-series data",
-  "description": "Hot-warm architecture for log analytics with Elasticsearch.",
+  "headline": "Hot-Warm-Cold Architecture in Elasticsearch: Data Tiers, ILM and Centralized Logs",
+  "description": "Build a hot-warm-cold Elasticsearch cluster for log analytics: data tier node roles, an ILM policy that moves logs between tiers, and Filebeat and Logstash to ship them.",
   "image": "https://codersite.dev/assets/images/elastic.jpg",
   "datePublished": "2021-02-26T00:00:00+01:00",
   "dateModified": "2021-02-26T00:00:00+01:00",
@@ -1023,13 +1195,13 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "distribuited systems",
-      "item": "https://codersite.dev/categories#distribuited-systems"
+      "name": "distributed-systems",
+      "item": "https://codersite.dev/categories#distributed-systems"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Implementing hot-warm architecture in Elasticsearch for time-series data",
+      "name": "Hot-Warm-Cold Architecture in Elasticsearch: Data Tiers, ILM and Centralized Logs",
       "item": "https://codersite.dev/hot-warm-architecture-elasticsearch/"
     }
   ]
@@ -1126,7 +1298,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
                 
                     <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
                 
-                    <a class="mt-1 mb-1" href="/categories#distribuited-systems">distribuited systems (1)</a>
+                    <a class="mt-1 mb-1" href="/categories#distributed-systems">distributed-systems (2)</a>
                 
                     <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
                 
@@ -1147,8 +1319,6 @@ https://search.google.com/structured-data/testing-tool/u/0/
                     <a class="mt-1 mb-1" href="/categories#programming">programming (7)</a>
                 
                     <a class="mt-1 mb-1" href="/categories#system-design">system-design (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/categories#distributed-systems">distributed-systems (1)</a>
                 
                     <a class="mt-1 mb-1" href="/categories#aws">aws (1)</a>
                 

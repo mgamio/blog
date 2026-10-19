@@ -1,684 +1,577 @@
 ---
 layout: post
-title:  "Implementing hot-warm architecture in Elasticsearch for time-series data"
-description: "Hot-warm architecture for log analytics with Elasticsearch."
+title:  "Hot-Warm-Cold Architecture in Elasticsearch: Data Tiers, ILM and Centralized Logs"
+description: "Build a hot-warm-cold Elasticsearch cluster for log analytics: data tier node roles, an ILM policy that moves logs between tiers, and Filebeat and Logstash to ship them."
 author: moises
-categories: [ distribuited systems ]
+categories: [ distributed-systems ]
 image: /assets/images/elastic.jpg
 comments: false
 ---
 
-Elasticsearch is a distributed real-time document store where every field is indexed and searchable. It provides near real-time search and analysis for all types of data.
+Recent logs are written and searched all the time. Logs from last month are searched now and then, and logs from three months ago almost never. Keeping all of them on the same fast, expensive disks wastes money, and deleting them too early loses the history you need when something goes wrong.
 
-Elasticsearch is document oriented, meaning that it stores entire objects or documents.
+A **hot-warm-cold architecture** solves this in Elasticsearch: new data lands on fast *hot* nodes, then moves automatically to cheaper *warm* and *cold* nodes as it ages, and is finally deleted.
 
-## Fundamentals concepts
+This article builds that architecture step by step for the logs of Java application servers, with Elasticsearch, Logstash, Filebeat and Kibana 9. Every configuration and request in it was tested on a three-node Elasticsearch 9.5 cluster.
 
-The act of storing data in Elasticsearch is called *indexing*.
+## The Problem: Logs Spread Across Many Servers
 
-An **index** is a collection of documents and each document is a collection of fields, which are the key-value pairs that contain your data. Every index has some properties like mappings, settings, and aliases.
+To find bottlenecks, errors, slow queries or connection pool problems, we read the logs of our application servers. With a cluster of servers, every server has its own log files, so one problem means searching several machines.
 
-In Elasticsearch, a document belongs to a type, and those types live inside an index. We can draw a parallel to a traditional relational database:
+Log rotation makes it worse. Application servers keep only a few log files of a fixed size and overwrite the oldest one, so on a busy day the history you need is gone within hours:
 
-Relational DB ⇒ Databases ⇒ Tables ⇒ Rows ⇒ Columns
+![Log rotation settings: maximum file size 1 MB and 5 historical log files](/assets/images/logFileRotation.JPG "Log file rotation"){:class="img-responsive"}
 
-Elasticsearch ⇒ Indices ⇒ Types ⇒ Documents ⇒ Fields
+The solution is to ship every log line to one central place, keep it as long as the business needs it, and make it searchable. That place is an Elasticsearch cluster.
 
-In Elasticsearch, the term document has a specific meaning. It refers to the top-level, or root object that is serialized into JSON and stored in Elasticsearch under a unique ID.
+## Elasticsearch Basics in Two Minutes
 
-Elasticsearch lets you insert documents without a predefined schema (in RDBMS you need to define tables in advance).
+Elasticsearch is a distributed search and analytics engine. It stores **documents**, JSON objects such as one parsed log line, in **indices**. Storing a document is called *indexing* it.
 
-**Inverted index**
+**Inverted index.** Relational databases speed up queries with B-tree indexes on selected columns. Elasticsearch builds an *inverted index* for text fields instead: a list of every word, and for each word, the documents that contain it.
 
-Relational databases add an index, such as a B-tree index, to specific columns in order to improve the speed of data retrieval. Elasticsearch use a structure called an inverted index for exactly the same purpose.
+For example, the billing and ordering servers both log this line:
 
-By default, every field in a document is indexed (has an inverted index) and thus is searchable – FullText search. A field without an inverted index is not searchable.
-
-An inverted index consists of a list of all the unique words that appear in any document, and for each word, a list of the documents in which it appears
-
-For example, your billing and ordering applications print the following message to the log file of their respective application servers.
-
-
-```kotlin
+```text
 [11.01.21 06:12:20:099 MESZ] J2CA0045E: Connection not available while invoking method queueRequest for resource jdbc/xxxxxx
 ```
 
-Also, you have an image service that suddenly throws and prints to another application server the following error:
+and the image service logs this one:
 
-```kotlin
+```text
 [28.01.21 17:47:48:647 MESZ] java.lang.Exception: I/O Exception: https://server/imageService
 ```
 
-Once these documents are indexed into Elasticsearch, the following figure shows an inverted index data structure.
+After indexing the three documents, the inverted index looks like this:
 
-![inverted-index](/assets/images/invertedIndex.jpg "inverted-index"){:class="img-responsive"}
+![Inverted index: each word points to the documents that contain it](/assets/images/invertedIndex.jpg "Inverted index"){:class="img-responsive"}
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin) <a href="https://t.co/ARf0FUDzRw">https://t.co/ARf0FUDzRw</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1838935023786905637?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+A search for "Connection" doesn't read any log line: it looks up one word and gets documents 1 and 2 directly. That's why Elasticsearch searches millions of log lines in milliseconds.
 
-**Mapping**
+The other terms you need for this article:
 
-In order to be able to treat date fields as dates, numeric fields as numbers, and string fields as full-text or exact-value strings, Elasticsearch needs to know what type of data each field contains. This information is contained in the mapping.
+- **Mapping:** the type of each field (date, number, keyword, text), like a table schema.
+- **Index template:** the settings and mappings that Elasticsearch applies automatically to every new index whose name matches a pattern.
+- **Shard:** a piece of an index. Each shard is a [Lucene](https://lucene.apache.org/){:target="_blank"} index that lives on one node.
+- **Node and cluster:** a node is one running Elasticsearch instance; a cluster is a group of nodes with the same `cluster.name`.
+- **Data stream:** a name, such as `billing-logs`, that you write time-series data to. Behind it, Elasticsearch creates a new *backing index* regularly, which is what lets old data move to other nodes.
 
-**Index Templates**
+## Hot, Warm, Cold and Frozen Data Tiers
 
-When you create an index template, you tell Elasticsearch which settings and mappings an index should have when it is created.
+Each node in the cluster belongs to a **data tier**, set with its `node.roles`. Elasticsearch has five:
 
-**Shards**
+| Tier | Node role | Holds | Typical hardware |
+|---|---|---|---|
+| Hot | `data_hot` | New data: written and searched all the time | Fast SSDs, most CPU and memory |
+| Warm | `data_warm` | Read-only data, searched less often | Larger, slower disks |
+| Cold | `data_cold` | Old data, rarely searched | The cheapest storage |
+| Frozen | `data_frozen` | Data that is almost never searched | Object storage through searchable snapshots (paid license) |
+| Content | `data_content` | Data that isn't time-based, such as Kibana's own indices | Like hot |
 
-Shards are the physical instances of [Apache Lucene](https://lucene.apache.org/){:target="_blank"}, shards take care of the physical storage and retrieval of our data.
+<br/>
 
-**Nodes and Cluster**
+You don't decide where each index goes. An **index lifecycle management (ILM) policy** does: it says how long data stays in each phase, and ILM moves the indices from tier to tier on its own.
 
-A node is a running instance of Elasticsearch, while a cluster consists of one or more nodes with the same cluster.name that are working together to share their data and workload.
+The architecture in this article has one node per tier, plus Logstash and Kibana:
 
-**Hot-warm architecture**
+![Hot-warm-cold architecture: Filebeat on each application server sends logs to Logstash, which writes them to the hot node; ILM moves them to the warm and cold nodes](/assets/images/hotWarmColdElasticsearch.png "Hot-warm-cold architecture in Elasticsearch"){:class="img-responsive"}
 
-Hot-warm architecture is a way to separate an Elasticsearch deployment into “hot” data nodes and “warm” data nodes. 
-
-In Hot nodes, You are actively querying and writing to your index.
-
-In Warm nodes, You are still querying your index, but it is read-only. 
-
-In Cold nodes, You are querying your index less frequently. You can deploy it to less performant hardware.
-
-We can balance indexing and query performance in Elasticsearch with a hot-warm architecture. 
-
-> Learn how to design software that can handle millions of users without breaking a sweat.
-
-<div>
-{%- include softwareDesign.html -%}
-</div>
-
-## JVM Logs
-
-The JVM logs are created by redirecting the System.out and System.err streams of the JVM to independent log files. The System.out log is used to monitor the health of the running application server. The System.err log contains exception stack trace information for problem analysis.
-
-## Problem
-
-When we need to identify bottlenecks, errors, heavy traffic issues, slow-running queries, connection pooling problems, and more, we usually analyze our application server *logs*.
-But this task is tedious because the *log files* are distributed in a cluster that contains several application servers with their applications. Depending on each application server product, rotating policies for regenerating a *log file* cause historical records to be lost - data retention period.
-
-![logFileRotation](/assets/images/logFileRotation.JPG "log File Rotation"){:class="img-responsive"}
-
-If every business area has different cluster, the licenses and number of application servers are exponential.
-
-## Solution : Hot-warm architecture for log analytics with Elasticsearch
-
-To centralize, increase the availability of this log data, and improve error analysis, we implement Elasticsearch.
-
-We are going to install a Hot-Warm-Cold Logging Cluster on the Elasticsearch Service as shown in the following figure.
-
-![hot-warm-architecture](/assets/images/hot-warm-elastic.jpg "elastic hot-warm-architecture"){:class="img-responsive"}
-
-> Arrays, graphs, recursion, dynamic programming — all in one book, all in Java.
+Why tiers and replicas work the way they do, and what they cost, is a question about how data systems store and move data. *Designing Data-Intensive Applications* by Martin Kleppmann explains replication, partitioning and storage engines better than any other book, and it will help you size a cluster like this one:
 
 <div>
-{%- include jediJavaInterviewAds.html -%}
+{%- include designingDataIntensiveApplications.html -%}
 </div>
 
-Logs come from multiple sources, such as software applications installed on various application servers.
+## The Servers
 
-## Choosing the right hardware for hot-warm architecture in Elasticsearch
+We use four Windows servers:
 
-We have the following IP addresses (Three Windows Servers):
-{% highlight ruby %}
-master   110.1.0.101
-hotnode  110.1.0.102
-coldnode 110.1.0.103
-{% endhighlight %}
+```text
+110.1.0.101   es-hot-1    Elasticsearch, hot tier
+110.1.0.102   es-warm-1   Elasticsearch, warm tier
+110.1.0.103   es-cold-1   Elasticsearch, cold tier
+110.1.0.104   logs-1      Logstash and Kibana
+```
 
-Open Windows Defender Firewall and add the following rule for the three machines:
+All three Elasticsearch nodes are **master-eligible**. A cluster needs a majority of its master-eligible nodes to elect a master, so with three of them it keeps working when any one server is down. With a single master node, as many older tutorials show, losing that one server stops the whole cluster.
 
-![firewall](/assets/images/firewall.jpg "Windows Defender Firewall"){:class="img-responsive"}
+Open these ports in Windows Defender Firewall. On the three Elasticsearch servers, in a PowerShell window run as administrator:
 
-For the *hotnode* add an extra 5044 port to the rule if you want to install *logstash* in that machine.
+```powershell
+New-NetFirewallRule -DisplayName "Elasticsearch" -Direction Inbound -Protocol TCP -LocalPort 9200,9300 -Action Allow
+```
 
-### Configure Elasticsearch cluster settings at Master Node
+Port 9200 is the REST API that Logstash and Kibana use; port 9300 is the transport port the nodes use to talk to each other. On `logs-1`, open 5044 for Filebeat and 5601 for Kibana.
 
-Open .../elasticsearch.yml and copy the following content.
+## Step 1: Configure the Elasticsearch Nodes
 
-{% highlight ruby %}
-bootstrap.memory_lock: true
-cluster.initial_master_nodes:
-  - masternode.codersite.dev
-cluster.name: elasticprod
-http.port: 9200
+Download the Elasticsearch Windows zip from [elastic.co](https://www.elastic.co/downloads/elasticsearch){:target="_blank"} and extract it on each of the three servers, for example to `C:\elasticsearch`. Then add these lines to `config\elasticsearch.yml`.
+
+**Hot node** (`110.1.0.101`):
+
+```yaml
+cluster.name: logs-prod
+node.name: es-hot-1
+node.roles: [ master, data_hot, data_content, ingest ]
 network.host: 110.1.0.101
-node.data: false
-node.ingest: false
-node.master: true
-node.max_local_storage_nodes: 1
-node.name: masternode.codersite.dev
-path.data: E:\ProgramData\Elastic\Elasticsearch\data
-path.logs: E:\ProgramData\Elastic\Elasticsearch\logs
-transport.tcp.port: 9300
-xpack.license.self_generated.type: basic
-xpack.security.enabled: false
-discovery.seed_hosts: ["110.1.0.102:9300", "110.1.0.103:9300"]
-path.repo: E:\repo
-{% endhighlight %}
+path.data: E:\elasticsearch\data
+path.logs: E:\elasticsearch\logs
+```
+
+**Warm node** (`110.1.0.102`):
+
+```yaml
+cluster.name: logs-prod
+node.name: es-warm-1
+node.roles: [ master, data_warm ]
+network.host: 110.1.0.102
+path.data: E:\elasticsearch\data
+path.logs: E:\elasticsearch\logs
+```
+
+**Cold node** (`110.1.0.103`):
+
+```yaml
+cluster.name: logs-prod
+node.name: es-cold-1
+node.roles: [ master, data_cold ]
+network.host: 110.1.0.103
+path.data: E:\elasticsearch\data
+path.logs: E:\elasticsearch\logs
+```
+
+The hot node also has `data_content`, because Kibana and Elasticsearch keep their own indices on content nodes, and `ingest` for ingest pipelines. `network.host` takes only an address, never a port: the HTTP port defaults to 9200 and the transport port to 9300.
+
+If you have used Elasticsearch 7 or earlier, notice what is *not* here: `node.master`, `node.data` and `node.ingest` were replaced by `node.roles` and removed in Elasticsearch 8, and so were `transport.tcp.port` and `node.max_local_storage_nodes`. A custom attribute like `node.attr.box_type: hot` isn't needed either: the data tier roles replace it.
+
+### Start the First Node with Security On
+
+Since Elasticsearch 8, security is enabled by default, and you should keep it that way: without it, anyone who can reach port 9200 can read and delete your logs.
+
+Start the hot node first:
+
+```powershell
+cd C:\elasticsearch
+.\bin\elasticsearch.bat
+```
+
+On its first start, Elasticsearch configures security by itself. It creates TLS certificates for the HTTP and transport layers in `config\certs`, adds the security settings to `elasticsearch.yml`, and prints:
+
+- the password of the `elastic` superuser;
+- an enrollment token for Kibana, valid for 30 minutes.
+
+Save the password. If you lose it, reset it with `.\bin\elasticsearch-reset-password.bat -u elastic`.
+
+### Add the Warm and Cold Nodes
+
+New nodes join a secured cluster with an **enrollment token**. Create one on the hot node:
+
+```powershell
+.\bin\elasticsearch-create-enrollment-token.bat -s node
+```
+
+Then start the warm node, and after it the cold node, with that token:
+
+```powershell
+.\bin\elasticsearch.bat --enrollment-token "paste-the-token-here"
+```
+
+The token tells the new node where the cluster is and gives it the certificates it needs, so you don't copy any certificate by hand. It is valid for 30 minutes; create a new one if it expires.
+
+When all three nodes have joined, remove the `cluster.initial_master_nodes` line from the hot node's `elasticsearch.yml`. Elasticsearch added it to form the first cluster, and it must not be used again.
+
+Check the cluster with `curl`, using the CA certificate Elasticsearch created:
+
+```powershell
+curl.exe --cacert config\certs\http_ca.crt -u elastic "https://110.1.0.101:9200/_cat/nodes?v&h=ip,node.role,master,name"
+```
+
+```text
+ip          node.role master name
+110.1.0.101 hims      *      es-hot-1
+110.1.0.102 mw        -      es-warm-1
+110.1.0.103 cm        -      es-cold-1
+```
+
+Each letter is a role: **h** data_hot, **i** ingest, **m** master, **s** data_content, **w** data_warm, **c** data_cold. The `*` marks the elected master, which can be any of the three nodes.
+
+Once each node starts correctly, you can install it as a Windows service with `.\bin\elasticsearch-service.bat install`, so it starts with the server.
 
 <div>
 {%- include inArticleAds.html -%}
 </div>
 
-Check the installation with the following command:
+## Step 2: Install Kibana
 
-{% highlight ruby %}
-C:\...\codersite.dev>curl -XGET http://110.1.0.101:9200/_cat/health?v=true
-epoch      timestamp cluster     status node.total node.data shards pri relo init unassign pending_tasks max_task_wait_time active_shards_percent
-1611057767 12:02:47  elasticprod green           1         0      0   0    0    0        0             0                  -                100.0%
-{% endhighlight %}
+Kibana is the web interface for searching logs and managing the cluster. Extract the Kibana Windows zip on `logs-1`, and in `config\kibana.yml` set the address it listens on:
 
-### Configure Elasticsearch cluster settings at Hot Node
-
-{% highlight ruby %}
-bootstrap.memory_lock: true
-cluster.name: elasticprod
-discovery.seed_hosts:
-  - 110.1.0.101:9300
-  - 110.1.0.103:9300
-http.port: 9200
-network.host: 110.1.0.102:9300
-node.data: true
-node.ingest: false
-node.master: false
-node.max_local_storage_nodes: 1
-node.name: hotnode.codersite.dev
-path.data: E:\ProgramData\Elastic\Elasticsearch\data
-path.logs: E:\ProgramData\Elastic\Elasticsearch\logs
-transport.tcp.port: 9300
-xpack.license.self_generated.type: basic
-xpack.security.enabled: false
-cluster.initial_master_nodes: masternode.codersite.dev
-path.repo: E:\repo
-node.attr.box_type: hot
-{% endhighlight %}
-
-Check the installation with the following command:
-
-{% highlight ruby %}
-C:\...\codersite.dev>curl -XGET http://110.1.0.101:9200/_cat/nodes
-110.1.0.101 4 66 0    lmr      * masternode.codersite.dev
-110.1.0.102 1 60 8    cdhlrstw - hotnode.codersite.dev
-{% endhighlight %}
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Elasticsearch: The Definitive Guide: A Distributed Real-Time Search and Analytics Engine <a href="https://t.co/jMzY0hKid8">https://t.co/jMzY0hKid8</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1839042597014352063?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-### Configure Elasticsearch cluster settings at Cold Node
-
-{% highlight ruby %}
-bootstrap.memory_lock: true
-cluster.name: elasticprod
-discovery.seed_hosts:
-  - 110.1.0.101:9300
-  - 110.1.0.102:9300
-http.port: 9200
-network.host: 110.1.0.103
-node.data: true
-node.ingest: false
-node.master: false
-node.max_local_storage_nodes: 1
-node.name: coldnode.codersite.dev
-path.data: E:\ProgramData\Elastic\Elasticsearch\data
-path.logs: E:\ProgramData\Elastic\Elasticsearch\logs
-transport.tcp.port: 9300
-xpack.license.self_generated.type: basic
-xpack.security.enabled: false
-cluster.initial_master_nodes: masternode.codersite.dev
-path.repo: E:\repo
-node.attr.box_type: cold
-{% endhighlight %}
-
-Check the installation with the following command:
-
-{% highlight ruby %}
-C:\...\codersite.dev>curl -XGET http://110.1.0.101:9200/_cat/nodes
-110.1.0.101 5 66  0    lmr      * masternode.codersite.dev
-110.1.0.102 1 60  0    cdhlrstw - hotnode.codersite.dev
-110.1.0.103 2 66 25    cdhlrstw - coldnode.codersite.dev
-{% endhighlight %}
-
-Please donate to maintain and improve this website if you find this content valuable.
-
-{% include buymeacoffee.html %}
-<br/>
-
-Before we define Index Templates and configure our Index Lifecycle Policies, we must install the Kibana product.
-
-## Installation and configuration of Kibana
-
-Kibana enables to us navigate through our data (log files)
-
-We have installed kibana using a [zip](https://www.elastic.co/downloads/kibana){:target="_blank"} package.
-
-Check that the following lines are included and activated in the kibana.yml file.
-
-{% highlight ruby %}
-C:\<kibana-folder>\config\kibana.yml file
-{% endhighlight %}
-
-{% highlight ruby %}
-server.port: 9340
+```yaml
 server.host: "110.1.0.104"
-elasticsearch.hosts: "110.1.0.101:9200"
-{% endhighlight %}
+```
 
-To run kibana, execute the following command:
+Start it with `.\bin\kibana.bat` and open `http://110.1.0.104:5601`. Kibana asks for the enrollment token that the hot node printed on its first start (or create a new one on the hot node with `.\bin\elasticsearch-create-enrollment-token.bat -s kibana`), then for a verification code that it prints in its console. After that, log in as `elastic`.
 
-{% highlight ruby %}
-C:\<kibana-folder>\bin>kibana.bat
-{% endhighlight %}
+The following requests are run in Kibana's **Dev Tools** console (menu **Management → Dev Tools**).
 
-From our local workstations we can access kibana in our browsers using the following url:
+## Step 3: Create the ILM Policy
 
-{% highlight ruby %}
-http://110.1.0.104:9340/
-{% endhighlight %}
+The lifecycle policy is the heart of the architecture. It describes what happens to the billing logs as they age:
 
-**Creating index templates**
-
-We must create and configure our index templates prior to index creation.
-
-From **Stack Management** -> **Index Management** -> **Index Templates**, we create a new index template for our billing application log files.
-
-![billing-template](/assets/images/billingTemplate.jpg "kibana template"){:class="img-responsive"}
-
-The following snippet code is the final template for new indices whose names match the **billing*** index pattern. Every time Elasticsearch receive a log file, it transforms it into an index by applying the following 
-settings:
-
-{% highlight ruby %}
+```text
+PUT _ilm/policy/billing-logs-policy
 {
-  "template": {
-    "settings": {
-      "index": {
-        "lifecycle": {
-          "name": "billing_policy"
-        },
-        "number_of_replicas": "0",
-        "routing": {
-          "allocation": {
-            "require": {
-              "box_type": "hot"
-            }
+  "policy": {
+    "phases": {
+      "hot": {
+        "actions": {
+          "rollover": {
+            "max_age": "1d",
+            "max_primary_shard_size": "50gb"
           }
         }
+      },
+      "warm": {
+        "min_age": "7d",
+        "actions": {
+          "forcemerge": {
+            "max_num_segments": 1
+          }
+        }
+      },
+      "cold": {
+        "min_age": "30d",
+        "actions": {}
+      },
+      "delete": {
+        "min_age": "60d",
+        "actions": {
+          "delete": {}
+        }
       }
+    }
+  }
+}
+```
+
+- **Hot:** logs are written to the current backing index. **Rollover** starts a new one every day, or sooner if a shard reaches 50 GB. Only whole backing indices can move between tiers, so rollover is what makes the architecture work.
+- **Warm:** 7 days after rollover, the index moves to the warm node. Nothing writes to it anymore, so **force merge** compacts it into one segment per shard, which saves disk space and speeds up searches.
+- **Cold:** after 30 days, the index moves to the cold node.
+- **Delete:** after 60 days, the index is deleted.
+
+Where are the instructions to move the data? You don't need any. In every phase, ILM runs a **migrate** action automatically: it changes the index's tier preference, for example to `data_warm,data_hot`, and Elasticsearch moves its shards to a node with that role. Phase ages count from the rollover, not from the creation of the index.
+
+## Step 4: Create the Index Template
+
+The index template turns `billing-logs` into a data stream, connects it to the policy and defines the fields of a parsed log line:
+
+```text
+PUT _index_template/billing-logs
+{
+  "index_patterns": ["billing-logs*"],
+  "data_stream": {},
+  "priority": 200,
+  "template": {
+    "settings": {
+      "index.lifecycle.name": "billing-logs-policy",
+      "index.number_of_replicas": 0
     },
     "mappings": {
       "properties": {
-        "was_date": {
-          "type": "date",
-          "format": "dd.MM.yy HH:mm:ss:SSS"
-        }
+        "@timestamp": { "type": "date" },
+        "client_ip":  { "type": "ip" },
+        "client":     { "type": "keyword" },
+        "method":     { "type": "keyword" },
+        "endpoint":   { "type": "keyword" },
+        "bytes":      { "type": "long" },
+        "duration":   { "type": "float" }
       }
-    },
-    "aliases": {}
+    }
   }
 }
-{% endhighlight %}
+```
 
-The *routing* attribute lets you see which *data tier* the new indices are allocated to. In our Hot-warm architecture, this will be the Hot Node (*box_type* attribute).
+**Why no replicas?** A replica must live on a different node than its primary shard, in the same tier. With one node per tier, replicas could never be placed, and the cluster would stay yellow. In production, run at least two nodes in each tier and set `number_of_replicas` to 1, so you don't lose data when a disk fails.
 
-The snippet code also defines a *lifecycle* to automate when and how to transition an index through our nodes.
+`priority: 200` makes this template win over Elasticsearch's built-in templates, which have priority 100.
 
-### Data lifecycle management in Elasticsearch
+## Step 5: Create an API Key for Logstash
 
-**ILM: Manage the index lifecycle**
+Logstash should not log in as `elastic`. Create an API key that can only write to the billing logs:
 
-We can create and apply Index Lifecycle Management (ILM) policies to automatically manage our indices following our retention requirements.
+```text
+POST _security/api_key
+{
+  "name": "logstash-billing",
+  "role_descriptors": {
+    "billing_logs_writer": {
+      "cluster": ["monitor"],
+      "indices": [
+        {
+          "names": ["billing-logs*"],
+          "privileges": ["create_doc", "auto_configure"]
+        }
+      ]
+    }
+  }
+}
+```
 
-We create a billing policy that defines how to move your data through the following phases.
+`create_doc` lets Logstash add documents, and `auto_configure` lets it create the `billing-logs` data stream on the first write. The response contains an `id` and an `api_key`. Logstash needs them joined with a colon, `id:api_key`.
 
-![hot-phase](/assets/images/hotPhase.jpg "elastic hot-phase"){:class="img-responsive"}
-
-We want to move our data index to the **Cold Node** after 30 days from the index's rollover.
-
-![cold-phase](/assets/images/coldPhase.jpg "elastic cold-phase"){:class="img-responsive"}
-
-If we want to configure a **Delete phase**, we must enable the "Delete data after this phase" label.
-
-In this Cold phase, we also need to select the node attribute we defined for the Cold Node.
-
-![data-allocation](/assets/images/dataAllocation.jpg ""elastic data-allocation"){:class="img-responsive"}
-
-Finally, to save space on our machines, we define a **Delete phase** to delete our data index after 60 days from the index’s rollover.
-
-![delete-phase](/assets/images/deletePhase.jpg "elastic delete-phase"){:class="img-responsive"}
-
-Now our index templates and lifecycle policies are ready. Let's now move on to the *sources* where the log files come from to Elasticsearch.
-
-> Dependency is the key problem in software development. -- <cite>Software Design, The Art of managing dependencies and Abstractions.</cite>
+Clean architecture is about managing dependencies: Filebeat knows only Logstash, Logstash knows only the data stream, and the ILM policy can change without touching either of them. My book *Software Design Principles* explains how to design systems whose parts can change independently:
 
 <div>
 {%- include softwareDesign.html -%}
 </div>
 
-## Using Logstash to Extract, Transform, and Load Data
+## Step 6: Parse the Logs with Logstash
 
-Logstash allow us to collect data (log files) from different sources (application servers), and can be enriched, transformed, filtered and moved to elasticsearch.
+Logstash receives the log lines, parses them into fields, and writes them to Elasticsearch. A Logstash **pipeline** has three parts: inputs, filters and outputs.
 
-We have installed logstash using a [zip](https://www.elastic.co/downloads/logstash){:target="_blank"} package.
+![Logstash pipeline: inputs, filters and outputs between the data source and Elasticsearch](/assets/images/logstashPipeline.jpg "Logstash pipeline"){:class="img-responsive"}
 
-Logstash will be the receiver for log data from sources such as Beats Agents installed on the Java application servers.
+Our application servers write one line per API request:
 
-We need to create a *pipeline* (config file) in which we define an *input* (collect data), a *filter* (data transformation), and an *output* (load data into elastic).
+```text
+55.3.244.1 [19.10.26 06:17:42 +0000] codersite.dev GET /v1/api/billings 15824 0.043
+```
 
-![logstash-pipeline](/assets/images/logstashPipeline.jpg "elastic logstash-pipeline"){:class="img-responsive"}
+That is the client's IP address, the time, the client name, the HTTP method, the endpoint, the response size in bytes and the duration in seconds.
 
-Before we create the Logstash pipeline, we’ll configure a Beat Agent called Filebeat to send log lines to Logstash.
+Extract Logstash on `logs-1`, copy `config\certs\http_ca.crt` from the hot node to `C:\logstash\config\certs\`, and create `config\billing-pipeline.conf`:
 
-### Configuring Filebeat to Send Log Lines to Logstash
-
-Filebeat is a lightweight shipper for forwarding and centralizing log data. Installed as an agent (service) on our Java application servers, Filebeat monitors the log files, collects log events, and forwards them to Logstash for indexing.
-
-We have installed Filebeat with Windows [MSI](https://www.elastic.co/downloads/beats/filebeat){:target="_blank"} Installer, establishing it as a Windows service.
-
-Open the *filebeat.yml* file in your Filebeat installation directory and replace the content with the following lines. Make sure the paths point to the application server log files.
-
-{% highlight ruby %}
-filebeat.inputs:
-- type: log
-  paths:
-    - /path/to/logs/billingServer/SystemOut.log
-output.logstash:
-  hosts: ["110.1.0.102:5044"]
-  ilm.enabled: true
-{% endhighlight %}
-
-The log files that Filebeat processes are redirected - output - to the machine where we will install Logstash.
-
-On Windows machines, the absolute path to the log files looks like the following line:
-
-{% highlight ruby %}
-  paths:
-    - "C:\\path\\to\\logs\\billingServer\\SystemOut.log"
-{% endhighlight %}
-
-At the application servers machines (data source), run Filebeat with the following command.
-
-{% highlight ruby %}
-sudo ./filebeat -e -c filebeat.yml -d "publish"
-{% endhighlight %}
-
-Filebeat will attempt to connect Logstash on port 5044.
-
-### Configuring Logstash for Filebeat Input
-
-Next, we create a primary Logstash configuration pipeline that uses the Beats input plugin to receive events from the application servers and an output section to write to Elasticsearch.
-
-{% highlight ruby %}
+```ruby
 input {
   beats {
     port => 5044
   }
 }
-# The filter part of this file is commented out to indicate that it is optional.
-# filter {
-#
-# }
-output {
-  stdout { codec => rubydebug }
-  elasticsearch {
-    hosts => [ "110.1.0.101:9200" ] 
-    index => "billing-%{[@metadata][version]}"
-    ilm_policy => "billing_policy"
-    action => "create"
-  }
-}
-{% endhighlight %}
 
-Tu run logstash, execute the following command.
-
-{% highlight ruby %}
-C:\<logstash-folder>\bin>logstash -f ..\config\billing-pipeline.conf --config.reload.automatic
-{% endhighlight %}
-
-With this minimal configuration, you can visualize your log files in Kibana.
-
-Please donate if you find this content valuable.
-
-{% include buymeacoffee.html %}
-<br/>
-
-**Customizing the filter**
-
-To use logs data from Elastic to set up a rate-limit algorithm, we need to parse it using filter plugins.
-
-We want to know how many requests for every endpoint and client arrive at our application servers by month, day, hour, minute, and second.
-
-**Grok filter**
-
-Grok combines text patterns into something that matches your logs.
-
-Grok pattern: %{*SYNTAX*:*SEMANTIC*}
-
-The *SYNTAX* is the name of the pattern that will match your text.
-
-The *SEMANTIC* is the identifier you give to the matched piece of text.
-
-For example, we can pull out fields from a server log file.
-
-{% highlight ruby %}
-55.3.244.1 [19.08.22 05:13:42 +0000] codersite.dev GET /v1/api/billings 15824 0.043
-{% endhighlight %}
-
-The filter section inside logstash pipeline looks like the following.
-
-{% highlight ruby %}
 filter {
   grok {
-    match => { "message" => "%{IP:client} %{DATA:timestamp} %{WORD:client} %{WORD:method} %{URIPATHPARAM:endpoint} %{NUMBER:bytes} %{NUMBER:duration}" }
+    match => {
+      "message" => "%{IP:client_ip} \[%{DATA:timestamp}\] %{HOSTNAME:client} %{WORD:method} %{URIPATHPARAM:endpoint} %{NUMBER:bytes:int} %{NUMBER:duration:float}"
+    }
   }
-  
-  grok {
-    match => ["timestamp", "%{WORD:was_dd}.%{WORD:was_MM}.%{WORD:was_yy} %{SPACE}%{WORD:was_HH}:%{WORD:was_mm}:%{WORD:was_ss}"]
+  date {
+    match => [ "timestamp", "dd.MM.yy HH:mm:ss Z" ]
+    remove_field => [ "timestamp" ]
   }
 }
-{% endhighlight %}
 
-We build an aggregation that summarizes our data. The following search runs a terms aggregation on "codersite.dev" client.
+output {
+  elasticsearch {
+    hosts => [ "https://110.1.0.101:9200", "https://110.1.0.102:9200", "https://110.1.0.103:9200" ]
+    index => "billing-logs"
+    action => "create"
+    manage_template => false
+    api_key => "${ES_API_KEY}"
+    ssl_certificate_authorities => [ "C:/logstash/config/certs/http_ca.crt" ]
+  }
+}
+```
 
-{% highlight ruby %}
-GET .ds-billing-index-000006/_search
+**The grok filter** matches the line with named patterns. Each `%{PATTERN:field}` matches a piece of text and stores it in a field:
+
+- `%{IP:client_ip}` matches `55.3.244.1`.
+- `\[%{DATA:timestamp}\]` matches the text between the brackets. The brackets are escaped because `[` has a special meaning in a regular expression.
+- `%{HOSTNAME:client}` matches `codersite.dev`. `WORD` would not, because a word can't contain a dot.
+- `%{NUMBER:bytes:int}` converts the value to a number, so you can calculate with it.
+
+**The date filter** parses the timestamp from the log line and stores it in `@timestamp`. Without it, every event gets the time Logstash *received* it, and your charts show when the logs were shipped instead of when the requests happened.
+
+**The output** writes to the `billing-logs` data stream. `action => "create"` is required, because data streams only accept new documents. `manage_template => false` stops Logstash from installing its own index template, since we created ours in step 4.
+
+Store the API key in the Logstash keystore, so it isn't written in a file, and start the pipeline:
+
+```powershell
+cd C:\logstash
+.\bin\logstash-keystore.bat create
+.\bin\logstash-keystore.bat add ES_API_KEY
+.\bin\logstash.bat -f config\billing-pipeline.conf
+```
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
+## Step 7: Ship the Logs with Filebeat
+
+Filebeat is a small agent that runs on each application server. It reads new lines from the log files and sends them to Logstash, and it remembers how far it has read, so no line is lost or sent twice when it restarts.
+
+Extract the Filebeat Windows zip to `C:\Program Files\Filebeat` on each application server and replace `filebeat.yml` with:
+
+```yaml
+filebeat.inputs:
+  - type: filestream
+    id: billing-access-logs
+    paths:
+      - 'D:\AppServer\logs\billingServer\access.log'
+
+output.logstash:
+  hosts: ["110.1.0.104:5044"]
+```
+
+Use the `filestream` input. The older `log` input was deprecated in version 7.16 and is disabled in Filebeat 9. Every `filestream` input needs a unique `id`. Write Windows paths in single quotes, so YAML keeps the backslashes as they are.
+
+Test the configuration and the connection to Logstash, then install and start Filebeat as a Windows service. Run PowerShell as administrator:
+
+```powershell
+cd 'C:\Program Files\Filebeat'
+.\filebeat.exe test config
+.\filebeat.exe test output
+PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-filebeat.ps1
+Start-Service filebeat
+```
+
+**Shipping JVM logs with stack traces.** In `SystemOut.log` and `SystemErr.log`, one error is many lines: the message and every line of the stack trace. Without extra settings, each line becomes a separate document. A `multiline` parser joins every line that doesn't start with `[` to the line before it:
+
+```yaml
+  - type: filestream
+    id: billing-jvm-logs
+    paths:
+      - 'D:\AppServer\logs\billingServer\SystemErr.log'
+    parsers:
+      - multiline:
+          type: pattern
+          pattern: '^\['
+          negate: true
+          match: after
+```
+
+## Step 8: Check That Everything Works
+
+After a few requests, each parsed log line is a document in the data stream:
+
+```json
 {
-  "size": 0, 
+  "@timestamp": "2026-10-19T06:21:30.000Z",
+  "client_ip": "55.3.244.1",
+  "client": "codersite.dev",
+  "method": "GET",
+  "endpoint": "/v1/api/billings",
+  "bytes": 1777,
+  "duration": 0.024,
+  "message": "55.3.244.1 [19.10.26 06:21:30 +0000] codersite.dev GET /v1/api/billings 1777 0.024"
+}
+```
+
+(Logstash and Filebeat also add fields such as `host`, `agent` and `log.file.path`, left out here.) A line that doesn't match the grok pattern gets the tag `_grokparsefailure`, so search for that tag to find log formats you haven't parsed yet.
+
+To see which phase each backing index is in, ask ILM:
+
+```text
+GET billing-logs/_ilm/explain
+```
+
+```json
+{
+  "indices": {
+    ".ds-billing-logs-2026.10.19-000001": {
+      "index": ".ds-billing-logs-2026.10.19-000001",
+      "policy": "billing-logs-policy",
+      "phase": "hot",
+      "action": "rollover",
+      "step": "check-rollover-ready"
+    }
+  }
+}
+```
+
+The response above is shortened. To test the whole lifecycle without waiting 60 days, I created a copy of the policy with ages in minutes. The first backing index moved from the hot node to the warm node, then to the cold node, and was deleted, all without any routing setting.
+
+## Use the Logs: Requests per Minute for Rate Limiting
+
+Centralized logs answer questions that no single server can. For example: how many requests per minute does each client send? You need that number to choose a fair rate limit.
+
+A `date_histogram` counts the requests per minute, and the `avg_bucket` and `max_bucket` aggregations calculate the average and the busiest minute for each client:
+
+```text
+GET billing-logs/_search
+{
+  "size": 0,
   "query": {
-    "match": {
-      "client.keyword": "codersite.dev"
+    "range": {
+      "@timestamp": { "gte": "2026-10-19T06:00:00Z", "lt": "2026-10-19T07:00:00Z" }
     }
   },
   "aggs": {
-    "all_clients": {
-      "terms": {
-        "field": "client.keyword"
-      },
+    "by_client": {
+      "terms": { "field": "client" },
       "aggs": {
-        "all_endpoints": {
-          "terms": {
-            "field": "endpoint.keyword"
-          },
-          "aggs": {
-            "all_was_years": {
-              "terms": {
-                "field": "was_yy.keyword"
-              },
-              "aggs": {
-                "all_was_months": {
-                  "terms": {
-                    "field": "was_MM.keyword"
-                  },
-                  "aggs": {
-                    "all_was_days": {
-                      "terms": {
-                        "field": "was_dd.keyword"
-                      },
-                      "aggs": {
-                        "all_was_hours": {
-                          "terms": {
-                            "field": "was_HH.keyword"
-                          },
-                          "aggs": {
-                            "all_was_minutes": {
-                              "terms": {
-                                "field": "was_mm.keyword"
-                              }         
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+        "per_minute": {
+          "date_histogram": { "field": "@timestamp", "fixed_interval": "1m" }
+        },
+        "avg_per_minute": {
+          "avg_bucket": { "buckets_path": "per_minute>_count" }
+        },
+        "peak_per_minute": {
+          "max_bucket": { "buckets_path": "per_minute>_count" }
         }
       }
     }
   }
 }
-{% endhighlight %}
+```
 
-> The book is based on real questions that companies ask in their interviews. It is not a collection of generic questions that you can find in many books. It is based on real questions that companies ask in their interviews.
+Adding `?filter_path=aggregations.by_client.buckets.key,aggregations.by_client.buckets.*_per_minute.value` to the URL keeps only the numbers we need:
 
-<div>
-{%- include jediJavaInterviewAds.html -%}
-</div>
-
-Aggregation results are in the response’s aggregations object.
-
-{% highlight ruby %}
+```json
 {
-  "took" : 1253,
-  "timed_out" : false,
-  "_shards" : {
-    "total" : 1,
-    "successful" : 1,
-    "skipped" : 0,
-    "failed" : 0
-  },
-  "hits" : {
-    "total" : {
-      "value" : 10000,
-      "relation" : "gte"
-    },
-    "max_score" : null,
-    "hits" : [ ]
-  },
   "aggregations" : {
-    "all_clients" : {
-      "doc_count_error_upper_bound" : 0,
-      "sum_other_doc_count" : 0,
+    "by_client" : {
       "buckets" : [
         {
           "key" : "codersite.dev",
-          "doc_count" : 2310409,
-          "all_endpoints" : {
-            "doc_count_error_upper_bound" : 0,
-            "sum_other_doc_count" : 0,
-            "buckets" : [
-              {
-                "key" : "/v1/api/billings",
-                "doc_count" : 2309966,
-                "all_was_years" : {
-                  "doc_count_error_upper_bound" : 0,
-                  "sum_other_doc_count" : 0,
-                  "buckets" : [
-                    {
-                      "key" : "23",
-                      "doc_count" : 2309966,
-                      "all_was_months" : {
-                        "doc_count_error_upper_bound" : 0,
-                        "sum_other_doc_count" : 0,
-                        "buckets" : [
-                          {
-                            "key" : "09",
-                            "doc_count" : 1516918,
-                            "all_was_days" : {
-                              "doc_count_error_upper_bound" : 0,
-                              "sum_other_doc_count" : 712935,
-                              "buckets" : [
-                                {
-                                  "key" : "13",
-                                  "doc_count" : 80457,
-                                  "all_was_hours" : {
-                                    "doc_count_error_upper_bound" : 0,
-                                    "sum_other_doc_count" : 0,
-                                    "buckets" : [
-                                      {
-                                        "key" : "06",
-                                        "doc_count" : 10061,
-                                        "all_was_minutes" : {
-                                          "doc_count_error_upper_bound" : 0,
-                                          "sum_other_doc_count" : 1146,
-                                          "buckets" : [
-                                            {
-                                              "key" : "17",
-                                              "doc_count" : 939
-                                            },
-                                            {
-                                              "key" : "18",
-                                              "doc_count" : 916
-                                            },
-                                            {
-                                              "key" : "26",
-                                              "doc_count" : 840
-                                            }
-                                          ]
-                                        }
-                                      },
-                                      {
-                                        "key" : "21",
-                                        "doc_count" : 10061,
-                                        "all_was_minutes" : {
-                                          "doc_count_error_upper_bound" : 0,
-                                          "sum_other_doc_count" : 1461,
-                                          "buckets" : [
-                                            {
-                                              "key" : "18",
-                                              "doc_count" : 889
-                                            },
-                                            {
-                                              "key" : "19",
-                                              "doc_count" : 882
-                                            }
-										  ]
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          }
+          "avg_per_minute" : { "value" : 893.2 },
+          "peak_per_minute" : { "value" : 939.0 }
+        },
+        {
+          "key" : "shop.example.com",
+          "avg_per_minute" : { "value" : 122.0 },
+          "peak_per_minute" : { "value" : 135.0 }
+        },
+        {
+          "key" : "partner.example.org",
+          "avg_per_minute" : { "value" : 47.6 },
+          "peak_per_minute" : { "value" : 61.0 }
         }
       ]
     }
   }
-}									
-{% endhighlight %}
+}
+```
 
-From the buckets per minute, we can see codersite.dev client sends an average of 893 requests per minute.
+The client `codersite.dev` sends 893 requests per minute on average, with peaks of 939. A limit of about 1,000 requests per minute protects your servers from overload and attacks without rejecting this client's normal traffic. Learn how to enforce such a limit in [How to Implement Rate Limiting](https://codersite.dev/rate-limit/){:target="_blank"}.
 
-Based on these accurate statistics and analyses, you know how to limit the number of requests allowed per client + endpoint. In this way, you can protect your software infrastructure from possible attacks or overuse of hardware resources.
+The same logs tell you much more: Kibana's **Discover** view shows the errors of all application servers in one place, filtered by server, time or message, instead of searching log files on each machine.
 
-Learn [How to implement Rate Limiting](https://codersite.dev/rate-limit/){:target="_blank"} algorithm.
+To go deeper into how Elasticsearch works, *Elasticsearch in Action, Second Edition* by Madhusudhan Konda covers Elasticsearch 8 from the ground up: text analysis, mappings, search and aggregations, and the cluster administration behind an architecture like this one:
 
-Now that you have centralized all server logs in only one cluster, you can monitor or diagnose possible errors. Kibana will inform you about all application servers' errors in one unified report.
+<div>
+{%- include elasticsearchInAction.html -%}
+</div>
 
-Here is an example:
+## Frequently Asked Questions
 
-![kibana Logs](/assets/images/kibanaLogs.JPG "kibana Logs"){:class="img-responsive"}
+**What is the difference between hot-warm and hot-warm-cold?**
+A hot-warm architecture has two tiers: one for new data and one for everything older. Adding a cold tier gives old, rarely searched data its own cheaper hardware. Start with the tiers your retention needs: if you delete logs after two weeks, hot and warm are enough.
 
+**Do I need a frozen tier?**
+Only for data you must keep for months or years but almost never search, such as audit logs. The frozen tier keeps data in object storage (such as S3 or Azure Blob Storage) through searchable snapshots, which needs a paid Elastic license.
+
+**How many master-eligible nodes do I need?**
+Three. A cluster needs a majority of its master-eligible nodes to elect a master, so three nodes survive the loss of one. Two nodes don't survive the loss of either, because one node out of two isn't a majority.
+
+**Filebeat or Elastic Agent?**
+Elastic Agent is one agent for logs, metrics and security data, managed centrally from Kibana with Fleet. Filebeat is simpler to set up for shipping log files, as in this article. Both work with Logstash.
+
+**Why are my old logs still on the hot node?**
+Check `GET billing-logs/_ilm/explain`. The usual causes are a backing index that hasn't rolled over yet (phase ages count from rollover), a policy not attached to the template, or no node with the target tier's role, in which case the index stays where it is.
+
+<br/>
+
+If you found this article useful, you can support this website:
 
 <div>
 {% include buymeacoffee.html %}
