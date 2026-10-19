@@ -1,447 +1,390 @@
 ---
 layout: post
-title:  "Best practices for writing Clean Code"
-description: "Software development best practices. Writing maintainable code. Clean code examples for real-world scenarios"
+title:  "Clean Code Best Practices: 10 Rules with Java Examples"
+description: "Ten clean code rules with real Java before-and-after examples: intention-revealing names, small functions, no hard-coded values, fewer arguments, and code that tells a story."
 author: moises
 categories: [ Coding Practices ]
 image: /assets/images/cleanCode.jpg
 comments: false
 ---
 
-Clean code can be read and enhanced by a developer other than its original author. 
+Clean code is code that a developer other than its author can read, change and extend without fear. The idea was made popular by Robert C. Martin in his book [Clean Code](https://amzn.to/40axCiH){:target="_blank"}.
 
-This kind of practice [Robert C Martin](https://amzn.to/40axCiH){:target="_blank"} introduced it.
+This post shows ten clean code rules with real Java examples, each one a *before* taken from production code and an *after* you can copy. You will learn how to:
 
-If you want to be a better programmer, you must follow these recommendations.
+- choose names that make comments unnecessary;
+- split functions so each one does one thing;
+- replace hard-coded values without waiting for a big project;
+- cut long argument lists down to one object;
+- make a block of code read like a story.
 
-## Clean Code has Intention-Revealing names
+At the end there is a code review checklist with one line per rule.
 
-Names reveal intent. Someone who reads your code must understand the purpose of your variable, function, or class.
+## 1. Use intention-revealing names
 
-Real situation:
+A name should tell the reader why a variable, function or class exists, what it does and how it is used. If a name needs a comment, the name is wrong.
 
-```kotlin
-int sId; //supplier Id
+Real code from a project:
+
+```java
+int sId; // supplier id
 int artDelPrice;
 ```
 
-It must be refactored to this:
+Refactored:
 
-```kotlin
+```java
 int supplierId;
 int articleDeliveredPrice;
 ```
 
-Even with external dependencies:
+The same applies to types from external libraries, whose names you can't change:
 
-```kotlin
-private Z_E2F_RS_Result e2fResult; //ingredients recordset
+```java
+private Z_E2F_RS_Result e2fResult; // ingredients record set
 ```
 
-It must be refactored to this:
+You can't rename `Z_E2F_RS_Result`, but you can name your variable after what it holds:
 
-```kotlin
+```java
 private Z_E2F_RS_Result ingredients;
 ```
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
+Now imagine the original code without the `// ingredients record set` comment. Further down, in a loop, you find this line:
 
-Imagine that we dont have the *//ingredients* comment in *e2fResult* variable. Then, further in any part of our code, when we try to process this variable, we have the following sentence:
-
-```kotlin
+```java
 e2f = e2fResult[i];
 ```
 
-And we don’t know what does *e2f* means!. Well, someone suggests asking the person responsible for this code. But that guy is not at the office. Well, send it an email, and he is on holiday!.
+What is `e2f`? Someone suggests asking the developer who wrote the code. They're not in the office. You send them an email, and the auto-reply says they're on holiday for three weeks.
 
-But if instead we adopt names which reveal intent from beginning, we could avoid these catastrophic scenarios.
+With an intention-revealing name, nobody has to ask:
 
-Refactored code:
-
-```kotlin
+```java
 ingredient = ingredients[i];
 ```
 
-## Functions should do one thing
-
-Imagine we want to retrieve image objects from an external web service. 
-
-Firstly, we receive image metadata that informs different values to decide if an image is valid or not, and one of these values is an image identifier to retrieve the final image object.
-
-```kotlin
-private String retrieveImageId(String[] values) {
-  
-  if (!values[2].equals("Y") || !values[3].equals("Y"))
-    return null;
-	
-    String imageId = null;
-    //get the first not null value as the imageId
-    if (values[4] != null) {
-      imageId = values[4]; //imageAIXId
-    } else if (values[5] != null) {
-      imageId = values[5]; //imageLIXId
-    } else if (values[6] != null) {
-      imageId = values[6]; //imageOIXId
-    }
-
-    return imageId;
-}
-```
-
-The previous code is doing more than one thing: validate and retrieve.
-
-Each thing should implement only one level of abstraction. Therefore we proceed to refactor it.
-
-```kotlin
-private boolean validateImage(String[] values) {
-  
-  if (!values[2].equals("Y") || !values[3].equals("Y"))
-    return false;
-	
-  return true;
-}
-```
+Robert C. Martin spends a whole chapter of *Clean Code* on naming, with dozens of before-and-after examples like this one. If this rule saves you a single "what does `e2f` mean?" conversation, the book has paid for itself.
 
 <div>
-{%- include inArticleAds.html -%}
+{%- include cleanCodeAd.html -%}
 </div>
 
-```kotlin
-private String retrieveImageId(String[] values) {
-  
-  String imageId = null;
-  //get the first not null value as the immageId
-  if (values[4] != null) {
-    imageId = values[4]; //imageAIXId
-  } else if (values[5] != null) {
-    imageId = values[5]; //imageLIXId
-  } else if (values[6] != null) {
-    imageId = values[6]; //imageOIXId
-  }
+## 2. Make functions do one thing
 
+We retrieve images from an external web service. For each image we first receive metadata: two flags that tell us whether the image is valid, and up to three image IDs from different systems. We need the first ID that isn't `null`.
+
+```java
+private String retrieveImageId(String[] values) {
+  if (!values[2].equals("Y") || !values[3].equals("Y"))
+    return null;
+
+  String imageId = null;
+  // get the first not null value as the imageId
+  if (values[4] != null) {
+    imageId = values[4]; // imageAIXId
+  } else if (values[5] != null) {
+    imageId = values[5]; // imageLIXId
+  } else if (values[6] != null) {
+    imageId = values[6]; // imageOIXId
+  }
   return imageId;
 }
 ```
 
-Here is an example of how to use these new smaller functions.
+This function does two things: it validates the image and it picks the ID. Its name only mentions the second one, so a caller can't tell that `null` might mean "invalid image" or "no ID". Split it into two functions, each with one job and a name that says it:
 
-```kotlin
-public void syncronizeImages () {
-  
+```java
+private static final int AIX_IMAGE_ID = 4;
+private static final int LIX_IMAGE_ID = 5;
+private static final int OIX_IMAGE_ID = 6;
+
+private boolean isValidImage(String[] values) {
+  return "Y".equals(values[2]) && "Y".equals(values[3]);
+}
+
+private Optional<String> findImageId(String[] values) {
+  return Stream.of(values[AIX_IMAGE_ID], values[LIX_IMAGE_ID], values[OIX_IMAGE_ID])
+      .filter(Objects::nonNull)
+      .findFirst();
+}
+```
+
+A few details changed on the way:
+
+- **Named constants** replace the `// imageAIXId` comments.
+- **`"Y".equals(...)`** doesn't throw a `NullPointerException` when a flag is missing.
+- **`Optional`** tells the caller that there might be no ID, so they can't forget to handle it.
+
+The caller now reads like the requirement:
+
+```java
+public void synchronizeImages() {
   Response response = api.getImages();
-  Row[] rows = response.getRows();
-  for (Row row : rows) {
+  for (Row row : response.getRows()) {
     String[] values = row.getValues();
-    if (validateImage(values)) {
-      String imageId = retrieveImageId(values);
-      //call ULR to retrieve image object
-      //code omitted for brevity
+    if (isValidImage(values)) {
+      findImageId(values).ifPresent(this::downloadImage);
     }
   }
 }
 ```
+
+I tested the new functions against the original one with every combination of flags and IDs, and they return the same image ID in all 32 cases.
 
 <div>
 {%- include inArticleAds.html -%}
 </div>
 
-## Don't comment bad code, rewrite it
+## 3. Don't comment bad code, rewrite it
 
-Imagine you requested metadata from a list of articles, but the external API, for any reason, includes additional articles in its response object. Before processing their metadata, you want to check that retrieved articles are inside your temporal map of requested articles. Introduces a comment to alert your colleagues.
+We request metadata for a list of articles, but the external API also returns articles we didn't ask for. Before processing a row, we check that the article is in our map of requested articles, and we add a comment so our colleagues understand why:
 
-```kotlin  
-public void syncronizeImages () {
-
+```java
+public void synchronizeImages() {
   Response response = api.getImages(mapOfArticles);
-  Row[] rows = response.getRows();
-  for (Row row : rows) {
+  for (Row row : response.getRows()) {
     String[] values = row.getValues();
     String articleId = values[1];
-    
-    //only requested articles
+
+    // only requested articles
     if (!mapOfArticles.containsKey(articleId))
       continue;
-	  
-    //code omitted for brevity
+
+    // code omitted for brevity
   }
 }
 ```
 
-You can avoid this extra unnecessary comment if you express in your code what you want to communicate by renaming the map variable name.
+The comment exists only because the variable name is vague. Rename the map and the comment becomes unnecessary:
 
-```kotlin  
-public void syncronizeImages () {
-
-  Response response = api.getImages(mapOfRequestedArticles);
-  Row[] rows = response.getRows();
-  for (Row row : rows) {
+```java
+public void synchronizeImages() {
+  Response response = api.getImages(requestedArticles);
+  for (Row row : response.getRows()) {
     String[] values = row.getValues();
     String articleId = values[1];
-    
-    if (!mapOfRequestedArticles.containsKey(articleId))
+
+    if (!requestedArticles.containsKey(articleId))
       continue;
-	  
-    //code omitted for brevity
+
+    // code omitted for brevity
   }
 }
 ```
 
-Now, your code is more expressive.
+The name also drops `mapOf`: the type already says it's a map. Comments go out of date because nobody runs them. Names are read every time the code is read.
 
-> The more prepared you are, the better your chances of negotiating your next salary.
+## 4. Choose simplicity over cleverness
 
-<div>
-{%- include jediJavaInterviewAds.html -%}
-</div>
+To build an article's image URL, the image ID must be valid, and if the image is restricted, the partner must be allowed to see it. Someone wrote it as one line:
 
-## Choose simplicity over complexity
-
-As developers, sometimes we use ternary conditional operators that take less space, but when we introduce more variables, the code is not readable or is more difficult to evolve.
-
-For example, when we try to build the article’s image URL, we need to evaluate if an image is valid and if the image is not restricted; if it is restricted, we need to assess whether a partner can retrieve this image.
-
-```kotlin  
-String articleImageURL = (imageId <= 0 || (imageIdIsRestricted && !partnerCanSeeImage)) ? null : IMAGE_URL + imageId;
+```java
+String articleImageUrl = (imageId <= 0 || (imageIsRestricted && !partnerCanSeeImage)) ? null : IMAGE_URL + imageId;
 ```
 
-The previous code can be refactored using nested if-else statements, which is easier to understand.
+It's short, but to understand it you have to evaluate the negations in your head. Nesting `if` statements spells it out, but three levels deep is hard to read too. Instead, give the rule a name and write it with early returns:
 
-```kotlin  
-String articleImageURL = null;
-if (imageId > 0) {
-  if (imageIdIsRestricted) {
-    if (partnerCanSeeImage) {
-      articleImageURL = IMAGE_URL + imageId;
-    }
-  } else {
-    articleImageURL = IMAGE_URL + imageId;
-  }
+```java
+private boolean canShowImage(int imageId, boolean imageIsRestricted, boolean partnerCanSeeImage) {
+  if (imageId <= 0) return false;
+  if (!imageIsRestricted) return true;
+  return partnerCanSeeImage;
 }
 ```
 
-Even the KISS (Keep It Simple, Stupid) principle suggests that developers should strive for simplicity and avoid unnecessary complexity. This makes code easier to understand, maintain, and debug.
+```java
+String articleImageUrl = canShowImage(imageId, imageIsRestricted, partnerCanSeeImage)
+    ? IMAGE_URL + imageId
+    : null;
+```
 
-> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+Each line of `canShowImage` is one business rule, and you can unit test the rule on its own. I checked all 12 combinations of inputs: it gives the same result as the one-line version.
+
+This is the KISS principle (*Keep It Simple, Stupid*): the simplest code is the one the next developer understands fastest, not the one with the fewest characters.
+
+> Any software design is generally a matter of opinion. There is no definitive guide. -- <cite>codersite.dev</cite>
+
+KISS is one of the principles my book *Software Design Principles* covers with worked Java examples, together with DRY, YAGNI and SOLID, and twelve clean code habits like the ones in this post.
 
 <div>
 {%- include softwareDesign.html -%}
 </div>
 
-## Avoid hard coding
+## 5. Avoid hard-coded values
 
-Hard coding is embedding data directly into the source code instead of obtaining the data from external sources.
+Hard coding means writing data, such as IDs, URLs or limits, directly into the source code instead of reading it from configuration, a file or a database.
 
-Sometimes we can't avoid including conditional statements using hardcoded values because we need to implement them in a production environment immediately. There are hundreds of reasons why this happens because every company is different.
+Here is how it usually happens. A company has image copyright problems with two providers and must block their images for some customers immediately. The standard process is slow: a DBA writes a database function, developers add parameter classes, and the change goes through development, test and production. There's no time for that, so a developer writes this:
 
-A company wants to implement in its code validation of customers who have the right to view images from certain providers.
-
-The standard procedure in this company starts with a requirement to the DBA to implement a database function to retrieve a list of providers with this kind of restriction, create param classes for the developers, a period of implementation in a development environment, and its tests in a test environment, and deliver to the production environment.
-
-But the company is facing problems with image author property rights and does not have the resources to implement the requirement, then decides to introduce hard-coded values.
-
-```kotlin  
- boolean picIsRestricted = result.getProviderId() == "530636" || result.getProviderId() == "36507"; 
+```java
+boolean pictureIsRestricted = result.getProviderId() == "530636" || result.getProviderId() == "36507";
 ```
 
-We usually forget the standard procedure to implement the solution because our code is already working. But these hard code values are required in other modules, packages, and classes and may need to validate more providers, etc., and the effort to maintain the code increase exponentially. And I think you know the rest of the history.
+This line has two problems.
 
-You can implement a little function to retrieve external data from a text file.
+**It's a bug.** In Java, `==` compares String references, not their text. A provider ID read from a database or a web service is a new String object, so `==` returns `false` even when the text is `"530636"`. The restricted images are shown anyway. Always compare strings with `equals`.
 
-```kotlin  
-public interface DataService {
+**It doesn't stay in one place.** Other modules need the same check, then a third provider is added, and soon the same IDs are copied into many classes. Every new provider means a code change and a deployment.
 
-  public List<String> getRestrictedProviders() throws Exception;
+You don't need the full database project to fix this. Put the IDs in a text file, one per line, and read them behind an interface:
 
+```java
+public interface ProviderRepository {
+
+  Set<String> findRestrictedProviders();
 }
 ```
 
-Then, you can implement your hard-coded values in an implementation class.
+```java
+public class FileProviderRepository implements ProviderRepository {
 
-```kotlin  
-public class DataServiceImpl implements DataService {
+  private final Path file;
+
+  public FileProviderRepository(Path file) {
+    this.file = file;
+  }
 
   @Override
-  public List<String> getRestrictedProviders() throws Exception {
-    List<String> listOfRestrictedProviders = new ArrayList<>();
-    Resource resource = new ClassPathResource("providers.txt");
-      try {
-        List<String> allLines = Files.readAllLines(Paths.get(resource.getURI()));
-        for (String provider : allLines) {
-          listOfRestrictedProviders.add(provider);
-          //TODO retrieve data from a standard database function
-        }
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    return listOfRestrictedProviders;
+  public Set<String> findRestrictedProviders() {
+    try (Stream<String> lines = Files.lines(file)) {
+      return lines.map(String::strip)
+          .filter(line -> !line.isEmpty())
+          .collect(Collectors.toUnmodifiableSet());
+    } catch (IOException e) {
+      throw new UncheckedIOException("Cannot read restricted providers from " + file, e);
+    }
   }
 }
 ```
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
+If the file is missing, the method throws an exception instead of returning an empty list. An empty list would silently mean "no provider is restricted", and every image would be shown again.
 
-Then, you can always reuse the same validation in any place of your code.
+Every class that needs the check uses the same repository:
 
-```kotlin  
-
-  List<String> listOfRestrictedProviders = dataService.getRestrictedProviders();
-
-  boolean picIsRestricted = listOfRestrictedProviders.contains(result.getProviderId());
-
-}
+```java
+Set<String> restrictedProviders = providerRepository.findRestrictedProviders();
+boolean pictureIsRestricted = restrictedProviders.contains(result.getProviderId());
 ```
 
-The day you decide to implement the standard procedure - database function - your effort in refactoring your code will be minimal.
+`contains` on a `Set` uses `equals`, so the comparison bug is gone too. The day the database function is ready, you write a `DatabaseProviderRepository` that implements the same interface, and no other code changes.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin) <a href="https://t.co/ARf0FUDzRw">https://t.co/ARf0FUDzRw</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1838935023786905637?ref_src=twsrc%5Etfw">September 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+Small, safe steps like this one, where you change the structure without changing the behavior, are what Martin Fowler calls refactoring. His book *Refactoring* is a catalog of more than 60 of them, each with the motivation, the mechanics and a before-and-after example.
 
-## Name your variables according to the context
+<div>
+{%- include refactoringAd.html -%}
+</div>
 
-It is usual to have an attribute that applies to two different objects. For example, an Buyer Object has an email address.
+## 6. Name variables by their context
 
-```kotlin  
+A `Buyer` and a `Supplier` both have an email address:
+
+```java
 public class Buyer {
 
   private int buyerId;
   private String lastName;
   private String email;
-  
-  //code omitted for brevity
+
+  // code omitted for brevity
 }
 ```
 
-We can see the same attribute in a Supplier Object.
-
-```kotlin  
+```java
 public class Supplier {
 
   private int supplierId;
   private String contact;
   private String email;
-  
-  //code omitted for brevity
+
+  // code omitted for brevity
 }
 ```
 
-When retrieving an email from a supplier object, we may lose the context.
+Inside each class, `email` is clear: the class is the context. Don't rename the fields to `buyerEmail` and `supplierEmail`. That repeats the class name in every call, as in `supplier.getSupplierEmail()`, and *Clean Code* warns against adding this kind of redundant context.
 
-```kotlin  
+The context gets lost in local variables, far from the object they came from:
+
+```java
 String email = supplier.getEmail();
+// 40 lines later: whose email is this?
 ```
 
-Further in our code, we may be unsure if the email variable refers to a Supplier or a Buyer.
+Put the context in the variable name instead:
 
-I prefer to define the schemas of our Objects based on the context.
-
-```kotlin  
-public class Buyer {
-
-  private int buyerId;
-  private String buyerLastName;
-  private String buyerEmail;
-  
-  //code omitted for brevity
-}
+```java
+String supplierEmail = supplier.getEmail();
+String buyerEmail = buyer.getEmail();
 ```
 
-We do the same for the Supplier object.
+The rule of thumb: the further a name is used from where its context is visible, the more context the name needs.
 
-```kotlin  
-public class Supplier {
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
-  private int supplierId;
-  private String supplierContact;
-  private String supplierEmail;
-  
-  //code omitted for brevity
-}
-```
+## 7. Use method overloading to keep existing callers working
 
-The most advanced editors provide coding assistance features such as variable name suggestions as you type.
+A method subscribes a new buyer to an external service, and it is called from many places:
 
-```kotlin  
-String supplierEmail = supplier.getSupplierEmail();
-
-String buyerEmail = buyer.getBuyerEmail();
-```
-
-## Method Overloading
-
-Suppose we already have a function communicating well with an external service.
-
-We send data to subscribe to the external service for a new buyer.
-
-```kotlin  
+```java
 public int subscribe(String email, Buyer buyer) {
-  //code omitted for brevity
+  // code omitted for brevity
 }
 ```
 
-This function is called from several parts of a program.
-
-```kotlin  
-subscriberId = WSClient.subscribe(email, buyer);
-}
+```java
+subscriberId = wsClient.subscribe(email, buyer);
 ```
 
-Now, we want to send new buyers, but at the same time, we want to inform the external service to take action based on a specific tagged attribute.
+Now some callers must also send a tag that tells the service what to do with the subscriber. If you add a third parameter to the method, you must change every existing caller, and most of them would pass `null`:
 
-If we decide to refactor the function to accept a new argument, we need to change our program in all parts that call the function, even when they dont need to pass the new attribute.
-
-```kotlin  
-subscriberId = WSClient.subscribe(email, buyer, null);
-}
+```java
+subscriberId = wsClient.subscribe(email, buyer, null);
 ```
 
-We can introduce a new function with the same name but with a new parameter.
+Instead, overload the method. The new version does the work, and the old version calls it, so the logic exists only once:
 
-```kotlin  
+```java
+public int subscribe(String email, Buyer buyer) {
+  return subscribe(email, buyer, null);
+}
+
 public int subscribe(String email, Buyer buyer, Integer tagId) {
-  //code omitted for brevity
-}
-
-public int subscribe(String email, Buyer buyer) {
-  //code omitted for brevity
+  // code omitted for brevity
 }
 ```
 
-Only new parts of the program that need to use the new functionality call the new method.
+Existing callers don't change. Only the new code that needs a tag uses the new version:
 
-```kotlin  
-subscriberId = WSClient.subscribe(email, buyer, 102911);
-}
+```java
+subscriberId = wsClient.subscribe(email, buyer, 102911);
 ```
 
-Method overloading increases the readability and reusability of the program.
+## 8. Avoid long argument lists
 
-## Avoid Too Many Arguments In Functions
+A function with more than three arguments is hard to call correctly. When two arguments have the same type, nothing stops a caller from swapping them:
 
-Sometimes, we write functions containing more than three arguments, like this function:
-
-```kotlin
+```java
 public boolean validateAddress(String street, int number, String postalCode, String city, String country) {
-  //code omitted for brevity
+  // code omitted for brevity
 }
 ```
 
-As all these arguments belong to an Address concept, we can pass an Object as an argument.
+All these arguments describe one concept, an address, so pass one object:
 
-```kotlin
+```java
+public record Address(String street, int number, String postalCode, String city, String country) {}
+
 public boolean validateAddress(Address address) {
-  //code omitted for brevity
+  // code omitted for brevity
 }
 ```
 
-## Destructure objects and arrays
+The same idea fixes a common pattern: a method that receives a `String[]` and decodes each position itself:
 
-When you define a function that accepts an array as a parameter, and then decode every element ...
-
-```kotlin
-public ListOrdersResponse listOrders(String[] values) throws Exception {
+```java
+public ListOrdersResponse listOrders(String[] values) {
   Integer buyerId = Integer.valueOf(values[0]);
   Integer supplierId = Integer.valueOf(values[1]);
   LocalDate orderDateFrom = LocalDate.parse(values[2]);
@@ -450,39 +393,60 @@ public ListOrdersResponse listOrders(String[] values) throws Exception {
   String sortOrder = values[5];
   Integer offset = Integer.valueOf(values[6]);
   Integer limit = Integer.valueOf(values[7]);
-  
-  //code omitted for brevity
+
+  // code omitted for brevity
 }
 ```
 
-Extract values directly into variables for easier access and more readable parameter handling.
+Replacing the array with eight separate parameters would only trade one problem for another. Instead, parse the array once into a record, and let the method receive the record:
 
-```kotlin
-public ListOrdersResponse listOrders(
-  Integer buyerId,
-  Integer supplierId, 
-  LocalDate orderDateFrom, 
-  LocalDate orderDateTo,
-  String sortBy, 
-  String sortOrder, 
-  Integer offset, 
-  Integer limit) throws Exception {
-  
-  //code omitted for brevity  
+```java
+public record ListOrdersRequest(int buyerId, int supplierId,
+                                LocalDate orderDateFrom, LocalDate orderDateTo,
+                                String sortBy, String sortOrder,
+                                int offset, int limit) {
+
+  public ListOrdersRequest {
+    if (orderDateFrom.isAfter(orderDateTo)) {
+      throw new IllegalArgumentException("orderDateFrom must not be after orderDateTo");
+    }
+  }
+
+  public static ListOrdersRequest from(String[] values) {
+    return new ListOrdersRequest(
+        Integer.parseInt(values[0]),
+        Integer.parseInt(values[1]),
+        LocalDate.parse(values[2]),
+        LocalDate.parse(values[3]),
+        values[4],
+        values[5],
+        Integer.parseInt(values[6]),
+        Integer.parseInt(values[7]));
+  }
 }
 ```
 
-			
+```java
+public ListOrdersResponse listOrders(ListOrdersRequest request) {
+  // code omitted for brevity
+}
+```
 
-## Clean Code tells a story
+Now the array positions are decoded in one place, the date range is checked when the request is created, and `listOrders` works with named values: `request.buyerId()`, `request.limit()`.
 
-When we try to fix bugs, when analyzing the secuence of actions (functions, methods), we realize the code does not communicate well the logical flow of these actions. It’s a nightmare to decode the meaning of these actions.
+<div>
+{%- include inArticleAds.html -%}
+</div>
 
-This will always happen because our initial design based on the initial requirements change over time. As developers, we are responsible for refactoring our code to made it a simple story that everybody can understand. For example, look at the following code:
+## 9. Make code tell a story
 
-```kotlin
+When you fix a bug, you read the sequence of calls to understand what the program does. Requirements change over time, so code that was clear on day one slowly stops telling a clear story. Refactoring it back is part of the job.
+
+This job sends buyer data to a partner called ACME:
+
+```java
 ACMEWebServiceClient.login();
-if (process.equals("core") {
+if (process.equals("core")) {
     ACMEWebServiceClient.transfer_buyersCoreData_to_ACME();
 }
 if (process.equals("status")) {
@@ -491,59 +455,114 @@ if (process.equals("status")) {
 if (process.equals("events")) {
     ACMEWebServiceClient.transfer_events_to_ACME();
 }
-ACMEServiceClient.logout();
-```
- 
-## Include Constants to avoid deprecated libraries
-
-We have the following scenario: we migrate an XYZ application to a new application server, and suddenly we realize that a library belonging to our current application server is no longer supported.
-
-```kotlin
-import org.apache.axis.transport.http.HTTPConstants;
-
-// We try to manipulate a request
-HttpServletRequest httpServletRequest = (HttpServletRequest)context.get(HTTPConstants.MC_HTTP_SERVLETREQUEST);
+ACMEWebServiceClient.logout();
 ```
 
-We put a lot of effort into finding a compatible version of the org.apache.axis library.
+The story is hidden by three problems:
 
-We realized that our code only uses this MC_HTTP_SERVLETREQUEST constant from the whole library, and it also returns the following value:
+- **Typos fail silently.** If `process` is `"statsu"`, no branch runs and the job logs in and out without doing anything.
+- **An exception skips the logout.** The session stays open on ACME's side.
+- **The names repeat themselves.** Every method says `ACME` on a class that is already the ACME client.
 
-```kotlin
-"transport.http.servletRequest"
+Here is the same job as a story:
+
+```java
+public enum TransferProcess { CORE, STATUS, EVENTS }
+
+public void transferToAcme(TransferProcess process) {
+  acmeClient.login();
+  try {
+    switch (process) {
+      case CORE -> acmeClient.transferBuyersCoreData();
+      case STATUS -> acmeClient.transferBuyerStatusChanges();
+      case EVENTS -> acmeClient.transferEvents();
+    }
+  } finally {
+    acmeClient.logout();
+  }
+}
 ```
 
-Well, an easy solution is to declare a local constant for the project.
-
-```kotlin
-public static final String HTTPConstants_MC_HTTP_SERVLETREQUEST = "transport.http.servletRequest";
-```
-
-Then, we can refactor our original code:
-
-```kotlin
-HttpServletRequest httpServletRequest = (HttpServletRequest)context.get(HTTPConstants_MC_HTTP_SERVLETREQUEST);
-```
-
-And we can remove the old library from the project.
-
-**Applications of clean code**:
-
-* Refactoring techniques for improving code cleanliness
-* Achieving maintainability through clean code practices
-* Clean code practices for agile software development teams
-* Code review checklist for ensuring clean code
-* Clean code in object-oriented programming
-* Clean code practices for improving software security
-* Clean code practices for improving code collaboration
-* Clean code and continuous integration/continuous deployment (CI/CD)
-
-
-> From Big O to Binary Trees — every answer you need.
+Read it aloud: *log in, transfer the chosen data, always log out*. Converting the input with `TransferProcess.valueOf(process.toUpperCase())` throws an exception for an unknown value like `"statsu"`, so a typo fails at once instead of doing nothing. The `finally` block logs out even when a transfer throws an exception.
 
 <div>
-{%- include jediJavaInterviewAds.html -%}
+{%- include inArticleAds.html -%}
 </div>
+
+## 10. Copy one constant instead of keeping a dead library
+
+We migrate an application to a new application server and find out that a library it uses is no longer supported there:
+
+```java
+import org.apache.axis.transport.http.HTTPConstants;
+
+HttpServletRequest httpServletRequest =
+    (HttpServletRequest) context.get(HTTPConstants.MC_HTTP_SERVLETREQUEST);
+```
+
+We spend a lot of time looking for a compatible version of Apache Axis. Then we notice that the whole application uses only one thing from that library: the `MC_HTTP_SERVLETREQUEST` constant, whose value is the string `"transport.http.servletRequest"`.
+
+The simple solution is to declare that constant in our own code:
+
+```java
+public final class AxisContextKeys {
+
+  // Same value as org.apache.axis.transport.http.HTTPConstants.MC_HTTP_SERVLETREQUEST
+  public static final String SERVLET_REQUEST = "transport.http.servletRequest";
+
+  private AxisContextKeys() {}
+}
+```
+
+```java
+HttpServletRequest httpServletRequest =
+    (HttpServletRequest) context.get(AxisContextKeys.SERVLET_REQUEST);
+```
+
+Before you remove the library, search the whole code base for other `org.apache.axis` imports. If this was the only one, the dependency can go, and the migration is no longer blocked by a library nobody maintains.
+
+## Clean code review checklist
+
+Copy this list into your next code review. Each line is one of the rules above.
+
+1. **Names:** can you understand every name without a comment?
+2. **One thing:** does each function do what its name says, and nothing else?
+3. **Comments:** does any comment explain something a better name could say?
+4. **Simplicity:** can you read each condition aloud as a business rule?
+5. **Hard coding:** are IDs, URLs and limits read from configuration, compared with `equals`, and kept in one place?
+6. **Context:** do local variables far from their object say where they came from?
+7. **Callers:** does a new parameter force changes on callers that don't need it?
+8. **Arguments:** does any function take more than three arguments, or decode array positions?
+9. **Story:** can you read the main flow aloud, and is cleanup in a `finally` block?
+10. **Dependencies:** does a large library stay in the project for one constant or one small helper?
+
+Clean code is one habit of a professional developer. *The Pragmatic Programmer* covers the rest: taking responsibility for your code, avoiding duplication, testing and automating, and knowing when code is good enough to ship. It's the book I recommend after *Clean Code*.
+
+<div>
+{%- include pragmaticProgrammerAd.html -%}
+</div>
+
+## FAQ
+
+### What is clean code?
+
+Clean code is code that another developer can read, understand and change safely. It has intention-revealing names, small functions that do one thing, no duplication, and tests. The term comes from Robert C. Martin's book *Clean Code: A Handbook of Agile Software Craftsmanship* (2008).
+
+### Does clean code mean no comments?
+
+No. Clean code avoids comments that explain *what* the code does, because a better name or a smaller function can say that. Comments that explain *why*, such as a business rule, a legal requirement or a workaround for a bug in a library, are still useful. The `// Same value as ...` comment in rule 10 is an example.
+
+### Is clean code slower?
+
+Almost never in a way you can measure. Small functions and named variables are optimized by the JIT compiler. Performance problems usually come from algorithms, database queries and network calls, which are easier to find and fix in clean code. See [how to optimize Java application performance](https://codersite.dev/optimize-java-app-performance/){:target="_blank"}.
+
+### How do I start cleaning an existing code base?
+
+Don't rewrite it. Follow the Boy Scout Rule: leave every file you touch a little cleaner than you found it. Rename one variable, extract one function, add one test. Small refactorings in the code you're already changing add up, and they're easy to review.
+
+### How does clean code relate to SOLID?
+
+Clean code works at the level of names, functions and classes. SOLID works at the level of classes and their dependencies. Rule 5 above, with its `ProviderRepository` interface, is the dependency inversion principle in practice. See [SOLID principles: the definitive guide](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"}.
 
 <div>
 {% include buymeacoffee.html %}
