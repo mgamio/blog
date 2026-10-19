@@ -571,8 +571,6 @@ Check `GET billing-logs/_ilm/explain`. The usual causes are a backing index that
 
 <br/>
 
-If you found this article useful, you can support this website:
-
 <div>
 {% include buymeacoffee.html %}
 </div>
