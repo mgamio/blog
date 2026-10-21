@@ -1,0 +1,4 @@
+{%- comment -%}Formats a price from _data as USD with at least two decimals: 10 -> $10.00, 0.1 -> $0.10, 0.075 -> $0.075.{%- endcomment -%}
+{%- assign usd_s = include.v | append: "" -%}
+{%- assign usd_parts = usd_s | split: "." -%}
+{%- if usd_parts.size == 1 -%}${{ usd_parts[0] }}.00{%- elsif usd_parts[1].size == 1 -%}${{ usd_s }}0{%- else -%}${{ usd_s }}{%- endif -%}

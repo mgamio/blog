@@ -1,0 +1,181 @@
+# Prices for the LLM API Cost Calculator (/tools/llm-api-cost-calculator/).
+# USD per 1 million tokens, standard (paid) tier, global endpoints.
+# Copy every number from the provider's official pricing page and update `checked` when you do.
+#
+# Fields per model:
+#   input / output       base price per 1M tokens
+#   cached               price of input tokens read from the cache (cache hit)
+#   cache_write          Claude only: 5-minute cache write price (1.25x input)
+#   batch                prices with the Batch API; omit to use 50% of every standard price
+#   long                 higher prices when the prompt has more than `over` input tokens
+#   change               a scheduled price change, shown as a note (not used in the calculation)
+
+checked: "2026-10-21"
+
+sources:
+  - name: Anthropic
+    url: https://platform.claude.com/docs/en/about-claude/pricing
+  - name: OpenAI
+    url: https://developers.openai.com/api/docs/pricing
+  - name: Google
+    url: https://ai.google.dev/gemini-api/docs/pricing
+
+models:
+  # ---------- Anthropic Claude ----------
+  - id: claude-fable-5-1
+    provider: Claude
+    name: Claude Fable 5.1
+    input: 10
+    cached: 0.25
+    cache_write: 12.5
+    output: 50
+
+  - id: claude-opus-5-5
+    provider: Claude
+    name: Claude Opus 5.5
+    input: 4
+    cached: 0.2
+    cache_write: 5
+    output: 20
+
+  - id: claude-sonnet-5-5
+    provider: Claude
+    name: Claude Sonnet 5.5
+    input: 2
+    cached: 0.1
+    cache_write: 2.5
+    output: 10
+
+  - id: claude-haiku-5-5
+    provider: Claude
+    name: Claude Haiku 5.5
+    input: 0.1
+    cached: 0.01
+    cache_write: 0.125
+    output: 0.5
+    long: { over: 100000, input: 0.5, cached: 0.05, cache_write: 0.625, output: 2.5 }
+
+  - id: claude-opus-5
+    provider: Claude
+    name: Claude Opus 5
+    input: 5
+    cached: 0.5
+    cache_write: 6.25
+    output: 25
+
+  - id: claude-sonnet-5
+    provider: Claude
+    name: Claude Sonnet 5
+    input: 2
+    cached: 0.2
+    cache_write: 2.5
+    output: 10
+
+  - id: claude-haiku-4-5
+    provider: Claude
+    name: Claude Haiku 4.5
+    input: 1
+    cached: 0.1
+    cache_write: 1.25
+    output: 5
+
+  # ---------- OpenAI GPT ----------
+  - id: gpt-6-astra
+    provider: GPT
+    name: GPT-6 Astra
+    input: 10
+    cached: 1
+    output: 50
+    long: { over: 272000, input: 20, cached: 2, output: 75 }
+
+  - id: gpt-6.1-sol
+    provider: GPT
+    name: GPT-6.1 Sol
+    input: 2
+    cached: 0.1
+    output: 10
+    long: { over: 272000, input: 4, cached: 0.2, output: 15 }
+
+  - id: gpt-6-luna
+    provider: GPT
+    name: GPT-6 Luna
+    input: 0.1
+    cached: 0.01
+    output: 0.5
+    long: { over: 272000, input: 0.2, cached: 0.02, output: 0.75 }
+
+  - id: gpt-5.6-sol
+    provider: GPT
+    name: GPT-5.6 Sol
+    input: 4
+    cached: 0.4
+    output: 20
+    long: { over: 272000, input: 8, cached: 0.8, output: 30 }
+    note: "OpenAI calls this promotional pricing, available at least through November 21, 2026."
+
+  - id: gpt-5.6-terra
+    provider: GPT
+    name: GPT-5.6 Terra
+    input: 2
+    cached: 0.2
+    output: 12
+    long: { over: 272000, input: 4, cached: 0.4, output: 18 }
+
+  - id: gpt-5.6-luna
+    provider: GPT
+    name: GPT-5.6 Luna
+    input: 0.2
+    cached: 0.02
+    output: 1.2
+    long: { over: 272000, input: 0.4, cached: 0.04, output: 1.8 }
+
+  - id: gpt-5.4-mini
+    provider: GPT
+    name: GPT-5.4 mini
+    input: 0.75
+    cached: 0.075
+    output: 4.5
+
+  # ---------- Google Gemini ----------
+  - id: gemini-4-argon
+    provider: Gemini
+    name: Gemini 4 Argon
+    input: 2
+    cached: 0.1
+    output: 10
+    batch: { input: 1, cached: 0.05, output: 5 }
+    change: { date: "2026-12-01", input: 4, cached: 0.2, output: 20 }
+
+  - id: gemini-3.8-flash
+    provider: Gemini
+    name: Gemini 3.8 Flash
+    input: 0.75
+    cached: 0.075
+    output: 3.75
+    batch: { input: 0.375, cached: 0.0375, output: 1.875 }
+    change: { date: "2027-01-01", input: 1.5, cached: 0.15, output: 7.5 }
+
+  - id: gemini-3.1-pro-preview
+    provider: Gemini
+    name: Gemini 3.1 Pro (Preview)
+    input: 2
+    cached: 0.2
+    output: 12
+    batch: { input: 1, cached: 0.2, output: 6 }
+    long: { over: 200000, input: 4, cached: 0.4, output: 18, batch: { input: 2, cached: 0.4, output: 9 } }
+
+  - id: gemini-3.5-flash-lite
+    provider: Gemini
+    name: Gemini 3.5 Flash-Lite
+    input: 0.3
+    cached: 0.03
+    output: 2.5
+    batch: { input: 0.15, cached: 0.02, output: 1.25 }
+
+  - id: gemini-2.5-flash
+    provider: Gemini
+    name: Gemini 2.5 Flash
+    input: 0.3
+    cached: 0.03
+    output: 2.5
+    batch: { input: 0.15, cached: 0.03, output: 1.25 }

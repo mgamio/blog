@@ -1,0 +1,73 @@
+<div class="jt">
+    <div class="jt-panes lc-panes">
+        <form id="lcForm" class="jt-pane cmg-form lc-form" autocomplete="off" onsubmit="return false">
+            <fieldset>
+                <legend>Your workload</legend>
+                <label class="jt-field">Start from an example
+                    <select id="lcPreset"></select>
+                </label>
+                <div class="lc-grid">
+                    <label class="jt-field">Input tokens per request
+                        <input type="text" id="lcInput" inputmode="numeric" spellcheck="false">
+                    </label>
+                    <label class="jt-field">Output tokens per request
+                        <input type="text" id="lcOutput" inputmode="numeric" spellcheck="false">
+                    </label>
+                    <label class="jt-field">Requests per day
+                        <input type="text" id="lcRequests" inputmode="numeric" spellcheck="false" value="1000">
+                    </label>
+                </div>
+                <label class="jt-field">Input read from the cache: <strong id="lcCachedValue">0%</strong>
+                    <input type="range" id="lcCached" min="0" max="100" step="5" value="0">
+                </label>
+                <div class="jt-checks">
+                    <label><input type="checkbox" id="lcBatch"> Batch API (50% off, results within 24 hours)</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Providers</legend>
+                <div class="jt-checks lc-providers" id="lcProviders">
+                    <label><input type="checkbox" value="Claude" checked> Claude</label>
+                    <label><input type="checkbox" value="GPT" checked> GPT</label>
+                    <label><input type="checkbox" value="Gemini" checked> Gemini</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Estimate tokens from text</legend>
+                <label class="jt-field">Paste a typical prompt
+                    <textarea id="lcText" rows="4" spellcheck="false" placeholder="Paste a system prompt, a document or a question to estimate its size."></textarea>
+                </label>
+                <div class="lc-text-row">
+                    <span id="lcTextInfo" class="jt-hint">Paste text to estimate its tokens.</span>
+                    <button type="button" id="lcUseText" class="jt-btn jt-ghost" disabled>Use as input tokens</button>
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="jt-pane lc-results">
+            <div class="jt-pane-head"><span>Cost by model</span></div>
+            <div class="lc-table-wrap">
+                <table class="lc-table">
+                    <thead>
+                        <tr>
+                            <th scope="col"><button type="button" data-lc-sort="name">Model</button></th>
+                            <th scope="col" class="lc-num"><button type="button" data-lc-sort="cost" aria-sort="ascending">Per request</button></th>
+                            <th scope="col" class="lc-num">Per day</th>
+                            <th scope="col" class="lc-num">Per month</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lcBody"></tbody>
+                </table>
+            </div>
+            <p class="lc-source">Prices in USD, standard tier, checked on {{ site.data.llm_prices.checked | date: "%B %-d, %Y" }}. A month is 30 days. Sources:
+                {% for s in site.data.llm_prices.sources %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}.</p>
+        </div>
+    </div>
+
+    <div id="lcStatus" class="jt-status" role="status" aria-live="polite">Enter your token counts. The costs update as you type.</div>
+    <noscript><p class="jt-noscript">This tool needs JavaScript. Everything runs locally in your browser.</p></noscript>
+</div>
+
+<script>window.LLM_PRICES = {{ site.data.llm_prices | jsonify }};</script>

@@ -387,3 +387,178 @@
         max-height: calc(100vh - 200px);
     }
 }
+
+/* LLM API Cost Calculator */
+@media (min-width: 992px) {
+    .lc-panes {
+        grid-template-columns: 5fr 7fr;
+    }
+}
+
+.lc-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 0.8rem;
+}
+
+@media (min-width: 576px) {
+    .lc-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.lc-form input[type="range"] {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.lc-form .lc-providers {
+    flex-direction: row;
+}
+
+.lc-text-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.lc-table-wrap {
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    overflow-x: auto;
+    background: #fff;
+}
+
+.lc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.lc-table th,
+.lc-table td {
+    padding: 0.5rem 0.65rem;
+    border-bottom: 1px solid #eef0f2;
+    vertical-align: top;
+    text-align: left;
+}
+
+.lc-table thead th {
+    background: #f7f9fa;
+    font-size: 0.82rem;
+    color: rgba(0, 0, 0, 0.65);
+    white-space: nowrap;
+}
+
+.lc-table th button {
+    font: inherit;
+    font-weight: 700;
+    color: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.lc-table th button::after {
+    content: " \2195";
+    opacity: 0.4;
+}
+
+.lc-table th button[aria-sort="ascending"]::after {
+    content: " \2191";
+    opacity: 1;
+}
+
+.lc-table th button[aria-sort="descending"]::after {
+    content: " \2193";
+    opacity: 1;
+}
+
+.lc-table .lc-num {
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.lc-table .lc-month {
+    font-weight: 700;
+}
+
+.lc-table tr.lc-cheapest td {
+    background: #e9f7f0;
+}
+
+.lc-table tr.lc-cheapest .lc-month::after {
+    content: "cheapest";
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #038252;
+}
+
+.lc-model .lc-name {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.lc-model .lc-id {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.5);
+    background: none;
+    padding: 0;
+}
+
+.lc-model .lc-note {
+    display: block;
+    font-size: 0.75rem;
+    color: #8a5300;
+    margin-top: 0.15rem;
+    max-width: 22rem;
+}
+
+.lc-prov {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    border-radius: 3px;
+    padding: 0 0.3rem;
+    margin-right: 0.4rem;
+    vertical-align: 1px;
+    border: 1px solid currentColor;
+}
+
+.lc-prov-claude { color: #b4532a; }
+.lc-prov-gpt { color: #1f6f5c; }
+.lc-prov-gemini { color: #2a62c4; }
+
+.lc-source {
+    font-size: 0.78rem;
+    color: rgba(0, 0, 0, 0.55);
+    margin: 0.5rem 0 0;
+}
+
+@media (max-width: 575.98px) {
+    .lc-table th,
+    .lc-table td {
+        padding: 0.45rem 0.4rem;
+    }
+
+    .lc-table th:nth-child(3),
+    .lc-table td:nth-child(3),
+    .lc-model .lc-id {
+        display: none;
+    }
+
+    .lc-prov {
+        display: block;
+        width: max-content;
+        margin-bottom: 0.15rem;
+    }
+}

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+
+<!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>LLM API Cost Calculator: Claude, GPT and Gemini Pricing | codersite</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="LLM API Cost Calculator: Claude, GPT and Gemini Pricing" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Free calculator for LLM API costs. Compare the price per request, per day and per month of Claude, GPT and Gemini models, with prompt caching, the Batch API and long-prompt pricing." />
+<meta name="twitter:description" property="og:description" content="Free calculator for LLM API costs. Compare the price per request, per day and per month of Claude, GPT and Gemini models, with prompt caching, the Batch API and long-prompt pricing." />
+<link rel="canonical" href="https://codersite.dev/tools/llm-api-cost-calculator/" />
+<meta property="og:url" content="https://codersite.dev/tools/llm-api-cost-calculator/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:image" content="https://codersite.dev/assets/images/llmApiCostCalculatorTool.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-10-21T22:15:19+02:00" />
+<meta property="article:modified_time" content="2026-10-21T22:15:19+02:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://codersite.dev/assets/images/llmApiCostCalculatorTool.jpg" />
+<meta name="twitter:title" content="LLM API Cost Calculator: Claude, GPT and Gemini Pricing" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-10-21T22:15:19+02:00","datePublished":"2026-10-21T22:15:19+02:00","description":"Free calculator for LLM API costs. Compare the price per request, per day and per month of Claude, GPT and Gemini models, with prompt caching, the Batch API and long-prompt pricing.","headline":"LLM API Cost Calculator: Claude, GPT and Gemini Pricing","image":"https://codersite.dev/assets/images/llmApiCostCalculatorTool.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/tools/llm-api-cost-calculator/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"}},"url":"https://codersite.dev/tools/llm-api-cost-calculator/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script src="/assets/js/jquery.min.js"></script><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-642735915');
+</script>
+
+<!-- Google tag (gtag.js) event -->
+<script>
+  gtag('event', 'redirect_to_amazon_de', {
+    // <event_parameters>
+  });
+</script>
+
+</head>
+
+
+<body class="layout-tool">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/books.html">Books</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/tools/">Tools</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/shop">Shop</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+  <div class="main-content">
+    <!-- Free developer tool page. Front matter: title, description, short_title, lead, tool (the
+     include in _includes/tools/ and the script in assets/js/tools/), and optional scripts (shared
+     scripts from assets/js/tools/ loaded first, e.g. [json-core]). The page content is the
+     explanation below the tool. Don't use <header> here: mediumish.js sizes the top margin
+     from the first <header> on the page. -->
+<link href="/assets/css/tools.css" rel="stylesheet">
+
+<style>
+.tool-page {
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+}
+
+.tool-breadcrumb {
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+.tool-breadcrumb a {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.tool-title {
+    font-family: Righteous, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    color: #222;
+    margin-bottom: 0.6rem;
+}
+
+.tool-lead {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.65);
+    max-width: 760px;
+    margin-bottom: 1.5rem;
+}
+
+.tool-privacy {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: #038252;
+    margin: 0.9rem 0 0;
+}
+
+.tool-ad {
+    margin: 2.5rem 0 1rem;
+}
+
+.tool-content {
+    max-width: 820px;
+    margin-top: 2rem;
+}
+
+.tool-related {
+    max-width: 820px;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.tool-related h2 {
+    font-size: 1.3rem;
+}
+
+.tool-multiplex {
+    max-width: 820px;
+    margin-top: 2rem;
+}
+
+@media (max-width: 767px) {
+    .tool-title {
+        font-size: 1.7rem;
+    }
+
+    .tool-lead {
+        font-size: 1rem;
+    }
+}
+</style>
+
+<div class="tool-page">
+
+    <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> &rsaquo;
+        <a href="/tools/">Tools</a> &rsaquo;
+        <span>LLM API Cost Calculator</span>
+    </nav>
+
+    <h1 class="tool-title">LLM API Cost Calculator: Claude, GPT and Gemini Pricing</h1>
+    <p class="tool-lead">Enter your tokens per request and requests per day, and compare what Claude, GPT and Gemini models cost, with prompt caching, the Batch API and long-prompt prices included.</p>
+
+    <div class="jt">
+    <div class="jt-panes lc-panes">
+        <form id="lcForm" class="jt-pane cmg-form lc-form" autocomplete="off" onsubmit="return false">
+            <fieldset>
+                <legend>Your workload</legend>
+                <label class="jt-field">Start from an example
+                    <select id="lcPreset"></select>
+                </label>
+                <div class="lc-grid">
+                    <label class="jt-field">Input tokens per request
+                        <input type="text" id="lcInput" inputmode="numeric" spellcheck="false">
+                    </label>
+                    <label class="jt-field">Output tokens per request
+                        <input type="text" id="lcOutput" inputmode="numeric" spellcheck="false">
+                    </label>
+                    <label class="jt-field">Requests per day
+                        <input type="text" id="lcRequests" inputmode="numeric" spellcheck="false" value="1000">
+                    </label>
+                </div>
+                <label class="jt-field">Input read from the cache: <strong id="lcCachedValue">0%</strong>
+                    <input type="range" id="lcCached" min="0" max="100" step="5" value="0">
+                </label>
+                <div class="jt-checks">
+                    <label><input type="checkbox" id="lcBatch"> Batch API (50% off, results within 24 hours)</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Providers</legend>
+                <div class="jt-checks lc-providers" id="lcProviders">
+                    <label><input type="checkbox" value="Claude" checked> Claude</label>
+                    <label><input type="checkbox" value="GPT" checked> GPT</label>
+                    <label><input type="checkbox" value="Gemini" checked> Gemini</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Estimate tokens from text</legend>
+                <label class="jt-field">Paste a typical prompt
+                    <textarea id="lcText" rows="4" spellcheck="false" placeholder="Paste a system prompt, a document or a question to estimate its size."></textarea>
+                </label>
+                <div class="lc-text-row">
+                    <span id="lcTextInfo" class="jt-hint">Paste text to estimate its tokens.</span>
+                    <button type="button" id="lcUseText" class="jt-btn jt-ghost" disabled>Use as input tokens</button>
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="jt-pane lc-results">
+            <div class="jt-pane-head"><span>Cost by model</span></div>
+            <div class="lc-table-wrap">
+                <table class="lc-table">
+                    <thead>
+                        <tr>
+                            <th scope="col"><button type="button" data-lc-sort="name">Model</button></th>
+                            <th scope="col" class="lc-num"><button type="button" data-lc-sort="cost" aria-sort="ascending">Per request</button></th>
+                            <th scope="col" class="lc-num">Per day</th>
+                            <th scope="col" class="lc-num">Per month</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lcBody"></tbody>
+                </table>
+            </div>
+            <p class="lc-source">Prices in USD, standard tier, checked on October 21, 2026. A month is 30 days. Sources:
+                <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Anthropic</a>, <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI</a>, <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Google</a>.</p>
+        </div>
+    </div>
+
+    <div id="lcStatus" class="jt-status" role="status" aria-live="polite">Enter your token counts. The costs update as you type.</div>
+    <noscript><p class="jt-noscript">This tool needs JavaScript. Everything runs locally in your browser.</p></noscript>
+</div>
+
+<script>window.LLM_PRICES = {"checked":"2026-10-21","sources":[{"name":"Anthropic","url":"https://platform.claude.com/docs/en/about-claude/pricing"},{"name":"OpenAI","url":"https://developers.openai.com/api/docs/pricing"},{"name":"Google","url":"https://ai.google.dev/gemini-api/docs/pricing"}],"models":[{"id":"claude-fable-5-1","provider":"Claude","name":"Claude Fable 5.1","input":10,"cached":0.25,"cache_write":12.5,"output":50},{"id":"claude-opus-5-5","provider":"Claude","name":"Claude Opus 5.5","input":4,"cached":0.2,"cache_write":5,"output":20},{"id":"claude-sonnet-5-5","provider":"Claude","name":"Claude Sonnet 5.5","input":2,"cached":0.1,"cache_write":2.5,"output":10},{"id":"claude-haiku-5-5","provider":"Claude","name":"Claude Haiku 5.5","input":0.1,"cached":0.01,"cache_write":0.125,"output":0.5,"long":{"over":100000,"input":0.5,"cached":0.05,"cache_write":0.625,"output":2.5}},{"id":"claude-opus-5","provider":"Claude","name":"Claude Opus 5","input":5,"cached":0.5,"cache_write":6.25,"output":25},{"id":"claude-sonnet-5","provider":"Claude","name":"Claude Sonnet 5","input":2,"cached":0.2,"cache_write":2.5,"output":10},{"id":"claude-haiku-4-5","provider":"Claude","name":"Claude Haiku 4.5","input":1,"cached":0.1,"cache_write":1.25,"output":5},{"id":"gpt-6-astra","provider":"GPT","name":"GPT-6 Astra","input":10,"cached":1,"output":50,"long":{"over":272000,"input":20,"cached":2,"output":75}},{"id":"gpt-6.1-sol","provider":"GPT","name":"GPT-6.1 Sol","input":2,"cached":0.1,"output":10,"long":{"over":272000,"input":4,"cached":0.2,"output":15}},{"id":"gpt-6-luna","provider":"GPT","name":"GPT-6 Luna","input":0.1,"cached":0.01,"output":0.5,"long":{"over":272000,"input":0.2,"cached":0.02,"output":0.75}},{"id":"gpt-5.6-sol","provider":"GPT","name":"GPT-5.6 Sol","input":4,"cached":0.4,"output":20,"long":{"over":272000,"input":8,"cached":0.8,"output":30},"note":"OpenAI calls this promotional pricing, available at least through November 21, 2026."},{"id":"gpt-5.6-terra","provider":"GPT","name":"GPT-5.6 Terra","input":2,"cached":0.2,"output":12,"long":{"over":272000,"input":4,"cached":0.4,"output":18}},{"id":"gpt-5.6-luna","provider":"GPT","name":"GPT-5.6 Luna","input":0.2,"cached":0.02,"output":1.2,"long":{"over":272000,"input":0.4,"cached":0.04,"output":1.8}},{"id":"gpt-5.4-mini","provider":"GPT","name":"GPT-5.4 mini","input":0.75,"cached":0.075,"output":4.5},{"id":"gemini-4-argon","provider":"Gemini","name":"Gemini 4 Argon","input":2,"cached":0.1,"output":10,"batch":{"input":1,"cached":0.05,"output":5},"change":{"date":"2026-12-01","input":4,"cached":0.2,"output":20}},{"id":"gemini-3.8-flash","provider":"Gemini","name":"Gemini 3.8 Flash","input":0.75,"cached":0.075,"output":3.75,"batch":{"input":0.375,"cached":0.0375,"output":1.875},"change":{"date":"2027-01-01","input":1.5,"cached":0.15,"output":7.5}},{"id":"gemini-3.1-pro-preview","provider":"Gemini","name":"Gemini 3.1 Pro (Preview)","input":2,"cached":0.2,"output":12,"batch":{"input":1,"cached":0.2,"output":6},"long":{"over":200000,"input":4,"cached":0.4,"output":18,"batch":{"input":2,"cached":0.4,"output":9}}},{"id":"gemini-3.5-flash-lite","provider":"Gemini","name":"Gemini 3.5 Flash-Lite","input":0.3,"cached":0.03,"output":2.5,"batch":{"input":0.15,"cached":0.02,"output":1.25}},{"id":"gemini-2.5-flash","provider":"Gemini","name":"Gemini 2.5 Flash","input":0.3,"cached":0.03,"output":2.5,"batch":{"input":0.15,"cached":0.03,"output":1.25}}]};</script>
+
+
+    <p class="tool-privacy">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 1a3.5 3.5 0 0 0-3.5 3.5V7H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-.5V4.5A3.5 3.5 0 0 0 8 1zm2 6H6V4.5a2 2 0 1 1 4 0z"/></svg>
+        Runs in your browser. Your data is never sent to a server.
+    </p>
+
+    <!-- Kept well below the tool's buttons so it can't be clicked by accident (AdSense policy). -->
+    <div class="tool-ad"><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- ad below post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="2720551629"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+    <div class="article-post tool-content">
+        <h2 id="how-to-use-the-calculator">How to Use the Calculator</h2>
+
+<ol>
+  <li><strong>Start from an example</strong> that looks like your application, such as a chatbot reply, a RAG answer or a coding agent step. Every example fills in typical token counts.</li>
+  <li><strong>Enter your own numbers:</strong> input tokens (everything you send: system prompt, conversation history, documents), output tokens (the model’s answer), and requests per day.</li>
+  <li><strong>Set how much input comes from the cache.</strong> If every request starts with the same system prompt or documents, that part can be cached and costs up to 97.5% less.</li>
+  <li><strong>Turn on the Batch API</strong> if you don’t need the answers right away. Every provider here charges half price for requests that may take up to 24 hours.</li>
+  <li><strong>Compare the table.</strong> The cheapest model is highlighted. Click <strong>Model</strong> or <strong>Per request</strong> to sort, and untick a provider to hide its models.</li>
+</ol>
+
+<p>Don’t know your token counts? Paste a typical prompt in <strong>Estimate tokens from text</strong>, then click <strong>Use as input tokens</strong>. The calculator remembers your settings in your browser.</p>
+
+<h2 id="what-is-a-token">What Is a Token?</h2>
+
+<p>LLMs don’t read characters or words; they read <strong>tokens</strong>, pieces of text that are often a whole short word or part of a longer one. Providers count and charge for every token you send (input) and every token the model writes (output).</p>
+
+<p>For English text, a token is about 4 characters, or about three quarters of a word: 1,000 tokens is roughly 750 words. Code, JSON, numbers and languages other than English usually need more tokens for the same length. The estimate in this calculator uses 4 characters per token, so treat it as a starting point.</p>
+
+<p>Each provider uses its own tokenizer, so the same text is a different number of tokens on Claude, GPT and Gemini. Anthropic notes that its tokenizer since Claude Opus 4.7 produces up to 1.35 times as many tokens as older Claude models for the same text. For exact numbers:</p>
+
+<ul>
+  <li><strong>Before you send a request:</strong> use the provider’s token-counting endpoint, such as the <a href="https://platform.claude.com/docs/en/build-with-claude/token-counting" target="_blank">Claude token counting API</a>.</li>
+  <li><strong>After a request:</strong> every API response contains a <code class="language-plaintext highlighter-rouge">usage</code> object with the exact input, output and cached token counts. Log it for a day of real traffic and you have the best possible input for this calculator.</li>
+</ul>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="how-llm-api-pricing-works">How LLM API Pricing Works</h2>
+
+<p>All three providers charge <strong>per million tokens</strong>, with separate prices for each kind of token:</p>
+
+<ul>
+  <li><strong>Input tokens</strong> are what you send. In a chat, that’s the whole conversation every time, not only the last message, so input usually dominates the bill.</li>
+  <li><strong>Output tokens</strong> are what the model writes, including any reasoning it does before answering. They cost 5 to about 8 times more than input tokens.</li>
+  <li><strong>Cached input</strong> is input the provider has seen recently and stored, such as a long system prompt. Reading it from the cache costs 2.5% to 10% of the normal input price, depending on the model.</li>
+  <li><strong>Batch API:</strong> requests you submit as a batch and collect later cost 50% less. They’re processed within 24 hours.</li>
+  <li><strong>Long prompts:</strong> some models charge more when one prompt is very long: Claude Haiku 5.5 above 100,000 input tokens, Gemini Pro models above 200,000, and GPT flagship models above 272,000. The calculator applies these prices automatically.</li>
+</ul>
+
+<p>Two details the table doesn’t include:</p>
+
+<ul>
+  <li><strong>Writing to the cache</strong> costs extra on Claude: 1.25 times the input price for a 5-minute cache, or 2 times for a 1-hour cache. You pay it once, then every cache hit is cheap. OpenAI and Gemini cache common prefixes automatically, without a write price, and Gemini charges an hourly storage fee for caches you create explicitly.</li>
+  <li><strong>Taxes, regional endpoints and cloud platforms.</strong> Prices here are each provider’s own API at the standard tier. US-only processing on Claude costs 1.1 times as much, and Claude on Amazon Bedrock and Google Vertex AI has its own price list.</li>
+</ul>
+
+<h3 id="current-prices-per-million-tokens">Current prices per million tokens</h3>
+
+<p>These are the prices the calculator uses, checked on October 21, 2026:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Input</th>
+      <th>Cached input</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Claude Fable 5.1</td>
+      <td>$10.00</td>
+      <td>$0.25</td>
+      <td>$50.00</td>
+    </tr>
+    <tr>
+      <td>Claude Opus 5.5</td>
+      <td>$4.00</td>
+      <td>$0.20</td>
+      <td>$20.00</td>
+    </tr>
+    <tr>
+      <td>Claude Sonnet 5.5</td>
+      <td>$2.00</td>
+      <td>$0.10</td>
+      <td>$10.00</td>
+    </tr>
+    <tr>
+      <td>Claude Haiku 5.5</td>
+      <td>$0.10</td>
+      <td>$0.01</td>
+      <td>$0.50</td>
+    </tr>
+    <tr>
+      <td>Claude Opus 5</td>
+      <td>$5.00</td>
+      <td>$0.50</td>
+      <td>$25.00</td>
+    </tr>
+    <tr>
+      <td>Claude Sonnet 5</td>
+      <td>$2.00</td>
+      <td>$0.20</td>
+      <td>$10.00</td>
+    </tr>
+    <tr>
+      <td>Claude Haiku 4.5</td>
+      <td>$1.00</td>
+      <td>$0.10</td>
+      <td>$5.00</td>
+    </tr>
+    <tr>
+      <td>GPT-6 Astra</td>
+      <td>$10.00</td>
+      <td>$1.00</td>
+      <td>$50.00</td>
+    </tr>
+    <tr>
+      <td>GPT-6.1 Sol</td>
+      <td>$2.00</td>
+      <td>$0.10</td>
+      <td>$10.00</td>
+    </tr>
+    <tr>
+      <td>GPT-6 Luna</td>
+      <td>$0.10</td>
+      <td>$0.01</td>
+      <td>$0.50</td>
+    </tr>
+    <tr>
+      <td>GPT-5.6 Sol</td>
+      <td>$4.00</td>
+      <td>$0.40</td>
+      <td>$20.00</td>
+    </tr>
+    <tr>
+      <td>GPT-5.6 Terra</td>
+      <td>$2.00</td>
+      <td>$0.20</td>
+      <td>$12.00</td>
+    </tr>
+    <tr>
+      <td>GPT-5.6 Luna</td>
+      <td>$0.20</td>
+      <td>$0.02</td>
+      <td>$1.20</td>
+    </tr>
+    <tr>
+      <td>GPT-5.4 mini</td>
+      <td>$0.75</td>
+      <td>$0.075</td>
+      <td>$4.50</td>
+    </tr>
+    <tr>
+      <td>Gemini 4 Argon</td>
+      <td>$2.00</td>
+      <td>$0.10</td>
+      <td>$10.00</td>
+    </tr>
+    <tr>
+      <td>Gemini 3.8 Flash</td>
+      <td>$0.75</td>
+      <td>$0.075</td>
+      <td>$3.75</td>
+    </tr>
+    <tr>
+      <td>Gemini 3.1 Pro (Preview)</td>
+      <td>$2.00</td>
+      <td>$0.20</td>
+      <td>$12.00</td>
+    </tr>
+    <tr>
+      <td>Gemini 3.5 Flash-Lite</td>
+      <td>$0.30</td>
+      <td>$0.03</td>
+      <td>$2.50</td>
+    </tr>
+    <tr>
+      <td>Gemini 2.5 Flash</td>
+      <td>$0.30</td>
+      <td>$0.03</td>
+      <td>$2.50</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>Prices change often, and some changes are already announced: Gemini 4 Argon’s prices double on December 1, 2026, and Gemini 3.8 Flash’s on January 1, 2027. The table in the calculator shows these notes next to the models. Always confirm on the provider’s pricing page before you commit to a budget: <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank">Anthropic</a>, <a href="https://developers.openai.com/api/docs/pricing" target="_blank">OpenAI</a>, <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank">Google</a>.</p>
+
+<h2 id="three-worked-examples">Three Worked Examples</h2>
+
+<p>All three use the prices above. Open the matching example in the calculator to see every model.</p>
+
+<p><strong>A support chatbot.</strong> 10,000 replies a day, each with 1,500 input tokens and 300 output tokens, no caching. The cheapest models, Claude Haiku 5.5 and GPT-6 Luna, cost <strong>$90 a month</strong>. Mid-range models such as Claude Sonnet 5.5, GPT-6.1 Sol and Gemini 4 Argon cost <strong>$1,800</strong>, and the flagships Claude Fable 5.1 and GPT-6 Astra cost <strong>$9,000</strong>. The same traffic can cost 100 times more depending on the model you choose.</p>
+
+<p><strong>A RAG application.</strong> 2,000 answers a day, each with 8,000 input tokens of retrieved documents and instructions, half of them cached, and 500 output tokens. The monthly cost goes from <strong>$41.40</strong> on the cheapest models to <strong>$804</strong> on Claude Sonnet 5.5 or GPT-6.1 Sol. Without caching, the same Sonnet workload would cost $1,260.</p>
+
+<p><strong>A nightly classification job.</strong> 100,000 short texts tagged every night, each with 300 input tokens and a 5-token label, using the Batch API. The cheapest models cost <strong>$48.75 a month</strong>. Because nobody waits for the answers, there’s no reason not to use the Batch API here: it halves the bill.</p>
+
+<p>Writing an application that uses these models well, choosing a model, evaluating its answers and keeping costs under control, is the subject of <em>AI Engineering</em> by Chip Huyen. If you’re building on top of LLM APIs, it’s the most complete guide to the engineering side.</p>
+
+<div><center>
+  <a href="https://link.amazon/B03Z7bjcu" target="_blank"><img style="border:1px solid black;" alt="AI Engineering: Building Applications with Foundation Models by Chip Huyen" title="Buy Now" border="0" width="265" height="348" src="/recommended/images/aIEngineering.jpg" /></a>
+</center>
+
+<br />
+</div>
+
+<h2 id="six-ways-to-lower-your-llm-api-bill">Six Ways to Lower Your LLM API Bill</h2>
+
+<ol>
+  <li><strong>Cache everything that repeats.</strong> System prompts, tool definitions and reference documents sent with every request are the biggest easy saving. Put the stable content first and the changing content last, because caches match the beginning of the prompt.</li>
+  <li><strong>Use the Batch API for anything that can wait,</strong> such as nightly reports, data extraction and evaluations. 50% off with no change to the prompts.</li>
+  <li><strong>Use the smallest model that does the job well.</strong> Test a smaller model on a sample of real requests before assuming you need the flagship. Many classification and extraction tasks work on the cheapest tier.</li>
+  <li><strong>Keep outputs short.</strong> Output tokens are the most expensive kind. Ask for the format you need, such as a label, JSON or three bullet points, and set a sensible maximum output length.</li>
+  <li><strong>Trim the conversation history.</strong> In a long chat, every turn resends everything before it. Summarize or drop old turns, and send only the documents a question needs.</li>
+  <li><strong>Measure cost per finished task, not per request.</strong> A cheaper model that needs three attempts, or more back-and-forth with the user, can cost more than a better model that gets it right the first time.</li>
+</ol>
+
+<p>Shorter, clearer prompts are cheaper and usually work better too. <em>Prompt Engineering for LLMs</em> by John Berryman and Albert Ziegler, two of the engineers behind GitHub Copilot, explains how to build prompts and context that get good answers without wasting tokens.</p>
+
+<div><center>
+  <a href="https://link.amazon/B0eWoFEtg" target="_blank"><img style="border:1px solid black;" alt="Prompt Engineering for LLMs by John Berryman and Albert Ziegler" title="Buy Now" border="0" width="265" height="348" src="/recommended/images/promptEngineeringForLLMs.jpg" /></a>
+</center>
+
+<br />
+</div>
+
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+
+<h3 id="how-accurate-is-the-calculator">How accurate is the calculator?</h3>
+
+<p>The prices are copied from each provider’s official pricing page, and the calculation follows their rules for caching, Batch and long prompts. The weak point is the token count: the text estimate is approximate, and every provider’s tokenizer counts differently. Use token counts from real API responses for the best result.</p>
+
+<h3 id="why-are-output-tokens-more-expensive-than-input-tokens">Why are output tokens more expensive than input tokens?</h3>
+
+<p>The model reads all the input at once, but it generates the output one token at a time, and each new token needs a full pass through the model. That makes output slower and more expensive to produce.</p>
+
+<h3 id="do-reasoning-or-thinking-tokens-count">Do reasoning or thinking tokens count?</h3>
+
+<p>Yes. Models that reason before answering bill those reasoning tokens as output tokens, even when you don’t see the reasoning. For reasoning-heavy tasks, use real <code class="language-plaintext highlighter-rouge">usage</code> numbers rather than the length of the visible answer.</p>
+
+<h3 id="is-the-claude-api-cheaper-on-aws-google-cloud-or-azure">Is the Claude API cheaper on AWS, Google Cloud or Azure?</h3>
+
+<p>Claude on Microsoft Foundry uses Anthropic’s API prices. Claude on Amazon Bedrock and Google Vertex AI is priced by those platforms, so check their pricing pages. Choosing US-only processing on Anthropic’s API costs 10% more.</p>
+
+<h3 id="how-often-are-the-prices-updated">How often are the prices updated?</h3>
+
+<p>The date at the bottom of the calculator shows when the prices were last checked against the official pages. Providers change prices and release new models often, so confirm before making a big decision.</p>
+
+<h3 id="is-my-data-sent-anywhere">Is my data sent anywhere?</h3>
+
+<p>No. The calculator and the token estimate run entirely in your browser. Nothing you type or paste is sent to a server.</p>
+
+<h2 id="related">Related</h2>
+
+<ul>
+  <li><a href="/tools/claude-md-generator/">CLAUDE.md and AGENTS.md Generator</a>: a short, clear instructions file is also a way to save tokens, because your coding agent reads it in every session.</li>
+  <li><a href="/tools/claude-md-templates/">Ready-made CLAUDE.md templates</a> for Spring Boot, Next.js, Python and Go projects.</li>
+</ul>
+
+    </div>
+
+    
+    
+    <section class="tool-related">
+        <h2>More free developer tools</h2>
+        <ul>
+            
+            <li><a href="/tools/claude-md-generator/">CLAUDE.md Generator</a>: Free generator for AGENTS.md, CLAUDE.md, GEMINI.md, Copilot instructions and Cursor rules. Pick your stack and architecture and get a clear instructions file for your AI coding agent.</li>
+            
+            <li><a href="/tools/json-to-java/">JSON to Java Converter</a>: Convert JSON to Java records, Lombok classes or POJOs online. Correct types for long IDs, dates and decimals, Jackson annotations for snake_case, and code that compiles.</li>
+            
+            <li><a href="/tools/json-validator/">JSON Validator</a>: Free online JSON validator and formatter. Shows the exact line and column of each error and how to fix it, keeps large numbers exact, and runs entirely in your browser.</li>
+            
+        </ul>
+    </section>
+    
+
+    <div class="tool-multiplex"><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- tools multiplex: grid of ad cards, placed at the end of a page after the related links -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="9120846467"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+</div>
+
+
+<script src="/assets/js/tools/llm-api-cost-calculator.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "LLM API Cost Calculator",
+      "description": "Free calculator for LLM API costs. Compare the price per request, per day and per month of Claude, GPT and Gemini models, with prompt caching, the Batch API and long-prompt pricing.",
+      "url": "https://codersite.dev/tools/llm-api-cost-calculator/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "author": { "@type": "Person", "name": "Moises Gamio", "url": "https://codersite.dev" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codersite.dev/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://codersite.dev/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "LLM API Cost Calculator", "item": "https://codersite.dev/tools/llm-api-cost-calculator/" }
+      ]
+    }
+  ]
+}
+</script>
+
+  </div>
+
+<!-- here include any banner or subscription like site.mailchimp_list  -->
+
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (10)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#design">design (5)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-APIs">Web APIs (10)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Coding-Practices">Coding Practices (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#distributed-systems">distributed-systems (2)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Object-Oriented">Object-Oriented (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Domain-Driven-Design">Domain-Driven Design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Language">Language (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Web-Performance">Web Performance (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#career">career (2)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#startup">startup (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project">Project (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#data-structures">data structures (2)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#programming">programming (7)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#system-design">system-design (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#aws">aws (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#book-review">book-review (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-kit">
+            <img src="/assets/images/brand/kit-the-code-fox.svg" width="36" height="40" alt="Kit, the codersite fox">
+            <span>Stay curious. Ship code. Grow.</span>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2026 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/policy">Privacy policy |</a>
+				<a href="/termsOfService">Terms of service |</a>
+				<a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+
+<!--
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('codersite', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support me',
+    'floating-chat.donateButton.background-color': '#f45d22',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>
+-->
+
+<!-- deferred-thirdparty: load GA4 gtag.js + AdSense on first interaction or 3s after load,
+     whichever comes first. Keeps third-party JS off the critical path (FCP/LCP/TBT);
+     gtag()/adsbygoogle commands queued earlier run as soon as the libraries arrive. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadScript(src, crossorigin) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = src;
+    if (crossorigin) { s.crossOrigin = 'anonymous'; }
+    document.head.appendChild(s);
+  }
+  function loadDeferred() {
+    if (loaded) { return; }
+    loaded = true;
+    loadScript('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9154513114335042', true);
+  }
+  var evts = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+  evts.forEach(function (e) { window.addEventListener(e, loadDeferred, { passive: true, once: true }); });
+  // Fallback so visitors who never interact are still measured and served ads.
+  if (document.readyState === 'complete') {
+    setTimeout(loadDeferred, 3000);
+  } else {
+    window.addEventListener('load', function () { setTimeout(loadDeferred, 3000); });
+  }
+})();
+</script>
+
+</body>
+</html>
