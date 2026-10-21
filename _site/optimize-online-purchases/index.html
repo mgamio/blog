@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Combinational Optimization Problem | codersite</title>
+<title>Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming) | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Combinational Optimization Problem" />
+<meta property="og:title" content="Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming)" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Knapsack problem. Fill a basket with the most valuable goods under a given budget to optimize online purchases." />
-<meta name="twitter:description" property="og:description" content="Knapsack problem. Fill a basket with the most valuable goods under a given budget to optimize online purchases." />
+<meta name="description" content="Solve the 0/1 knapsack problem in Java with test-driven development: why a greedy basket fails, a brute-force solution, and dynamic programming that finds the most grams for your budget." />
+<meta name="twitter:description" property="og:description" content="Solve the 0/1 knapsack problem in Java with test-driven development: why a greedy basket fails, a brute-force solution, and dynamic programming that finds the most grams for your budget." />
 <link rel="canonical" href="https://codersite.dev/optimize-online-purchases/" />
 <meta property="og:url" content="https://codersite.dev/optimize-online-purchases/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2020-04-09T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/knapsackAlgorithm.jpg" />
-<meta name="twitter:title" content="Combinational Optimization Problem" />
+<meta name="twitter:title" content="Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2020-04-09T00:00:00+02:00","datePublished":"2020-04-09T00:00:00+02:00","description":"Knapsack problem. Fill a basket with the most valuable goods under a given budget to optimize online purchases.","headline":"Combinational Optimization Problem","image":"https://codersite.dev/assets/images/knapsackAlgorithm.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/optimize-online-purchases/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/optimize-online-purchases/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2020-04-09T00:00:00+02:00","datePublished":"2020-04-09T00:00:00+02:00","description":"Solve the 0/1 knapsack problem in Java with test-driven development: why a greedy basket fails, a brute-force solution, and dynamic programming that finds the most grams for your budget.","headline":"Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming)","image":"https://codersite.dev/assets/images/knapsackAlgorithm.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/optimize-online-purchases/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/optimize-online-purchases/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -165,7 +165,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Combinational Optimization Problem&url=https://codersite.dev/optimize-online-purchases/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming)&url=https://codersite.dev/optimize-online-purchases/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -213,7 +213,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Combinational Optimization Problem</h1>
+                <h1 class="posttitle">Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming)</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -221,7 +221,7 @@
                 <p class="post-meta-line">
                     <time datetime="2020-04-09T00:00:00+02:00" itemprop="datePublished">Apr 9, 2020</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">12 min read</span>
+                    <span class="meta-reading-time">18 min read</span>
                     
                 </p>
 
@@ -236,7 +236,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/knapsackAlgorithm.jpg" alt="Combinational Optimization Problem">
+            <img class="featured-image img-fluid" src="/assets/images/knapsackAlgorithm.jpg" alt="Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming)">
             
 
             
@@ -247,31 +247,158 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>The <strong>Knapsack</strong> problem is a classic optimization problem in computer science and mathematics. It belongs to a class of problems known as combinatorial optimization problems. The basic idea of the Knapsack problem is to determine the most valuable combination of items to include in a knapsack, given their weights and values, without exceeding the capacity of the knapsack.</p>
+                <p>You have a fixed budget and a list of products, each with a price and something you want as much of as possible. Which products should you buy? This is the <strong>knapsack problem</strong>, one of the classic problems of computer science: choose the items that give the most total value without going over a limit.</p>
 
-<h2 id="greedy-algorithm">Greedy Algorithm</h2>
+<p>This post solves it in Java for a shopping basket, step by step with test-driven development (TDD). You’ll see:</p>
 
-<p>A greedy algorithm is an algorithmic paradigm that makes locally optimal choices at each stage with the hope of finding a global optimum. The idea is to make the best possible choice at each step without worrying about the future consequences. Greedy algorithms are often used for optimization problems where you need to make a series of decisions, and at each decision point, you choose the option that seems most promising at that moment.</p>
+<ul>
+  <li>a greedy algorithm that looks right and passes the first test;</li>
+  <li>a second test where the greedy algorithm buys the wrong snacks;</li>
+  <li>a brute-force solution that is always right but explodes with more products;</li>
+  <li>the dynamic programming solution, which is right and fast.</li>
+</ul>
 
-<p>One classic example of a greedy algorithm is the “Fractional Knapsack Problem.” In this problem, you are given a set of items, each with a weight and a value, and you want to fill a knapsack with a maximum weight capacity to maximize the total value of the items you select.</p>
+<p>All the code is Java, and every result in this post comes from running it on Java 25.</p>
 
-<h2 id="backtracking-algorithm">Backtracking Algorithm</h2>
+<h2 id="the-problem">The problem</h2>
 
-<p>Backtracking is a general algorithm for finding all (or some) solutions to computational problems, particularly constraint satisfaction problems. It incrementally builds candidates for solutions, and abandons a candidate (“backtracks”) as soon as it determines that the candidate cannot possibly be completed to a valid solution.</p>
+<p>You have a budget, and you want the most grams of snacks for it. Each snack can be bought at most once. These are the products:</p>
 
-<p>Backtracking is often used when a problem can be broken down into a series of smaller decisions, and it is not clear which decision is the correct one. The algorithm explores different choices one at a time, and if it determines that a particular choice cannot lead to a valid solution, it goes back (hence the term “backtracking”) to the previous decision point and explores a different choice.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Grams</th>
+      <th>Grams per dollar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Snack Funny Pencil</td>
+      <td>$0.48</td>
+      <td>36</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Snackin Chicken Protein</td>
+      <td>$0.89</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Snacks Waffle Pretzels</td>
+      <td>$0.98</td>
+      <td>226</td>
+      <td>231</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Snacks Tahoe Pretzels</td>
+      <td>$0.98</td>
+      <td>226</td>
+      <td>231</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Tako Chips Snack</td>
+      <td>$1.29</td>
+      <td>60</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Shrimp Snacks</td>
+      <td>$1.29</td>
+      <td>71</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Rasa Jagung Bakar</td>
+      <td>$1.35</td>
+      <td>50</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Snack Balls</td>
+      <td>$1.65</td>
+      <td>12</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Sabor Cheese Snacks</td>
+      <td>$1.69</td>
+      <td>20</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Osem Bissli Falafel</td>
+      <td>$4.86</td>
+      <td>70</td>
+      <td>14</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Backtracking is used to explore different arrangements until a valid solution is found or all possibilities are exhausted.</p>
+<p>In knapsack terms, the price is the item’s <em>weight</em>, the budget is the knapsack’s <em>capacity</em>, and the grams are the <em>value</em> you maximize. “Grams” is our choice of value; a business could use profit, calories or a rating instead, and the algorithm stays the same.</p>
 
-<h2 id="problem">Problem</h2>
+<p>Because each product is either in the basket or not, this is the <strong>0/1 knapsack problem</strong>.</p>
 
-<p>Fill a basket with the most valuable goods under a given budget to optimize online purchases.</p>
+<h2 id="store-prices-in-cents-not-doubles">Store prices in cents, not doubles</h2>
 
-<p>Imagine that we have a budget of 4 US$ and we want to buy the most valuable snacks from the following table:</p>
+<p>The first decision isn’t about the algorithm. Prices like 0.98 can’t be stored exactly in a <code class="language-plaintext highlighter-rouge">double</code>, and the small errors add up:</p>
 
-<p><img src="/assets/images/basket.jpg" alt="basket" title="snacks table" class="img-responsive" /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="o">);</span>         <span class="c1">// 0.30000000000000004</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">&lt;=</span> <span class="mf">0.3</span><span class="o">);</span>  <span class="c1">// false</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>But who decides if a product is more valuable than another one? Well, this depends on every business. It could be an estimation based on quantitative or qualitative analysis. For instance, for our solution, we choose a quantitative approach based on which product gives us <em>more grams per every dollar invested</em>.</p>
+<p>A basket that costs exactly the budget could be rejected. Store money as whole cents in an <code class="language-plaintext highlighter-rouge">int</code> (or use <code class="language-plaintext highlighter-rouge">BigDecimal</code>), and every comparison is exact:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">record</span> <span class="nf">Product</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">priceCents</span><span class="o">,</span> <span class="kt">int</span> <span class="n">grams</span><span class="o">)</span> <span class="o">{}</span>
+
+<span class="kd">public</span> <span class="kd">record</span> <span class="nf">Basket</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">products</span><span class="o">)</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">totalCents</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">products</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">mapToInt</span><span class="o">(</span><span class="nl">Product:</span><span class="o">:</span><span class="n">priceCents</span><span class="o">).</span><span class="na">sum</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">totalGrams</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">products</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">mapToInt</span><span class="o">(</span><span class="nl">Product:</span><span class="o">:</span><span class="n">grams</span><span class="o">).</span><span class="na">sum</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>All three solutions in this post implement one interface, so the same tests can check each of them:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BasketOptimizer</span> <span class="o">{</span>
+  <span class="nc">Basket</span> <span class="nf">fill</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">products</span><span class="o">,</span> <span class="kt">int</span> <span class="n">budgetCents</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -280,17 +407,149 @@
 </script>
 <br /></div>
 
-<h2 id="optimize-a-basket-in-online-purchases-solution">Optimize a basket in online purchases: Solution</h2>
+<h2 id="step-1-a-greedy-basket">Step 1: a greedy basket</h2>
 
-<p>To implement our algorithm to optimize a basket in online purchases, we use the Red-Green Refactor technique, which is the basis of test-drive-development (<a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">TDD</a>). Firstly, in every assumption, we will write a test and see if it fails. Secondly, we write the code that implements only that test and sees if it succeed, then we can refactor the code to make it better. Finally, we continue with another assumption and repeat the previous steps until the algorithm is successfully implemented for all tests.</p>
+<p>TDD works in short cycles called <em>red, green, refactor</em>: write a failing test (red), write the simplest code that passes it (green), then improve the code while the tests stay green (refactor). For an introduction, see <a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">test-driven development on Wikipedia</a>.</p>
 
-<p>To generalize the concept of <em>“the most valuable product”</em> we assign a <em>value</em> to every product. Our algorithm receives two parameters: a 2-D array which includes <em>[product-id][price][value]</em> and the <em>budget</em>.</p>
+<p>The first test: with $4.00, the best basket has 559 grams.</p>
 
-<p><strong>Assumption #1 – Given an array of products ordered by value, return the most valuable products</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">fillsTheBasketWithFourDollars</span><span class="o">()</span> <span class="o">{</span>
+  <span class="nc">Basket</span> <span class="n">basket</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="no">SNACKS</span><span class="o">,</span> <span class="mi">400</span><span class="o">);</span>
 
-<p>We start defining a java test creating a new BasketOptimized class. For naming variables, you can read <a href="https://codersite.dev/clean-code/" target="_blank">clean code</a>.</p>
+  <span class="n">assertEquals</span><span class="o">(</span><span class="mi">559</span><span class="o">,</span> <span class="n">basket</span><span class="o">.</span><span class="na">totalGrams</span><span class="o">());</span>
+  <span class="n">assertTrue</span><span class="o">(</span><span class="n">basket</span><span class="o">.</span><span class="na">totalCents</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="mi">400</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<p>The simplest idea is <strong>greedy</strong>: sort the snacks by grams per dollar, and take each one that still fits in the budget.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GreedyBasket</span> <span class="kd">implements</span> <span class="nc">BasketOptimizer</span> <span class="o">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="nc">Basket</span> <span class="nf">fill</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">products</span><span class="o">,</span> <span class="kt">int</span> <span class="n">budgetCents</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">byGramsPerCent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">products</span><span class="o">);</span>
+    <span class="n">byGramsPerCent</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="nc">Comparator</span><span class="o">.</span><span class="na">comparingDouble</span><span class="o">(</span>
+        <span class="o">(</span><span class="nc">Product</span> <span class="n">p</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">double</span><span class="o">)</span> <span class="n">p</span><span class="o">.</span><span class="na">grams</span><span class="o">()</span> <span class="o">/</span> <span class="n">p</span><span class="o">.</span><span class="na">priceCents</span><span class="o">()).</span><span class="na">reversed</span><span class="o">());</span>
+
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">basket</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">budgetCents</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">Product</span> <span class="n">product</span> <span class="o">:</span> <span class="n">byGramsPerCent</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">product</span><span class="o">.</span><span class="na">priceCents</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="n">left</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">basket</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">product</span><span class="o">);</span>
+        <span class="n">left</span> <span class="o">-=</span> <span class="n">product</span><span class="o">.</span><span class="na">priceCents</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Basket</span><span class="o">(</span><span class="n">basket</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>It takes the two pretzels (231 g per dollar), then the Funny Pencil (75), then the Shrimp Snacks (55): products 1, 3, 4 and 6, for $3.73 and <strong>559 grams</strong>. Green.</p>
+
+<p>A greedy algorithm makes the choice that looks best at each step and never reconsiders it. It’s fast: sorting makes it O(n log n). But the test only proves that greedy works for <em>this</em> budget.</p>
+
+<h2 id="step-2-a-test-that-greedy-fails">Step 2: a test that greedy fails</h2>
+
+<p>Add a second test with a smaller budget, $3.50:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">fillsTheBasketWithThreeFiftyDollars</span><span class="o">()</span> <span class="o">{</span>
+  <span class="nc">Basket</span> <span class="n">basket</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="no">SNACKS</span><span class="o">,</span> <span class="mi">350</span><span class="o">);</span>
+
+  <span class="n">assertEquals</span><span class="o">(</span><span class="mi">523</span><span class="o">,</span> <span class="n">basket</span><span class="o">.</span><span class="na">totalGrams</span><span class="o">());</span>
+  <span class="n">assertTrue</span><span class="o">(</span><span class="n">basket</span><span class="o">.</span><span class="na">totalCents</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="mi">350</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Red. The greedy basket has only 498 grams:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Algorithm</th>
+      <th>Basket</th>
+      <th>Price</th>
+      <th>Grams</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Greedy</td>
+      <td>1, 2, 3, 4</td>
+      <td>$3.33</td>
+      <td>498</td>
+    </tr>
+    <tr>
+      <td>Best possible</td>
+      <td>3, 4, 6</td>
+      <td>$3.25</td>
+      <td><strong>523</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Greedy takes the two pretzels and the Funny Pencil, which leaves $1.06. The Shrimp Snacks cost $1.29 and no longer fit, so it fills the gap with the Chicken Protein for 10 grams. The best basket skips the Funny Pencil, a good deal on its own, to make room for the Shrimp Snacks: it gives up 36 grams to gain 71.</p>
+
+<p>That’s the weakness of every greedy algorithm: an early choice that looks best can block a better combination later. For the 0/1 knapsack problem, no greedy rule is always right.</p>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="step-3-brute-force-every-possible-basket">Step 3: brute force, every possible basket</h2>
+
+<p>The safe way to find the best basket is to try them all. With n products there are 2ⁿ baskets, because each product is in or out. You can number the baskets from 0 to 2ⁿ − 1 and let bit i of the number say whether product i is in the basket:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>0000000000 = no products
+0000000001 = product 1
+0000000101 = products 1 and 3
+...
+1111111111 = all 10 products
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -318,48 +577,87 @@
 26
 27
 28
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">BasketOptimizedTest</span> <span class="p">{</span>
-  <span class="nc">BasketOptimized</span> <span class="n">basketOptimized</span><span class="p">;</span>
+29
+30
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BruteForceBasket</span> <span class="kd">implements</span> <span class="nc">BasketOptimizer</span> <span class="o">{</span>
 
-  <span class="nd">@Before</span>
-  <span class="k">public</span> <span class="n">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">basketOptimized</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">BasketOptimized</span><span class="p">();</span>
-  <span class="p">}</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="nc">Basket</span> <span class="nf">fill</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">products</span><span class="o">,</span> <span class="kt">int</span> <span class="n">budgetCents</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">products</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+    <span class="kt">long</span> <span class="n">bestGrams</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+    <span class="kt">long</span> <span class="n">bestSubset</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
-  <span class="nd">@Test</span>
-  <span class="k">public</span> <span class="n">void</span> <span class="nf">productsOrderedByValue</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">long</span> <span class="n">subset</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">subset</span> <span class="o">&lt;</span> <span class="o">(</span><span class="mi">1L</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="o">);</span> <span class="n">subset</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="kt">int</span> <span class="n">cents</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+      <span class="kt">int</span> <span class="n">grams</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">((</span><span class="n">subset</span> <span class="o">&amp;</span> <span class="o">(</span><span class="mi">1L</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">))</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>   <span class="c1">// is product i in this basket?</span>
+          <span class="n">cents</span> <span class="o">+=</span> <span class="n">products</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">priceCents</span><span class="o">();</span>
+          <span class="n">grams</span> <span class="o">+=</span> <span class="n">products</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">grams</span><span class="o">();</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">cents</span> <span class="o">&lt;=</span> <span class="n">budgetCents</span> <span class="o">&amp;&amp;</span> <span class="n">grams</span> <span class="o">&gt;</span> <span class="n">bestGrams</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">bestGrams</span> <span class="o">=</span> <span class="n">grams</span><span class="o">;</span>
+        <span class="n">bestSubset</span> <span class="o">=</span> <span class="n">subset</span><span class="o">;</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
 
-    <span class="n">double</span><span class="p">[][]</span> <span class="n">myProducts</span> <span class="p">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[][]</span> <span class="p">{</span>
-        <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span>
-        <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span>
-        <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mi">75</span><span class="p">},</span>
-        <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">,</span> <span class="mi">55</span><span class="p">},</span>
-        <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">,</span> <span class="mi">47</span><span class="p">},</span>
-        <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.86</span><span class="p">,</span> <span class="mi">14</span><span class="p">},</span>
-        <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mf">1.69</span><span class="p">,</span> <span class="mi">12</span><span class="p">},</span>
-    <span class="p">};</span>
-
-    <span class="n">double</span><span class="p">[][]</span> <span class="n">mostValueableProducts</span> <span class="p">=</span>
-        <span class="n">basketOptimized</span><span class="p">.</span><span class="nf">fill</span><span class="p">(</span><span class="n">myProducts</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-    <span class="nf">assertEquals</span><span class="p">(</span><span class="mi">590</span><span class="n">d</span><span class="p">,</span>
-        <span class="nc">Arrays</span><span class="p">.</span><span class="nf">stream</span><span class="p">(</span><span class="n">mostValueableProducts</span><span class="p">).</span>
-            <span class="nf">mapToDouble</span><span class="p">(</span><span class="n">arr</span> <span class="p">-&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]).</span><span class="nf">sum</span><span class="p">(),</span><span class="mi">0</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">basket</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">((</span><span class="n">bestSubset</span> <span class="o">&amp;</span> <span class="o">(</span><span class="mi">1L</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">))</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="n">basket</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">products</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Basket</span><span class="o">(</span><span class="n">basket</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
+<p>Both tests are green: 559 grams with $4.00 and 523 with $3.50. The bit tricks are explained in <a href="https://codersite.dev/enum-flags-bitwise-operators/" target="_blank">enum flags and bitwise operators in Java</a>.</p>
 
-<p>The first time, it should fail because the <em>fill</em> method doesn’t exist. Then we need to create an easy implementation to pass the test: the sum of the values must be equal to 590 because this represents all selected products which its prices sum less or equal than 4.</p>
+<p>The problem is speed. Checking every basket is O(n × 2ⁿ), and each extra product doubles the work. I timed it with a $20 budget:</p>
 
-<p>Now, we proceed to implement the <em>fill</em> method.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Products</th>
+      <th>Baskets checked</th>
+      <th>Brute force time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10</td>
+      <td>1,024</td>
+      <td>under 1 ms</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>1,048,576</td>
+      <td>38 ms</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>33,554,432</td>
+      <td>1,368 ms</td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<p>Each 5 more products multiply the time by about 32. At that rate, 40 products would take more than 12 hours. A real shop has thousands of products. For why exponential algorithms hit this wall, see <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Big O notation in Java</a>.</p>
+
+<h2 id="step-4-refactor-to-dynamic-programming">Step 4: refactor to dynamic programming</h2>
+
+<p>Brute force does a lot of repeated work: thousands of baskets share the same first few products. <strong>Dynamic programming</strong> solves each smaller problem once and reuses the answer.</p>
+
+<p>The smaller problem is: <em>what is the most grams I can get using only the first i products with b cents?</em> Call that <code class="language-plaintext highlighter-rouge">best[i][b]</code>. For each product there are only two choices:</p>
+
+<ul>
+  <li><strong>leave it out:</strong> the answer is the same as without it, <code class="language-plaintext highlighter-rouge">best[i - 1][b]</code>;</li>
+  <li><strong>take it, if it fits:</strong> its grams plus the best you can do with the money that’s left, <code class="language-plaintext highlighter-rouge">best[i - 1][b - price] + grams</code>.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">best[i][b]</code> is the larger of the two. Fill the table row by row, and the answer for the whole problem is in the last cell, <code class="language-plaintext highlighter-rouge">best[n][budget]</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -381,35 +679,69 @@
 20
 21
 22
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">BasketOptimized</span> <span class="p">{</span>
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DynamicProgrammingBasket</span> <span class="kd">implements</span> <span class="nc">BasketOptimizer</span> <span class="o">{</span>
 
-  <span class="k">public</span> <span class="n">double</span><span class="p">[][]</span> <span class="nf">fill</span><span class="p">(</span><span class="n">double</span><span class="p">[][]</span> <span class="n">myProducts</span><span class="p">,</span> <span class="n">double</span> <span class="n">budget</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="nc">Basket</span> <span class="nf">fill</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">products</span><span class="o">,</span> <span class="kt">int</span> <span class="n">budgetCents</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">products</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+    <span class="c1">// best[i][b] = most grams using the first i products with b cents</span>
+    <span class="kt">int</span><span class="o">[][]</span> <span class="n">best</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">budgetCents</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
 
-    <span class="n">int</span> <span class="n">len</span> <span class="p">=</span> <span class="n">myProducts</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-    <span class="n">double</span><span class="p">[][]</span> <span class="n">mostValueableProducts</span> <span class="p">=</span>  <span class="n">new</span> <span class="n">double</span><span class="p">[</span><span class="n">len</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="nc">Product</span> <span class="n">product</span> <span class="o">=</span> <span class="n">products</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">budgetCents</span><span class="o">;</span> <span class="n">b</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">best</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">b</span><span class="o">]</span> <span class="o">=</span> <span class="n">best</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">b</span><span class="o">];</span>                       <span class="c1">// leave it out</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">product</span><span class="o">.</span><span class="na">priceCents</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>                    <span class="c1">// or take it</span>
+          <span class="n">best</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">b</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">best</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">b</span><span class="o">],</span>
+              <span class="n">best</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">b</span> <span class="o">-</span> <span class="n">product</span><span class="o">.</span><span class="na">priceCents</span><span class="o">()]</span> <span class="o">+</span> <span class="n">product</span><span class="o">.</span><span class="na">grams</span><span class="o">());</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
 
-    <span class="n">double</span> <span class="n">sum</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">idx</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">idx</span> <span class="p">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">idx</span><span class="p">++)</span> <span class="p">{</span>
-      <span class="n">sum</span> <span class="p">=</span> <span class="n">sum</span> <span class="p">+</span> <span class="n">myProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//price</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">sum</span> <span class="p">&lt;=</span> <span class="n">budget</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">mostValueableProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span>
-            <span class="n">myProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span> <span class="c1">//id</span>
-        <span class="n">mostValueableProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span>
-            <span class="n">myProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//price</span>
-        <span class="n">mostValueableProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="p">=</span>
-            <span class="n">myProducts</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span> <span class="c1">//value</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">mostValueableProducts</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+    <span class="c1">// walk back through the table to find which products were taken</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Product</span><span class="o">&gt;</span> <span class="n">basket</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">budgetCents</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">best</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">b</span><span class="o">]</span> <span class="o">!=</span> <span class="n">best</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">b</span><span class="o">])</span> <span class="o">{</span>   <span class="c1">// the value changed, so product i was taken</span>
+        <span class="nc">Product</span> <span class="n">product</span> <span class="o">=</span> <span class="n">products</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="n">basket</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">product</span><span class="o">);</span>
+        <span class="n">b</span> <span class="o">-=</span> <span class="n">product</span><span class="o">.</span><span class="na">priceCents</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Basket</span><span class="o">(</span><span class="n">basket</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p><strong>Assumption #2 – Given an array of products not ordered by value, return the most valuable products</strong></p>
+<p>Refactor done, both tests still green. With $3.50 it returns products 3, 4 and 6 for $3.25 and 523 grams.</p>
 
-<p>In this case we pass a not ordered array, so we can see that our new test will fail.</p>
+<p>The table has (n + 1) × (budget + 1) cells, and each takes constant time, so dynamic programming is <strong>O(n × budget)</strong> in time and memory, with the budget in cents. For 25 products and a $20 budget, that’s 26 × 2,001 cells: it took 0.04 ms, against 1,368 ms for brute force, with the same answer. To be sure, I also compared it with brute force on 300 random product lists: the grams always matched, and it never went over budget.</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<p>The trade-off is that the running time depends on the budget’s size, not just on the number of products. That’s why prices in cents matter twice: they make the comparisons exact and they keep the table small. With a budget of $20,000 in cents, the table would have two million columns per product.</p>
+
+<p>Dynamic programming is one of the most important techniques in algorithm design, and knapsack is its classic first example. To build the foundation it rests on, how to analyze an algorithm and choose the right data structure, <em>Algorithms</em> by Robert Sedgewick and Kevin Wayne is a good next step, with clear Java code for sorting, searching, graphs and strings.</p>
+
+<div><center>
+  <a href="https://amzn.to/4hDFb8q" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="/recommended/images/algorithmsRobertSedgewick.jpg" /></a>
+</center>
+
+<br /></div>
+
+<h2 id="edge-cases-to-test">Edge cases to test</h2>
+
+<p>TDD doesn’t stop at the happy path. These tests pass with the dynamic programming solution:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -424,194 +756,103 @@
 13
 14
 15
-16
-17
-18
 </pre></td><td class="rouge-code"><pre><span class="nd">@Test</span>
-<span class="k">public</span> <span class="n">void</span> <span class="nf">productsNotOrderedByValue</span> <span class="p">()</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">emptyBasketWhenTheBudgetIsZero</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">assertTrue</span><span class="o">(</span><span class="n">optimizer</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="no">SNACKS</span><span class="o">,</span> <span class="mi">0</span><span class="o">).</span><span class="na">products</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">());</span>
+<span class="o">}</span>
 
-  <span class="n">double</span><span class="p">[][]</span> <span class="n">myProducts</span> <span class="p">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[][]{</span>
-      <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span>
-      <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">,</span> <span class="mi">47</span><span class="p">},</span>
-      <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.69</span><span class="p">,</span> <span class="mi">12</span><span class="p">},</span>
-      <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">,</span> <span class="mi">55</span><span class="p">},</span>
-      <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span>
-      <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.86</span><span class="p">,</span> <span class="mi">14</span><span class="p">},</span>
-      <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mi">75</span><span class="p">}</span>
-  <span class="p">};</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">emptyBasketWhenThereAreNoProducts</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">assertTrue</span><span class="o">(</span><span class="n">optimizer</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(),</span> <span class="mi">400</span><span class="o">).</span><span class="na">products</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">());</span>
+<span class="o">}</span>
 
-  <span class="n">double</span><span class="p">[][]</span> <span class="n">mostValueableProducts</span> 
-    <span class="p">=</span> <span class="n">basketOptimized</span><span class="p">.</span><span class="nf">fill</span><span class="p">(</span><span class="n">myProducts</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-  <span class="nf">assertEquals</span><span class="p">(</span><span class="mi">590</span><span class="n">d</span><span class="p">,</span> <span class="nc">Arrays</span><span class="p">.</span><span class="nf">stream</span><span class="p">(</span><span class="n">mostValueableProducts</span><span class="p">)</span>
-    <span class="p">.</span><span class="nf">mapToDouble</span><span class="p">(</span><span class="n">arr</span> <span class="p">-&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]).</span><span class="nf">sum</span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">emptyBasketWhenEveryProductIsTooExpensive</span><span class="o">()</span> <span class="o">{</span>
+  <span class="nc">Product</span> <span class="n">falafel</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Product</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="s">"Osem Bissli Falafel"</span><span class="o">,</span> <span class="mi">486</span><span class="o">,</span> <span class="mi">70</span><span class="o">);</span>
+  <span class="n">assertTrue</span><span class="o">(</span><span class="n">optimizer</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">falafel</span><span class="o">),</span> <span class="mi">400</span><span class="o">).</span><span class="na">products</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">());</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<blockquote>
-  <p>Any software design is generally a matter of opinion. There is no definitive Guide. – <cite>codersite.dev</cite></p>
-</blockquote>
+<p>Because all three solutions implement <code class="language-plaintext highlighter-rouge">BasketOptimizer</code>, you can run the same test class against each of them. Only the greedy one fails, and only the $3.50 test. Writing code against an interface like this is the <a href="https://codersite.dev/open-closed-principle/" target="_blank">open-closed principle</a> at work: you added two new algorithms without changing a single test.</p>
 
-<div><center>
-  <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="/assets/images/SoftwareDesignPrinciplesV2.jpg" /></a>
-</center>
-
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <br /></div>
 
-<p>We realize that we need to order the array by value because we want the most valuable products, so its time to refactor our algorithm. What we need to do is to sort our input array.</p>
+<h2 id="comparing-the-three-solutions">Comparing the three solutions</h2>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">double</span><span class="p">[][]</span> <span class="nf">fill</span><span class="p">(</span><span class="n">double</span><span class="p">[][]</span> <span class="n">myProducts</span><span class="p">,</span> <span class="n">double</span> <span class="n">budget</span><span class="p">)</span> <span class="p">{</span>
+<table>
+  <thead>
+    <tr>
+      <th>Solution</th>
+      <th>Always the best basket?</th>
+      <th>Time</th>
+      <th>Good for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Greedy</td>
+      <td>No</td>
+      <td>O(n log n)</td>
+      <td>Quick estimates, the fractional knapsack</td>
+    </tr>
+    <tr>
+      <td>Brute force</td>
+      <td>Yes</td>
+      <td>O(n × 2ⁿ)</td>
+      <td>Up to about 20 products, or checking other solutions in tests</td>
+    </tr>
+    <tr>
+      <td>Dynamic programming</td>
+      <td>Yes</td>
+      <td>O(n × budget)</td>
+      <td>Most real cases, when the budget in cents isn’t huge</td>
+    </tr>
+  </tbody>
+</table>
 
-  <span class="nc">Arrays</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="n">myProducts</span><span class="p">,</span> <span class="nc">Collections</span><span class="p">.</span><span class="nf">reverseOrder</span><span class="p">(</span>
-      <span class="nc">Comparator</span><span class="p">.</span><span class="nf">comparingDouble</span><span class="p">(</span><span class="n">a</span> <span class="p">-&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">])));</span>
-  <span class="n">int</span> <span class="n">len</span> <span class="p">=</span> <span class="n">myProducts</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-  <span class="n">double</span><span class="p">[][]</span> <span class="n">mostValueableProducts</span> <span class="p">=</span>  <span class="n">new</span> <span class="n">double</span><span class="p">[</span><span class="n">len</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<h2 id="variants-of-the-knapsack-problem">Variants of the knapsack problem</h2>
 
-<p>Then we can see our two test cases were successful.</p>
+<ul>
+  <li><strong>Fractional knapsack:</strong> you can buy part of a product, say half a bag. Here greedy by grams per dollar <em>is</em> optimal: fill up with the best ratio first, and take a fraction of the last product.</li>
+  <li><strong>Unbounded knapsack:</strong> you can buy the same product many times. The dynamic programming table changes slightly: when you take a product, you look up <code class="language-plaintext highlighter-rouge">best[i][b - price]</code> instead of <code class="language-plaintext highlighter-rouge">best[i - 1][...]</code>.</li>
+  <li><strong>Counting combinations:</strong> instead of the best basket, count how many baskets fit the budget. See <a href="https://codersite.dev/shopping-budget-options/" target="_blank">Shopping Options: count the ways to buy within a budget</a>, which goes from a brute force to a meet-in-the-middle solution.</li>
+</ul>
 
-<h3 id="calculate-combinations">Calculate combinations</h3>
-
-<p><strong>Assumption #3 – Given an array of products, we need to obtain the most valuable products from all possible combinations of the products</strong></p>
-
-<p>Imagine the following scenario:</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="rouge-code"><pre><span class="n">double</span><span class="p">[][]</span> <span class="n">myProducts</span> <span class="p">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[][]</span> <span class="p">{</span>
-                <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span>
-                <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">,</span> <span class="mi">30</span><span class="p">},</span>
-                <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.49</span><span class="p">,</span> <span class="mi">28</span><span class="p">},</span>
-                <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">,</span> <span class="mi">55</span><span class="p">},</span>
-                <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span>
-                <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.86</span><span class="p">,</span> <span class="mi">14</span><span class="p">},</span>
-                <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mi">75</span><span class="p">},</span>
-        <span class="p">};</span>
-
-<span class="n">double</span><span class="p">[][]</span> <span class="n">mostValueableProducts</span> <span class="p">=</span> <span class="n">basketOptimized</span>
-       <span class="p">.</span><span class="nf">fill</span><span class="p">(</span><span class="n">myProducts</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-<span class="nf">assertEquals</span><span class="p">(</span><span class="mi">590</span><span class="n">d</span><span class="p">,</span>
-      <span class="nc">Arrays</span><span class="p">.</span><span class="nf">stream</span><span class="p">(</span><span class="n">mostValueableProducts</span><span class="p">)</span>
-       <span class="p">.</span><span class="nf">mapToDouble</span><span class="p">(</span><span class="n">arr</span> <span class="p">-&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]).</span><span class="nf">sum</span><span class="p">(),</span><span class="mi">0</span><span class="p">);</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>The test is expecting a result of 590 which corresponds to the final price of 3,73US$ (0.98+0.98+0.48+1.29). Once the algorithm sort by value the input array, we have the following result:</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="na">[1.0, 0.98, 230.0]</span>
-<span class="na">[5.0, 0.98, 230.0]</span>
-<span class="na">[7.0, 0.48, 75.0]</span>
-<span class="na">[4.0, 1.29, 55.0]</span>
-<span class="na">[2.0, 0.51, 30.0]</span>
-<span class="na">[3.0, 0.49, 28.0]</span>
-<span class="na">[6.0, 4.86, 14.0]</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<blockquote>
-  <p>Questions Used to Hire Thousands of Engineers.</p>
-</blockquote>
-
-<div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
-</center>
-
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <br /></div>
 
-<p>But here we realize the exists another combination of products which give us the most valuable products: 230+230+75+30+28 = 593 which corresponds to the final price of 3,44US$.</p>
+<h2 id="faq">FAQ</h2>
 
-<p>A greedy algorithm would sort the products by their <em>“more grams per every dollar invested”</em> ratio, and then select the product with the highest ratio that fits in the budget, and then repeat until the budget is achieved. This would give an approximate solution in linear time, but not necessarily the optimal one.</p>
+<h3 id="what-is-the-01-knapsack-problem">What is the 0/1 knapsack problem?</h3>
 
-<p>Then we need to refactor our code to calculate all combinations (subsets) and return the most valuable products under a budget of 4 US$.</p>
+<p>Given items with a weight and a value, and a knapsack with a weight limit, choose the items with the highest total value that fit. <em>0/1</em> means each item is either taken whole or left out. In this post, the weight is the price, the limit is the budget, and the value is grams.</p>
 
-<p>The subsets can be represented by all the binary options from 0 to 7 (the array size).</p>
+<h3 id="why-doesnt-a-greedy-algorithm-work-for-the-01-knapsack-problem">Why doesn’t a greedy algorithm work for the 0/1 knapsack problem?</h3>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="mi">0000</span> <span class="p">=</span> <span class="p">{}</span>
-<span class="mi">0001</span> <span class="p">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">}</span> <span class="p">}</span>
-<span class="mi">0010</span> <span class="p">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">,</span> <span class="mi">30</span><span class="p">}</span> <span class="p">}</span>
-<span class="mi">0011</span> <span class="p">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mi">230</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">,</span> <span class="mi">30</span><span class="p">}</span> <span class="p">}</span>
-<span class="p">.</span>
-<span class="p">.</span>
-<span class="p">.</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Because the item with the best ratio can use up money that a better combination needs. With $3.50, greedy takes the Funny Pencil and ends up with 498 grams; leaving it out makes room for the Shrimp Snacks, for 523 grams.</p>
 
-<p>We build a hashMap to store all combinations and the sum of its values. Finally, we return the first element of the hashMap ordered by value</p>
+<h3 id="is-the-knapsack-problem-np-complete">Is the knapsack problem NP-complete?</h3>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-</pre></td><td class="rouge-code"><pre><span class="n">int</span> <span class="n">len</span> <span class="p">=</span> <span class="n">myProducts</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-<span class="n">int</span> <span class="n">numIterations</span> <span class="p">=</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="nc">Math</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">myProducts</span><span class="p">.</span><span class="n">length</span><span class="p">);</span>
+<p>Yes, the decision version is NP-complete, so no known algorithm solves every case in time polynomial in the size of the input. The dynamic programming solution is <em>pseudo-polynomial</em>: polynomial in the number of items and the numeric value of the budget, which is fast when the budget is small and slow when it’s huge.</p>
 
-<span class="nc">Map</span><span class="p">&lt;</span><span class="err">double[][]</span><span class="p">,</span> <span class="nc">Double</span><span class="p">&gt;</span> <span class="n">combinations</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">HashMap</span><span class="p">&lt;&gt;();</span>
+<h3 id="can-i-reduce-the-memory-of-the-dynamic-programming-solution">Can I reduce the memory of the dynamic programming solution?</h3>
 
-<span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">idx</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">idx</span><span class="p">&lt;</span><span class="n">numIterations</span><span class="p">;</span> <span class="n">idx</span><span class="p">++){</span>
-  <span class="n">double</span><span class="p">[][]</span> <span class="n">combx</span> <span class="p">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[</span><span class="n">len</span><span class="p">][];</span>
-  <span class="n">double</span> <span class="n">sumPrice</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">double</span> <span class="n">sumValue</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">idx2</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">idx2</span><span class="p">&lt;</span><span class="n">len</span><span class="p">;</span> <span class="n">idx2</span><span class="p">++)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">((</span><span class="n">idx</span> <span class="p">&amp;</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="nc">Math</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">idx2</span><span class="p">))</span> <span class="p">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-       <span class="n">combx</span><span class="p">[</span><span class="n">i</span><span class="p">++]</span> <span class="p">=</span> <span class="n">myProducts</span><span class="p">[</span><span class="n">idx2</span><span class="p">];</span>
-       <span class="n">sumPrice</span> <span class="p">=</span> <span class="n">sumPrice</span> <span class="p">+</span> <span class="n">myProducts</span><span class="p">[</span><span class="n">idx2</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
-       <span class="n">sumValue</span> <span class="p">=</span> <span class="n">sumValue</span> <span class="p">+</span> <span class="n">myProducts</span><span class="p">[</span><span class="n">idx2</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">combx</span><span class="p">.</span><span class="n">length</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">&amp;&amp;</span> <span class="n">sumPrice</span> <span class="p">&lt;=</span> <span class="n">budget</span><span class="p">)</span> <span class="p">{</span>
-     <span class="n">combinations</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">combx</span><span class="p">,</span> <span class="nc">Double</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="n">sumValue</span><span class="p">));</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Yes. Each row only needs the previous one, so a single array of size budget + 1 is enough if you loop over the budget from high to low. You lose the full table, though, so you can no longer walk back through it to see which products were taken.</p>
 
-<p>You can see the complete solution explained in detail and all test cases in my book:</p>
+<h3 id="why-use-test-driven-development-for-an-algorithm">Why use test-driven development for an algorithm?</h3>
+
+<p>The second test is the answer. The greedy algorithm looked right and passed the first test; only a test with another budget showed that it was wrong. Tests written first, with known correct answers, catch the solutions that only work for the examples you happened to try.</p>
+
+<p>You can see more problems like this one, solved step by step from the first idea to working Java code, in my book <strong>THE CODE INTERVIEW: Real Java Coding Interview Questions, Solved Step by Step</strong>.</p>
 
 <div><center>
   <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
@@ -624,8 +865,6 @@
 <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 
 </div>
-
-<p><br /></p>
 
 				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
@@ -647,6 +886,10 @@
             <div class="after-post-cats">
                 <ul class="tags mb-4">
                     
+                    
+                    <li>
+                        <a class="smoothscroll" href="/category/algorithms/">algorithms</a>
+                    </li>
                     
                     <li>
                         <a class="smoothscroll" href="/category/test-driven-development/">test-driven development</a>
@@ -710,8 +953,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/optimize-online-purchases/"
   },
-  "headline": "Combinational Optimization Problem",
-  "description": "Knapsack problem. Fill a basket with the most valuable goods under a given budget to optimize online purchases.",
+  "headline": "Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming)",
+  "description": "Solve the 0/1 knapsack problem in Java with test-driven development: why a greedy basket fails, a brute-force solution, and dynamic programming that finds the most grams for your budget.",
   "image": "https://codersite.dev/assets/images/knapsackAlgorithm.jpg",
   "datePublished": "2020-04-09T00:00:00+02:00",
   "dateModified": "2020-04-09T00:00:00+02:00",
@@ -743,13 +986,13 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "test-driven development",
-      "item": "https://codersite.dev/categories#test-driven-development"
+      "name": "algorithms",
+      "item": "https://codersite.dev/categories#algorithms"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Combinational Optimization Problem",
+      "name": "Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming)",
       "item": "https://codersite.dev/optimize-online-purchases/"
     }
   ]
@@ -836,7 +1079,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
             
             
                 
-                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (9)</a>
+                    <a class="mt-1 mb-1" href="/categories#algorithms">algorithms (10)</a>
                 
                     <a class="mt-1 mb-1" href="/categories#test-driven-development">test-driven development (1)</a>
                 

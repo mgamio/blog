@@ -1,81 +1,76 @@
 ---
 layout: post
-title:  "Combinational Optimization Problem"
-description: "Knapsack problem. Fill a basket with the most valuable goods under a given budget to optimize online purchases."
+title:  "Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming)"
+description: "Solve the 0/1 knapsack problem in Java with test-driven development: why a greedy basket fails, a brute-force solution, and dynamic programming that finds the most grams for your budget."
 author: moises
-categories: [ test-driven development ]
+categories: [ algorithms, test-driven development ]
 image: /assets/images/knapsackAlgorithm.jpg
 comments: false
 ---
 
-The **Knapsack** problem is a classic optimization problem in computer science and mathematics. It belongs to a class of problems known as combinatorial optimization problems. The basic idea of the Knapsack problem is to determine the most valuable combination of items to include in a knapsack, given their weights and values, without exceeding the capacity of the knapsack.
+You have a fixed budget and a list of products, each with a price and something you want as much of as possible. Which products should you buy? This is the **knapsack problem**, one of the classic problems of computer science: choose the items that give the most total value without going over a limit.
 
-## Greedy Algorithm
+This post solves it in Java for a shopping basket, step by step with test-driven development (TDD). You'll see:
 
-A greedy algorithm is an algorithmic paradigm that makes locally optimal choices at each stage with the hope of finding a global optimum. The idea is to make the best possible choice at each step without worrying about the future consequences. Greedy algorithms are often used for optimization problems where you need to make a series of decisions, and at each decision point, you choose the option that seems most promising at that moment.
+- a greedy algorithm that looks right and passes the first test;
+- a second test where the greedy algorithm buys the wrong snacks;
+- a brute-force solution that is always right but explodes with more products;
+- the dynamic programming solution, which is right and fast.
 
-One classic example of a greedy algorithm is the "Fractional Knapsack Problem." In this problem, you are given a set of items, each with a weight and a value, and you want to fill a knapsack with a maximum weight capacity to maximize the total value of the items you select.
+All the code is Java, and every result in this post comes from running it on Java 25.
 
-## Backtracking Algorithm
+## The problem
 
-Backtracking is a general algorithm for finding all (or some) solutions to computational problems, particularly constraint satisfaction problems. It incrementally builds candidates for solutions, and abandons a candidate ("backtracks") as soon as it determines that the candidate cannot possibly be completed to a valid solution.
+You have a budget, and you want the most grams of snacks for it. Each snack can be bought at most once. These are the products:
 
-Backtracking is often used when a problem can be broken down into a series of smaller decisions, and it is not clear which decision is the correct one. The algorithm explores different choices one at a time, and if it determines that a particular choice cannot lead to a valid solution, it goes back (hence the term "backtracking") to the previous decision point and explores a different choice.
+| Id | Name | Price | Grams | Grams per dollar |
+|---|---|---|---|---|
+| 1 | Snack Funny Pencil | $0.48 | 36 | 75 |
+| 2 | Snackin Chicken Protein | $0.89 | 10 | 11 |
+| 3 | Snacks Waffle Pretzels | $0.98 | 226 | 231 |
+| 4 | Snacks Tahoe Pretzels | $0.98 | 226 | 231 |
+| 5 | Tako Chips Snack | $1.29 | 60 | 47 |
+| 6 | Shrimp Snacks | $1.29 | 71 | 55 |
+| 7 | Rasa Jagung Bakar | $1.35 | 50 | 37 |
+| 8 | Snack Balls | $1.65 | 12 | 7 |
+| 9 | Sabor Cheese Snacks | $1.69 | 20 | 12 |
+| 10 | Osem Bissli Falafel | $4.86 | 70 | 14 |
 
-Backtracking is used to explore different arrangements until a valid solution is found or all possibilities are exhausted.
+In knapsack terms, the price is the item's *weight*, the budget is the knapsack's *capacity*, and the grams are the *value* you maximize. "Grams" is our choice of value; a business could use profit, calories or a rating instead, and the algorithm stays the same.
 
-## Problem
+Because each product is either in the basket or not, this is the **0/1 knapsack problem**.
 
-Fill a basket with the most valuable goods under a given budget to optimize online purchases.
+## Store prices in cents, not doubles
 
-Imagine that we have a budget of 4 US$ and we want to buy the most valuable snacks from the following table:
+The first decision isn't about the algorithm. Prices like 0.98 can't be stored exactly in a `double`, and the small errors add up:
 
-![basket](/assets/images/basket.jpg "snacks table"){:class="img-responsive"}
+```java
+System.out.println(0.1 + 0.2);         // 0.30000000000000004
+System.out.println(0.1 + 0.2 <= 0.3);  // false
+```
 
-But who decides if a product is more valuable than another one? Well, this depends on every business. It could be an estimation based on quantitative or qualitative analysis. For instance, for our solution, we choose a quantitative approach based on which product gives us *more grams per every dollar invested*.
+A basket that costs exactly the budget could be rejected. Store money as whole cents in an `int` (or use `BigDecimal`), and every comparison is exact:
 
-<div>
-{%- include inArticleAds.html -%}
-</div>
+```java
+public record Product(int id, String name, int priceCents, int grams) {}
 
-## Optimize a basket in online purchases: Solution
+public record Basket(List<Product> products) {
 
-To implement our algorithm to optimize a basket in online purchases, we use the Red-Green Refactor technique, which is the basis of test-drive-development ([TDD](https://en.wikipedia.org/wiki/Test-driven_development){:target="_blank"}). Firstly, in every assumption, we will write a test and see if it fails. Secondly, we write the code that implements only that test and sees if it succeed, then we can refactor the code to make it better. Finally, we continue with another assumption and repeat the previous steps until the algorithm is successfully implemented for all tests.
-
-To generalize the concept of *“the most valuable product”* we assign a *value* to every product. Our algorithm receives two parameters: a 2-D array which includes *[product-id][price][value]* and the *budget*.
-
-**Assumption #1 – Given an array of products ordered by value, return the most valuable products**
-
-We start defining a java test creating a new BasketOptimized class. For naming variables, you can read [clean code](https://codersite.dev/clean-code/){:target="_blank"}.
-
-```kotlin
-public class BasketOptimizedTest {
-  BasketOptimized basketOptimized;
-
-  @Before
-  public void setup() {
-    basketOptimized = new BasketOptimized();
+  public int totalCents() {
+    return products.stream().mapToInt(Product::priceCents).sum();
   }
 
-  @Test
-  public void productsOrderedByValue () {
-
-    double[][] myProducts = new double[][] {
-        {1, 0.98, 230},
-        {2, 0.98, 230},
-        {3, 0.48, 75},
-        {4, 1.29, 55},
-        {5, 1.29, 47},
-        {6, 4.86, 14},
-        {7, 1.69, 12},
-    };
-
-    double[][] mostValueableProducts =
-        basketOptimized.fill(myProducts, 4);
-    assertEquals(590d,
-        Arrays.stream(mostValueableProducts).
-            mapToDouble(arr -> arr[2]).sum(),0);
+  public int totalGrams() {
+    return products.stream().mapToInt(Product::grams).sum();
   }
+}
+```
+
+All three solutions in this post implement one interface, so the same tests can check each of them:
+
+```java
+public interface BasketOptimizer {
+  Basket fill(List<Product> products, int budgetCents);
 }
 ```
 
@@ -83,166 +78,263 @@ public class BasketOptimizedTest {
 {%- include inArticleAds.html -%}
 </div>
 
-The first time, it should fail because the *fill* method doesn’t exist. Then we need to create an easy implementation to pass the test: the sum of the values must be equal to 590 because this represents all selected products which its prices sum less or equal than 4.
+## Step 1: a greedy basket
 
-Now, we proceed to implement the *fill* method.
+TDD works in short cycles called *red, green, refactor*: write a failing test (red), write the simplest code that passes it (green), then improve the code while the tests stay green (refactor). For an introduction, see [test-driven development on Wikipedia](https://en.wikipedia.org/wiki/Test-driven_development){:target="_blank"}.
 
-```kotlin
-public class BasketOptimized {
+The first test: with $4.00, the best basket has 559 grams.
 
-  public double[][] fill(double[][] myProducts, double budget) {
+```java
+@Test
+void fillsTheBasketWithFourDollars() {
+  Basket basket = optimizer.fill(SNACKS, 400);
 
-    int len = myProducts.length;
-    double[][] mostValueableProducts =  new double[len][3];
+  assertEquals(559, basket.totalGrams());
+  assertTrue(basket.totalCents() <= 400);
+}
+```
 
-    double sum = 0;
-    for (int idx=0; idx < len; idx++) {
-      sum = sum + myProducts[idx][1]; //price
-      if (sum <= budget) {
-        mostValueableProducts[idx][0] =
-            myProducts[idx][0]; //id
-        mostValueableProducts[idx][1] =
-            myProducts[idx][1]; //price
-        mostValueableProducts[idx][2] =
-            myProducts[idx][2]; //value
+The simplest idea is **greedy**: sort the snacks by grams per dollar, and take each one that still fits in the budget.
+
+```java
+public class GreedyBasket implements BasketOptimizer {
+
+  @Override
+  public Basket fill(List<Product> products, int budgetCents) {
+    List<Product> byGramsPerCent = new ArrayList<>(products);
+    byGramsPerCent.sort(Comparator.comparingDouble(
+        (Product p) -> (double) p.grams() / p.priceCents()).reversed());
+
+    List<Product> basket = new ArrayList<>();
+    int left = budgetCents;
+    for (Product product : byGramsPerCent) {
+      if (product.priceCents() <= left) {
+        basket.add(product);
+        left -= product.priceCents();
       }
     }
-    return mostValueableProducts;
+    return new Basket(basket);
   }
 }
 ```
 
-**Assumption #2 – Given an array of products not ordered by value, return the most valuable products**
+It takes the two pretzels (231 g per dollar), then the Funny Pencil (75), then the Shrimp Snacks (55): products 1, 3, 4 and 6, for $3.73 and **559 grams**. Green.
 
-In this case we pass a not ordered array, so we can see that our new test will fail.
+A greedy algorithm makes the choice that looks best at each step and never reconsiders it. It's fast: sorting makes it O(n log n). But the test only proves that greedy works for *this* budget.
 
-```kotlin
+## Step 2: a test that greedy fails
+
+Add a second test with a smaller budget, $3.50:
+
+```java
 @Test
-public void productsNotOrderedByValue () {
+void fillsTheBasketWithThreeFiftyDollars() {
+  Basket basket = optimizer.fill(SNACKS, 350);
 
-  double[][] myProducts = new double[][]{
-      {1, 0.98, 230},
-      {2, 1.29, 47},
-      {3, 1.69, 12},
-      {4, 1.29, 55},
-      {5, 0.98, 230},
-      {6, 4.86, 14},
-      {7, 0.48, 75}
-  };
-
-  double[][] mostValueableProducts 
-    = basketOptimized.fill(myProducts, 4);
-  assertEquals(590d, Arrays.stream(mostValueableProducts)
-    .mapToDouble(arr -> arr[2]).sum(), 0);
+  assertEquals(523, basket.totalGrams());
+  assertTrue(basket.totalCents() <= 350);
 }
 ```
 
-> Any software design is generally a matter of opinion. There is no definitive Guide. -- <cite>codersite.dev</cite>
+Red. The greedy basket has only 498 grams:
+
+| Algorithm | Basket | Price | Grams |
+|---|---|---|---|
+| Greedy | 1, 2, 3, 4 | $3.33 | 498 |
+| Best possible | 3, 4, 6 | $3.25 | **523** |
+
+Greedy takes the two pretzels and the Funny Pencil, which leaves $1.06. The Shrimp Snacks cost $1.29 and no longer fit, so it fills the gap with the Chicken Protein for 10 grams. The best basket skips the Funny Pencil, a good deal on its own, to make room for the Shrimp Snacks: it gives up 36 grams to gain 71.
+
+That's the weakness of every greedy algorithm: an early choice that looks best can block a better combination later. For the 0/1 knapsack problem, no greedy rule is always right.
 
 <div>
-{%- include softwareDesign.html -%}
+{%- include inArticleAds.html -%}
 </div>
 
-We realize that we need to order the array by value because we want the most valuable products, so its time to refactor our algorithm. What we need to do is to sort our input array.
+## Step 3: brute force, every possible basket
 
-```kotlin
-public double[][] fill(double[][] myProducts, double budget) {
+The safe way to find the best basket is to try them all. With n products there are 2ⁿ baskets, because each product is in or out. You can number the baskets from 0 to 2ⁿ − 1 and let bit i of the number say whether product i is in the basket:
 
-  Arrays.sort(myProducts, Collections.reverseOrder(
-      Comparator.comparingDouble(a -> a[2])));
-  int len = myProducts.length;
-  double[][] mostValueableProducts =  new double[len][3];
+```text
+0000000000 = no products
+0000000001 = product 1
+0000000101 = products 1 and 3
+...
+1111111111 = all 10 products
 ```
 
-Then we can see our two test cases were successful.
+```java
+public class BruteForceBasket implements BasketOptimizer {
 
-### Calculate combinations ###
+  @Override
+  public Basket fill(List<Product> products, int budgetCents) {
+    int n = products.size();
+    long bestGrams = -1;
+    long bestSubset = 0;
 
-**Assumption #3 – Given an array of products, we need to obtain the most valuable products from all possible combinations of the products**
-
-Imagine the following scenario:
-
-```kotlin
-double[][] myProducts = new double[][] {
-                {1, 0.98, 230},
-                {2, 0.51, 30},
-                {3, 0.49, 28},
-                {4, 1.29, 55},
-                {5, 0.98, 230},
-                {6, 4.86, 14},
-                {7, 0.48, 75},
-        };
-
-double[][] mostValueableProducts = basketOptimized
-       .fill(myProducts, 4);
-assertEquals(590d,
-      Arrays.stream(mostValueableProducts)
-       .mapToDouble(arr -> arr[2]).sum(),0);
-```
-
-The test is expecting a result of 590 which corresponds to the final price of 3,73US$ (0.98+0.98+0.48+1.29). Once the algorithm sort by value the input array, we have the following result:
-
-```kotlin
-[1.0, 0.98, 230.0]
-[5.0, 0.98, 230.0]
-[7.0, 0.48, 75.0]
-[4.0, 1.29, 55.0]
-[2.0, 0.51, 30.0]
-[3.0, 0.49, 28.0]
-[6.0, 4.86, 14.0]
-```
-
-> Questions Used to Hire Thousands of Engineers.
-
-<div>
-{%- include jediJavaInterviewAds.html -%}
-</div>
-
-But here we realize the exists another combination of products which give us the most valuable products: 230+230+75+30+28 = 593 which corresponds to the final price of 3,44US$. 
-
-A greedy algorithm would sort the products by their *"more grams per every dollar invested"* ratio, and then select the product with the highest ratio that fits in the budget, and then repeat until the budget is achieved. This would give an approximate solution in linear time, but not necessarily the optimal one. 
-
-Then we need to refactor our code to calculate all combinations (subsets) and return the most valuable products under a budget of 4 US$.
-
-The subsets can be represented by all the binary options from 0 to 7 (the array size).
-
-```kotlin
-0000 = {}
-0001 = { {1, 0.98, 230} }
-0010 = { {2, 0.51, 30} }
-0011 = { {1, 0.98, 230}, {2, 0.51, 30} }
-.
-.
-.
-```
-
-We build a hashMap to store all combinations and the sum of its values. Finally, we return the first element of the hashMap ordered by value
-
-```kotlin
-int len = myProducts.length;
-int numIterations = (int) Math.pow(2, myProducts.length);
-
-Map<double[][], Double> combinations = new HashMap<>();
-
-for (int idx=0; idx<numIterations; idx++){
-  double[][] combx = new double[len][];
-  double sumPrice = 0;
-  double sumValue = 0;
-  int i = 0;
-  for (int idx2=0; idx2<len; idx2++) {
-    if ((idx & (int) Math.pow(2, idx2)) == 0) {
-       combx[i++] = myProducts[idx2];
-       sumPrice = sumPrice + myProducts[idx2][1];
-       sumValue = sumValue + myProducts[idx2][2];
+    for (long subset = 0; subset < (1L << n); subset++) {
+      int cents = 0;
+      int grams = 0;
+      for (int i = 0; i < n; i++) {
+        if ((subset & (1L << i)) != 0) {   // is product i in this basket?
+          cents += products.get(i).priceCents();
+          grams += products.get(i).grams();
+        }
+      }
+      if (cents <= budgetCents && grams > bestGrams) {
+        bestGrams = grams;
+        bestSubset = subset;
+      }
     }
-  }
-  if (combx.length > 0 && sumPrice <= budget) {
-     combinations.put(combx, Double.valueOf(sumValue));
+
+    List<Product> basket = new ArrayList<>();
+    for (int i = 0; i < n; i++) {
+      if ((bestSubset & (1L << i)) != 0) basket.add(products.get(i));
+    }
+    return new Basket(basket);
   }
 }
 ```
 
-You can see the complete solution explained in detail and all test cases in my book:
+Both tests are green: 559 grams with $4.00 and 523 with $3.50. The bit tricks are explained in [enum flags and bitwise operators in Java](https://codersite.dev/enum-flags-bitwise-operators/){:target="_blank"}.
+
+The problem is speed. Checking every basket is O(n × 2ⁿ), and each extra product doubles the work. I timed it with a $20 budget:
+
+| Products | Baskets checked | Brute force time |
+|---|---|---|
+| 10 | 1,024 | under 1 ms |
+| 20 | 1,048,576 | 38 ms |
+| 25 | 33,554,432 | 1,368 ms |
+
+Each 5 more products multiply the time by about 32. At that rate, 40 products would take more than 12 hours. A real shop has thousands of products. For why exponential algorithms hit this wall, see [Big O notation in Java](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"}.
+
+## Step 4: refactor to dynamic programming
+
+Brute force does a lot of repeated work: thousands of baskets share the same first few products. **Dynamic programming** solves each smaller problem once and reuses the answer.
+
+The smaller problem is: *what is the most grams I can get using only the first i products with b cents?* Call that `best[i][b]`. For each product there are only two choices:
+
+- **leave it out:** the answer is the same as without it, `best[i - 1][b]`;
+- **take it, if it fits:** its grams plus the best you can do with the money that's left, `best[i - 1][b - price] + grams`.
+
+`best[i][b]` is the larger of the two. Fill the table row by row, and the answer for the whole problem is in the last cell, `best[n][budget]`:
+
+```java
+public class DynamicProgrammingBasket implements BasketOptimizer {
+
+  @Override
+  public Basket fill(List<Product> products, int budgetCents) {
+    int n = products.size();
+    // best[i][b] = most grams using the first i products with b cents
+    int[][] best = new int[n + 1][budgetCents + 1];
+
+    for (int i = 1; i <= n; i++) {
+      Product product = products.get(i - 1);
+      for (int b = 0; b <= budgetCents; b++) {
+        best[i][b] = best[i - 1][b];                       // leave it out
+        if (product.priceCents() <= b) {                    // or take it
+          best[i][b] = Math.max(best[i][b],
+              best[i - 1][b - product.priceCents()] + product.grams());
+        }
+      }
+    }
+
+    // walk back through the table to find which products were taken
+    List<Product> basket = new ArrayList<>();
+    int b = budgetCents;
+    for (int i = n; i > 0; i--) {
+      if (best[i][b] != best[i - 1][b]) {   // the value changed, so product i was taken
+        Product product = products.get(i - 1);
+        basket.add(0, product);
+        b -= product.priceCents();
+      }
+    }
+    return new Basket(basket);
+  }
+}
+```
+
+Refactor done, both tests still green. With $3.50 it returns products 3, 4 and 6 for $3.25 and 523 grams.
+
+The table has (n + 1) × (budget + 1) cells, and each takes constant time, so dynamic programming is **O(n × budget)** in time and memory, with the budget in cents. For 25 products and a $20 budget, that's 26 × 2,001 cells: it took 0.04 ms, against 1,368 ms for brute force, with the same answer. To be sure, I also compared it with brute force on 300 random product lists: the grams always matched, and it never went over budget.
+
+The trade-off is that the running time depends on the budget's size, not just on the number of products. That's why prices in cents matter twice: they make the comparisons exact and they keep the table small. With a budget of $20,000 in cents, the table would have two million columns per product.
+
+Dynamic programming is one of the most important techniques in algorithm design, and knapsack is its classic first example. To build the foundation it rests on, how to analyze an algorithm and choose the right data structure, *Algorithms* by Robert Sedgewick and Kevin Wayne is a good next step, with clear Java code for sorting, searching, graphs and strings.
+
+<div>
+{%- include algorithmsRobertSedgewick.html -%}
+</div>
+
+## Edge cases to test
+
+TDD doesn't stop at the happy path. These tests pass with the dynamic programming solution:
+
+```java
+@Test
+void emptyBasketWhenTheBudgetIsZero() {
+  assertTrue(optimizer.fill(SNACKS, 0).products().isEmpty());
+}
+
+@Test
+void emptyBasketWhenThereAreNoProducts() {
+  assertTrue(optimizer.fill(List.of(), 400).products().isEmpty());
+}
+
+@Test
+void emptyBasketWhenEveryProductIsTooExpensive() {
+  Product falafel = new Product(10, "Osem Bissli Falafel", 486, 70);
+  assertTrue(optimizer.fill(List.of(falafel), 400).products().isEmpty());
+}
+```
+
+Because all three solutions implement `BasketOptimizer`, you can run the same test class against each of them. Only the greedy one fails, and only the $3.50 test. Writing code against an interface like this is the [open-closed principle](https://codersite.dev/open-closed-principle/){:target="_blank"} at work: you added two new algorithms without changing a single test.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
+## Comparing the three solutions
+
+| Solution | Always the best basket? | Time | Good for |
+|---|---|---|---|
+| Greedy | No | O(n log n) | Quick estimates, the fractional knapsack |
+| Brute force | Yes | O(n × 2ⁿ) | Up to about 20 products, or checking other solutions in tests |
+| Dynamic programming | Yes | O(n × budget) | Most real cases, when the budget in cents isn't huge |
+
+## Variants of the knapsack problem
+
+- **Fractional knapsack:** you can buy part of a product, say half a bag. Here greedy by grams per dollar *is* optimal: fill up with the best ratio first, and take a fraction of the last product.
+- **Unbounded knapsack:** you can buy the same product many times. The dynamic programming table changes slightly: when you take a product, you look up `best[i][b - price]` instead of `best[i - 1][...]`.
+- **Counting combinations:** instead of the best basket, count how many baskets fit the budget. See [Shopping Options: count the ways to buy within a budget](https://codersite.dev/shopping-budget-options/){:target="_blank"}, which goes from a brute force to a meet-in-the-middle solution.
+
+<div>
+{%- include inArticleAds.html -%}
+</div>
+
+## FAQ
+
+### What is the 0/1 knapsack problem?
+
+Given items with a weight and a value, and a knapsack with a weight limit, choose the items with the highest total value that fit. *0/1* means each item is either taken whole or left out. In this post, the weight is the price, the limit is the budget, and the value is grams.
+
+### Why doesn't a greedy algorithm work for the 0/1 knapsack problem?
+
+Because the item with the best ratio can use up money that a better combination needs. With $3.50, greedy takes the Funny Pencil and ends up with 498 grams; leaving it out makes room for the Shrimp Snacks, for 523 grams.
+
+### Is the knapsack problem NP-complete?
+
+Yes, the decision version is NP-complete, so no known algorithm solves every case in time polynomial in the size of the input. The dynamic programming solution is *pseudo-polynomial*: polynomial in the number of items and the numeric value of the budget, which is fast when the budget is small and slow when it's huge.
+
+### Can I reduce the memory of the dynamic programming solution?
+
+Yes. Each row only needs the previous one, so a single array of size budget + 1 is enough if you loop over the budget from high to low. You lose the full table, though, so you can no longer walk back through it to see which products were taken.
+
+### Why use test-driven development for an algorithm?
+
+The second test is the answer. The greedy algorithm looked right and passed the first test; only a test with another budget showed that it was wrong. Tests written first, with known correct answers, catch the solutions that only work for the examples you happened to try.
+
+You can see more problems like this one, solved step by step from the first idea to working Java code, in my book **THE CODE INTERVIEW: Real Java Coding Interview Questions, Solved Step by Step**.
 
 <div>
 {%- include jediJavaInterviewAds.html -%}
@@ -251,5 +343,3 @@ You can see the complete solution explained in detail and all test cases in my b
 <div>
 {% include buymeacoffee.html %}
 </div>
-
-<br/>
