@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Big O Notation and Analysis of Algorithms - coding interview | codersite</title>
+<title>Big O Notation in Java: Time and Space Complexity for Coding Interviews | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Big O Notation and Analysis of Algorithms - coding interview" />
+<meta property="og:title" content="Big O Notation in Java: Time and Space Complexity for Coding Interviews" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users" />
-<meta name="twitter:description" property="og:description" content="Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users" />
+<meta name="description" content="Learn Big O notation with tested Java examples: O(1) to O(n!), how to count steps, space complexity, the Big O of Java collections, and a timing experiment that shows growth rates." />
+<meta name="twitter:description" property="og:description" content="Learn Big O notation with tested Java examples: O(1) to O(n!), how to count steps, space complexity, the Big O of Java collections, and a timing experiment that shows growth rates." />
 <link rel="canonical" href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" />
 <meta property="og:url" content="https://codersite.dev/big-o-notation-analysis-of-algorithms/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2020-06-22T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/algorithm.jpg" />
-<meta name="twitter:title" content="Big O Notation and Analysis of Algorithms - coding interview" />
+<meta name="twitter:title" content="Big O Notation in Java: Time and Space Complexity for Coding Interviews" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2020-06-22T00:00:00+02:00","datePublished":"2020-06-22T00:00:00+02:00","description":"Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users","headline":"Big O Notation and Analysis of Algorithms - coding interview","image":"https://codersite.dev/assets/images/algorithm.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/big-o-notation-analysis-of-algorithms/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/big-o-notation-analysis-of-algorithms/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2020-06-22T00:00:00+02:00","datePublished":"2020-06-22T00:00:00+02:00","description":"Learn Big O notation with tested Java examples: O(1) to O(n!), how to count steps, space complexity, the Big O of Java collections, and a timing experiment that shows growth rates.","headline":"Big O Notation in Java: Time and Space Complexity for Coding Interviews","image":"https://codersite.dev/assets/images/algorithm.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/big-o-notation-analysis-of-algorithms/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/big-o-notation-analysis-of-algorithms/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -165,7 +165,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Big O Notation and Analysis of Algorithms - coding interview&url=https://codersite.dev/big-o-notation-analysis-of-algorithms/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Big O Notation in Java: Time and Space Complexity for Coding Interviews&url=https://codersite.dev/big-o-notation-analysis-of-algorithms/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -213,7 +213,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Big O Notation and Analysis of Algorithms - coding interview</h1>
+                <h1 class="posttitle">Big O Notation in Java: Time and Space Complexity for Coding Interviews</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -221,7 +221,7 @@
                 <p class="post-meta-line">
                     <time datetime="2020-06-22T00:00:00+02:00" itemprop="datePublished">Jun 22, 2020</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">12 min read</span>
+                    <span class="meta-reading-time">22 min read</span>
                     
                 </p>
 
@@ -236,7 +236,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/algorithm.jpg" alt="Big O Notation and Analysis of Algorithms - coding interview">
+            <img class="featured-image img-fluid" src="/assets/images/algorithm.jpg" alt="Big O Notation in Java: Time and Space Complexity for Coding Interviews">
             
 
             
@@ -247,41 +247,35 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>Big O Notation is a mathematical notation that helps us analyze how complex an algorithm is in terms of time and space. When we build an application for one user or millions of users, it matters.</p>
+                <p>Big O notation describes how the running time or the memory of an algorithm grows when its input grows. An algorithm that is fast for 100 users can be unusable for 10 million, and Big O is how you see that before it happens.</p>
 
-<p>We implement different algorithms to solve one problem and measure how efficient is one respect to the other ones.</p>
-
-<p>Algorithm analysis is an essential part of computational complexity theory, which aims to quantify the resources required to solve computational problems.</p>
-
-<p>The first study about Analysis of Algorithms was published by Knuth in 1968. <a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming" target="_blank">The Art of Computer Programming</a>.</p>
-
-<p>Asymptotic Notation is used to describe the running time of an algorithm. There are three different notations: Big Omega, Big Theta, and Big O Notation.</p>
-
-<h2 id="time-complexity-analysis-and-space-complexity-analysis">Time complexity analysis and space complexity analysis</h2>
-
-<p>Time complexity analysis is related to how many steps takes an algorithm.</p>
-
-<p>Space complexity analysis is related to how efficient an algorithm is using the memory and disk.</p>
-
-<p>Both depend on the input size n, the number of items in the input. We usually describe complexity with three notations:</p>
+<p>It’s also one of the most common topics in coding interviews: after almost every solution, the interviewer asks <em>“What’s the time and space complexity?”</em> This post gives you the answer for the patterns you’ll meet, with Java examples that I compiled and ran on Java 25. You’ll learn:</p>
 
 <ul>
-  <li>
-    <p>Big O, O(f(n)): an upper bound. The algorithm never grows faster than f(n). In interviews, “the complexity” almost always means the Big O of the worst case.</p>
-  </li>
-  <li>
-    <p>Big Omega, Ω(f(n)): a lower bound. The algorithm needs at least f(n) steps.</p>
-  </li>
-  <li>
-    <p>Big Theta, Θ(f(n)): a tight bound. The algorithm grows exactly like f(n), because f(n) is both an upper and a lower bound.</p>
-  </li>
+  <li>what Big O, Big Omega and Big Theta mean, and how they differ from best and worst cases;</li>
+  <li>the common complexity classes, from O(1) to O(n!), each with a Java example;</li>
+  <li>how to count the steps of an algorithm, and why Big O drops constants;</li>
+  <li>space complexity, and the Big O of the Java collections you use every day;</li>
+  <li>how to check a complexity with a stopwatch, using a doubling test.</li>
 </ul>
 
-<p>Do not confuse these notations with the best, average, and worst cases. The cases describe which input we analyze; the notations describe how we bound its running time. For example, a linear search takes O(1) time in the best case, when the item is the first one, and O(n) time in the worst case, when the item is the last one or is missing.</p>
+<p>The analysis of algorithms as a field goes back to Donald Knuth’s <a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming" target="_blank">The Art of Computer Programming</a>, whose first volume appeared in 1968.</p>
 
-<blockquote>
-  <p>Get the Job Offer, Not Just Algorithm Knowledge</p>
-</blockquote>
+<h2 id="big-o-big-omega-and-big-theta">Big O, Big Omega and Big Theta</h2>
+
+<p>Time complexity measures how many steps an algorithm takes. Space complexity measures how much extra memory it needs. Both are expressed as a function of the input size <strong>n</strong>, such as the number of items in an array.</p>
+
+<p>There are three notations:</p>
+
+<ul>
+  <li><strong>Big O, O(f(n)): an upper bound.</strong> The algorithm grows no faster than f(n). In interviews, “the complexity” almost always means the Big O of the worst case.</li>
+  <li><strong>Big Omega, Ω(f(n)): a lower bound.</strong> The algorithm needs at least f(n) steps.</li>
+  <li><strong>Big Theta, Θ(f(n)): a tight bound.</strong> The algorithm grows exactly like f(n), because f(n) is both an upper and a lower bound.</li>
+</ul>
+
+<p>Don’t confuse these notations with the best, average and worst cases. The cases describe <em>which input</em> you analyze; the notations describe <em>how you bound</em> its running time. A linear search takes O(1) time in the best case, when the item is the first one, and O(n) time in the worst case, when the item is the last one or missing.</p>
+
+<p>Big O questions rarely come alone in an interview: you write a solution, then explain its complexity, then improve it. My book <em>The Code Interview</em> collects real Java coding interview questions and solves them step by step, so you can practice that whole conversation, not just the final code.</p>
 
 <div><center>
   <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
@@ -289,65 +283,123 @@
 
 <br /></div>
 
-<h2 id="order-of-growth">Order of growth</h2>
+<h2 id="the-common-complexity-classes">The common complexity classes</h2>
 
-<p>The order of growth is related to how the runtime of an algorithm increases when the size of the input increases without limit and tells us how efficient the algorithm is.</p>
+<p>The chart shows how the number of steps grows for each class as n goes from 0 to 20. The differences are already huge at this tiny size: O(n!) passes 100 steps before n = 5, while O(log n) needs fewer than 5 steps at n = 20.</p>
 
-<p>In essence, Big O notation provides a worst-case scenario for an algorithm’s performance, allowing developers to compare different algorithms and choose the most efficient one for large inputs.</p>
+<p><img src="/assets/images/big-o-growth-rates.png" alt="Chart of the number of steps for O(1), O(log n), O(n), O(n log n), O(n²), O(2ⁿ) and O(n!) as n grows to 20" title="How Big O complexity classes grow" class="img-responsive" /></p>
 
-<p>Big O Notation: <strong>Common order-of-growth classifications</strong>:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Big O</th>
+      <th>Name</th>
+      <th>Java example</th>
+      <th>n = 1,000 means about</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>O(1)</td>
+      <td>Constant</td>
+      <td><code class="language-plaintext highlighter-rouge">array[i]</code>, <code class="language-plaintext highlighter-rouge">ArrayList.get(i)</code></td>
+      <td>1 step</td>
+    </tr>
+    <tr>
+      <td>O(log n)</td>
+      <td>Logarithmic</td>
+      <td>Binary search</td>
+      <td>10 steps</td>
+    </tr>
+    <tr>
+      <td>O(n)</td>
+      <td>Linear</td>
+      <td>One loop over the input</td>
+      <td>1,000 steps</td>
+    </tr>
+    <tr>
+      <td>O(n log n)</td>
+      <td>Linearithmic</td>
+      <td>Merge sort, <code class="language-plaintext highlighter-rouge">List.sort</code></td>
+      <td>10,000 steps</td>
+    </tr>
+    <tr>
+      <td>O(n²)</td>
+      <td>Quadratic</td>
+      <td>Two nested loops</td>
+      <td>1,000,000 steps</td>
+    </tr>
+    <tr>
+      <td>O(n³)</td>
+      <td>Cubic</td>
+      <td>Three nested loops</td>
+      <td>1,000,000,000 steps</td>
+    </tr>
+    <tr>
+      <td>O(2ⁿ)</td>
+      <td>Exponential</td>
+      <td>Naive recursive Fibonacci</td>
+      <td>more than the atoms in the universe</td>
+    </tr>
+    <tr>
+      <td>O(n!)</td>
+      <td>Factorial</td>
+      <td>All permutations</td>
+      <td>even more</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><img src="/assets/images/order-of-growth.jpg" alt="order-of-growth" title="order-of-growth classifications" class="img-responsive" /></p>
+<h3 id="o1-constant-time">O(1): constant time</h3>
 
-<h2 id="big-o-notation-examples">Big O Notation: examples</h2>
+<p>The running time doesn’t depend on the input size. Reading an array element or adding to the end of an <code class="language-plaintext highlighter-rouge">ArrayList</code> takes the same time whether the list has 10 or 10 million items.</p>
 
-<p><strong>O(1) – Constant Time Complexity</strong></p>
-
-<p>The runtime does not change with the size of the input. It does not matter if the input contains 1000 or 1 million items, the code always executes in one step.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">void</span> <span class="nf">constant</span><span class="p">(</span><span class="nc">List</span><span class="p">&lt;</span><span class="err">str</span><span class="k">in</span><span class="err">g</span><span class="p">&gt;</span> <span class="n">list</span><span class="p">,</span> <span class="nc">String</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">list</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">addItem</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="nc">String</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Adding an item to the end of an ArrayList takes O(1) amortized time. Occasionally, when the internal array is full, Java copies all the items into a larger array, which costs O(n). This happens so rarely that the average cost per add stays constant.</p>
+<p>Strictly, <code class="language-plaintext highlighter-rouge">ArrayList.add</code> is O(1) <em>amortized</em>. When the internal array is full, Java copies all items into a larger array, which costs O(n). Because the array grows by half its size each time, this happens rarely enough that the average cost per <code class="language-plaintext highlighter-rouge">add</code> stays constant.</p>
 
-<p><strong>O(N) – Linear Time Complexity</strong></p>
+<h3 id="on-linear-time">O(n): linear time</h3>
 
-<p>An algorithm runs in O(N) time if the number of steps depends on the number of items included in the input. The runtime grows linearly with the size of the input.</p>
+<p>The number of steps grows in proportion to the input. Looping over an array once is the typical example:</p>
 
-<p>Example: Iterating through an array or a list.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
 7
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">int</span> <span class="nf">sum</span><span class="p">(</span><span class="n">int</span><span class="p">[]</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">int</span> <span class="n">sum</span> <span class="p">=</span><span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="p">&lt;</span><span class="n">numbers</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
-    <span class="n">sum</span><span class="p">+=</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="c1">// Iterating through each element</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">sum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">number</span> <span class="o">:</span> <span class="n">numbers</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">sum</span> <span class="o">+=</span> <span class="n">number</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>In this example, if <em>numbers</em> has <em>n</em> elements, the loop executes <em>n</em> times, so the time complexity is <strong>O(n)</strong>.</p>
+<p>If <code class="language-plaintext highlighter-rouge">numbers</code> has n elements, the loop body runs n times, so the method is O(n).</p>
 
-<p>The main idea in Analysis of Algorithms is always to improve the algorithm performance, by reducing the number of steps and comparisons. You can visit <a href="https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/" target="_blank">find the smallest number with the same number of digits</a>, for instance. Moreover, the simpler and more intuitive an algorithm is, the more useful and efficient it will be.</p>
+<p>Improving an algorithm usually means removing steps. For an example, see <a href="https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/" target="_blank">find the smallest number with the same number of digits</a>, where counting down one number at a time is replaced by a direct calculation from the number of digits.</p>
 
-<p><strong>O(N<sup>2</sup>) – Quadratic Time Complexity</strong></p>
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
 
-<p>If an algorithm includes two loops nested in its code, we could say that it’s running in quadratic time O(N<sup>2</sup>). The runtime grows quadratically with the size of the input.</p>
+<h3 id="on-quadratic-time">O(n²): quadratic time</h3>
 
-<p>Example: When a 2D matrix is initialized in a tic-tac-toe game.</p>
+<p>Two nested loops over the same input give n × n steps. Initializing an n × n tic-tac-toe board is quadratic:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -357,46 +409,41 @@
 8
 9
 10
-</pre></td><td class="rouge-code"><pre><span class="k">private</span> <span class="nc">String</span> <span class="p">[][]</span> <span class="n">board</span><span class="p">;</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">private</span> <span class="nc">String</span><span class="o">[][]</span> <span class="n">board</span><span class="o">;</span>
 
-<span class="k">public</span> <span class="n">void</span> <span class="nf">initializeBoard</span><span class="p">(</span><span class="n">int</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="n">board</span> <span class="p">=</span> <span class="n">new</span> <span class="nc">String</span><span class="p">[</span><span class="n">size</span><span class="p">][</span><span class="n">size</span><span class="p">];</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">x</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="p">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">x</span><span class="p">++)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">y</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="p">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">y</span><span class="p">++)</span> <span class="p">{</span>
-      <span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="p">=</span> <span class="s">" "</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">initializeBoard</span><span class="o">(</span><span class="kt">int</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">board</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[</span><span class="n">size</span><span class="o">][</span><span class="n">size</span><span class="o">];</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">size</span><span class="o">;</span> <span class="n">x</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">size</span><span class="o">;</span> <span class="n">y</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">board</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span> <span class="o">=</span> <span class="s">" "</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Example: Nested loops iterating over the same collection</p>
+<p>So is printing every pair of elements of an array:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
-</pre></td><td class="rouge-code"><pre><span class="n">int</span><span class="p">[]</span> <span class="n">arr</span> <span class="p">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">arr</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">j</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="n">arr</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">j</span><span class="p">++)</span> <span class="p">{</span>
-    <span class="nc">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">+</span> <span class="s">" "</span> <span class="p">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span> <span class="c1">// Nested loop</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numbers</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">numbers</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">numbers</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Here, if <em>arr</em> has <em>n</em> elements, the outer and inner loops both run <em>n</em> times, resulting in n * n = n<sup>2</sup>, so the complexity is O(N<sup>2</sup>).</p>
+<p>Both loops run n times, so the body runs n × n = n² times.</p>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Pragmatic Programmer, The: Your journey to mastery, 20th Anniversary Edition <a href="https://t.co/MwIRotEMY4">https://t.co/MwIRotEMY4</a> via <a href="https://twitter.com/amazon?ref_src=twsrc%5Etfw">@amazon</a></p>&mdash; Moises Gamio (@MoisesGamio) <a href="https://twitter.com/MoisesGamio/status/1854934060444905847?ref_src=twsrc%5Etfw">November 8, 2024</a></blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<h3 id="on-cubic-time">O(n³): cubic time</h3>
 
-<p><strong>O(N<sup>3</sup>) – Cubic Time Complexity</strong></p>
+<p>Three nested loops give n × n × n steps. A classic example is <em>three-sum</em>: given n integers, count the triples that add up to exactly zero. The brute-force solution checks every triple:</p>
 
-<p>An algorithm runs in cubic time when it has three nested loops, each iterating over the input. The runtime grows with n × n × n = n³.</p>
-
-<p>Example: Given N integers, how many triples sum to exactly zero?. One approach (not the best) is to use three nested loops.</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -406,27 +453,25 @@
 8
 9
 10
-11
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="n">int</span> <span class="nf">countThreeSum</span><span class="p">(</span><span class="n">int</span><span class="p">[]</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">int</span> <span class="nc">N</span> <span class="p">=</span><span class="n">numbers</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-  <span class="n">int</span> <span class="n">count</span> <span class="p">=</span><span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="p">&lt;</span><span class="nc">N</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">j</span> <span class="p">=</span> <span class="n">i</span><span class="p">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="p">&lt;</span><span class="nc">N</span><span class="p">;</span> <span class="n">j</span><span class="p">++)</span>
-      <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">k</span> <span class="p">=</span> <span class="n">j</span><span class="p">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="p">&lt;</span><span class="nc">N</span><span class="p">;</span> <span class="n">k</span><span class="p">++)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">+</span> <span class="n">numbers</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">+</span> <span class="n">numbers</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="p">==</span> <span class="mi">0</span><span class="p">)</span>
-          <span class="n">count</span><span class="p">++;</span>
-
-  <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">countThreeSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+  <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">k</span><span class="o">++)</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">numbers</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">numbers</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="n">numbers</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+          <span class="n">count</span><span class="o">++;</span>
+  <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p><strong>O(LogN) – Logarithmic Time Complexity</strong></p>
+<p>The inner <code class="language-plaintext highlighter-rouge">if</code> runs once for every triple, n(n − 1)(n − 2) / 6 times, which is O(n³). For <code class="language-plaintext highlighter-rouge">{30, -40, -20, -10, 40, 0, 10, 5}</code> it returns 4. Later in this post you’ll time this method and watch the cubic growth happen.</p>
 
-<p>This kind of algorithm produces a growth curve that peaks at the beginning and slowly flattens out as the size of the input increases. The runtime grows logarithmically with the input size.</p>
+<h3 id="olog-n-logarithmic-time">O(log n): logarithmic time</h3>
 
-<p>Example: Binary search on a sorted array.</p>
+<p>A logarithmic algorithm halves the problem at every step. Its curve rises quickly for small inputs and then flattens: doubling the input adds only one more step. Binary search on a sorted array is the standard example:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -441,67 +486,64 @@
 13
 14
 15
-</pre></td><td class="rouge-code"><pre><span class="n">int</span> <span class="nf">binarySearch</span><span class="p">(</span><span class="n">int</span><span class="p">[]</span> <span class="n">arr</span><span class="p">,</span> <span class="n">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">int</span> <span class="n">left</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">int</span> <span class="n">right</span> <span class="p">=</span> <span class="n">arr</span><span class="p">.</span><span class="n">length</span> <span class="p">-</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">left</span> <span class="p">&lt;=</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">mid</span> <span class="p">=</span> <span class="n">left</span> <span class="p">+</span> <span class="p">(</span><span class="n">right</span> <span class="p">-</span> <span class="n">left</span><span class="p">)</span> <span class="p">/</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="p">==</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">mid</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="p">&lt;</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">left</span> <span class="p">=</span> <span class="n">mid</span> <span class="p">+</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">right</span> <span class="p">=</span> <span class="n">mid</span> <span class="p">-</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="p">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// Element not found</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">sorted</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">sorted</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">sorted</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">==</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">mid</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">sorted</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span> <span class="c1">// not found</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Log<sub>2</sub>8 = 3</p>
+<p>In the worst case, binary search looks at ⌊log₂ n⌋ + 1 elements. I checked every possible target:</p>
 
-<p>Log<sub>2</sub>16 = 4</p>
+<table>
+  <thead>
+    <tr>
+      <th>Array size n</th>
+      <th>log₂ n</th>
+      <th>Worst-case comparisons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>8</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>1,000</td>
+      <td>9.97</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>1,000,000</td>
+      <td>19.93</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Log<sub>2</sub>32 = 5</p>
+<p>A million sorted elements need at most 20 comparisons, while a linear search may need a million. <code class="language-plaintext highlighter-rouge">mid = left + (right - left) / 2</code> avoids the integer overflow that <code class="language-plaintext highlighter-rouge">(left + right) / 2</code> causes on very large arrays. The same halving idea is behind the <a href="https://codersite.dev/tree-data-structure-binary-search-tree/" target="_blank">binary search tree</a>.</p>
 
-<p>The <a href="https://codersite.dev/tree-data-structure-binary-search-tree/" target="_blank">binary search</a> uses at most LogN key compares to search in a sorted array of size N. With 8 elements, it takes three comparisons, with 16 elements takes four comparisons, with 32 elements takes five comparisons, and so on.</p>
+<h3 id="on-log-n-linearithmic-time">O(n log n): linearithmic time</h3>
 
-<p>In this example, with each iteration, the search space is halved. This results in a time complexity of O(LogN).</p>
+<p>Merge sort splits the array in half until each part has one element, then merges the sorted halves. There are log₂ n levels of splitting, and each level merges all n elements, so it takes O(n log n) time:</p>
 
-<p>You can read more common Big O notations such as Linearithmic Time Complexity (O(n log n)), Exponential Time Complexity (O(2<sup>n</sup>)), and many more in the following link:</p>
-
-<blockquote>
-  <p>Invest in your future: master algorithms today, land the job tomorrow.!</p>
-</blockquote>
-
-<div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
-</center>
-
-<br /></div>
-
-<p><strong>Summary of Big O Complexity Types:</strong></p>
-
-<p><img src="/assets/images/bigOComplexityTypes.jpg" alt="bigOComplexityTypes" title="Big O Complexity Types" class="img-responsive" /></p>
-
-<p>Big O notation is essential to understand the scalability and efficiency of algorithms, especially for large datasets or performance-critical applications.</p>
-
-<h2 id="the-complexity-of-an-algorithm">The complexity of an algorithm</h2>
-
-<p>To find the Big O complexity of an algorithm follows the following rules:</p>
-
-<ul>
-  <li>Ignore the lower order terms</li>
-  <li>Drop the leading constants</li>
-</ul>
-
-<p>Example: If the time complexity of an algorithm is 2n<sup>3</sup> + 4n + 3. Its Big O complexity simplifies to O(n<sup>3</sup>).</p>
-
-<p><strong>How to find the time complexity of an algorithm</strong></p>
-
-<p>Given the following algorithm:</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -509,64 +551,161 @@
 6
 7
 8
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="nc">Integer</span> <span class="nf">sumEvenNumbers</span><span class="p">(</span><span class="nc">Integer</span> <span class="nc">N</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">int</span> <span class="n">sum</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">number</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">number</span> <span class="p">&lt;=</span> <span class="nc">N</span><span class="p">;</span> <span class="n">number</span><span class="p">++)</span>
-    <span class="k">if</span> <span class="p">((</span><span class="n">number</span> <span class="p">%</span> <span class="mi">2</span><span class="p">)</span> <span class="p">==</span> <span class="mi">0</span><span class="p">)</span>
-      <span class="n">sum</span> <span class="p">=</span> <span class="n">sum</span> <span class="p">+</span> <span class="n">number</span><span class="p">;</span>
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">mergeSort</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
+  <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+  <span class="kt">int</span><span class="o">[]</span> <span class="n">left</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">copyOfRange</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">mid</span><span class="o">);</span>
+  <span class="kt">int</span><span class="o">[]</span> <span class="n">right</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">copyOfRange</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">mid</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+  <span class="n">mergeSort</span><span class="o">(</span><span class="n">left</span><span class="o">);</span>
+  <span class="n">mergeSort</span><span class="o">(</span><span class="n">right</span><span class="o">);</span>
 
-  <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">left</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">a</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">left</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">?</span> <span class="n">left</span><span class="o">[</span><span class="n">i</span><span class="o">++]</span> <span class="o">:</span> <span class="n">right</span><span class="o">[</span><span class="n">j</span><span class="o">++];</span>
+  <span class="o">}</span>
+  <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">left</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="n">a</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">left</span><span class="o">[</span><span class="n">i</span><span class="o">++];</span>
+  <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="n">a</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">right</span><span class="o">[</span><span class="n">j</span><span class="o">++];</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>First, we split the code into individual operations and then compute how many times it is being executed as is shown in the following table.</p>
+<p>O(n log n) is the best possible for sorting by comparing elements, and it’s what Java’s <code class="language-plaintext highlighter-rouge">List.sort</code> and <code class="language-plaintext highlighter-rouge">Arrays.sort</code> guarantee. The merge step on its own is linear; see <a href="https://codersite.dev/merge-two-sorted-lists/" target="_blank">merge two sorted lists</a>.</p>
+
+<h3 id="o2ⁿ-exponential-time">O(2ⁿ): exponential time</h3>
+
+<p>The naive recursive Fibonacci calls itself twice for each number:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">long</span> <span class="nf">fib</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">?</span> <span class="n">n</span> <span class="o">:</span> <span class="n">fib</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">fib</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Each call starts two more, so the number of calls roughly doubles with each step of n. I counted them: <code class="language-plaintext highlighter-rouge">fib(10)</code> makes 177 calls, <code class="language-plaintext highlighter-rouge">fib(20)</code> makes 21,891, and <code class="language-plaintext highlighter-rouge">fib(30)</code> makes 2,692,537. Adding memoization, which stores each result the first time it’s computed, makes it O(n):</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">long</span> <span class="nf">fib</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">long</span><span class="o">[]</span> <span class="n">memo</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="k">return</span> <span class="n">n</span><span class="o">;</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">memo</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">memo</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+  <span class="k">return</span> <span class="n">memo</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">=</span> <span class="n">fib</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">memo</span><span class="o">)</span> <span class="o">+</span> <span class="n">fib</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="o">,</span> <span class="n">memo</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>With <code class="language-plaintext highlighter-rouge">new long[51]</code>, <code class="language-plaintext highlighter-rouge">fib(50, memo)</code> returns 12,586,269,025 instantly. The naive version would need about 40 billion calls.</p>
+
+<h3 id="on-factorial-time">O(n!): factorial time</h3>
+
+<p>Generating every ordering of n items produces n! results, so it can’t be faster than O(n!):</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">permutations</span><span class="o">(</span><span class="nc">String</span> <span class="n">prefix</span><span class="o">,</span> <span class="nc">String</span> <span class="n">rest</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">out</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">rest</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+    <span class="n">out</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">prefix</span><span class="o">);</span>
+    <span class="k">return</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rest</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">permutations</span><span class="o">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="n">rest</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">),</span> <span class="n">rest</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">i</span><span class="o">)</span> <span class="o">+</span> <span class="n">rest</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">),</span> <span class="n">out</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">"abcd"</code> has 4! = 24 permutations. Ten letters have 3,628,800, and twenty have more than 2 × 10¹⁸. Brute-force solutions to problems like the traveling salesman are factorial, which is why they only work for tiny inputs.</p>
+
+<h2 id="how-to-find-the-complexity-of-an-algorithm">How to find the complexity of an algorithm</h2>
+
+<p>You find the Big O in two steps: count how many times each operation runs, then keep only the term that grows fastest.</p>
+
+<p>Take this method, which adds the even numbers from 1 to N:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">sumEvenNumbers</span><span class="o">(</span><span class="kt">int</span> <span class="no">N</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">number</span> <span class="o">&lt;=</span> <span class="no">N</span><span class="o">;</span> <span class="n">number</span><span class="o">++)</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+      <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">number</span><span class="o">;</span>
+  <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Count each operation:</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">Description</th>
-      <th style="text-align: center">Number of executions</th>
+      <th>Operation</th>
+      <th>Runs</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">int sum = 0;</td>
-      <td style="text-align: center">1</td>
+      <td><code class="language-plaintext highlighter-rouge">int sum = 0</code></td>
+      <td>1</td>
     </tr>
     <tr>
-      <td style="text-align: center">int number = 1;</td>
-      <td style="text-align: center">1</td>
+      <td><code class="language-plaintext highlighter-rouge">int number = 1</code></td>
+      <td>1</td>
     </tr>
     <tr>
-      <td style="text-align: center">number &lt;= N;</td>
-      <td style="text-align: center">N</td>
+      <td><code class="language-plaintext highlighter-rouge">number &lt;= N</code></td>
+      <td>N + 1 (the last check ends the loop)</td>
     </tr>
     <tr>
-      <td style="text-align: center">number++</td>
-      <td style="text-align: center">N</td>
+      <td><code class="language-plaintext highlighter-rouge">number++</code></td>
+      <td>N</td>
     </tr>
     <tr>
-      <td style="text-align: center">if ((number % 2) == 0)</td>
-      <td style="text-align: center">N</td>
+      <td><code class="language-plaintext highlighter-rouge">number % 2 == 0</code></td>
+      <td>N</td>
     </tr>
     <tr>
-      <td style="text-align: center">sum = sum + number;</td>
-      <td style="text-align: center">N</td>
+      <td><code class="language-plaintext highlighter-rouge">sum = sum + number</code></td>
+      <td>N / 2 (only for even numbers)</td>
     </tr>
     <tr>
-      <td style="text-align: center">return sum;</td>
-      <td style="text-align: center">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"> </td>
-      <td style="text-align: center"> </td>
+      <td><code class="language-plaintext highlighter-rouge">return sum</code></td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
 
-<p>Now, we need to sum up how many times each operation is executing.</p>
+<p>The total for an even N is 1 + 1 + (N + 1) + N + N + N/2 + 1 = <strong>3.5N + 4</strong>. I added counters to the method to check it: for N = 1,000 it runs exactly 3,504 operations.</p>
 
-<p>Time complexity = 1 + 1 + N + N + N + N + 1 =&gt;   4N + 3</p>
+<p>To turn 3.5N + 4 into Big O, apply two rules:</p>
+
+<ol>
+  <li><strong>Drop the lower-order terms:</strong> 3.5N + 4 becomes 3.5N.</li>
+  <li><strong>Drop the constant factors:</strong> 3.5N becomes N.</li>
+</ol>
+
+<p>So <code class="language-plaintext highlighter-rouge">sumEvenNumbers</code> is <strong>O(n)</strong>. The same rules turn 2n³ + 4n + 3 into O(n³).</p>
+
+<p>In an interview you don’t need the exact count; you need the structure. One loop over the input is O(n), a loop inside a loop is O(n²), and halving the input in each step gives O(log n). Counting precisely is how you check that your shortcut is right.</p>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -575,31 +714,264 @@
 </script>
 <br /></div>
 
-<h2 id="why-big-o-notation-ignores-constants">Why Big O Notation ignores constants?</h2>
+<h2 id="why-big-o-ignores-constants">Why Big O ignores constants</h2>
 
-<p>Big O Notation describes how many steps are required relative to the number of data elements. And it serves as a way to classify the long-term growth rate of algorithms.</p>
+<p>Constants do matter for small inputs. Compare an algorithm that takes 100n steps with one that takes n² steps:</p>
 
-<p>For instance, for all amounts of data, O(N) will be faster than O(N<sup>2</sup>) as shown in the following figure:</p>
+<p><img src="/assets/images/big-o-100n-vs-n-squared.png" alt="Chart comparing 100n and n² steps: n² is smaller until n = 100, where both take 10,000 steps, and larger after that" title="100n compared with n²" class="img-responsive" /></p>
 
-<p><img src="/assets/images/bigONotation-1.jpg" alt="bigONotation-1" title="Big O Notation" class="img-responsive" /></p>
+<p>For n below 100, the n² algorithm takes <em>fewer</em> steps. At n = 100, both take 10,000 steps. After that, n² is slower for every larger input, and the gap keeps widening: at n = 10,000, 100n takes 1 million steps and n² takes 100 million.</p>
 
-<p>Now, if we compare O(100N) with O(N<sup>2</sup>), we can see that O(N<sup>2</sup>) is faster than O(100N) for some amounts of data as shown in the following figure:</p>
+<p>Big O describes this long-term behavior. Whatever the constant, a linear algorithm eventually beats a quadratic one, so 100n is written as O(n). When your inputs are guaranteed to be small, the constants can matter more than the Big O, which is why Java’s sorting switches to insertion sort, an O(n²) algorithm, for very short arrays.</p>
 
-<p><img src="/assets/images/bigONotation-2.jpg" alt="bigONotation-2" title="Big O Notation ignores constants" class="img-responsive" /></p>
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
 
-<p>But after an intersection point, O(100N) becomes faster and remains faster (in terms of the “number of steps”) for all increasing amounts of data from that point onward. And that is the reason why Big O Notation ignores constants. Because of this, the value of 100 is irrelevant and O(100N) is written as O(N). The fewer steps, the faster the algorithm.</p>
+<h2 id="space-complexity">Space complexity</h2>
+
+<p>Space complexity counts the <em>extra</em> memory an algorithm needs, not including the input. It follows the same rules as time complexity.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Extra space</th>
+      <th>Why</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sum(int[] numbers)</code></td>
+      <td>O(1)</td>
+      <td>One <code class="language-plaintext highlighter-rouge">int</code>, whatever the input size</td>
+    </tr>
+    <tr>
+      <td>Iterative <code class="language-plaintext highlighter-rouge">binarySearch</code></td>
+      <td>O(1)</td>
+      <td>Three <code class="language-plaintext highlighter-rouge">int</code> variables</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mergeSort</code></td>
+      <td>O(n)</td>
+      <td>The <code class="language-plaintext highlighter-rouge">left</code> and <code class="language-plaintext highlighter-rouge">right</code> copies</td>
+    </tr>
+    <tr>
+      <td>Memoized <code class="language-plaintext highlighter-rouge">fib(n, memo)</code></td>
+      <td>O(n)</td>
+      <td>The <code class="language-plaintext highlighter-rouge">memo</code> array and n stack frames</td>
+    </tr>
+    <tr>
+      <td>Naive recursive <code class="language-plaintext highlighter-rouge">fib(n)</code></td>
+      <td>O(n)</td>
+      <td>Up to n calls on the stack at once</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Recursion uses stack memory even when you don’t create any objects: each call that hasn’t returned yet holds a stack frame. That’s why deep recursion can throw a <code class="language-plaintext highlighter-rouge">StackOverflowError</code>, and why the naive <code class="language-plaintext highlighter-rouge">fib</code> uses O(n) space even though it creates nothing.</p>
+
+<p>Interviewers often ask you to trade one for the other. Memoized Fibonacci spends O(n) memory to go from O(2ⁿ) to O(n) time.</p>
+
+<h2 id="big-o-of-java-collections">Big O of Java collections</h2>
+
+<p>Most complexity questions in Java interviews come down to choosing the right collection. These are the costs of the common operations:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Collection</th>
+      <th>Access / search</th>
+      <th>Add</th>
+      <th>Remove</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ArrayList</code></td>
+      <td><code class="language-plaintext highlighter-rouge">get(i)</code> O(1), <code class="language-plaintext highlighter-rouge">contains</code> O(n)</td>
+      <td>At the end O(1) amortized, at index i O(n)</td>
+      <td>At index i O(n)</td>
+      <td>Elements after i are shifted</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">LinkedList</code></td>
+      <td><code class="language-plaintext highlighter-rouge">get(i)</code> O(n), <code class="language-plaintext highlighter-rouge">contains</code> O(n)</td>
+      <td>At either end O(1)</td>
+      <td>At either end O(1)</td>
+      <td>Slow random access</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ArrayDeque</code></td>
+      <td><code class="language-plaintext highlighter-rouge">peekFirst</code>/<code class="language-plaintext highlighter-rouge">peekLast</code> O(1)</td>
+      <td>At either end O(1) amortized</td>
+      <td>At either end O(1)</td>
+      <td>The best stack and queue</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">HashMap</code> / <code class="language-plaintext highlighter-rouge">HashSet</code></td>
+      <td><code class="language-plaintext highlighter-rouge">get</code>, <code class="language-plaintext highlighter-rouge">containsKey</code> O(1) on average</td>
+      <td><code class="language-plaintext highlighter-rouge">put</code> O(1) on average</td>
+      <td>O(1) on average</td>
+      <td>Slower when many keys collide</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TreeMap</code> / <code class="language-plaintext highlighter-rouge">TreeSet</code></td>
+      <td><code class="language-plaintext highlighter-rouge">get</code>, <code class="language-plaintext highlighter-rouge">containsKey</code> O(log n)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>Keys kept sorted</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PriorityQueue</code></td>
+      <td><code class="language-plaintext highlighter-rouge">peek</code> O(1), <code class="language-plaintext highlighter-rouge">contains</code> O(n)</td>
+      <td><code class="language-plaintext highlighter-rouge">offer</code> O(log n)</td>
+      <td><code class="language-plaintext highlighter-rouge">poll</code> O(log n)</td>
+      <td>A binary heap</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">List.sort</code>, <code class="language-plaintext highlighter-rouge">Arrays.sort</code></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>O(n log n)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The most common mistake is calling <code class="language-plaintext highlighter-rouge">list.contains(x)</code> inside a loop. That makes the loop O(n²). Putting the items in a <code class="language-plaintext highlighter-rouge">HashSet</code> first makes each lookup O(1) and the whole loop O(n). For a worked example, see <a href="https://codersite.dev/transform-list-into-hashmap/" target="_blank">transform a list into a HashMap</a>, and for how these structures work inside, see <a href="https://codersite.dev/data-structures-foundation-efficient-programming/" target="_blank">data structures: the foundation of efficient programming</a>.</p>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="measure-it-yourself-the-doubling-test">Measure it yourself: the doubling test</h2>
+
+<p>You can check a complexity with a stopwatch. Run the algorithm, double the input size, and run it again. The ratio between the two times tells you the growth rate:</p>
+
+<ul>
+  <li>O(n): the time doubles (ratio 2);</li>
+  <li>O(n²): the time grows four times (ratio 4);</li>
+  <li>O(n³): the time grows eight times (ratio 8).</li>
+</ul>
+
+<p>I timed <code class="language-plaintext highlighter-rouge">countThreeSum</code> and <code class="language-plaintext highlighter-rouge">sum</code> on random input with Java 25. Your times will differ on another machine, but the ratios won’t:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">countThreeSum</code>, n</th>
+      <th>Time</th>
+      <th>Ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>500</td>
+      <td>13.2 ms</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>1,000</td>
+      <td>106.4 ms</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <td>2,000</td>
+      <td>852.6 ms</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <td>4,000</td>
+      <td>6,735.1 ms</td>
+      <td>7.9</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">sum</code>, n</th>
+      <th>Time</th>
+      <th>Ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>25,000,000</td>
+      <td>5.6 ms</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>50,000,000</td>
+      <td>10.9 ms</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <td>100,000,000</td>
+      <td>24.5 ms</td>
+      <td>2.2</td>
+    </tr>
+    <tr>
+      <td>200,000,000</td>
+      <td>46.7 ms</td>
+      <td>1.9</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The three-sum time is multiplied by 8 at every doubling, exactly what O(n³) predicts. At this rate, n = 8,000 would take almost a minute, and n = 1,000,000 would take years. The <code class="language-plaintext highlighter-rouge">sum</code> time doubles, as O(n) predicts.</p>
+
+<p>The doubling test is how Robert Sedgewick and Kevin Wayne teach algorithm analysis in <em>Algorithms</em>. Their book starts from experiments like this one, builds mathematical models from them, and then covers sorting, searching, graphs and strings in Java. It’s the best next step if you want to go deeper than this post.</p>
 
 <div><center>
-  <a href="https://link.amazon/A03J6CE1B" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="320" height="500" src="/recommended/images/technical_Interview_Preparation_Roadmap.jpg" /></a>
+  <a href="https://amzn.to/4hDFb8q" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="/recommended/images/algorithmsRobertSedgewick.jpg" /></a>
 </center>
 
 <br /></div>
 
-<p>This article was just an introduction to algorithm analysis to face an actual code interview as a software developer. They are asked to build approximated models using Big O notation in Java. The same concepts apply to Python algorithm analysis.</p>
+<h2 id="how-to-answer-complexity-questions-in-an-interview">How to answer complexity questions in an interview</h2>
 
-<p>If you want to create a mathematical model for the execution time of a discrete operation, for example, you should take a course in <a href="https://en.wikipedia.org/wiki/Discrete_mathematics" target="_blank">discrete mathematics</a>.</p>
+<ol>
+  <li><strong>State both time and space</strong>, for example <em>“O(n) time and O(1) extra space”</em>.</li>
+  <li><strong>Name what n is.</strong> For two inputs, use two variables: merging two lists is O(n + m), not O(n).</li>
+  <li><strong>Explain where the number comes from:</strong> <em>“one pass over the array, and each HashSet lookup is O(1) on average.”</em></li>
+  <li><strong>Mention the worst case</strong> when it differs from the average, as with <code class="language-plaintext highlighter-rouge">HashMap</code> or quicksort.</li>
+  <li><strong>Offer the trade-off:</strong> a faster solution that uses more memory, or the reverse.</li>
+  <li><strong>Say when constants matter:</strong> for small, bounded inputs, a simple O(n²) solution can be the right choice.</li>
+</ol>
 
-<p>Preparing to discuss algorithms analysis in your following programming interview requires practicing and studying different algorithms, and you can find it in <a href="https://amzn.to/3HrGXrF" target="_blank">Cracking the Coding Interview</a> with many explanation details.</p>
+<h2 id="faq">FAQ</h2>
+
+<h3 id="what-is-big-o-notation-in-simple-terms">What is Big O notation in simple terms?</h3>
+
+<p>Big O tells you how the work an algorithm does grows when its input grows. O(n) means that doubling the input roughly doubles the work, and O(n²) means that doubling the input roughly quadruples it.</p>
+
+<h3 id="is-olog-n-faster-than-o1">Is O(log n) faster than O(1)?</h3>
+
+<p>No. O(1) takes the same time for any input size, while O(log n) grows slowly as the input grows. In practice O(log n) is very fast: about 30 steps for a billion elements.</p>
+
+<h3 id="what-is-the-difference-between-big-o-and-big-theta">What is the difference between Big O and Big Theta?</h3>
+
+<p>Big O is an upper bound, and Big Theta is a tight bound. Linear search is O(n) and also O(n²), because both are upper bounds, but it’s Θ(n) in the worst case. In interviews, people say Big O and usually mean the tight worst-case bound.</p>
+
+<h3 id="is-hashmapget-always-o1">Is HashMap.get always O(1)?</h3>
+
+<p>It’s O(1) on average. If many keys land in the same bucket, lookups get slower. Since Java 8, a bucket with many entries is turned into a balanced tree, which keeps the worst case at O(log n) when the keys are <code class="language-plaintext highlighter-rouge">Comparable</code>.</p>
+
+<h3 id="do-i-count-the-input-in-space-complexity">Do I count the input in space complexity?</h3>
+
+<p>Usually not. Space complexity in interviews means <em>extra</em> space. Say it explicitly: <em>“O(1) extra space, not counting the input array.”</em></p>
+
+<p>Big O becomes natural with practice. Write a solution, state its complexity, then try to beat it. For real Java coding interview questions to practice on, each solved step by step, see my book <strong><a href="https://link.amazon/B08nEgB1o" target="_blank">The Code Interview</a></strong>.</p>
 
 <div>
 <p><b><i>“If this article helped you, help me create the next one.”</i></b></p>
@@ -690,8 +1062,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/big-o-notation-analysis-of-algorithms/"
   },
-  "headline": "Big O Notation and Analysis of Algorithms - coding interview",
-  "description": "Big O Notation helps us to determine how complex an algorithm is. It matters when we build an application for millions of users",
+  "headline": "Big O Notation in Java: Time and Space Complexity for Coding Interviews",
+  "description": "Learn Big O notation with tested Java examples: O(1) to O(n!), how to count steps, space complexity, the Big O of Java collections, and a timing experiment that shows growth rates.",
   "image": "https://codersite.dev/assets/images/algorithm.jpg",
   "datePublished": "2020-06-22T00:00:00+02:00",
   "dateModified": "2020-06-22T00:00:00+02:00",
@@ -729,7 +1101,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Big O Notation and Analysis of Algorithms - coding interview",
+      "name": "Big O Notation in Java: Time and Space Complexity for Coding Interviews",
       "item": "https://codersite.dev/big-o-notation-analysis-of-algorithms/"
     }
   ]
