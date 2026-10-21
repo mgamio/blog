@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>SOLID principles: The Definitive Guide (Part I) | codersite</title>
+<title>SOLID Principles in Java: The Definitive Guide with Examples | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="SOLID principles: The Definitive Guide (Part I)" />
+<meta property="og:title" content="SOLID Principles in Java: The Definitive Guide with Examples" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Implementing the Single Responsibility Principle in a microservices architecture" />
-<meta name="twitter:description" property="og:description" content="Implementing the Single Responsibility Principle in a microservices architecture" />
+<meta name="description" content="All five SOLID principles explained with one running Java example: single responsibility, open-closed, Liskov substitution, interface segregation and dependency inversion, with before-and-after code." />
+<meta name="twitter:description" property="og:description" content="All five SOLID principles explained with one running Java example: single responsibility, open-closed, Liskov substitution, interface segregation and dependency inversion, with before-and-after code." />
 <link rel="canonical" href="https://codersite.dev/solid-principles-the-definitive-guide/" />
 <meta property="og:url" content="https://codersite.dev/solid-principles-the-definitive-guide/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2020-06-15T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/solid.jpg" />
-<meta name="twitter:title" content="SOLID principles: The Definitive Guide (Part I)" />
+<meta name="twitter:title" content="SOLID Principles in Java: The Definitive Guide with Examples" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2020-06-15T00:00:00+02:00","datePublished":"2020-06-15T00:00:00+02:00","description":"Implementing the Single Responsibility Principle in a microservices architecture","headline":"SOLID principles: The Definitive Guide (Part I)","image":"https://codersite.dev/assets/images/solid.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/solid-principles-the-definitive-guide/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/solid-principles-the-definitive-guide/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2020-06-15T00:00:00+02:00","datePublished":"2020-06-15T00:00:00+02:00","description":"All five SOLID principles explained with one running Java example: single responsibility, open-closed, Liskov substitution, interface segregation and dependency inversion, with before-and-after code.","headline":"SOLID Principles in Java: The Definitive Guide with Examples","image":"https://codersite.dev/assets/images/solid.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/solid-principles-the-definitive-guide/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/solid-principles-the-definitive-guide/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -165,7 +165,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=SOLID principles: The Definitive Guide (Part I)&url=https://codersite.dev/solid-principles-the-definitive-guide/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=SOLID Principles in Java: The Definitive Guide with Examples&url=https://codersite.dev/solid-principles-the-definitive-guide/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -213,7 +213,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">SOLID principles: The Definitive Guide (Part I)</h1>
+                <h1 class="posttitle">SOLID Principles in Java: The Definitive Guide with Examples</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -221,7 +221,7 @@
                 <p class="post-meta-line">
                     <time datetime="2020-06-15T00:00:00+02:00" itemprop="datePublished">Jun 15, 2020</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">6 min read</span>
+                    <span class="meta-reading-time">20 min read</span>
                     
                 </p>
 
@@ -236,7 +236,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/solid.jpg" alt="SOLID principles: The Definitive Guide (Part I)">
+            <img class="featured-image img-fluid" src="/assets/images/solid.jpg" alt="SOLID Principles in Java: The Definitive Guide with Examples">
             
 
             
@@ -247,29 +247,36 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>SOLID principles tell you how to arrange your functions into classes and how those classes should be interrelated.</p>
+                <p>SOLID is a set of five principles that tell you how to arrange your code into classes and how those classes should depend on each other. Code that follows them is easier to change, test and understand, because a change in one place doesn’t ripple through the rest of the system.</p>
 
-<p>SOLID is an acronym that stands for five principles of software design: <strong>S</strong>ingle Responsibility, <strong>O</strong>pen-Closed, <strong>L</strong>iskov Substitution, <strong>I</strong>nterface Segregation, and <strong>D</strong>ependency Inversion.</p>
+<p>The five principles are:</p>
 
-<p>Robert C. Martin introduced it.</p>
+<ul>
+  <li><strong>S</strong>ingle Responsibility Principle</li>
+  <li><strong>O</strong>pen-Closed Principle</li>
+  <li><strong>L</strong>iskov Substitution Principle</li>
+  <li><strong>I</strong>nterface Segregation Principle</li>
+  <li><strong>D</strong>ependency Inversion Principle</li>
+</ul>
 
-<p>When SOLID principles are applied correctly, your software infrastructure will tolerate changes, be easier to understand, and focus on reusable components by reducing complexity, coupling, and dependency.</p>
+<p>Robert C. Martin described them in the early 2000s, building on earlier work by Bertrand Meyer and Barbara Liskov, and Michael Feathers arranged them into the acronym SOLID.</p>
 
-<p>Let’s start with the first principle.</p>
+<p>This guide explains all five with <strong>one running example</strong>, an online store that issues payment cards to its customers. Each principle starts with code that breaks it, shows the problem, and then fixes it. All the code is Java, and I compiled and ran every example on Java 25.</p>
 
-<h2 id="solid-principles-single-responsibility-principle-srp">SOLID principles: Single Responsibility Principle (SRP)</h2>
+<h2 id="s-single-responsibility-principle">S: Single Responsibility Principle</h2>
 
 <blockquote>
-  <p>… “a class should only have one reason to change“</p>
+  <p>A module should be responsible to one, and only one, actor.
+– Robert C. Martin, <em>Clean Architecture</em></p>
 </blockquote>
 
-<p>This principle states that <strong>a class should only have one responsibility</strong>.</p>
+<p>The principle is often summarized as <em>“a class should have only one reason to change”</em>. The <em>reason to change</em> is a group of people, an <strong>actor</strong>, who ask for changes. If two teams can ask for changes to the same class, that class has two responsibilities, and sooner or later one team’s change will break the other team’s code.</p>
 
-<p>For instance, imagine an online store that issues its cards for its customers, and from the beginning, the Payment and Card teams are in mutual agreement to apply for interest and to lock cards from customers who are in late payments for 14 days or more.</p>
+<h3 id="the-problem-two-teams-one-class">The problem: two teams, one class</h3>
 
-<p>In the following code, we have the first design of the Payment Class, which supports both requirements.</p>
+<p>The store applies interest to customers whose payment is late, and it locks their cards. At first, the Payments team and the Cards team agree on the same rule: both actions happen when a payment is 14 or more days late. So one class does both:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -282,20 +289,26 @@
 11
 12
 13
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Payment</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="k">final</span> <span class="n">int</span> <span class="nc">MAX_DAYS</span> <span class="p">=</span> <span class="mi">14</span><span class="p">;</span>
-  
-  <span class="k">public</span> <span class="n">void</span> <span class="nf">batch</span><span class="p">(</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">Customer</span><span class="p">&gt;</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="nc">Customer</span> <span class="n">customer</span> <span class="p">:</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">int</span> <span class="n">nDays</span> <span class="p">=</span> <span class="nf">latePaymentDays</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">nDays</span> <span class="p">&gt;=</span> <span class="nc">MAX_DAYS</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">applyLatePaymentInterest</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
-        <span class="nf">lockCard</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+14
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Payment</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MAX_DAYS</span> <span class="o">=</span> <span class="mi">14</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">batch</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="n">customers</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">Customer</span> <span class="n">customer</span> <span class="o">:</span> <span class="n">customers</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">latePaymentDays</span><span class="o">(</span><span class="n">customer</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="no">MAX_DAYS</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">applyLatePaymentInterest</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span>
+        <span class="n">lockCard</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="c1">// latePaymentDays, applyLatePaymentInterest and lockCard omitted</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="/assets/images/payment1.jpg" alt="UML class diagram: the Payments team and the Cards team both depend on one Payment class" title="One class, two actors" class="img-responsive" /></p>
+
+<p>Then the Cards team wants to lock cards after 10 days, to reduce fraud. The Payments team doesn’t want to charge interest earlier, because its rules come from the customer contracts. Both requirements live in the same <code class="language-plaintext highlighter-rouge">MAX_DAYS</code> constant and the same <code class="language-plaintext highlighter-rouge">if</code>. Whatever value you choose, one team gets the wrong behavior. The teams are stuck, and every change to <code class="language-plaintext highlighter-rouge">Payment</code> needs both of them to agree.</p>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -304,23 +317,11 @@
 </script>
 <br /></div>
 
-<h2 id="the-problem-a-class-has-more-than-one-responsibility">The Problem: A Class has more than one responsibility</h2>
+<h3 id="the-solution-one-class-per-actor">The solution: one class per actor</h3>
 
-<p>But suddenly, the Cards team wants to change the validation to 10 days. However, the Payments team manages other policies related to when interests by late payment are applied. As a result, the Payments team disagrees with the Cards team. Moreover, both teams are stuck on how to proceed.</p>
+<p>Give each team its own class. The calculation that both teams need, how many days a payment is late, is a fact about the customer and not either team’s policy, so it moves to a third class that both use:</p>
 
-<p>This scenario is a clear example of how this Class design violates the Single Responsibility Principle. The Payment class has more than one reason to change and breaks the Payments team’s business logic if they accept the Cards team’s requirement.</p>
-
-<p>The following figure shows the Class with different responsibilities:</p>
-
-<p><img src="/assets/images/payment1.jpg" alt="ClassWithDifferentResponsibilities" title="Class with different responsibilities" class="img-responsive" /></p>
-
-<h2 id="the-solution-create-a-class-with-only-one-responsibility">The solution: Create a Class with only one responsibility</h2>
-
-<p>What do we need to do?. In this scenario, we can apply the <strong>S</strong>ingle Responsibility Principle</p>
-
-<p>Firstly, we move the <em>lockCard()</em> responsibility to a new Card Class. This technique is most known as refactoring</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -332,30 +333,25 @@
 10
 11
 12
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Card</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="k">final</span> <span class="n">int</span> <span class="nc">MAX_DAYS</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
-  
-  <span class="k">public</span> <span class="n">void</span> <span class="nf">batch</span><span class="p">(</span><span class="nc">List</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="nc">Customer</span> <span class="n">customer</span> <span class="p">:</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">int</span> <span class="n">nDays</span> <span class="p">=</span> <span class="nc">Payment</span><span class="p">.</span><span class="nf">latePaymentDays</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">nDays</span> <span class="p">&gt;=</span> <span class="nc">MAX_DAYS</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">lockCard</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+13
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PaymentHistory</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">LocalDate</span> <span class="n">today</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">PaymentHistory</span><span class="o">(</span><span class="nc">LocalDate</span> <span class="n">today</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">today</span> <span class="o">=</span> <span class="n">today</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">latePaymentDays</span><span class="o">(</span><span class="nc">Customer</span> <span class="n">customer</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">customer</span><span class="o">.</span><span class="na">paid</span><span class="o">())</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="nc">ChronoUnit</span><span class="o">.</span><span class="na">DAYS</span><span class="o">.</span><span class="na">between</span><span class="o">(</span><span class="n">customer</span><span class="o">.</span><span class="na">dueDate</span><span class="o">(),</span> <span class="n">today</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br /></div>
+<p>The Payments team owns the interest rule:</p>
 
-<p>After that change and following <a href="https://codersite.dev/clean-code/" target="_blank">Clean code</a> principles, we can see how it looks the new Payment Class (refactored as well):</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -367,27 +363,79 @@
 10
 11
 12
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">Payment</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="k">final</span> <span class="n">int</span> <span class="nc">MAX_DAYS</span> <span class="p">=</span> <span class="mi">14</span><span class="p">;</span>
-  
-  <span class="k">public</span> <span class="n">void</span> <span class="nf">batch</span><span class="p">(</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">Customer</span><span class="p">&gt;</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="nc">Customer</span> <span class="n">customer</span> <span class="p">:</span> <span class="n">customers</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">int</span> <span class="n">nDays</span> <span class="p">=</span> <span class="nf">latePaymentDays</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">nDays</span> <span class="p">&gt;=</span> <span class="nc">MAX_DAYS</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">applyLatePaymentInterest</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LateInterestBatch</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MAX_DAYS</span> <span class="o">=</span> <span class="mi">14</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">PaymentHistory</span> <span class="n">history</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">LateInterestBatch</span><span class="o">(</span><span class="nc">PaymentHistory</span> <span class="n">history</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">history</span> <span class="o">=</span> <span class="n">history</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="n">customers</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">Customer</span> <span class="n">customer</span> <span class="o">:</span> <span class="n">customers</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">history</span><span class="o">.</span><span class="na">latePaymentDays</span><span class="o">(</span><span class="n">customer</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="no">MAX_DAYS</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">applyLatePaymentInterest</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Finally, new changes to the MAX_DAYS variable will only depend on the requirements of every team separately. The following figure shows the Classes for different actors, without conflicts.</p>
+<p>And the Cards team owns the lock rule, with its own threshold:</p>
 
-<p><img src="/assets/images/payment2b.jpeg" alt="ClassesForDifferentActors" title="Classes for different actors" class="img-responsive" /></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CardLockBatch</span> <span class="o">{</span>
 
-<p>Therefore, the Payment Class is only responsible for supporting to the Payments team, and the Card Class is solely responsible for supporting the Cards team.</p>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MAX_DAYS</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
 
-<p>Also, when new features arrive, then we need to distinct in which Class to include it. Moreover, this is related to the Cohesion concept, which help us to group similar functions inside a Class, and that have the same purpose served by that Class.</p>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">PaymentHistory</span> <span class="n">history</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">CardLockBatch</span><span class="o">(</span><span class="nc">PaymentHistory</span> <span class="n">history</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">history</span> <span class="o">=</span> <span class="n">history</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="n">customers</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">Customer</span> <span class="n">customer</span> <span class="o">:</span> <span class="n">customers</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">history</span><span class="o">.</span><span class="na">latePaymentDays</span><span class="o">(</span><span class="n">customer</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="no">MAX_DAYS</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">lockCard</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="/assets/images/srp-classes-after.png" alt="UML class diagram: the Payments team uses LateInterestBatch, the Cards team uses CardLockBatch, and both batches use PaymentHistory" title="One class per actor" class="img-responsive" /></p>
+
+<p>With three customers whose payments are 12, 20 and 30 days late, where the last one has since paid, the first version charged interest and locked a card only for the customer 20 days late. Now <code class="language-plaintext highlighter-rouge">LateInterestBatch</code> still charges only that customer, while <code class="language-plaintext highlighter-rouge">CardLockBatch</code> locks the cards of the customers 12 and 20 days late. Each team changes its own class, and neither change can break the other team.</p>
+
+<p>A common mistake when splitting a class is to leave the shared logic where it was. If <code class="language-plaintext highlighter-rouge">CardLockBatch</code> called <code class="language-plaintext highlighter-rouge">payment.latePaymentDays()</code>, the Cards team would still depend on the Payments team’s class, and the split would only look clean. Moving the shared calculation into <code class="language-plaintext highlighter-rouge">PaymentHistory</code> removes that dependency.</p>
+
+<p><strong>Warning sign:</strong> a class changes for requests from different teams, or its name needs “and” to describe it. SRP is about cohesion: the code in a class should change for the same reasons. The <a href="https://codersite.dev/clean-code/" target="_blank">clean code</a> rule <em>functions should do one thing</em> is the same idea at the level of methods.</p>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -396,13 +444,360 @@
 </script>
 <br /></div>
 
-<p>In conclusion, once you identify classes that have too many responsibilities, use this refactoring technique to create smaller classes with single responsibilities and focused only on one business actor.</p>
+<h2 id="o-open-closed-principle">O: Open-Closed Principle</h2>
 
-<p>Use this software design principle as a tool when translating <a href="https://codersite.dev/uml-diagrams-for-java-developers/" target="_blank">business software requirements into technical specifications</a>. Programmers must understand these design decisions before programming.</p>
+<blockquote>
+  <p>Software entities should be open for extension, but closed for modification.
+– Bertrand Meyer</p>
+</blockquote>
 
-<p>Now that you’ve learned the Single Responsibility principle, it’s time to learn the <a href="https://codersite.dev/open-closed-principle/" target="_blank">Open-closed principle</a> to design flexible systems and avoid future software maintenance costs.</p>
+<p>When the Cards team locks a card, the customer must be told. The first version sends an email or an SMS depending on a setting:</p>
 
-<p>Here’s a Quick Guide to Elevate Your Projects with Proven Software Design Tactics!.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="k">if</span> <span class="o">(</span><span class="n">channel</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"EMAIL"</span><span class="o">))</span> <span class="o">{</span>
+  <span class="n">sendEmail</span><span class="o">(</span><span class="n">customer</span><span class="o">.</span><span class="na">email</span><span class="o">(),</span> <span class="n">message</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">channel</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"SMS"</span><span class="o">))</span> <span class="o">{</span>
+  <span class="n">sendSms</span><span class="o">(</span><span class="n">customer</span><span class="o">.</span><span class="na">phone</span><span class="o">(),</span> <span class="n">message</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Every new channel, such as push notifications, means editing this <code class="language-plaintext highlighter-rouge">if</code>, retesting <code class="language-plaintext highlighter-rouge">CardLockBatch</code>, and risking a bug in the channels that already work.</p>
+
+<p>Instead, make each channel a class behind one interface:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Notifier</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">send</span><span class="o">(</span><span class="nc">Customer</span> <span class="n">customer</span><span class="o">,</span> <span class="nc">String</span> <span class="n">message</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EmailNotifier</span> <span class="kd">implements</span> <span class="nc">Notifier</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SmsNotifier</span> <span class="kd">implements</span> <span class="nc">Notifier</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">CardLockBatch</code> receives a list of notifiers and sends the message through each one:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">for</span> <span class="o">(</span><span class="nc">Notifier</span> <span class="n">notifier</span> <span class="o">:</span> <span class="n">notifiers</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">notifier</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">customer</span><span class="o">,</span> <span class="s">"Your card is locked because of a late payment."</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Adding push notifications is now a new <code class="language-plaintext highlighter-rouge">PushNotifier</code> class, passed in with the others. <code class="language-plaintext highlighter-rouge">CardLockBatch</code> is <em>closed for modification</em>: its code doesn’t change. The system is <em>open for extension</em>: it gains a new behavior. In my test, adding <code class="language-plaintext highlighter-rouge">PushNotifier</code> sent the push messages to both locked customers without a single change to <code class="language-plaintext highlighter-rouge">CardLockBatch</code>.</p>
+
+<p><strong>Warning sign:</strong> a growing <code class="language-plaintext highlighter-rouge">if-else</code> or <code class="language-plaintext highlighter-rouge">switch</code> on a type or a setting that you edit every time a new case appears.</p>
+
+<p>For a longer, real example, see <a href="https://codersite.dev/open-closed-principle/" target="_blank">the open-closed principle with a Spring Boot rate limiter</a>, Part II of this series.</p>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="l-liskov-substitution-principle">L: Liskov Substitution Principle</h2>
+
+<blockquote>
+  <p>If S is a subtype of T, then objects of type T may be replaced with objects of type S without breaking the program.
+– Barbara Liskov, 1987 (paraphrased)</p>
+</blockquote>
+
+<p>In other words: any code that works with a type must keep working with every subtype of it. A subtype that throws where the parent type works, or that silently does less, breaks the principle.</p>
+
+<p>The store models cards with one interface:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Card</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">lock</span><span class="o">();</span>
+  <span class="kt">void</span> <span class="nf">applyInterest</span><span class="o">(</span><span class="nc">BigDecimal</span> <span class="n">rate</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>A credit card implements both methods. Then the store adds prepaid cards. A prepaid card can be locked, but it has no credit, so there’s nothing to charge interest on:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PrepaidCard</span> <span class="kd">implements</span> <span class="nc">Card</span> <span class="o">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">lock</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">locked</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">applyInterest</span><span class="o">(</span><span class="nc">BigDecimal</span> <span class="n">rate</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UnsupportedOperationException</span><span class="o">(</span><span class="s">"A prepaid card has no credit to charge interest on"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The code compiles, but the interest batch now fails as soon as a prepaid card appears in its list:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="k">for</span> <span class="o">(</span><span class="nc">Card</span> <span class="n">card</span> <span class="o">:</span> <span class="n">lateCards</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">card</span><span class="o">.</span><span class="na">applyInterest</span><span class="o">(</span><span class="n">rate</span><span class="o">);</span> <span class="c1">// throws UnsupportedOperationException for a PrepaidCard</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">PrepaidCard</code> claims to be a <code class="language-plaintext highlighter-rouge">Card</code>, but it can’t be used wherever a <code class="language-plaintext highlighter-rouge">Card</code> is expected. The caller would need <code class="language-plaintext highlighter-rouge">if (card instanceof PrepaidCard)</code> checks, which means it has to know every subtype, the opposite of what an interface is for.</p>
+
+<p>The fix isn’t a better <code class="language-plaintext highlighter-rouge">PrepaidCard</code>. The <code class="language-plaintext highlighter-rouge">Card</code> interface promises something that not every card can do. That’s the next principle.</p>
+
+<p><strong>Warning sign:</strong> an overridden method that throws <code class="language-plaintext highlighter-rouge">UnsupportedOperationException</code>, does nothing, or needs an <code class="language-plaintext highlighter-rouge">instanceof</code> check in the caller. The same rule explains a classic puzzle with generics; see <a href="https://codersite.dev/java-generics/" target="_blank">why a List of Integer isn’t a List of Number</a>.</p>
+
+<h2 id="i-interface-segregation-principle">I: Interface Segregation Principle</h2>
+
+<blockquote>
+  <p>Clients should not be forced to depend on methods they do not use.
+– Robert C. Martin</p>
+</blockquote>
+
+<p>The <code class="language-plaintext highlighter-rouge">Card</code> interface forced <code class="language-plaintext highlighter-rouge">PrepaidCard</code> to implement <code class="language-plaintext highlighter-rouge">applyInterest</code>, a method it can’t support. It also forces the lock batch, which only locks cards, to depend on an interest method it never calls. Split the interface by what clients need:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Lockable</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">lock</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">InterestBearing</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">applyInterest</span><span class="o">(</span><span class="nc">BigDecimal</span> <span class="n">rate</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Each card implements only what it can do:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CreditCard</span> <span class="kd">implements</span> <span class="nc">Lockable</span><span class="o">,</span> <span class="nc">InterestBearing</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PrepaidCard</span> <span class="kd">implements</span> <span class="nc">Lockable</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Now the compiler enforces what used to fail at runtime. The interest batch takes a <code class="language-plaintext highlighter-rouge">List&lt;InterestBearing&gt;</code>, so a prepaid card can’t even be put into it. The lock batch takes a <code class="language-plaintext highlighter-rouge">List&lt;Lockable&gt;</code> and handles both kinds of card. In my test, a credit card with a balance of 1,000.00 was charged 2% interest, to 1,020.00, and then both cards were locked, with no exception.</p>
+
+<p>Interface Segregation fixed the Liskov problem from the previous section. The two principles often appear together: a fat interface makes it impossible for some implementations to honor the whole contract.</p>
+
+<p><strong>Warning sign:</strong> implementations with empty methods or methods that throw, or interfaces where most clients use only a few of the methods.</p>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="d-dependency-inversion-principle">D: Dependency Inversion Principle</h2>
+
+<blockquote>
+  <p>High-level modules should not depend on low-level modules. Both should depend on abstractions.
+– Robert C. Martin</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">CardLockBatch</code> is business logic: it decides whose cards to lock. In the first version, it also created its own database access:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CardLockBatch</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">JdbcCustomerRepository</span> <span class="n">customers</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JdbcCustomerRepository</span><span class="o">(</span><span class="n">dataSource</span><span class="o">);</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">Customer</span> <span class="n">customer</span> <span class="o">:</span> <span class="n">customers</span><span class="o">.</span><span class="na">findUnpaid</span><span class="o">())</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The business rule now depends on JDBC, on a running database, and on a <code class="language-plaintext highlighter-rouge">dataSource</code>. You can’t test the 10-day rule without a database, and moving the customers to a REST service would mean editing the batch.</p>
+
+<p>Invert the dependency. The batch declares the interface it needs, and the database code implements it:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CustomerRepository</span> <span class="o">{</span>
+  <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="nf">findUnpaid</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CardLockBatch</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MAX_DAYS</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">CustomerRepository</span> <span class="n">customers</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">PaymentHistory</span> <span class="n">history</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Notifier</span><span class="o">&gt;</span> <span class="n">notifiers</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">CardLockBatch</span><span class="o">(</span><span class="nc">CustomerRepository</span> <span class="n">customers</span><span class="o">,</span> <span class="nc">PaymentHistory</span> <span class="n">history</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Notifier</span><span class="o">&gt;</span> <span class="n">notifiers</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">customers</span> <span class="o">=</span> <span class="n">customers</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">history</span> <span class="o">=</span> <span class="n">history</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">notifiers</span> <span class="o">=</span> <span class="n">notifiers</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">Customer</span> <span class="n">customer</span> <span class="o">:</span> <span class="n">customers</span><span class="o">.</span><span class="na">findUnpaid</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">history</span><span class="o">.</span><span class="na">latePaymentDays</span><span class="o">(</span><span class="n">customer</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="no">MAX_DAYS</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">lockCard</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">Notifier</span> <span class="n">notifier</span> <span class="o">:</span> <span class="n">notifiers</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">notifier</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">customer</span><span class="o">,</span> <span class="s">"Your card is locked because of a late payment."</span><span class="o">);</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>In production, <code class="language-plaintext highlighter-rouge">JdbcCustomerRepository implements CustomerRepository</code>. In a unit test, a few lines replace the database:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InMemoryCustomerRepository</span> <span class="kd">implements</span> <span class="nc">CustomerRepository</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="n">customers</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">InMemoryCustomerRepository</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="n">customers</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">customers</span> <span class="o">=</span> <span class="n">customers</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Customer</span><span class="o">&gt;</span> <span class="nf">findUnpaid</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">customers</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">filter</span><span class="o">(</span><span class="n">customer</span> <span class="o">-&gt;</span> <span class="o">!</span><span class="n">customer</span><span class="o">.</span><span class="na">paid</span><span class="o">()).</span><span class="na">toList</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nc">CardLockBatch</span> <span class="n">batch</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CardLockBatch</span><span class="o">(</span>
+    <span class="k">new</span> <span class="nf">InMemoryCustomerRepository</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">ana</span><span class="o">,</span> <span class="n">ben</span><span class="o">,</span> <span class="n">eva</span><span class="o">)),</span>
+    <span class="k">new</span> <span class="nf">PaymentHistory</span><span class="o">(</span><span class="nc">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2026</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">21</span><span class="o">)),</span>
+    <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="nc">EmailNotifier</span><span class="o">()));</span>
+<span class="n">batch</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <em>inversion</em> is in who owns the interface. <code class="language-plaintext highlighter-rouge">CustomerRepository</code> belongs to the business side and describes what the business needs. The database code depends on it, not the other way round. This final <code class="language-plaintext highlighter-rouge">CardLockBatch</code> is also the one that applies all five principles together: one actor, notifiers open for extension, and its dependencies passed in as interfaces.</p>
+
+<p>Spring’s dependency injection exists to make this easy: when a class asks for a <code class="language-plaintext highlighter-rouge">CustomerRepository</code> in its constructor, Spring passes in the implementation. You can see it in the <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">Spring Boot OpenAPI tutorial</a>, where the controller receives its <code class="language-plaintext highlighter-rouge">BookRepository</code> through the constructor.</p>
+
+<p><strong>Warning sign:</strong> <code class="language-plaintext highlighter-rouge">new</code> of an infrastructure class (a database, HTTP client or file system) inside business logic, or business code you can’t unit test without starting a database or a server.</p>
+
+<h2 id="solid-at-a-glance">SOLID at a glance</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Principle</th>
+      <th>In one sentence</th>
+      <th>Warning sign</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>S</strong>ingle Responsibility</td>
+      <td>One class serves one actor</td>
+      <td>Two teams ask for changes to the same class</td>
+    </tr>
+    <tr>
+      <td><strong>O</strong>pen-Closed</td>
+      <td>Add behavior with new code, not by editing old code</td>
+      <td>An <code class="language-plaintext highlighter-rouge">if-else</code> on a type that grows with every new case</td>
+    </tr>
+    <tr>
+      <td><strong>L</strong>iskov Substitution</td>
+      <td>Every subtype works wherever its parent type works</td>
+      <td>Overrides that throw <code class="language-plaintext highlighter-rouge">UnsupportedOperationException</code></td>
+    </tr>
+    <tr>
+      <td><strong>I</strong>nterface Segregation</td>
+      <td>Small interfaces shaped by what clients use</td>
+      <td>Empty or throwing methods in implementations</td>
+    </tr>
+    <tr>
+      <td><strong>D</strong>ependency Inversion</td>
+      <td>Business logic depends on interfaces it owns</td>
+      <td><code class="language-plaintext highlighter-rouge">new JdbcSomething()</code> inside business logic</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Writing code like this is a skill you build by seeing the same principles applied in different situations. My book <em>Software Design Principles</em> covers all five SOLID principles, each with its own Java example and a <em>Key Takeaways</em> recap, together with DRY, KISS, YAGNI and UML class diagrams, and case studies where you design a REST API and a B2B integration from start to finish.</p>
 
 <div><center>
   <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="/assets/images/SoftwareDesignPrinciplesV2.jpg" /></a>
@@ -410,13 +805,54 @@
 
 <br /></div>
 
+<h2 id="when-not-to-apply-solid">When not to apply SOLID</h2>
+
+<p>SOLID principles are tools for code that changes. Applied everywhere, they produce the opposite of what they promise: dozens of one-method interfaces, factories for classes that have only one implementation, and simple features spread across ten files.</p>
+
+<ul>
+  <li><strong>Wait for the second reason to change.</strong> Split <code class="language-plaintext highlighter-rouge">Payment</code> when the Cards team actually asks for a different rule, not on the first day just in case. This is the YAGNI principle (<em>You Aren’t Gonna Need It</em>).</li>
+  <li><strong>One implementation is often fine.</strong> An interface with a single implementation that no test replaces adds a file and a jump in your IDE, and nothing else.</li>
+  <li><strong>Prefer simple code to a pattern.</strong> Two <code class="language-plaintext highlighter-rouge">if</code> branches that never change don’t need the Open-Closed Principle.</li>
+</ul>
+
+<p>Use SOLID to fix the pain you can see: classes that break when another team changes them, <code class="language-plaintext highlighter-rouge">if-else</code> chains that keep growing, and code you can’t test. For the other principles that balance SOLID, such as KISS, DRY and YAGNI, see <a href="https://codersite.dev/software-design-principles/" target="_blank">software design principles explained with Java examples</a>.</p>
+
+<p>All five principles come from Robert C. Martin’s work, and his <em>Clean Code</em> is the best place to see them at the level where you apply them every day: names, functions and classes. If this guide was useful, it’s the natural next book.</p>
+
+<div><center>
+  <a href="https://amzn.to/40axCiH" target="_blank"><img style="border:1px solid black;" alt="Clean Code: A Handbook of Agile Software Craftsmanship by Robert C. Martin" title="Buy Now" border="0" width="265" height="349" src="/recommended/images/cleanCode.jpg" /></a>
+</center>
+
+<br />
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<h3 id="what-does-solid-stand-for">What does SOLID stand for?</h3>
+
+<p>Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation and Dependency Inversion. Robert C. Martin described them, and Michael Feathers coined the acronym.</p>
+
+<h3 id="what-is-the-difference-between-dependency-inversion-and-dependency-injection">What is the difference between Dependency Inversion and Dependency Injection?</h3>
+
+<p>Dependency Inversion is a design principle: business code depends on interfaces it owns, not on concrete infrastructure. Dependency Injection is a technique for following it: you pass the dependencies in, usually through the constructor, instead of creating them inside the class. Spring is a dependency injection framework.</p>
+
+<h3 id="is-the-single-responsibility-principle-about-classes-doing-one-thing">Is the Single Responsibility Principle about classes doing one thing?</h3>
+
+<p>Not exactly. “Do one thing” is a good rule for functions. For classes, Robert C. Martin defines a responsibility as an actor, a group of people who request changes. A class can have several methods and still have one responsibility, as long as they all change for the same people.</p>
+
+<h3 id="do-solid-principles-apply-to-microservices">Do SOLID principles apply to microservices?</h3>
+
+<p>Yes. The same ideas work at a larger scale: a service should be owned by one team (single responsibility), services should talk through stable contracts such as an OpenAPI specification (dependency inversion), and you add capabilities with new services or endpoints instead of breaking existing ones (open-closed).</p>
+
+<h3 id="which-solid-principle-is-the-most-important">Which SOLID principle is the most important?</h3>
+
+<p>If you apply only one, apply the Single Responsibility Principle. Most of the problems the other four solve, such as fat interfaces and hard-to-test classes, start with a class that does too much. To find the right responsibilities before writing code, start from the requirements; see <a href="https://codersite.dev/uml-diagrams-for-java-developers/" target="_blank">UML diagrams for Java developers</a>.</p>
+
 <div>
 <p><b><i>“If this article helped you, help me create the next one.”</i></b></p>
 <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 
 </div>
-
-<p><br /></p>
 
 				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
@@ -501,8 +937,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/solid-principles-the-definitive-guide/"
   },
-  "headline": "SOLID principles: The Definitive Guide (Part I)",
-  "description": "Implementing the Single Responsibility Principle in a microservices architecture",
+  "headline": "SOLID Principles in Java: The Definitive Guide with Examples",
+  "description": "All five SOLID principles explained with one running Java example: single responsibility, open-closed, Liskov substitution, interface segregation and dependency inversion, with before-and-after code.",
   "image": "https://codersite.dev/assets/images/solid.jpg",
   "datePublished": "2020-06-15T00:00:00+02:00",
   "dateModified": "2020-06-15T00:00:00+02:00",
@@ -540,7 +976,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "SOLID principles: The Definitive Guide (Part I)",
+      "name": "SOLID Principles in Java: The Definitive Guide with Examples",
       "item": "https://codersite.dev/solid-principles-the-definitive-guide/"
     }
   ]
