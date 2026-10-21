@@ -7,13 +7,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 
 <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Given N, find the smallest number with the same digits | codersite</title>
+<title>Smallest Number with the Same Number of Digits in Java (Coding Interview Problem) | codersite</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Given N, find the smallest number with the same digits" />
+<meta property="og:title" content="Smallest Number with the Same Number of Digits in Java (Coding Interview Problem)" />
 <meta name="author" content="moises" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an algorithm that, given an original number N, returns the smallest number with the same number of digits. For instance, given 123, return 100" />
-<meta name="twitter:description" property="og:description" content="Write an algorithm that, given an original number N, returns the smallest number with the same number of digits. For instance, given 123, return 100" />
+<meta name="description" content="Given N, return the smallest number with the same number of digits: from a slow countdown to an O(digits) solution in Java, with negative numbers, int overflow and Integer.MIN_VALUE handled." />
+<meta name="twitter:description" property="og:description" content="Given N, return the smallest number with the same number of digits: from a slow countdown to an O(digits) solution in Java, with negative numbers, int overflow and Integer.MIN_VALUE handled." />
 <link rel="canonical" href="https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/" />
 <meta property="og:url" content="https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/" />
 <meta property="og:site_name" content="codersite" />
@@ -23,9 +23,9 @@
 <meta property="article:modified_time" content="2019-06-29T00:00:00+02:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/smallestNumber.jpg" />
-<meta name="twitter:title" content="Given N, find the smallest number with the same digits" />
+<meta name="twitter:title" content="Smallest Number with the Same Number of Digits in Java (Coding Interview Problem)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2019-06-29T00:00:00+02:00","datePublished":"2019-06-29T00:00:00+02:00","description":"Write an algorithm that, given an original number N, returns the smallest number with the same number of digits. For instance, given 123, return 100","headline":"Given N, find the smallest number with the same digits","image":"https://codersite.dev/assets/images/smallestNumber.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"moises"},"dateModified":"2019-06-29T00:00:00+02:00","datePublished":"2019-06-29T00:00:00+02:00","description":"Given N, return the smallest number with the same number of digits: from a slow countdown to an O(digits) solution in Java, with negative numbers, int overflow and Integer.MIN_VALUE handled.","headline":"Smallest Number with the Same Number of Digits in Java (Coding Interview Problem)","image":"https://codersite.dev/assets/images/smallestNumber.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"},"name":"moises"},"url":"https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -165,7 +165,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Given N, find the smallest number with the same digits&url=https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Smallest Number with the Same Number of Digits in Java (Coding Interview Problem)&url=https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -213,7 +213,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Given N, find the smallest number with the same digits</h1>
+                <h1 class="posttitle">Smallest Number with the Same Number of Digits in Java (Coding Interview Problem)</h1>
 
                 <!-- Post meta: published date · reading time (· updated, if any) -->
                 
@@ -221,7 +221,7 @@
                 <p class="post-meta-line">
                     <time datetime="2019-06-29T00:00:00+02:00" itemprop="datePublished">Jun 29, 2019</time>
                     <span class="meta-sep">·</span>
-                    <span class="meta-reading-time">5 min read</span>
+                    <span class="meta-reading-time">10 min read</span>
                     
                 </p>
 
@@ -236,7 +236,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/smallestNumber.jpg" alt="Given N, find the smallest number with the same digits">
+            <img class="featured-image img-fluid" src="/assets/images/smallestNumber.jpg" alt="Smallest Number with the Same Number of Digits in Java (Coding Interview Problem)">
             
 
             
@@ -247,23 +247,87 @@
                 <!-- Toc if any -->
                 
                 <!-- End Toc -->
-                <p>Write a method that, given an original number N, returns the smallest number with the same number of digits.</p>
+                <p><strong>The problem:</strong> write a method that, given an integer N, returns the smallest number with the same number of digits.</p>
 
-<p>For instance,</p>
+<ul>
+  <li>Given 4751, return 1000.</li>
+  <li>Given 100, return 100.</li>
+  <li>Given 1, return 0.</li>
+</ul>
 
-<p>Given N=4751, the method returns 1000.</p>
+<p>It looks like a warm-up question, and it is one. But it tests more than it seems: whether you clarify the problem before coding, whether you notice a pattern instead of brute-forcing, and whether you think about edge cases such as negative numbers and overflow. This post solves it the way you would in an interview, and every result comes from running the code on Java 25.</p>
 
-<p>Given N=100, the method should return 100.</p>
+<h2 id="step-1-clarify-the-problem">Step 1: clarify the problem</h2>
 
-<p>Given N=1, the method should return 0.</p>
+<p>Before writing code, ask the questions the examples don’t answer:</p>
 
-<p>Maybe the first idea comes to our minds could be to iterate from the given original number and decrease one by one, and in every iteration to check if every new number contains one digit less than the original number, if the answer is true, then the previous one is the smallest number.</p>
+<ul>
+  <li><strong>How many digits does 0 have?</strong> One. So for a one-digit N, the answer is 0, the smallest one-digit number that isn’t negative. That’s why 1 returns 0 and not 1.</li>
+  <li><strong>What about negative numbers?</strong> For -37, the two-digit numbers go down to -99, so the answer is -99. For -1, it’s -9.</li>
+  <li><strong>What’s the input type?</strong> An <code class="language-plaintext highlighter-rouge">int</code>. Keep that in mind: the answer for some negative <code class="language-plaintext highlighter-rouge">int</code> values doesn’t fit in an <code class="language-plaintext highlighter-rouge">int</code>.</li>
+</ul>
 
-<h2 id="define-a-test-case-to-validate-what-your-code-will-do">Define a test case to validate what your code will do</h2>
+<p>Write the answers down as test cases. They’re the specification:</p>
 
-<p>Our assumption based on a test case:</p>
+<table>
+  <thead>
+    <tr>
+      <th>N</th>
+      <th>Smallest number with the same number of digits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4751</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>189</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>-1</td>
+      <td>-9</td>
+    </tr>
+    <tr>
+      <td>-37</td>
+      <td>-99</td>
+    </tr>
+    <tr>
+      <td>-100</td>
+      <td>-999</td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
+<h2 id="step-2-the-brute-force">Step 2: the brute force</h2>
+
+<p>The first idea is to count down from N until the number of digits changes, and return the last number that still had the same count:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -271,35 +335,69 @@
 6
 7
 8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">SmallestNumberTest</span> <span class="p">{</span>
-
-  <span class="nd">@Test</span>
-  <span class="k">public</span> <span class="n">void</span> <span class="nf">test_right_smallest_values</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nf">assertTrue</span><span class="p">(</span><span class="nc">NumberUtils</span><span class="p">.</span><span class="nf">smallest</span><span class="p">(</span><span class="mi">4751</span><span class="p">)</span> <span class="p">==</span> <span class="mi">1000</span><span class="p">);</span>
-    <span class="nf">assertTrue</span><span class="p">(</span><span class="nc">NumberUtils</span><span class="p">.</span><span class="nf">smallest</span><span class="p">(</span><span class="mi">189</span><span class="p">)</span> <span class="p">==</span> <span class="mi">100</span><span class="p">);</span>
-    <span class="nf">assertTrue</span><span class="p">(</span><span class="nc">NumberUtils</span><span class="p">.</span><span class="nf">smallest</span><span class="p">(</span><span class="mi">37</span><span class="p">)</span> <span class="p">==</span> <span class="mi">10</span><span class="p">);</span>
-    <span class="nf">assertTrue</span><span class="p">(</span><span class="nc">NumberUtils</span><span class="p">.</span><span class="nf">smallest</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">==</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="nd">@Test</span>
-  <span class="k">public</span> <span class="n">void</span> <span class="nf">test_wrong_smallest_values</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nf">assertFalse</span><span class="p">(</span><span class="nc">NumberUtils</span><span class="p">.</span><span class="nf">smallest</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="p">==</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="nf">assertFalse</span><span class="p">(</span><span class="nc">NumberUtils</span><span class="p">.</span><span class="nf">smallest</span><span class="p">(</span><span class="mi">2891</span><span class="p">)</span> <span class="p">==</span> <span class="mi">2000</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">smallestByCountingDown</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kt">int</span> <span class="n">digits</span> <span class="o">=</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">n</span><span class="o">).</span><span class="na">length</span><span class="o">();</span>
+  <span class="k">while</span> <span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">).</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="n">digits</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">n</span><span class="o">--;</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="n">n</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Here, is the implementation code that works for positive numbers:</p>
+<p>It’s correct for positive numbers, but it does one step for every number between N and the answer, and each step converts a number to a <code class="language-plaintext highlighter-rouge">String</code>. I timed it:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<table>
+  <thead>
+    <tr>
+      <th>N</th>
+      <th>Answer</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>9,999</td>
+      <td>1,000</td>
+      <td>under 1 ms</td>
+    </tr>
+    <tr>
+      <td>999,999</td>
+      <td>100,000</td>
+      <td>12 ms</td>
+    </tr>
+    <tr>
+      <td>99,999,999</td>
+      <td>10,000,000</td>
+      <td>612 ms</td>
+    </tr>
+    <tr>
+      <td>999,999,999</td>
+      <td>100,000,000</td>
+      <td>10.2 seconds</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The work grows with the <em>value</em> of N: O(N) steps. More than 10 seconds for a 9-digit number is not an acceptable answer, and an interviewer will ask you to do better.</p>
+
+<h2 id="step-3-find-the-pattern">Step 3: find the pattern</h2>
+
+<p>Look at the answers again: 1000, 100, 10. Each one is a 1 followed by zeros, a power of 10:</p>
+
+<ul>
+  <li>4751 has 4 digits, and the answer is 10³ = 1000;</li>
+  <li>189 has 3 digits, and the answer is 10² = 100;</li>
+  <li>37 has 2 digits, and the answer is 10¹ = 10.</li>
+</ul>
+
+<p>So for a positive N with d digits, the answer is <strong>10<sup>d − 1</sup></strong>, except for one-digit numbers, where it’s 0. For a negative N with d digits, the answer is the number made of d nines, with a minus sign: <strong>−(10<sup>d</sup> − 1)</strong>, so −99 for two digits.</p>
+
+<p>There’s no need to look at any number other than N. You only need its number of digits.</p>
+
+<h2 id="step-4-the-odigits-solution">Step 4: the O(digits) solution</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -316,24 +414,48 @@
 15
 16
 17
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">NumberUtils</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="n">int</span> <span class="nf">smallest</span><span class="p">(</span><span class="n">int</span> <span class="nc">N</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">smallestNumber</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nc">N</span> <span class="p">&lt;=</span> <span class="mi">1</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">smallestNumber</span><span class="p">;</span>
-    
-    <span class="n">int</span> <span class="n">numberOfDigitsOriginalN</span> <span class="p">=</span> <span class="nc">String</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="nc">N</span><span class="p">).</span><span class="nf">length</span><span class="p">();</span>
-    <span class="k">while</span> <span class="p">(</span><span class="nc">N</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nc">N--</span><span class="p">;</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nc">String</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="nc">N</span><span class="p">).</span><span class="nf">length</span><span class="p">()</span> <span class="p">==</span>
-          <span class="p">(</span><span class="n">numberOfDigitsOriginalN</span> <span class="p">-</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">++</span><span class="nc">N</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">smallestNumber</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberUtils</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">smallestWithSameDigitCount</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">digits</span> <span class="o">=</span> <span class="n">countDigits</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">digits</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">powerOf10</span><span class="o">(</span><span class="n">digits</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="o">-(</span><span class="n">powerOf10</span><span class="o">(</span><span class="n">digits</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countDigits</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">long</span> <span class="n">value</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">((</span><span class="kt">long</span><span class="o">)</span> <span class="n">n</span><span class="o">);</span> <span class="c1">// long: Math.abs(Integer.MIN_VALUE) overflows in int</span>
+    <span class="kt">int</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">value</span> <span class="o">/=</span> <span class="mi">10</span><span class="o">;</span>
+      <span class="n">digits</span><span class="o">++;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">digits</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">static</span> <span class="kt">long</span> <span class="nf">powerOf10</span><span class="o">(</span><span class="kt">int</span> <span class="n">exponent</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">exponent</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">result</span> <span class="o">*=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Both loops run once per digit, and an <code class="language-plaintext highlighter-rouge">int</code> has at most 10 digits, so the method takes at most about 20 steps whatever N is. For 999,999,999 it returns 100,000,000 in about 14 nanoseconds, compared with 10.2 seconds for the countdown. For how to reason about this kind of improvement, see <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Big O notation in Java</a>.</p>
 
 <div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
@@ -342,35 +464,21 @@
 </script>
 <br /></div>
 
-<p>If we realize, the solution follows a common pattern:</p>
+<h2 id="step-5-the-edge-cases-that-break-simpler-versions">Step 5: the edge cases that break simpler versions</h2>
 
-<p>N = 3891 -&gt; smallest number = 1000</p>
+<p>The method returns a <code class="language-plaintext highlighter-rouge">long</code> and counts digits on a <code class="language-plaintext highlighter-rouge">long</code>. Both choices fix real bugs in a simpler version that used <code class="language-plaintext highlighter-rouge">int</code>, <code class="language-plaintext highlighter-rouge">Math.abs</code> and <code class="language-plaintext highlighter-rouge">(int) Math.pow(...)</code>:</p>
 
-<p>N = 189 -&gt; smallest number = 100</p>
+<p><strong>The answer doesn’t always fit in an int.</strong> -1,000,000,000 has 10 digits, so the answer is -9,999,999,999. The smallest <code class="language-plaintext highlighter-rouge">int</code> is -2,147,483,648, so an <code class="language-plaintext highlighter-rouge">int</code> version silently returns garbage: I ran one, and it returned -2,147,483,646. Returning a <code class="language-plaintext highlighter-rouge">long</code> makes every answer fit.</p>
 
-<p>N = 37 -&gt; smallest number = 10</p>
+<p><strong><code class="language-plaintext highlighter-rouge">Math.abs(Integer.MIN_VALUE)</code> is negative.</strong> There’s no positive <code class="language-plaintext highlighter-rouge">int</code> with the value 2,147,483,648, so <code class="language-plaintext highlighter-rouge">Math.abs(-2147483648)</code> returns -2147483648, and <code class="language-plaintext highlighter-rouge">String.valueOf</code> of it has 11 characters, the minus sign included. Converting to <code class="language-plaintext highlighter-rouge">long</code> first, <code class="language-plaintext highlighter-rouge">Math.abs((long) n)</code>, gives the correct 10 digits.</p>
 
-<p>The smallest number is a power of 10, where the exponent is:</p>
+<p><strong><code class="language-plaintext highlighter-rouge">Math.log10</code> looks shorter, but it’s risky.</strong> <code class="language-plaintext highlighter-rouge">(int) Math.log10(n) + 1</code> counts digits in one line, but <code class="language-plaintext highlighter-rouge">Math.log10(0)</code> is minus infinity, negative numbers need extra handling, and the result depends on floating-point rounding near powers of 10. The loop of divisions is exact and easy to explain.</p>
 
-<p>(number of digits of the given N – 1)</p>
+<h2 id="step-6-test-every-case-in-one-table">Step 6: test every case in one table</h2>
 
-<p>If we want to include negative numbers, we must consider the smallest number with the same number of digits and the same sign. We add our test case for negative numbers as well:</p>
+<p>JUnit 5’s <code class="language-plaintext highlighter-rouge">@ParameterizedTest</code> runs the same test for each row of a table, so the specification from step 1 becomes the test:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="nd">@Test</span>
-  <span class="k">public</span> <span class="n">void</span> <span class="nf">test_right_smallest_values</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nf">assertTrue</span><span class="p">(</span><span class="nc">NumberUtils</span><span class="p">.</span><span class="nf">smallest4</span><span class="p">(-</span><span class="mi">1</span><span class="p">)</span> <span class="p">==</span> <span class="p">-</span><span class="mi">9</span><span class="p">);</span>
-  <span class="nf">assertTrue</span><span class="p">(</span><span class="nc">NumberUtils</span><span class="p">.</span><span class="nf">smallest4</span><span class="p">(-</span><span class="mi">37</span><span class="p">)</span> <span class="p">==</span> <span class="p">-</span><span class="mi">99</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Here, is the algorithm for positive and negative numbers:</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -383,26 +491,53 @@
 11
 12
 13
-</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="kd">class</span> <span class="nc">NumberUtils</span> <span class="p">{</span>
-  <span class="k">public</span> <span class="n">static</span> <span class="n">int</span> <span class="nf">smallest</span><span class="p">(</span><span class="n">int</span> <span class="nc">N</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">int</span> <span class="n">numberOfDigits</span> <span class="p">=</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="nc">String</span><span class="p">.</span><span class="nf">valueOf</span><span class="p">(</span><span class="nc">Math</span><span class="p">.</span><span class="nf">abs</span><span class="p">(</span><span class="nc">N</span><span class="p">)).</span><span class="nf">length</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nc">N</span> <span class="p">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">numberOfDigits</span> <span class="p">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="nc">Math</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">numberOfDigits</span> <span class="p">-</span> <span class="mi">1</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span> <span class="k">else</span>
-      <span class="k">return</span> <span class="mi">1</span> <span class="p">-</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="nc">Math</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">numberOfDigits</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">NumberUtilsTest</span> <span class="o">{</span>
+
+  <span class="nd">@ParameterizedTest</span>
+  <span class="nd">@CsvSource</span><span class="o">({</span>
+      <span class="s">"4751, 1000"</span><span class="o">,</span>
+      <span class="s">"189, 100"</span><span class="o">,</span>
+      <span class="s">"37, 10"</span><span class="o">,</span>
+      <span class="s">"10, 10"</span><span class="o">,</span>
+      <span class="s">"9, 0"</span><span class="o">,</span>
+      <span class="s">"1, 0"</span><span class="o">,</span>
+      <span class="s">"0, 0"</span><span class="o">,</span>
+      <span class="s">"-1, -9"</span><span class="o">,</span>
+      <span class="s">"-37, -99"</span><span class="o">,</span>
+      <span class="s">"-100, -999"</span><span class="o">,</span>
+      <span class="s">"2147483647, 1000000000"</span><span class="o">,</span>
+      <span class="s">"-1000000000, -9999999999"</span><span class="o">,</span>
+      <span class="s">"-2147483648, -9999999999"</span>
+  <span class="o">})</span>
+  <span class="kt">void</span> <span class="nf">returnsTheSmallestNumberWithTheSameDigitCount</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">long</span> <span class="n">expected</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="nc">NumberUtils</span><span class="o">.</span><span class="na">smallestWithSameDigitCount</span><span class="o">(</span><span class="n">n</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>The main idea in <a href="https://codersite.dev/big-o-notation-analysis-of-algorithms/" target="_blank">Analysis of Algorithms</a> is always to improve the algorithm performance by reducing the number of steps and comparisons. The simpler and more intuitive an algorithm is, the more useful and efficient it will be.</p>
+<p>All 13 cases pass. Use <code class="language-plaintext highlighter-rouge">assertEquals(expected, actual)</code> rather than <code class="language-plaintext highlighter-rouge">assertTrue(actual == expected)</code>: when a test fails, <code class="language-plaintext highlighter-rouge">assertEquals</code> tells you both values, and <code class="language-plaintext highlighter-rouge">assertTrue</code> only tells you it was <code class="language-plaintext highlighter-rouge">false</code>.</p>
 
-<blockquote>
-  <p>One Book Instead of Scattered Resources. Learn how to apply common algorithms to the practical problems.</p>
-</blockquote>
+<p>Beyond the table, I compared the method with a slow but obviously correct version, which builds the answer as a string of digits, for a million random <code class="language-plaintext highlighter-rouge">int</code> values and for every number from -100,000 to 100,000. They always agreed.</p>
+
+<h2 id="what-the-interviewer-is-looking-for">What the interviewer is looking for</h2>
+
+<ol>
+  <li><strong>Clarifying questions first:</strong> 0, negative numbers, the input and output types.</li>
+  <li><strong>A working solution, then a better one.</strong> Saying <em>“the countdown works but it’s O(N); the answer only depends on the number of digits”</em> shows that you analyze your own code.</li>
+  <li><strong>Edge cases without being asked:</strong> <code class="language-plaintext highlighter-rouge">Integer.MIN_VALUE</code> and overflow are what separate a good answer from a complete one.</li>
+  <li><strong>Tests that read like the specification.</strong></li>
+</ol>
+
+<p>You can find more problems like this one, real interview questions solved step by step from the first idea to clean Java code, in my book <strong>THE CODE INTERVIEW: Real Java Coding Interview Questions, Solved Step by Step</strong>.</p>
 
 <div><center>
   <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
@@ -410,13 +545,36 @@
 
 <br /></div>
 
+<h2 id="faq">FAQ</h2>
+
+<h3 id="why-does-n--1-return-0-and-not-1">Why does N = 1 return 0 and not 1?</h3>
+
+<p>Because 0 is also a one-digit number, and it’s smaller than 1. If your interviewer wants positive numbers only, the one-digit answer becomes 1; that’s exactly the kind of question to ask at the start.</p>
+
+<h3 id="why-return-a-long-when-the-input-is-an-int">Why return a long when the input is an int?</h3>
+
+<p>Because for negative inputs with 10 digits, the answer is -9,999,999,999, which is smaller than the smallest <code class="language-plaintext highlighter-rouge">int</code>. With an <code class="language-plaintext highlighter-rouge">int</code> return type, the method would overflow silently.</p>
+
+<h3 id="can-i-count-digits-with-stringvalueofnlength">Can I count digits with String.valueOf(n).length()?</h3>
+
+<p>For non-negative numbers, yes, and it’s easy to read. It’s slower than dividing by 10, it counts the minus sign for negative numbers, and it creates a new <code class="language-plaintext highlighter-rouge">String</code> on every call. In an interview, mention both and explain why you chose one.</p>
+
+<h3 id="whats-the-time-complexity-of-the-final-solution">What’s the time complexity of the final solution?</h3>
+
+<p>O(d), where d is the number of digits of N, which is O(log N). For an <code class="language-plaintext highlighter-rouge">int</code>, d is at most 10, so in practice it’s constant time.</p>
+
+<div><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9154513114335042" data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br /></div>
+
 <div>
 <p><b><i>“If this article helped you, help me create the next one.”</i></b></p>
 <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 
 </div>
-
-<p><br /></p>
 
 				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
@@ -496,8 +654,8 @@ https://search.google.com/structured-data/testing-tool/u/0/
     "@type": "WebPage",
     "@id": "https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/"
   },
-  "headline": "Given N, find the smallest number with the same digits",
-  "description": "Write an algorithm that, given an original number N, returns the smallest number with the same number of digits. For instance, given 123, return 100",
+  "headline": "Smallest Number with the Same Number of Digits in Java (Coding Interview Problem)",
+  "description": "Given N, return the smallest number with the same number of digits: from a slow countdown to an O(digits) solution in Java, with negative numbers, int overflow and Integer.MIN_VALUE handled.",
   "image": "https://codersite.dev/assets/images/smallestNumber.jpg",
   "datePublished": "2019-06-29T00:00:00+02:00",
   "dateModified": "2019-06-29T00:00:00+02:00",
@@ -535,7 +693,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Given N, find the smallest number with the same digits",
+      "name": "Smallest Number with the Same Number of Digits in Java (Coding Interview Problem)",
       "item": "https://codersite.dev/given-positive-number-n-find-smallest-number-same-number-digits/"
     }
   ]
