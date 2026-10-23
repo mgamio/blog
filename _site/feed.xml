@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>codersite</title>
-    <description>This blog site shares knowledge and business case studies and helps developers be better software engineers.</description>
+    <description>Step-by-step Java and Spring Boot tutorials with complete code, algorithms for coding interviews, clean software design, and free developer tools.</description>
     <link>https://codersite.dev/</link>
     <atom:link href="https://codersite.dev/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 23 Oct 2026 15:36:17 +0200</pubDate>
-    <lastBuildDate>Fri, 23 Oct 2026 15:36:17 +0200</lastBuildDate>
+    <pubDate>Fri, 23 Oct 2026 16:22:36 +0200</pubDate>
+    <lastBuildDate>Fri, 23 Oct 2026 16:22:36 +0200</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>

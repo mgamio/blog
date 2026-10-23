@@ -1,8 +1,8 @@
 # Site
 name: "codersite"
 title: "codersite"
-header: "Improve your Programming Problem-solving skills with Examples"
-description: "This blog site shares knowledge and business case studies and helps developers be better software engineers."
+header: "Practical Java for Real Projects and Coding Interviews"
+description: "Step-by-step Java and Spring Boot tutorials with complete code, algorithms for coding interviews, clean software design, and free developer tools."
 logo: 'assets/images/logo.svg'
 favicon: 'assets/images/logo.png'
 baseurl: ""
