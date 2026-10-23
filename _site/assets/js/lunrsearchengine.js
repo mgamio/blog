@@ -32,7 +32,7 @@ var documents = [{
     }, {
     "id": 6,
     "url": "https://codersite.dev/",
-    "title": "Practical Java Tutorials for Real Projects and Coding Interviews",
+    "title": "Practical Programming Tutorials for Real Projects and Coding Interviews",
     "body": "      Featured Articles:                                                                                                                                                                                                                                                                     							                                                                                                                    OOP Concepts in Java: The 4 Pillars and Composition, with Examples                              :               Get object-oriented programming (OOP) wrong and you’ll pay for it for years: tangled classes, features that break other features, a codebase nobody wants to touch. . . . :                                                                                                                                                                       Moises Gamio                                20 May 2022                                                                                                                                                                                                                                              							                                                                                                                    Big O Notation in Java: Time and Space Complexity for Coding Interviews                              :               Big O notation describes how the running time or the memory of an algorithm grows when its input grows. An algorithm that is fast for. . . :                                                                                                                                                                       Moises Gamio                                22 Jun 2020                                                                                                                                                    All Articles:                                                                                                     Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client              :       In the previous post, we built a program that walks an Order API (buyers, suppliers, customer numbers, articles) and places a test order. It works, but it’s built on OAuth2RestTemplate,. . . :                                                                               Moises Gamio                02 Oct 2026                                                                                                                                    The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview              :       System Design on AWS: The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview:                                                                               Moises Gamio                15 Sep 2026                                                                                                                                    Build a RESTful Web Service with Spring Boot, Gradle, and OpenAPI              :       By the end of this guide you’ll have a working Spring Boot RESTful API, built with Gradle and documented with OpenAPI, and a live Swagger UI page you can show. . . :                                                                               Moises Gamio                24 Sep 2025                                                                                                                                    Items in Containers: Count Items in Closed Compartments (Code Interview Problem)              :       This one shows up in online coding assessments under the name Items in Containers, and it’s a trap: the obvious solution passes the examples and then times out on the. . . :                                                                               Moises Gamio                03 Jul 2025                                                                                                                                    From O(n²) to O(n): Replace Nested Loops with a HashMap in Java              :       One endpoint in a B2B order system I worked on returned 1,000 orders, and it was slow. The database wasn’t the problem. Two innocent-looking nested loops were. Here’s how one. . . :                                                                               Moises Gamio                15 May 2025                                                                                                                                    Generate a Spring Boot Server from an OpenAPI Spec with Swagger Codegen              :       You’ve designed your API. Now comes the boring part: writing controllers, models and request mappings that only repeat what the spec already says. Swagger Codegen writes that code for you. . . . :                                                                               Moises Gamio                16 Apr 2025                                               &laquo; Prev       1        2        3        4        5        6        7        8      Next &raquo; "
     }, {
     "id": 7,
@@ -62,37 +62,37 @@ var documents = [{
     }, {
     "id": 12,
     "url": "https://codersite.dev/page2/",
-    "title": "Practical Java Tutorials for Real Projects and Coding Interviews",
+    "title": "Practical Programming Tutorials for Real Projects and Coding Interviews",
     "body": "{% if page. url == “/” %}       Featured Articles:       {% for post in site. posts %}    {% if post. featured == true %}      {% include featuredbox. html %}    {% endif %}  {% endfor %}  {% endif %}       All Articles:         {% for post in paginator. posts %}    {% include postbox. html %}    {% endfor %}    {% include pagination. html %}"
     }, {
     "id": 13,
     "url": "https://codersite.dev/page3/",
-    "title": "Practical Java Tutorials for Real Projects and Coding Interviews",
+    "title": "Practical Programming Tutorials for Real Projects and Coding Interviews",
     "body": "{% if page. url == “/” %}       Featured Articles:       {% for post in site. posts %}    {% if post. featured == true %}      {% include featuredbox. html %}    {% endif %}  {% endfor %}  {% endif %}       All Articles:         {% for post in paginator. posts %}    {% include postbox. html %}    {% endfor %}    {% include pagination. html %}"
     }, {
     "id": 14,
     "url": "https://codersite.dev/page4/",
-    "title": "Practical Java Tutorials for Real Projects and Coding Interviews",
+    "title": "Practical Programming Tutorials for Real Projects and Coding Interviews",
     "body": "{% if page. url == “/” %}       Featured Articles:       {% for post in site. posts %}    {% if post. featured == true %}      {% include featuredbox. html %}    {% endif %}  {% endfor %}  {% endif %}       All Articles:         {% for post in paginator. posts %}    {% include postbox. html %}    {% endfor %}    {% include pagination. html %}"
     }, {
     "id": 15,
     "url": "https://codersite.dev/page5/",
-    "title": "Practical Java Tutorials for Real Projects and Coding Interviews",
+    "title": "Practical Programming Tutorials for Real Projects and Coding Interviews",
     "body": "{% if page. url == “/” %}       Featured Articles:       {% for post in site. posts %}    {% if post. featured == true %}      {% include featuredbox. html %}    {% endif %}  {% endfor %}  {% endif %}       All Articles:         {% for post in paginator. posts %}    {% include postbox. html %}    {% endfor %}    {% include pagination. html %}"
     }, {
     "id": 16,
     "url": "https://codersite.dev/page6/",
-    "title": "Practical Java Tutorials for Real Projects and Coding Interviews",
+    "title": "Practical Programming Tutorials for Real Projects and Coding Interviews",
     "body": "{% if page. url == “/” %}       Featured Articles:       {% for post in site. posts %}    {% if post. featured == true %}      {% include featuredbox. html %}    {% endif %}  {% endfor %}  {% endif %}       All Articles:         {% for post in paginator. posts %}    {% include postbox. html %}    {% endfor %}    {% include pagination. html %}"
     }, {
     "id": 17,
     "url": "https://codersite.dev/page7/",
-    "title": "Practical Java Tutorials for Real Projects and Coding Interviews",
+    "title": "Practical Programming Tutorials for Real Projects and Coding Interviews",
     "body": "{% if page. url == “/” %}       Featured Articles:       {% for post in site. posts %}    {% if post. featured == true %}      {% include featuredbox. html %}    {% endif %}  {% endfor %}  {% endif %}       All Articles:         {% for post in paginator. posts %}    {% include postbox. html %}    {% endfor %}    {% include pagination. html %}"
     }, {
     "id": 18,
     "url": "https://codersite.dev/page8/",
-    "title": "Practical Java Tutorials for Real Projects and Coding Interviews",
+    "title": "Practical Programming Tutorials for Real Projects and Coding Interviews",
     "body": "{% if page. url == “/” %}       Featured Articles:       {% for post in site. posts %}    {% if post. featured == true %}      {% include featuredbox. html %}    {% endif %}  {% endfor %}  {% endif %}       All Articles:         {% for post in paginator. posts %}    {% include postbox. html %}    {% endfor %}    {% include pagination. html %}"
     }, {
     "id": 19,

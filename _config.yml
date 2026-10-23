@@ -1,7 +1,7 @@
 # Site
 name: "codersite"
 title: "codersite"
-header: "Practical Java for Real Projects and Coding Interviews"
+header: "Practical Programming for Real Projects and Coding Interviews"
 description: "Step-by-step Java and Spring Boot tutorials with complete code, algorithms for coding interviews, clean software design, and free developer tools."
 logo: 'assets/images/logo.svg'
 favicon: 'assets/images/logo.png'
