@@ -23,6 +23,10 @@ The generator remembers your settings in your browser, so you can come back and 
 {% assign templates = site.agent_templates | sort: "order" %}{% for t in templates %}- [{{ t.title }}]({{ t.url | relative_url }})
 {% endfor %}
 
+<div>
+{%- include msitReferral.html -%}
+</div>
+
 ## Which File Does Each AI Coding Agent Read?
 
 Every agent reads a Markdown file from your repository at the start of a session. Most of them now agree on one name, `AGENTS.md`:

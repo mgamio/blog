@@ -61,6 +61,10 @@ These are the prices the calculator uses, checked on {{ site.data.llm_prices.che
 
 Prices change often, and some changes are already announced: Gemini 4 Argon's prices double on December 1, 2026, and Gemini 3.8 Flash's on January 1, 2027. The table in the calculator shows these notes next to the models. Always confirm on the provider's pricing page before you commit to a budget: [Anthropic](https://platform.claude.com/docs/en/about-claude/pricing){:target="_blank"}, [OpenAI](https://developers.openai.com/api/docs/pricing){:target="_blank"}, [Google](https://ai.google.dev/gemini-api/docs/pricing){:target="_blank"}.
 
+<div>
+{%- include msitReferral.html -%}
+</div>
+
 ## Three Worked Examples
 
 All three use the prices above. Open the matching example in the calculator to see every model.
