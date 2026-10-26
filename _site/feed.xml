@@ -3,24 +3,26 @@
   <channel>
     <title>codersite</title>
     <description>Step-by-step Java and Spring Boot tutorials with complete code, algorithms for coding interviews, clean software design, and free developer tools.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 26 Oct 2026 22:53:31 +0100</pubDate>
-    <lastBuildDate>Mon, 26 Oct 2026 22:53:31 +0100</lastBuildDate>
+    <link>https://codersite.dev/</link>
+    <atom:link href="https://codersite.dev/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 26 Oct 2026 23:25:34 +0100</pubDate>
+    <lastBuildDate>Mon, 26 Oct 2026 23:25:34 +0100</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
         <title>Switch to an AI Career in Germany: MSIT&apos;s Funded Programs and a €500 Welcome Bonus</title>
-        <description>&lt;p style=&quot;font-size:0.9rem; background:#fff7e6; border-left:4px solid #F39200; padding:0.7rem 1rem; border-radius:4px;&quot;&gt;&lt;strong&gt;Werbung / Advertising.&lt;/strong&gt; This article contains my referral link to MSIT. If you enroll in an eligible program through it, you receive a €500 welcome bonus, and I receive a reward too. It costs you nothing extra. All facts below come from MSIT&apos;s own website and the referral terms; MSIT didn&apos;t review this article.&lt;/p&gt;
+        <description>&lt;p style=&quot;font-size:0.9rem; background:#fff7e6; border-left:4px solid #F39200; padding:0.7rem 1rem; border-radius:4px;&quot;&gt;&lt;strong&gt;Werbung / Advertising.&lt;/strong&gt; This article contains my referral link to MSIT. If you enroll in an eligible program through it, you receive a €500 welcome bonus, and I receive a reward too. It costs you nothing extra. All facts below come from MSIT&apos;s website, its program syllabus and the referral terms; MSIT didn&apos;t review this article.&lt;/p&gt;
 
 &lt;p&gt;AI is changing what companies expect from developers, analysts and IT professionals. Teams now build on LLM APIs, automate work with AI agents, and need people who know how to make those systems reliable, secure and affordable. If you’ve been thinking about moving into that work, the hardest parts are usually time, money and knowing where to start.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;MSIT (Master School Institute of Technology)&lt;/strong&gt; is an online career school for the German market that addresses all three: structured programs of 6 to 12 months, taught live by industry experts, that can be &lt;strong&gt;100% funded by the Agentur für Arbeit or the Jobcenter&lt;/strong&gt; if you qualify. Through my referral link, you also get a &lt;strong&gt;€500 welcome bonus&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MSIT (Master School Institute of Technology)&lt;/strong&gt; is an online career school for the German market that addresses all three: structured programs of 6 to 12 months, taught live by industry experts, that can be &lt;strong&gt;100% government-funded&lt;/strong&gt; if you qualify, and come with &lt;strong&gt;a laptop you keep&lt;/strong&gt;. Through my referral link, you also get a &lt;strong&gt;€500 welcome bonus&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;why-its-worth-a-look&quot;&gt;Why it’s worth a look&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;It can cost you nothing.&lt;/strong&gt; With a &lt;em&gt;Bildungsgutschein&lt;/em&gt; (education voucher) from the Agentur für Arbeit or the Jobcenter, the full tuition is covered. MSIT is AZAV-certified, which is what makes its programs eligible for this funding.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;It can cost you nothing.&lt;/strong&gt; With a &lt;em&gt;Bildungsgutschein&lt;/em&gt; (education voucher) from the Agentur für Arbeit or the Jobcenter, the full tuition is covered. MSIT’s latest program syllabus also names funding for people who are employed, through the &lt;em&gt;Qualifizierungschancengesetz&lt;/em&gt; (QCG). MSIT is AZAV-certified, which is what makes its programs eligible for this funding.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A laptop you keep.&lt;/strong&gt; MSIT provides a laptop for the training, and it’s yours after the program.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Results MSIT reports:&lt;/strong&gt; 96% of students would recommend MSIT, 85% of its graduates in Germany found a tech job, and over 600 companies have hired its graduates.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;You learn what companies are hiring for now:&lt;/strong&gt; AI agents, LLM integration, RAG, cloud, DevOps, cybersecurity and data analysis, not last decade’s curriculum.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;German or English, your choice.&lt;/strong&gt; Every program can be completed fully in either language.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;You don’t learn alone.&lt;/strong&gt; Weekly live lectures, regular 1:1 mentoring, labs and projects, and support through live sessions, study halls and chat rooms.&lt;/li&gt;
@@ -32,7 +34,7 @@
 &lt;div&gt;&lt;!-- MSIT referral (Masterschool referral program). Sponsored link: keep rel=&quot;sponsored nofollow&quot;. --&gt;
 &lt;div class=&quot;msit-cta&quot;&gt;
   &lt;a href=&quot;https://referral.masterschool.com/u3UgTLaT&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;
-    &lt;img src=&quot;/assets/images/msit-500-bonus-banner.jpg&quot; width=&quot;1200&quot; height=&quot;360&quot; loading=&quot;lazy&quot; alt=&quot;Start your AI career at MSIT with a 500 euro bonus. Check if you qualify.&quot; /&gt;
+    &lt;img src=&quot;/assets/images/msit-500-bonus-banner.jpg&quot; width=&quot;1200&quot; height=&quot;360&quot; loading=&quot;lazy&quot; alt=&quot;500 euro: join MSIT with my link and we both get rewarded. Check if you qualify.&quot; /&gt;
   &lt;/a&gt;
   &lt;a class=&quot;msit-cta-btn&quot; href=&quot;https://referral.masterschool.com/u3UgTLaT&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check if you qualify and claim your €500 bonus →&lt;/a&gt;
   &lt;p class=&quot;msit-cta-note&quot;&gt;Referral link. You and codersite both receive a reward if you enroll in an eligible program.&lt;/p&gt;
@@ -222,13 +224,30 @@
 
 &lt;p&gt;Both programs list over 1,920 academic hours and end with a portfolio of industry-level projects, which is what you show in interviews.&lt;/p&gt;
 
-&lt;h2 id=&quot;how-the-training-works&quot;&gt;How the training works&lt;/h2&gt;
+&lt;h3 id=&quot;no-coding-background-ai-automations--ai-agents&quot;&gt;No coding background? AI Automations &amp;amp; AI Agents&lt;/h3&gt;
+
+&lt;p&gt;If you don’t want to become a programmer, &lt;strong&gt;AI Automations &amp;amp; AI Agents (6 months)&lt;/strong&gt; teaches you to build AI automations and agents with no-code and low-code tools. MSIT designed it for three groups: career changers without a tech background, working professionals who want to automate their own work, and managers who lead AI initiatives.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Online, flexible schedule.&lt;/strong&gt; You study at your own pace during the week, around weekly live lectures that are recorded if you miss one.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Learning by doing:&lt;/strong&gt; labs, quizzes and projects throughout the program.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Regular 1:1 mentoring&lt;/strong&gt; with tech mentors, plus live sessions, study halls and chat rooms for questions.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Career Accelerator&lt;/strong&gt; after the technical training: resume and LinkedIn help, mock interviews, coaching and networking with hiring partners.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Months 1–3, AI Automations:&lt;/strong&gt; prompt engineering and workflow automation, from ChatGPT to n8n.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Months 4–6, AI Agents:&lt;/strong&gt; agent architectures, multi-agent systems and integrations, ending with a real-world capstone project you build with a 1:1 mentor.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tools you work with:&lt;/strong&gt; ChatGPT, Claude, Gemini, n8n, Zapier, Make, Microsoft Copilot Studio, Flowise, LangFlow, Lovable, Streamlit and Airtable.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Each half can also be booked on its own as a 3-month program, but the full six months give you the strongest portfolio.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-the-training-works&quot;&gt;How the training works&lt;/h2&gt;
+
+&lt;p&gt;According to MSIT’s syllabus for AI Automations &amp;amp; AI Agents, a typical week looks like this (MSIT notes that schedules vary by program):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Full-time:&lt;/strong&gt; two live blocks a day, 09:00–13:00 and 14:00–18:00, with live sessions and guided practice. Mentors are available on Zoom.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Part-time:&lt;/strong&gt; one block a day, morning or afternoon, so the 6-month program takes 12 months. Same content, slower pace.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Live attendance:&lt;/strong&gt; MSIT requires 100% synchronous attendance. This is a structured school day online, not videos you watch whenever you like.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Study Hall:&lt;/strong&gt; guided practice sessions where you work on projects while mentors answer questions live.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Learning by doing:&lt;/strong&gt; you build real projects from the first day, with 1:1 mentoring throughout.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Career Sprint:&lt;/strong&gt; a two-week intensive before graduation, focused on your CV, LinkedIn profile and networking.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Career support until you’re hired:&lt;/strong&gt; personal Career Success Advisors coach you on applications and interviews, and MSIT’s job platform gives you curated job listings and partner companies. MSIT says this support continues after graduation.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;One honest note: MSIT says clearly that it helps you with your job search but &lt;strong&gt;does not place you in a job&lt;/strong&gt;. The certificate and the portfolio open doors; you still go through the interviews yourself. If you’re preparing for technical interviews, my posts on &lt;a href=&quot;https://codersite.dev/big-o-notation-analysis-of-algorithms/&quot; target=&quot;_blank&quot;&gt;Big O notation&lt;/a&gt; and &lt;a href=&quot;https://codersite.dev/solid-principles-the-definitive-guide/&quot; target=&quot;_blank&quot;&gt;SOLID principles&lt;/a&gt; are good places to start.&lt;/p&gt;
@@ -239,6 +258,7 @@
 
 &lt;ol&gt;
   &lt;li&gt;&lt;strong&gt;Bildungsgutschein: 100% funded.&lt;/strong&gt; If you’re &lt;strong&gt;unemployed, about to become unemployed, or on short-time work&lt;/strong&gt; (&lt;em&gt;Kurzarbeit&lt;/em&gt;), the Agentur für Arbeit or the Jobcenter can pay the entire tuition with an education voucher. This is the route MSIT’s programs are built for. Students aren’t eligible for this funding.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;QCG: funded while you keep your job.&lt;/strong&gt; MSIT’s AI Automations &amp;amp; AI Agents syllabus says employed professionals can be funded through the &lt;em&gt;Qualifizierungschancengesetz&lt;/em&gt; (QCG), with €0 for the training. Ask your advisor whether this applies to the program you want.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Pay once you’re hired.&lt;/strong&gt; A €250 commitment fee upfront, then the tuition in up to 36 monthly installments &lt;em&gt;after&lt;/em&gt; you get a job.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Pay as you go&lt;/strong&gt; in 36 monthly installments, or &lt;strong&gt;pay upfront&lt;/strong&gt;, which MSIT says saves 46% and 56% respectively.&lt;/li&gt;
 &lt;/ol&gt;
@@ -248,7 +268,7 @@
 &lt;div&gt;&lt;!-- MSIT referral (Masterschool referral program). Sponsored link: keep rel=&quot;sponsored nofollow&quot;. --&gt;
 &lt;div class=&quot;msit-cta&quot;&gt;
   &lt;a href=&quot;https://referral.masterschool.com/u3UgTLaT&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;
-    &lt;img src=&quot;/assets/images/msit-500-bonus-banner.jpg&quot; width=&quot;1200&quot; height=&quot;360&quot; loading=&quot;lazy&quot; alt=&quot;Start your AI career at MSIT with a 500 euro bonus. Check if you qualify.&quot; /&gt;
+    &lt;img src=&quot;/assets/images/msit-500-bonus-banner.jpg&quot; width=&quot;1200&quot; height=&quot;360&quot; loading=&quot;lazy&quot; alt=&quot;500 euro: join MSIT with my link and we both get rewarded. Check if you qualify.&quot; /&gt;
   &lt;/a&gt;
   &lt;a class=&quot;msit-cta-btn&quot; href=&quot;https://referral.masterschool.com/u3UgTLaT&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check if you qualify and claim your €500 bonus →&lt;/a&gt;
   &lt;p class=&quot;msit-cta-note&quot;&gt;Referral link. You and codersite both receive a reward if you enroll in an eligible program.&lt;/p&gt;
@@ -289,8 +309,8 @@
 
 &lt;ol&gt;
   &lt;li&gt;&lt;strong&gt;Click the referral link&lt;/strong&gt; and enter your first name and email to check whether you qualify.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Talk to an MSIT advisor&lt;/strong&gt; about which program fits you, and whether you qualify for a Bildungsgutschein.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Apply for the Bildungsgutschein&lt;/strong&gt; at your Agentur für Arbeit or Jobcenter, if that’s your route.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Talk to an MSIT advisor&lt;/strong&gt; about which program fits you, and whether you qualify for a Bildungsgutschein or QCG funding.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Apply for the funding&lt;/strong&gt; at your Agentur für Arbeit or Jobcenter, if that’s your route. If you’re unemployed or about to be, register there first.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Start your program&lt;/strong&gt; and collect your €500 bonus after your first month.&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -306,7 +326,7 @@
 &lt;p&gt;&lt;strong&gt;It’s a strong fit if:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;you live in Germany and qualify for a Bildungsgutschein, because then the training costs you nothing;&lt;/li&gt;
+  &lt;li&gt;you live in Germany and qualify for a Bildungsgutschein or QCG funding, because then the training costs you nothing and you even keep the laptop;&lt;/li&gt;
   &lt;li&gt;you want structure, deadlines and mentors rather than piecing together free videos;&lt;/li&gt;
   &lt;li&gt;you want a recognized certificate and a project portfolio for job applications;&lt;/li&gt;
   &lt;li&gt;you’re a developer who wants to add AI engineering to your skill set.&lt;/li&gt;
@@ -315,7 +335,7 @@
 &lt;p&gt;&lt;strong&gt;Think twice if:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;you can’t commit to 6 to 12 months of full-time study;&lt;/li&gt;
+  &lt;li&gt;you can’t attend live sessions every weekday, even in the part-time track;&lt;/li&gt;
   &lt;li&gt;you’re a student, because funding isn’t available to you;&lt;/li&gt;
   &lt;li&gt;you’re looking for a job guarantee, which MSIT doesn’t offer.&lt;/li&gt;
 &lt;/ul&gt;
@@ -334,9 +354,17 @@
 
 &lt;p&gt;For most programs, no: basic computer skills and high-school math are enough. &lt;em&gt;AI for Developers&lt;/em&gt; is the exception, and is meant for experienced developers.&lt;/p&gt;
 
+&lt;h3 id=&quot;do-i-get-a-laptop&quot;&gt;Do I get a laptop?&lt;/h3&gt;
+
+&lt;p&gt;Yes. MSIT provides a laptop for the training, and you keep it after the program.&lt;/p&gt;
+
+&lt;h3 id=&quot;can-i-keep-my-job-while-i-study&quot;&gt;Can I keep my job while I study?&lt;/h3&gt;
+
+&lt;p&gt;Possibly. The AI Automations &amp;amp; AI Agents program has a part-time track: one live block a day, morning or afternoon, over 12 months. MSIT’s syllabus also names QCG funding for employed professionals. Check the schedule and funding for your program with an MSIT advisor.&lt;/p&gt;
+
 &lt;h3 id=&quot;will-msit-find-me-a-job&quot;&gt;Will MSIT find me a job?&lt;/h3&gt;
 
-&lt;p&gt;No. MSIT helps with resumes, LinkedIn, mock interviews and networking, but says it will not place you in a job.&lt;/p&gt;
+&lt;p&gt;No. MSIT helps with resumes, LinkedIn, mock interviews and networking, and its Career Success Advisors support you until you’re hired, but it says it will not place you in a job.&lt;/p&gt;
 
 &lt;h3 id=&quot;who-pays-the-500-bonus-and-when&quot;&gt;Who pays the €500 bonus, and when?&lt;/h3&gt;
 
@@ -347,7 +375,7 @@
 &lt;div&gt;&lt;!-- MSIT referral (Masterschool referral program). Sponsored link: keep rel=&quot;sponsored nofollow&quot;. --&gt;
 &lt;div class=&quot;msit-cta&quot;&gt;
   &lt;a href=&quot;https://referral.masterschool.com/u3UgTLaT&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;
-    &lt;img src=&quot;/assets/images/msit-500-bonus-banner.jpg&quot; width=&quot;1200&quot; height=&quot;360&quot; loading=&quot;lazy&quot; alt=&quot;Start your AI career at MSIT with a 500 euro bonus. Check if you qualify.&quot; /&gt;
+    &lt;img src=&quot;/assets/images/msit-500-bonus-banner.jpg&quot; width=&quot;1200&quot; height=&quot;360&quot; loading=&quot;lazy&quot; alt=&quot;500 euro: join MSIT with my link and we both get rewarded. Check if you qualify.&quot; /&gt;
   &lt;/a&gt;
   &lt;a class=&quot;msit-cta-btn&quot; href=&quot;https://referral.masterschool.com/u3UgTLaT&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check if you qualify and claim your €500 bonus →&lt;/a&gt;
   &lt;p class=&quot;msit-cta-note&quot;&gt;Referral link. You and codersite both receive a reward if you enroll in an eligible program.&lt;/p&gt;
@@ -368,8 +396,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 26 Oct 2026 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/msit-ai-career-programs-germany/</link>
-        <guid isPermaLink="true">http://localhost:4000/msit-ai-career-programs-germany/</guid>
+        <link>https://codersite.dev/msit-ai-career-programs-germany/</link>
+        <guid isPermaLink="true">https://codersite.dev/msit-ai-career-programs-germany/</guid>
         
         
         <category>career</category>
@@ -845,8 +873,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 02 Oct 2026 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/spring-restclient-replace-oauth2resttemplate/</link>
-        <guid isPermaLink="true">http://localhost:4000/spring-restclient-replace-oauth2resttemplate/</guid>
+        <link>https://codersite.dev/spring-restclient-replace-oauth2resttemplate/</link>
+        <guid isPermaLink="true">https://codersite.dev/spring-restclient-replace-oauth2resttemplate/</guid>
         
         
         <category>programming</category>
@@ -960,8 +988,8 @@
 &lt;p&gt;&lt;em&gt;This post contains an Amazon Associate link. As an Amazon Associate, I earn from qualifying purchases — at no extra cost to you, and it helps keep content like this coming.&lt;/em&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 15 Sep 2026 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/system-design-on-aws-book-review/</link>
-        <guid isPermaLink="true">http://localhost:4000/system-design-on-aws-book-review/</guid>
+        <link>https://codersite.dev/system-design-on-aws-book-review/</link>
+        <guid isPermaLink="true">https://codersite.dev/system-design-on-aws-book-review/</guid>
         
         
         <category>system-design</category>
@@ -1244,8 +1272,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Wed, 24 Sep 2025 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/gradle-building-restful-web-service/</link>
-        <guid isPermaLink="true">http://localhost:4000/gradle-building-restful-web-service/</guid>
+        <link>https://codersite.dev/gradle-building-restful-web-service/</link>
+        <guid isPermaLink="true">https://codersite.dev/gradle-building-restful-web-service/</guid>
         
         
         <category>Web APIs</category>
@@ -1503,8 +1531,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 03 Jul 2025 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/number-items-closed-compartments/</link>
-        <guid isPermaLink="true">http://localhost:4000/number-items-closed-compartments/</guid>
+        <link>https://codersite.dev/number-items-closed-compartments/</link>
+        <guid isPermaLink="true">https://codersite.dev/number-items-closed-compartments/</guid>
         
         
         <category>algorithms</category>
@@ -1923,8 +1951,8 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 15 May 2025 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/transform-list-into-hashmap/</link>
-        <guid isPermaLink="true">http://localhost:4000/transform-list-into-hashmap/</guid>
+        <link>https://codersite.dev/transform-list-into-hashmap/</link>
+        <guid isPermaLink="true">https://codersite.dev/transform-list-into-hashmap/</guid>
         
         
         <category>data structures</category>
@@ -2165,8 +2193,8 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 16 Apr 2025 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/swagger-codegen-server-stubs-openapi/</link>
-        <guid isPermaLink="true">http://localhost:4000/swagger-codegen-server-stubs-openapi/</guid>
+        <link>https://codersite.dev/swagger-codegen-server-stubs-openapi/</link>
+        <guid isPermaLink="true">https://codersite.dev/swagger-codegen-server-stubs-openapi/</guid>
         
         
         <category>Web APIs</category>
@@ -2652,8 +2680,8 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 24 Mar 2025 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/shopping-budget-options/</link>
-        <guid isPermaLink="true">http://localhost:4000/shopping-budget-options/</guid>
+        <link>https://codersite.dev/shopping-budget-options/</link>
+        <guid isPermaLink="true">https://codersite.dev/shopping-budget-options/</guid>
         
         
         <category>algorithms</category>
@@ -2955,8 +2983,8 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 26 Feb 2025 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/designing-apis-with-swagger-and-openapi/</link>
-        <guid isPermaLink="true">http://localhost:4000/designing-apis-with-swagger-and-openapi/</guid>
+        <link>https://codersite.dev/designing-apis-with-swagger-and-openapi/</link>
+        <guid isPermaLink="true">https://codersite.dev/designing-apis-with-swagger-and-openapi/</guid>
         
         
         <category>Web APIs</category>
@@ -3359,8 +3387,8 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 30 Oct 2024 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/spring-boot-automate-api-client/</link>
-        <guid isPermaLink="true">http://localhost:4000/spring-boot-automate-api-client/</guid>
+        <link>https://codersite.dev/spring-boot-automate-api-client/</link>
+        <guid isPermaLink="true">https://codersite.dev/spring-boot-automate-api-client/</guid>
         
         
         <category>programming</category>

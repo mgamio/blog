@@ -1,22 +1,24 @@
 ---
 layout: post
 title: "Switch to an AI Career in Germany: MSIT's Funded Programs and a €500 Welcome Bonus"
-description: "MSIT offers 22 online programs in AI, software engineering, cybersecurity and data, in German or English, up to 100% funded with a Bildungsgutschein. What you learn, who qualifies, and how to get a €500 welcome bonus."
+description: "MSIT offers 22 online programs in AI, software engineering, cybersecurity and data, in German or English, up to 100% funded and with a laptop you keep. What you learn, who qualifies, and how to get a €500 welcome bonus."
 author: moises
 categories: [ career ]
 image: /assets/images/msit-ai-career-hero.jpg
 comments: false
 ---
 
-<p style="font-size:0.9rem; background:#fff7e6; border-left:4px solid #F39200; padding:0.7rem 1rem; border-radius:4px;"><strong>Werbung / Advertising.</strong> This article contains my referral link to MSIT. If you enroll in an eligible program through it, you receive a €500 welcome bonus, and I receive a reward too. It costs you nothing extra. All facts below come from MSIT's own website and the referral terms; MSIT didn't review this article.</p>
+<p style="font-size:0.9rem; background:#fff7e6; border-left:4px solid #F39200; padding:0.7rem 1rem; border-radius:4px;"><strong>Werbung / Advertising.</strong> This article contains my referral link to MSIT. If you enroll in an eligible program through it, you receive a €500 welcome bonus, and I receive a reward too. It costs you nothing extra. All facts below come from MSIT's website, its program syllabus and the referral terms; MSIT didn't review this article.</p>
 
 AI is changing what companies expect from developers, analysts and IT professionals. Teams now build on LLM APIs, automate work with AI agents, and need people who know how to make those systems reliable, secure and affordable. If you've been thinking about moving into that work, the hardest parts are usually time, money and knowing where to start.
 
-**MSIT (Master School Institute of Technology)** is an online career school for the German market that addresses all three: structured programs of 6 to 12 months, taught live by industry experts, that can be **100% funded by the Agentur für Arbeit or the Jobcenter** if you qualify. Through my referral link, you also get a **€500 welcome bonus**.
+**MSIT (Master School Institute of Technology)** is an online career school for the German market that addresses all three: structured programs of 6 to 12 months, taught live by industry experts, that can be **100% government-funded** if you qualify, and come with **a laptop you keep**. Through my referral link, you also get a **€500 welcome bonus**.
 
 ## Why it's worth a look
 
-- **It can cost you nothing.** With a *Bildungsgutschein* (education voucher) from the Agentur für Arbeit or the Jobcenter, the full tuition is covered. MSIT is AZAV-certified, which is what makes its programs eligible for this funding.
+- **It can cost you nothing.** With a *Bildungsgutschein* (education voucher) from the Agentur für Arbeit or the Jobcenter, the full tuition is covered. MSIT's latest program syllabus also names funding for people who are employed, through the *Qualifizierungschancengesetz* (QCG). MSIT is AZAV-certified, which is what makes its programs eligible for this funding.
+- **A laptop you keep.** MSIT provides a laptop for the training, and it's yours after the program.
+- **Results MSIT reports:** 96% of students would recommend MSIT, 85% of its graduates in Germany found a tech job, and over 600 companies have hired its graduates.
 - **You learn what companies are hiring for now:** AI agents, LLM integration, RAG, cloud, DevOps, cybersecurity and data analysis, not last decade's curriculum.
 - **German or English, your choice.** Every program can be completed fully in either language.
 - **You don't learn alone.** Weekly live lectures, regular 1:1 mentoring, labs and projects, and support through live sessions, study halls and chat rooms.
@@ -95,12 +97,27 @@ It leads to the Python certifications PCEP and PCAP and the IHK certificate *Gen
 
 Both programs list over 1,920 academic hours and end with a portfolio of industry-level projects, which is what you show in interviews.
 
+### No coding background? AI Automations & AI Agents
+
+If you don't want to become a programmer, **AI Automations & AI Agents (6 months)** teaches you to build AI automations and agents with no-code and low-code tools. MSIT designed it for three groups: career changers without a tech background, working professionals who want to automate their own work, and managers who lead AI initiatives.
+
+- **Months 1–3, AI Automations:** prompt engineering and workflow automation, from ChatGPT to n8n.
+- **Months 4–6, AI Agents:** agent architectures, multi-agent systems and integrations, ending with a real-world capstone project you build with a 1:1 mentor.
+- **Tools you work with:** ChatGPT, Claude, Gemini, n8n, Zapier, Make, Microsoft Copilot Studio, Flowise, LangFlow, Lovable, Streamlit and Airtable.
+
+Each half can also be booked on its own as a 3-month program, but the full six months give you the strongest portfolio.
+
 ## How the training works
 
-- **Online, flexible schedule.** You study at your own pace during the week, around weekly live lectures that are recorded if you miss one.
-- **Learning by doing:** labs, quizzes and projects throughout the program.
-- **Regular 1:1 mentoring** with tech mentors, plus live sessions, study halls and chat rooms for questions.
-- **Career Accelerator** after the technical training: resume and LinkedIn help, mock interviews, coaching and networking with hiring partners.
+According to MSIT's syllabus for AI Automations & AI Agents, a typical week looks like this (MSIT notes that schedules vary by program):
+
+- **Full-time:** two live blocks a day, 09:00–13:00 and 14:00–18:00, with live sessions and guided practice. Mentors are available on Zoom.
+- **Part-time:** one block a day, morning or afternoon, so the 6-month program takes 12 months. Same content, slower pace.
+- **Live attendance:** MSIT requires 100% synchronous attendance. This is a structured school day online, not videos you watch whenever you like.
+- **Study Hall:** guided practice sessions where you work on projects while mentors answer questions live.
+- **Learning by doing:** you build real projects from the first day, with 1:1 mentoring throughout.
+- **Career Sprint:** a two-week intensive before graduation, focused on your CV, LinkedIn profile and networking.
+- **Career support until you're hired:** personal Career Success Advisors coach you on applications and interviews, and MSIT's job platform gives you curated job listings and partner companies. MSIT says this support continues after graduation.
 
 One honest note: MSIT says clearly that it helps you with your job search but **does not place you in a job**. The certificate and the portfolio open doors; you still go through the interviews yourself. If you're preparing for technical interviews, my posts on [Big O notation](https://codersite.dev/big-o-notation-analysis-of-algorithms/){:target="_blank"} and [SOLID principles](https://codersite.dev/solid-principles-the-definitive-guide/){:target="_blank"} are good places to start.
 
@@ -109,8 +126,9 @@ One honest note: MSIT says clearly that it helps you with your job search but **
 The list price in Europe is **€20,000**. That sounds like a lot, so here are the ways people actually pay:
 
 1. **Bildungsgutschein: 100% funded.** If you're **unemployed, about to become unemployed, or on short-time work** (*Kurzarbeit*), the Agentur für Arbeit or the Jobcenter can pay the entire tuition with an education voucher. This is the route MSIT's programs are built for. Students aren't eligible for this funding.
-2. **Pay once you're hired.** A €250 commitment fee upfront, then the tuition in up to 36 monthly installments *after* you get a job.
-3. **Pay as you go** in 36 monthly installments, or **pay upfront**, which MSIT says saves 46% and 56% respectively.
+2. **QCG: funded while you keep your job.** MSIT's AI Automations & AI Agents syllabus says employed professionals can be funded through the *Qualifizierungschancengesetz* (QCG), with €0 for the training. Ask your advisor whether this applies to the program you want.
+3. **Pay once you're hired.** A €250 commitment fee upfront, then the tuition in up to 36 monthly installments *after* you get a job.
+4. **Pay as you go** in 36 monthly installments, or **pay upfront**, which MSIT says saves 46% and 56% respectively.
 
 With every plan, MSIT says you aren't charged until 30 days after the program starts, and you can cancel within those first 30 days for a full refund. That gives you a month to see whether the program is right for you.
 
@@ -140,8 +158,8 @@ When you start through my link, the referral page tells you: *"You've been gifte
 ## How to get started in four steps
 
 1. **Click the referral link** and enter your first name and email to check whether you qualify.
-2. **Talk to an MSIT advisor** about which program fits you, and whether you qualify for a Bildungsgutschein.
-3. **Apply for the Bildungsgutschein** at your Agentur für Arbeit or Jobcenter, if that's your route.
+2. **Talk to an MSIT advisor** about which program fits you, and whether you qualify for a Bildungsgutschein or QCG funding.
+3. **Apply for the funding** at your Agentur für Arbeit or Jobcenter, if that's your route. If you're unemployed or about to be, register there first.
 4. **Start your program** and collect your €500 bonus after your first month.
 
 <div>
@@ -152,14 +170,14 @@ When you start through my link, the referral page tells you: *"You've been gifte
 
 **It's a strong fit if:**
 
-- you live in Germany and qualify for a Bildungsgutschein, because then the training costs you nothing;
+- you live in Germany and qualify for a Bildungsgutschein or QCG funding, because then the training costs you nothing and you even keep the laptop;
 - you want structure, deadlines and mentors rather than piecing together free videos;
 - you want a recognized certificate and a project portfolio for job applications;
 - you're a developer who wants to add AI engineering to your skill set.
 
 **Think twice if:**
 
-- you can't commit to 6 to 12 months of full-time study;
+- you can't attend live sessions every weekday, even in the part-time track;
 - you're a student, because funding isn't available to you;
 - you're looking for a job guarantee, which MSIT doesn't offer.
 
@@ -177,9 +195,17 @@ Yes. Every program is offered in German and in English, and you can complete it 
 
 For most programs, no: basic computer skills and high-school math are enough. *AI for Developers* is the exception, and is meant for experienced developers.
 
+### Do I get a laptop?
+
+Yes. MSIT provides a laptop for the training, and you keep it after the program.
+
+### Can I keep my job while I study?
+
+Possibly. The AI Automations & AI Agents program has a part-time track: one live block a day, morning or afternoon, over 12 months. MSIT's syllabus also names QCG funding for employed professionals. Check the schedule and funding for your program with an MSIT advisor.
+
 ### Will MSIT find me a job?
 
-No. MSIT helps with resumes, LinkedIn, mock interviews and networking, but says it will not place you in a job.
+No. MSIT helps with resumes, LinkedIn, mock interviews and networking, and its Career Success Advisors support you until you're hired, but it says it will not place you in a job.
 
 ### Who pays the €500 bonus, and when?
 
