@@ -5,9 +5,376 @@
     <description>Step-by-step Java and Spring Boot tutorials with complete code, algorithms for coding interviews, clean software design, and free developer tools.</description>
     <link>https://codersite.dev/</link>
     <atom:link href="https://codersite.dev/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 23 Oct 2026 16:36:59 +0200</pubDate>
-    <lastBuildDate>Fri, 23 Oct 2026 16:36:59 +0200</lastBuildDate>
+    <pubDate>Mon, 26 Oct 2026 22:15:19 +0100</pubDate>
+    <lastBuildDate>Mon, 26 Oct 2026 22:15:19 +0100</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
+    
+      <item>
+        <title>Switch to an AI Career in Germany: MSIT&apos;s Funded Programs and a €500 Welcome Bonus</title>
+        <description>&lt;p style=&quot;font-size:0.9rem; background:#fff7e6; border-left:4px solid #F39200; padding:0.7rem 1rem; border-radius:4px;&quot;&gt;&lt;strong&gt;Werbung / Advertising.&lt;/strong&gt; This article contains my referral link to MSIT. If you enroll in an eligible program through it, you receive a €500 welcome bonus, and I receive a reward too. It costs you nothing extra. All facts below come from MSIT&apos;s own website and the referral terms; MSIT didn&apos;t review this article.&lt;/p&gt;
+
+&lt;p&gt;AI is changing what companies expect from developers, analysts and IT professionals. Teams now build on LLM APIs, automate work with AI agents, and need people who know how to make those systems reliable, secure and affordable. If you’ve been thinking about moving into that work, the hardest parts are usually time, money and knowing where to start.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MSIT (Master School Institute of Technology)&lt;/strong&gt; is an online career school for the German market that addresses all three: structured programs of 6 to 12 months, taught live by industry experts, that can be &lt;strong&gt;100% funded by the Agentur für Arbeit or the Jobcenter&lt;/strong&gt; if you qualify. Through my referral link, you also get a &lt;strong&gt;€500 welcome bonus&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-its-worth-a-look&quot;&gt;Why it’s worth a look&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;It can cost you nothing.&lt;/strong&gt; With a &lt;em&gt;Bildungsgutschein&lt;/em&gt; (education voucher) from the Agentur für Arbeit or the Jobcenter, the full tuition is covered. MSIT is AZAV-certified, which is what makes its programs eligible for this funding.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;You learn what companies are hiring for now:&lt;/strong&gt; AI agents, LLM integration, RAG, cloud, DevOps, cybersecurity and data analysis, not last decade’s curriculum.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;German or English, your choice.&lt;/strong&gt; Every program can be completed fully in either language.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;You don’t learn alone.&lt;/strong&gt; Weekly live lectures, regular 1:1 mentoring, labs and projects, and support through live sessions, study halls and chat rooms.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A recognized certificate.&lt;/strong&gt; Programs lead to an IHK certificate, in collaboration with IHK Akademie München, and MSIT covers the exam cost.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Career support after the training:&lt;/strong&gt; resume and LinkedIn reviews, mock interviews, career coaching and networking.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A €500 welcome bonus&lt;/strong&gt; when you enroll in an eligible program through this link.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div&gt;&lt;!-- MSIT referral (Masterschool referral program). Sponsored link: keep rel=&quot;sponsored nofollow&quot;. --&gt;
+&lt;div class=&quot;msit-cta&quot;&gt;
+  &lt;a href=&quot;https://referral.masterschool.com/u3UgTLaT&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;
+    &lt;img src=&quot;/assets/images/msit-500-bonus-banner.jpg&quot; width=&quot;1200&quot; height=&quot;360&quot; loading=&quot;lazy&quot; alt=&quot;Start your AI career at MSIT with a 500 euro bonus. Check if you qualify.&quot; /&gt;
+  &lt;/a&gt;
+  &lt;a class=&quot;msit-cta-btn&quot; href=&quot;https://referral.masterschool.com/u3UgTLaT&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check if you qualify and claim your €500 bonus →&lt;/a&gt;
+  &lt;p class=&quot;msit-cta-note&quot;&gt;Referral link. You and codersite both receive a reward if you enroll in an eligible program.&lt;/p&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.msit-cta { text-align: center; margin: 2rem 0; }
+.msit-cta img { width: 100%; height: auto; border-radius: 10px; display: block; }
+.msit-cta-btn { display: inline-block; margin-top: 1rem; background: #F39200; color: #fff !important; font-weight: 700; font-size: 1.1rem; padding: 0.8rem 1.6rem; border-radius: 10px; text-decoration: none !important; box-shadow: 0 4px 0 #b86f00; }
+.msit-cta-btn:hover { background: #d98300; }
+.msit-cta-note { font-size: 0.8rem; color: rgba(0, 0, 0, 0.55); margin: 0.6rem 0 0; }
+&lt;/style&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;22-programs-in-four-schools&quot;&gt;22 programs in four schools&lt;/h2&gt;
+
+&lt;p&gt;Behind the &lt;strong&gt;Browse programs&lt;/strong&gt; button on MSIT’s website are 22 programs, grouped into four schools. Every program also includes an &lt;strong&gt;EU AI Act Practitioner&lt;/strong&gt; module: three live sessions on AI governance, useful in any tech role now that the EU AI Act applies.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/msit-programs-schools.jpg&quot; alt=&quot;MSIT: 22 programs in four schools: Artificial Intelligence, Software Engineering, Cybersecurity and Data Science, 6 to 12 months each&quot; title=&quot;22 programs in 4 schools&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;school-of-artificial-intelligence-9-programs&quot;&gt;School of Artificial Intelligence (9 programs)&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Program&lt;/th&gt;
+      &lt;th&gt;Duration&lt;/th&gt;
+      &lt;th&gt;Prepares you for&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AI Automations &amp;amp; AI Agents&lt;/td&gt;
+      &lt;td&gt;6 months&lt;/td&gt;
+      &lt;td&gt;AI Automation Specialist, No-Code/Low-Code Developer, Analytics Consultant&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GenAI Engineering&lt;/td&gt;
+      &lt;td&gt;10 months&lt;/td&gt;
+      &lt;td&gt;GenAI Developer, AI Engineer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AI &amp;amp; ML Engineering&lt;/td&gt;
+      &lt;td&gt;12 months&lt;/td&gt;
+      &lt;td&gt;AI/ML Engineer, MLOps Engineer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AI Agents for Sales, Customer Service, Finance, Logistics, HR or IT Service Desk&lt;/td&gt;
+      &lt;td&gt;8 months each&lt;/td&gt;
+      &lt;td&gt;AI Automation Specialist in that field, AI Agent Developer (Low-Code), Process Automation Expert&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;school-of-software-engineering-8-programs&quot;&gt;School of Software Engineering (8 programs)&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Program&lt;/th&gt;
+      &lt;th&gt;Duration&lt;/th&gt;
+      &lt;th&gt;Prepares you for&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AI for Developers&lt;/td&gt;
+      &lt;td&gt;6 months&lt;/td&gt;
+      &lt;td&gt;AI Integration Engineer, AI Backend Developer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;QA &amp;amp; Test Automation&lt;/td&gt;
+      &lt;td&gt;8 months&lt;/td&gt;
+      &lt;td&gt;QA Engineer, Test Automation Engineer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cloud Engineering – AWS&lt;/td&gt;
+      &lt;td&gt;8 months&lt;/td&gt;
+      &lt;td&gt;Cloud Engineer, AWS Infrastructure Engineer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AI Quality Engineer&lt;/td&gt;
+      &lt;td&gt;10 months&lt;/td&gt;
+      &lt;td&gt;QA Engineer, Test Automation Engineer, AI Quality Engineer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Agentic Software Engineer&lt;/td&gt;
+      &lt;td&gt;10 months&lt;/td&gt;
+      &lt;td&gt;AI Agent Developer, AI Engineer, Software Engineer specialising in AI agents&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DevOps&lt;/td&gt;
+      &lt;td&gt;12 months&lt;/td&gt;
+      &lt;td&gt;DevOps Engineer, CI/CD Engineer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AI Systems Backend&lt;/td&gt;
+      &lt;td&gt;12 months&lt;/td&gt;
+      &lt;td&gt;Backend Developer, AI Systems Engineer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AI Platform Engineer&lt;/td&gt;
+      &lt;td&gt;12 months&lt;/td&gt;
+      &lt;td&gt;Platform Engineer, DevOps Engineer, Cloud Engineer with an AI focus&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;school-of-cybersecurity-3-programs&quot;&gt;School of Cybersecurity (3 programs)&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Program&lt;/th&gt;
+      &lt;th&gt;Duration&lt;/th&gt;
+      &lt;th&gt;Prepares you for&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cyber Security&lt;/td&gt;
+      &lt;td&gt;8 months&lt;/td&gt;
+      &lt;td&gt;SOC Analyst, Cybersecurity Analyst, GRC Analyst&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;IT-Support&lt;/td&gt;
+      &lt;td&gt;8 months&lt;/td&gt;
+      &lt;td&gt;IT Support Specialist, Helpdesk Technician, Systems Administrator&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AI Cyber Security&lt;/td&gt;
+      &lt;td&gt;12 months&lt;/td&gt;
+      &lt;td&gt;AI Security Analyst, Threat Intelligence Analyst&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;school-of-data-science-2-programs&quot;&gt;School of Data Science (2 programs)&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Program&lt;/th&gt;
+      &lt;th&gt;Duration&lt;/th&gt;
+      &lt;th&gt;Prepares you for&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;AI-Powered Data Analyst&lt;/td&gt;
+      &lt;td&gt;8 months&lt;/td&gt;
+      &lt;td&gt;Data Analyst, BI Analyst, Analytics Consultant&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Agentic Data Analyst&lt;/td&gt;
+      &lt;td&gt;10 months&lt;/td&gt;
+      &lt;td&gt;Data Analyst, BI Analyst, Data Analyst specialising in automation&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div&gt;&lt;!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. --&gt;
+&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+     (adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;
+&lt;br /&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;two-programs-for-codersite-readers&quot;&gt;Two programs for codersite readers&lt;/h2&gt;
+
+&lt;p&gt;Most readers of this blog are developers, so two programs stand out.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;AI for Developers (6 months)&lt;/strong&gt; is for developers who already code and want to build AI into real systems. MSIT says it’s “for experienced developers only”. You learn to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;integrate LLM APIs from OpenAI, Anthropic and Google into backend systems;&lt;/li&gt;
+  &lt;li&gt;build RAG pipelines that give AI access to a company’s private data;&lt;/li&gt;
+  &lt;li&gt;design AI agents with real tool calling for production use;&lt;/li&gt;
+  &lt;li&gt;master production-grade prompt and context engineering;&lt;/li&gt;
+  &lt;li&gt;add observability and traceability to AI systems in production.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It leads to the Python certifications PCEP and PCAP and the IHK certificate &lt;em&gt;Generative AI Expert (IHK)&lt;/em&gt;. If you’ve used my &lt;a href=&quot;https://codersite.dev/tools/llm-api-cost-calculator/&quot; target=&quot;_blank&quot;&gt;LLM API cost calculator&lt;/a&gt; or &lt;a href=&quot;https://codersite.dev/tools/claude-md-generator/&quot; target=&quot;_blank&quot;&gt;CLAUDE.md generator&lt;/a&gt;, this is the program that turns those topics into a professional skill set.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GenAI Engineering (10 months)&lt;/strong&gt; covers the same ground for people starting &lt;strong&gt;from zero coding experience&lt;/strong&gt;: four months of foundations, then six months of advanced training. You finish building production-ready AI applications with Python and LLMs such as GPT-4, Claude and Gemini, with the same three certificates.&lt;/p&gt;
+
+&lt;p&gt;Both programs list over 1,920 academic hours and end with a portfolio of industry-level projects, which is what you show in interviews.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-the-training-works&quot;&gt;How the training works&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Online, flexible schedule.&lt;/strong&gt; You study at your own pace during the week, around weekly live lectures that are recorded if you miss one.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Learning by doing:&lt;/strong&gt; labs, quizzes and projects throughout the program.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Regular 1:1 mentoring&lt;/strong&gt; with tech mentors, plus live sessions, study halls and chat rooms for questions.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Career Accelerator&lt;/strong&gt; after the technical training: resume and LinkedIn help, mock interviews, coaching and networking with hiring partners.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;One honest note: MSIT says clearly that it helps you with your job search but &lt;strong&gt;does not place you in a job&lt;/strong&gt;. The certificate and the portfolio open doors; you still go through the interviews yourself. If you’re preparing for technical interviews, my posts on &lt;a href=&quot;https://codersite.dev/big-o-notation-analysis-of-algorithms/&quot; target=&quot;_blank&quot;&gt;Big O notation&lt;/a&gt; and &lt;a href=&quot;https://codersite.dev/solid-principles-the-definitive-guide/&quot; target=&quot;_blank&quot;&gt;SOLID principles&lt;/a&gt; are good places to start.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-it-costs-and-how-it-can-cost-nothing&quot;&gt;What it costs, and how it can cost nothing&lt;/h2&gt;
+
+&lt;p&gt;The list price in Europe is &lt;strong&gt;€20,000&lt;/strong&gt;. That sounds like a lot, so here are the ways people actually pay:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Bildungsgutschein: 100% funded.&lt;/strong&gt; If you’re &lt;strong&gt;unemployed, about to become unemployed, or on short-time work&lt;/strong&gt; (&lt;em&gt;Kurzarbeit&lt;/em&gt;), the Agentur für Arbeit or the Jobcenter can pay the entire tuition with an education voucher. This is the route MSIT’s programs are built for. Students aren’t eligible for this funding.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Pay once you’re hired.&lt;/strong&gt; A €250 commitment fee upfront, then the tuition in up to 36 monthly installments &lt;em&gt;after&lt;/em&gt; you get a job.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Pay as you go&lt;/strong&gt; in 36 monthly installments, or &lt;strong&gt;pay upfront&lt;/strong&gt;, which MSIT says saves 46% and 56% respectively.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;With every plan, MSIT says you aren’t charged until 30 days after the program starts, and you can cancel within those first 30 days for a full refund. That gives you a month to see whether the program is right for you.&lt;/p&gt;
+
+&lt;div&gt;&lt;!-- MSIT referral (Masterschool referral program). Sponsored link: keep rel=&quot;sponsored nofollow&quot;. --&gt;
+&lt;div class=&quot;msit-cta&quot;&gt;
+  &lt;a href=&quot;https://referral.masterschool.com/u3UgTLaT&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;
+    &lt;img src=&quot;/assets/images/msit-500-bonus-banner.jpg&quot; width=&quot;1200&quot; height=&quot;360&quot; loading=&quot;lazy&quot; alt=&quot;Start your AI career at MSIT with a 500 euro bonus. Check if you qualify.&quot; /&gt;
+  &lt;/a&gt;
+  &lt;a class=&quot;msit-cta-btn&quot; href=&quot;https://referral.masterschool.com/u3UgTLaT&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check if you qualify and claim your €500 bonus →&lt;/a&gt;
+  &lt;p class=&quot;msit-cta-note&quot;&gt;Referral link. You and codersite both receive a reward if you enroll in an eligible program.&lt;/p&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.msit-cta { text-align: center; margin: 2rem 0; }
+.msit-cta img { width: 100%; height: auto; border-radius: 10px; display: block; }
+.msit-cta-btn { display: inline-block; margin-top: 1rem; background: #F39200; color: #fff !important; font-weight: 700; font-size: 1.1rem; padding: 0.8rem 1.6rem; border-radius: 10px; text-decoration: none !important; box-shadow: 0 4px 0 #b86f00; }
+.msit-cta-btn:hover { background: #d98300; }
+.msit-cta-note { font-size: 0.8rem; color: rgba(0, 0, 0, 0.55); margin: 0.6rem 0 0; }
+&lt;/style&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;who-can-join&quot;&gt;Who can join&lt;/h2&gt;
+
+&lt;p&gt;You don’t need a computer science degree. MSIT asks for:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;basic computer literacy and comfort working with digital tools and numbers;&lt;/li&gt;
+  &lt;li&gt;high-school level math;&lt;/li&gt;
+  &lt;li&gt;English, but only for the English-language track; the German track doesn’t require it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Applicants are assessed on motivation, grit and aptitude rather than on previous experience in the field. The exception is &lt;em&gt;AI for Developers&lt;/em&gt;, which is meant for people who already code.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-500-welcome-bonus-how-it-works&quot;&gt;The €500 welcome bonus: how it works&lt;/h2&gt;
+
+&lt;p&gt;When you start through my link, the referral page tells you: &lt;em&gt;“You’ve been gifted €500 to start your tech journey.”&lt;/em&gt; According to MSIT’s referral terms:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the reward is paid as an &lt;strong&gt;Amazon gift card&lt;/strong&gt;;&lt;/li&gt;
+  &lt;li&gt;you must &lt;strong&gt;enroll in an eligible long-term program&lt;/strong&gt; through the link (the terms mention the 8-month and longer tracks, so ask your advisor whether a 6-month program qualifies);&lt;/li&gt;
+  &lt;li&gt;you receive it once you’ve &lt;strong&gt;completed your first month&lt;/strong&gt; in the program;&lt;/li&gt;
+  &lt;li&gt;I, as the person who referred you, also receive a reward. That’s why this article is marked as advertising.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;how-to-get-started-in-four-steps&quot;&gt;How to get started in four steps&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Click the referral link&lt;/strong&gt; and enter your first name and email to check whether you qualify.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Talk to an MSIT advisor&lt;/strong&gt; about which program fits you, and whether you qualify for a Bildungsgutschein.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Apply for the Bildungsgutschein&lt;/strong&gt; at your Agentur für Arbeit or Jobcenter, if that’s your route.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Start your program&lt;/strong&gt; and collect your €500 bonus after your first month.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div&gt;&lt;!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. --&gt;
+&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+     (adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;
+&lt;br /&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;is-it-right-for-you&quot;&gt;Is it right for you?&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;It’s a strong fit if:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;you live in Germany and qualify for a Bildungsgutschein, because then the training costs you nothing;&lt;/li&gt;
+  &lt;li&gt;you want structure, deadlines and mentors rather than piecing together free videos;&lt;/li&gt;
+  &lt;li&gt;you want a recognized certificate and a project portfolio for job applications;&lt;/li&gt;
+  &lt;li&gt;you’re a developer who wants to add AI engineering to your skill set.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Think twice if:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;you can’t commit to 6 to 12 months of full-time study;&lt;/li&gt;
+  &lt;li&gt;you’re a student, because funding isn’t available to you;&lt;/li&gt;
+  &lt;li&gt;you’re looking for a job guarantee, which MSIT doesn’t offer.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;faq&quot;&gt;FAQ&lt;/h2&gt;
+
+&lt;h3 id=&quot;is-msit-really-free-with-a-bildungsgutschein&quot;&gt;Is MSIT really free with a Bildungsgutschein?&lt;/h3&gt;
+
+&lt;p&gt;MSIT says its programs are “100% funded” by the Agentur für Arbeit with a Bildungsgutschein, and it’s AZAV-certified, which is required for that funding. Whether you get a voucher is decided by your Agentur für Arbeit or Jobcenter, based on your situation.&lt;/p&gt;
+
+&lt;h3 id=&quot;can-i-study-in-english&quot;&gt;Can I study in English?&lt;/h3&gt;
+
+&lt;p&gt;Yes. Every program is offered in German and in English, and you can complete it fully in either language. External certification exams are in English; for the German track, MSIT offers an internal German alternative certificate. The IHK exam is in German.&lt;/p&gt;
+
+&lt;h3 id=&quot;do-i-need-programming-experience&quot;&gt;Do I need programming experience?&lt;/h3&gt;
+
+&lt;p&gt;For most programs, no: basic computer skills and high-school math are enough. &lt;em&gt;AI for Developers&lt;/em&gt; is the exception, and is meant for experienced developers.&lt;/p&gt;
+
+&lt;h3 id=&quot;will-msit-find-me-a-job&quot;&gt;Will MSIT find me a job?&lt;/h3&gt;
+
+&lt;p&gt;No. MSIT helps with resumes, LinkedIn, mock interviews and networking, but says it will not place you in a job.&lt;/p&gt;
+
+&lt;h3 id=&quot;who-pays-the-500-bonus-and-when&quot;&gt;Who pays the €500 bonus, and when?&lt;/h3&gt;
+
+&lt;p&gt;MSIT (Masterschool) pays it as an Amazon gift card after you’ve completed your first month in an eligible long-term program you enrolled in through a referral link.&lt;/p&gt;
+
+&lt;p&gt;Ready to find out whether you qualify? It takes a minute, and the €500 bonus is only available through a referral link like this one.&lt;/p&gt;
+
+&lt;div&gt;&lt;!-- MSIT referral (Masterschool referral program). Sponsored link: keep rel=&quot;sponsored nofollow&quot;. --&gt;
+&lt;div class=&quot;msit-cta&quot;&gt;
+  &lt;a href=&quot;https://referral.masterschool.com/u3UgTLaT&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;
+    &lt;img src=&quot;/assets/images/msit-500-bonus-banner.jpg&quot; width=&quot;1200&quot; height=&quot;360&quot; loading=&quot;lazy&quot; alt=&quot;Start your AI career at MSIT with a 500 euro bonus. Check if you qualify.&quot; /&gt;
+  &lt;/a&gt;
+  &lt;a class=&quot;msit-cta-btn&quot; href=&quot;https://referral.masterschool.com/u3UgTLaT&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check if you qualify and claim your €500 bonus →&lt;/a&gt;
+  &lt;p class=&quot;msit-cta-note&quot;&gt;Referral link. You and codersite both receive a reward if you enroll in an eligible program.&lt;/p&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.msit-cta { text-align: center; margin: 2rem 0; }
+.msit-cta img { width: 100%; height: auto; border-radius: 10px; display: block; }
+.msit-cta-btn { display: inline-block; margin-top: 1rem; background: #F39200; color: #fff !important; font-weight: 700; font-size: 1.1rem; padding: 0.8rem 1.6rem; border-radius: 10px; text-decoration: none !important; box-shadow: 0 4px 0 #b86f00; }
+.msit-cta-btn:hover { background: #d98300; }
+.msit-cta-note { font-size: 0.8rem; color: rgba(0, 0, 0, 0.55); margin: 0.6rem 0 0; }
+&lt;/style&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;p&gt;&lt;b&gt;&lt;i&gt;“If this article helped you, help me create the next one.”&lt;/i&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;a class=&quot;coffee-btn&quot; href=&quot;https://buymeacoffee.com/codersite&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;☕ Buy me a coffee&lt;/a&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Mon, 26 Oct 2026 00:00:00 +0100</pubDate>
+        <link>https://codersite.dev/msit-ai-career-programs-germany/</link>
+        <guid isPermaLink="true">https://codersite.dev/msit-ai-career-programs-germany/</guid>
+        
+        
+        <category>career</category>
+        
+      </item>
     
       <item>
         <title>Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client</title>
@@ -2994,192 +3361,6 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
         <pubDate>Wed, 30 Oct 2024 00:00:00 +0100</pubDate>
         <link>https://codersite.dev/spring-boot-automate-api-client/</link>
         <guid isPermaLink="true">https://codersite.dev/spring-boot-automate-api-client/</guid>
-        
-        
-        <category>programming</category>
-        
-      </item>
-    
-      <item>
-        <title>Log Every Login Attempt with Spring Boot Actuator Auditing</title>
-        <description>&lt;p&gt;When a login fails at 3 a.m., you want to know who tried, how often, and whether it worked. Spring Boot Actuator already publishes these security events; you only have to listen. Here’s how to log every token request, successful or not, without flooding your log file.&lt;/p&gt;
-
-&lt;p&gt;Spring Boot includes additional features to help you monitor and manage your application when deployed to production.&lt;/p&gt;
-
-&lt;p&gt;You can manage and monitor your application by using Loggers, Metrics, Tracing, and Auditing automatically.&lt;/p&gt;
-
-&lt;p&gt;To enable these Production-ready Features, you need to add a dependency on the &lt;em&gt;spring-boot-starter-actuator&lt;/em&gt; starter.&lt;/p&gt;
-
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-actuator&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;use-case&quot;&gt;Use case&lt;/h2&gt;
-
-&lt;p&gt;We want to log all OAuth2 token requests from a new Rest API (successful and unsuccessful).&lt;/p&gt;
-
-&lt;p&gt;The authorization grant that the API uses is Resource Owner Password Credentials. See &lt;a href=&quot;https://codersite.dev/spring-boot-oauth2/&quot; target=&quot;_blank&quot;&gt;How to implement Spring Boot Security OAuth2&lt;/a&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;A note for 2026:&lt;/strong&gt; this example uses the password grant on a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/oauth/token&lt;/code&gt; endpoint, which Spring Security 7.0 no longer supports. The auditing technique itself works the same with any authentication flow. To modernize the client side, see &lt;a href=&quot;https://codersite.dev/spring-restclient-replace-oauth2resttemplate/&quot; target=&quot;_blank&quot;&gt;Replace OAuth2RestTemplate with RestClient&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/springOAuthToken.jpg&quot; alt=&quot;Swagger UI authorization dialog requesting an OAuth2 token with the password flow from /cloud/oauth/token&quot; title=&quot;Swagger UI authorization dialog requesting an OAuth2 token with the password flow from /cloud/oauth/token&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We are going to enable &lt;strong&gt;Auditing&lt;/strong&gt; to catch authentication and authorization events that the Spring Boot &lt;a href=&quot;https://docs.spring.io/spring-boot/reference/actuator/auditing.html&quot; target=&quot;_blank&quot;&gt;Actuator&lt;/a&gt; publishes by default such as &lt;em&gt;“authentication success”&lt;/em&gt;, &lt;em&gt;“failure”&lt;/em&gt; and &lt;em&gt;“access denied”&lt;/em&gt; exceptions.&lt;/p&gt;
-
-&lt;h2 id=&quot;enable-auditing&quot;&gt;Enable Auditing&lt;/h2&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AuditConfig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AuditEventRepository&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;auditEventRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;InMemoryAuditEventRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Without an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AuditEventRepository&lt;/code&gt; bean, Spring Boot doesn’t record audit events, and the listener below never fires. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InMemoryAuditEventRepository&lt;/code&gt; is fine for development. For production, Spring recommends your own implementation, for example one that writes to a database.&lt;/p&gt;
-
-&lt;h2 id=&quot;listen-to-the-events&quot;&gt;Listen to the Events&lt;/h2&gt;
-
-&lt;p&gt;We define a bean with a listener method.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nd&quot;&gt;@Component&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LoginAttemptsLogger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Logger&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LoggerFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLogger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LoginAttemptsLogger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-  &lt;span class=&quot;nd&quot;&gt;@EventListener&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;auditEventHappened&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AuditApplicationEvent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auditApplicationEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auditApplicationEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuditEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getPrincipal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; - &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;auditApplicationEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuditEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The previous code logs events from every endpoint of the API, so the log file grows quickly with entries we don’t need.&lt;/p&gt;
-
-&lt;div&gt;&lt;!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. --&gt;
-&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block; text-align:center;&quot; data-ad-layout=&quot;in-article&quot; data-ad-format=&quot;fluid&quot; data-ad-client=&quot;ca-pub-9154513114335042&quot; data-ad-slot=&quot;6734634393&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;p&gt;Instead, we can inject the &lt;em&gt;HttpServletRequest&lt;/em&gt; interface, which provides request information for HTTP servlets, and log only requests to the &lt;em&gt;oauth/token&lt;/em&gt; URL.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nd&quot;&gt;@Component&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LoginAttemptsLogger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Logger&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LoggerFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLogger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LoginAttemptsLogger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-  &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;httpServletRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;nd&quot;&gt;@EventListener&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;auditEventHappened&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AuditApplicationEvent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auditApplicationEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;httpServletRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getRequestURL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;contains&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/cloud/oauth/token&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Login Attempt in /cloud/oauth/token Principal : &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;auditApplicationEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuditEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getPrincipal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; - &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;auditApplicationEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuditEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;When the authentication process is successful you can see in your console:&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;LoginAttemptsLogger   : Login Attempt in /cloud/oauth/token Principal : codersite - AUTHENTICATION_SUCCESS
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;When the authentication process is not successful you can see in your console:&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;LoginAttemptsLogger   : Login Attempt in /cloud/oauth/token Principal : codersite - AUTHENTICATION_FAILURE
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;see-the-events-in-the-browser&quot;&gt;See the Events in the Browser&lt;/h2&gt;
-
-&lt;div class=&quot;language-properties highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;py&quot;&gt;management.endpoints.web.exposure.include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;health,auditevents&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /actuator/auditevents&lt;/code&gt; returns the most recent events as JSON. Protect this endpoint in production: it reveals who logged in.&lt;/p&gt;
-
-&lt;p&gt;See &lt;a href=&quot;https://codersite.dev/hot-warm-architecture-elasticsearch/&quot; target=&quot;_blank&quot;&gt;Implementing hot-warm architecture in Elasticsearch&lt;/a&gt; to analyze application server logs.&lt;/p&gt;
-
-&lt;p&gt;Security and observability questions are common in backend interviews: how would you detect a brute-force attack on your login? Prepare with real questions:&lt;/p&gt;
-
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
-
-&lt;div&gt;
-&lt;p&gt;&lt;b&gt;&lt;i&gt;“If this article helped you, help me create the next one.”&lt;/i&gt;&lt;/b&gt;&lt;/p&gt;
-&lt;a class=&quot;coffee-btn&quot; href=&quot;https://buymeacoffee.com/codersite&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;☕ Buy me a coffee&lt;/a&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 24 Oct 2024 00:00:00 +0200</pubDate>
-        <link>https://codersite.dev/spring-boot-actuator/</link>
-        <guid isPermaLink="true">https://codersite.dev/spring-boot-actuator/</guid>
         
         
         <category>programming</category>
