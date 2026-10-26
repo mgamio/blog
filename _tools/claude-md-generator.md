@@ -23,6 +23,8 @@ The generator remembers your settings in your browser, so you can come back and 
 {% assign templates = site.agent_templates | sort: "order" %}{% for t in templates %}- [{{ t.title }}]({{ t.url | relative_url }})
 {% endfor %}
 
+Want to turn your AI coding skills into a new career? MSIT's AI programs can be fully funded in Germany, and codersite readers get a €500 welcome bonus. [Read the full review](/msit-ai-career-programs-germany/) before you decide.
+
 <div>
 {%- include msitReferral.html -%}
 </div>

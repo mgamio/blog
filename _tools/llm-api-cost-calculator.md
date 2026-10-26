@@ -61,6 +61,8 @@ These are the prices the calculator uses, checked on {{ site.data.llm_prices.che
 
 Prices change often, and some changes are already announced: Gemini 4 Argon's prices double on December 1, 2026, and Gemini 3.8 Flash's on January 1, 2027. The table in the calculator shows these notes next to the models. Always confirm on the provider's pricing page before you commit to a budget: [Anthropic](https://platform.claude.com/docs/en/about-claude/pricing){:target="_blank"}, [OpenAI](https://developers.openai.com/api/docs/pricing){:target="_blank"}, [Google](https://ai.google.dev/gemini-api/docs/pricing){:target="_blank"}.
 
+Building applications on LLM APIs is now a job skill in its own right. MSIT's AI programs teach it, can be fully funded in Germany, and codersite readers get a €500 welcome bonus. [Read the full review](/msit-ai-career-programs-germany/) before you decide.
+
 <div>
 {%- include msitReferral.html -%}
 </div>
