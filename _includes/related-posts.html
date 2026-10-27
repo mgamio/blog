@@ -1,0 +1,50 @@
+<!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. -->
+{%- assign related_keys = "" | split: "" -%}
+{%- for post in site.posts -%}
+  {%- if post.url == page.url or post.hidden -%}{%- continue -%}{%- endif -%}
+  {%- assign shared = 0 -%}
+  {%- for cat in post.categories -%}
+    {%- if page.categories contains cat -%}{%- assign shared = shared | plus: 1 -%}{%- endif -%}
+  {%- endfor -%}
+  {%- if shared > 0 -%}
+    {%- capture key -%}{{ shared }}-{{ post.date | date: "%s" }}-{{ forloop.index0 }}{%- endcapture -%}
+    {%- assign related_keys = related_keys | push: key -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign related_keys = related_keys | sort | reverse -%}
+
+{%- assign related_idx = "" | split: "" -%}
+{%- for key in related_keys limit: 3 -%}
+  {%- assign idx = key | split: "-" | last -%}
+  {%- assign related_idx = related_idx | push: idx -%}
+{%- endfor -%}
+{%- if related_idx.size < 3 -%}
+  {%- for post in site.posts -%}
+    {%- if related_idx.size >= 3 -%}{%- break -%}{%- endif -%}
+    {%- if post.url == page.url or post.hidden -%}{%- continue -%}{%- endif -%}
+    {%- assign idx = forloop.index0 | append: "" -%}
+    {%- unless related_idx contains idx -%}{%- assign related_idx = related_idx | push: idx -%}{%- endunless -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if related_idx.size > 0 -%}
+<section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid">
+    {%- for idx in related_idx -%}
+        {%- assign i = idx | plus: 0 -%}
+        {%- assign rp = site.posts[i] -%}
+        <a class="read-next-card" href="{{ rp.url | relative_url }}">
+            {%- if rp.image -%}
+            <img src="{% if rp.image contains '://' %}{{ rp.image }}{% else %}{{ rp.image | relative_url }}{% endif %}" width="730" height="383" loading="lazy" decoding="async" alt="">
+            {%- endif -%}
+            <span class="read-next-text">
+                <span class="read-next-cat">{{ rp.categories | first }}</span>
+                <span class="read-next-name">{{ rp.title }}</span>
+            </span>
+        </a>
+    {%- endfor -%}
+    </div>
+</section>
+{%- endif -%}

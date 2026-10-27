@@ -275,10 +275,9 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Clean code is code that a developer other than its author can read, change and extend without fear. The idea was made popular by Robert C. Martin in his book <a href="https://amzn.to/40axCiH" target="_blank">Clean Code</a>.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Clean code is code that a developer other than its author can read, change and extend without fear. The idea was made popular by Robert C. Martin in his book <a href="https://amzn.to/40axCiH" target="_blank">Clean Code</a>.</p>
 
 <p>This post shows ten clean code rules with real Java examples, each one a <em>before</em> taken from production code and an <em>after</em> you can copy. You will learn how to:</p>
 
@@ -292,7 +291,28 @@
 
 <p>At the end there is a code review checklist with one line per rule.</p>
 
-<h2 id="1-use-intention-revealing-names">1. Use intention-revealing names</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">12 sections</span></summary>
+                        <ul>
+  <li><a href="#1-use-intention-revealing-names">1. Use intention-revealing names</a></li>
+  <li><a href="#2-make-functions-do-one-thing">2. Make functions do one thing</a></li>
+  <li><a href="#3-dont-comment-bad-code-rewrite-it">3. Don’t comment bad code, rewrite it</a></li>
+  <li><a href="#4-choose-simplicity-over-cleverness">4. Choose simplicity over cleverness</a></li>
+  <li><a href="#5-avoid-hard-coded-values">5. Avoid hard-coded values</a></li>
+  <li><a href="#6-name-variables-by-their-context">6. Name variables by their context</a></li>
+  <li><a href="#7-use-method-overloading-to-keep-existing-callers-working">7. Use method overloading to keep existing callers working</a></li>
+  <li><a href="#8-avoid-long-argument-lists">8. Avoid long argument lists</a></li>
+  <li><a href="#9-make-code-tell-a-story">9. Make code tell a story</a></li>
+  <li><a href="#10-copy-one-constant-instead-of-keeping-a-dead-library">10. Copy one constant instead of keeping a dead library</a></li>
+  <li><a href="#clean-code-review-checklist">Clean code review checklist</a></li>
+  <li><a href="#faq">FAQ</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="1-use-intention-revealing-names">1. Use intention-revealing names</h2>
 
 <p>A name should tell the reader why a variable, function or class exists, what it does and how it is used. If a name needs a comment, the name is wrong.</p>
 
@@ -1057,8 +1077,7 @@
 <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 
 </div>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -1073,6 +1092,24 @@
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/msit-ai-career-programs-germany/"><img src="/assets/images/msit-ai-career-hero.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">career</span>
+                <span class="read-next-name">Switch to an AI Career in Germany: MSIT's Funded Programs and a €500 Welcome Bonus</span>
+            </span>
+        </a><a class="read-next-card" href="/spring-restclient-replace-oauth2resttemplate/"><img src="/assets/images/springBootRestClient.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client</span>
+            </span>
+        </a><a class="read-next-card" href="/system-design-on-aws-book-review/"><img src="/assets/images/SystemDesignOnAWS.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">system-design</span>
+                <span class="read-next-name">The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

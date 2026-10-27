@@ -275,14 +275,30 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Choosing the wrong data structure is one of the most common reasons code is slow, and one of the most common interview questions. A list where you needed a map turns a millisecond lookup into a full scan. Here’s what each core Java structure is good at, and how to choose.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Choosing the wrong data structure is one of the most common reasons code is slow, and one of the most common interview questions. A list where you needed a map turns a millisecond lookup into a full scan. Here’s what each core Java structure is good at, and how to choose.</p>
 
 <p>A data structure is a way of organizing data in memory so that certain operations are fast: finding an element, adding one, removing one, or keeping them in order. No structure is fast at everything. Choosing one means choosing which operations matter for your problem.</p>
 
-<h2 id="arrays-and-arraylist">Arrays and ArrayList</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">8 sections</span></summary>
+                        <ul>
+  <li><a href="#arrays-and-arraylist">Arrays and ArrayList</a></li>
+  <li><a href="#linkedlist">LinkedList</a></li>
+  <li><a href="#queues-and-stacks">Queues and Stacks</a></li>
+  <li><a href="#hash-tables">Hash Tables</a></li>
+  <li><a href="#trees-and-graphs">Trees and Graphs</a></li>
+  <li><a href="#big-o-cheat-sheet">Big-O Cheat Sheet</a></li>
+  <li><a href="#how-to-choose">How to Choose</a></li>
+  <li><a href="#abstract-data-types">Abstract Data Types</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="arrays-and-arraylist">Arrays and ArrayList</h2>
 
 <p>We usually declare a variable to store a single value:</p>
 
@@ -647,8 +663,7 @@ TreeMap:        [ACME, Globex, Initech, Umbrella Corp]   sorted by key
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -663,6 +678,24 @@ TreeMap:        [ACME, Globex, Initech, Umbrella Corp]   sorted by key
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/transform-list-into-hashmap/"><img src="/assets/images/listIntoHashmap.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">data structures</span>
+                <span class="read-next-name">From O(n²) to O(n): Replace Nested Loops with a HashMap in Java</span>
+            </span>
+        </a><a class="read-next-card" href="/msit-ai-career-programs-germany/"><img src="/assets/images/msit-ai-career-hero.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">career</span>
+                <span class="read-next-name">Switch to an AI Career in Germany: MSIT's Funded Programs and a €500 Welcome Bonus</span>
+            </span>
+        </a><a class="read-next-card" href="/spring-restclient-replace-oauth2resttemplate/"><img src="/assets/images/springBootRestClient.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

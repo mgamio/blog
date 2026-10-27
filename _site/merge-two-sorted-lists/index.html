@@ -275,14 +275,31 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Merging two sorted lists is one of the classic coding interview problems, and one of the most useful: it is the heart of merge sort, of merging k sorted lists, and of sorting files too big to fit in memory.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Merging two sorted lists is one of the classic coding interview problems, and one of the most useful: it is the heart of merge sort, of merging k sorted lists, and of sorting files too big to fit in memory.</p>
 
 <p>This article solves it three ways in Java, each with tests: for array-based lists, for any <code class="language-plaintext highlighter-rouge">List</code>, and for linked lists (the version LeetCode 21 asks for).</p>
 
-<h2 id="the-problem">The Problem</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">9 sections</span></summary>
+                        <ul>
+  <li><a href="#the-problem">The Problem</a></li>
+  <li><a href="#the-idea-two-pointers">The Idea: Two Pointers</a></li>
+  <li><a href="#write-the-tests-first">Write the Tests First</a></li>
+  <li><a href="#solution-1-merge-two-arraylists">Solution 1: Merge Two ArrayLists</a></li>
+  <li><a href="#solution-2-a-generic-merge-for-any-list">Solution 2: A Generic Merge for Any List</a></li>
+  <li><a href="#solution-3-merge-two-sorted-linked-lists-leetcode-21">Solution 3: Merge Two Sorted Linked Lists (LeetCode 21)</a></li>
+  <li><a href="#complexity">Complexity</a></li>
+  <li><a href="#where-merging-is-used">Where Merging Is Used</a></li>
+  <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="the-problem">The Problem</h2>
 
 <p>Given two lists sorted in ascending order, return one list that contains all their elements, also sorted.</p>
 
@@ -695,8 +712,7 @@ Before adding an element, skip it if it equals the last element added to the res
 <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 
 </div>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -711,6 +727,24 @@ Before adding an element, skip it if it equals the last element added to the res
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/number-items-closed-compartments/"><img src="/assets/images/inventoryItems.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Items in Containers: Count Items in Closed Compartments (Code Interview Problem)</span>
+            </span>
+        </a><a class="read-next-card" href="/shopping-budget-options/"><img src="/assets/images/shoppingOptions.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)</span>
+            </span>
+        </a><a class="read-next-card" href="/post-random-tweet-on-twitter-api/"><img src="/assets/images/randomWithoutRepeatsX.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

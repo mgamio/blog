@@ -275,10 +275,9 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Developers outside your team can’t read your code. They read your API documentation, and if it’s missing, out of date or wrong, they guess, open tickets, or pick another provider.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Developers outside your team can’t read your code. They read your API documentation, and if it’s missing, out of date or wrong, they guess, open tickets, or pick another provider.</p>
 
 <p>This tutorial documents a Spring Boot REST API <strong>code-first</strong> with <a href="https://springdoc.org/" target="_blank">springdoc-openapi</a>: you add annotations to your Java code, and springdoc generates an OpenAPI 3 document and an interactive Swagger UI page from it. Because the documentation comes from the code, it changes when the code changes.</p>
 
@@ -296,7 +295,27 @@
 
 <p>New to REST API design? Start with <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST API Overview</a>.</p>
 
-<h2 id="1-create-the-project">1. Create the project</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">11 sections</span></summary>
+                        <ul>
+  <li><a href="#1-create-the-project">1. Create the project</a></li>
+  <li><a href="#2-separate-the-api-model-from-the-database-model">2. Separate the API model from the database model</a></li>
+  <li><a href="#3-write-the-api-contract-as-an-interface">3. Write the API contract as an interface</a></li>
+  <li><a href="#4-implement-the-controller">4. Implement the controller</a></li>
+  <li><a href="#5-return-and-document-errors-as-problem-details">5. Return and document errors as Problem Details</a></li>
+  <li><a href="#6-add-the-api-description">6. Add the API description</a></li>
+  <li><a href="#7-run-the-application-and-open-swagger-ui">7. Run the application and open Swagger UI</a></li>
+  <li><a href="#8-save-the-openapi-document-with-your-code">8. Save the OpenAPI document with your code</a></li>
+  <li><a href="#9-hide-swagger-ui-in-production">9. Hide Swagger UI in production</a></li>
+  <li><a href="#code-first-or-design-first">Code-first or design-first?</a></li>
+  <li><a href="#faq">FAQ</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="1-create-the-project">1. Create the project</h2>
 
 <p>Go to <a href="https://start.spring.io/" target="_blank">Spring Initializr</a>, choose Maven, Java 25 (any version from 17 works) and Spring Boot 4.1, and add these dependencies: <strong>Spring Web</strong>, <strong>Validation</strong>, <strong>Spring Data JPA</strong> and <strong>H2 Database</strong>. Generate the project and open it in your IDE.</p>
 
@@ -1351,8 +1370,7 @@ Content-Type: application/problem+json
 <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 
 </div>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -1367,6 +1385,24 @@ Content-Type: application/problem+json
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/gradle-building-restful-web-service/"><img src="/assets/images/gradleRestfulWebService.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Build a RESTful Web Service with Spring Boot, Gradle, and OpenAPI</span>
+            </span>
+        </a><a class="read-next-card" href="/swagger-codegen-server-stubs-openapi/"><img src="/assets/images/swaggerCodegen.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Generate a Spring Boot Server from an OpenAPI Spec with Swagger Codegen</span>
+            </span>
+        </a><a class="read-next-card" href="/designing-apis-with-swagger-and-openapi/"><img src="/assets/images/swaggerHubOpenAPI.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

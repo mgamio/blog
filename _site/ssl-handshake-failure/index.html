@@ -275,10 +275,9 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Your Java client calls an HTTPS API and fails before sending a single request:</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Your Java client calls an HTTPS API and fails before sending a single request:</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure
@@ -286,7 +285,22 @@
 
 <p>The message says that the <strong>server</strong> ended the connection during the TLS handshake, but not why. This post shows how a TLS handshake works, how to find out what went wrong with <code class="language-plaintext highlighter-rouge">javax.net.debug</code> and <code class="language-plaintext highlighter-rouge">openssl</code>, and how to fix the most common cause, a protocol or cipher mismatch, in plain Java and in Spring’s WebClient.</p>
 
-<h2 id="how-the-tls-handshake-works">How the TLS Handshake Works</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">6 sections</span></summary>
+                        <ul>
+  <li><a href="#how-the-tls-handshake-works">How the TLS Handshake Works</a></li>
+  <li><a href="#the-failure-a-client-stuck-on-tls-10">The Failure: a Client Stuck on TLS 1.0</a></li>
+  <li><a href="#step-1-what-does-the-client-offer">Step 1: What Does the Client Offer?</a></li>
+  <li><a href="#step-2-what-does-the-server-accept">Step 2: What Does the Server Accept?</a></li>
+  <li><a href="#step-3-fix-it">Step 3: Fix It</a></li>
+  <li><a href="#ssl-handshake-troubleshooting-checklist">SSL Handshake Troubleshooting Checklist</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="how-the-tls-handshake-works">How the TLS Handshake Works</h2>
 
 <p>TLS (Transport Layer Security) encrypts the connection between a client and a server. It replaced SSL (Secure Sockets Layer), which is why many error messages and class names still say <em>SSL</em>. Before any data is sent, client and server run a <strong>handshake</strong>:</p>
 
@@ -500,8 +514,7 @@ server: javax.net.ssl.SSLHandshakeException: (protocol_version) The client suppo
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -516,6 +529,24 @@ server: javax.net.ssl.SSLHandshakeException: (protocol_version) The client suppo
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/gradle-building-restful-web-service/"><img src="/assets/images/gradleRestfulWebService.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Build a RESTful Web Service with Spring Boot, Gradle, and OpenAPI</span>
+            </span>
+        </a><a class="read-next-card" href="/swagger-codegen-server-stubs-openapi/"><img src="/assets/images/swaggerCodegen.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Generate a Spring Boot Server from an OpenAPI Spec with Swagger Codegen</span>
+            </span>
+        </a><a class="read-next-card" href="/designing-apis-with-swagger-and-openapi/"><img src="/assets/images/swaggerHubOpenAPI.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

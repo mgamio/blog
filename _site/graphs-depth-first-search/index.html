@@ -275,10 +275,9 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Depth-first search (DFS) is an algorithm for visiting every node of a graph. It starts at one node and follows one path as deep as it can before it backs up and tries the next path. It answers questions like <em>“which cities can I reach from Berlin?”</em>, <em>“is there a route from Berlin to München?”</em> and <em>“does this network contain a cycle?”</em></p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Depth-first search (DFS) is an algorithm for visiting every node of a graph. It starts at one node and follows one path as deep as it can before it backs up and tries the next path. It answers questions like <em>“which cities can I reach from Berlin?”</em>, <em>“is there a route from Berlin to München?”</em> and <em>“does this network contain a cycle?”</em></p>
 
 <p>This post explains graphs and DFS with one example, a Hyperloop network between 12 German cities. You’ll learn:</p>
 
@@ -292,7 +291,25 @@
 
 <p>All the code is Java, and every output in this post comes from running it on Java 25.</p>
 
-<h2 id="what-is-a-graph">What is a graph?</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">9 sections</span></summary>
+                        <ul>
+  <li><a href="#what-is-a-graph">What is a graph?</a></li>
+  <li><a href="#graph-terminology">Graph terminology</a></li>
+  <li><a href="#storing-a-graph-in-java">Storing a graph in Java</a></li>
+  <li><a href="#depth-first-search-in-java">Depth-first search in Java</a></li>
+  <li><a href="#finding-a-path-with-dfs">Finding a path with DFS</a></li>
+  <li><a href="#breadth-first-search-the-shortest-path">Breadth-first search: the shortest path</a></li>
+  <li><a href="#dfs-vs-bfs">DFS vs BFS</a></li>
+  <li><a href="#what-dfs-is-used-for">What DFS is used for</a></li>
+  <li><a href="#faq">FAQ</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="what-is-a-graph">What is a graph?</h2>
 
 <p>A <strong>graph</strong> is a set of <strong>vertices</strong> (also called nodes) connected by <strong>edges</strong>. Unlike a list or a tree, a graph has no fixed shape: it takes the shape of the problem. If the vertices are cities, the edges can be routes between them. If the vertices are the tasks of a project, the edges can say which task must be done before another.</p>
 
@@ -834,8 +851,7 @@
 <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 
 </div>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -850,6 +866,24 @@
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/number-items-closed-compartments/"><img src="/assets/images/inventoryItems.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Items in Containers: Count Items in Closed Compartments (Code Interview Problem)</span>
+            </span>
+        </a><a class="read-next-card" href="/shopping-budget-options/"><img src="/assets/images/shoppingOptions.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)</span>
+            </span>
+        </a><a class="read-next-card" href="/post-random-tweet-on-twitter-api/"><img src="/assets/images/randomWithoutRepeatsX.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

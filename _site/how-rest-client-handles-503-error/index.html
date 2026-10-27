@@ -275,12 +275,27 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Your nightly job sends 50,000 articles to a partner’s API, in batches of 1,000. At batch 23, the API answers <strong>503 Service Unavailable</strong>. What should your client do? Give up, and the data is incomplete. Retry immediately, and you make an overloaded server even slower. This post shows how a REST client should handle a 503: which errors to retry, how long to wait, and how Spring Framework 7 does it with one annotation.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Your nightly job sends 50,000 articles to a partner’s API, in batches of 1,000. At batch 23, the API answers <strong>503 Service Unavailable</strong>. What should your client do? Give up, and the data is incomplete. Retry immediately, and you make an overloaded server even slower. This post shows how a REST client should handle a 503: which errors to retry, how long to wait, and how Spring Framework 7 does it with one annotation.</p>
 
-<h2 id="what-a-503-means">What a 503 Means</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">7 sections</span></summary>
+                        <ul>
+  <li><a href="#what-a-503-means">What a 503 Means</a></li>
+  <li><a href="#the-client-cant-control-the-server">The Client Can’t Control the Server</a></li>
+  <li><a href="#which-errors-should-you-retry">Which Errors Should You Retry?</a></li>
+  <li><a href="#a-retry-loop-with-backoff">A Retry Loop with Backoff</a></li>
+  <li><a href="#try-it">Try It</a></li>
+  <li><a href="#the-spring-framework-7-way-retryable">The Spring Framework 7 Way: @Retryable</a></li>
+  <li><a href="#best-practices-checklist">Best Practices Checklist</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="what-a-503-means">What a 503 Means</h2>
 
 <p>The HTTP status code <a href="https://httpwg.org/specs/rfc9110.html#status.503" target="_blank">503 Service Unavailable</a> says that the server can’t handle the request <strong>right now</strong>, but probably will later. Common causes:</p>
 
@@ -723,8 +738,7 @@ Content-Length: 0
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -739,6 +753,24 @@ Content-Length: 0
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/gradle-building-restful-web-service/"><img src="/assets/images/gradleRestfulWebService.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Build a RESTful Web Service with Spring Boot, Gradle, and OpenAPI</span>
+            </span>
+        </a><a class="read-next-card" href="/swagger-codegen-server-stubs-openapi/"><img src="/assets/images/swaggerCodegen.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Generate a Spring Boot Server from an OpenAPI Spec with Swagger Codegen</span>
+            </span>
+        </a><a class="read-next-card" href="/designing-apis-with-swagger-and-openapi/"><img src="/assets/images/swaggerHubOpenAPI.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

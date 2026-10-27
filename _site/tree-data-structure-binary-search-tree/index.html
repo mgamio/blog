@@ -275,10 +275,9 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>A binary search tree (BST) keeps its data sorted while still letting you insert and delete quickly. A sorted array finds an item fast with binary search, but inserting means shifting elements. A linked list inserts fast, but finding an item means walking the whole list. A balanced binary search tree does all three in O(log n) time.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>A binary search tree (BST) keeps its data sorted while still letting you insert and delete quickly. A sorted array finds an item fast with binary search, but inserting means shifting elements. A linked list inserts fast, but finding an item means walking the whole list. A balanced binary search tree does all three in O(log n) time.</p>
 
 <p>This post builds a binary search tree in Java for a real task, a webshop that looks up products by their GTIN. You’ll learn:</p>
 
@@ -292,7 +291,27 @@
 
 <p>All the code is Java, and every output in this post comes from running it on Java 25.</p>
 
-<h2 id="tree-terminology">Tree terminology</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">11 sections</span></summary>
+                        <ul>
+  <li><a href="#tree-terminology">Tree terminology</a></li>
+  <li><a href="#the-binary-search-tree-rule">The binary search tree rule</a></li>
+  <li><a href="#the-use-case-looking-up-products-by-gtin">The use case: looking up products by GTIN</a></li>
+  <li><a href="#insert">Insert</a></li>
+  <li><a href="#search">Search</a></li>
+  <li><a href="#balanced-and-unbalanced-trees">Balanced and unbalanced trees</a></li>
+  <li><a href="#delete">Delete</a></li>
+  <li><a href="#in-order-traversal-the-keys-in-sorted-order">In-order traversal: the keys in sorted order</a></li>
+  <li><a href="#in-real-code-use-treemap">In real code, use TreeMap</a></li>
+  <li><a href="#complexity">Complexity</a></li>
+  <li><a href="#faq">FAQ</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="tree-terminology">Tree terminology</h2>
 
 <p>A <strong>tree</strong> is a <a href="https://codersite.dev/data-structures-foundation-efficient-programming/" target="_blank">data structure</a> made of <strong>nodes</strong> connected by <strong>edges</strong>, where every node except the first has exactly one parent.</p>
 
@@ -779,8 +798,7 @@
 <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 
 </div>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -795,6 +813,24 @@
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/number-items-closed-compartments/"><img src="/assets/images/inventoryItems.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Items in Containers: Count Items in Closed Compartments (Code Interview Problem)</span>
+            </span>
+        </a><a class="read-next-card" href="/shopping-budget-options/"><img src="/assets/images/shoppingOptions.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)</span>
+            </span>
+        </a><a class="read-next-card" href="/post-random-tweet-on-twitter-api/"><img src="/assets/images/randomWithoutRepeatsX.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

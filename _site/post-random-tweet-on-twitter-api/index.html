@@ -275,14 +275,30 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>You’ve written a hundred articles, and you want a bot to share one of them every three hours, even while you sleep. “Pick a random article” sounds like one line of code. But your followers will notice quickly when the same article shows up twice in one afternoon. What you really need is <strong>random without repeats</strong>, and that’s a small algorithm problem with a surprisingly elegant solution.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>You’ve written a hundred articles, and you want a bot to share one of them every three hours, even while you sleep. “Pick a random article” sounds like one line of code. But your followers will notice quickly when the same article shows up twice in one afternoon. What you really need is <strong>random without repeats</strong>, and that’s a small algorithm problem with a surprisingly elegant solution.</p>
 
 <p>This post builds the bot with Spring Boot: a scheduler, two ways to pick articles without repeats, and a client for the X (formerly Twitter) API, including what posting through the API costs today.</p>
 
-<h2 id="the-requirement">The Requirement</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">8 sections</span></summary>
+                        <ul>
+  <li><a href="#the-requirement">The Requirement</a></li>
+  <li><a href="#scheduling-with-scheduled">Scheduling with @Scheduled</a></li>
+  <li><a href="#first-attempt-random-and-retry-with-a-queue">First Attempt: Random and Retry with a Queue</a></li>
+  <li><a href="#the-better-solution-a-shuffle-bag">The Better Solution: A Shuffle Bag</a></li>
+  <li><a href="#the-scheduler">The Scheduler</a></li>
+  <li><a href="#posting-to-the-x-api">Posting to the X API</a></li>
+  <li><a href="#what-posting-to-x-costs">What Posting to X Costs</a></li>
+  <li><a href="#before-you-deploy">Before You Deploy</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="the-requirement">The Requirement</h2>
 
 <ul>
   <li>Post one article every three hours: eight posts a day.</li>
@@ -784,8 +800,7 @@ Binary Search Tree;https://codersite.dev/...;#algorithms #datastructures
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -800,6 +815,24 @@ Binary Search Tree;https://codersite.dev/...;#algorithms #datastructures
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/number-items-closed-compartments/"><img src="/assets/images/inventoryItems.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Items in Containers: Count Items in Closed Compartments (Code Interview Problem)</span>
+            </span>
+        </a><a class="read-next-card" href="/shopping-budget-options/"><img src="/assets/images/shoppingOptions.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)</span>
+            </span>
+        </a><a class="read-next-card" href="/assemble-parts-in-minimum.time/"><img src="/assets/images/assembleParts.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

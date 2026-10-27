@@ -275,14 +275,27 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>You already use functional programming in Java every time you write a lambda or a stream. Used well, it turns a 20-line loop over orders into five readable lines. Used carelessly, it hides bugs. Here are the core ideas, with examples from real business code.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>You already use functional programming in Java every time you write a lambda or a stream. Used well, it turns a 20-line loop over orders into five readable lines. Used carelessly, it hides bugs. Here are the core ideas, with examples from real business code.</p>
 
 <p>Functional programming treats computation as the evaluation of functions and avoids changing state and mutable data. Java is an object-oriented language, but since Java 8 it has added lambdas, streams and, more recently, records, which make a functional style practical.</p>
 
-<h2 id="key-concepts-of-functional-programming">Key Concepts of Functional Programming</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">5 sections</span></summary>
+                        <ul>
+  <li><a href="#key-concepts-of-functional-programming">Key Concepts of Functional Programming</a></li>
+  <li><a href="#a-real-example-summing-orders">A Real Example: Summing Orders</a></li>
+  <li><a href="#benefits-of-functional-programming">Benefits of Functional Programming</a></li>
+  <li><a href="#common-pitfalls">Common Pitfalls</a></li>
+  <li><a href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="key-concepts-of-functional-programming">Key Concepts of Functional Programming</h2>
 
 <h3 id="1-immutability">1. Immutability</h3>
 
@@ -512,8 +525,7 @@
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -528,6 +540,24 @@
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/spring-restclient-replace-oauth2resttemplate/"><img src="/assets/images/springBootRestClient.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client</span>
+            </span>
+        </a><a class="read-next-card" href="/spring-boot-automate-api-client/"><img src="/assets/images/apiClientRequest.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Break Out of Nested Loops in Java: Automating a Real REST API Client</span>
+            </span>
+        </a><a class="read-next-card" href="/spring-boot-actuator/"><img src="/assets/images/springBootActuator.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Log Every Login Attempt with Spring Boot Actuator Auditing</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

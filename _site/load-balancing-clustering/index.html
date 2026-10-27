@@ -275,10 +275,9 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Your Java application runs on two servers behind a load balancer. Both write images to the same file server. Everything works, until one day old images stop being deleted, and nobody gets an error. This post explains what a load balancer and a cluster do, why the second server can’t delete files that the first one created, why Java’s <code class="language-plaintext highlighter-rouge">File.delete()</code> hides the problem, and three ways to fix it.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Your Java application runs on two servers behind a load balancer. Both write images to the same file server. Everything works, until one day old images stop being deleted, and nobody gets an error. This post explains what a load balancer and a cluster do, why the second server can’t delete files that the first one created, why Java’s <code class="language-plaintext highlighter-rouge">File.delete()</code> hides the problem, and three ways to fix it.</p>
 
 <h2 id="load-balancers-and-clusters">Load Balancers and Clusters</h2>
 
@@ -438,8 +437,7 @@ Files.delete() threw java.nio.file.AccessDeniedException: C:\...\images\image1.j
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -454,6 +452,24 @@ Files.delete() threw java.nio.file.AccessDeniedException: C:\...\images\image1.j
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/msit-ai-career-programs-germany/"><img src="/assets/images/msit-ai-career-hero.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">career</span>
+                <span class="read-next-name">Switch to an AI Career in Germany: MSIT's Funded Programs and a €500 Welcome Bonus</span>
+            </span>
+        </a><a class="read-next-card" href="/spring-restclient-replace-oauth2resttemplate/"><img src="/assets/images/springBootRestClient.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client</span>
+            </span>
+        </a><a class="read-next-card" href="/system-design-on-aws-book-review/"><img src="/assets/images/SystemDesignOnAWS.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">system-design</span>
+                <span class="read-next-name">The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

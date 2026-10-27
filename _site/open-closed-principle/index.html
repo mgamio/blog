@@ -275,14 +275,30 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>SOLID principles tell you how to arrange your functions into classes and how those classes should depend on each other. Applied well, they make your software easier to change, easier to understand and easier to reuse.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>SOLID principles tell you how to arrange your functions into classes and how those classes should depend on each other. Applied well, they make your software easier to change, easier to understand and easier to reuse.</p>
 
 <p>In <a href="https://codersite.dev/solid-principles-the-definitive-guide/" target="_blank">Part I of this series</a>, you learned the <em>Single Responsibility Principle</em>. This article covers the second one, the <strong>Open-Closed Principle (OCP)</strong>, with a real example: a rate limiter in a Spring Boot REST API that has to switch from a text file to a database.</p>
 
-<h2 id="what-is-the-open-closed-principle">What Is the Open-Closed Principle?</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">8 sections</span></summary>
+                        <ul>
+  <li><a href="#what-is-the-open-closed-principle">What Is the Open-Closed Principle?</a></li>
+  <li><a href="#the-example-a-rate-limiter-that-reads-plans-from-a-file">The Example: A Rate Limiter That Reads Plans from a File</a></li>
+  <li><a href="#then-the-requirements-change">Then the Requirements Change</a></li>
+  <li><a href="#refactoring-toward-the-open-closed-principle">Refactoring Toward the Open-Closed Principle</a></li>
+  <li><a href="#open-closed-and-the-strategy-pattern">Open-Closed and the Strategy Pattern</a></li>
+  <li><a href="#when-not-to-apply-the-open-closed-principle">When Not to Apply the Open-Closed Principle</a></li>
+  <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+  <li><a href="#summary">Summary</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="what-is-the-open-closed-principle">What Is the Open-Closed Principle?</h2>
 
 <blockquote>
   <p>“Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.”</p>
@@ -693,8 +709,7 @@ Yes, very often. A good answer explains the principle in one sentence, shows a v
 <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 
 </div>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -709,6 +724,24 @@ Yes, very often. A good answer explains the principle in one sentence, shows a v
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/optimize-java-app-performance/"><img src="/assets/images/javaAppPerformance.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">design</span>
+                <span class="read-next-name">Java App Slow Under Load? A Step-by-Step Performance Playbook</span>
+            </span>
+        </a><a class="read-next-card" href="/software-design-principles/"><img src="/assets/images/softwareDesignPrinciples.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">design</span>
+                <span class="read-next-name">Software Design Principles Explained with Java Examples: SOLID, DRY, KISS, YAGNI and More</span>
+            </span>
+        </a><a class="read-next-card" href="/uml-diagrams-for-java-developers/"><img src="/assets/images/umlDiagrams.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">design</span>
+                <span class="read-next-name">UML Diagrams for Java Developers: From Requirements to Code</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

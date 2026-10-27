@@ -275,16 +275,38 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Recent logs are written and searched all the time. Logs from last month are searched now and then, and logs from three months ago almost never. Keeping all of them on the same fast, expensive disks wastes money, and deleting them too early loses the history you need when something goes wrong.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Recent logs are written and searched all the time. Logs from last month are searched now and then, and logs from three months ago almost never. Keeping all of them on the same fast, expensive disks wastes money, and deleting them too early loses the history you need when something goes wrong.</p>
 
 <p>A <strong>hot-warm-cold architecture</strong> solves this in Elasticsearch: new data lands on fast <em>hot</em> nodes, then moves automatically to cheaper <em>warm</em> and <em>cold</em> nodes as it ages, and is finally deleted.</p>
 
 <p>This article builds that architecture step by step for the logs of Java application servers, with Elasticsearch, Logstash, Filebeat and Kibana 9. Every configuration and request in it was tested on a three-node Elasticsearch 9.5 cluster.</p>
 
-<h2 id="the-problem-logs-spread-across-many-servers">The Problem: Logs Spread Across Many Servers</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">14 sections</span></summary>
+                        <ul>
+  <li><a href="#the-problem-logs-spread-across-many-servers">The Problem: Logs Spread Across Many Servers</a></li>
+  <li><a href="#elasticsearch-basics-in-two-minutes">Elasticsearch Basics in Two Minutes</a></li>
+  <li><a href="#hot-warm-cold-and-frozen-data-tiers">Hot, Warm, Cold and Frozen Data Tiers</a></li>
+  <li><a href="#the-servers">The Servers</a></li>
+  <li><a href="#step-1-configure-the-elasticsearch-nodes">Step 1: Configure the Elasticsearch Nodes</a></li>
+  <li><a href="#step-2-install-kibana">Step 2: Install Kibana</a></li>
+  <li><a href="#step-3-create-the-ilm-policy">Step 3: Create the ILM Policy</a></li>
+  <li><a href="#step-4-create-the-index-template">Step 4: Create the Index Template</a></li>
+  <li><a href="#step-5-create-an-api-key-for-logstash">Step 5: Create an API Key for Logstash</a></li>
+  <li><a href="#step-6-parse-the-logs-with-logstash">Step 6: Parse the Logs with Logstash</a></li>
+  <li><a href="#step-7-ship-the-logs-with-filebeat">Step 7: Ship the Logs with Filebeat</a></li>
+  <li><a href="#step-8-check-that-everything-works">Step 8: Check That Everything Works</a></li>
+  <li><a href="#use-the-logs-requests-per-minute-for-rate-limiting">Use the Logs: Requests per Minute for Rate Limiting</a></li>
+  <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="the-problem-logs-spread-across-many-servers">The Problem: Logs Spread Across Many Servers</h2>
 
 <p>To find bottlenecks, errors, slow queries or connection pool problems, we read the logs of our application servers. With a cluster of servers, every server has its own log files, so one problem means searching several machines.</p>
 
@@ -1107,8 +1129,7 @@ Check <code class="language-plaintext highlighter-rouge">GET billing-logs/_ilm/e
 <a class="coffee-btn" href="https://buymeacoffee.com/codersite" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 
 </div>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -1123,6 +1144,24 @@ Check <code class="language-plaintext highlighter-rouge">GET billing-logs/_ilm/e
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/system-design-on-aws-book-review/"><img src="/assets/images/SystemDesignOnAWS.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">system-design</span>
+                <span class="read-next-name">The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview</span>
+            </span>
+        </a><a class="read-next-card" href="/msit-ai-career-programs-germany/"><img src="/assets/images/msit-ai-career-hero.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">career</span>
+                <span class="read-next-name">Switch to an AI Career in Germany: MSIT's Funded Programs and a €500 Welcome Bonus</span>
+            </span>
+        </a><a class="read-next-card" href="/spring-restclient-replace-oauth2resttemplate/"><img src="/assets/images/springBootRestClient.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

@@ -86,3 +86,117 @@ span.post-read,
 code {
     color: #c7254e;
 }
+
+/* ---------- Table of contents (long posts) ---------- */
+.article-post .toc {
+    border: 1px solid #e1e4e8;
+    border-left: 4px solid #00ab6b;
+    border-radius: 6px;
+    background: #fafbfc;
+    padding: 0.75rem 1.1rem;
+    margin: 1.5rem 0 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.article-post .toc summary {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1b1b1b;
+}
+.article-post .toc .toc-count {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: #6b6b6b;
+    margin-left: 0.4rem;
+}
+.article-post .toc ul {
+    margin: 0.6rem 0 0.2rem;
+    padding-left: 1.4rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+.article-post .toc li {
+    margin-bottom: 0.3rem;
+}
+.article-post .toc li a {
+    text-decoration: none;
+}
+.article-post .toc li a:hover {
+    text-decoration: underline;
+}
+/* Headings reached from the TOC land below the fixed navbar */
+.article-post h2[id] {
+    scroll-margin-top: 80px;
+}
+
+/* ---------- Read next ---------- */
+.read-next {
+    margin: 2.5rem 0 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e1e4e8;
+}
+.read-next-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.read-next-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.read-next-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    overflow: hidden;
+    color: #1b1b1b;
+    background: #fff;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.read-next-card:hover,
+.read-next-card:focus {
+    color: #1b1b1b;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+.read-next-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 730 / 383;
+    object-fit: cover;
+}
+.read-next-text {
+    display: flex;
+    flex-direction: column;
+}
+.read-next-cat {
+    padding: 0.7rem 0.85rem 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #038252;
+}
+.read-next-name {
+    padding: 0.25rem 0.85rem 0.9rem;
+    font-weight: 700;
+    font-size: 0.98rem;
+    line-height: 1.35;
+}
+@media (max-width: 767.98px) {
+    .read-next-grid {
+        grid-template-columns: 1fr;
+    }
+    .read-next-card {
+        flex-direction: row;
+        align-items: center;
+    }
+    .read-next-card img {
+        width: 38%;
+        flex-shrink: 0;
+        align-self: stretch;
+    }
+}

@@ -275,14 +275,29 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Your REST API is documented with OpenAPI, and anyone who finds the URL can call it. This tutorial secures it with <strong>OAuth2</strong>: clients get a short-lived access token and send it with every request, and each endpoint checks that the token has the right <em>scope</em>. You’ll build it with Spring Boot 4, using Spring Authorization Server to issue tokens, Spring Security’s resource server to check them, and springdoc-openapi so that Swagger UI’s <strong>Authorize</strong> button works. Every result shown here comes from running the application.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Your REST API is documented with OpenAPI, and anyone who finds the URL can call it. This tutorial secures it with <strong>OAuth2</strong>: clients get a short-lived access token and send it with every request, and each endpoint checks that the token has the right <em>scope</em>. You’ll build it with Spring Boot 4, using Spring Authorization Server to issue tokens, Spring Security’s resource server to check them, and springdoc-openapi so that Swagger UI’s <strong>Authorize</strong> button works. Every result shown here comes from running the application.</p>
 
 <p>The book API is based on my earlier article, <a href="https://codersite.dev/documenting-rest-api-openapi3/" target="_blank">Documenting a Spring Boot REST API with OpenAPI 3</a>.</p>
 
-<h2 id="oauth2-in-two-minutes">OAuth2 in Two Minutes</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">7 sections</span></summary>
+                        <ul>
+  <li><a href="#oauth2-in-two-minutes">OAuth2 in Two Minutes</a></li>
+  <li><a href="#dependencies">Dependencies</a></li>
+  <li><a href="#register-the-clients">Register the Clients</a></li>
+  <li><a href="#configure-spring-security">Configure Spring Security</a></li>
+  <li><a href="#try-it-with-curl">Try It with curl</a></li>
+  <li><a href="#make-swagger-uis-authorize-button-work">Make Swagger UI’s Authorize Button Work</a></li>
+  <li><a href="#before-production">Before Production</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="oauth2-in-two-minutes">OAuth2 in Two Minutes</h2>
 
 <p><a href="https://datatracker.ietf.org/doc/html/rfc6749" target="_blank">OAuth 2.0</a> is an authorization framework: it lets a client access protected resources with an <strong>access token</strong> instead of a password. It defines four roles:</p>
 
@@ -718,8 +733,7 @@ WWW-Authenticate: Bearer resource_metadata="http://localhost:8080/.well-known/oa
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -734,6 +748,24 @@ WWW-Authenticate: Bearer resource_metadata="http://localhost:8080/.well-known/oa
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/gradle-building-restful-web-service/"><img src="/assets/images/gradleRestfulWebService.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Build a RESTful Web Service with Spring Boot, Gradle, and OpenAPI</span>
+            </span>
+        </a><a class="read-next-card" href="/swagger-codegen-server-stubs-openapi/"><img src="/assets/images/swaggerCodegen.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Generate a Spring Boot Server from an OpenAPI Spec with Swagger Codegen</span>
+            </span>
+        </a><a class="read-next-card" href="/designing-apis-with-swagger-and-openapi/"><img src="/assets/images/swaggerHubOpenAPI.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

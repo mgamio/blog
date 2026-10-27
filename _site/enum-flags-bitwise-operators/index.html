@@ -275,12 +275,28 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>An order API has to report several problems at once: a wrong quantity, a price difference and an article that no longer exists. Sending a list of strings works, but many APIs pack them into a single number instead. Here’s how to build, read and decode those bit flags in Java.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>An order API has to report several problems at once: a wrong quantity, a price difference and an article that no longer exists. Sending a list of strings works, but many APIs pack them into a single number instead. Here’s how to build, read and decode those bit flags in Java.</p>
 
-<h2 id="understanding-java-enum-types">Understanding Java Enum Types</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">8 sections</span></summary>
+                        <ul>
+  <li><a href="#understanding-java-enum-types">Understanding Java Enum Types</a></li>
+  <li><a href="#bit-flags-several-states-in-one-number">Bit Flags: Several States in One Number</a></li>
+  <li><a href="#bitwise-operations">Bitwise Operations</a></li>
+  <li><a href="#combining-and-checking-flags">Combining and Checking Flags</a></li>
+  <li><a href="#remove-and-toggle-a-flag">Remove and Toggle a Flag</a></li>
+  <li><a href="#decode-a-mask-from-the-server">Decode a Mask from the Server</a></li>
+  <li><a href="#prefer-enumset-inside-your-code">Prefer EnumSet Inside Your Code</a></li>
+  <li><a href="#when-to-use-what">When to Use What</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="understanding-java-enum-types">Understanding Java Enum Types</h2>
 
 <p>Java enums are a special type of class used to represent a fixed set of constants. They allow you to define a clear and concise set of values that a variable can take. Enums provide type safety, meaning that the compiler can catch errors such as assigning an incorrect value to an enum variable at compile time rather than runtime.</p>
 
@@ -567,8 +583,7 @@ decode(26) = [PRICE_DIFFERS_WARNING, ARTICLE_REMOVED_ERROR, ARTICLE_NOTALLOWED_E
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -583,6 +598,24 @@ decode(26) = [PRICE_DIFFERS_WARNING, ARTICLE_REMOVED_ERROR, ARTICLE_NOTALLOWED_E
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/spring-restclient-replace-oauth2resttemplate/"><img src="/assets/images/springBootRestClient.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client</span>
+            </span>
+        </a><a class="read-next-card" href="/spring-boot-automate-api-client/"><img src="/assets/images/apiClientRequest.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Break Out of Nested Loops in Java: Automating a Real REST API Client</span>
+            </span>
+        </a><a class="read-next-card" href="/spring-boot-actuator/"><img src="/assets/images/springBootActuator.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Log Every Login Attempt with Spring Boot Actuator Auditing</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

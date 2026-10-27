@@ -83,18 +83,29 @@ post_class: post-template
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                {% if page.toc %}
-                    {% if page.beforetoc %}
-                        <p><em>{{page.beforetoc}}</em></p>
-                    {% endif %}
-                    <div class="toc mt-4 mb-4 lead">
-                        <h3 class="font-weight-bold">Summary</h3>
-                        {% include toc.html html=content %}
-                    </div>
-                {% endif %}
-                <!-- End Toc -->
-                {{ content | replace: '<img ', '<img loading="lazy" decoding="async" ' }}
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. -->
+                {%- assign body = content | replace: '<img ', '<img loading="lazy" decoding="async" ' -%}
+                {%- assign h2_count = content | split: '<h2' | size | minus: 1 -%}
+                {%- assign show_toc = false -%}
+                {%- if words >= 1500 and h2_count >= 5 -%}{%- assign show_toc = true -%}{%- endif -%}
+                {%- if page.toc == true -%}{%- assign show_toc = true -%}{%- endif -%}
+                {%- if page.toc == false -%}{%- assign show_toc = false -%}{%- endif -%}
+                {%- if show_toc and h2_count > 0 -%}
+                    {%- assign intro = body | split: '<h2' | first -%}
+                    {{ intro }}
+                    {% if page.beforetoc %}<p><em>{{ page.beforetoc }}</em></p>{% endif %}
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">{{ h2_count }} sections</span></summary>
+                        {% include toc.html html=content h_min=2 h_max=2 sanitize=true %}
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    {{ body | remove_first: intro }}
+                {%- else -%}
+                    {{ body }}
+                {%- endif -%}
 				{% include displayAds.html %}
             </div>
 
@@ -104,6 +115,8 @@ post_class: post-template
                 <strong class="mr-1">Rating:</strong> {% include star_rating.html %}
             </div>
             {% endif %}
+
+            {% include related-posts.html %}
 
             <!-- Post Categories -->
             <div class="after-post-cats">

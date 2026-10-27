@@ -275,16 +275,29 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>One endpoint in a B2B order system I worked on returned 1,000 orders, and it was slow. The database wasn’t the problem. Two innocent-looking nested loops were. Here’s how one data structure, the HashMap, turned 2,000,000 comparisons into about 3,000.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>One endpoint in a B2B order system I worked on returned 1,000 orders, and it was slow. The database wasn’t the problem. Two innocent-looking nested loops were. Here’s how one data structure, the HashMap, turned 2,000,000 comparisons into about 3,000.</p>
 
 <p>A <strong>List</strong> data structure is an ordered collection of items, where each item has a specific position or index within the list.</p>
 
 <p>A <strong>HashMap</strong> is a data structure that stores key-value pairs, enabling efficient retrieval of values based on their keys. It uses a hash function to determine the storage location (or “bucket”) of each key-value pair within an underlying array, allowing for fast lookups, insertions, and deletions.</p>
 
-<h2 id="use-case">Use Case</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">5 sections</span></summary>
+                        <ul>
+  <li><a href="#use-case">Use Case</a></li>
+  <li><a href="#hashmap-to-the-rescue">HashMap to the rescue</a></li>
+  <li><a href="#the-java-8-one-liner">The Java 8 One-Liner</a></li>
+  <li><a href="#performance-comparison">Performance Comparison</a></li>
+  <li><a href="#when-to-use-each">When to use each</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="use-case">Use Case</h2>
 
 <p>We have a <a href="https://codersite.dev/rest-api-overview/" target="_blank">RESTful API</a> endpoint to retrieve a list of orders placed by a given buyer.</p>
 
@@ -686,8 +699,7 @@
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -702,6 +714,24 @@
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/data-structures-foundation-efficient-programming/"><img src="/assets/images/dataStructure.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">data structures</span>
+                <span class="read-next-name">Java Data Structures: Which One to Use and Why (with a Big-O Cheat Sheet)</span>
+            </span>
+        </a><a class="read-next-card" href="/msit-ai-career-programs-germany/"><img src="/assets/images/msit-ai-career-hero.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">career</span>
+                <span class="read-next-name">Switch to an AI Career in Germany: MSIT's Funded Programs and a €500 Welcome Bonus</span>
+            </span>
+        </a><a class="read-next-card" href="/spring-restclient-replace-oauth2resttemplate/"><img src="/assets/images/springBootRestClient.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

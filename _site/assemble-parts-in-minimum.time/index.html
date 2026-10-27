@@ -275,12 +275,27 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>This problem looks easy, and most candidates find the right idea within minutes. Then many of them implement it in a way that passes the examples and fails on half of all other inputs. Here’s the problem, the trap, and a solution you can defend in an interview. You may also know it as <strong>“connect ropes with minimum cost”</strong>.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>This problem looks easy, and most candidates find the right idea within minutes. Then many of them implement it in a way that passes the examples and fails on half of all other inputs. Here’s the problem, the trap, and a solution you can defend in an interview. You may also know it as <strong>“connect ropes with minimum cost”</strong>.</p>
 
-<h2 id="the-problem">The Problem</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">7 sections</span></summary>
+                        <ul>
+  <li><a href="#the-problem">The Problem</a></li>
+  <li><a href="#ask-before-you-code">Ask Before You Code</a></li>
+  <li><a href="#the-trap-sorting-only-once">The Trap: Sorting Only Once</a></li>
+  <li><a href="#the-greedy-idea-and-why-it-works">The Greedy Idea and Why It Works</a></li>
+  <li><a href="#the-solution-a-min-heap">The Solution: A Min-Heap</a></li>
+  <li><a href="#tests-that-would-have-caught-the-bug">Tests That Would Have Caught the Bug</a></li>
+  <li><a href="#related-problems">Related Problems</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="the-problem">The Problem</h2>
 
 <p>A factory builds a product from <em>N</em> parts. Assembling two parts of sizes <em>a</em> and <em>b</em> takes <em>a + b</em> units of time and produces one new part of size <em>a + b</em>. Parts are assembled two at a time until only the final product is left.</p>
 
@@ -592,8 +607,7 @@
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -608,6 +622,24 @@
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/number-items-closed-compartments/"><img src="/assets/images/inventoryItems.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Items in Containers: Count Items in Closed Compartments (Code Interview Problem)</span>
+            </span>
+        </a><a class="read-next-card" href="/shopping-budget-options/"><img src="/assets/images/shoppingOptions.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)</span>
+            </span>
+        </a><a class="read-next-card" href="/post-random-tweet-on-twitter-api/"><img src="/assets/images/randomWithoutRepeatsX.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">algorithms</span>
+                <span class="read-next-name">Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

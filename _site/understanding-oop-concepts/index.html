@@ -275,12 +275,28 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Get object-oriented programming (OOP) wrong and you’ll pay for it for years: tangled classes, features that break other features, a codebase nobody wants to touch. Get it right, and new requirements fit in cleanly. This post explains the core OOP concepts, the <strong>four pillars</strong> (abstraction, encapsulation, inheritance and polymorphism) plus composition, each with a short Java example, and shows with a real requirement why you should usually <strong>favor composition over inheritance</strong>.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Get object-oriented programming (OOP) wrong and you’ll pay for it for years: tangled classes, features that break other features, a codebase nobody wants to touch. Get it right, and new requirements fit in cleanly. This post explains the core OOP concepts, the <strong>four pillars</strong> (abstraction, encapsulation, inheritance and polymorphism) plus composition, each with a short Java example, and shows with a real requirement why you should usually <strong>favor composition over inheritance</strong>.</p>
 
-<h2 id="class-and-object">Class and Object</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">8 sections</span></summary>
+                        <ul>
+  <li><a href="#class-and-object">Class and Object</a></li>
+  <li><a href="#abstraction">Abstraction</a></li>
+  <li><a href="#encapsulation">Encapsulation</a></li>
+  <li><a href="#inheritance">Inheritance</a></li>
+  <li><a href="#polymorphism">Polymorphism</a></li>
+  <li><a href="#composition">Composition</a></li>
+  <li><a href="#composition-over-inheritance-a-real-requirement">Composition over Inheritance: a Real Requirement</a></li>
+  <li><a href="#advantages-of-oop-and-when-it-goes-wrong">Advantages of OOP, and When It Goes Wrong</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="class-and-object">Class and Object</h2>
 
 <p>A <strong>class</strong> is a blueprint: it defines the data (fields) and the behavior (methods) that its objects will have. An <strong>object</strong> is an instance of a class, with its own values. You write the class once and create as many objects from it as you need, in Java with the <code class="language-plaintext highlighter-rouge">new</code> keyword.</p>
 
@@ -626,8 +642,7 @@ SG: [Phone Starter Kit]
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -642,6 +657,24 @@ SG: [Phone Starter Kit]
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/msit-ai-career-programs-germany/"><img src="/assets/images/msit-ai-career-hero.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">career</span>
+                <span class="read-next-name">Switch to an AI Career in Germany: MSIT's Funded Programs and a €500 Welcome Bonus</span>
+            </span>
+        </a><a class="read-next-card" href="/spring-restclient-replace-oauth2resttemplate/"><img src="/assets/images/springBootRestClient.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client</span>
+            </span>
+        </a><a class="read-next-card" href="/system-design-on-aws-book-review/"><img src="/assets/images/SystemDesignOnAWS.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">system-design</span>
+                <span class="read-next-name">The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

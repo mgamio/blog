@@ -275,12 +275,31 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Before Java 5, every collection held <code class="language-plaintext highlighter-rouge">Object</code>, and every value you took out needed a cast, which could fail at runtime. Generics moved that check to the compiler. Here’s how they work, from a simple <code class="language-plaintext highlighter-rouge">Box&lt;T&gt;</code> to the wildcard rules that confuse even experienced developers.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Before Java 5, every collection held <code class="language-plaintext highlighter-rouge">Object</code>, and every value you took out needed a cast, which could fail at runtime. Generics moved that check to the compiler. Here’s how they work, from a simple <code class="language-plaintext highlighter-rouge">Box&lt;T&gt;</code> to the wildcard rules that confuse even experienced developers.</p>
 
-<h2 id="boxing-and-unboxing">Boxing and Unboxing</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">11 sections</span></summary>
+                        <ul>
+  <li><a href="#boxing-and-unboxing">Boxing and Unboxing</a></li>
+  <li><a href="#the-problem-generics-solve">The Problem Generics Solve</a></li>
+  <li><a href="#the-generic-class">The Generic Class</a></li>
+  <li><a href="#the-generic-method">The Generic Method</a></li>
+  <li><a href="#bounded-type-parameters">Bounded Type Parameters</a></li>
+  <li><a href="#subtyping-and-the-substitution-principle">Subtyping and the Substitution Principle</a></li>
+  <li><a href="#why-listinteger-is-not-a-listnumber">Why List&lt;Integer&gt; Is Not a List&lt;Number&gt;</a></li>
+  <li><a href="#wildcards-in-generics">Wildcards in Generics</a></li>
+  <li><a href="#the-get-and-put-principle-pecs">The Get and Put Principle (PECS)</a></li>
+  <li><a href="#type-erasure">Type Erasure</a></li>
+  <li><a href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="boxing-and-unboxing">Boxing and Unboxing</h2>
 
 <p>Every data type in Java is either a reference type or a primitive type. Generics only work with reference types, so each primitive type has a corresponding wrapper class:</p>
 
@@ -708,8 +727,7 @@
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -724,6 +742,24 @@
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/spring-restclient-replace-oauth2resttemplate/"><img src="/assets/images/springBootRestClient.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client</span>
+            </span>
+        </a><a class="read-next-card" href="/spring-boot-automate-api-client/"><img src="/assets/images/apiClientRequest.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Break Out of Nested Loops in Java: Automating a Real REST API Client</span>
+            </span>
+        </a><a class="read-next-card" href="/spring-boot-actuator/"><img src="/assets/images/springBootActuator.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">programming</span>
+                <span class="read-next-name">Log Every Login Attempt with Spring Boot Actuator Auditing</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

@@ -275,12 +275,31 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Why are some codebases still easy to change after five years, while others need a rewrite after one? It’s rarely the framework or the language. It’s whether the people who wrote the code followed a few design principles. This post explains the principles every developer should know, each with a short Java example of the problem, the fix, and the point where the principle is taken too far.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>Why are some codebases still easy to change after five years, while others need a rewrite after one? It’s rarely the framework or the language. It’s whether the people who wrote the code followed a few design principles. This post explains the principles every developer should know, each with a short Java example of the problem, the fix, and the point where the principle is taken too far.</p>
 
-<h2 id="solid">SOLID</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">11 sections</span></summary>
+                        <ul>
+  <li><a href="#solid">SOLID</a></li>
+  <li><a href="#dry-dont-repeat-yourself">DRY: Don’t Repeat Yourself</a></li>
+  <li><a href="#kiss-keep-it-simple">KISS: Keep It Simple</a></li>
+  <li><a href="#yagni-you-arent-gonna-need-it">YAGNI: You Aren’t Gonna Need It</a></li>
+  <li><a href="#separation-of-concerns">Separation of Concerns</a></li>
+  <li><a href="#composition-over-inheritance">Composition over Inheritance</a></li>
+  <li><a href="#law-of-demeter-talk-only-to-your-friends">Law of Demeter: Talk Only to Your Friends</a></li>
+  <li><a href="#design-patterns">Design Patterns</a></li>
+  <li><a href="#when-principles-conflict">When Principles Conflict</a></li>
+  <li><a href="#summary">Summary</a></li>
+  <li><a href="#learn-the-principles-in-depth">Learn the Principles in Depth</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="solid">SOLID</h2>
 
 <p>SOLID is a set of five principles for object-oriented classes:</p>
 
@@ -720,8 +739,7 @@
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -736,6 +754,24 @@
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/optimize-java-app-performance/"><img src="/assets/images/javaAppPerformance.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">design</span>
+                <span class="read-next-name">Java App Slow Under Load? A Step-by-Step Performance Playbook</span>
+            </span>
+        </a><a class="read-next-card" href="/uml-diagrams-for-java-developers/"><img src="/assets/images/umlDiagrams.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">design</span>
+                <span class="read-next-name">UML Diagrams for Java Developers: From Requirements to Code</span>
+            </span>
+        </a><a class="read-next-card" href="/open-closed-principle/"><img src="/assets/images/openClosedPrinciple.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">design</span>
+                <span class="read-next-name">Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II)</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">

@@ -275,12 +275,30 @@
 
             <!-- Post Content -->
             <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>A restaurant app needs a supplier’s food prices; the supplier’s system needs the restaurant’s orders. Two companies, two technologies, no shared code, and <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> is how they talk. This tutorial explains REST through a real B2B ordering API, from resources and HTTP methods to a Spring Boot controller.</p>
+                <!-- Table of contents: automatic on long posts (1,500+ words and 5+ sections);
+                     "toc: true" or "toc: false" in the front matter overrides it.
+                     It goes after the intro, just before the first section. --><p>A restaurant app needs a supplier’s food prices; the supplier’s system needs the restaurant’s orders. Two companies, two technologies, no shared code, and <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> is how they talk. This tutorial explains REST through a real B2B ordering API, from resources and HTTP methods to a Spring Boot controller.</p>
 
-<h2 id="what-is-an-api">What Is an API?</h2>
+
+                    
+                    <details class="toc" id="post-toc">
+                        <summary>In this article <span class="toc-count">10 sections</span></summary>
+                        <ul>
+  <li><a href="#what-is-an-api">What Is an API?</a></li>
+  <li><a href="#what-is-rest">What Is REST?</a></li>
+  <li><a href="#resources">Resources</a></li>
+  <li><a href="#http-methods">HTTP Methods</a></li>
+  <li><a href="#request-and-response">Request and Response</a></li>
+  <li><a href="#building-a-restful-web-service">Building a RESTful Web Service</a></li>
+  <li><a href="#include-loggers">Include Loggers</a></li>
+  <li><a href="#when-the-api-strategy-is-not-aligned-with-the-it-infrastructure">When the API Strategy Is Not Aligned with the IT Infrastructure</a></li>
+  <li><a href="#designing-endpoints-from-aggregationcomposition-relationships">Designing Endpoints from Aggregation/Composition Relationships</a></li>
+  <li><a href="#where-to-go-next">Where to Go Next</a></li>
+</ul>
+                    </details>
+                    <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
+                    <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    <h2 id="what-is-an-api">What Is an API?</h2>
 
 <p>An API (Application Programming Interface) is an interface with defined functionalities that a software program presents to other programs and, in the case of web APIs, to the rest of the world via the Internet.</p>
 
@@ -899,8 +917,7 @@ Content-Type: application/json
 </div>
 
 <p><br /></p>
-
-				<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
 <!-- ad below post -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -915,6 +932,24 @@ Content-Type: application/json
 
             <!-- Rating -->
             
+
+            <!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+     topped up with the newest posts when fewer than 3 match. --><section class="read-next" aria-labelledby="read-next-title">
+    <h2 id="read-next-title" class="read-next-title">Read next</h2>
+    <div class="read-next-grid"><a class="read-next-card" href="/gradle-building-restful-web-service/"><img src="/assets/images/gradleRestfulWebService.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Build a RESTful Web Service with Spring Boot, Gradle, and OpenAPI</span>
+            </span>
+        </a><a class="read-next-card" href="/swagger-codegen-server-stubs-openapi/"><img src="/assets/images/swaggerCodegen.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Generate a Spring Boot Server from an OpenAPI Spec with Swagger Codegen</span>
+            </span>
+        </a><a class="read-next-card" href="/designing-apis-with-swagger-and-openapi/"><img src="/assets/images/swaggerHubOpenAPI.jpg" width="730" height="383" loading="lazy" decoding="async" alt=""><span class="read-next-text">
+                <span class="read-next-cat">Web APIs</span>
+                <span class="read-next-name">Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial</span>
+            </span>
+        </a></div>
+</section>
 
             <!-- Post Categories -->
             <div class="after-post-cats">
