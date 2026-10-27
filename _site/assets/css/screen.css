@@ -80,7 +80,7 @@ pre {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-    color: rgba(0, 0, 0, 0.35);
+    color: #767676;
     width: 1%;
     white-space: nowrap;
     padding-right: 0.85rem !important;
@@ -251,12 +251,13 @@ section.recent-posts {
     line-height: 1.25;
 }
 
-.listfeaturedtag h4.card-text,
-.listrecent h4.card-text {
+.listfeaturedtag .card-text,
+.listrecent .card-text {
     color: rgba(0, 0, 0, .44);
     font-size: 0.95rem;
     line-height: 1.6;
     font-weight: 400;
+    margin-bottom: 0.5rem;
 }
 
 .featured-box-img-cover {
@@ -1050,7 +1051,7 @@ iframe {
 
 /* Post meta line (published date + reading time) directly under the title. */
 .post-meta-line {
-    color: rgba(0, 0, 0, 0.5);
+    color: #6b6b6b;
     font-size: 0.92rem;
     margin: -0.25rem 0 1.5rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -1062,7 +1063,7 @@ iframe {
 }
 
 .post-meta-line .meta-updated {
-    color: rgba(0, 0, 0, 0.55);
+    color: #6b6b6b;
 }
 
 /* Prev/Next post cards. */
@@ -1102,7 +1103,7 @@ iframe {
 .PageNavigation.post-nav-cards .nav-label {
     display: block;
     font-size: 0.72rem;
-    color: rgba(0, 0, 0, 0.5);
+    color: #6b6b6b;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin-bottom: 0.25rem;

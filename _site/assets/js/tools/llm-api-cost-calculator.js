@@ -231,8 +231,8 @@
       var key = th.getAttribute('data-lc-sort');
       sortAsc = key === sortKey ? !sortAsc : true;
       sortKey = key;
-      el.sort.forEach(function (t) { t.removeAttribute('aria-sort'); });
-      th.setAttribute('aria-sort', sortAsc ? 'ascending' : 'descending');
+      el.sort.forEach(function (t) { t.parentNode.removeAttribute('aria-sort'); });
+      th.parentNode.setAttribute('aria-sort', sortAsc ? 'ascending' : 'descending');
       render();
     });
   });

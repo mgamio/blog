@@ -7,3 +7,82 @@
 .img-margin {
 	margin: 7px 0px 7px 0px;
 }
+/* ---------- Accessibility and performance fixes (Lighthouse, Oct 2026) ---------- */
+
+/* Meta text was rgba(0,0,0,.44) (#8f8f8f, contrast 3.2:1); #6b6b6b gives 5.3:1 on white */
+.listfeaturedtag .card-text,
+.listrecent .card-text,
+span.post-date,
+span.post-read,
+.post-top-meta .author-description,
+.share,
+.share a {
+    color: #6b6b6b;
+}
+
+.btn.follow {
+    color: #157a52;
+}
+
+/* Share buttons: inline SVG icons in round 40px targets (were Font Awesome glyphs in 30px circles) */
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.share-btn:hover,
+.share-btn:focus {
+    color: #194175;
+    border-color: #194175;
+    text-decoration: none;
+}
+
+/* Author photos are not square; crop instead of stretching */
+.author-thumb {
+    object-fit: cover;
+}
+
+/* "Back to top" arrow on the post list, now an inline SVG */
+.pointerup svg {
+    fill: #eaeaea;
+}
+
+/* Footer and pagination text was #999 / rgba(0,0,0,.44), below 4.5:1 */
+.footer,
+.footer a,
+.bottompagination span.navigation,
+.bottompagination span.navigation a {
+    color: #6b6b6b;
+}
+
+/* Links inside text: the brand green #00ab6b is 2.98:1 on white; #038252 (the old hover colour) is 4.9:1.
+   Buttons and borders keep the bright green. */
+.article-post a:not([class]),
+.lc-source a:not([class]),
+.tool-related a:not([class]) {
+    color: #038252;
+}
+.article-post a:not([class]):hover,
+.lc-source a:not([class]):hover,
+.tool-related a:not([class]):hover {
+    color: #025c3a;
+    text-decoration: underline;
+}
+
+/* Underline links in running text so they are not told apart by colour alone */
+.article-post p a:not([class]),
+.article-post li a:not([class]),
+.lc-source a:not([class]) {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Inline code: Bootstrap's #e83e8c is 3.8:1; #c7254e is 5.6:1 */
+code {
+    color: #c7254e;
+}

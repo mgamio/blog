@@ -1,21 +1,50 @@
-<script src="{{site.baseurl}}/assets/js/lunr.js"></script>
-
-
 <style>
     .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult .url {color: #6b6b6b;}
+    .lunrsearchresult a {display: block; color: #555;}
     .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
     .lunrsearchresult a:hover .title {text-decoration: underline;}
 </style>
 
 
-<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+<form class="bd-search" id="lunrsearchform">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..." aria-label="Search codersite"/>
 </form>
 
 <div id="lunrsearchresults">
     <ul></ul>
 </div>
 
-<script src="{{site.baseurl}}/assets/js/lunrsearchengine.js"></script>
+<!-- The search index covers the whole site and is expensive to build, so lunr.js and the index
+     load only when the reader starts using the search box, not on every page view. -->
+<script>
+(function () {
+    var form = document.getElementById('lunrsearchform');
+    var input = document.getElementById('lunrsearch');
+    var loading = null;
+    function loadScript(src) {
+        return new Promise(function (resolve, reject) {
+            var s = document.createElement('script');
+            s.src = src;
+            s.onload = resolve;
+            s.onerror = reject;
+            document.body.appendChild(s);
+        });
+    }
+    function loadSearch() {
+        if (!loading) {
+            loading = loadScript('{{ site.baseurl }}/assets/js/lunr.js').then(function () {
+                return loadScript('{{ site.baseurl }}/assets/js/lunrsearchengine.js');
+            });
+        }
+        return loading;
+    }
+    ['focus', 'pointerenter', 'touchstart'].forEach(function (evt) {
+        input.addEventListener(evt, loadSearch, { once: true, passive: true });
+    });
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        loadSearch().then(function () { lunr_search(input.value); });
+    });
+})();
+</script>

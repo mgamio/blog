@@ -24,8 +24,18 @@
 <!-- End Jekyll SEO tag -->
 
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+<!-- Bootstrap 4.1.3, self-hosted (same file as the CDN copy) to save a connection on the critical path -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+<!-- Web fonts, self-hosted (SIL Open Font License): no request to Google, so no visitor IP goes to a third party.
+     Righteous (headings) is preloaded so the big headline doesn't reflow when it arrives. Latin subset only. -->
+<link rel="preload" href="/assets/fonts/righteous-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: 'Righteous'; font-style: normal; font-weight: 400; font-display: swap; src: url('/assets/fonts/righteous-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('/assets/fonts/merriweather-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: italic; font-weight: 400; font-display: swap; src: url('/assets/fonts/merriweather-italic-latin.woff2') format('woff2'); }
+</style>
+
 <link href="/assets/css/screen.css" rel="stylesheet">
 
 <link href="/assets/css/main.css" rel="stylesheet">
@@ -35,9 +45,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-
-<script src="/assets/js/jquery.min.js"></script><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+<link rel="manifest" href="/site.webmanifest"><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -58,12 +66,6 @@
 
 
 <body class="layout-categories">
-	<!-- defer loading of font and font awesome -->
-	<noscript id="deferred-styles">
-		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-	</noscript>
-
 
 <!-- Begin Menu Navigation
 ================================================== -->
@@ -73,7 +75,7 @@
 
     <!-- Begin Logo -->
 	<a class="navbar-brand" href="/">
-    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    <img src="/assets/images/logo.svg" width="210" height="30" alt="codersite">
     </a>
     <!-- End Logo -->
 	 
@@ -103,27 +105,57 @@
                 <a class="nav-link" href="/shop">Shop</a>
                 </li>
 
-                <script src="/assets/js/lunr.js"></script>
-
-
-<style>
+                <style>
     .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult .url {color: #6b6b6b;}
+    .lunrsearchresult a {display: block; color: #555;}
     .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
     .lunrsearchresult a:hover .title {text-decoration: underline;}
 </style>
 
 
-<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+<form class="bd-search" id="lunrsearchform">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..." aria-label="Search codersite"/>
 </form>
 
 <div id="lunrsearchresults">
     <ul></ul>
 </div>
 
-<script src="/assets/js/lunrsearchengine.js"></script>
+<!-- The search index covers the whole site and is expensive to build, so lunr.js and the index
+     load only when the reader starts using the search box, not on every page view. -->
+<script>
+(function () {
+    var form = document.getElementById('lunrsearchform');
+    var input = document.getElementById('lunrsearch');
+    var loading = null;
+    function loadScript(src) {
+        return new Promise(function (resolve, reject) {
+            var s = document.createElement('script');
+            s.src = src;
+            s.onload = resolve;
+            s.onerror = reject;
+            document.body.appendChild(s);
+        });
+    }
+    function loadSearch() {
+        if (!loading) {
+            loading = loadScript('/assets/js/lunr.js').then(function () {
+                return loadScript('/assets/js/lunrsearchengine.js');
+            });
+        }
+        return loading;
+    }
+    ['focus', 'pointerenter', 'touchstart'].forEach(function (evt) {
+        input.addEventListener(evt, loadSearch, { once: true, passive: true });
+    });
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        loadSearch().then(function () { lunr_search(input.value); });
+    });
+})();
+</script>
+
 
             </ul>
 
@@ -173,14 +205,14 @@
                 <a class="text-dark" href="/number-items-closed-compartments/">Items in Containers: Count Items in Closed Compartments (Code Interview Problem)</a>
                 
             </h2>
-            <h4 class="card-text">This one shows up in online coding assessments under the name Items in Containers, and it’s a trap: the obvious solution passes the examples and then times out on the...</h4>
+            <p class="card-text">This one shows up in online coding assessments under the name Items in Containers, and it’s a trap: the obvious solution passes the examples and then times out on the...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -221,14 +253,14 @@
                 <a class="text-dark" href="/shopping-budget-options/">Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)</a>
                 
             </h2>
-            <h4 class="card-text">Four nested loops solve this problem in five minutes, and that’s exactly the trap. With up to 1,000 prices per category, brute force has to check 10¹² combinations. Here’s how...</h4>
+            <p class="card-text">Four nested loops solve this problem in five minutes, and that’s exactly the trap. With up to 1,000 prices per category, brute force has to check 10¹² combinations. Here’s how...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -269,14 +301,14 @@
                 <a class="text-dark" href="/post-random-tweet-on-twitter-api/">Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag</a>
                 
             </h2>
-            <h4 class="card-text">You’ve written a hundred articles, and you want a bot to share one of them every three hours, even while you sleep. “Pick a random article” sounds like one line...</h4>
+            <p class="card-text">You’ve written a hundred articles, and you want a bot to share one of them every three hours, even while you sleep. “Pick a random article” sounds like one line...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -317,14 +349,14 @@
                 <a class="text-dark" href="/assemble-parts-in-minimum.time/">Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)</a>
                 
             </h2>
-            <h4 class="card-text">This problem looks easy, and most candidates find the right idea within minutes. Then many of them implement it in a way that passes the examples and fails on half...</h4>
+            <p class="card-text">This problem looks easy, and most candidates find the right idea within minutes. Then many of them implement it in a way that passes the examples and fails on half...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -365,14 +397,14 @@
                 <a class="text-dark" href="/merge-two-sorted-lists/">Merge Two Sorted Lists in Java: Array List and Linked List Solutions</a>
                 
             </h2>
-            <h4 class="card-text">Merging two sorted lists is one of the classic coding interview problems, and one of the most useful: it is the heart of merge sort, of merging k sorted lists,...</h4>
+            <p class="card-text">Merging two sorted lists is one of the classic coding interview problems, and one of the most useful: it is the heart of merge sort, of merging k sorted lists,...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -413,14 +445,14 @@
                 <a class="text-dark" href="/big-o-notation-analysis-of-algorithms/">Big O Notation in Java: Time and Space Complexity for Coding Interviews</a>
                 
             </h2>
-            <h4 class="card-text">Big O notation describes how the running time or the memory of an algorithm grows when its input grows. An algorithm that is fast for 100 users can be unusable...</h4>
+            <p class="card-text">Big O notation describes how the running time or the memory of an algorithm grows when its input grows. An algorithm that is fast for 100 users can be unusable...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -461,14 +493,14 @@
                 <a class="text-dark" href="/graphs-depth-first-search/">Depth-First Search (DFS) in Java: Graph Traversal Explained, with BFS</a>
                 
             </h2>
-            <h4 class="card-text">Depth-first search (DFS) is an algorithm for visiting every node of a graph. It starts at one node and follows one path as deep as it can before it backs...</h4>
+            <p class="card-text">Depth-first search (DFS) is an algorithm for visiting every node of a graph. It starts at one node and follows one path as deep as it can before it backs...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -509,14 +541,14 @@
                 <a class="text-dark" href="/tree-data-structure-binary-search-tree/">Binary Search Tree in Java: Insert, Search, Delete and Traversal (with GTIN Example)</a>
                 
             </h2>
-            <h4 class="card-text">A binary search tree (BST) keeps its data sorted while still letting you insert and delete quickly. A sorted array finds an item fast with binary search, but inserting means...</h4>
+            <p class="card-text">A binary search tree (BST) keeps its data sorted while still letting you insert and delete quickly. A sorted array finds an item fast with binary search, but inserting means...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -557,14 +589,14 @@
                 <a class="text-dark" href="/optimize-online-purchases/">Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming)</a>
                 
             </h2>
-            <h4 class="card-text">You have a fixed budget and a list of products, each with a price and something you want as much of as possible. Which products should you buy? This is...</h4>
+            <p class="card-text">You have a fixed budget and a list of products, each with a price and something you want as much of as possible. Which products should you buy? This is...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -605,15 +637,15 @@
                 <a class="text-dark" href="/given-positive-number-n-find-smallest-number-same-number-digits/">Smallest Number with the Same Number of Digits in Java (Coding Interview Problem)</a>
                 
             </h2>
-            <h4 class="card-text">The problem: write a method that, given an integer N, returns the smallest number with the same number of digits.
-</h4>
+            <p class="card-text">The problem: write a method that, given an integer N, returns the smallest number with the same number of digits.
+</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -662,14 +694,14 @@
                 <a class="text-dark" href="/optimize-online-purchases/">Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming)</a>
                 
             </h2>
-            <h4 class="card-text">You have a fixed budget and a list of products, each with a price and something you want as much of as possible. Which products should you buy? This is...</h4>
+            <p class="card-text">You have a fixed budget and a list of products, each with a price and something you want as much of as possible. Which products should you buy? This is...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -718,14 +750,14 @@
                 <a class="text-dark" href="/optimize-java-app-performance/">Java App Slow Under Load? A Step-by-Step Performance Playbook</a>
                 
             </h2>
-            <h4 class="card-text">Your Java application works fine in testing, then falls over in production: requests pile up, the database runs out of connections, the server stops responding. The fix is rarely “add...</h4>
+            <p class="card-text">Your Java application works fine in testing, then falls over in production: requests pile up, the database runs out of connections, the server stops responding. The fix is rarely “add...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -766,14 +798,14 @@
                 <a class="text-dark" href="/software-design-principles/">Software Design Principles Explained with Java Examples: SOLID, DRY, KISS, YAGNI and More</a>
                 
             </h2>
-            <h4 class="card-text">Why are some codebases still easy to change after five years, while others need a rewrite after one? It’s rarely the framework or the language. It’s whether the people who...</h4>
+            <p class="card-text">Why are some codebases still easy to change after five years, while others need a rewrite after one? It’s rarely the framework or the language. It’s whether the people who...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -814,14 +846,14 @@
                 <a class="text-dark" href="/uml-diagrams-for-java-developers/">UML Diagrams for Java Developers: From Requirements to Code</a>
                 
             </h2>
-            <h4 class="card-text">The Unified Modeling Language (UML) is a graphical notation for modeling software systems. UML diagrams are not just pretty pictures: they communicate design decisions to the developers who build the...</h4>
+            <p class="card-text">The Unified Modeling Language (UML) is a graphical notation for modeling software systems. UML diagrams are not just pretty pictures: they communicate design decisions to the developers who build the...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -862,14 +894,14 @@
                 <a class="text-dark" href="/open-closed-principle/">Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II)</a>
                 
             </h2>
-            <h4 class="card-text">SOLID principles tell you how to arrange your functions into classes and how those classes should depend on each other. Applied well, they make your software easier to change, easier...</h4>
+            <p class="card-text">SOLID principles tell you how to arrange your functions into classes and how those classes should depend on each other. Applied well, they make your software easier to change, easier...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -910,14 +942,14 @@
                 <a class="text-dark" href="/solid-principles-the-definitive-guide/">SOLID Principles in Java: The Definitive Guide with Examples</a>
                 
             </h2>
-            <h4 class="card-text">SOLID is a set of five principles that tell you how to arrange your code into classes and how those classes should depend on each other. Code that follows them...</h4>
+            <p class="card-text">SOLID is a set of five principles that tell you how to arrange your code into classes and how those classes should depend on each other. Code that follows them...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -966,14 +998,14 @@
                 <a class="text-dark" href="/gradle-building-restful-web-service/">Build a RESTful Web Service with Spring Boot, Gradle, and OpenAPI</a>
                 
             </h2>
-            <h4 class="card-text">By the end of this guide you’ll have a working Spring Boot RESTful API, built with Gradle and documented with OpenAPI, and a live Swagger UI page you can show...</h4>
+            <p class="card-text">By the end of this guide you’ll have a working Spring Boot RESTful API, built with Gradle and documented with OpenAPI, and a live Swagger UI page you can show...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1014,14 +1046,14 @@
                 <a class="text-dark" href="/swagger-codegen-server-stubs-openapi/">Generate a Spring Boot Server from an OpenAPI Spec with Swagger Codegen</a>
                 
             </h2>
-            <h4 class="card-text">You’ve designed your API. Now comes the boring part: writing controllers, models and request mappings that only repeat what the spec already says. Swagger Codegen writes that code for you....</h4>
+            <p class="card-text">You’ve designed your API. Now comes the boring part: writing controllers, models and request mappings that only repeat what the spec already says. Swagger Codegen writes that code for you....</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1062,14 +1094,14 @@
                 <a class="text-dark" href="/designing-apis-with-swagger-and-openapi/">Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial</a>
                 
             </h2>
-            <h4 class="card-text">Most API problems aren’t coding problems. They’re design problems found too late: a missing field, an inconsistent name, an error nobody documented. Design-first fixes that by agreeing on the contract...</h4>
+            <p class="card-text">Most API problems aren’t coding problems. They’re design problems found too late: a missing field, an inconsistent name, an error nobody documented. Design-first fixes that by agreeing on the contract...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1110,14 +1142,14 @@
                 <a class="text-dark" href="/building-rest-api-client/">Load-Test Your API's Rate Limiting with Concurrent Java Clients</a>
                 
             </h2>
-            <h4 class="card-text">Your API has rate limiting. But does it actually work when several clients hammer different endpoints at the same time, on Black Friday? You don’t want to find out in...</h4>
+            <p class="card-text">Your API has rate limiting. But does it actually work when several clients hammer different endpoints at the same time, on Black Friday? You don’t want to find out in...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1158,14 +1190,14 @@
                 <a class="text-dark" href="/rest-api-overview/">REST API Tutorial: Resources, HTTP Methods, Status Codes and a Spring Boot Example</a>
                 
             </h2>
-            <h4 class="card-text">A restaurant app needs a supplier’s food prices; the supplier’s system needs the restaurant’s orders. Two companies, two technologies, no shared code, and REST is how they talk. This tutorial...</h4>
+            <p class="card-text">A restaurant app needs a supplier’s food prices; the supplier’s system needs the restaurant’s orders. Two companies, two technologies, no shared code, and REST is how they talk. This tutorial...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1206,14 +1238,14 @@
                 <a class="text-dark" href="/rate-limit/">Rate Limiting in Spring Boot with Bucket4j: Token Bucket Algorithm per Client</a>
                 
             </h2>
-            <h4 class="card-text">A partner company starts integrating with your API. On day one, their developer writes a loop to load test data, and suddenly your API answers slowly for every other client....</h4>
+            <p class="card-text">A partner company starts integrating with your API. On day one, their developer writes a loop to load test data, and suddenly your API answers slowly for every other client....</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1254,14 +1286,14 @@
                 <a class="text-dark" href="/how-rest-client-handles-503-error/">How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring</a>
                 
             </h2>
-            <h4 class="card-text">Your nightly job sends 50,000 articles to a partner’s API, in batches of 1,000. At batch 23, the API answers 503 Service Unavailable. What should your client do? Give up,...</h4>
+            <p class="card-text">Your nightly job sends 50,000 articles to a partner’s API, in batches of 1,000. At batch 23, the API answers 503 Service Unavailable. What should your client do? Give up,...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1302,15 +1334,15 @@
                 <a class="text-dark" href="/ssl-handshake-failure/">Fix 'Received fatal alert: handshake_failure' in Java: SSL/TLS Troubleshooting</a>
                 
             </h2>
-            <h4 class="card-text">Your Java client calls an HTTPS API and fails before sending a single request:
-</h4>
+            <p class="card-text">Your Java client calls an HTTPS API and fails before sending a single request:
+</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1351,14 +1383,14 @@
                 <a class="text-dark" href="/spring-boot-oauth2/">Secure a Spring Boot REST API with OAuth2 and OpenAPI (Swagger UI)</a>
                 
             </h2>
-            <h4 class="card-text">Your REST API is documented with OpenAPI, and anyone who finds the URL can call it. This tutorial secures it with OAuth2: clients get a short-lived access token and send...</h4>
+            <p class="card-text">Your REST API is documented with OpenAPI, and anyone who finds the URL can call it. This tutorial secures it with OAuth2: clients get a short-lived access token and send...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1399,14 +1431,14 @@
                 <a class="text-dark" href="/documenting-rest-api-openapi3/">Document a Spring Boot REST API with OpenAPI 3 and Swagger UI (springdoc)</a>
                 
             </h2>
-            <h4 class="card-text">Developers outside your team can’t read your code. They read your API documentation, and if it’s missing, out of date or wrong, they guess, open tickets, or pick another provider....</h4>
+            <p class="card-text">Developers outside your team can’t read your code. They read your API documentation, and if it’s missing, out of date or wrong, they guess, open tickets, or pick another provider....</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1455,14 +1487,14 @@
                 <a class="text-dark" href="/clean-code/">Clean Code Best Practices: 10 Rules with Java Examples</a>
                 
             </h2>
-            <h4 class="card-text">Clean code is code that a developer other than its author can read, change and extend without fear. The idea was made popular by Robert C. Martin in his book...</h4>
+            <p class="card-text">Clean code is code that a developer other than its author can read, change and extend without fear. The idea was made popular by Robert C. Martin in his book...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1511,15 +1543,15 @@
                 <a class="text-dark" href="/system-design-on-aws-book-review/">The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview</a>
                 
             </h2>
-            <h4 class="card-text">System Design on AWS: The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview
-</h4>
+            <p class="card-text">System Design on AWS: The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview
+</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1560,14 +1592,14 @@
                 <a class="text-dark" href="/hot-warm-architecture-elasticsearch/">Hot-Warm-Cold Architecture in Elasticsearch: Data Tiers, ILM and Centralized Logs</a>
                 
             </h2>
-            <h4 class="card-text">Recent logs are written and searched all the time. Logs from last month are searched now and then, and logs from three months ago almost never. Keeping all of them...</h4>
+            <p class="card-text">Recent logs are written and searched all the time. Logs from last month are searched now and then, and logs from three months ago almost never. Keeping all of them...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1616,14 +1648,14 @@
                 <a class="text-dark" href="/understanding-oop-concepts/">OOP Concepts in Java: The 4 Pillars and Composition, with Examples</a>
                 
             </h2>
-            <h4 class="card-text">Get object-oriented programming (OOP) wrong and you’ll pay for it for years: tangled classes, features that break other features, a codebase nobody wants to touch. Get it right, and new...</h4>
+            <p class="card-text">Get object-oriented programming (OOP) wrong and you’ll pay for it for years: tangled classes, features that break other features, a codebase nobody wants to touch. Get it right, and new...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1672,14 +1704,14 @@
                 <a class="text-dark" href="/the-ubiquitous-language/">Ubiquitous Language in Domain-Driven Design: How to Build One, with Java Examples</a>
                 
             </h2>
-            <h4 class="card-text">The business people say delivery note, the ticket says shipping document, and the code says DocService.getDoc(). Every conversation needs a translation, and every translation is a chance for a bug....</h4>
+            <p class="card-text">The business people say delivery note, the ticket says shipping document, and the code says DocService.getDoc(). Every conversation needs a translation, and every translation is a chance for a bug....</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1728,14 +1760,14 @@
                 <a class="text-dark" href="/german-vocabulary-software-engineers/">German IT Vocabulary for Software Developers Working in Germany</a>
                 
             </h2>
-            <h4 class="card-text">I have worked as a software developer in Berlin for more than ten years. This list contains the German words I hear and use most often in meetings, documents, emails,...</h4>
+            <p class="card-text">I have worked as a software developer in Berlin for more than ten years. This list contains the German words I hear and use most often in meetings, documents, emails,...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1784,14 +1816,14 @@
                 <a class="text-dark" href="/load-balancing-clustering/">Access Denied When Deleting Files in a Load-Balanced Java Cluster</a>
                 
             </h2>
-            <h4 class="card-text">Your Java application runs on two servers behind a load balancer. Both write images to the same file server. Everything works, until one day old images stop being deleted, and...</h4>
+            <p class="card-text">Your Java application runs on two servers behind a load balancer. Both write images to the same file server. Everything works, until one day old images stop being deleted, and...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1840,14 +1872,14 @@
                 <a class="text-dark" href="/msit-ai-career-programs-germany/">Switch to an AI Career in Germany: MSIT's Funded Programs and a €500 Welcome Bonus</a>
                 
             </h2>
-            <h4 class="card-text">Werbung / Advertising. This article contains my referral link to MSIT. If you enroll in an eligible program through it, you receive a €500 welcome bonus, and I receive a...</h4>
+            <p class="card-text">Werbung / Advertising. This article contains my referral link to MSIT. If you enroll in an eligible program through it, you receive a €500 welcome bonus, and I receive a...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1888,15 +1920,15 @@
                 <a class="text-dark" href="/system-design-on-aws-book-review/">The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview</a>
                 
             </h2>
-            <h4 class="card-text">System Design on AWS: The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview
-</h4>
+            <p class="card-text">System Design on AWS: The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview
+</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1937,14 +1969,14 @@
                 <a class="text-dark" href="/soft-skills-software-development/">Soft Skills for Software Developers: 10 Skills with Real Workplace Examples</a>
                 
             </h2>
-            <h4 class="card-text">Two developers on the same team write equally good code. One of them leads the next project; the other is still waiting. The difference is almost never technical. It’s how...</h4>
+            <p class="card-text">Two developers on the same team write equally good code. One of them leads the next project; the other is still waiting. The difference is almost never technical. It’s how...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -1993,14 +2025,14 @@
                 <a class="text-dark" href="/best-startup-ideas-to-make-money/">Startup Ideas for Software Developers: How to Find, Validate and Build One</a>
                 
             </h2>
-            <h4 class="card-text">Most side projects built by developers don’t fail because of the code. They fail because nobody wanted to pay for them. The code was clean, the tests were green, and...</h4>
+            <p class="card-text">Most side projects built by developers don’t fail because of the code. They fail because nobody wanted to pay for them. The code was clean, the tests were green, and...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2049,14 +2081,14 @@
                 <a class="text-dark" href="/web-dev-project-breakdown/">How to Break Down a Software Project into Tasks: From Epics to User Stories, with a Real Example</a>
                 
             </h2>
-            <h4 class="card-text">“Build the new customer portal” is not a task. Nobody can estimate it, start it, or tell when it’s done. Projects fail less from bad code than from work nobody...</h4>
+            <p class="card-text">“Build the new customer portal” is not a task. Nobody can estimate it, start it, or tell when it’s done. Projects fail less from bad code than from work nobody...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2105,14 +2137,14 @@
                 <a class="text-dark" href="/transform-list-into-hashmap/">From O(n²) to O(n): Replace Nested Loops with a HashMap in Java</a>
                 
             </h2>
-            <h4 class="card-text">One endpoint in a B2B order system I worked on returned 1,000 orders, and it was slow. The database wasn’t the problem. Two innocent-looking nested loops were. Here’s how one...</h4>
+            <p class="card-text">One endpoint in a B2B order system I worked on returned 1,000 orders, and it was slow. The database wasn’t the problem. Two innocent-looking nested loops were. Here’s how one...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2153,14 +2185,14 @@
                 <a class="text-dark" href="/data-structures-foundation-efficient-programming/">Java Data Structures: Which One to Use and Why (with a Big-O Cheat Sheet)</a>
                 
             </h2>
-            <h4 class="card-text">Choosing the wrong data structure is one of the most common reasons code is slow, and one of the most common interview questions. A list where you needed a map...</h4>
+            <p class="card-text">Choosing the wrong data structure is one of the most common reasons code is slow, and one of the most common interview questions. A list where you needed a map...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2209,14 +2241,14 @@
                 <a class="text-dark" href="/spring-restclient-replace-oauth2resttemplate/">Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client</a>
                 
             </h2>
-            <h4 class="card-text">In the previous post, we built a program that walks an Order API (buyers, suppliers, customer numbers, articles) and places a test order. It works, but it’s built on OAuth2RestTemplate,...</h4>
+            <p class="card-text">In the previous post, we built a program that walks an Order API (buyers, suppliers, customer numbers, articles) and places a test order. It works, but it’s built on OAuth2RestTemplate,...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2257,14 +2289,14 @@
                 <a class="text-dark" href="/spring-boot-automate-api-client/">Break Out of Nested Loops in Java: Automating a Real REST API Client</a>
                 
             </h2>
-            <h4 class="card-text">Testing an order API by hand means clicking through buyers, suppliers, customer numbers and articles until you find a combination that works. This program does it in seconds: it walks...</h4>
+            <p class="card-text">Testing an order API by hand means clicking through buyers, suppliers, customer numbers and articles until you find a combination that works. This program does it in seconds: it walks...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2305,14 +2337,14 @@
                 <a class="text-dark" href="/spring-boot-actuator/">Log Every Login Attempt with Spring Boot Actuator Auditing</a>
                 
             </h2>
-            <h4 class="card-text">When a login fails at 3 a.m., you want to know who tried, how often, and whether it worked. Spring Boot Actuator already publishes these security events; you only have...</h4>
+            <p class="card-text">When a login fails at 3 a.m., you want to know who tried, how often, and whether it worked. Spring Boot Actuator already publishes these security events; you only have...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2353,14 +2385,14 @@
                 <a class="text-dark" href="/certified-professional-java-building-blocks/">Java OCP Practice Questions: Building Blocks, with Answers Explained</a>
                 
             </h2>
-            <h4 class="card-text">The OCP Java exam doesn’t test whether you can write code. It tests whether you can read code like a compiler: which line fails, what exactly gets printed, which object...</h4>
+            <p class="card-text">The OCP Java exam doesn’t test whether you can write code. It tests whether you can read code like a compiler: which line fails, what exactly gets printed, which object...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2401,14 +2433,14 @@
                 <a class="text-dark" href="/enum-flags-bitwise-operators/">Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet</a>
                 
             </h2>
-            <h4 class="card-text">An order API has to report several problems at once: a wrong quantity, a price difference and an article that no longer exists. Sending a list of strings works, but...</h4>
+            <p class="card-text">An order API has to report several problems at once: a wrong quantity, a price difference and an article that no longer exists. Sending a list of strings works, but...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2449,14 +2481,14 @@
                 <a class="text-dark" href="/java-generics/">Java Generics Explained: Wildcards, PECS and Type Erasure with Examples</a>
                 
             </h2>
-            <h4 class="card-text">Before Java 5, every collection held Object, and every value you took out needed a cast, which could fail at runtime. Generics moved that check to the compiler. Here’s how...</h4>
+            <p class="card-text">Before Java 5, every collection held Object, and every value you took out needed a cast, which could fail at runtime. Generics moved that check to the compiler. Here’s how...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2497,14 +2529,14 @@
                 <a class="text-dark" href="/java-functional-programming/">Functional Programming in Java: Lambdas, Streams, Records and Immutability</a>
                 
             </h2>
-            <h4 class="card-text">You already use functional programming in Java every time you write a lambda or a stream. Used well, it turns a 20-line loop over orders into five readable lines. Used...</h4>
+            <p class="card-text">You already use functional programming in Java every time you write a lambda or a stream. Used well, it turns a 20-line loop over orders into five readable lines. Used...</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2553,15 +2585,15 @@
                 <a class="text-dark" href="/system-design-on-aws-book-review/">The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview</a>
                 
             </h2>
-            <h4 class="card-text">System Design on AWS: The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview
-</h4>
+            <p class="card-text">System Design on AWS: The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview
+</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2610,15 +2642,15 @@
                 <a class="text-dark" href="/system-design-on-aws-book-review/">The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview</a>
                 
             </h2>
-            <h4 class="card-text">System Design on AWS: The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview
-</h4>
+            <p class="card-text">System Design on AWS: The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview
+</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2667,15 +2699,15 @@
                 <a class="text-dark" href="/system-design-on-aws-book-review/">The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview</a>
                 
             </h2>
-            <h4 class="card-text">System Design on AWS: The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview
-</h4>
+            <p class="card-text">System Design on AWS: The Trade-offs Every Engineer Should Know Before Their Next Whiteboard Interview
+</p>
         </div>
         <div class="card-footer bg-white">
             <div class="wrapfooter">
                 
                 <span class="meta-footer-thumb">
                 
-                <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
                 
                 </span>
                 <span class="author-meta">
@@ -2786,15 +2818,15 @@
 <!-- Scripts
 ================================================== -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<!-- All scripts are deferred: they download in parallel and run in this order after the HTML is parsed,
+     so they never block the first paint. No inline script on the site depends on jQuery. -->
+<script src="/assets/js/jquery.min.js" defer></script>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous" defer></script>
 
-<script src="/assets/js/mediumish.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous" defer></script>
 
-
-
-<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+<script src="/assets/js/mediumish.js" defer></script>
 
 
 

@@ -29,8 +29,18 @@
 <!-- End Jekyll SEO tag -->
 
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+<!-- Bootstrap 4.1.3, self-hosted (same file as the CDN copy) to save a connection on the critical path -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+<!-- Web fonts, self-hosted (SIL Open Font License): no request to Google, so no visitor IP goes to a third party.
+     Righteous (headings) is preloaded so the big headline doesn't reflow when it arrives. Latin subset only. -->
+<link rel="preload" href="/assets/fonts/righteous-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: 'Righteous'; font-style: normal; font-weight: 400; font-display: swap; src: url('/assets/fonts/righteous-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('/assets/fonts/merriweather-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: italic; font-weight: 400; font-display: swap; src: url('/assets/fonts/merriweather-italic-latin.woff2') format('woff2'); }
+</style>
+
 <link href="/assets/css/screen.css" rel="stylesheet">
 
 <link href="/assets/css/main.css" rel="stylesheet">
@@ -40,9 +50,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-
-<script src="/assets/js/jquery.min.js"></script><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+<link rel="manifest" href="/site.webmanifest"><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -63,12 +71,6 @@
 
 
 <body class="layout-post">
-	<!-- defer loading of font and font awesome -->
-	<noscript id="deferred-styles">
-		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-	</noscript>
-
 
 <!-- Begin Menu Navigation
 ================================================== -->
@@ -78,7 +80,7 @@
 
     <!-- Begin Logo -->
 	<a class="navbar-brand" href="/">
-    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    <img src="/assets/images/logo.svg" width="210" height="30" alt="codersite">
     </a>
     <!-- End Logo -->
 	 
@@ -108,27 +110,57 @@
                 <a class="nav-link" href="/shop">Shop</a>
                 </li>
 
-                <script src="/assets/js/lunr.js"></script>
-
-
-<style>
+                <style>
     .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult .url {color: #6b6b6b;}
+    .lunrsearchresult a {display: block; color: #555;}
     .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
     .lunrsearchresult a:hover .title {text-decoration: underline;}
 </style>
 
 
-<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+<form class="bd-search" id="lunrsearchform">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..." aria-label="Search codersite"/>
 </form>
 
 <div id="lunrsearchresults">
     <ul></ul>
 </div>
 
-<script src="/assets/js/lunrsearchengine.js"></script>
+<!-- The search index covers the whole site and is expensive to build, so lunr.js and the index
+     load only when the reader starts using the search box, not on every page view. -->
+<script>
+(function () {
+    var form = document.getElementById('lunrsearchform');
+    var input = document.getElementById('lunrsearch');
+    var loading = null;
+    function loadScript(src) {
+        return new Promise(function (resolve, reject) {
+            var s = document.createElement('script');
+            s.src = src;
+            s.onload = resolve;
+            s.onerror = reject;
+            document.body.appendChild(s);
+        });
+    }
+    function loadSearch() {
+        if (!loading) {
+            loading = loadScript('/assets/js/lunr.js').then(function () {
+                return loadScript('/assets/js/lunrsearchengine.js');
+            });
+        }
+        return loading;
+    }
+    ['focus', 'pointerenter', 'touchstart'].forEach(function (evt) {
+        input.addEventListener(evt, loadSearch, { once: true, passive: true });
+    });
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        loadSearch().then(function () { lunr_search(input.value); });
+    });
+})();
+</script>
+
 
             </ul>
 
@@ -165,24 +197,23 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)&url=https://codersite.dev/assemble-parts-in-minimum.time/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                <i class="fab fa-twitter"></i>
+            <a class="share-btn" target="_blank" rel="noopener" aria-label="Share on X (Twitter)" href="https://twitter.com/intent/tweet?text=Assemble+Parts+in+Minimum+Time%3A+Greedy+Min-Heap+Solution+in+Java+%28Code+Interview+Problem%29&url=https://codersite.dev/assemble-parts-in-minimum.time/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
         </li>
 
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://facebook.com/sharer.php?u=https://codersite.dev/assemble-parts-in-minimum.time/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-                <i class="fab fa-facebook-f"></i>
+            <a class="share-btn" target="_blank" rel="noopener" aria-label="Share on Facebook" href="https://facebook.com/sharer.php?u=https://codersite.dev/assemble-parts-in-minimum.time/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 8.5V6.6c0-.9.6-1.1 1-1.1h2.6V1.5L14 1.5c-4 0-4.9 3-4.9 4.9v2.1H6.5v4.1h2.6V22.5h4.9V12.6h3.3l.4-4.1z"/></svg>
             </a>
         </li>
 
-         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://codersite.dev/assemble-parts-in-minimum.time/" onclick="window.open(this.href, 'width=550,height=435');return false;">
-                <i class="fab fa-linkedin-in"></i>
+        <li class="ml-1 mr-1">
+            <a class="share-btn" target="_blank" rel="noopener" aria-label="Share on LinkedIn" href="https://www.linkedin.com/shareArticle?mini=true&url=https://codersite.dev/assemble-parts-in-minimum.time/" onclick="window.open(this.href, 'linkedin-share', 'width=550,height=435');return false;">
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13V21h-4v-4.98c0-1.19-.02-2.72-1.66-2.72-1.66 0-1.92 1.3-1.92 2.63V21h-4z"/></svg>
             </a>
-        </li>	
+        </li>
     </ul>
-    
 </div>
 
             </div>
@@ -199,7 +230,7 @@
                 <div class="row post-top-meta">
                     <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
                         
-                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                        <img class="author-thumb" width="40" height="40" src="/assets/images/author.jpg" alt="Moises Gamio">
                         
                     </div>
                     <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
@@ -236,7 +267,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/assembleParts.jpg" alt="Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)">
+            <img class="featured-image img-fluid" width="730" height="383" fetchpriority="high" src="/assets/images/assembleParts.jpg" alt="Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)">
             
 
             
@@ -549,7 +580,7 @@
 <p>Problems like this one, where the obvious solution has a hidden flaw, are what coding interviews are made of. My book walks through more of them, with the same approach: understand the problem, find the trap, then write the efficient solution:</p>
 
 <div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
+  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img loading="lazy" decoding="async" style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
 </center>
 
 <br /></div>
@@ -841,18 +872,16 @@ https://search.google.com/structured-data/testing-tool/u/0/
 <!-- Scripts
 ================================================== -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<!-- All scripts are deferred: they download in parallel and run in this order after the HTML is parsed,
+     so they never block the first paint. No inline script on the site depends on jQuery. -->
+<script src="/assets/js/jquery.min.js" defer></script>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous" defer></script>
 
-<script src="/assets/js/mediumish.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous" defer></script>
 
+<script src="/assets/js/mediumish.js" defer></script>
 
-
-<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
-
-
-<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
 
 
 <!--

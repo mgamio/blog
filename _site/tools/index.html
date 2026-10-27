@@ -24,8 +24,18 @@
 <!-- End Jekyll SEO tag -->
 
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+<!-- Bootstrap 4.1.3, self-hosted (same file as the CDN copy) to save a connection on the critical path -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+<!-- Web fonts, self-hosted (SIL Open Font License): no request to Google, so no visitor IP goes to a third party.
+     Righteous (headings) is preloaded so the big headline doesn't reflow when it arrives. Latin subset only. -->
+<link rel="preload" href="/assets/fonts/righteous-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: 'Righteous'; font-style: normal; font-weight: 400; font-display: swap; src: url('/assets/fonts/righteous-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('/assets/fonts/merriweather-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: italic; font-weight: 400; font-display: swap; src: url('/assets/fonts/merriweather-italic-latin.woff2') format('woff2'); }
+</style>
+
 <link href="/assets/css/screen.css" rel="stylesheet">
 
 <link href="/assets/css/main.css" rel="stylesheet">
@@ -35,9 +45,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-
-<script src="/assets/js/jquery.min.js"></script><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+<link rel="manifest" href="/site.webmanifest"><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -58,12 +66,6 @@
 
 
 <body class="layout-page">
-	<!-- defer loading of font and font awesome -->
-	<noscript id="deferred-styles">
-		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-	</noscript>
-
 
 <!-- Begin Menu Navigation
 ================================================== -->
@@ -73,7 +75,7 @@
 
     <!-- Begin Logo -->
 	<a class="navbar-brand" href="/">
-    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    <img src="/assets/images/logo.svg" width="210" height="30" alt="codersite">
     </a>
     <!-- End Logo -->
 	 
@@ -103,27 +105,57 @@
                 <a class="nav-link" href="/shop">Shop</a>
                 </li>
 
-                <script src="/assets/js/lunr.js"></script>
-
-
-<style>
+                <style>
     .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult .url {color: #6b6b6b;}
+    .lunrsearchresult a {display: block; color: #555;}
     .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
     .lunrsearchresult a:hover .title {text-decoration: underline;}
 </style>
 
 
-<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+<form class="bd-search" id="lunrsearchform">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..." aria-label="Search codersite"/>
 </form>
 
 <div id="lunrsearchresults">
     <ul></ul>
 </div>
 
-<script src="/assets/js/lunrsearchengine.js"></script>
+<!-- The search index covers the whole site and is expensive to build, so lunr.js and the index
+     load only when the reader starts using the search box, not on every page view. -->
+<script>
+(function () {
+    var form = document.getElementById('lunrsearchform');
+    var input = document.getElementById('lunrsearch');
+    var loading = null;
+    function loadScript(src) {
+        return new Promise(function (resolve, reject) {
+            var s = document.createElement('script');
+            s.src = src;
+            s.onload = resolve;
+            s.onerror = reject;
+            document.body.appendChild(s);
+        });
+    }
+    function loadSearch() {
+        if (!loading) {
+            loading = loadScript('/assets/js/lunr.js').then(function () {
+                return loadScript('/assets/js/lunrsearchengine.js');
+            });
+        }
+        return loading;
+    }
+    ['focus', 'pointerenter', 'touchstart'].forEach(function (evt) {
+        input.addEventListener(evt, loadSearch, { once: true, passive: true });
+    });
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        loadSearch().then(function () { lunr_search(input.value); });
+    });
+})();
+</script>
+
 
             </ul>
 
@@ -363,15 +395,15 @@
 <!-- Scripts
 ================================================== -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<!-- All scripts are deferred: they download in parallel and run in this order after the HTML is parsed,
+     so they never block the first paint. No inline script on the site depends on jQuery. -->
+<script src="/assets/js/jquery.min.js" defer></script>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous" defer></script>
 
-<script src="/assets/js/mediumish.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous" defer></script>
 
-
-
-<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+<script src="/assets/js/mediumish.js" defer></script>
 
 
 

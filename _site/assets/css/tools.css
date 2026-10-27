@@ -510,7 +510,7 @@
 .lc-model .lc-id {
     display: block;
     font-size: 0.75rem;
-    color: rgba(0, 0, 0, 0.5);
+    color: #6b6b6b;
     background: none;
     padding: 0;
 }
@@ -540,7 +540,7 @@
 
 .lc-source {
     font-size: 0.78rem;
-    color: rgba(0, 0, 0, 0.55);
+    color: #6b6b6b;
     margin: 0.5rem 0 0;
 }
 
@@ -561,4 +561,8 @@
         width: max-content;
         margin-bottom: 0.15rem;
     }
+}
+
+.lc-source a {
+    text-decoration: underline;
 }

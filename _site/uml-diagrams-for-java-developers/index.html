@@ -29,8 +29,18 @@
 <!-- End Jekyll SEO tag -->
 
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+<!-- Bootstrap 4.1.3, self-hosted (same file as the CDN copy) to save a connection on the critical path -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+<!-- Web fonts, self-hosted (SIL Open Font License): no request to Google, so no visitor IP goes to a third party.
+     Righteous (headings) is preloaded so the big headline doesn't reflow when it arrives. Latin subset only. -->
+<link rel="preload" href="/assets/fonts/righteous-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: 'Righteous'; font-style: normal; font-weight: 400; font-display: swap; src: url('/assets/fonts/righteous-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('/assets/fonts/merriweather-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: italic; font-weight: 400; font-display: swap; src: url('/assets/fonts/merriweather-italic-latin.woff2') format('woff2'); }
+</style>
+
 <link href="/assets/css/screen.css" rel="stylesheet">
 
 <link href="/assets/css/main.css" rel="stylesheet">
@@ -40,9 +50,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-
-<script src="/assets/js/jquery.min.js"></script><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+<link rel="manifest" href="/site.webmanifest"><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -63,12 +71,6 @@
 
 
 <body class="layout-post">
-	<!-- defer loading of font and font awesome -->
-	<noscript id="deferred-styles">
-		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-	</noscript>
-
 
 <!-- Begin Menu Navigation
 ================================================== -->
@@ -78,7 +80,7 @@
 
     <!-- Begin Logo -->
 	<a class="navbar-brand" href="/">
-    <img src="/assets/images/logo.svg" height="30" alt="codersite">
+    <img src="/assets/images/logo.svg" width="210" height="30" alt="codersite">
     </a>
     <!-- End Logo -->
 	 
@@ -108,27 +110,57 @@
                 <a class="nav-link" href="/shop">Shop</a>
                 </li>
 
-                <script src="/assets/js/lunr.js"></script>
-
-
-<style>
+                <style>
     .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult .url {color: #6b6b6b;}
+    .lunrsearchresult a {display: block; color: #555;}
     .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
     .lunrsearchresult a:hover .title {text-decoration: underline;}
 </style>
 
 
-<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+<form class="bd-search" id="lunrsearchform">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..." aria-label="Search codersite"/>
 </form>
 
 <div id="lunrsearchresults">
     <ul></ul>
 </div>
 
-<script src="/assets/js/lunrsearchengine.js"></script>
+<!-- The search index covers the whole site and is expensive to build, so lunr.js and the index
+     load only when the reader starts using the search box, not on every page view. -->
+<script>
+(function () {
+    var form = document.getElementById('lunrsearchform');
+    var input = document.getElementById('lunrsearch');
+    var loading = null;
+    function loadScript(src) {
+        return new Promise(function (resolve, reject) {
+            var s = document.createElement('script');
+            s.src = src;
+            s.onload = resolve;
+            s.onerror = reject;
+            document.body.appendChild(s);
+        });
+    }
+    function loadSearch() {
+        if (!loading) {
+            loading = loadScript('/assets/js/lunr.js').then(function () {
+                return loadScript('/assets/js/lunrsearchengine.js');
+            });
+        }
+        return loading;
+    }
+    ['focus', 'pointerenter', 'touchstart'].forEach(function (evt) {
+        input.addEventListener(evt, loadSearch, { once: true, passive: true });
+    });
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        loadSearch().then(function () { lunr_search(input.value); });
+    });
+})();
+</script>
+
 
             </ul>
 
@@ -165,24 +197,23 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=UML Diagrams for Java Developers: From Requirements to Code&url=https://codersite.dev/uml-diagrams-for-java-developers/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                <i class="fab fa-twitter"></i>
+            <a class="share-btn" target="_blank" rel="noopener" aria-label="Share on X (Twitter)" href="https://twitter.com/intent/tweet?text=UML+Diagrams+for+Java+Developers%3A+From+Requirements+to+Code&url=https://codersite.dev/uml-diagrams-for-java-developers/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
         </li>
 
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://facebook.com/sharer.php?u=https://codersite.dev/uml-diagrams-for-java-developers/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-                <i class="fab fa-facebook-f"></i>
+            <a class="share-btn" target="_blank" rel="noopener" aria-label="Share on Facebook" href="https://facebook.com/sharer.php?u=https://codersite.dev/uml-diagrams-for-java-developers/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 8.5V6.6c0-.9.6-1.1 1-1.1h2.6V1.5L14 1.5c-4 0-4.9 3-4.9 4.9v2.1H6.5v4.1h2.6V22.5h4.9V12.6h3.3l.4-4.1z"/></svg>
             </a>
         </li>
 
-         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://codersite.dev/uml-diagrams-for-java-developers/" onclick="window.open(this.href, 'width=550,height=435');return false;">
-                <i class="fab fa-linkedin-in"></i>
+        <li class="ml-1 mr-1">
+            <a class="share-btn" target="_blank" rel="noopener" aria-label="Share on LinkedIn" href="https://www.linkedin.com/shareArticle?mini=true&url=https://codersite.dev/uml-diagrams-for-java-developers/" onclick="window.open(this.href, 'linkedin-share', 'width=550,height=435');return false;">
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13V21h-4v-4.98c0-1.19-.02-2.72-1.66-2.72-1.66 0-1.92 1.3-1.92 2.63V21h-4z"/></svg>
             </a>
-        </li>	
+        </li>
     </ul>
-    
 </div>
 
             </div>
@@ -199,7 +230,7 @@
                 <div class="row post-top-meta">
                     <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
                         
-                        <img class="author-thumb" src="/assets/images/author.jpg" alt="Moises Gamio">
+                        <img class="author-thumb" width="40" height="40" src="/assets/images/author.jpg" alt="Moises Gamio">
                         
                     </div>
                     <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
@@ -236,7 +267,7 @@
             
 
             
-            <img class="featured-image img-fluid" src="/assets/images/umlDiagrams.jpg" alt="UML Diagrams for Java Developers: From Requirements to Code">
+            <img class="featured-image img-fluid" width="730" height="383" fetchpriority="high" src="/assets/images/umlDiagrams.jpg" alt="UML Diagrams for Java Developers: From Requirements to Code">
             
 
             
@@ -261,11 +292,11 @@
   <p>Given a text message, a URL link and an image, build a service that composes a flyer with the image, the text and a QR code for the link. The result is an A4 PDF file divided into one, two, four or eight flyers, ready to print.</p>
 </blockquote>
 
-<p><img src="/assets/images/formFlyer.jpg" alt="Form with a message, a link, an image and the number of flyers per page" title="The flyer form" class="img-responsive" /></p>
+<p><img loading="lazy" decoding="async" src="/assets/images/formFlyer.jpg" alt="Form with a message, a link, an image and the number of flyers per page" title="The flyer form" class="img-responsive" /></p>
 
 <p>From this requirement, we can identify three tasks: create a QR code, combine the QR code, text and image into one design, and create a PDF file. Whether we write the code ourselves or use libraries, the result should look like this:</p>
 
-<p><img src="/assets/images/codersiteFlyers.jpg" alt="Printed A4 page with flyers that combine an image, a message and a QR code" title="codersite flyers" class="img-responsive" /></p>
+<p><img loading="lazy" decoding="async" src="/assets/images/codersiteFlyers.jpg" alt="Printed A4 page with flyers that combine an image, a message and a QR code" title="codersite flyers" class="img-responsive" /></p>
 
 <p>Different developers can read the same requirement in different ways. A shared notation removes this ambiguity from the start.</p>
 
@@ -293,13 +324,13 @@
 
 <p>The context diagram shows the big picture: people and software systems, not technologies. For our use case, a new web application fulfills the user requirement.</p>
 
-<p><img src="/assets/images/flyerContextDiagram.png" alt="C4 context diagram: a client uses the web application that builds flyer designs" title="Context diagram" class="img-responsive" /></p>
+<p><img loading="lazy" decoding="async" src="/assets/images/flyerContextDiagram.png" alt="C4 context diagram: a client uses the web application that builds flyer designs" title="Context diagram" class="img-responsive" /></p>
 
 <h3 id="container-diagram">Container Diagram</h3>
 
 <p>The container diagram shows the applications and data stores, the separately running units, and how responsibilities are split among them. Our web application needs a form in the front end and an API application in the back end.</p>
 
-<p><img src="/assets/images/flyerContainerDiagram.png" alt="C4 container diagram: a web application delivers a single-page application, which calls the API application" title="Container diagram" class="img-responsive" /></p>
+<p><img loading="lazy" decoding="async" src="/assets/images/flyerContainerDiagram.png" alt="C4 container diagram: a web application delivers a single-page application, which calls the API application" title="Container diagram" class="img-responsive" /></p>
 
 <h3 id="component-diagram">Component Diagram</h3>
 
@@ -311,7 +342,7 @@
   <li>The <strong>PDF Service</strong> puts the design on an A4 page, once, twice, four or eight times.</li>
 </ul>
 
-<p><img src="/assets/images/flyerComponentDiagram.png" alt="C4 component diagram: the Flyer Controller uses the QR, Image and PDF services" title="Component diagram" class="img-responsive" /></p>
+<p><img loading="lazy" decoding="async" src="/assets/images/flyerComponentDiagram.png" alt="C4 component diagram: the Flyer Controller uses the QR, Image and PDF services" title="Component diagram" class="img-responsive" /></p>
 
 <p>In this diagram, the controller calls the three services itself. It’s better to add one more class, <strong>FlyerComposerService</strong>, between the controller and the services. It coordinates the three calls, keeps the controller thin, and makes it easier to move the services into separate microservices later.</p>
 
@@ -319,7 +350,7 @@
 
 <p>A class is a template for creating objects. A UML class box has three compartments:</p>
 
-<p><img src="/assets/images/flyerClassNotation.png" alt="UML class box for FlyerComposerService with its name, attributes and operations" title="The three compartments of a UML class" class="img-responsive" /></p>
+<p><img loading="lazy" decoding="async" src="/assets/images/flyerClassNotation.png" alt="UML class box for FlyerComposerService with its name, attributes and operations" title="The three compartments of a UML class" class="img-responsive" /></p>
 
 <ol>
   <li>The <strong>name</strong> of the class.</li>
@@ -422,7 +453,7 @@
 
 <h3 id="the-complete-class-diagram">The Complete Class Diagram</h3>
 
-<p><img src="/assets/images/flyerClassDiagramV2.png" alt="UML class diagram: FlyerComposerService with associations to the QR, Image and PDF service interfaces, their implementations, and dependencies on FlyerRequest and FlyerLayout" title="Class diagram of the flyer service" class="img-responsive" /></p>
+<p><img loading="lazy" decoding="async" src="/assets/images/flyerClassDiagramV2.png" alt="UML class diagram: FlyerComposerService with associations to the QR, Image and PDF service interfaces, their implementations, and dependencies on FlyerRequest and FlyerLayout" title="Class diagram of the flyer service" class="img-responsive" /></p>
 
 <p>The code follows the diagram directly. The interface:</p>
 
@@ -458,14 +489,14 @@
 
 <p>A class diagram shows the structure: which classes exist and how they’re related. It doesn’t show <strong>the order of the calls</strong>. A sequence diagram does. Here is what happens when the controller calls <code class="language-plaintext highlighter-rouge">composeFlyer</code>:</p>
 
-<p><img src="/assets/images/flyerSequenceDiagram.png" alt="UML sequence diagram: the composer calls generateQRCode, then composeImage, then createPdf, and returns the PDF to the controller" title="Sequence diagram of composeFlyer" class="img-responsive" /></p>
+<p><img loading="lazy" decoding="async" src="/assets/images/flyerSequenceDiagram.png" alt="UML sequence diagram: the composer calls generateQRCode, then composeImage, then createPdf, and returns the PDF to the controller" title="Sequence diagram of composeFlyer" class="img-responsive" /></p>
 
 <p>Each vertical dashed line is an object’s lifeline. Solid arrows are calls, dashed arrows are return values, and the narrow boxes show when an object is active. The diagram matches the three lines of <code class="language-plaintext highlighter-rouge">composeFlyer</code> exactly. Draw a sequence diagram whenever the order of the calls matters, for example when you explain a flow to the team or plan error handling.</p>
 
 <p>Design interviews often start with “Sketch the classes for this problem.” Practicing with real interview questions helps you draw and explain a design under time pressure:</p>
 
 <div><center>
-  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
+  <a href="https://link.amazon/B08nEgB1o" target="_blank"><img loading="lazy" decoding="async" style="border:1px solid black;" alt="java interview" title="Buy Now" border="0" src="/assets/images/theCodeInterview-featured.jpg" /></a>
 </center>
 
 <br /></div>
@@ -478,13 +509,13 @@
 
 <p>An association is a solid line between two classes. You can name it with a verb from the business domain, such as <em>register</em> below. An arrow on one end shows which class holds a reference to the other; without arrows, the direction is left open.</p>
 
-<p><img src="/assets/images/umlAssociation.jpg" alt="UML association between two classes" title="UML association" class="img-responsive" /></p>
+<p><img loading="lazy" decoding="async" src="/assets/images/umlAssociation.jpg" alt="UML association between two classes" title="UML association" class="img-responsive" /></p>
 
 <h3 id="aggregation">Aggregation</h3>
 
 <p>Aggregation is a <em>has-a</em> association, drawn with a <strong>hollow diamond</strong> on the side of the whole. The parts can exist without the whole: a buyer works with suppliers, but if you delete the buyer, the suppliers still exist.</p>
 
-<p><img src="/assets/images/umlAggregation.jpg" alt="UML aggregation: Buyer with a hollow diamond to Supplier" title="UML aggregation" class="img-responsive" /></p>
+<p><img loading="lazy" decoding="async" src="/assets/images/umlAggregation.jpg" alt="UML aggregation: Buyer with a hollow diamond to Supplier" title="UML aggregation" class="img-responsive" /></p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -508,7 +539,7 @@
 
 <p>Composition is a stronger aggregation, drawn with a <strong>filled diamond</strong>. The whole owns its parts, and the parts are deleted with the whole: if you delete an order, its shipping address is deleted too.</p>
 
-<p><img src="/assets/images/umlComposition.jpg" alt="UML composition: Order with a filled diamond to Address" title="UML composition" class="img-responsive" /></p>
+<p><img loading="lazy" decoding="async" src="/assets/images/umlComposition.jpg" alt="UML composition: Order with a filled diamond to Address" title="UML composition" class="img-responsive" /></p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -579,7 +610,7 @@
 <p>The authors of UML explain every diagram type and relationship, with many examples, in <em>The Unified Modeling Language User Guide</em>. It’s the reference to keep on your desk once your diagrams grow beyond a few classes:</p>
 
 <div><center>
-  <a href="https://amzn.to/4akBIcN" target="_blank"><img style="border:1px solid black;" alt="The Unified Modeling Language User Guide" title="Buy Now" border="0" width="265" height="333" src="/recommended/images/umlUserGuide.jpg" /></a>
+  <a href="https://amzn.to/4akBIcN" target="_blank"><img loading="lazy" decoding="async" style="border:1px solid black;" alt="The Unified Modeling Language User Guide" title="Buy Now" border="0" width="265" height="333" src="/recommended/images/umlUserGuide.jpg" /></a>
 </center>
 
 <br />
@@ -589,7 +620,7 @@
 
 <p>Aggregation and composition diagrams also help you design <a href="https://codersite.dev/rest-api-overview/" target="_blank">REST API</a> endpoints. The following diagram shows the relationships among the business objects of a purchasing system:</p>
 
-<p><img src="/assets/images/shoppingCar.jpg" alt="UML diagram of Buyer, Order, BuyingList, Assortment, Article, Supplier and Address" title="Aggregation and composition for API design" class="img-responsive" /></p>
+<p><img loading="lazy" decoding="async" src="/assets/images/shoppingCar.jpg" alt="UML diagram of Buyer, Order, BuyingList, Assortment, Article, Supplier and Address" title="Aggregation and composition for API design" class="img-responsive" /></p>
 
 <p>The <em>has-a</em> relationships become nested resources. To get the orders of a buyer:</p>
 
@@ -653,7 +684,7 @@
 <p>Choosing the right relationship is a software design decision. My book shows when interfaces, composition and the SOLID principles help, what they cost, and when they make your code worse:</p>
 
 <div><center>
-  <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank"><img style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="/assets/images/SoftwareDesignPrinciplesV2.jpg" /></a>
+  <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank"><img loading="lazy" decoding="async" style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" src="/assets/images/SoftwareDesignPrinciplesV2.jpg" /></a>
 </center>
 
 <br /></div>
@@ -945,18 +976,16 @@ https://search.google.com/structured-data/testing-tool/u/0/
 <!-- Scripts
 ================================================== -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<!-- All scripts are deferred: they download in parallel and run in this order after the HTML is parsed,
+     so they never block the first paint. No inline script on the site depends on jQuery. -->
+<script src="/assets/js/jquery.min.js" defer></script>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous" defer></script>
 
-<script src="/assets/js/mediumish.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous" defer></script>
 
+<script src="/assets/js/mediumish.js" defer></script>
 
-
-<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
-
-
-<script id="dsq-count-scr" src="//demowebsite.disqus.com/count.js"></script>
 
 
 <!--
