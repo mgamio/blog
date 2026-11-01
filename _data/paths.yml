@@ -1,0 +1,62 @@
+# Reading paths for /start-here/. Each post in a path also shows a "Part n of m" bar.
+# "posts" are post URLs in reading order. A post should belong to one path only.
+
+- id: interview
+  title: Ace the coding interview
+  tagline: From Big O to solved interview problems, in the order interviewers expect you to know them.
+  for_who: You have a coding interview coming up, or you want to stop freezing on algorithm questions.
+  posts:
+    - /big-o-notation-analysis-of-algorithms/
+    - /data-structures-foundation-efficient-programming/
+    - /transform-list-into-hashmap/
+    - /tree-data-structure-binary-search-tree/
+    - /graphs-depth-first-search/
+    - /merge-two-sorted-lists/
+    - /number-items-closed-compartments/
+    - /shopping-budget-options/
+  book:
+    title: The Code Interview
+    author_book: true
+    pitch: Real Java coding interview questions, each solved step by step, with the thinking you are expected to say out loud.
+    url: https://link.amazon/B08nEgB1o
+    cover: /assets/images/the-code-interview-cover-240.jpg
+
+- id: rest-apis
+  title: Build REST APIs with Spring Boot
+  tagline: Design, build, document, secure and call a REST API, the way it is done in real projects.
+  for_who: You build backends in Java and want APIs that other teams can use without asking you how.
+  posts:
+    - /rest-api-overview/
+    - /gradle-building-restful-web-service/
+    - /designing-apis-with-swagger-and-openapi/
+    - /documenting-rest-api-openapi3/
+    - /swagger-codegen-server-stubs-openapi/
+    - /spring-boot-oauth2/
+    - /rate-limit/
+    - /how-rest-client-handles-503-error/
+    - /spring-restclient-replace-oauth2resttemplate/
+  book:
+    title: Designing APIs with Swagger and OpenAPI
+    author_book: false
+    pitch: The book I recommend for going deeper into design-first APIs and the OpenAPI specification.
+    url: https://amzn.to/3F10p2v
+    cover: /recommended/images/designingAPIsWithSwaggerAndOpenAPI.jpg
+
+- id: design
+  title: Design better software
+  tagline: Object-oriented basics, SOLID and clean code, so your code stays easy to change.
+  for_who: Your code works, but every new feature breaks something else.
+  posts:
+    - /understanding-oop-concepts/
+    - /software-design-principles/
+    - /solid-principles-the-definitive-guide/
+    - /open-closed-principle/
+    - /clean-code/
+    - /uml-diagrams-for-java-developers/
+    - /the-ubiquitous-language/
+  book:
+    title: Software Design Principles
+    author_book: true
+    pitch: All the principles in one place, with Java examples you can apply on Monday morning.
+    url: https://www.amazon.com/dp/B0HMWNF1Y4
+    cover: /assets/images/software-design-principles-cover-240.jpg

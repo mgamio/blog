@@ -1,0 +1,32 @@
+<!-- Reading path bar: shown when this post belongs to a path in _data/paths.yml.
+     include.position "top" shows "Part n of m"; "bottom" shows the next step (or the book at the end). -->
+{%- assign current_path = nil -%}
+{%- for path in site.data.paths -%}
+  {%- if path.posts contains page.url -%}{%- assign current_path = path -%}{%- break -%}{%- endif -%}
+{%- endfor -%}
+{%- if current_path -%}
+  {%- assign step = 0 -%}
+  {%- for url in current_path.posts -%}
+    {%- if url == page.url -%}{%- assign step = forloop.index -%}{%- endif -%}
+  {%- endfor -%}
+  {%- assign total = current_path.posts.size -%}
+  {%- if include.position == "top" -%}
+<p class="path-bar">
+    <a href="{{ '/start-here/' | relative_url }}#{{ current_path.id }}">Part {{ step }} of {{ total }} in <strong>{{ current_path.title }}</strong></a>
+</p>
+  {%- else -%}
+    {%- if step < total -%}
+      {%- assign next_url = current_path.posts[step] -%}
+      {%- assign next_post = site.posts | where: "url", next_url | first -%}
+<a class="path-next" href="{{ next_post.url | relative_url }}">
+    <span class="path-next-label">Next in {{ current_path.title }} · Part {{ step | plus: 1 }} of {{ total }}</span>
+    <span class="path-next-title">{{ next_post.title }} &rarr;</span>
+</a>
+    {%- else -%}
+<div class="path-next path-done">
+    <span class="path-next-label">You finished {{ current_path.title }}</span>
+    <span class="path-next-title">{% if current_path.book.author_book %}Keep going with my book{% else %}Go further with{% endif %} <a href="{{ current_path.book.url }}" target="_blank" rel="noopener">{{ current_path.book.title }}</a></span>
+</div>
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

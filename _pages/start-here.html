@@ -1,0 +1,56 @@
+---
+title: "Start Here"
+layout: page
+permalink: "/start-here/"
+description: "New to codersite.dev? Pick a reading path: ace the coding interview, build REST APIs with Spring Boot, or design better software. Each path lists the articles in the order to read them."
+image: /assets/images/codersite-home-og.jpg
+comments: false
+---
+
+<p class="sh-intro">There are more than 40 articles on this site. You don't need all of them. Pick the goal that fits you and read the articles in order: each one builds on the one before.</p>
+
+<nav class="sh-jump" aria-label="Reading paths">
+{%- for path in site.data.paths -%}
+    <a class="sh-jump-link" href="#{{ path.id }}">{{ path.title }}</a>
+{%- endfor -%}
+</nav>
+
+{%- for path in site.data.paths %}
+<section class="sh-path" id="{{ path.id }}" aria-labelledby="{{ path.id }}-title">
+    <h2 class="sh-path-title" id="{{ path.id }}-title">{{ path.title }}</h2>
+    <p class="sh-tagline">{{ path.tagline }}</p>
+    <p class="sh-for"><strong>For you if:</strong> {{ path.for_who }}</p>
+
+    <ol class="sh-steps">
+    {%- for url in path.posts -%}
+        {%- assign p = site.posts | where: "url", url | first -%}
+        {%- if p -%}
+        {%- assign words = p.content | number_of_words -%}
+        <li class="sh-step">
+            <a class="sh-step-link" href="{{ p.url | relative_url }}">
+                <span class="sh-step-num" aria-hidden="true">{{ forloop.index }}</span>
+                <span class="sh-step-text">
+                    <span class="sh-step-name">{{ p.title }}</span>
+                    <span class="sh-step-meta">{{ words | divided_by: 200 | plus: 1 }} min read</span>
+                </span>
+            </a>
+        </li>
+        {%- endif -%}
+    {%- endfor -%}
+    </ol>
+
+    <div class="sh-book">
+        <a class="sh-book-cover" href="{{ path.book.url }}" target="_blank" rel="noopener">
+            <img src="{{ path.book.cover | relative_url }}" width="120" height="192" loading="lazy" decoding="async" alt="Cover of {{ path.book.title }}">
+        </a>
+        <div class="sh-book-text">
+            <span class="sh-book-label">{% if path.book.author_book %}Finish the path with my book{% else %}Go further{% endif %}</span>
+            <span class="sh-book-title">{{ path.book.title }}</span>
+            <p>{{ path.book.pitch }}</p>
+            <a class="sh-book-btn" href="{{ path.book.url }}" target="_blank" rel="noopener">See it on Amazon</a>
+        </div>
+    </div>
+</section>
+{%- endfor %}
+
+<p class="sh-more">Looking for something else? Browse <a href="{{ '/categories' | relative_url }}">all categories</a> or try the <a href="{{ '/tools/' | relative_url }}">free developer tools</a>.</p>
