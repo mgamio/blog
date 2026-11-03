@@ -1,0 +1,65 @@
+<div class="jt">
+    <div class="jt-panes">
+        <form id="smgForm" class="jt-pane cmg-form" autocomplete="off" onsubmit="return false">
+            <fieldset>
+                <legend>Stack and task</legend>
+                <label class="jt-field">Your stack
+                    <select id="smgStack"></select>
+                </label>
+                <label class="jt-field">Skill
+                    <select id="smgSkill"></select>
+                </label>
+                <p class="smg-note">Changing the stack or the skill resets the name and the description below.</p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Name and description</legend>
+                <label class="jt-field">Name (becomes the folder name and the /command)
+                    <input type="text" id="smgName" spellcheck="false" maxlength="80">
+                </label>
+                <label class="jt-field">Description: what it does, then "Use when ..."
+                    <textarea id="smgDesc" rows="5"></textarea>
+                </label>
+                <div class="smg-count" id="smgDescCount" aria-live="polite"></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Claude Code options</legend>
+                <p class="smg-note" id="smgCcOnly" hidden>These options exist only in Claude Code. Switch the format to Claude Code to use them.</p>
+                <label class="jt-field">Who can run it
+                    <select id="smgInvocation"></select>
+                </label>
+                <label class="jt-field">Argument hint (shown after the /command)
+                    <input type="text" id="smgHint" spellcheck="false" placeholder="optional, e.g. [class or file]">
+                </label>
+                <div class="jt-checks">
+                    <label><input type="checkbox" id="smgTools"> Pre-approve the read and test commands this skill runs (<code>allowed-tools</code>)</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Project rules</legend>
+                <label class="jt-field">One rule per line, added to the skill: conventions, paths, things the agent gets wrong
+                    <textarea id="smgExtra" rows="3" spellcheck="false" placeholder="Money amounts are BigDecimal, never double.&#10;Integration tests live in src/integrationTest."></textarea>
+                </label>
+            </fieldset>
+
+            <button type="button" id="smgReset" class="jt-btn jt-ghost">Reset this skill to its defaults</button>
+        </form>
+
+        <div class="jt-pane cmg-preview">
+            <label class="jt-field cmg-format">Format
+                <select id="smgTarget" form="smgForm"></select>
+            </label>
+            <div class="jt-pane-head">
+                <span id="smgFile">.claude/skills/write-tests/SKILL.md</span>
+                <button type="button" id="smgCopy" class="jt-small">Copy</button>
+                <button type="button" id="smgDownload" class="jt-small">Download</button>
+            </div>
+            <pre id="smgOutput" class="jt-output cmg-output" aria-label="Generated SKILL.md file"></pre>
+        </div>
+    </div>
+
+    <div id="smgStatus" class="jt-status" role="status" aria-live="polite">Pick a stack and a skill. The file updates as you type.</div>
+    <noscript><p class="jt-noscript">This tool needs JavaScript. Everything runs locally in your browser.</p></noscript>
+</div>

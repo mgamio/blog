@@ -566,3 +566,35 @@
 .lc-source a {
     text-decoration: underline;
 }
+
+/* SKILL.md generator */
+.smg-note {
+    font-size: 0.85rem;
+    color: #6b6b6b;
+    margin: 0.2rem 0 0.4rem;
+}
+
+.smg-count {
+    font-size: 0.8rem;
+    color: #6b6b6b;
+    text-align: right;
+    margin-top: -0.3rem;
+}
+
+.smg-count.smg-over {
+    color: #8a1c13;
+    font-weight: 700;
+}
+
+.cmg-form select:disabled,
+.cmg-form input:disabled {
+    background: #f3f4f6;
+    color: #6b6b6b;
+}
+
+/* Short YAML examples (one long description line) wrap instead of scrolling */
+.tool-content .language-yaml pre,
+.tool-content .language-yaml code {
+    white-space: pre-wrap;
+    word-break: break-word;
+}

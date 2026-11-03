@@ -67,7 +67,8 @@
 }
 .highlight { /* Generic.Error */ }
 .highlight .gh {
-  color: #999999;
+  color: #555555;
+  font-weight: bold;
 }
 .highlight { /* Generic.Heading */ }
 .highlight .gi {
@@ -93,7 +94,8 @@
 }
 .highlight { /* Generic.Strong */ }
 .highlight .gu {
-  color: #aaaaaa;
+  color: #666666;
+  font-weight: bold;
 }
 .highlight { /* Generic.Subheading */ }
 .highlight .gt {

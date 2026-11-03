@@ -16,13 +16,13 @@
 	.gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
 	.ge { font-style: italic } /* Generic.Emph */
 	.gr { color: #aa0000 } /* Generic.Error */
-	.gh { color: #999999 } /* Generic.Heading */
+	.gh { color: #555555; font-weight: bold } /* Generic.Heading */
 	.gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
 	.gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
 	.go { color: #888888 } /* Generic.Output */
 	.gp { color: #555555 } /* Generic.Prompt */
 	.gs { font-weight: bold } /* Generic.Strong */
-	.gu { color: #aaaaaa } /* Generic.Subheading */
+	.gu { color: #666666; font-weight: bold } /* Generic.Subheading */
 	.gt { color: #aa0000 } /* Generic.Traceback */
 	.kc { font-weight: bold } /* Keyword.Constant */
 	.kd { font-weight: bold } /* Keyword.Declaration */
