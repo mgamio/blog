@@ -18,13 +18,13 @@
 <meta property="og:site_name" content="codersite" />
 <meta property="og:image" content="https://codersite.dev/assets/images/claudeMdGeneratorTool.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-11-03T22:53:45+01:00" />
-<meta property="article:modified_time" content="2026-11-03T22:53:45+01:00" />
+<meta property="article:published_time" content="2026-11-03T23:01:27+01:00" />
+<meta property="article:modified_time" content="2026-11-03T23:01:27+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/claudeMdGeneratorTool.jpg" />
 <meta name="twitter:title" content="CLAUDE.md and AGENTS.md Generator" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-11-03T22:53:45+01:00","datePublished":"2026-11-03T22:53:45+01:00","description":"Free generator for AGENTS.md, CLAUDE.md, GEMINI.md, Copilot instructions and Cursor rules. Pick your stack and architecture and get a clear instructions file for your AI coding agent.","headline":"CLAUDE.md and AGENTS.md Generator","image":"https://codersite.dev/assets/images/claudeMdGeneratorTool.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/tools/claude-md-generator/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"}},"url":"https://codersite.dev/tools/claude-md-generator/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-11-03T23:01:27+01:00","datePublished":"2026-11-03T23:01:27+01:00","description":"Free generator for AGENTS.md, CLAUDE.md, GEMINI.md, Copilot instructions and Cursor rules. Pick your stack and architecture and get a clear instructions file for your AI coding agent.","headline":"CLAUDE.md and AGENTS.md Generator","image":"https://codersite.dev/assets/images/claudeMdGeneratorTool.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/tools/claude-md-generator/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"}},"url":"https://codersite.dev/tools/claude-md-generator/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -482,6 +482,7 @@
   <li><strong>What the code already shows.</strong> The agent can read your <code class="language-plaintext highlighter-rouge">pom.xml</code> or <code class="language-plaintext highlighter-rouge">package.json</code>.</li>
   <li><strong>Generic advice</strong> such as “write clean code” or “follow best practices”. It changes nothing.</li>
   <li><strong>Long explanations and tutorials.</strong> Link to the documentation instead.</li>
+  <li><strong>Step-by-step procedures for one task</strong>, such as how to write tests or review changes. They belong in a skill, which loads only when it’s needed (see <a href="#move-procedures-into-skills">below</a>).</li>
   <li><strong>Secrets.</strong> The file is committed with your code.</li>
 </ul>
 
@@ -584,6 +585,21 @@
 </script>
 <br /></div>
 
+<h2 id="move-procedures-into-skills">Move Procedures into Skills</h2>
+
+<p><code class="language-plaintext highlighter-rouge">CLAUDE.md</code> and <code class="language-plaintext highlighter-rouge">AGENTS.md</code> are loaded in <strong>every</strong> session, so every line should matter for every task. A procedure such as “how we write tests” or “how we create a database migration” matters only for that one task, yet it costs tokens and attention in all the others.</p>
+
+<p>Agent Skills solve this. A skill is a <code class="language-plaintext highlighter-rouge">SKILL.md</code> file with the steps for one task, and the agent loads it only when a request matches its description. In Claude Code you can also run it yourself, with <code class="language-plaintext highlighter-rouge">/write-tests</code> or <code class="language-plaintext highlighter-rouge">/review-changes</code>. A simple rule:</p>
+
+<ul>
+  <li><strong>Facts for every task</strong> go in <code class="language-plaintext highlighter-rouge">CLAUDE.md</code>: the commands, the architecture rules, the gotchas.</li>
+  <li><strong>Procedures for one task</strong> go in a skill: the steps, the checks and the rules for writing tests, fixing bugs, reviewing changes or upgrading a dependency.</li>
+</ul>
+
+<p>If a section of your file starts with “When you …”, it is probably a skill. Moving it out keeps the file short, and agents follow short files more reliably.</p>
+
+<p>The <a href="/tools/skill-md-generator/">SKILL.md generator</a> creates skills for these tasks, adapted to your stack: for example, a <a href="/tools/skill-md-generator/?stack=spring-maven&amp;skill=write-tests">test-writing skill for Spring Boot</a> or a <a href="/tools/skill-md-generator/?stack=nextjs&amp;skill=review-changes">code review skill for Next.js</a>. It also explains how to write the name and the description so the agent actually uses the skill.</p>
+
 <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
 
 <p><strong>What is the difference between CLAUDE.md and AGENTS.md?</strong>
@@ -600,6 +616,9 @@ No. The file is context that strongly guides the agent, not a configuration it m
 
 <p><strong>Can I generate the file with the agent itself?</strong>
 Yes. Claude Code’s <code class="language-plaintext highlighter-rouge">/init</code> command, for example, analyzes the repository and writes a first <code class="language-plaintext highlighter-rouge">CLAUDE.md</code>. Use it together with this generator: <code class="language-plaintext highlighter-rouge">/init</code> finds the commands, and the generator adds the architecture and working rules that an agent can’t discover from the code.</p>
+
+<p><strong>What is the difference between CLAUDE.md and a skill?</strong>
+<code class="language-plaintext highlighter-rouge">CLAUDE.md</code> is loaded at the start of every session and holds what matters for every task. A skill (<code class="language-plaintext highlighter-rouge">SKILL.md</code>) holds the steps for one task and is loaded only when that task comes up. Create skills with the <a href="/tools/skill-md-generator/">SKILL.md generator</a>.</p>
 
 <p><strong>Is anything I type sent to a server?</strong>
 No. The generator is a small JavaScript program that runs in your browser. Your settings are saved only in your browser’s local storage.</p>

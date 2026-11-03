@@ -66,6 +66,7 @@ Leave out:
 - **What the code already shows.** The agent can read your `pom.xml` or `package.json`.
 - **Generic advice** such as "write clean code" or "follow best practices". It changes nothing.
 - **Long explanations and tutorials.** Link to the documentation instead.
+- **Step-by-step procedures for one task**, such as how to write tests or review changes. They belong in a skill, which loads only when it's needed (see [below](#move-procedures-into-skills)).
 - **Secrets.** The file is committed with your code.
 
 Anthropic's documentation for Claude Code recommends **under 200 lines** per `CLAUDE.md`, because longer files reduce how closely the agent follows them. The generator shows the line count and an estimate of the tokens the file adds to every session.
@@ -139,6 +140,19 @@ An agent follows your architecture only as well as you can describe it. My book 
 {%- include inArticleAds.html -%}
 </div>
 
+## Move Procedures into Skills
+
+`CLAUDE.md` and `AGENTS.md` are loaded in **every** session, so every line should matter for every task. A procedure such as "how we write tests" or "how we create a database migration" matters only for that one task, yet it costs tokens and attention in all the others.
+
+Agent Skills solve this. A skill is a `SKILL.md` file with the steps for one task, and the agent loads it only when a request matches its description. In Claude Code you can also run it yourself, with `/write-tests` or `/review-changes`. A simple rule:
+
+- **Facts for every task** go in `CLAUDE.md`: the commands, the architecture rules, the gotchas.
+- **Procedures for one task** go in a skill: the steps, the checks and the rules for writing tests, fixing bugs, reviewing changes or upgrading a dependency.
+
+If a section of your file starts with "When you ...", it is probably a skill. Moving it out keeps the file short, and agents follow short files more reliably.
+
+The [SKILL.md generator](/tools/skill-md-generator/) creates skills for these tasks, adapted to your stack: for example, a [test-writing skill for Spring Boot](/tools/skill-md-generator/?stack=spring-maven&skill=write-tests) or a [code review skill for Next.js](/tools/skill-md-generator/?stack=nextjs&skill=review-changes). It also explains how to write the name and the description so the agent actually uses the skill.
+
 ## Frequently Asked Questions
 
 **What is the difference between CLAUDE.md and AGENTS.md?**
@@ -155,6 +169,9 @@ No. The file is context that strongly guides the agent, not a configuration it m
 
 **Can I generate the file with the agent itself?**
 Yes. Claude Code's `/init` command, for example, analyzes the repository and writes a first `CLAUDE.md`. Use it together with this generator: `/init` finds the commands, and the generator adds the architecture and working rules that an agent can't discover from the code.
+
+**What is the difference between CLAUDE.md and a skill?**
+`CLAUDE.md` is loaded at the start of every session and holds what matters for every task. A skill (`SKILL.md`) holds the steps for one task and is loaded only when that task comes up. Create skills with the [SKILL.md generator](/tools/skill-md-generator/).
 
 **Is anything I type sent to a server?**
 No. The generator is a small JavaScript program that runs in your browser. Your settings are saved only in your browser's local storage.

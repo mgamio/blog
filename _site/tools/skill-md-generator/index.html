@@ -18,13 +18,13 @@
 <meta property="og:site_name" content="codersite" />
 <meta property="og:image" content="https://codersite.dev/assets/images/skillMdGeneratorTool.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-11-03T22:53:45+01:00" />
-<meta property="article:modified_time" content="2026-11-03T22:53:45+01:00" />
+<meta property="article:published_time" content="2026-11-03T23:01:27+01:00" />
+<meta property="article:modified_time" content="2026-11-03T23:01:27+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://codersite.dev/assets/images/skillMdGeneratorTool.jpg" />
 <meta name="twitter:title" content="SKILL.md Generator: Agent Skills for Claude Code and Other AI Agents" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-11-03T22:53:45+01:00","datePublished":"2026-11-03T22:53:45+01:00","description":"Free generator for Agent Skills (SKILL.md). Pick your stack and a task such as writing tests, fixing bugs or reviewing changes, and get a ready-to-use skill for Claude Code and other AI coding agents.","headline":"SKILL.md Generator: Agent Skills for Claude Code and Other AI Agents","image":"https://codersite.dev/assets/images/skillMdGeneratorTool.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/tools/skill-md-generator/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"}},"url":"https://codersite.dev/tools/skill-md-generator/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-11-03T23:01:27+01:00","datePublished":"2026-11-03T23:01:27+01:00","description":"Free generator for Agent Skills (SKILL.md). Pick your stack and a task such as writing tests, fixing bugs or reviewing changes, and get a ready-to-use skill for Claude Code and other AI coding agents.","headline":"SKILL.md Generator: Agent Skills for Claude Code and Other AI Agents","image":"https://codersite.dev/assets/images/skillMdGeneratorTool.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://codersite.dev/tools/skill-md-generator/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"}},"url":"https://codersite.dev/tools/skill-md-generator/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -376,6 +376,8 @@
 </ol>
 
 <p>The generator remembers your settings in your browser, so you can come back and build the next skill.</p>
+
+<p><strong>Start with a <code class="language-plaintext highlighter-rouge">CLAUDE.md</code> or <code class="language-plaintext highlighter-rouge">AGENTS.md</code>.</strong> Each skill handles one task; the commands, architecture rules and gotchas that matter for every task belong in the instructions file that the agent reads in every session. Create it with the <a href="/tools/claude-md-generator/">CLAUDE.md and AGENTS.md generator</a>, then add skills for the tasks you repeat.</p>
 
 <p>Want to turn your AI coding skills into a new career? MSIT’s AI programs can be fully funded in Germany, and codersite readers get a €500 welcome bonus. <a href="/msit-ai-career-programs-germany/">Read the full review</a> before you decide.</p>
 
@@ -778,6 +780,9 @@ Almost always because of the description. Make sure it says what the skill does,
 
 <p><strong>Should I commit skills to Git?</strong>
 Yes, project skills in <code class="language-plaintext highlighter-rouge">.claude/skills/</code> belong with the code, so everyone on the team gets the same procedures. Keep personal skills in <code class="language-plaintext highlighter-rouge">~/.claude/skills/</code>.</p>
+
+<p><strong>Do I still need a CLAUDE.md if I use skills?</strong>
+Yes. Skills load only for their task, so the facts every task needs, such as the build commands and the architecture rules, still belong in a <code class="language-plaintext highlighter-rouge">CLAUDE.md</code> or <code class="language-plaintext highlighter-rouge">AGENTS.md</code>. Skills can then stay short and refer to those commands. Create the file with the <a href="/tools/claude-md-generator/">CLAUDE.md and AGENTS.md generator</a>.</p>
 
 <p><strong>Can a skill run scripts?</strong>
 Yes. Put them in the skill’s <code class="language-plaintext highlighter-rouge">scripts/</code> folder and tell the agent in <code class="language-plaintext highlighter-rouge">SKILL.md</code> when to run them. The agent runs scripts without loading their code into its context, which makes them a cheap and reliable way to handle exact, repetitive steps.</p>
