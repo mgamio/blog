@@ -211,6 +211,34 @@ section { padding-block: clamp(56px, 8vw, 104px); }
 .faq dd { margin: 6px 0 0; color: var(--muted); }
 @media (max-width: 760px) { .faq dl { grid-template-columns: 1fr; } }
 
+/* ---------- free chapter */
+.freech { background: var(--surface); border-bottom: 1px solid var(--line); }
+.freech .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.freech h2 { font-size: var(--step-2); margin-top: 12px; }
+.freech .copy { display: grid; gap: 16px; }
+.freech .copy p { color: var(--muted); }
+.freech .copy p strong { color: var(--ink); font-weight: 600; }
+.freech .ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 8px; }
+.freech .note { font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); }
+.freech .after { font-size: 0.97rem; }
+.freech .after a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.pdf { display: block; text-decoration: none; color: inherit; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 2px 4px rgba(10,25,40,.08), 0 18px 36px -14px rgba(10,25,40,.30); overflow: hidden; transform: rotate(1.2deg); transition: transform .3s ease; }
+.pdf:hover { transform: rotate(0deg); }
+.pdf .pdf-top { display: flex; justify-content: space-between; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--line); font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
+.pdf .pdf-top b { color: var(--accent); font-weight: 500; }
+.pdf .pdf-body { padding: 20px 22px 22px; }
+.pdf .pdf-kicker { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.pdf h3 { font-size: var(--step-1); margin-top: 6px; }
+.pdf ol { list-style: none; margin: 16px 0 0; padding: 0; }
+.pdf li { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px dashed var(--line); font-family: var(--font-display); font-size: var(--step--1); }
+.pdf li:last-child { border-bottom: 0; }
+.pdf li::before { content: "\2192"; color: var(--accent); }
+.hero .sample-link { margin-top: 14px; font-family: var(--font-display); font-size: var(--step--1); }
+.hero .sample-link a { color: var(--muted); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.hero .sample-link a:hover { color: var(--ink); }
+@media (max-width: 860px) { .freech .wrap { grid-template-columns: 1fr; } .pdf { transform: none; max-width: 460px; } }
+@media (prefers-reduced-motion: reduce) { .pdf { transform: none; } }
+
 /* ---------- final call */
 .final { text-align: left; }
 .final .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: center; }
@@ -235,6 +263,7 @@ footer a { color: var(--muted); }
   <div class="wrap">
     <a class="brand" href="https://codersite.dev/books"><b>codersite</b>.dev / books</a>
     <nav class="nav" aria-label="Page sections">
+      <a class="hide-sm" href="#free-chapter">Free chapter</a>
       <a class="hide-sm" href="#inside">Inside</a>
       <a class="hide-sm" href="#checklist">Free checklist</a>
       <a class="hide-sm" href="#author">Author</a>
@@ -254,6 +283,7 @@ footer a { color: var(--muted); }
           <a class="btn btn-primary" href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank" rel="noopener">Get the paperback</a>
           <a class="btn btn-ghost" href="https://www.amazon.com/dp/B0H86LD8NR" target="_blank" rel="noopener">Read it on Kindle</a>
         </div>
+        <p class="sample-link"><a href="#free-chapter">Not sure yet? Read Chapter 1 free first &rarr;</a></p>
         <ul class="facts">
           <li>371 pages</li>
           <li>Java 17, no frameworks</li>
@@ -348,6 +378,38 @@ footer a { color: var(--muted); }
           <p class="verdict"><strong>1 line</strong> to change the discount. An unknown plan cannot even reach the pricing code.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="freech" id="free-chapter" aria-labelledby="free-chapter-title">
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow">Free sample &middot; no sign-up</p>
+        <h2 id="free-chapter-title">Read all of Chapter 1 before you spend a cent</h2>
+        <p>You just saw how the book begins. The free sample keeps going: <strong>the complete first chapter</strong>, where the core design principles are taught the same way as in the rest of the book, with a real problem, the refactoring step by step, and what each principle costs.</p>
+        <p>Read it on your next coffee break. If the way it explains design works for you, the other ten chapters will too. If it doesn&rsquo;t, you have lost nothing.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="/assets/files/sdpSample.pdf" download="Software-That-Can-Change-Chapter-1.pdf">Download Chapter 1 free</a>
+          <span class="note">PDF &middot; 53 pages &middot; no email needed</span>
+        </div>
+        <p class="after">Already convinced? <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank" rel="noopener">Get the paperback</a> or <a href="https://www.amazon.com/dp/B0H86LD8NR" target="_blank" rel="noopener">read it on Kindle</a>.</p>
+      </div>
+      <a class="pdf" href="/assets/files/sdpSample.pdf" download="Software-That-Can-Change-Chapter-1.pdf" aria-label="Download the free Chapter 1 sample (PDF)">
+        <div class="pdf-top"><span>chapter-1-sample.pdf</span><b>FREE</b></div>
+        <div class="pdf-body">
+          <p class="pdf-kicker">Chapter 1</p>
+          <h3>Core Design Principles</h3>
+          <ol>
+            <li>Separation of Concerns</li>
+            <li>Don&rsquo;t Repeat Yourself (DRY)</li>
+            <li>Keep It Simple, Stupid (KISS)</li>
+            <li>You Aren&rsquo;t Gonna Need It (YAGNI)</li>
+            <li>Loose Coupling and High Cohesion</li>
+            <li>Clean Code</li>
+            <li>Chapter summary, plus the full table of contents</li>
+          </ol>
+        </div>
+      </a>
     </div>
   </section>
 

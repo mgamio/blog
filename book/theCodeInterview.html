@@ -123,6 +123,23 @@ body{background:#F6F8F7}
 .page .final h2{font-size:clamp(30px,4vw,46px)}
 .page .final .ctas{justify-content:center;margin-top:24px}
 .page footer{margin-top:40px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:15px;color:var(--soft)}
+/* free Chapter 1 sample */
+.page .freech{margin-top:20px;background:var(--card);border:2.5px dashed var(--blue);border-radius:16px;padding:28px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+.page .freech .tag{color:var(--red);font-size:26px;line-height:1}
+.page .freech h3{font-size:clamp(26px,3vw,34px);margin-top:4px}
+.page .freech p{color:var(--soft);font-size:17px;margin:12px 0 0}
+.page .freech p strong{color:var(--ink)}
+.page .freech .ctas{margin-top:22px;align-items:center}
+.page .freech .fine{margin:0}
+.page .qlist{margin:0;padding:0;list-style:none}
+.page .qlist li{display:flex;gap:12px;align-items:baseline;padding:8px 0;border-bottom:2px dotted var(--line);font-size:16px}
+.page .qlist li:last-child{border-bottom:0}
+.page .qlist .n{font:700 22px/1 "Caveat",cursive;color:var(--red);min-width:30px}
+.page .qlist li.here{font-weight:700}
+.page .qlist li.here .seen{margin-left:auto;font:700 18px/1 "Caveat",cursive;color:var(--blue);white-space:nowrap}
+.page .hero .fine a{color:var(--soft);text-decoration-color:var(--red);text-underline-offset:3px}
+@media (max-width:900px){.page .freech{grid-template-columns:1fr}}
+@media (max-width:640px){.page .freech{padding:22px}}
 @media (max-width:900px){.page .hero,.page .board{grid-template-columns:1fr}.page .steps{grid-template-columns:1fr 1fr}.page .quotes{grid-template-columns:1fr}}
 @media (max-width:640px){.page nav ul{display:none}.page .steps,.page .who{grid-template-columns:1fr}.page .author{grid-template-columns:1fr}.page .final,.page .board{padding:22px}.page .sticky-note{position:static;transform:rotate(-3deg);margin:16px auto 0;max-width:none;text-align:center}}
 
@@ -139,7 +156,7 @@ body{background:#F6F8F7}
  <div class="wrap">
   <nav aria-label="Main">
     <div class="brand">The Code Interview <span class="marker">2nd ed.</span></div>
-    <ul><li><a href="#b-method">The method</a></li><li><a href="#b-sample">Sample</a></li><li><a href="#b-contents">Contents</a></li><li><a href="#b-faq">FAQ</a></li></ul>
+    <ul><li><a href="#b-method">The method</a></li><li><a href="#b-sample">Free chapter</a></li><li><a href="#b-contents">Contents</a></li><li><a href="#b-faq">FAQ</a></li></ul>
     <a class="btn btn-plain" href="https://link.amazon/B08nEgB1o" data-buy="any" target="_blank" rel="noopener">Buy on Amazon</a>
   </nav>
 
@@ -152,6 +169,7 @@ body{background:#F6F8F7}
       <div class="ctas">
         <a class="btn btn-primary" href="https://link.amazon/B08nEgB1o" data-buy="paperback" target="_blank" rel="noopener">Get the paperback on Amazon</a>        
       </div>
+      <p class="fine"><a href="#free-chapter">Not sure yet? Read Chapter 1 free first &rarr;</a></p>
       <p class="lead">Build confidence for your next Java coding interview.</p>
     </div>
     <div class="board-book">
@@ -196,6 +214,29 @@ body{background:#F6F8F7}
         </table>
         <p class="marker scribble">query (1, 6): sum[5] − sum[0] = 3</p>
       </div>
+    </div>
+
+    <div class="freech" id="free-chapter">
+      <div>
+        <span class="marker tag">free · no sign-up</span>
+        <h3>Get all of Chapter 1 free</h3>
+        <p>Question 1.6 is one of eight in the first chapter. The free sample has <strong>the whole chapter</strong>: the fundamentals of arrays and strings, then eight interview questions worked with the full method, from clarifying questions and a brute-force solution to the optimal one and its complexity.</p>
+        <p>Try one on paper before you read the answer. If the method clicks, the other 40 questions are waiting in the book.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="/assets/files/sample.pdf" download="The-Code-Interview-Chapter-1.pdf">Download Chapter 1 free</a>
+          <span class="fine">PDF · 41 pages · no email needed</span>
+        </div>
+      </div>
+      <ol class="qlist" aria-label="Questions in the free Chapter 1 sample">
+        <li><span class="n">1.1</span>Reverse a Text</li>
+        <li><span class="n">1.2</span>Validate If a String Has All Unique Characters</li>
+        <li><span class="n">1.3</span>Validate If a String Is a Palindrome</li>
+        <li><span class="n">1.4</span>Compare Application Version Numbers</li>
+        <li><span class="n">1.5</span>Rotate a Matrix by 90 Degrees</li>
+        <li class="here"><span class="n">1.6</span>Items in Closed Compartments<span class="seen">← above</span></li>
+        <li><span class="n">1.7</span>DHL Locker Locations</li>
+        <li><span class="n">1.8</span>Largest Sibling of a Number</li>
+      </ol>
     </div>
   </section>
 
@@ -269,7 +310,7 @@ body{background:#F6F8F7}
     <h2>Walk in prepared. Walk out with the offer.</h2>
     <div class="ctas">
       <a class="btn btn-primary" href="https://link.amazon/B08nEgB1o" data-buy="any" target="_blank" rel="noopener">Buy on Amazon</a>
-      <a class="btn btn-plain" href="#b-sample">See the sample again</a>
+      <a class="btn btn-plain" href="/assets/files/sample.pdf" download="The-Code-Interview-Chapter-1.pdf">Read Chapter 1 free</a>
     </div>
   </div>
   </main>
