@@ -6,5 +6,10 @@
       "Bash(curl -sS -m 20 -o /dev/null -w \"%{http_code} size=%{size_download}\\\\n\" https://codersite.dev/sitemap.xml)",
       "Bash(curl -sS -m 20 https://codersite.dev/sitemap.xml)"
     ]
+  },
+  "skillOverrides": {
+    "anthropic-skills:built-in-browser": "off",
+    "anthropic-skills:chrome-browser": "off",
+    "anthropic-skills:computer-use": "off"
   }
 }
