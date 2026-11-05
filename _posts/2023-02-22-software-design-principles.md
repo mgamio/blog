@@ -273,9 +273,9 @@ Principles are tools for making decisions, not laws, and sometimes they pull in 
 
 Knowing the names of the principles is easy. Recognizing when your own code breaks them, and fixing it under deadline pressure, takes practice.
 
-My book **Software Design Principles** takes the ideas in this post further with worked examples: DRY, KISS, YAGNI, loose coupling and high cohesion, all five SOLID principles each with code and a *Key Takeaways* recap, UML class diagrams with all six relationship types, twelve clean-code habits, and case studies where you design a RESTful API and a B2B integration from start to finish.
+My book **[A Practical Guide to Building Software That Can Change](https://codersite.dev/book/softwareDesignPrinciplesV2.html){:target="_blank"}** takes the ideas in this post further with worked examples: DRY, KISS, YAGNI, loose coupling and high cohesion, all five SOLID principles each with code and a *Key Takeaways* recap, UML class diagrams with all six relationship types, twelve clean-code habits, and case studies where you design a RESTful API and a B2B integration from start to finish.
 
-> Software design principles provide guidelines to handle the design process's complexity, prepare your code when changes arise, and minimize the impact of introducing bugs. -- <cite>[Software Design Principles](https://amzn.to/3Csx3sR){:target="_blank"}</cite>
+> Software design principles provide guidelines to handle the design process's complexity, prepare your code when changes arise, and minimize the impact of introducing bugs. -- <cite>[A Practical Guide to Building Software That Can Change](https://codersite.dev/book/softwareDesignPrinciplesV2.html){:target="_blank"}</cite>
 
 <div>
 {%- include softwareDesign.html -%}
