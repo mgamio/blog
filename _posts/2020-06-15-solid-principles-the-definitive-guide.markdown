@@ -362,7 +362,7 @@ Spring's dependency injection exists to make this easy: when a class asks for a 
 | **I**nterface Segregation | Small interfaces shaped by what clients use | Empty or throwing methods in implementations |
 | **D**ependency Inversion | Business logic depends on interfaces it owns | `new JdbcSomething()` inside business logic |
 
-Writing code like this is a skill you build by seeing the same principles applied in different situations. My book *Software Design Principles* covers all five SOLID principles, each with its own Java example and a *Key Takeaways* recap, together with DRY, KISS, YAGNI and UML class diagrams, and case studies where you design a REST API and a B2B integration from start to finish.
+Writing code like this is a skill you build by seeing the same principles applied in different situations. My book **[A Practical Guide to Building Software That Can Change](https://codersite.dev/book/softwareDesignPrinciplesV2.html){:target="_blank"}** covers all five SOLID principles, each with its own Java example and a *Key Takeaways* recap, together with DRY, KISS, YAGNI and UML class diagrams, and case studies where you design a REST API and a B2B integration from start to finish.
 
 <div>
 {%- include softwareDesign.html -%}
