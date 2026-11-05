@@ -94,8 +94,10 @@ section { padding-block: clamp(56px, 8vw, 104px); }
 .btn-primary { background: var(--accent); color: #fff; }
 .btn-primary:hover { transform: translateY(-1px); background: color-mix(in srgb, var(--accent) 88%, #000); }
 .btn-ghost { border-color: var(--line); color: var(--ink); }
+.btn-pdf small { font-weight: 400; opacity: .8; margin-left: 6px; }
 .btn-ghost:hover { border-color: var(--ink); }
 .btn-small { padding: 8px 14px; font-size: var(--step--1); }
+.nav a.btn-primary, .nav a.btn-primary:hover { color: #fff; }
 
 /* ---------- hero */
 .hero { padding-block: clamp(40px, 6vw, 80px) clamp(56px, 7vw, 96px); }
@@ -209,6 +211,7 @@ section { padding-block: clamp(56px, 8vw, 104px); }
 .faq dl { margin: 32px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 48px; }
 .faq dt { font-family: var(--font-display); font-weight: 600; }
 .faq dd { margin: 6px 0 0; color: var(--muted); }
+.faq dd a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 3px; }
 @media (max-width: 760px) { .faq dl { grid-template-columns: 1fr; } }
 
 /* ---------- free chapter */
@@ -276,12 +279,13 @@ footer a { color: var(--muted); }
   <section class="hero" id="top">
     <div class="wrap">
       <div>
-        <p class="eyebrow">Second edition &middot; Paperback and Kindle</p>
+        <p class="eyebrow">Second edition &middot; Paperback, Kindle and PDF</p>
         <h1>A Practical Guide to Building <span>Software That Can Change</span></h1>
         <p class="lede">Software design principles, trade-offs and architecture for working developers. Learn when each principle helps, what it costs, and when to leave it alone, by following one real system from its first messy version to a design your team can change without fear.</p>
         <div class="ctas">
           <a class="btn btn-primary" href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank" rel="noopener">Get the paperback</a>
           <a class="btn btn-ghost" href="https://www.amazon.com/dp/B0H86LD8NR" target="_blank" rel="noopener">Read it on Kindle</a>
+          <a class="btn btn-ghost btn-pdf" href="https://payhip.com/b/zxMAt" class="payhip-buy-button" data-theme="none" data-product="zxMAt">Buy the PDF <small>$15</small></a>
         </div>
         <p class="sample-link"><a href="#free-chapter">Not sure yet? Read Chapter 1 free first &rarr;</a></p>
         <ul class="facts">
@@ -392,7 +396,7 @@ footer a { color: var(--muted); }
           <a class="btn btn-primary" href="/assets/files/sdpSample.pdf" download="Software-That-Can-Change-Chapter-1.pdf">Download Chapter 1 free</a>
           <span class="note">PDF &middot; 53 pages &middot; no email needed</span>
         </div>
-        <p class="after">Already convinced? <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank" rel="noopener">Get the paperback</a> or <a href="https://www.amazon.com/dp/B0H86LD8NR" target="_blank" rel="noopener">read it on Kindle</a>.</p>
+        <p class="after">Already convinced? <a href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank" rel="noopener">Get the paperback</a>, <a href="https://www.amazon.com/dp/B0H86LD8NR" target="_blank" rel="noopener">read it on Kindle</a>, or <a href="https://payhip.com/b/zxMAt" class="payhip-buy-button" data-theme="none" data-product="zxMAt">buy the PDF for $15</a>, emailed to you right after payment.</p>
       </div>
       <a class="pdf" href="/assets/files/sdpSample.pdf" download="Software-That-Can-Change-Chapter-1.pdf" aria-label="Download the free Chapter 1 sample (PDF)">
         <div class="pdf-top"><span>chapter-1-sample.pdf</span><b>FREE</b></div>
@@ -550,7 +554,7 @@ footer a { color: var(--muted); }
         <div><dt>I don&rsquo;t write Java. Is it for me?</dt><dd>Yes. The examples use plain Java 17 because it reads clearly, but the principles apply equally to C#, Kotlin, TypeScript, Python and other languages. No framework knowledge is needed.</dd></div>
         <div><dt>I read the first edition. What is new?</dt><dd>Everything was rewritten around one growing system, and there are four new chapters: testability, conflicting principles, boundaries and APIs, and architecture. UML became a chapter on communicating design, and four appendices were added.</dd></div>
         <div><dt>Where is the code?</dt><dd>On GitHub at github.com/mgamio/subFlow, one Maven module per chapter, with the &ldquo;before&rdquo; versions kept next to the refactored ones and tests that prove the behavior stayed the same.</dd></div>
-        <div><dt>Paperback or Kindle?</dt><dd>The paperback is 6 &times; 9 inches with figures and code printed for reading on paper. The Kindle edition has the same content, with linked chapters for reading on any device.</dd></div>
+        <div><dt>Paperback, Kindle or PDF?</dt><dd>The paperback is 6 &times; 9 inches with figures and code printed for reading on paper. The Kindle edition has the same content, with linked chapters for reading on any device. The <a href="https://payhip.com/b/zxMAt" class="payhip-buy-button" data-theme="none" data-product="zxMAt">PDF</a> is the same book as a DRM-free file you can read on any screen and search, emailed to you right after payment.</dd></div>
       </dl>
     </div>
   </section>
@@ -563,6 +567,7 @@ footer a { color: var(--muted); }
       </div>
       <div class="ctas">
         <a class="btn btn-primary" href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank" rel="noopener">Buy on Amazon</a>
+        <a class="btn btn-ghost btn-pdf" href="https://payhip.com/b/zxMAt" class="payhip-buy-button" data-theme="none" data-product="zxMAt">Buy the PDF <small>$15</small></a>
         <a class="btn btn-ghost" href="https://github.com/mgamio/subFlow" target="_blank" rel="noopener">Browse the code</a>
       </div>
     </div>
@@ -604,5 +609,6 @@ footer a { color: var(--muted); }
 })();
 </script>
 
+<script src="https://payhip.com/payhip.js" defer></script>
 </body>
 </html>

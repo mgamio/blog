@@ -19,6 +19,8 @@
     author_book: true
     pitch: Real Java coding interview questions, each solved step by step, with the thinking you are expected to say out loud.
     url: https://link.amazon/B08nEgB1o
+    pdf_url: https://payhip.com/b/VYcM3
+    pdf_price: $15
     cover: /assets/images/the-code-interview-cover-240.jpg
 
 - id: rest-apis
@@ -59,4 +61,6 @@
     author_book: true
     pitch: All the principles in one place, with Java examples you can apply on Monday morning.
     url: https://www.amazon.com/dp/B0HMWNF1Y4
+    pdf_url: https://payhip.com/b/zxMAt
+    pdf_price: $15
     cover: /assets/images/software-design-principles-cover-240.jpg

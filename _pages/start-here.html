@@ -47,7 +47,9 @@ comments: false
             <span class="sh-book-label">{% if path.book.author_book %}Finish the path with my book{% else %}Go further{% endif %}</span>
             <span class="sh-book-title">{{ path.book.title }}</span>
             <p>{{ path.book.pitch }}</p>
-            <a class="sh-book-btn" href="{{ path.book.url }}" target="_blank" rel="noopener">See it on Amazon</a>
+            <a class="sh-book-btn" href="{{ path.book.url }}" target="_blank" rel="noopener">See it on Amazon</a>{% if path.book.pdf_url %}
+            <a class="sh-book-btn sh-book-pdf" href="{{ path.book.pdf_url }}" target="_blank" rel="noopener">Buy the PDF · {{ path.book.pdf_price }}</a>
+            <span class="sh-book-note">The PDF is emailed to you right after payment.</span>{% endif %}
         </div>
     </div>
 </section>

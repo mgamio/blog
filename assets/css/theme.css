@@ -338,12 +338,32 @@ code {
     font-size: 0.95rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+.article-post .sh-book-pdf {
+    background: #fff;
+    color: #157a52;
+    box-shadow: inset 0 0 0 2px #157a52;
+    margin-left: 0.4rem;
+}
+.article-post .sh-book-pdf:hover {
+    background: #e8f4ee;
+    color: #035c3a;
+    text-decoration: none;
+}
+.sh-book-note {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: #595959;
+}
 .article-post .sh-book-btn:hover {
     background: #035c3a;
     color: #fff;
     text-decoration: none;
 }
 @media (max-width: 575.98px) {
+    .article-post .sh-book-pdf {
+        margin: 0.5rem 0 0;
+    }
     .sh-path {
         padding: 1rem 0.9rem;
     }

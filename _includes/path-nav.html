@@ -25,7 +25,7 @@
     {%- else -%}
 <div class="path-next path-done">
     <span class="path-next-label">You finished {{ current_path.title }}</span>
-    <span class="path-next-title">{% if current_path.book.author_book %}Keep going with my book{% else %}Go further with{% endif %} <a href="{{ current_path.book.url }}" target="_blank" rel="noopener">{{ current_path.book.title }}</a></span>
+    <span class="path-next-title">{% if current_path.book.author_book %}Keep going with my book{% else %}Go further with{% endif %} <a href="{{ current_path.book.url }}" target="_blank" rel="noopener">{{ current_path.book.title }}</a>{% if current_path.book.pdf_url %}, on Amazon or as a <a href="{{ current_path.book.pdf_url }}" target="_blank" rel="noopener">PDF for {{ current_path.book.pdf_price }}</a>{% endif %}</span>
 </div>
     {%- endif -%}
   {%- endif -%}
