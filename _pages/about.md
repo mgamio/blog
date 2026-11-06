@@ -3,6 +3,7 @@ layout: page
 title: About me
 description: Moisés Gamio — software engineer with 20+ years of experience. I write codersite.dev to make complex computer science and software design easy to understand.
 permalink: /about
+image: /assets/images/codersite-about-og.jpg
 comments: false
 ---
 
