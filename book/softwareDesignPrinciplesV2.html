@@ -250,6 +250,8 @@ section { padding-block: clamp(56px, 8vw, 104px); }
 .final .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
 .final .btn-ghost { color: var(--navy-ink); border-color: #3A5872; }
 .final .btn-ghost:hover { border-color: var(--navy-ink); }
+.final .bundle-line { font-size: var(--step--1); }
+.final .bundle-line a { color: var(--navy-ink); text-decoration-color: var(--accent); text-underline-offset: 3px; font-weight: 600; }
 @media (max-width: 760px) { .final .wrap { grid-template-columns: 1fr; } }
 
 footer { padding-block: 28px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
@@ -285,7 +287,7 @@ footer a { color: var(--muted); }
         <div class="ctas">
           <a class="btn btn-primary" href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank" rel="noopener">Get the paperback</a>
           <a class="btn btn-ghost" href="https://www.amazon.com/dp/B0H86LD8NR" target="_blank" rel="noopener">Read it on Kindle</a>
-          <a class="btn btn-ghost btn-pdf" href="https://payhip.com/b/zxMAt" class="payhip-buy-button" data-theme="none" data-product="zxMAt">Buy the PDF <small>$15</small></a>
+          <a class="btn btn-ghost btn-pdf payhip-buy-button" href="https://payhip.com/b/zxMAt" data-theme="none" data-product="zxMAt">Buy the PDF <small>$15</small></a>
         </div>
         <p class="sample-link"><a href="#free-chapter">Not sure yet? Read Chapter 1 free first &rarr;</a></p>
         <ul class="facts">
@@ -564,10 +566,11 @@ footer a { color: var(--muted); }
       <div>
         <h2 id="final-title">Stop fearing the next change request.</h2>
         <p>Get the second edition and the companion code, and make your next change the easy kind.</p>
+        <p class="bundle-line">Preparing for interviews too? <a class="payhip-buy-button" href="https://payhip.com/b/Jh5cn" data-theme="none" data-product="Jh5cn">Get this book and <em>The Code Interview</em> as PDFs for $25</a>, $5 less than buying them separately.</p>
       </div>
       <div class="ctas">
         <a class="btn btn-primary" href="https://www.amazon.com/dp/B0HMWNF1Y4" target="_blank" rel="noopener">Buy on Amazon</a>
-        <a class="btn btn-ghost btn-pdf" href="https://payhip.com/b/zxMAt" class="payhip-buy-button" data-theme="none" data-product="zxMAt">Buy the PDF <small>$15</small></a>
+        <a class="btn btn-ghost btn-pdf payhip-buy-button" href="https://payhip.com/b/zxMAt" data-theme="none" data-product="zxMAt">Buy the PDF <small>$15</small></a>
         <a class="btn btn-ghost" href="https://github.com/mgamio/subFlow" target="_blank" rel="noopener">Browse the code</a>
       </div>
     </div>

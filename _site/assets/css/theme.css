@@ -427,3 +427,12 @@ a.path-next:hover {
     color: #038252;
     text-decoration: underline;
 }
+
+/* PDF line under the book ads in posts (_includes/pdf-offer.html) */
+.article-post .pdf-offer {
+    text-align: center;
+    font-size: 0.92rem;
+    color: #595959;
+    margin: 0.6rem auto 0;
+    max-width: 560px;
+}

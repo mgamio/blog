@@ -1,0 +1,4 @@
+{%- assign ebook = site.data.ebooks[include.book] -%}
+{%- if ebook -%}
+<p class="pdf-offer">Prefer a PDF? <a href="{{ ebook.pdf_url }}" target="_blank" rel="noopener">Get <em>{{ ebook.title }}</em> as a PDF for {{ ebook.pdf_price }}</a>, emailed to you right after payment.</p>
+{%- endif -%}

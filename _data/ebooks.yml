@@ -1,0 +1,14 @@
+# Book PDFs sold on Payhip. Used by _includes/pdf-offer.html under the book ads in posts.
+tci:
+  title: The Code Interview
+  pdf_url: https://payhip.com/b/VYcM3
+  pdf_price: $15
+bundle:
+  title: The Java Developer Bundle
+  pdf_url: https://payhip.com/b/Jh5cn
+  pdf_price: $25
+  saving: $5
+sdp:
+  title: Software That Can Change
+  pdf_url: https://payhip.com/b/zxMAt
+  pdf_price: $15
