@@ -193,7 +193,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
 
 The interceptor handles rate limiting, the controller handles HTTP, and the service handles the business logic. Each class has one job, so you can change the limit without touching the API. Designing classes this way is what my book is about:
 
-> Software design principles provide guidelines to handle the design process's complexity, prepare your code when changes arise, and minimize the impact of introducing bugs. -- <cite>[Software Design Principles](https://amzn.to/3Csx3sR){:target="_blank"}</cite>
+> Software design principles provide guidelines to handle the design process's complexity, prepare your code when changes arise, and minimize the impact of introducing bugs. -- <cite>[Software Design Principles](https://link.amazon/B05qAXBNa){:target="_blank"}</cite>
 
 <div>
 {%- include softwareDesign.html -%}
