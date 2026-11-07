@@ -5,8 +5,8 @@
     <description>Step-by-step Java and Spring Boot tutorials with complete code, algorithms for coding interviews, clean software design, and free developer tools.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 07 Nov 2026 15:51:43 +0100</pubDate>
-    <lastBuildDate>Sat, 07 Nov 2026 15:51:43 +0100</lastBuildDate>
+    <pubDate>Sat, 07 Nov 2026 15:56:03 +0100</pubDate>
+    <lastBuildDate>Sat, 07 Nov 2026 15:56:03 +0100</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
@@ -860,7 +860,7 @@
 &lt;p&gt;Migrations like this one come up in interviews too: why a library was deprecated, what replaces it, and how to change it without breaking anything. Prepare with real questions:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;http://localhost:4000/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://codersite.dev/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 &lt;p class=&quot;pdf-offer&quot;&gt;Prefer a PDF? &lt;a href=&quot;https://payhip.com/b/VYcM3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Get &lt;em&gt;The Code Interview&lt;/em&gt; as a PDF for $15&lt;/a&gt;, emailed to you right after payment.&lt;/p&gt;
 
@@ -918,7 +918,7 @@
 &lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;http://localhost:4000/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://codersite.dev/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 &lt;p class=&quot;pdf-offer&quot;&gt;Prefer a PDF? &lt;a href=&quot;https://payhip.com/b/VYcM3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Get &lt;em&gt;The Code Interview&lt;/em&gt; as a PDF for $15&lt;/a&gt;, emailed to you right after payment.&lt;/p&gt;
 
@@ -1521,7 +1521,7 @@
 &lt;/blockquote&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;http://localhost:4000/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://codersite.dev/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 &lt;p class=&quot;pdf-offer&quot;&gt;Prefer a PDF? &lt;a href=&quot;https://payhip.com/b/VYcM3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Get &lt;em&gt;The Code Interview&lt;/em&gt; as a PDF for $15&lt;/a&gt;, emailed to you right after payment.&lt;/p&gt;
 
@@ -1943,7 +1943,7 @@
 &lt;p&gt;Replacing a nested loop with a HashMap is one of the most common optimizations interviewers look for. If you have interviews coming up, practice it on real questions:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;http://localhost:4000/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://codersite.dev/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 &lt;p class=&quot;pdf-offer&quot;&gt;Prefer a PDF? &lt;a href=&quot;https://payhip.com/b/VYcM3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Get &lt;em&gt;The Code Interview&lt;/em&gt; as a PDF for $15&lt;/a&gt;, emailed to you right after payment.&lt;/p&gt;
 
@@ -2187,7 +2187,7 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;Code generators write the boilerplate. Interviews test the code nobody can generate for you: the algorithms. Practice them on real interview questions:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;http://localhost:4000/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://codersite.dev/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 &lt;p class=&quot;pdf-offer&quot;&gt;Prefer a PDF? &lt;a href=&quot;https://payhip.com/b/VYcM3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Get &lt;em&gt;The Code Interview&lt;/em&gt; as a PDF for $15&lt;/a&gt;, emailed to you right after payment.&lt;/p&gt;
 
@@ -2677,7 +2677,7 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;The complete Java implementation, with the binary search helper, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;long&lt;/code&gt; arithmetic, and the edge-case tests, is in my book &lt;strong&gt;&lt;a href=&quot;https://link.amazon/B08nEgB1o&quot; target=&quot;_blank&quot;&gt;The Code Interview&lt;/a&gt;&lt;/strong&gt;, along with dozens of other real interview questions solved step by step:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;http://localhost:4000/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://codersite.dev/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 &lt;p class=&quot;pdf-offer&quot;&gt;Prefer a PDF? &lt;a href=&quot;https://payhip.com/b/VYcM3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Get &lt;em&gt;The Code Interview&lt;/em&gt; as a PDF for $15&lt;/a&gt;, emailed to you right after payment.&lt;/p&gt;
 
@@ -2978,7 +2978,7 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;Interviews for backend roles increasingly include API design questions, and coding challenges too. Prepare for both:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;http://localhost:4000/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://codersite.dev/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 &lt;p class=&quot;pdf-offer&quot;&gt;Prefer a PDF? &lt;a href=&quot;https://payhip.com/b/VYcM3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Get &lt;em&gt;The Code Interview&lt;/em&gt; as a PDF for $15&lt;/a&gt;, emailed to you right after payment.&lt;/p&gt;
 
@@ -3386,7 +3386,7 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 &lt;p&gt;Escaping nested loops, early exits and API-driven test data are classic interview topics. Practice them on real questions:&lt;/p&gt;
 
 &lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;http://localhost:4000/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://codersite.dev/book/theCodeInterview.html&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;java interview&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; src=&quot;/assets/images/theCodeInterview-featured.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 &lt;p class=&quot;pdf-offer&quot;&gt;Prefer a PDF? &lt;a href=&quot;https://payhip.com/b/VYcM3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Get &lt;em&gt;The Code Interview&lt;/em&gt; as a PDF for $15&lt;/a&gt;, emailed to you right after payment.&lt;/p&gt;
 
