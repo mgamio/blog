@@ -21,12 +21,6 @@ The generator remembers your settings in your browser, so you can come back and 
 
 **Start with a `CLAUDE.md` or `AGENTS.md`.** Each skill handles one task; the commands, architecture rules and gotchas that matter for every task belong in the instructions file that the agent reads in every session. Create it with the [CLAUDE.md and AGENTS.md generator](/tools/claude-md-generator/), then add skills for the tasks you repeat.
 
-Want to turn your AI coding skills into a new career? MSIT's AI programs can be fully funded in Germany, and codersite readers get a €500 welcome bonus. [Read the full review](/msit-ai-career-programs-germany/) before you decide.
-
-<div>
-{%- include msitReferral.html -%}
-</div>
-
 ## What Is an Agent Skill?
 
 A skill is a folder with a `SKILL.md` file that teaches an AI agent how to do one task: the steps, the commands and the rules. It can also hold scripts, reference documents and templates:
