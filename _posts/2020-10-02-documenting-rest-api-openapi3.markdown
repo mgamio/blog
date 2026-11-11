@@ -450,7 +450,7 @@ o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is en
 
 The last line is springdoc reminding you to hide the docs in production; step 9 does that.
 
-Open [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html){:target="_blank"}. It redirects to `/swagger-ui/index.html` and shows the API description and the five operations:
+Open `http://localhost:8080/swagger-ui.html`. It redirects to `/swagger-ui/index.html` and shows the API description and the five operations:
 
 ![Swagger UI showing the Book API title, the local server and five operations](/assets/images/openapi3-swagger-ui.png "Swagger UI for the Book API"){:class="img-responsive"}
 
@@ -508,7 +508,7 @@ Content-Type: application/problem+json
 
 ## 8. Save the OpenAPI document with your code
 
-Swagger UI is generated from the OpenAPI document at [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs){:target="_blank"} (JSON) or `/v3/api-docs.yaml` (YAML). springdoc 3 generates OpenAPI 3.1. This is the part for `POST /api/v1/books`:
+Swagger UI is generated from the OpenAPI document at `http://localhost:8080/v3/api-docs` (JSON) or `/v3/api-docs.yaml` (YAML). springdoc 3 generates OpenAPI 3.1. This is the part for `POST /api/v1/books`:
 
 ```text
 post:
