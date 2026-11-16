@@ -4,7 +4,7 @@ title: "The Trade-offs Every Engineer Should Know Before Their Next Whiteboard I
 description: "A field-guide summary of Chapter 1 of System Design on AWS by Jayanth Kumar and Mandeep Singh — the concepts, fallacies, trade-offs, and guidelines that separate engineers who can code from engineers who can architect."
 author: moises
 categories: [ system-design, distributed-systems, aws, book-review, career ]
-image: /assets/images/SystemDesignOnAWS.jpg
+image: /assets/images/posts/system-design-on-aws-book-review.png
 comments: false
 ---
 

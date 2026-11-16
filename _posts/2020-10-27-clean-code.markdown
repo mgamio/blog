@@ -4,7 +4,7 @@ title:  "Clean Code Best Practices: 10 Rules with Java Examples"
 description: "Ten clean code rules with real Java before-and-after examples: intention-revealing names, small functions, no hard-coded values, fewer arguments, and code that tells a story."
 author: moises
 categories: [ Coding Practices ]
-image: /assets/images/cleanCode.jpg
+image: /assets/images/posts/clean-code.png
 comments: false
 ---
 

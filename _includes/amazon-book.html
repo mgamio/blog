@@ -1,0 +1,16 @@
+{%- comment -%}
+  Text-only Amazon recommendation card (BLOG_AUTOMATION.md §3, §7 Phase 1:
+  no Amazon product images before Creators API access).
+  Usage: {% include amazon-book.html id="effectiveJava" %}   (id = key in _data/amazon_books.yml)
+  Optional: url="..." to override the link (the books page passes page_url).
+{%- endcomment -%}
+{%- assign ab = site.data.amazon_books[include.id] -%}
+{%- if ab -%}
+{%- assign ab_url = include.url | default: ab.url -%}
+<div class="amazon-book">
+  <span class="amazon-book-kicker">{% if ab.kind == "gear" %}Gear I recommend{% else %}Recommended book{% endif %}</span>
+  <a class="amazon-book-title" href="{{ ab_url }}" target="_blank" rel="sponsored nofollow noopener">{{ ab.title }}</a>
+  {%- if ab.author %}<span class="amazon-book-author">by {{ ab.author }}</span>{% endif %}
+  <a class="amazon-book-btn" href="{{ ab_url }}" target="_blank" rel="sponsored nofollow noopener">Check it on Amazon &rarr;</a>
+</div>
+{%- endif -%}

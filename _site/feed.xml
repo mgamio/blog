@@ -5,8 +5,8 @@
     <description>Step-by-step Java and Spring Boot tutorials with complete code, algorithms for coding interviews, clean software design, and free developer tools.</description>
     <link>https://codersite.dev/</link>
     <atom:link href="https://codersite.dev/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 16 Nov 2026 20:05:51 +0100</pubDate>
-    <lastBuildDate>Mon, 16 Nov 2026 20:05:51 +0100</lastBuildDate>
+    <pubDate>Mon, 16 Nov 2026 20:30:06 +0100</pubDate>
+    <lastBuildDate>Mon, 16 Nov 2026 20:30:06 +0100</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
@@ -552,11 +552,13 @@
 
 &lt;p&gt;The chapter closes with five hard-earned principles, each anchored to a memorable line from a giant of the field — Kernighan on complexity, Einstein on simplicity, Lampson on getting it right, and the reminder that there is, in fact, &lt;strong&gt;no free lunch&lt;/strong&gt; in system design. Optimize for one property and you &lt;em&gt;will&lt;/em&gt; pay for it somewhere else. The book is refreshingly honest about this instead of selling a silver bullet.&lt;/p&gt;
 
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://link.amazon/B0fFaXn6k&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;/recommended/images/AWSCertifiedSolutionsArchitectStudyGuide.avif&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
+&lt;div&gt;&lt;!-- Text-only Amazon card: no Amazon product images (BLOG_AUTOMATION.md §3). Data in _data/amazon_books.yml --&gt;
+&lt;div class=&quot;amazon-book&quot;&gt;
+  &lt;span class=&quot;amazon-book-kicker&quot;&gt;Recommended book&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-title&quot; href=&quot;https://link.amazon/B0fFaXn6k&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;AWS Certified Solutions Architect Study Guide&lt;/a&gt;
+  &lt;a class=&quot;amazon-book-btn&quot; href=&quot;https://link.amazon/B0fFaXn6k&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check it on Amazon &amp;rarr;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;who-this-book-is-for&quot;&gt;Who This Book Is For&lt;/h2&gt;
 
@@ -657,11 +659,13 @@
 
 &lt;p&gt;Gradle rewards people who understand it and punishes people who copy-paste build files. If you want to know what’s happening under the hood, this is the shortest path:&lt;/p&gt;
 
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/4fOIB8R&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;/recommended/images/introducingGradle.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
+&lt;div&gt;&lt;!-- Text-only Amazon card: no Amazon product images (BLOG_AUTOMATION.md §3). Data in _data/amazon_books.yml --&gt;
+&lt;div class=&quot;amazon-book&quot;&gt;
+  &lt;span class=&quot;amazon-book-kicker&quot;&gt;Recommended book&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-title&quot; href=&quot;https://amzn.to/4fOIB8R&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Introducing Gradle&lt;/a&gt;&lt;span class=&quot;amazon-book-author&quot;&gt;by Balaji Varanasi&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-btn&quot; href=&quot;https://amzn.to/4fOIB8R&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check it on Amazon &amp;rarr;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;p&gt;To download all dependencies to your local machine, run the following Gradle command in your IDE terminal:&lt;/p&gt;
 
@@ -754,11 +758,13 @@
 
 &lt;p&gt;Annotations like these are only half the story. Designing an API that other teams actually enjoy using is its own skill, and this is the book that teaches it:&lt;/p&gt;
 
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3F10p2v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;/recommended/images/designingAPIsWithSwaggerAndOpenAPI.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
+&lt;div&gt;&lt;!-- Text-only Amazon card: no Amazon product images (BLOG_AUTOMATION.md §3). Data in _data/amazon_books.yml --&gt;
+&lt;div class=&quot;amazon-book&quot;&gt;
+  &lt;span class=&quot;amazon-book-kicker&quot;&gt;Recommended book&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-title&quot; href=&quot;https://amzn.to/3F10p2v&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Designing APIs with Swagger and OpenAPI&lt;/a&gt;&lt;span class=&quot;amazon-book-author&quot;&gt;by Joshua S. Ponelat and Lukas L. Rosenstock&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-btn&quot; href=&quot;https://amzn.to/3F10p2v&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check it on Amazon &amp;rarr;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Run &lt;em&gt;ApiFinanceApplication&lt;/em&gt;. By default, Spring Boot starts an embedded Apache Tomcat server. Open the API documentation at http://localhost:8080/swagger-ui/index.html.&lt;/p&gt;
 
@@ -1626,11 +1632,13 @@
 
 &lt;p&gt;Codegen is only as good as the spec you feed it. If you want to design APIs that are easy to generate, document and use, this is the book:&lt;/p&gt;
 
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3F10p2v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;/recommended/images/designingAPIsWithSwaggerAndOpenAPI.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
+&lt;div&gt;&lt;!-- Text-only Amazon card: no Amazon product images (BLOG_AUTOMATION.md §3). Data in _data/amazon_books.yml --&gt;
+&lt;div class=&quot;amazon-book&quot;&gt;
+  &lt;span class=&quot;amazon-book-kicker&quot;&gt;Recommended book&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-title&quot; href=&quot;https://amzn.to/3F10p2v&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Designing APIs with Swagger and OpenAPI&lt;/a&gt;&lt;span class=&quot;amazon-book-author&quot;&gt;by Joshua S. Ponelat and Lukas L. Rosenstock&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-btn&quot; href=&quot;https://amzn.to/3F10p2v&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check it on Amazon &amp;rarr;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;p&gt;We typically use a backend composed of controllers and services in many projects.&lt;/p&gt;
 
@@ -1884,11 +1892,13 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 
 &lt;p&gt;Brute force, pruning and divide-and-conquer are classic algorithm-design techniques. Sedgewick’s book covers them with the clearest diagrams I know:&lt;/p&gt;
 
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/4hDFb8q&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;/recommended/images/algorithmsRobertSedgewick.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
+&lt;div&gt;&lt;!-- Text-only Amazon card: no Amazon product images (BLOG_AUTOMATION.md §3). Data in _data/amazon_books.yml --&gt;
+&lt;div class=&quot;amazon-book&quot;&gt;
+  &lt;span class=&quot;amazon-book-kicker&quot;&gt;Recommended book&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-title&quot; href=&quot;https://amzn.to/4hDFb8q&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Algorithms&lt;/a&gt;&lt;span class=&quot;amazon-book-author&quot;&gt;by Robert Sedgewick and Kevin Wayne&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-btn&quot; href=&quot;https://amzn.to/4hDFb8q&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check it on Amazon &amp;rarr;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;first-solution-brute-force-algorithm&quot;&gt;First Solution: Brute force algorithm&lt;/h2&gt;
 
@@ -2093,11 +2103,13 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 
 &lt;p&gt;For the theory behind why O(n⁴) collapses and O(n² log n) scales, this is the reference:&lt;/p&gt;
 
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/4iYotll&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;/recommended/images/introductionToAlgorithms.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
+&lt;div&gt;&lt;!-- Text-only Amazon card: no Amazon product images (BLOG_AUTOMATION.md §3). Data in _data/amazon_books.yml --&gt;
+&lt;div class=&quot;amazon-book&quot;&gt;
+  &lt;span class=&quot;amazon-book-kicker&quot;&gt;Recommended book&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-title&quot; href=&quot;https://amzn.to/4iYotll&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Introduction to Algorithms&lt;/a&gt;&lt;span class=&quot;amazon-book-author&quot;&gt;by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-btn&quot; href=&quot;https://amzn.to/4iYotll&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check it on Amazon &amp;rarr;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;pruning-with-continue-faster-but-not-fast-enough&quot;&gt;Pruning with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;continue&lt;/code&gt;: Faster, but Not Fast Enough&lt;/h3&gt;
 
@@ -2369,11 +2381,13 @@ java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; swagger-codegen-cli-3.0.
 
 &lt;p&gt;If you want to go deeper into design-first, this is the book this series follows:&lt;/p&gt;
 
-&lt;div&gt;&lt;center&gt;
-  &lt;a href=&quot;https://amzn.to/3F10p2v&quot; target=&quot;_blank&quot;&gt;&lt;img style=&quot;border:1px solid black;&quot; alt=&quot;codersite&quot; title=&quot;Buy Now&quot; border=&quot;0&quot; width=&quot;265&quot; height=&quot;380&quot; src=&quot;/recommended/images/designingAPIsWithSwaggerAndOpenAPI.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/center&gt;
-
-&lt;br /&gt;&lt;/div&gt;
+&lt;div&gt;&lt;!-- Text-only Amazon card: no Amazon product images (BLOG_AUTOMATION.md §3). Data in _data/amazon_books.yml --&gt;
+&lt;div class=&quot;amazon-book&quot;&gt;
+  &lt;span class=&quot;amazon-book-kicker&quot;&gt;Recommended book&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-title&quot; href=&quot;https://amzn.to/3F10p2v&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Designing APIs with Swagger and OpenAPI&lt;/a&gt;&lt;span class=&quot;amazon-book-author&quot;&gt;by Joshua S. Ponelat and Lukas L. Rosenstock&lt;/span&gt;
+  &lt;a class=&quot;amazon-book-btn&quot; href=&quot;https://amzn.to/3F10p2v&quot; target=&quot;_blank&quot; rel=&quot;sponsored nofollow noopener&quot;&gt;Check it on Amazon &amp;rarr;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;getting-started-with-openapi-specification&quot;&gt;Getting Started with OpenAPI Specification&lt;/h2&gt;
 

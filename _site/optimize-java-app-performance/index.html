@@ -379,11 +379,13 @@
 
 <p><em>Effective Java</em> has a whole item on this: prefer try-with-resources to try-finally. It’s one of the cheapest ways to prevent leaks:</p>
 
-<div><center>
-  <a href="https://amzn.to/4aZes3T" target="_blank"><img loading="lazy" decoding="async" style="border:1px solid black;" alt="codersite" title="Buy Now" border="0" width="265" height="380" src="/recommended/images/effectiveJava.jpg" /></a>
-</center>
-
-<br /></div>
+<div><!-- Text-only Amazon card: no Amazon product images (BLOG_AUTOMATION.md §3). Data in _data/amazon_books.yml -->
+<div class="amazon-book">
+  <span class="amazon-book-kicker">Recommended book</span>
+  <a class="amazon-book-title" href="https://amzn.to/4aZes3T" target="_blank" rel="sponsored nofollow noopener">Effective Java</a><span class="amazon-book-author">by Joshua Bloch</span>
+  <a class="amazon-book-btn" href="https://amzn.to/4aZes3T" target="_blank" rel="sponsored nofollow noopener">Check it on Amazon &rarr;</a>
+</div>
+</div>
 
 <p><strong>Optimize the queries themselves:</strong> add indexes for the columns you filter and join on, avoid unnecessary JOINs, select only the columns you need, and watch for the “N+1” pattern, where a loop runs one query per row.</p>
 

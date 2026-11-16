@@ -1,0 +1,235 @@
+# Amazon recommendations shown as TEXT ONLY (BLOG_AUTOMATION.md §3, §7 Phase 1):
+# no Amazon product images until Creators API access on amazon.com.
+# Used by _includes/amazon-book.html (cards in posts) and the "Books and gear I
+# recommend" section of the books page (_layouts/page-books.html).
+#
+#   title:   shown as the card title
+#   author:  optional; leave out when unsure
+#   url:     the Amazon affiliate link (SiteStripe short link or tagged URL)
+#   page_url: optional; a different link used only on the books page
+#   group:   on the books page: pick (top picks), ai, design, programming, career, gear
+#   kind:    book (default) or gear; only changes the small label on the card
+
+# --- Top picks ---------------------------------------------------------------
+agenticSpecDrivenDev:
+  title: "Agentic Spec-Driven Development"
+  url: https://link.amazon/B0fnRa26L
+  group: pick
+claudeAIForBeginners:
+  title: "Claude AI for Beginners Bible"
+  url: https://link.amazon/B0gjAFnLr
+  group: pick
+theAgenticAIBible:
+  title: "The Agentic AI Bible"
+  url: https://link.amazon/B08UibiVn
+  group: pick
+refactoring:
+  title: "Refactoring: Improving the Design of Existing Code"
+  author: "Martin Fowler"
+  url: https://link.amazon/B02XSlCBf
+  group: pick
+
+# --- AI and data -------------------------------------------------------------
+aiEngineering:
+  title: "AI Engineering: Building Applications with Foundation Models"
+  author: "Chip Huyen"
+  url: https://link.amazon/B03Z7bjcu
+  page_url: https://amzn.to/3WIREQt
+  group: ai
+buildingApplicationsWithAIAgents:
+  title: "Building Applications with AI Agents"
+  author: "Michael Albada"
+  url: https://link.amazon/B0cqu3SXo
+  group: ai
+promptEngineeringForLLMs:
+  title: "Prompt Engineering for LLMs"
+  author: "John Berryman and Albert Ziegler"
+  url: https://link.amazon/B0eWoFEtg
+  group: ai
+aiAgents:
+  title: "AI Agents"
+  url: https://amzn.to/4loZGt5
+  group: ai
+llmEngineersHandbook:
+  title: "LLM Engineer's Handbook"
+  author: "Paul Iusztin and Maxime Labonne"
+  url: https://amzn.to/4aFDlSt
+  group: ai
+buildALargeLanguageModel:
+  title: "Build a Large Language Model (From Scratch)"
+  author: "Sebastian Raschka"
+  url: https://amzn.to/40GaUPF
+  group: ai
+largeLanguageModels:
+  title: "Large Language Models"
+  url: https://amzn.to/40W00a8
+  group: ai
+machineLearningScikit:
+  title: "Machine Learning with scikit-learn"
+  url: https://amzn.to/430shO2
+  group: ai
+fundamentalsOfDataEngineering:
+  title: "Fundamentals of Data Engineering"
+  author: "Joe Reis and Matt Housley"
+  url: https://amzn.to/3QjRT13
+  group: ai
+
+# --- Software design and architecture ----------------------------------------
+cleanCode:
+  title: "Clean Code: A Handbook of Agile Software Craftsmanship"
+  author: "Robert C. Martin"
+  url: https://amzn.to/40axCiH
+  page_url: https://amzn.to/4aHJZIb
+  group: design
+designPatterns:
+  title: "Design Patterns: Elements of Reusable Object-Oriented Software"
+  author: "Erich Gamma, Richard Helm, Ralph Johnson and John Vlissides"
+  url: https://amzn.to/4hEl8Yw
+  page_url: https://amzn.to/4aIa1e9
+  group: design
+domainDrivenDesign:
+  title: "Domain-Driven Design: Tackling Complexity in the Heart of Software"
+  author: "Eric Evans"
+  url: https://amzn.to/3AktDHJ
+  page_url: https://link.amazon/B03IAFNzw
+  group: design
+aPhilosophyOfSoftwareDesign:
+  title: "A Philosophy of Software Design"
+  author: "John Ousterhout"
+  url: https://link.amazon/B0gmPCXMh
+  group: design
+designingDataIntensiveApplications:
+  title: "Designing Data-Intensive Applications"
+  author: "Martin Kleppmann"
+  url: https://amzn.to/4hVK3pL
+  page_url: https://amzn.to/40VF5E5
+  group: design
+buildingMicroservices:
+  title: "Building Microservices"
+  author: "Sam Newman"
+  url: https://amzn.to/3EgAzHb
+  group: design
+systemDesignOnAWS:
+  title: "System Design on AWS: Building and Scaling Enterprise Solutions"
+  author: "Jayanth Kumar and Mandeep Singh"
+  url: https://amzn.to/3El3k5N
+  group: design
+designingAPIsWithSwaggerAndOpenAPI:
+  title: "Designing APIs with Swagger and OpenAPI"
+  author: "Joshua S. Ponelat and Lukas L. Rosenstock"
+  url: https://amzn.to/3F10p2v
+  group: design
+restfulWebApis:
+  title: "RESTful Web APIs"
+  author: "Leonard Richardson, Mike Amundsen and Sam Ruby"
+  url: https://amzn.to/3CFqq6t
+umlUserGuide:
+  title: "The Unified Modeling Language User Guide"
+  author: "Grady Booch, James Rumbaugh and Ivar Jacobson"
+  url: https://amzn.to/4akBIcN
+
+# --- Programming and algorithms ----------------------------------------------
+effectiveJava:
+  title: "Effective Java"
+  author: "Joshua Bloch"
+  url: https://amzn.to/4aZes3T
+  page_url: https://amzn.to/4rvvSfE
+  group: programming
+thePragmaticProgrammer:
+  title: "The Pragmatic Programmer, 20th Anniversary Edition"
+  author: "David Thomas and Andrew Hunt"
+  url: https://amzn.to/3El0eib
+  group: programming
+introductionToAlgorithms:
+  title: "Introduction to Algorithms"
+  author: "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein"
+  url: https://amzn.to/4iYotll
+  page_url: https://amzn.to/4k2IOXR
+  group: programming
+algorithmsSedgewick:
+  title: "Algorithms"
+  author: "Robert Sedgewick and Kevin Wayne"
+  url: https://amzn.to/4hDFb8q
+fluentPython:
+  title: "Fluent Python"
+  author: "Luciano Ramalho"
+  url: https://amzn.to/3WL3Znh
+  group: programming
+learningGo:
+  title: "Learning Go"
+  author: "Jon Bodner"
+  url: https://amzn.to/4gNpjzE
+  group: programming
+amazonWebServicesInAction:
+  title: "Amazon Web Services in Action"
+  author: "Andreas Wittig and Michael Wittig"
+  url: https://amzn.to/3CsRaar
+  group: programming
+awsCertifiedSolutionsArchitectStudyGuide:
+  title: "AWS Certified Solutions Architect Study Guide"
+  url: https://link.amazon/B0fFaXn6k
+elasticsearchInAction:
+  title: "Elasticsearch in Action, Second Edition"
+  author: "Madhusudhan Konda"
+  url: https://www.amazon.de/dp/1617299855?tag=mkgv89-21
+introducingGradle:
+  title: "Introducing Gradle"
+  author: "Balaji Varanasi"
+  url: https://amzn.to/4fOIB8R
+
+# --- Career and money --------------------------------------------------------
+theLeanStartup:
+  title: "The Lean Startup"
+  author: "Eric Ries"
+  url: https://amzn.to/4hAfIwV
+investingForProgrammers:
+  title: "Investing for Programmers"
+  url: https://amzn.to/409oU4Q
+  group: career
+thePsychologyOfMoney:
+  title: "The Psychology of Money"
+  author: "Morgan Housel"
+  url: https://amzn.to/4hRJUnG
+  group: career
+
+# --- Gear --------------------------------------------------------------------
+macBookAirM3:
+  title: "MacBook Air M3"
+  url: https://amzn.to/435NAhi
+  group: gear
+  kind: gear
+hpLaptop17:
+  title: "HP Laptop 17.3 inch"
+  url: https://amzn.to/40YTnDO
+  group: gear
+  kind: gear
+miniPCAMDRyzen:
+  title: "Mini PC with AMD Ryzen"
+  url: https://amzn.to/4aKyYpa
+  group: gear
+  kind: gear
+lgUltraWide:
+  title: "LG UltraWide Monitor"
+  url: https://amzn.to/3CWSEd7
+  group: gear
+  kind: gear
+marshallHeadphones:
+  title: "Marshall Headphones"
+  url: https://amzn.to/4dj6ZQN
+  group: gear
+  kind: gear
+osmoGenius:
+  title: "Osmo Genius Starter Kit"
+  url: https://amzn.to/4gjHBIB
+  group: gear
+  kind: gear
+waterBottle720Degree:
+  title: "720°DGREE Water Bottle"
+  url: https://amzn.to/415TsEE
+  group: gear
+  kind: gear
+abusSmiley:
+  title: "ABUS Smiley Bike Helmet"
+  url: https://amzn.to/4gYh8AO
+  group: gear
+  kind: gear

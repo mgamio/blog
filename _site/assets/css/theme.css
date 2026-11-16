@@ -449,3 +449,55 @@ a.path-next:hover {
     color: #595959;
     text-decoration: underline;
 }
+
+/* Text-only Amazon recommendation card (_includes/amazon-book.html) */
+.amazon-book {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    max-width: 560px;
+    margin: 1.5rem auto;
+    padding: 1rem 1.25rem 1.1rem;
+    background: #fff;
+    border: 1px solid #e1e4e8;
+    border-left: 4px solid #038252;
+    border-radius: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.4;
+}
+.amazon-book-kicker {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+}
+.article-post .amazon-book .amazon-book-title,
+.amazon-book .amazon-book-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.88);
+    text-decoration: none;
+}
+.amazon-book .amazon-book-title:hover {
+    color: #038252;
+    text-decoration: underline;
+}
+.amazon-book-author {
+    font-size: 0.9rem;
+    color: #595959;
+}
+.article-post .amazon-book .amazon-book-btn,
+.amazon-book .amazon-book-btn {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #038252;
+    text-decoration: none;
+}
+.amazon-book .amazon-book-btn:hover {
+    text-decoration: underline;
+}

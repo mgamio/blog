@@ -42,7 +42,7 @@
     author_book: false
     pitch: The book I recommend for going deeper into design-first APIs and the OpenAPI specification.
     url: https://amzn.to/3F10p2v
-    cover: /recommended/images/designingAPIsWithSwaggerAndOpenAPI.jpg
+    # no cover: other authors' books are text-only (no Amazon images)
 
 - id: design
   title: Design better software
