@@ -50,7 +50,30 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest"><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+<link rel="manifest" href="/site.webmanifest"><!-- Google Consent Mode v2: must run before any gtag config.
+     In the EEA, UK and Switzerland everything starts as "denied"; Google's consent
+     message (AdSense > Privacy & messaging) updates it when the visitor chooses.
+     Elsewhere no consent message is shown, so the defaults are "granted". -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500,
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+  });
+  gtag('consent', 'default', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted'
+  });
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -298,7 +321,7 @@
 
 <p><strong>5. A productized service.</strong> A service with a fixed scope, a fixed price and a fixed delivery time. It earns money from the first week and shows you which parts are worth automating later. <em>Example:</em> “Complete OpenAPI documentation for your existing API in 5 days, for a fixed price.”</p>
 
-<p><strong>6. A book or a course about what you know.</strong> Years of solving real problems are worth something to people who face those problems now. That’s what I did: I turned what I learned in years of software development into my books, <a href="https://codersite.dev/book/theCodeInterview.html" target="_blank">The Code Interview</a> and <a href="https://codersite.dev/book/softwareDesignPrinciples.html" target="_blank">Software Design Principles</a>, which readers buy on Amazon. Write once, and the book keeps selling while you work on the next thing.</p>
+<p><strong>6. A book or a course about what you know.</strong> Years of solving real problems are worth something to people who face those problems now. That’s what I did: I turned what I learned in years of software development into my books, <a href="https://codersite.dev/book/theCodeInterview.html" target="_blank">The Code Interview</a> and <a href="https://codersite.dev/book/softwareDesignPrinciplesV2.html" target="_blank">Software That Can Change</a>, which readers buy on Amazon. Write once, and the book keeps selling while you work on the next thing.</p>
 
 <p><strong>7. A micro-SaaS for a community you belong to.</strong> Your hobby, your sports club or your industry has problems that big companies ignore because the market is too small for them, but it’s big enough for one developer. <em>Example:</em> a booking tool for the courts of a local tennis club, which today run on a paper list.</p>
 
@@ -674,11 +697,14 @@ https://search.google.com/structured-data/testing-tool/u/0/
                 Copyright © 2026 codersite 
             </div>
             <div class="col-md-6 col-sm-6 text-center text-lg-right">    
-                <a href="/policy">Privacy policy |</a>
-				<a href="/termsOfService">Terms of service |</a>
-				<a href="/impressum">Impressum</a>
+                <a href="/about">About</a> |
+                <a href="/contact/">Contact</a> |
+                <a href="/policy">Privacy policy</a> |
+                <a href="/termsOfService">Terms of service</a> |
+                <a href="/impressum">Impressum</a>
             </div>
         </div>
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases. Some links on this site are affiliate links: if you buy through them, I may earn a commission at no extra cost to you. <a href="/policy#amazon">More</a></p>
     </div>
 </footer>
 <!-- End Footer
@@ -693,9 +719,9 @@ https://search.google.com/structured-data/testing-tool/u/0/
      so they never block the first paint. No inline script on the site depends on jQuery. -->
 <script src="/assets/js/jquery.min.js" defer></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous" defer></script>
+<script src="/assets/js/popper.min.js" defer></script>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous" defer></script>
+<script src="/assets/js/bootstrap.min.js" defer></script>
 
 <script src="/assets/js/mediumish.js" defer></script>
 

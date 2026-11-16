@@ -22,7 +22,7 @@ Most side projects built by developers don't fail because of the code. They fail
 
 **5. A productized service.** A service with a fixed scope, a fixed price and a fixed delivery time. It earns money from the first week and shows you which parts are worth automating later. *Example:* "Complete OpenAPI documentation for your existing API in 5 days, for a fixed price."
 
-**6. A book or a course about what you know.** Years of solving real problems are worth something to people who face those problems now. That's what I did: I turned what I learned in years of software development into my books, [The Code Interview](https://codersite.dev/book/theCodeInterview.html){:target="_blank"} and [Software Design Principles](https://codersite.dev/book/softwareDesignPrinciples.html){:target="_blank"}, which readers buy on Amazon. Write once, and the book keeps selling while you work on the next thing.
+**6. A book or a course about what you know.** Years of solving real problems are worth something to people who face those problems now. That's what I did: I turned what I learned in years of software development into my books, [The Code Interview](https://codersite.dev/book/theCodeInterview.html){:target="_blank"} and [Software That Can Change](https://codersite.dev/book/softwareDesignPrinciplesV2.html){:target="_blank"}, which readers buy on Amazon. Write once, and the book keeps selling while you work on the next thing.
 
 **7. A micro-SaaS for a community you belong to.** Your hobby, your sports club or your industry has problems that big companies ignore because the market is too small for them, but it's big enough for one developer. *Example:* a booking tool for the courts of a local tennis club, which today run on a paper list.
 

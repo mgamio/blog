@@ -436,3 +436,16 @@ a.path-next:hover {
     margin: 0.6rem auto 0;
     max-width: 560px;
 }
+
+/* Amazon Associates disclosure in the site footer (_layouts/default.html) */
+.footer-disclosure {
+    margin: 0.75rem 0 0;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #595959;
+    text-align: center;
+}
+.footer-disclosure a {
+    color: #595959;
+    text-decoration: underline;
+}

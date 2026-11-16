@@ -45,7 +45,30 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest"><!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+<link rel="manifest" href="/site.webmanifest"><!-- Google Consent Mode v2: must run before any gtag config.
+     In the EEA, UK and Switzerland everything starts as "denied"; Google's consent
+     message (AdSense > Privacy & messaging) updates it when the visitor chooses.
+     Elsewhere no consent message is shown, so the defaults are "granted". -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500,
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+  });
+  gtag('consent', 'default', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted'
+  });
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -496,11 +519,14 @@
                 Copyright © 2026 codersite 
             </div>
             <div class="col-md-6 col-sm-6 text-center text-lg-right">    
-                <a href="/policy">Privacy policy |</a>
-				<a href="/termsOfService">Terms of service |</a>
-				<a href="/impressum">Impressum</a>
+                <a href="/about">About</a> |
+                <a href="/contact/">Contact</a> |
+                <a href="/policy">Privacy policy</a> |
+                <a href="/termsOfService">Terms of service</a> |
+                <a href="/impressum">Impressum</a>
             </div>
         </div>
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases. Some links on this site are affiliate links: if you buy through them, I may earn a commission at no extra cost to you. <a href="/policy#amazon">More</a></p>
     </div>
 </footer>
 <!-- End Footer
@@ -515,9 +541,9 @@
      so they never block the first paint. No inline script on the site depends on jQuery. -->
 <script src="/assets/js/jquery.min.js" defer></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous" defer></script>
+<script src="/assets/js/popper.min.js" defer></script>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous" defer></script>
+<script src="/assets/js/bootstrap.min.js" defer></script>
 
 <script src="/assets/js/mediumish.js" defer></script>
 
