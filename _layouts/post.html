@@ -265,7 +265,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
       "@type": "ListItem",
       "position": 2,
       "name": {{ crumb_cat | jsonify }},
-      "item": {{ "/categories" | absolute_url | append: "#" | append: crumb_cat | replace: " ", "-" | jsonify }}
+      "item": {{ crumb_cat | slugify | prepend: "/category/" | append: "/" | absolute_url | jsonify }}
     },
     {
       "@type": "ListItem",

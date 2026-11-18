@@ -3,7 +3,8 @@ layout: post
 title:  "Assemble Parts in Minimum Time: Greedy Min-Heap Solution in Java (Code Interview Problem)"
 description: "Merge parts at minimum total cost: why sorting once fails, the greedy min-heap solution with PriorityQueue in O(n log n), a proof sketch, and JUnit 5 tests. Also known as connect ropes with minimum cost."
 author: moises
-categories: [ algorithms ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ algorithms ]
 image: /assets/images/assembleParts.jpg
 comments: false
 ---

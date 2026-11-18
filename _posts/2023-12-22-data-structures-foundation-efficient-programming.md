@@ -3,7 +3,8 @@ layout: post
 title:  "Java Data Structures: Which One to Use and Why (with a Big-O Cheat Sheet)"
 description: "Arrays, ArrayList, LinkedList, HashMap, TreeMap, stacks and queues in Java: what each one is good at, a Big-O cheat sheet, and the mistakes that cost performance."
 author: moises
-categories: [ data structures ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ data structures ]
 image: /assets/images/dataStructure.jpg
 comments: false
 ---

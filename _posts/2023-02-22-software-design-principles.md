@@ -3,7 +3,8 @@ layout: post
 title:  "Software Design Principles Explained with Java Examples: SOLID, DRY, KISS, YAGNI and More"
 description: "The software design principles every developer should know, each with a short Java example: SOLID, DRY, KISS, YAGNI, separation of concerns, composition over inheritance and the Law of Demeter."
 author: moises
-categories: [ design ]
+categories: [ "Software Design & Architecture" ]
+tags: [ design principles ]
 image: /assets/images/softwareDesignPrinciples.jpg
 comments: false
 ---

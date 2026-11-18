@@ -3,7 +3,8 @@ layout: post
 title:  "Access Denied When Deleting Files in a Load-Balanced Java Cluster"
 description: "Why a Java app in a load-balanced cluster gets Access Denied on a shared file server, why File.delete() hides it, and three ways to fix it."
 author: moises
-categories: [ Web Performance ]
+categories: [ "Software Design & Architecture" ]
+tags: [ performance ]
 image: /assets/images/loadBalancing.jpg
 comments: false
 ---

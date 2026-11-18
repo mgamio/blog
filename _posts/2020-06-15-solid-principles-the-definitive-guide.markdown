@@ -3,7 +3,8 @@ layout: post
 title: "SOLID Principles in Java: The Definitive Guide with Examples"
 description: "All five SOLID principles explained with one running Java example: single responsibility, open-closed, Liskov substitution, interface segregation and dependency inversion, with before-and-after code."
 author: moises
-categories: [ design ]
+categories: [ "Software Design & Architecture" ]
+tags: [ design principles ]
 image: /assets/images/solid.jpg
 comments: false
 ---

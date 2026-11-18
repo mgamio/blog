@@ -3,7 +3,8 @@ layout: post
 title:  "Load-Test Your API's Rate Limiting with Concurrent Java Clients"
 description: "Simulate several clients hitting your REST API at the same time with Java virtual threads, watch the X-Rate-Limit headers, and verify the 429 Too Many Requests response."
 author: moises
-categories: [ Web APIs ]
+categories: [ "Java & Spring Boot" ]
+tags: [ web apis ]
 image: /assets/images/restApiClient.jpg
 comments: false
 ---

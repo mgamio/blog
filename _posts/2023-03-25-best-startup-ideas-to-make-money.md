@@ -3,7 +3,8 @@ layout: post
 title:  "Startup Ideas for Software Developers: How to Find, Validate and Build One"
 description: "Eight startup ideas that suit software developers, each with a real example, plus how to validate an idea before you write code and ship an MVP in weeks, not months."
 author: moises
-categories: [ startup ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ startup, career ]
 image: /assets/images/startupIdeas.jpg
 comments: false
 ---

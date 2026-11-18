@@ -3,7 +3,8 @@ layout: post
 title:  "REST API Tutorial: Resources, HTTP Methods, Status Codes and a Spring Boot Example"
 description: "Learn REST from a real B2B ordering API: resources and representations, the REST constraints, GET/POST/PUT/PATCH/DELETE with valid examples, status codes, and a Spring Boot controller."
 author: moises
-categories: [ Web APIs ]
+categories: [ "Java & Spring Boot" ]
+tags: [ web apis ]
 image: /assets/images/RESTAPIOverview.jpg
 comments: false
 ---

@@ -1,4 +1,5 @@
-<!-- Read next: up to 3 posts that share the most categories with this one (newest first on ties),
+<!-- Read next: up to 3 posts that share the most tags with this one (each shared tag counts 2, the same pillar 1;
+     newest first on ties),
      topped up with the newest posts when fewer than 3 match. -->
 {%- assign related_keys = "" | split: "" -%}
 {%- for post in site.posts -%}
@@ -7,8 +8,11 @@
   {%- for cat in post.categories -%}
     {%- if page.categories contains cat -%}{%- assign shared = shared | plus: 1 -%}{%- endif -%}
   {%- endfor -%}
+  {%- for tag in post.tags -%}
+    {%- if page.tags contains tag -%}{%- assign shared = shared | plus: 2 -%}{%- endif -%}
+  {%- endfor -%}
   {%- if shared > 0 -%}
-    {%- capture key -%}{{ shared }}-{{ post.date | date: "%s" }}-{{ forloop.index0 }}{%- endcapture -%}
+    {%- capture key -%}{% if shared < 10 %}0{% endif %}{{ shared }}-{{ post.date | date: "%s" }}-{{ forloop.index0 }}{%- endcapture -%}
     {%- assign related_keys = related_keys | push: key -%}
   {%- endif -%}
 {%- endfor -%}

@@ -3,7 +3,8 @@ layout: post
 title:  "Secure a Spring Boot REST API with OAuth2 and OpenAPI (Swagger UI)"
 description: "Protect a Spring Boot 4 REST API with OAuth2 client credentials and JWT: Spring Authorization Server, resource server, scopes, and a working Authorize button in Swagger UI."
 author: moises
-categories: [ Web APIs ]
+categories: [ "Java & Spring Boot" ]
+tags: [ web apis ]
 image: /assets/images/oauthRoles.jpg
 comments: false
 ---

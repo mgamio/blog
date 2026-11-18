@@ -3,7 +3,8 @@ layout: post
 title:  "From O(n²) to O(n): Replace Nested Loops with a HashMap in Java"
 description: "A real REST API was slowed down by nested loops. Here's how grouping a List into a HashMap by key turned 2,000,000 comparisons into about 3,000, with a classic loop and a one-line Java 8 version."
 author: moises
-categories: [ data structures ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ data structures ]
 image: /assets/images/listIntoHashmap.jpg
 comments: false
 ---

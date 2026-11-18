@@ -3,7 +3,8 @@ layout: post
 title:  "Java App Slow Under Load? A Step-by-Step Performance Playbook"
 description: "A prioritized playbook for Java applications that slow down or crash under concurrent load: measure first, fix connection pools and leaks, add timeouts and caching, use virtual threads, then scale."
 author: moises
-categories: [ design ]
+categories: [ "Java & Spring Boot" ]
+tags: [ design principles ]
 image: /assets/images/javaAppPerformance.jpg
 comments: false
 ---

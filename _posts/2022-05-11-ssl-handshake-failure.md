@@ -3,7 +3,8 @@ layout: post
 title:  "Fix 'Received fatal alert: handshake_failure' in Java: SSL/TLS Troubleshooting"
 description: "Why a Java client fails with handshake_failure, how to find the cause with javax.net.debug and openssl, and how to fix protocol and cipher mismatches in Java and Spring WebClient."
 author: moises
-categories: [ Web APIs ]
+categories: [ "Java & Spring Boot" ]
+tags: [ web apis ]
 image: /assets/images/sslHandshake.jpg
 comments: false
 ---

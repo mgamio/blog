@@ -1,7 +1,6 @@
 ---
-layout: category
-title: Data Structures Articles
-description: All codersite.dev articles in the Data Structures category, newest first.
-category: data structures
+layout: redirect
+redirect_to: /category/algorithms-interviews-career/
 permalink: /category/data-structures/
+sitemap: false
 ---

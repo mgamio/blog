@@ -6,8 +6,9 @@ layout: default
 ================================================== -->
 <section class="recent-posts">
 <div class="section-title">
-    <h2>Posts in category <span class="text-capitalize">'{{ page.category }}'</span></h2>
+    <h1 class="category-title"><span>{{ page.title }}</span></h1>
 </div>
+{% if page.intro %}<p class="category-intro">{{ page.intro }}</p>{% endif %}
 <div class="row listrecent">
 
 {% for post in site.categories[page.category] %}

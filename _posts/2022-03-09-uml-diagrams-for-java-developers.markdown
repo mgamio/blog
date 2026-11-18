@@ -3,7 +3,8 @@ layout: post
 title:  "UML Diagrams for Java Developers: From Requirements to Code"
 description: "Turn a user requirement into C4, UML class and sequence diagrams, then into Java code. Dependency vs association, aggregation vs composition, and a UML-to-Java cheat sheet."
 author: moises
-categories: [ design ]
+categories: [ "Software Design & Architecture" ]
+tags: [ design principles ]
 image: /assets/images/umlDiagrams.jpg
 comments: false
 ---

@@ -3,7 +3,8 @@ layout: post
 title: "Document a Spring Boot REST API with OpenAPI 3 and Swagger UI (springdoc)"
 description: "Code-first OpenAPI 3 docs for Spring Boot 4 with springdoc: annotate a real CRUD API, document errors with Problem Details, customize Swagger UI and export the spec."
 author: moises
-categories: [ Web APIs ]
+categories: [ "Java & Spring Boot" ]
+tags: [ web apis ]
 image: /assets/images/apiDocumentation.jpg
 comments: false
 ---

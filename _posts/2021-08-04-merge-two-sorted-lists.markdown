@@ -3,7 +3,8 @@ layout: post
 title:  "Merge Two Sorted Lists in Java: Array List and Linked List Solutions"
 description: "Merge two sorted lists in Java in O(n + m): the two-pointer solution for ArrayList, a generic version, and the LeetCode 21 linked-list solution with tests."
 author: moises
-categories: [ algorithms ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ algorithms ]
 image: /assets/images/merge.jpg
 comments: false
 ---

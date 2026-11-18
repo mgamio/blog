@@ -3,7 +3,8 @@ layout: post
 title:  "German IT Vocabulary for Software Developers Working in Germany"
 description: "Over 180 German IT words with articles and English translations: software development, coding, meetings, security and databases. From more than ten years as a developer in Berlin."
 author: moises
-categories: [ Language ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ german, career ]
 image: /assets/images/germanDeveloperVocabulary.jpg
 comments: false
 ---

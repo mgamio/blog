@@ -501,3 +501,16 @@ a.path-next:hover {
 .amazon-book .amazon-book-btn:hover {
     text-decoration: underline;
 }
+
+/* Pillar category pages (_layouts/category.html) */
+.category-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+}
+.category-intro {
+    font-size: 1.05rem;
+    color: #595959;
+    max-width: 720px;
+    margin: 1rem 0 1.75rem;
+}

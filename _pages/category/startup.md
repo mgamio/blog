@@ -1,7 +1,6 @@
 ---
-layout: category
-title: Startup Articles
-description: All codersite.dev articles in the Startup category, newest first.
-category: startup
+layout: redirect
+redirect_to: /category/algorithms-interviews-career/
 permalink: /category/startup/
+sitemap: false
 ---

@@ -3,7 +3,8 @@ layout: post
 title:  "How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring"
 description: "Handle HTTP 503 in a Java REST client: retry only errors that can succeed, respect Retry-After, use exponential backoff with jitter, and use Spring Framework 7's built-in @Retryable."
 author: moises
-categories: [ Web APIs ]
+categories: [ "Java & Spring Boot" ]
+tags: [ web apis ]
 image: /assets/images/503ServiceUnavailableError.jpg
 permalink: /how-rest-client-handles-503-error/
 comments: false

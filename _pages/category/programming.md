@@ -1,7 +1,6 @@
 ---
-layout: category
-title: Programming Articles
-description: All codersite.dev articles in the Programming category, newest first.
-category: programming
+layout: redirect
+redirect_to: /category/java-spring-boot/
 permalink: /category/programming/
+sitemap: false
 ---

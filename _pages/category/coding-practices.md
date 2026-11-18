@@ -1,7 +1,6 @@
 ---
-layout: category
-title: Coding Practices Articles
-description: All codersite.dev articles in the Coding Practices category, newest first.
-category: Coding Practices
+layout: redirect
+redirect_to: /category/software-design-architecture/
 permalink: /category/coding-practices/
+sitemap: false
 ---

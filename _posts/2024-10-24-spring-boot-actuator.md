@@ -3,7 +3,8 @@ layout: post
 title:  "Log Every Login Attempt with Spring Boot Actuator Auditing"
 description: "Use Spring Boot Actuator's audit events to log successful and failed authentication attempts, including the one bean you need to enable auditing and how to keep the log file small."
 author: moises
-categories: [ programming ]
+categories: [ "Java & Spring Boot" ]
+tags: [ java ]
 image: /assets/images/springBootActuator.jpg
 comments: false
 ---

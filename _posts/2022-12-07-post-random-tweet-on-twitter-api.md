@@ -3,7 +3,8 @@ layout: post
 title:  "Random Without Repeats in Java: Schedule Posts to X with Spring Boot and a Shuffle Bag"
 description: "Pick random items without repeats in Java: why random-and-retry with a queue breaks, how a shuffle bag fixes it in O(1), and how to schedule it with Spring Boot's @Scheduled to post to the X API, with current API costs."
 author: moises
-categories: [ algorithms ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ algorithms ]
 image: /assets/images/randomWithoutRepeatsX.jpg
 comments: false
 ---

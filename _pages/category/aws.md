@@ -1,7 +1,6 @@
 ---
-layout: category
-title: AWS Articles
-description: All codersite.dev articles in the AWS category, newest first.
-category: aws
+layout: redirect
+redirect_to: /category/software-design-architecture/
 permalink: /category/aws/
+sitemap: false
 ---

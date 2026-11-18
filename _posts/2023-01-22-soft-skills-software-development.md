@@ -3,7 +3,8 @@ layout: post
 title:  "Soft Skills for Software Developers: 10 Skills with Real Workplace Examples"
 description: "The soft skills that matter most for software developers, each shown in a real situation: explaining tech debt to a manager, code review comments, estimates, saying no, and answering behavioral interview questions."
 author: moises
-categories: [ career ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ career ]
 image: /assets/images/softSkills.jpg
 comments: false
 ---

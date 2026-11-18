@@ -3,7 +3,8 @@ layout: post
 title:  "Hot-Warm-Cold Architecture in Elasticsearch: Data Tiers, ILM and Centralized Logs"
 description: "Build a hot-warm-cold Elasticsearch cluster for log analytics: data tier node roles, an ILM policy that moves logs between tiers, and Filebeat and Logstash to ship them."
 author: moises
-categories: [ distributed-systems ]
+categories: [ "Software Design & Architecture" ]
+tags: [ distributed systems ]
 image: /assets/images/elastic.jpg
 comments: false
 ---

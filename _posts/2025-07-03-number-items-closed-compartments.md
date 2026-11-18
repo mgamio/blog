@@ -3,8 +3,9 @@ layout: post
 title:  "Items in Containers: Count Items in Closed Compartments (Code Interview Problem)"
 description: "Solve the Items in Containers coding interview problem in Java: count the items inside closed compartments for each query, from an O(n·q) brute force to an O(n + q) prefix-sum solution."
 author: moises
-categories: [ algorithms ]
-image: /assets/images/inventoryItems.jpg
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ algorithms ]
+image: /assets/images/posts/items-in-containers.jpg
 comments: false
 ---
 

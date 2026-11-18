@@ -3,7 +3,8 @@ layout: post
 title:  "OOP Concepts in Java: The 4 Pillars and Composition, with Examples"
 description: "Abstraction, encapsulation, inheritance and polymorphism explained with short Java examples, plus composition, and why you should favor composition over inheritance."
 author: moises
-categories: [ Object-Oriented ]
+categories: [ "Software Design & Architecture" ]
+tags: [ object-oriented ]
 image: /assets/images/oop.jpg
 featured: true
 hidden: false

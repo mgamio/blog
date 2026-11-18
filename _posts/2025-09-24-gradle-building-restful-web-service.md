@@ -3,7 +3,8 @@ layout: post
 title:  "Build a RESTful Web Service with Spring Boot, Gradle, and OpenAPI"
 description: "This guide walks you through the process of creating a RESTful web service with Spring, Gradle and Openapi."
 author: moises
-categories: [ Web APIs ]
+categories: [ "Java & Spring Boot" ]
+tags: [ web apis ]
 image: /assets/images/gradleRestfulWebService.jpg
 comments: false
 ---

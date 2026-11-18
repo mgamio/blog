@@ -1,7 +1,6 @@
 ---
-layout: category
-title: Web Performance Articles
-description: All codersite.dev articles in the Web Performance category, newest first.
-category: Web Performance
+layout: redirect
+redirect_to: /category/software-design-architecture/
 permalink: /category/web-performance/
+sitemap: false
 ---

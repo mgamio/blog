@@ -3,7 +3,8 @@ layout: post
 title:  "Knapsack Problem in Java: Fill a Shopping Basket on a Budget (Greedy vs Dynamic Programming)"
 description: "Solve the 0/1 knapsack problem in Java with test-driven development: why a greedy basket fails, a brute-force solution, and dynamic programming that finds the most grams for your budget."
 author: moises
-categories: [ algorithms, test-driven development ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ algorithms, test-driven development ]
 image: /assets/images/knapsackAlgorithm.jpg
 comments: false
 ---

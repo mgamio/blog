@@ -3,7 +3,8 @@ layout: post
 title:  "Smallest Number with the Same Number of Digits in Java (Coding Interview Problem)"
 description: "Given N, return the smallest number with the same number of digits: from a slow countdown to an O(digits) solution in Java, with negative numbers, int overflow and Integer.MIN_VALUE handled."
 author: moises
-categories: [ algorithms ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ algorithms ]
 image: /assets/images/smallestNumber.jpg
 comments: false
 ---

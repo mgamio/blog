@@ -3,7 +3,8 @@ layout: post
 title:  "Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial"
 description: "Design a real REST API before writing any code: a step-by-step OpenAPI 3 tutorial using SwaggerHub, with servers, tags, paths, parameters, responses and live documentation."
 author: moises
-categories: [ Web APIs ]
+categories: [ "Java & Spring Boot" ]
+tags: [ web apis ]
 image: /assets/images/swaggerHubOpenAPI.jpg
 comments: false
 ---
@@ -88,7 +89,6 @@ servers:
 **tags**: we use a tag to group similar operations. For example:
 
 ```yaml
-tags:
   - name: timeValueOfMoney
     description: time value of money-related operations
   - name: moneyMarkets

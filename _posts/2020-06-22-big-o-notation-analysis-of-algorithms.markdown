@@ -3,7 +3,8 @@ layout: post
 title:  "Big O Notation in Java: Time and Space Complexity for Coding Interviews"
 description: "Learn Big O notation with tested Java examples: O(1) to O(n!), how to count steps, space complexity, the Big O of Java collections, and a timing experiment that shows growth rates."
 author: moises
-categories: [ algorithms ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ algorithms ]
 image: /assets/images/algorithm.jpg
 featured: true
 hidden: false

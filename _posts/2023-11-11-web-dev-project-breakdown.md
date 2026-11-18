@@ -3,7 +3,8 @@ layout: post
 title:  "How to Break Down a Software Project into Tasks: From Epics to User Stories, with a Real Example"
 description: "A practical way to turn a large software project into estimated, ordered tasks: goals and scope, epics, user stories with acceptance criteria, tasks, estimates and dependencies, shown on a real API project."
 author: moises
-categories: [ Project ]
+categories: [ "Software Design & Architecture" ]
+tags: [ project management ]
 image: /assets/images/webdevProject.jpg
 comments: false
 ---

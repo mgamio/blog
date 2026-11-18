@@ -3,7 +3,8 @@ layout: post
 title:  "Ubiquitous Language in Domain-Driven Design: How to Build One, with Java Examples"
 description: "What a ubiquitous language is, why it belongs to one bounded context, and six practices to build one, with Java examples and an anti-corruption layer for external APIs."
 author: moises
-categories: [ Domain-Driven Design ]
+categories: [ "Software Design & Architecture" ]
+tags: [ domain-driven design ]
 image: /assets/images/theUbiquitousLanguage.jpg
 comments: false
 ---

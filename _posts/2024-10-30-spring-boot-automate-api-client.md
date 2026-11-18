@@ -3,7 +3,8 @@ layout: post
 title:  "Break Out of Nested Loops in Java: Automating a Real REST API Client"
 description: "A real Spring REST client that walks buyers, suppliers, customer numbers and articles to place a test order, and how a labeled break replaces three flags and three if-checks."
 author: moises
-categories: [ programming ]
+categories: [ "Java & Spring Boot" ]
+tags: [ java ]
 image: /assets/images/apiClientRequest.jpg
 comments: false
 ---

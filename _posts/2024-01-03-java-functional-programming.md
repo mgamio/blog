@@ -3,7 +3,8 @@ layout: post
 title:  "Functional Programming in Java: Lambdas, Streams, Records and Immutability"
 description: "A practical introduction to functional programming in Java: pure functions, lambdas, method references, streams on real business data, and why final is not the same as immutable."
 author: moises
-categories: [ programming ]
+categories: [ "Java & Spring Boot" ]
+tags: [ java ]
 image: /assets/images/functionalProgramming.jpg
 comments: false
 ---

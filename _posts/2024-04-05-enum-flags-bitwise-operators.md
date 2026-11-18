@@ -3,7 +3,8 @@ layout: post
 title:  "Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet"
 description: "Report several errors in one int: how to combine, test, remove and decode bit flags with Java enums and bitwise operators, and when to use EnumSet instead."
 author: moises
-categories: [ programming ]
+categories: [ "Java & Spring Boot" ]
+tags: [ java ]
 image: /assets/images/enumBitWiseOperators.jpg
 comments: false
 ---

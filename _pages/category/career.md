@@ -1,7 +1,6 @@
 ---
-layout: category
-title: Career Articles
-description: All codersite.dev articles in the Career category, newest first.
-category: career
+layout: redirect
+redirect_to: /category/algorithms-interviews-career/
 permalink: /category/career/
+sitemap: false
 ---

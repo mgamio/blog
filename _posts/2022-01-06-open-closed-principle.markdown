@@ -3,7 +3,8 @@ layout: post
 title:  "Open-Closed Principle in Java with a Spring Boot Example (SOLID Part II)"
 description: "Learn the open-closed principle with a real Spring Boot example: refactor a rate limiter so you can add new data sources without touching existing code."
 author: moises
-categories: [ design ]
+categories: [ "Software Design & Architecture" ]
+tags: [ design principles ]
 image: /assets/images/openClosedPrinciple.jpg
 comments: false
 ---

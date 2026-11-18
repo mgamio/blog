@@ -1,7 +1,6 @@
 ---
-layout: category
-title: Language Articles
-description: All codersite.dev articles in the Language category, newest first.
-category: Language
+layout: redirect
+redirect_to: /category/algorithms-interviews-career/
 permalink: /category/language/
+sitemap: false
 ---

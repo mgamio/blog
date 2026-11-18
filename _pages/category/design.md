@@ -1,7 +1,6 @@
 ---
-layout: category
-title: Design Articles
-description: All codersite.dev articles in the Design category, newest first.
-category: design
+layout: redirect
+redirect_to: /category/software-design-architecture/
 permalink: /category/design/
+sitemap: false
 ---

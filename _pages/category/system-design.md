@@ -1,7 +1,6 @@
 ---
-layout: category
-title: System Design Articles
-description: All codersite.dev articles in the System Design category, newest first.
-category: system-design
+layout: redirect
+redirect_to: /category/software-design-architecture/
 permalink: /category/system-design/
+sitemap: false
 ---

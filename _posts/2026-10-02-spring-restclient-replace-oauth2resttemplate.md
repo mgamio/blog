@@ -3,7 +3,8 @@ layout: post
 title:  "Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client"
 description: "OAuth2RestTemplate is deprecated and Spring Security 7.0 removed the password grant. Rebuild a real OAuth2-secured API client with Spring's RestClient, keep your business logic unchanged, and get ready for client credentials."
 author: moises
-categories: [ programming ]
+categories: [ "Java & Spring Boot" ]
+tags: [ java ]
 image: /assets/images/springBootRestClient.jpg
 comments: false
 ---

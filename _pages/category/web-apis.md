@@ -1,7 +1,6 @@
 ---
-layout: category
-title: Web APIs Articles
-description: All codersite.dev articles in the Web APIs category, newest first.
-category: Web APIs
+layout: redirect
+redirect_to: /category/java-spring-boot/
 permalink: /category/web-apis/
+sitemap: false
 ---

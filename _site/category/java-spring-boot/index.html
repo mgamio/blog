@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+
+<!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Java &amp; Spring Boot Tutorials | codersite</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Java &amp; Spring Boot Tutorials" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Java and Spring Boot tutorials with complete code: REST APIs, OpenAPI, security, rate limiting, modern Java features and performance." />
+<meta name="twitter:description" property="og:description" content="Java and Spring Boot tutorials with complete code: REST APIs, OpenAPI, security, rate limiting, modern Java features and performance." />
+<link rel="canonical" href="https://codersite.dev/category/java-spring-boot/" />
+<meta property="og:url" content="https://codersite.dev/category/java-spring-boot/" />
+<meta property="og:site_name" content="codersite" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Java &amp; Spring Boot Tutorials" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Java and Spring Boot tutorials with complete code: REST APIs, OpenAPI, security, rate limiting, modern Java features and performance.","headline":"Java &amp; Spring Boot Tutorials","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://codersite.dev/assets/images/logo.svg"}},"url":"https://codersite.dev/category/java-spring-boot/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<!-- Bootstrap 4.1.3, self-hosted (same file as the CDN copy) to save a connection on the critical path -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+<!-- Web fonts, self-hosted (SIL Open Font License): no request to Google, so no visitor IP goes to a third party.
+     Righteous (headings) is preloaded so the big headline doesn't reflow when it arrives. Latin subset only. -->
+<link rel="preload" href="/assets/fonts/righteous-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: 'Righteous'; font-style: normal; font-weight: 400; font-display: swap; src: url('/assets/fonts/righteous-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('/assets/fonts/merriweather-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: italic; font-weight: 400; font-display: swap; src: url('/assets/fonts/merriweather-italic-latin.woff2') format('woff2'); }
+</style>
+
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest"><!-- Google Consent Mode v2: must run before any gtag config.
+     In the EEA, UK and Switzerland everything starts as "denied"; Google's consent
+     message (AdSense > Privacy & messaging) updates it when the visitor chooses.
+     Elsewhere no consent message is shown, so the defaults are "granted". -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500,
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+  });
+  gtag('consent', 'default', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted'
+  });
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-642735915');
+</script>
+
+
+</head>
+
+
+<body class="layout-category">
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+	<a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.svg" width="210" height="30" alt="codersite">
+    </a>
+    <!-- End Logo -->
+	 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                <a class="nav-link nav-start" href="/start-here/">Start here</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/books.html">Books</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/tools/">Tools</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/shop">Shop</a>
+                </li>
+
+                <style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: #6b6b6b;}
+    .lunrsearchresult a {display: block; color: #555;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" id="lunrsearchform">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..." aria-label="Search codersite"/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<!-- The search index covers the whole site and is expensive to build, so lunr.js and the index
+     load only when the reader starts using the search box, not on every page view. -->
+<script>
+(function () {
+    var form = document.getElementById('lunrsearchform');
+    var input = document.getElementById('lunrsearch');
+    var loading = null;
+    function loadScript(src) {
+        return new Promise(function (resolve, reject) {
+            var s = document.createElement('script');
+            s.src = src;
+            s.onload = resolve;
+            s.onerror = reject;
+            document.body.appendChild(s);
+        });
+    }
+    function loadSearch() {
+        if (!loading) {
+            loading = loadScript('/assets/js/lunr.js').then(function () {
+                return loadScript('/assets/js/lunrsearchengine.js');
+            });
+        }
+        return loading;
+    }
+    ['focus', 'pointerenter', 'touchstart'].forEach(function (evt) {
+        input.addEventListener(evt, loadSearch, { once: true, passive: true });
+    });
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        loadSearch().then(function () { lunr_search(input.value); });
+    });
+})();
+</script>
+
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== --><!-- nothing --><!-- Content
+================================================== -->
+  <div class="main-content">
+    <!-- Begin List Posts
+================================================== -->
+<section class="recent-posts">
+<div class="section-title">
+    <h1 class="category-title"><span>Java & Spring Boot Tutorials</span></h1>
+</div>
+<p class="category-intro">Hands-on Java and Spring Boot: build, document and secure REST APIs, call other services, and write modern Java.</p>
+<div class="row listrecent">
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/spring-restclient-replace-oauth2resttemplate/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/springBootRestClient.jpg" alt="Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/spring-restclient-replace-oauth2resttemplate/">Replace OAuth2RestTemplate with RestClient: A Modern Spring Boot API Client</a>
+                
+            </h2>
+            <p class="card-text">In the previous post, we built a program that walks an Order API (buyers, suppliers, customer numbers, articles) and places a test order. It works, but it’s built on OAuth2RestTemplate,...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">02 Oct 2026</span>
+                </span>
+                <span class="post-read-more"><a href="/spring-restclient-replace-oauth2resttemplate/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/gradle-building-restful-web-service/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/gradleRestfulWebService.jpg" alt="Build a RESTful Web Service with Spring Boot, Gradle, and OpenAPI">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/gradle-building-restful-web-service/">Build a RESTful Web Service with Spring Boot, Gradle, and OpenAPI</a>
+                
+            </h2>
+            <p class="card-text">By the end of this guide you’ll have a working Spring Boot RESTful API, built with Gradle and documented with OpenAPI, and a live Swagger UI page you can show...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">24 Sep 2025</span>
+                </span>
+                <span class="post-read-more"><a href="/gradle-building-restful-web-service/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/swagger-codegen-server-stubs-openapi/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/swaggerCodegen.jpg" alt="Generate a Spring Boot Server from an OpenAPI Spec with Swagger Codegen">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/swagger-codegen-server-stubs-openapi/">Generate a Spring Boot Server from an OpenAPI Spec with Swagger Codegen</a>
+                
+            </h2>
+            <p class="card-text">You’ve designed your API. Now comes the boring part: writing controllers, models and request mappings that only repeat what the spec already says. Swagger Codegen writes that code for you....</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">16 Apr 2025</span>
+                </span>
+                <span class="post-read-more"><a href="/swagger-codegen-server-stubs-openapi/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/designing-apis-with-swagger-and-openapi/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/swaggerHubOpenAPI.jpg" alt="Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/designing-apis-with-swagger-and-openapi/">Design-First APIs with OpenAPI 3: A Step-by-Step Tutorial</a>
+                
+            </h2>
+            <p class="card-text">Most API problems aren’t coding problems. They’re design problems found too late: a missing field, an inconsistent name, an error nobody documented. Design-first fixes that by agreeing on the contract...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">26 Feb 2025</span>
+                </span>
+                <span class="post-read-more"><a href="/designing-apis-with-swagger-and-openapi/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/spring-boot-automate-api-client/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/apiClientRequest.jpg" alt="Break Out of Nested Loops in Java: Automating a Real REST API Client">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/spring-boot-automate-api-client/">Break Out of Nested Loops in Java: Automating a Real REST API Client</a>
+                
+            </h2>
+            <p class="card-text">Testing an order API by hand means clicking through buyers, suppliers, customer numbers and articles until you find a combination that works. This program does it in seconds: it walks...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">30 Oct 2024</span>
+                </span>
+                <span class="post-read-more"><a href="/spring-boot-automate-api-client/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/spring-boot-actuator/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/springBootActuator.jpg" alt="Log Every Login Attempt with Spring Boot Actuator Auditing">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/spring-boot-actuator/">Log Every Login Attempt with Spring Boot Actuator Auditing</a>
+                
+            </h2>
+            <p class="card-text">When a login fails at 3 a.m., you want to know who tried, how often, and whether it worked. Spring Boot Actuator already publishes these security events; you only have...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">24 Oct 2024</span>
+                </span>
+                <span class="post-read-more"><a href="/spring-boot-actuator/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/certified-professional-java-building-blocks/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/javaCertifiedBuildingBlocks.jpg" alt="Java OCP Practice Questions: Building Blocks, with Answers Explained">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/certified-professional-java-building-blocks/">Java OCP Practice Questions: Building Blocks, with Answers Explained</a>
+                
+            </h2>
+            <p class="card-text">The OCP Java exam doesn’t test whether you can write code. It tests whether you can read code like a compiler: which line fails, what exactly gets printed, which object...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">01 Oct 2024</span>
+                </span>
+                <span class="post-read-more"><a href="/certified-professional-java-building-blocks/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/enum-flags-bitwise-operators/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/enumBitWiseOperators.jpg" alt="Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/enum-flags-bitwise-operators/">Java Bit Flags with Enums: Combine, Check and Decode Errors with Bitwise Operators and EnumSet</a>
+                
+            </h2>
+            <p class="card-text">An order API has to report several problems at once: a wrong quantity, a price difference and an article that no longer exists. Sending a list of strings works, but...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">05 Apr 2024</span>
+                </span>
+                <span class="post-read-more"><a href="/enum-flags-bitwise-operators/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/java-generics/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/javaGenerics.jpg" alt="Java Generics Explained: Wildcards, PECS and Type Erasure with Examples">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/java-generics/">Java Generics Explained: Wildcards, PECS and Type Erasure with Examples</a>
+                
+            </h2>
+            <p class="card-text">Before Java 5, every collection held Object, and every value you took out needed a cast, which could fail at runtime. Generics moved that check to the compiler. Here’s how...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">05 Jan 2024</span>
+                </span>
+                <span class="post-read-more"><a href="/java-generics/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/java-functional-programming/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/functionalProgramming.jpg" alt="Functional Programming in Java: Lambdas, Streams, Records and Immutability">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/java-functional-programming/">Functional Programming in Java: Lambdas, Streams, Records and Immutability</a>
+                
+            </h2>
+            <p class="card-text">You already use functional programming in Java every time you write a lambda or a stream. Used well, it turns a 20-line loop over orders into five readable lines. Used...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">03 Jan 2024</span>
+                </span>
+                <span class="post-read-more"><a href="/java-functional-programming/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/optimize-java-app-performance/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/javaAppPerformance.jpg" alt="Java App Slow Under Load? A Step-by-Step Performance Playbook">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/optimize-java-app-performance/">Java App Slow Under Load? A Step-by-Step Performance Playbook</a>
+                
+            </h2>
+            <p class="card-text">Your Java application works fine in testing, then falls over in production: requests pile up, the database runs out of connections, the server stops responding. The fix is rarely “add...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">05 Dec 2023</span>
+                </span>
+                <span class="post-read-more"><a href="/optimize-java-app-performance/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/building-rest-api-client/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/restApiClient.jpg" alt="Load-Test Your API's Rate Limiting with Concurrent Java Clients">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/building-rest-api-client/">Load-Test Your API's Rate Limiting with Concurrent Java Clients</a>
+                
+            </h2>
+            <p class="card-text">Your API has rate limiting. But does it actually work when several clients hammer different endpoints at the same time, on Black Friday? You don’t want to find out in...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">30 Sep 2023</span>
+                </span>
+                <span class="post-read-more"><a href="/building-rest-api-client/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/rest-api-overview/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/RESTAPIOverview.jpg" alt="REST API Tutorial: Resources, HTTP Methods, Status Codes and a Spring Boot Example">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/rest-api-overview/">REST API Tutorial: Resources, HTTP Methods, Status Codes and a Spring Boot Example</a>
+                
+            </h2>
+            <p class="card-text">A restaurant app needs a supplier’s food prices; the supplier’s system needs the restaurant’s orders. Two companies, two technologies, no shared code, and REST is how they talk. This tutorial...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">29 Jun 2023</span>
+                </span>
+                <span class="post-read-more"><a href="/rest-api-overview/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/rate-limit/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/rateLimitAlgorithm.jpg" alt="Rate Limiting in Spring Boot with Bucket4j: Token Bucket Algorithm per Client">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/rate-limit/">Rate Limiting in Spring Boot with Bucket4j: Token Bucket Algorithm per Client</a>
+                
+            </h2>
+            <p class="card-text">A partner company starts integrating with your API. On day one, their developer writes a loop to load test data, and suddenly your API answers slowly for every other client....</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">02 Feb 2023</span>
+                </span>
+                <span class="post-read-more"><a href="/rate-limit/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/how-rest-client-handles-503-error/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/503ServiceUnavailableError.jpg" alt="How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/how-rest-client-handles-503-error/">How a REST Client Should Handle 503 Service Unavailable: Retries with Backoff in Spring</a>
+                
+            </h2>
+            <p class="card-text">Your nightly job sends 50,000 articles to a partner’s API, in batches of 1,000. At batch 23, the API answers 503 Service Unavailable. What should your client do? Give up,...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">04 Nov 2022</span>
+                </span>
+                <span class="post-read-more"><a href="/how-rest-client-handles-503-error/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/ssl-handshake-failure/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/sslHandshake.jpg" alt="Fix 'Received fatal alert: handshake_failure' in Java: SSL/TLS Troubleshooting">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/ssl-handshake-failure/">Fix 'Received fatal alert: handshake_failure' in Java: SSL/TLS Troubleshooting</a>
+                
+            </h2>
+            <p class="card-text">Your Java client calls an HTTPS API and fails before sending a single request:
+</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">11 May 2022</span>
+                </span>
+                <span class="post-read-more"><a href="/ssl-handshake-failure/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/spring-boot-oauth2/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/oauthRoles.jpg" alt="Secure a Spring Boot REST API with OAuth2 and OpenAPI (Swagger UI)">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/spring-boot-oauth2/">Secure a Spring Boot REST API with OAuth2 and OpenAPI (Swagger UI)</a>
+                
+            </h2>
+            <p class="card-text">Your REST API is documented with OpenAPI, and anyone who finds the URL can call it. This tutorial secures it with OAuth2: clients get a short-lived access token and send...</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">26 Apr 2022</span>
+                </span>
+                <span class="post-read-more"><a href="/spring-boot-oauth2/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+    <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/documenting-rest-api-openapi3/">
+                
+
+                    
+                        <img class="img-fluid" width="730" height="383" loading="lazy" src="/assets/images/apiDocumentation.jpg" alt="Document a Spring Boot REST API with OpenAPI 3 and Swagger UI (springdoc)">
+                    
+
+                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="/documenting-rest-api-openapi3/">Document a Spring Boot REST API with OpenAPI 3 and Swagger UI (springdoc)</a>
+                
+            </h2>
+            <p class="card-text">Developers outside your team can’t read your code. They read your API documentation, and if it’s missing, out of date or wrong, they guess, open tickets, or pick another provider....</p>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                
+                <img class="author-thumb" width="40" height="40" loading="lazy" src="/assets/images/author.jpg" alt="Moises Gamio">
+                
+                </span>
+                <span class="author-meta">
+                <span class="post-name"><a target="_blank" href="https://codersite.dev">Moises Gamio</a></span><br/>
+                
+                <span class="post-date">02 Oct 2020</span>
+                </span>
+                <span class="post-read-more"><a href="/documenting-rest-api-openapi3/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+
+
+</div>
+</section>
+
+  </div>
+
+<!-- here include any banner or subscription like site.mailchimp_list  -->
+
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+                <a class="mt-1 mb-1" href="/category/algorithms-interviews-career/">Algorithms, Interviews & Career (15)</a>
+            
+                <a class="mt-1 mb-1" href="/category/software-design-architecture/">Software Design & Architecture (11)</a>
+            
+                <a class="mt-1 mb-1" href="/category/java-spring-boot/">Java & Spring Boot (18)</a>
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-kit">
+            <img src="/assets/images/brand/kit-the-code-fox.svg" width="36" height="40" alt="Kit, the codersite fox">
+            <span>Stay curious. Ship code. Grow.</span>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2026 codersite 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a href="/about">About</a> |
+                <a href="/contact/">Contact</a> |
+                <a href="/policy">Privacy policy</a> |
+                <a href="/termsOfService">Terms of service</a> |
+                <a href="/impressum">Impressum</a>
+            </div>
+        </div>
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases. Some links on this site are affiliate links: if you buy through them, I may earn a commission at no extra cost to you. <a href="/policy#amazon">More</a></p>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<!-- All scripts are deferred: they download in parallel and run in this order after the HTML is parsed,
+     so they never block the first paint. No inline script on the site depends on jQuery. -->
+<script src="/assets/js/jquery.min.js" defer></script>
+
+<script src="/assets/js/popper.min.js" defer></script>
+
+<script src="/assets/js/bootstrap.min.js" defer></script>
+
+<script src="/assets/js/mediumish.js" defer></script>
+
+
+
+<!--
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('codersite', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support me',
+    'floating-chat.donateButton.background-color': '#f45d22',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>
+-->
+
+<!-- deferred-thirdparty: load GA4 gtag.js + AdSense on first interaction or 3s after load,
+     whichever comes first. Keeps third-party JS off the critical path (FCP/LCP/TBT);
+     gtag()/adsbygoogle commands queued earlier run as soon as the libraries arrive. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadScript(src, crossorigin) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = src;
+    if (crossorigin) { s.crossOrigin = 'anonymous'; }
+    document.head.appendChild(s);
+  }
+  function loadDeferred() {
+    if (loaded) { return; }
+    loaded = true;
+  }
+  var evts = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+  evts.forEach(function (e) { window.addEventListener(e, loadDeferred, { passive: true, once: true }); });
+  // Fallback so visitors who never interact are still measured and served ads.
+  if (document.readyState === 'complete') {
+    setTimeout(loadDeferred, 3000);
+  } else {
+    window.addEventListener('load', function () { setTimeout(loadDeferred, 3000); });
+  }
+})();
+</script>
+
+</body>
+</html>

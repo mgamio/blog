@@ -3,7 +3,8 @@ layout: post
 title:  "Binary Search Tree in Java: Insert, Search, Delete and Traversal (with GTIN Example)"
 description: "Build a binary search tree in Java with a real product lookup by GTIN: insert, search, delete, in-order traversal, why unbalanced trees get slow, and when to use TreeMap instead."
 author: moises
-categories: [ algorithms ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ algorithms ]
 image: /assets/images/binarySearchTree.jpg
 comments: false
 ---

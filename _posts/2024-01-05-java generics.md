@@ -3,7 +3,8 @@ layout: post
 title:  "Java Generics Explained: Wildcards, PECS and Type Erasure with Examples"
 description: "Learn Java generics with runnable examples: generic classes and methods, why a list of Integer is not a list of Number, extends and super wildcards (PECS), bounded types and type erasure."
 author: moises
-categories: [ programming ]
+categories: [ "Java & Spring Boot" ]
+tags: [ java ]
 image: /assets/images/javaGenerics.jpg
 comments: false
 ---

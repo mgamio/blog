@@ -3,7 +3,8 @@ layout: post
 title:  "Depth-First Search (DFS) in Java: Graph Traversal Explained, with BFS"
 description: "Learn depth-first search on a real map of German cities: graph terminology, adjacency list vs matrix, iterative and recursive DFS in Java, finding a path, and BFS for the shortest route."
 author: moises
-categories: [ algorithms ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ algorithms ]
 image: /assets/images/dfsAlgorithm.jpg
 comments: false
 ---

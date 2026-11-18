@@ -3,7 +3,8 @@ layout: post
 title:  "Rate Limiting in Spring Boot with Bucket4j: Token Bucket Algorithm per Client"
 description: "Protect your REST API with rate limiting: compare the common algorithms, then implement a token bucket per client with Bucket4j and Spring Boot, return 429 with Retry-After, and avoid the shared-bucket bug."
 author: moises
-categories: [ Web APIs ]
+categories: [ "Java & Spring Boot" ]
+tags: [ web apis ]
 image: /assets/images/rateLimitAlgorithm.jpg
 comments: false
 ---

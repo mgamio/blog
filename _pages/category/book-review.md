@@ -1,7 +1,6 @@
 ---
-layout: category
-title: Book Review Articles
-description: All codersite.dev articles in the Book Review category, newest first.
-category: book-review
+layout: redirect
+redirect_to: /category/software-design-architecture/
 permalink: /category/book-review/
+sitemap: false
 ---

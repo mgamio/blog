@@ -3,7 +3,8 @@ layout: post
 title:  "Generate a Spring Boot Server from an OpenAPI Spec with Swagger Codegen"
 description: "Turn your OpenAPI definition into a running Spring Boot server in minutes with Swagger Codegen: generate the stub, run it, and see your API live in Swagger UI."
 author: moises
-categories: [ Web APIs ]
+categories: [ "Java & Spring Boot" ]
+tags: [ web apis ]
 image: /assets/images/swaggerCodegen.jpg
 comments: false
 ---

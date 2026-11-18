@@ -3,7 +3,8 @@ layout: post
 title:  "Shopping Options: Count the Ways to Buy Within a Budget (Code Interview Problem)"
 description: "Solve the Shopping Options coding interview problem in Java: count every way to buy one item from four categories within a budget, from a 10¹² brute force to a fast meet-in-the-middle solution."
 author: moises
-categories: [ algorithms ]
+categories: [ "Algorithms, Interviews & Career" ]
+tags: [ algorithms ]
 image: /assets/images/shoppingOptions.jpg
 comments: false
 id: index

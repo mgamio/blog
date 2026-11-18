@@ -3,7 +3,8 @@ layout: post
 title:  "Java OCP Practice Questions: Building Blocks, with Answers Explained"
 description: "10 original practice questions for the Oracle Certified Professional Java exam on default values, var, scope, text blocks, garbage collection and imports, each with a hidden answer and a step-by-step explanation."
 author: moises
-categories: [ programming ]
+categories: [ "Java & Spring Boot" ]
+tags: [ java ]
 image: /assets/images/javaCertifiedBuildingBlocks.jpg
 comments: false
 ---
