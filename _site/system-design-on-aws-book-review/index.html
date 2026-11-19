@@ -73,15 +73,7 @@
   });
   gtag('set', 'ads_data_redaction', true);
 </script>
-<!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-642735915');
-</script>
+<!-- gtag.js and adsbygoogle.js are loaded with a delay by _includes/adsense.html at the end of the body -->
 
 
 </head>
@@ -311,7 +303,19 @@
 
 <p>Here’s the breakdown, and why it’s worth putting on your shelf next to your other engineering references.</p>
 
-<h2 id="why-system-design-is-its-own-skill">Why “System Design” Is Its Own Skill</h2>
+
+                    <div class="post-intro-ad"><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br/></div>
+                    <h2 id="why-system-design-is-its-own-skill">Why “System Design” Is Its Own Skill</h2>
 
 <p>Writing correct code and designing a system that <em>stays</em> correct under load, failure, and years of change are two different disciplines. The book opens with a simple but important reframe: system design isn’t about being clever with algorithms — it’s about understanding trade-offs <em>before</em> you write a line of code, so you’re not rebuilding the foundation six months after launch. That framing alone is worth the price of admission for anyone who’s inherited a system nobody dared to touch.</p>
 
@@ -642,7 +646,6 @@ https://search.google.com/structured-data/testing-tool/u/0/
 </script>
   </div>
 
-<!-- here include any banner or subscription like site.mailchimp_list  -->
 
 </div>
 
@@ -721,9 +724,6 @@ https://search.google.com/structured-data/testing-tool/u/0/
 </script>
 -->
 
-<!-- deferred-thirdparty: load GA4 gtag.js + AdSense on first interaction or 3s after load,
-     whichever comes first. Keeps third-party JS off the critical path (FCP/LCP/TBT);
-     gtag()/adsbygoogle commands queued earlier run as soon as the libraries arrive. -->
 <script>
 (function () {
   var loaded = false;
@@ -749,6 +749,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
   }
 })();
 </script>
+
 
 </body>
 </html>

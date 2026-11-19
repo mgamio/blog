@@ -94,9 +94,21 @@ post_class: post-template
                 {%- if words >= 1500 and h2_count >= 5 -%}{%- assign show_toc = true -%}{%- endif -%}
                 {%- if page.toc == true -%}{%- assign show_toc = true -%}{%- endif -%}
                 {%- if page.toc == false -%}{%- assign show_toc = false -%}{%- endif -%}
-                {%- if show_toc and h2_count > 0 -%}
-                    {%- assign intro = body | split: '<h2' | first -%}
+                {%- comment -%}
+                  In-article ad after the intro (BLOG_AUTOMATION.md §4.2): only in posts without a hand-placed
+                  AdSense slot, only when the intro has real text, and never when the post sets "ads: false".
+                {%- endcomment -%}
+                {%- assign intro = body | split: '<h2' | first -%}
+                {%- assign intro_text = intro | strip_html | strip | size -%}
+                {%- assign auto_ad = false -%}
+                {%- if h2_count > 0 and intro_text > 150 -%}{%- assign auto_ad = true -%}{%- endif -%}
+                {%- if content contains 'class="adsbygoogle"' -%}{%- assign auto_ad = false -%}{%- endif -%}
+                {%- if page.ads == false -%}{%- assign auto_ad = false -%}{%- endif -%}
+                {%- assign split_intro = auto_ad -%}
+                {%- if show_toc and h2_count > 0 -%}{%- assign split_intro = true -%}{%- endif -%}
+                {%- if split_intro -%}
                     {{ intro }}
+                    {%- if show_toc and h2_count > 0 %}
                     {% if page.beforetoc %}<p><em>{{ page.beforetoc }}</em></p>{% endif %}
                     <details class="toc" id="post-toc">
                         <summary>In this article <span class="toc-count">{{ h2_count }} sections</span></summary>
@@ -104,6 +116,10 @@ post_class: post-template
                     </details>
                     <!-- Open on wide screens; on phones it stays folded so the article starts sooner -->
                     <script>if (window.matchMedia('(min-width: 768px)').matches) { document.getElementById('post-toc').open = true; }</script>
+                    {%- endif -%}
+                    {%- if auto_ad %}
+                    <div class="post-intro-ad">{% include inArticleAds.html %}</div>
+                    {%- endif %}
                     {{ body | remove_first: intro }}
                 {%- else -%}
                     {{ body }}

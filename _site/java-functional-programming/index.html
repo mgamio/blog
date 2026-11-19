@@ -73,15 +73,7 @@
   });
   gtag('set', 'ads_data_redaction', true);
 </script>
-<!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-642735915');
-</script>
+<!-- gtag.js and adsbygoogle.js are loaded with a delay by _includes/adsense.html at the end of the body -->
 
 
 </head>
@@ -770,7 +762,6 @@ https://search.google.com/structured-data/testing-tool/u/0/
 </script>
   </div>
 
-<!-- here include any banner or subscription like site.mailchimp_list  -->
 
 </div>
 
@@ -849,9 +840,6 @@ https://search.google.com/structured-data/testing-tool/u/0/
 </script>
 -->
 
-<!-- deferred-thirdparty: load GA4 gtag.js + AdSense on first interaction or 3s after load,
-     whichever comes first. Keeps third-party JS off the critical path (FCP/LCP/TBT);
-     gtag()/adsbygoogle commands queued earlier run as soon as the libraries arrive. -->
 <script>
 (function () {
   var loaded = false;
@@ -877,6 +865,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
   }
 })();
 </script>
+
 
 </body>
 </html>

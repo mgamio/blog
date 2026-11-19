@@ -73,15 +73,7 @@
   });
   gtag('set', 'ads_data_redaction', true);
 </script>
-<!-- adsbygoogle.js download is deferred until interaction/idle (see deferred-thirdparty before </body>) -->
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-642735915');
-</script>
+<!-- gtag.js and adsbygoogle.js are loaded with a delay by _includes/adsense.html at the end of the body -->
 
 
 </head>
@@ -305,7 +297,19 @@
                      "toc: true" or "toc: false" in the front matter overrides it.
                      It goes after the intro, just before the first section. --><p>In the <a href="https://codersite.dev/spring-boot-automate-api-client/" target="_blank">previous post</a>, we built a program that walks an Order API (buyers, suppliers, customer numbers, articles) and places a test order. It works, but it’s built on <code class="language-plaintext highlighter-rouge">OAuth2RestTemplate</code>, and that class has no future. In this post we rebuild the same client with Spring’s modern <code class="language-plaintext highlighter-rouge">RestClient</code>, without changing a single line of the search logic.</p>
 
-<h2 id="what-changed-and-why-it-matters">What Changed, and Why It Matters</h2>
+
+                    <div class="post-intro-ad"><!-- adsbygoogle.js library is loaded once, deferred, by default.html; this slot just queues. -->
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-9154513114335042"
+     data-ad-slot="6734634393"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br/></div>
+                    <h2 id="what-changed-and-why-it-matters">What Changed, and Why It Matters</h2>
 
 <ul>
   <li><strong><code class="language-plaintext highlighter-rouge">OAuth2RestTemplate</code> is deprecated.</strong> It belongs to the old Spring Security OAuth project, which Spring no longer maintains. OAuth2 client support now lives inside Spring Security itself.</li>
@@ -986,7 +990,6 @@ https://search.google.com/structured-data/testing-tool/u/0/
 </script>
   </div>
 
-<!-- here include any banner or subscription like site.mailchimp_list  -->
 
 </div>
 
@@ -1065,9 +1068,6 @@ https://search.google.com/structured-data/testing-tool/u/0/
 </script>
 -->
 
-<!-- deferred-thirdparty: load GA4 gtag.js + AdSense on first interaction or 3s after load,
-     whichever comes first. Keeps third-party JS off the critical path (FCP/LCP/TBT);
-     gtag()/adsbygoogle commands queued earlier run as soon as the libraries arrive. -->
 <script>
 (function () {
   var loaded = false;
@@ -1093,6 +1093,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
   }
 })();
 </script>
+
 
 </body>
 </html>

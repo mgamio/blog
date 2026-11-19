@@ -1,0 +1,10 @@
+# Amazon products for hardware links in articles (BLOG_AUTOMATION.md §7, Phase 1).
+# Key = ASIN on amazon.com. Text only: `image` stays empty until Creators API access
+# (3 qualifying sales on the amazon.com account). Never paste Amazon images here.
+#
+# Example:
+# B0XXXXXXXX:
+#   title: "Example Mini PC, AMD Ryzen 7, 32 GB RAM, 1 TB SSD"
+#   image: ""
+#
+# Usage in a post: {% include product.html asin="B0XXXXXXXX" %}

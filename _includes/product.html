@@ -1,0 +1,23 @@
+{%- comment -%}
+  Amazon product card (BLOG_AUTOMATION.md §7, Phase 1): name + "Check price on Amazon", no price.
+  Usage: {% include product.html asin="B0XXXXXXXX" %}   (ASIN = key in _data/products.yml)
+  - The button links to amazon.com with site.amazon_tag. While amazon_tag is empty (no amazon.com
+    account yet), only the product name is shown, so there is never a broken or untagged link.
+  - The image appears only once Creators API access fills `image` with an Amazon-hosted URL.
+  - Posts that use this include need `affiliate: true` (checked by scripts/check_affiliates.py).
+{%- endcomment -%}
+{%- assign p = site.data.products[include.asin] -%}
+{%- if p -%}
+<div class="product-card">
+  {%- if p.image and p.image != "" %}
+  <img src="{{ p.image }}" alt="{{ p.title | escape }}" loading="lazy">
+  {%- endif %}
+  <span class="product-card-kicker">Hardware</span>
+  <span class="product-card-title">{{ p.title }}</span>
+  {%- if site.amazon_tag and site.amazon_tag != "" %}
+  <a class="product-card-btn" href="https://www.amazon.com/dp/{{ include.asin }}?tag={{ site.amazon_tag }}" rel="sponsored nofollow noopener" target="_blank">Check price on Amazon &rarr;</a>
+  {%- endif %}
+</div>
+{%- else -%}
+<!-- product.html: ASIN "{{ include.asin }}" is missing from _data/products.yml -->
+{%- endif -%}

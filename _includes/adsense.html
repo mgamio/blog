@@ -1,0 +1,39 @@
+{%- comment -%}
+  Deferred loader for Google's scripts (BLOG_AUTOMATION.md §4.2). IDs come from _config.yml.
+  gtag.js (GA4 + Google Ads, production only) and adsbygoogle.js (AdSense and Google's consent
+  banner) load on the first interaction or 3 s after load, whichever comes first, to keep them off
+  the critical path (FCP/LCP/TBT). Ad slots and gtag() calls queued earlier run when they arrive.
+  AdSense loads on posts, tools, templates, the home page and any page with `adsense: true`.
+{%- endcomment -%}
+<script>
+(function () {
+  var loaded = false;
+  function loadScript(src, crossorigin) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = src;
+    if (crossorigin) { s.crossOrigin = 'anonymous'; }
+    document.head.appendChild(s);
+  }
+  function loadDeferred() {
+    if (loaded) { return; }
+    loaded = true;
+    {%- if jekyll.environment == 'production' and site.ga4_id %}
+    loadScript('https://www.googletagmanager.com/gtag/js?id={{ site.ga4_id }}', false);
+    {%- endif %}
+    {%- if site.adsense_client and site.adsense_client != "" %}
+    {%- if page.layout == 'post' or page.layout == "default" or page.layout == "tags" or page.layout == "categories" or page.layout == "tool" or page.layout == "agent-template" or page.adsense %}
+    loadScript('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client }}', true);
+    {%- endif %}
+    {%- endif %}
+  }
+  var evts = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+  evts.forEach(function (e) { window.addEventListener(e, loadDeferred, { passive: true, once: true }); });
+  // Fallback so visitors who never interact are still measured and served ads.
+  if (document.readyState === 'complete') {
+    setTimeout(loadDeferred, 3000);
+  } else {
+    window.addEventListener('load', function () { setTimeout(loadDeferred, 3000); });
+  }
+})();
+</script>
