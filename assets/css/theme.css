@@ -563,3 +563,18 @@ a.path-next:hover {
 .post-intro-ad {
     margin: 1.5rem 0;
 }
+
+/* Mermaid diagrams (_includes/mermaid.html) */
+.article-post pre.mermaid {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 1.75rem 0;
+    text-align: center;
+    overflow-x: auto;
+    white-space: pre;
+}
+.article-post pre.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}

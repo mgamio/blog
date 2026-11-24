@@ -265,6 +265,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
   }
 }
 </script>
+{%- if page.mermaid -%}{% include mermaid.html %}{%- endif -%}
 {%- assign crumb_cat = page.categories | first -%}
 <script type="application/ld+json">
 {

@@ -1,0 +1,367 @@
+# Content calendar: the 6-month learning roadmap (BLOG_AUTOMATION.md §10.3, §10.4).
+#
+# Status flow: planned -> building -> ready -> drafted -> published
+#   building   the author works on the project in the lab repo
+#   ready      set by the AUTHOR when the lab folder is complete (README, NOTES, RESULTS, code)
+#   drafted    the article PR is open (scripts set drafted_on and post_path)
+#   published  the PR is merged (scripts set published_on)
+# Never draft an entry that is not "ready". Check what comes next with:
+#   python scripts/next_article.py            (or --status for the whole list)
+#   python scripts/next_article.py --mark 1 building
+#
+# Fields: id, month, title, type (tutorial | review | buying-guide | comparison | guide),
+# pillar (a category used on the site), lab_folder (in the lab repo), amazon (Amazon links
+# expected), tool (new tool on the Tools page, or false), backlog, status, post_path,
+# drafted_on, published_on.
+
+- id: 1
+  month: "1 · Foundations"
+  title: "Local AI on Windows with WSL2, Docker and Ollama"
+  type: tutorial
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: m01-foundations/01-windows-wsl2-ollama
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 2
+  month: "1 · Foundations"
+  title: "Minisforum UM870 as a Local AI Homelab: Real Benchmarks"
+  type: review
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: m01-foundations/02-um870-benchmarks
+  amazon: true
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 3
+  month: "1 · Foundations"
+  title: "Python for Java Developers: Build an LLM API with FastAPI"
+  type: tutorial
+  pillar: "AI Agents & Tooling"
+  lab_folder: m01-foundations/03-fastapi-llm-api
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 4
+  month: "1 · Foundations"
+  title: "Run Local LLMs with Ollama: Hardware Guide for Developers"
+  type: buying-guide
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: m01-foundations/04-ollama-hardware-guide
+  amazon: true
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 5
+  month: "1 · Foundations"
+  title: "A Docker Compose Stack for Local AI"
+  type: tutorial
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: m01-foundations/05-compose-local-ai-stack
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 6
+  month: "2 · RAG"
+  title: "Build a Self-Hosted RAG with Ollama and Qdrant (Python)"
+  type: tutorial
+  pillar: "AI Agents & Tooling"
+  lab_folder: m02-rag/06-rag-python
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 7
+  month: "2 · RAG"
+  title: "The Same RAG in Python and Spring AI: A Side-by-Side Comparison"
+  type: comparison
+  pillar: "Java & Spring Boot"
+  lab_folder: m02-rag/07-rag-spring-ai
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 8
+  month: "2 · RAG"
+  title: "How Much RAM and VRAM Do You Need for Local LLMs?"
+  type: guide
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: m02-rag/08-vram-calculator
+  amazon: true
+  tool: "Local LLM Hardware Calculator"
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 9
+  month: "3 · Agents + MCP"
+  title: "Expose a Spring Boot Service as an MCP Server with @McpTool"
+  type: tutorial
+  pillar: "Java & Spring Boot"
+  lab_folder: m03-agents-mcp/09-spring-mcp-server
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 10
+  month: "3 · Agents + MCP"
+  title: "Connect a Python LangGraph Agent to a Spring Boot MCP Server"
+  type: tutorial
+  pillar: "AI Agents & Tooling"
+  lab_folder: m03-agents-mcp/10-langgraph-mcp-client
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 11
+  month: "3 · Agents + MCP"
+  title: "Run a Local Coding Agent with Ollama"
+  type: tutorial
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: m03-agents-mcp/11-local-coding-agent
+  amazon: true
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 12
+  month: "4 · Evals + observability"
+  title: "Self-Host Langfuse to Monitor Your LLM Apps"
+  type: tutorial
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: m04-evals-observability/12-langfuse
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 13
+  month: "4 · Evals + observability"
+  title: "How to Evaluate a RAG Pipeline with RAGAS"
+  type: tutorial
+  pillar: "AI Agents & Tooling"
+  lab_folder: m04-evals-observability/13-ragas-evals
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 14
+  month: "5 · Production"
+  title: "A Kubernetes Homelab on Windows with k3d"
+  type: tutorial
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: m05-production/14-k3d-homelab
+  amazon: true
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 15
+  month: "5 · Production"
+  title: "Deploy an AI Agent to Your Home Server with GitHub Actions"
+  type: tutorial
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: m05-production/15-gha-deploy
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 16
+  month: "5 · Production"
+  title: "Securing an MCP Server with OAuth 2.0"
+  type: tutorial
+  pillar: "Java & Spring Boot"
+  lab_folder: m05-production/16-mcp-oauth
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 17
+  month: "6 · Capstone"
+  title: "AI System Design Interview Questions (with Answers)"
+  type: guide
+  pillar: "Algorithms, Interviews & Career"
+  lab_folder: m06-capstone/17-ai-system-design
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 18
+  month: "6 · Capstone"
+  title: "Local LLM vs API: When Does Owning Hardware Pay Off?"
+  type: guide
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: m06-capstone/18-local-vs-api-cost
+  amazon: true
+  tool: "Local LLM vs API Cost Calculator"
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 19
+  month: "6 · Capstone"
+  title: "Capstone: an End-to-End AI Agent System on a Mini PC"
+  type: tutorial
+  pillar: "AI Agents & Tooling"
+  lab_folder: m06-capstone/19-capstone
+  amazon: false
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 20
+  month: "when it happens"
+  title: "Upgrading a Mini PC to 96 GB for Local LLMs: Before/After"
+  type: review
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: extras/20-ram-upgrade-96gb
+  amazon: true
+  tool: false
+  backlog: false
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+# --- Backlog: only when the calendar is caught up or the author asks; max 1 per week ---
+
+- id: 101
+  month: backlog
+  title: "Best Mini PCs for a Developer Homelab"
+  type: buying-guide
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: backlog/101-best-mini-pcs
+  amazon: true
+  tool: false
+  backlog: true
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 102
+  month: backlog
+  title: "Raspberry Pi 5 vs Intel N100 Mini PC for Self-Hosting"
+  type: comparison
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: backlog/102-rpi5-vs-n100
+  amazon: true
+  tool: false
+  backlog: true
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 103
+  month: backlog
+  title: "Self-Host a Private Git Server with Gitea"
+  type: tutorial
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: backlog/103-gitea
+  amazon: false
+  tool: false
+  backlog: true
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 104
+  month: backlog
+  title: "Best NAS for Developer Backups"
+  type: buying-guide
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: backlog/104-best-nas
+  amazon: true
+  tool: false
+  backlog: true
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null
+
+- id: 105
+  month: backlog
+  title: "Self-Host a Spring Boot App with Cloudflare Tunnel"
+  type: tutorial
+  pillar: "Self-Hosting & Local AI"
+  lab_folder: backlog/105-cloudflare-tunnel
+  amazon: false
+  tool: false
+  backlog: true
+  status: planned
+  post_path: null
+  drafted_on: null
+  published_on: null

@@ -1,0 +1,34 @@
+{%- comment -%}
+  Mermaid diagrams (BLOG_AUTOMATION.md §8.3), loaded only on posts with `mermaid: true`.
+  Write a diagram as a fenced code block with the language `mermaid`; this script turns each
+  <code class="language-mermaid"> into a drawing. The library is self-hosted (no third-party CDN).
+{%- endcomment -%}
+<script src="{{ '/assets/js/lib/mermaid-11.17.2.min.js' | relative_url }}" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var codes = document.querySelectorAll('.article-post code.language-mermaid');
+  if (!codes.length || !window.mermaid) { return; }
+  codes.forEach(function (code) {
+    var host = code.closest('div.language-mermaid') || code.closest('pre') || code;
+    var pre = document.createElement('pre');
+    pre.className = 'mermaid';
+    pre.textContent = code.textContent;
+    host.replaceWith(pre);
+  });
+  mermaid.initialize({
+    startOnLoad: false,
+    securityLevel: 'strict',
+    theme: 'base',
+    themeVariables: {
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif',
+      primaryColor: '#eef3f9',
+      primaryBorderColor: '#194175',
+      primaryTextColor: '#1d2b3a',
+      lineColor: '#194175',
+      secondaryColor: '#fff4e0',
+      tertiaryColor: '#f6f8fb'
+    }
+  });
+  mermaid.run({ querySelector: '.article-post pre.mermaid' });
+});
+</script>
