@@ -5,7 +5,7 @@ description: "Solve the Items in Containers coding interview problem in Java: co
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ algorithms ]
-image: /assets/images/posts/items-in-containers.jpg
+image: /assets/images/posts/number-items-closed-compartments.jpg
 comments: false
 ---
 

@@ -5,7 +5,7 @@ description: "Ten clean code rules with real Java before-and-after examples: int
 author: moises
 categories: [ "Software Design & Architecture" ]
 tags: [ clean code ]
-image: /assets/images/posts/clean-code.png
+image: /assets/images/posts/clean-code.jpg
 comments: false
 ---
 

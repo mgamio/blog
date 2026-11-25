@@ -5,7 +5,7 @@ description: "Arrays, ArrayList, LinkedList, HashMap, TreeMap, stacks and queues
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ data structures ]
-image: /assets/images/dataStructure.jpg
+image: /assets/images/posts/data-structures-foundation-efficient-programming.jpg
 comments: false
 ---
 

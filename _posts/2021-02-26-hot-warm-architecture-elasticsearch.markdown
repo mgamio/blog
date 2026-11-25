@@ -5,7 +5,7 @@ description: "Build a hot-warm-cold Elasticsearch cluster for log analytics: dat
 author: moises
 categories: [ "Software Design & Architecture" ]
 tags: [ distributed systems ]
-image: /assets/images/elastic.jpg
+image: /assets/images/posts/hot-warm-architecture-elasticsearch.jpg
 comments: false
 ---
 

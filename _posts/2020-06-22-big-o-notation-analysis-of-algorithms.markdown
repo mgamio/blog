@@ -5,7 +5,7 @@ description: "Learn Big O notation with tested Java examples: O(1) to O(n!), how
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ algorithms ]
-image: /assets/images/algorithm.jpg
+image: /assets/images/posts/big-o-notation-analysis-of-algorithms.jpg
 featured: true
 hidden: false
 comments: false

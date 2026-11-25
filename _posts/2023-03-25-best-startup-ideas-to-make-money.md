@@ -5,7 +5,7 @@ description: "Eight startup ideas that suit software developers, each with a rea
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ startup, career ]
-image: /assets/images/startupIdeas.jpg
+image: /assets/images/posts/best-startup-ideas-to-make-money.jpg
 comments: false
 ---
 

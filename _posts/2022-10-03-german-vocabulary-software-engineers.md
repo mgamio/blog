@@ -5,7 +5,7 @@ description: "Over 180 German IT words with articles and English translations: s
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ german, career ]
-image: /assets/images/germanDeveloperVocabulary.jpg
+image: /assets/images/posts/german-vocabulary-software-engineers.jpg
 comments: false
 ---
 

@@ -5,7 +5,7 @@ description: "Protect your REST API with rate limiting: compare the common algor
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ web apis ]
-image: /assets/images/rateLimitAlgorithm.jpg
+image: /assets/images/posts/rate-limit.jpg
 comments: false
 ---
 

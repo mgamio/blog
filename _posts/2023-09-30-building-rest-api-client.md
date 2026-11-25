@@ -5,7 +5,7 @@ description: "Simulate several clients hitting your REST API at the same time wi
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ web apis ]
-image: /assets/images/restApiClient.jpg
+image: /assets/images/posts/building-rest-api-client.jpg
 comments: false
 ---
 

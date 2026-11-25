@@ -5,7 +5,7 @@ description: "Given N, return the smallest number with the same number of digits
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ algorithms ]
-image: /assets/images/smallestNumber.jpg
+image: /assets/images/posts/given-positive-number-n-find-smallest-number-same-number-digits.jpg
 comments: false
 ---
 

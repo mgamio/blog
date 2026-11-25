@@ -5,7 +5,7 @@ description: "Code-first OpenAPI 3 docs for Spring Boot 4 with springdoc: annota
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ web apis ]
-image: /assets/images/apiDocumentation.jpg
+image: /assets/images/posts/documenting-rest-api-openapi3.jpg
 comments: false
 ---
 

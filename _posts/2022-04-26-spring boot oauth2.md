@@ -5,7 +5,7 @@ description: "Protect a Spring Boot 4 REST API with OAuth2 client credentials an
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ web apis ]
-image: /assets/images/oauthRoles.jpg
+image: /assets/images/posts/spring-boot-oauth2.jpg
 comments: false
 ---
 

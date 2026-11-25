@@ -5,7 +5,7 @@ description: "OAuth2RestTemplate is deprecated and Spring Security 7.0 removed t
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ java ]
-image: /assets/images/springBootRestClient.jpg
+image: /assets/images/posts/spring-restclient-replace-oauth2resttemplate.jpg
 comments: false
 ---
 

@@ -5,7 +5,7 @@ description: "What a ubiquitous language is, why it belongs to one bounded conte
 author: moises
 categories: [ "Software Design & Architecture" ]
 tags: [ domain-driven design ]
-image: /assets/images/theUbiquitousLanguage.jpg
+image: /assets/images/posts/the-ubiquitous-language.jpg
 comments: false
 ---
 

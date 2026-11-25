@@ -5,7 +5,7 @@ description: "Build a binary search tree in Java with a real product lookup by G
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ algorithms ]
-image: /assets/images/binarySearchTree.jpg
+image: /assets/images/posts/tree-data-structure-binary-search-tree.jpg
 comments: false
 ---
 

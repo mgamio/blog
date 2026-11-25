@@ -5,7 +5,7 @@ description: "The soft skills that matter most for software developers, each sho
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ career ]
-image: /assets/images/softSkills.jpg
+image: /assets/images/posts/soft-skills-software-development.jpg
 comments: false
 ---
 

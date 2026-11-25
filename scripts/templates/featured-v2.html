@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=IBM+Plex+Sans:wght@500;600;700&display=block">
+<style>
+  /* Featured image v2 for scripts/featured_image.py (1200 x 630, BLOG_AUTOMATION.md §8.5).
+     Data comes as base64url JSON in ?data=: title, pillar, tags, theme, motif, code{lang,lines}.
+     All artwork is drawn here (SVG), no third-party images. */
+  html, body { margin: 0; }
+  .card { position: relative; width: 1200px; height: 630px; overflow: hidden; font-family: "IBM Plex Sans", "Segoe UI", sans-serif; color: #fff;
+    background: radial-gradient(900px 600px at 85% 30%, var(--bg2) 0%, var(--bg1) 60%, var(--bg0) 100%); }
+  .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.07) 1.2px, transparent 1.4px); background-size: 26px 26px; }
+  .glow { position: absolute; width: 620px; height: 620px; right: -120px; top: -40px; border-radius: 50%; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%); }
+  .left { position: absolute; left: 64px; top: 56px; bottom: 56px; width: 600px; display: flex; flex-direction: column; }
+  .pillar { align-self: flex-start; font: 700 19px "JetBrains Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dark); background: var(--accent); padding: 7px 14px; border-radius: 6px; }
+  h1 { margin: 26px 0 0; font-weight: 700; line-height: 1.06; letter-spacing: -1px; text-wrap: balance; }
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .tags span { font: 500 20px "JetBrains Mono", monospace; color: var(--soft); border: 2px solid rgba(255,255,255,.22); border-radius: 999px; padding: 5px 14px; }
+  .brand { margin-top: auto; display: flex; align-items: center; gap: 16px; font: 700 34px "JetBrains Mono", monospace; }
+  .brand img { width: 58px; height: 66px; }
+  .brand b { color: var(--accent); }
+  .right { position: absolute; right: 48px; top: 50%; transform: translateY(-50%); width: 470px; height: 470px; }
+  .right svg { width: 100%; height: 100%; overflow: visible; }
+  .code { position: absolute; right: 52px; top: 50%; transform: translateY(-50%); width: 470px; background: rgba(5,10,20,.72); border: 1px solid rgba(255,255,255,.16); border-radius: 14px; box-shadow: 0 30px 60px rgba(0,0,0,.45); overflow: hidden; }
+  .code .bar { height: 38px; display: flex; align-items: center; gap: 8px; padding: 0 16px; background: rgba(255,255,255,.06); font: 500 15px "JetBrains Mono", monospace; color: var(--soft); }
+  .code .bar i { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,.25); }
+  .code .bar i:first-child { background: var(--accent); }
+  .code .bar span { margin-left: auto; }
+  .code pre { margin: 0; padding: 20px 22px 24px; font: 500 20px/1.6 "JetBrains Mono", monospace; color: #e6edf3; white-space: pre; overflow: hidden; }
+  .code .k { color: var(--accent); } .code .s { color: #9be9a8; } .code .c { color: #8b949e; } .code .n { color: #79c0ff; }
+</style>
+</head>
+<body>
+<div class="card" id="card">
+  <div class="dots"></div>
+  <div class="glow"></div>
+  <div class="left">
+    <span class="pillar" id="pillar"></span>
+    <h1 id="title"></h1>
+    <div class="tags" id="tags"></div>
+    <div class="brand"><img src="../../assets/images/brand/codersite-hex.svg" alt=""><span>codersite<b>.</b>dev</span></div>
+  </div>
+  <div class="right" id="right"></div>
+</div>
+<script>
+const THEMES = {
+  java:       { bg0: "#071f17", bg1: "#0c3324", bg2: "#14553b", accent: "#7ee2a8", glow: "rgba(126,226,168,.20)", soft: "#c8efd9", inkDark: "#06281b" },
+  algorithms: { bg0: "#120f33", bg1: "#1d1852", bg2: "#33298a", accent: "#ffc857", glow: "rgba(255,200,87,.18)", soft: "#dcd6ff", inkDark: "#1d1852" },
+  design:     { bg0: "#0a1830", bg1: "#12284d", bg2: "#1d4580", accent: "#f7a440", glow: "rgba(247,164,64,.20)", soft: "#d3e2f5", inkDark: "#12284d" },
+  ai:         { bg0: "#0d0a26", bg1: "#1a1240", bg2: "#0f4a5c", accent: "#4ee6f0", glow: "rgba(78,230,240,.18)", soft: "#d4f6f9", inkDark: "#0d1a30" },
+  selfhost:   { bg0: "#0b0f14", bg1: "#151c24", bg2: "#2a3542", accent: "#ffb020", glow: "rgba(255,176,32,.18)", soft: "#e3e8ee", inkDark: "#151c24" },
+};
+
+const W = (s) => s; // template helper for readability
+const box = (x, y, w, h, fill, stroke, r = 10, sw = 3) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>`;
+const txt = (x, y, t, size, fill, weight = 700, anchor = "middle", font = "JetBrains Mono") => `<text x="${x}" y="${y}" font-family="${font}" font-size="${size}" font-weight="${weight}" fill="${fill}" text-anchor="${anchor}">${t}</text>`;
+const line = (x1, y1, x2, y2, stroke, sw = 4, extra = "") => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${sw}" stroke-linecap="round" ${extra}/>`;
+const circle = (cx, cy, r, fill, stroke, sw = 4) => `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>`;
+
+// Topic illustrations, drawn in a 470 x 470 box. A = accent, P = panel fill, L = light ink.
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+// Font size that fits `text` (monospace) into `width` px, between min and max
+const fit = (text, width, max, min = 14) => Math.max(min, Math.min(max, Math.floor(width / (String(text).length * 0.6))));
+
+const MOTIFS = {
+  api: (A, P, L) => {
+    const D = (window.DETAILS && window.DETAILS.endpoints && window.DETAILS.endpoints.length)
+      ? window.DETAILS.endpoints : [{ method: "GET", path: "/orders/42", status: "200 OK" }, { method: "POST", path: "/orders", status: "201 Created" }];
+    const card = (e, y) => {
+      const ok = /^2/.test(e.status);
+      const mw = e.method.length * 19 + 22;
+      return box(10, y, 450, 120, P, "rgba(255,255,255,.18)", 14, 2)
+        + txt(40, y + 50, e.method, 30, A, 800, "start")
+        + txt(40 + mw, y + 50, esc(e.path), fit(e.path, 430 - mw, 30, 18), L, 600, "start")
+        + txt(40, y + 95, esc(e.status), 24, ok ? "#9be9a8" : "#ff8a8f", 700, "start");
+    };
+    return card(D[0], 40) + (D[1] ? card(D[1], 185) : "")
+      + box(60, D[1] ? 330 : 200, 350, 120, "rgba(0,0,0,.35)", A, 14, 3)
+      + txt(85, (D[1] ? 330 : 200) + 42, "{ \"id\": 42,", 24, L, 500, "start")
+      + txt(105, (D[1] ? 330 : 200) + 82, "\"status\": \"PAID\" }", 24, L, 500, "start");
+  },
+  ratelimit: (A, P, L) => W(`
+    <path d="M90 120 L120 400 Q122 420 142 420 L328 420 Q348 420 350 400 L380 120" fill="${P}" stroke="${A}" stroke-width="6" stroke-linejoin="round"/>
+    ${line(70, 120, 400, 120, A, 6)}
+    ${[[170,380],[235,380],[300,380],[200,330],[265,330],[232,280]].map(([x,y]) => circle(x, y, 26, A, "rgba(0,0,0,.25)", 3)).join("")}
+    ${[[150,40],[235,10],[320,40]].map(([x,y]) => circle(x, y + 30, 18, "none", A, 3)).join("")}
+    ${txt(235, 214, esc((window.DETAILS && window.DETAILS.rate) || "10 req / min"), 28, L, 700)}
+    ${box(110, 440, 250, 0.1, "none", "none")}
+    <g transform="translate(250 455)">${box(-120, -20, 240, 52, "#e5484d", "none", 26, 0)}${txt(0, 15, "429 Too Many", 22, "#fff", 800)}</g>`),
+  tree: (A, P, L) => {
+    const n = [[235,60,"50",1],[120,190,"30",0],[350,190,"70",1],[60,320,"20",0],[180,320,"40",0],[290,320,"60",1],[410,320,"80",0],[330,440,"65",1]];
+    const e = [[0,1],[0,2],[1,3],[1,4],[2,5],[2,6],[5,7]];
+    return e.map(([a,b]) => line(n[a][0], n[a][1], n[b][0], n[b][1], (n[a][3] && n[b][3]) ? A : "rgba(255,255,255,.35)", n[a][3] && n[b][3] ? 7 : 4)).join("")
+      + n.map(([x,y,t,h]) => circle(x, y, 42, h ? A : P, h ? "none" : "rgba(255,255,255,.5)", 3) + txt(x, y + 11, t, 30, h ? "#111" : L, 800)).join("");
+  },
+  graph: (A, P, L) => {
+    const n = [[100,90,"1"],[300,70,"2"],[420,220,"3"],[250,240,"4"],[80,300,"5"],[330,410,"6"],[150,430,"7"]];
+    const e = [[0,1],[1,2],[1,3],[0,4],[3,5],[4,6],[3,4],[2,5]];
+    const path = [[0,1],[1,3],[3,5]];
+    const on = (a,b) => path.some(([x,y]) => (x===a&&y===b)||(x===b&&y===a));
+    return e.map(([a,b]) => line(n[a][0], n[a][1], n[b][0], n[b][1], on(a,b) ? A : "rgba(255,255,255,.3)", on(a,b) ? 7 : 4)).join("")
+      + n.map(([x,y,t],i) => circle(x, y, 36, [0,1,3,5].includes(i) ? A : P, "rgba(255,255,255,.5)", 3) + txt(x, y + 10, t, 28, [0,1,3,5].includes(i) ? "#111" : L, 800)).join("");
+  },
+  hashmap: (A, P, L) => W(`
+    ${["\"ana\"","\"bob\"","\"eve\""].map((k,i) => box(10, 50 + i*130, 170, 90, P, "rgba(255,255,255,.3)", 12, 2) + txt(95, 107 + i*130, k, 26, L, 700)).join("")}
+    ${[0,1,2].map(i => `<path d="M185 ${95+i*130} C 240 ${95+i*130}, 240 ${95+i*130}, 290 ${95+i*130}" stroke="${A}" stroke-width="5" fill="none" marker-end="url(#ah)"/>`).join("")}
+    ${["31","27","45"].map((v,i) => box(300, 50 + i*130, 150, 90, A, "none", 12, 0) + txt(375, 107 + i*130, v, 34, "#111", 800)).join("")}
+    ${txt(235, 470, "O(1) lookup", 30, A, 800)}`),
+  bigo: (A, P, L) => W(`
+    ${line(40, 430, 450, 430, "rgba(255,255,255,.6)", 4)}${line(40, 430, 40, 20, "rgba(255,255,255,.6)", 4)}
+    <path d="M40 425 C 200 425, 330 300, 450 30" stroke="#e5484d" stroke-width="7" fill="none"/>
+    <path d="M40 425 L 450 160" stroke="${A}" stroke-width="7" fill="none"/>
+    <path d="M40 425 C 120 360, 250 350, 450 330" stroke="#7ee2a8" stroke-width="7" fill="none"/>
+    <path d="M40 405 L 450 405" stroke="#79c0ff" stroke-width="7" fill="none"/>
+    ${txt(445, 60, "O(n²)", 28, "#e5484d", 800, "end")}${txt(445, 200, "O(n)", 28, A, 800, "end")}
+    ${txt(445, 315, "O(log n)", 28, "#7ee2a8", 800, "end")}${txt(445, 392, "O(1)", 28, "#79c0ff", 800, "end")}`),
+  uml: (A, P, L) => {
+    const cls = (x, y, w, name, rows, hl) => box(x, y, w, 46 + rows.length * 34, P, hl ? A : "rgba(255,255,255,.45)", 8, hl ? 4 : 3)
+      + `<rect x="${x}" y="${y}" width="${w}" height="46" rx="8" fill="${hl ? A : "rgba(255,255,255,.12)"}"/>`
+      + txt(x + w/2, y + 32, esc(name), fit(name, w - 20, 23, 14), hl ? "#111" : L, 800)
+      + rows.map((r,i) => txt(x + 16, y + 78 + i*34, esc(r), fit(r, w - 30, 19, 13), "rgba(255,255,255,.85)", 500, "start")).join("");
+    const D = window.DETAILS || {};
+    if (D.iface && D.classes && D.classes.length) {
+      const top = cls(70, 20, 330, "«interface» " + D.iface, [D.method || "…"], true);
+      const tri = `<polygon points="235,106 220,132 250,132" fill="${P}" stroke="${L}" stroke-width="3"/>`;
+      if (D.classes.length === 1) {
+        return top + tri + `<path d="M235 230 V 132" stroke="${L}" stroke-width="3" stroke-dasharray="8 6" fill="none"/>`
+          + cls(105, 230, 260, D.classes[0], [D.method || "…"]);
+      }
+      return top + tri
+        + `<path d="M120 250 L 226 130" stroke="${L}" stroke-width="3" stroke-dasharray="8 6" fill="none"/><path d="M350 250 L 244 130" stroke="${L}" stroke-width="3" stroke-dasharray="8 6" fill="none"/>`
+        + cls(5, 250, 225, D.classes[0], [D.method || "…"]) + cls(240, 250, 225, D.classes[1], [D.method || "…"]);
+    }
+    return cls(95, 10, 280, "«interface» Shape", ["area(): double"], true)
+      + `<path d="M120 210 L 226 120" stroke="${L}" stroke-width="3" stroke-dasharray="8 6" fill="none"/><path d="M350 210 L 244 120" stroke="${L}" stroke-width="3" stroke-dasharray="8 6" fill="none"/>`
+      + `<polygon points="235,96 220,122 250,122" fill="${P}" stroke="${L}" stroke-width="3"/>`
+      + cls(20, 210, 200, "Circle", ["radius", "area()"]) + cls(250, 210, 200, "Square", ["side", "area()"])
+      + `<path d="M235 365 V 335" stroke="${L}" stroke-width="3" fill="none"/>`
+      + cls(105, 365, 260, "AreaCalculator", ["sum(List<Shape>)"]);
+  },
+  security: (A, P, L) => W(`
+    <path d="M150 210 V150 a85 85 0 0 1 170 0 V210" stroke="${A}" stroke-width="22" fill="none" stroke-linecap="round"/>
+    ${box(100, 200, 270, 210, A, "none", 26, 0)}
+    ${circle(235, 285, 26, "#111", "none", 0)}<rect x="226" y="290" width="18" height="60" rx="8" fill="#111"/>
+    ${box(30, 430, 410, 50, "rgba(0,0,0,.4)", "rgba(255,255,255,.3)", 25, 2)}${txt(235, 463, esc((window.DETAILS && window.DETAILS.label) || "Bearer eyJhbGciOi…"), 22, L, 600)}`),
+  performance: (A, P, L) => W(`
+    <path d="M60 330 A 175 175 0 0 1 410 330" stroke="rgba(255,255,255,.18)" stroke-width="34" fill="none" stroke-linecap="round"/>
+    <path d="M60 330 A 175 175 0 0 1 330 180" stroke="${A}" stroke-width="34" fill="none" stroke-linecap="round"/>
+    ${line(235, 330, 345, 205, L, 10)}${circle(235, 330, 22, L, "none", 0)}
+    ${txt(235, 395, "p99  120 ms", 34, L, 800)}
+    ${[0,1,2,3,4,5,6].map(i => box(60 + i*52, 470 - [20,35,28,45,30,55,40][i], 34, [20,35,28,45,30,55,40][i], i === 5 ? "#e5484d" : "rgba(255,255,255,.35)", "none", 6, 0)).join("")}`),
+  distributed: (A, P, L) => W(`
+    ${box(120, 20, 230, 80, A, "none", 14, 0)}${txt(235, 72, esc((window.DETAILS && window.DETAILS.top) || "Load balancer"), 22, "#111", 800)}
+    ${[60,235,410].map(x => line(235, 100, x, 210, "rgba(255,255,255,.55)", 4)).join("")}
+    ${[60,235,410].map((x,i) => box(x-70, 210, 140, 110, P, "rgba(255,255,255,.4)", 12, 3) + txt(x, 260, esc(((window.DETAILS && window.DETAILS.nodes) || ["node 1","node 2","node 3"])[i]), 22, L, 700) + `<rect x="${x-40}" y="280" width="80" height="12" rx="6" fill="${i===1 ? A : "#7ee2a8"}"/>`).join("")}
+    ${[60,235,410].map(x => line(x, 320, 235, 400, "rgba(255,255,255,.4)", 3, "stroke-dasharray=\"8 6\"")).join("")}
+    <ellipse cx="235" cy="405" rx="90" ry="22" fill="${P}" stroke="${L}" stroke-width="3"/>
+    <path d="M145 405 V455 a90 22 0 0 0 180 0 V405" fill="${P}" stroke="${L}" stroke-width="3"/>${txt(235, 448, esc((window.DETAILS && window.DETAILS.store) || "shared data"), 20, L, 700)}`),
+  container: (A, P, L) => W(`
+    ${[0,1,2].map(i => box(60, 40 + i*120, 350, 100, i === 0 ? A : P, i === 0 ? "none" : "rgba(255,255,255,.4)", 14, 3)
+      + [0,1,2].map(j => `<rect x="${262 + j*44}" y="${62 + i*120}" width="32" height="56" rx="6" fill="${i === 0 ? "rgba(0,0,0,.18)" : "rgba(255,255,255,.14)"}"/>`).join("")
+      + txt(88, 100 + i*120, ["ollama", "open-webui", "qdrant"][i], 26, i === 0 ? "#111" : L, 800, "start")).join("")}
+    ${box(110, 410, 250, 50, "rgba(0,0,0,.4)", A, 25, 3)}${txt(235, 444, "docker compose up", 21, L, 700)}`),
+  ai: (A, P, L) => W(`
+    ${box(20, 30, 300, 80, P, "rgba(255,255,255,.35)", 20, 2)}${txt(45, 80, "Summarize order #42", 22, L, 600, "start")}
+    ${box(120, 140, 340, 80, A, "none", 20, 0)}${txt(145, 190, "tool call: getOrder(42)", 21, "#111", 700, "start")}
+    ${[[120,330,"Agent"],[350,330,"MCP"],[235,440,"LLM"]].map(([x,y,t]) => circle(x, y, 58, P, A, 4) + txt(x, y + 9, t, 26, L, 800)).join("")}
+    ${line(178, 330, 292, 330, A, 5)}${line(150, 380, 200, 400, A, 5)}${line(320, 380, 270, 400, A, 5)}`),
+  career: (A, P, L) => {
+    const items = (window.DETAILS && window.DETAILS.items && window.DETAILS.items.length >= 3)
+      ? window.DETAILS.items.slice(0, 4) : ["Communicate clearly", "Estimate honestly", "Review kindly", "Keep learning"];
+    return items.map((t, i) => box(10, 30 + i*105, 450, 82, i === 0 ? A : P, i === 0 ? "none" : "rgba(255,255,255,.3)", 14, 2)
+      + `<path d="M40 ${71 + i*105} l14 14 l26 -30" stroke="${i === 0 ? "#111" : A}" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`
+      + txt(100, 81 + i*105, esc(t), fit(t, 345, 26, 16), i === 0 ? "#111" : L, 700, "start")).join("");
+  },
+};
+
+// Single-pass syntax colouring: strings, comments, keywords and numbers (never re-matches its own markup)
+function highlight(line) {
+  const e = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const token = /("(?:[^"\\]|\\.)*"?|'(?:[^'\\]|\\.)*'?)|(\/\/.*$|#.*$)|\b(public|private|protected|class|record|interface|enum|return|new|void|final|static|def|import|from|async|await|if|else|for|while|var|let|const|fun|func|package|throws?|try|catch)\b|\b(\d+)\b/g;
+  let out = "", last = 0, m;
+  while ((m = token.exec(line)) !== null) {
+    out += e(line.slice(last, m.index));
+    const cls = m[1] ? "s" : m[2] ? "c" : m[3] ? "k" : "n";
+    out += `<span class="${cls}">${e(m[0])}</span>`;
+    last = m.index + m[0].length;
+    if (m[0].length === 0) token.lastIndex++;
+  }
+  return out + e(line.slice(last));
+}
+
+const raw = new URLSearchParams(location.search).get("data") || "";
+const data = raw ? JSON.parse(decodeURIComponent(escape(atob(raw.replace(/-/g, "+").replace(/_/g, "/"))))) : { title: "Post title", pillar: "codersite", tags: [], theme: "design", motif: "api" };
+window.DETAILS = data.details || {};
+const th = THEMES[data.theme] || THEMES.design;
+const card = document.getElementById("card");
+for (const [k, v] of Object.entries({ "--bg0": th.bg0, "--bg1": th.bg1, "--bg2": th.bg2, "--accent": th.accent, "--accent-glow": th.glow, "--soft": th.soft, "--ink-dark": th.inkDark })) card.style.setProperty(k, v);
+
+document.getElementById("pillar").textContent = data.pillar;
+const h1 = document.getElementById("title");
+// Keep hyphenated words like "Depth-First" on one line
+h1.innerHTML = data.title.split(" ").map(w => {
+  const safe = w.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  return w.includes("-") ? `<span style="white-space:nowrap">${safe}</span>` : safe;
+}).join(" ");
+document.getElementById("tags").innerHTML = (data.tags || []).slice(0, 3).map(t => `<span>#${t.replace(/</g, "&lt;")}</span>`).join("");
+// Biggest title that fits in 4 lines and leaves room for the tags and the logo
+let size = 84; h1.style.fontSize = size + "px";
+while ((h1.scrollHeight > size * 1.06 * 4 + 6 || document.querySelector(".left").scrollHeight > 520) && size > 40) { size -= 2; h1.style.fontSize = size + "px"; }
+
+const right = document.getElementById("right");
+if (data.motif === "code" && data.code && data.code.lines && data.code.lines.length) {
+  right.outerHTML = `<div class="code"><div class="bar"><i></i><i></i><i></i><span>${(data.code.lang || "code").replace(/</g, "")}</span></div><pre>${data.code.lines.map(highlight).join("\n")}</pre></div>`;
+} else {
+  const draw = MOTIFS[data.motif] || MOTIFS.api;
+  right.innerHTML = `<svg viewBox="0 0 470 470"><defs><marker id="ah" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="${th.accent}"/></marker></defs>${draw(th.accent, "rgba(255,255,255,.08)", "#f2f6fb")}</svg>`;
+}
+</script>
+</body>
+</html>

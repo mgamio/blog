@@ -5,7 +5,7 @@ description: "Learn REST from a real B2B ordering API: resources and representat
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ web apis ]
-image: /assets/images/RESTAPIOverview.jpg
+image: /assets/images/posts/rest-api-overview.jpg
 comments: false
 ---
 

@@ -5,7 +5,7 @@ description: "A prioritized playbook for Java applications that slow down or cra
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ design principles ]
-image: /assets/images/javaAppPerformance.jpg
+image: /assets/images/posts/optimize-java-app-performance.jpg
 comments: false
 ---
 

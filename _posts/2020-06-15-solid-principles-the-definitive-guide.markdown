@@ -5,7 +5,7 @@ description: "All five SOLID principles explained with one running Java example:
 author: moises
 categories: [ "Software Design & Architecture" ]
 tags: [ design principles ]
-image: /assets/images/solid.jpg
+image: /assets/images/posts/solid-principles-the-definitive-guide.jpg
 comments: false
 ---
 

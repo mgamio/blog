@@ -5,7 +5,7 @@ description: "Turn your OpenAPI definition into a running Spring Boot server in 
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ web apis ]
-image: /assets/images/swaggerCodegen.jpg
+image: /assets/images/posts/swagger-codegen-server-stubs-openapi.jpg
 comments: false
 ---
 

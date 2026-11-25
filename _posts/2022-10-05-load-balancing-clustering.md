@@ -5,7 +5,7 @@ description: "Why a Java app in a load-balanced cluster gets Access Denied on a 
 author: moises
 categories: [ "Software Design & Architecture" ]
 tags: [ performance ]
-image: /assets/images/loadBalancing.jpg
+image: /assets/images/posts/load-balancing-clustering.jpg
 comments: false
 ---
 

@@ -5,7 +5,7 @@ description: "Merge parts at minimum total cost: why sorting once fails, the gre
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ algorithms ]
-image: /assets/images/assembleParts.jpg
+image: /assets/images/posts/assemble-parts-in-minimum-time.jpg
 comments: false
 ---
 

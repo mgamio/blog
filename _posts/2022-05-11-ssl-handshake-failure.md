@@ -5,7 +5,7 @@ description: "Why a Java client fails with handshake_failure, how to find the ca
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ web apis ]
-image: /assets/images/sslHandshake.jpg
+image: /assets/images/posts/ssl-handshake-failure.jpg
 comments: false
 ---
 

@@ -5,7 +5,7 @@ description: "Report several errors in one int: how to combine, test, remove and
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ java ]
-image: /assets/images/enumBitWiseOperators.jpg
+image: /assets/images/posts/enum-flags-bitwise-operators.jpg
 comments: false
 ---
 

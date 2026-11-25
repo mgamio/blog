@@ -5,7 +5,7 @@ description: "Design a real REST API before writing any code: a step-by-step Ope
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ web apis ]
-image: /assets/images/swaggerHubOpenAPI.jpg
+image: /assets/images/posts/designing-apis-with-swagger-and-openapi.jpg
 comments: false
 ---
 

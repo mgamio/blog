@@ -5,7 +5,7 @@ description: "Solve the 0/1 knapsack problem in Java with test-driven developmen
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ algorithms, test-driven development ]
-image: /assets/images/knapsackAlgorithm.jpg
+image: /assets/images/posts/optimize-online-purchases.jpg
 comments: false
 ---
 

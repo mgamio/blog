@@ -5,7 +5,7 @@ description: "A practical way to turn a large software project into estimated, o
 author: moises
 categories: [ "Software Design & Architecture" ]
 tags: [ project management ]
-image: /assets/images/webdevProject.jpg
+image: /assets/images/posts/web-dev-project-breakdown.jpg
 comments: false
 ---
 

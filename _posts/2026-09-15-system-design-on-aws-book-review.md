@@ -5,7 +5,7 @@ description: "A field-guide summary of Chapter 1 of System Design on AWS by Jaya
 author: moises
 categories: [ "Software Design & Architecture" ]
 tags: [ system design, distributed systems, aws, book review, career ]
-image: /assets/images/posts/system-design-on-aws-book-review.png
+image: /assets/images/posts/system-design-on-aws-book-review.jpg
 comments: false
 ---
 

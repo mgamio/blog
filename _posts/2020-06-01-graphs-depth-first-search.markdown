@@ -5,7 +5,7 @@ description: "Learn depth-first search on a real map of German cities: graph ter
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ algorithms ]
-image: /assets/images/dfsAlgorithm.jpg
+image: /assets/images/posts/graphs-depth-first-search.jpg
 comments: false
 ---
 

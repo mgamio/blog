@@ -5,7 +5,7 @@ description: "Learn the open-closed principle with a real Spring Boot example: r
 author: moises
 categories: [ "Software Design & Architecture" ]
 tags: [ design principles ]
-image: /assets/images/openClosedPrinciple.jpg
+image: /assets/images/posts/open-closed-principle.jpg
 comments: false
 ---
 

@@ -5,7 +5,7 @@ description: "10 original practice questions for the Oracle Certified Profession
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ java ]
-image: /assets/images/javaCertifiedBuildingBlocks.jpg
+image: /assets/images/posts/certified-professional-java-building-blocks.jpg
 comments: false
 ---
 

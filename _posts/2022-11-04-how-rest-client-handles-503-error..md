@@ -5,7 +5,7 @@ description: "Handle HTTP 503 in a Java REST client: retry only errors that can 
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ web apis ]
-image: /assets/images/503ServiceUnavailableError.jpg
+image: /assets/images/posts/how-rest-client-handles-503-error.jpg
 permalink: /how-rest-client-handles-503-error/
 comments: false
 ---

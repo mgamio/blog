@@ -26,12 +26,33 @@ articles per 7 days. Exit codes: 0 ready, 1 nothing ready, 2 paused by the caden
 
 ```bash
 python scripts/featured_image.py --post _posts/2026-12-01-local-ai-windows.md --write
-python scripts/featured_image.py --title "Local AI on Windows" --slug local-ai-windows --kicker "local ai"
+python scripts/featured_image.py --post _posts/2023-02-02-rate-limit.md --motif code --force --write
+python scripts/featured_image.py --title "Local AI on Windows" --slug local-ai-windows --pillar "Self-Hosting & Local AI" --tags "wsl2,docker,ollama"
+python scripts/featured_image.py --list-motifs
 ```
 
-Renders `scripts/templates/featured.html` (Kit, title, kicker, codersite.dev) to a 1200x630 JPG in
-`assets/images/posts/<slug>.jpg`. The kicker defaults to the post's first tag, or its pillar.
-`--write` sets `image:` in the front matter; `--force` overwrites an existing image.
+Renders a 1200x630 JPG to `assets/images/posts/<slug>.jpg` (about 65-95 KB).
+`--write` sets `image:` in the front matter; `--force` overwrites an existing image;
+`--out FILE` saves a preview elsewhere without touching `assets/`.
+
+Style `v2` (default, `scripts/templates/featured-v2.html`):
+- colour theme per pillar (Java green, Algorithms indigo, Design navy, AI violet/cyan, Self-hosting charcoal);
+- large title, pillar label, up to 3 tags, the codersite logo;
+- a drawing of the topic, picked from the title first, then the tags, then the description
+  (rate limiting, security, containers, AI agents, tree, graph, Big O, hash map, performance,
+  distributed, UML, REST API, career). Several drawings use details from the post itself:
+  its endpoints and status codes, its interface and classes, its section headings, its TLS
+  version or auth event, its rate limit;
+- algorithm posts, and posts without a matching drawing, show a code window with the post's
+  first substantial code example.
+Overrides: `--motif`, `--theme`, `--tags "a,b"`, `--pillar`.
+
+Headline: the image shows a short headline, not the full title (the page and the social card
+already show the title). It is `image_title:` from the front matter if set, otherwise the part
+of the title before the first colon ("Rate Limiting in Spring Boot with Bucket4j"), otherwise the
+title without a trailing note in brackets. `--full-title` shows the whole title.
+
+Style `classic` (`--style classic`, `scripts/templates/featured.html`): Kit the fox and the title.
 
 ## Mermaid diagrams in posts
 

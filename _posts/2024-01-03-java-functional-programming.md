@@ -5,7 +5,7 @@ description: "A practical introduction to functional programming in Java: pure f
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ java ]
-image: /assets/images/functionalProgramming.jpg
+image: /assets/images/posts/java-functional-programming.jpg
 comments: false
 ---
 

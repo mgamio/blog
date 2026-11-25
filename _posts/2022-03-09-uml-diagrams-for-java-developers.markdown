@@ -5,7 +5,7 @@ description: "Turn a user requirement into C4, UML class and sequence diagrams, 
 author: moises
 categories: [ "Software Design & Architecture" ]
 tags: [ design principles ]
-image: /assets/images/umlDiagrams.jpg
+image: /assets/images/posts/uml-diagrams-for-java-developers.jpg
 comments: false
 ---
 

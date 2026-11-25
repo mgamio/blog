@@ -5,7 +5,7 @@ description: "Learn Java generics with runnable examples: generic classes and me
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ java ]
-image: /assets/images/javaGenerics.jpg
+image: /assets/images/posts/java-generics.jpg
 comments: false
 ---
 

@@ -5,7 +5,7 @@ description: "Merge two sorted lists in Java in O(n + m): the two-pointer soluti
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ algorithms ]
-image: /assets/images/merge.jpg
+image: /assets/images/posts/merge-two-sorted-lists.jpg
 comments: false
 ---
 

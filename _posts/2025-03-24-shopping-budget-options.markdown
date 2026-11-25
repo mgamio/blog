@@ -5,7 +5,7 @@ description: "Solve the Shopping Options coding interview problem in Java: count
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ algorithms ]
-image: /assets/images/shoppingOptions.jpg
+image: /assets/images/posts/shopping-budget-options.jpg
 comments: false
 id: index
 ---

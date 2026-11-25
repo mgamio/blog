@@ -5,7 +5,7 @@ description: "A real Spring REST client that walks buyers, suppliers, customer n
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ java ]
-image: /assets/images/apiClientRequest.jpg
+image: /assets/images/posts/spring-boot-automate-api-client.jpg
 comments: false
 ---
 

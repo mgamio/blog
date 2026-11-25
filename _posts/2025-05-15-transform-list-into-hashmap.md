@@ -5,7 +5,7 @@ description: "A real REST API was slowed down by nested loops. Here's how groupi
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ data structures ]
-image: /assets/images/listIntoHashmap.jpg
+image: /assets/images/posts/transform-list-into-hashmap.jpg
 comments: false
 ---
 

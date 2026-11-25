@@ -5,7 +5,7 @@ description: "Pick random items without repeats in Java: why random-and-retry wi
 author: moises
 categories: [ "Algorithms, Interviews & Career" ]
 tags: [ algorithms ]
-image: /assets/images/randomWithoutRepeatsX.jpg
+image: /assets/images/posts/post-random-tweet-on-twitter-api.jpg
 comments: false
 ---
 

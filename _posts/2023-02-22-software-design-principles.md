@@ -5,7 +5,7 @@ description: "The software design principles every developer should know, each w
 author: moises
 categories: [ "Software Design & Architecture" ]
 tags: [ design principles ]
-image: /assets/images/softwareDesignPrinciples.jpg
+image: /assets/images/posts/software-design-principles.jpg
 comments: false
 ---
 

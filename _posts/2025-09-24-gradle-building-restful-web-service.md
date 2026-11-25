@@ -5,7 +5,7 @@ description: "This guide walks you through the process of creating a RESTful web
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ web apis ]
-image: /assets/images/gradleRestfulWebService.jpg
+image: /assets/images/posts/gradle-building-restful-web-service.jpg
 comments: false
 ---
 

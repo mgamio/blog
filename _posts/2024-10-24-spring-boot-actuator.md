@@ -5,7 +5,7 @@ description: "Use Spring Boot Actuator's audit events to log successful and fail
 author: moises
 categories: [ "Java & Spring Boot" ]
 tags: [ java ]
-image: /assets/images/springBootActuator.jpg
+image: /assets/images/posts/spring-boot-actuator.jpg
 comments: false
 ---
 

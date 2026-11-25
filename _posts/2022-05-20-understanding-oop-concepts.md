@@ -5,7 +5,7 @@ description: "Abstraction, encapsulation, inheritance and polymorphism explained
 author: moises
 categories: [ "Software Design & Architecture" ]
 tags: [ object-oriented ]
-image: /assets/images/oop.jpg
+image: /assets/images/posts/understanding-oop-concepts.jpg
 featured: true
 hidden: false
 comments: false
